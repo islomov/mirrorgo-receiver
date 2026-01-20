@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>MirrorGo Receiver</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      overflow: hidden;
+    }
+    cast-media-player {
+      --advancement-background: #333;
+      --advancement-text-color: #fff;
+      --progress-color: #9333EA;
+      --splash-image: none;
+      --background-color: #000;
+    }
+  </style>
+  <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
+</head>
+<body>
+  <cast-media-player></cast-media-player>
+  <script>
+    const context = cast.framework.CastReceiverContext.getInstance();
+    const playerManager = context.getPlayerManager();
+
+    // === KEY SETTING: Enable Shaka Player for HLS ===
+    // This is what makes fMP4 HLS work on Chromecast
+    const playbackConfig = new cast.framework.PlaybackConfig();
+    playbackConfig.useShakaForHls = true;
+    
+    // Configure for live streaming / low latency
+    playbackConfig.initialBandwidth = 2000000; // 2 Mbps initial
+    playbackConfig.autoResumeDuration = 5; // Resume within 5 seconds
+    
+    // Apply playback config
+    playerManager.setPlaybackConfig(playbackConfig);
+
+    // === Logging for debugging (remove in production) ===
+    playerManager.addEventListener(
+      cast.framework.events.EventType.ERROR,
+      (event) => {
+        console.log('ERROR:', JSON.stringify(event));
+      }
+    );
+
+    playerManager.addEventListener(
+      cast.framework.events.EventType.MEDIA_STATUS,
+      (event) => {
+        console.log('MEDIA_STATUS:', event.mediaStatus?.playerState);
+      }
+    );
+
+    playerManager.addEventListener(
+      cast.framework.events.EventType.PLAYER_LOADING,
+      () => {
+        console.log('PLAYER_LOADING');
+      }
+    );
+
+    playerManager.addEventListener(
+      cast.framework.events.EventType.PLAYER_LOAD_COMPLETE,
+      () => {
+        console.log('PLAYER_LOAD_COMPLETE - Playback should start');
+      }
+    );
+
+    playerManager.addEventListener(
+      cast.framework.events.EventType.BUFFERING,
+      (event) => {
+        console.log('BUFFERING:', event.isBuffering);
+      }
+    );
+
+    // === Start the receiver ===
+    const options = new cast.framework.CastReceiverOptions();
+    options.playbackConfig = playbackConfig;
+    options.disableIdleTimeout = true; // Keep receiver alive for screen mirroring
+    
+    console.log('MirrorGo Receiver starting with Shaka HLS enabled...');
+    context.start(options);
+  </script>
+</body>
+</html>
