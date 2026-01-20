@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MirrorGo Receiver 6</title>
+    <title>MirrorGo Receiver 7</title>
     <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
     <style>
         body { margin: 0; padding: 0; background: #000; overflow: hidden; }
@@ -26,20 +26,31 @@
         window.onerror = function(msg) { showError('JS: ' + msg); return false; };
 
         const statusEl = document.getElementById('status');
-        function showStatus(msg) { statusEl.textContent = 'MirrorGo: ' + msg; statusEl.className = ''; }
-        function showError(msg) { statusEl.textContent = 'ERROR: ' + msg; statusEl.className = 'error'; }
+        function showStatus(msg) { console.log('Status: ' + msg); statusEl.textContent = 'MirrorGo: ' + msg; statusEl.className = ''; }
+        function showError(msg) { console.error('Error: ' + msg); statusEl.textContent = 'ERROR: ' + msg; statusEl.className = 'error'; }
 
         try {
             const context = cast.framework.CastReceiverContext.getInstance();
             const playerManager = context.getPlayerManager();
             const playbackConfig = new cast.framework.PlaybackConfig();
 
-            // TRY WITHOUT SHAKA - use default MPL
-            playbackConfig.useShakaForHls = false;
+            // Use Shaka for fMP4 HLS
+            playbackConfig.useShakaForHls = true;
             playbackConfig.initialBandwidth = 2000000;
 
+            // Minimal Shaka config - let it auto-detect most settings
+            playbackConfig.shakaConfig = {
+                streaming: {
+                    useNativeHlsOnSafari: false,
+                    bufferingGoal: 10,
+                    rebufferingGoal: 2
+                }
+            };
+
             playerManager.addEventListener(cast.framework.events.EventType.ERROR, (e) => {
-                showError('Code ' + (e.detailedErrorCode || 'unknown'));
+                const code = e.detailedErrorCode || 'none';
+                const reason = e.error ? (e.error.shakaErrorCode || e.error.message || JSON.stringify(e.error)) : 'unknown';
+                showError(code + ': ' + reason);
             });
 
             playerManager.addEventListener(cast.framework.events.EventType.PLAYER_LOADING, () => showStatus('Loading...'));
@@ -47,11 +58,14 @@
             playerManager.addEventListener(cast.framework.events.EventType.BUFFERING, (e) => showStatus(e.isBuffering ? 'Buffering...' : 'Playing'));
 
             playerManager.setMessageInterceptor(cast.framework.messages.MessageType.LOAD, (req) => {
-                showStatus('Load: ' + (req.media?.contentUrl || '?').substring(0, 40));
+                const url = req.media?.contentUrl || '?';
+                showStatus('Load: ' + url.substring(0, 50));
+
                 if (req.media) {
-                    // Tell MPL this is fMP4 format
+                    // Force fMP4 and LIVE stream type
                     req.media.hlsVideoSegmentFormat = cast.framework.messages.HlsVideoSegmentFormat.FMP4;
                     req.media.hlsSegmentFormat = cast.framework.messages.HlsSegmentFormat.FMP4;
+                    req.media.streamType = cast.framework.messages.StreamType.LIVE;
                 }
                 return req;
             });
@@ -59,8 +73,10 @@
             const options = new cast.framework.CastReceiverOptions();
             options.disableIdleTimeout = true;
             options.playbackConfig = playbackConfig;
+            options.useLegacyDashSupport = false;
+
             context.start(options);
-            showStatus('Ready (MPL mode)');
+            showStatus('Ready (Shaka)');
 
         } catch (e) { showError('Init: ' + e.message); }
     </script>
