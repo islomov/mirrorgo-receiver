@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MirrorGo Receiver3</title>
+    <title>MirrorGo Receiver4</title>
     <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
     <style>
         body {
@@ -21,198 +21,196 @@
             position: fixed;
             top: 20px;
             left: 20px;
-            color: #9333EA;
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-            font-size: 24px;
-            z-index: 1000;
-            background: rgba(0,0,0,0.7);
-            padding: 10px 20px;
+            color: #00FF00;
+            font-family: monospace;
+            font-size: 20px;
+            z-index: 9999;
+            background: rgba(0,0,0,0.9);
+            padding: 15px 25px;
             border-radius: 8px;
+            border: 2px solid #00FF00;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        #status.error {
+            color: #FF0000;
+            border-color: #FF0000;
         }
     </style>
 </head>
 <body>
-    <div id="status">MirrorGo Ready3</div>
+    <div id="status">MirrorGo: Initializing...</div>
     <cast-media-player></cast-media-player>
 
     <script>
-        const context = cast.framework.CastReceiverContext.getInstance();
-        const playerManager = context.getPlayerManager();
-        const playbackConfig = new cast.framework.PlaybackConfig();
-
-        // Enable Shaka Player for fMP4 HLS support
-        playbackConfig.useShakaForHls = true;
-
-        // Configure for live streaming with low latency
-        playbackConfig.initialBandwidth = 2000000;
-        playbackConfig.autoResumeDuration = 5;
-        playbackConfig.protectionSystem = cast.framework.ContentProtection.NONE;
-
-        // Configure Shaka Player for live HLS streaming
-        playbackConfig.shakaConfig = {
-            streaming: {
-                // Low latency settings
-                lowLatencyMode: true,
-                inaccurateManifestTolerance: 2,
-                rebufferingGoal: 1,
-                bufferingGoal: 3,
-                bufferBehind: 10,
-                // Retry configuration
-                retryParameters: {
-                    maxAttempts: 5,
-                    baseDelay: 500,
-                    backoffFactor: 1.5,
-                    timeout: 30000
-                }
-            },
-            manifest: {
-                // HLS specific settings
-                hls: {
-                    ignoreManifestProgramDateTime: true,
-                    ignoreTextStreamFailures: true
-                },
-                retryParameters: {
-                    maxAttempts: 5,
-                    baseDelay: 500,
-                    backoffFactor: 1.5,
-                    timeout: 30000
-                }
-            },
-            drm: {
-                // No DRM required
-                servers: {}
-            }
+        // Global error handler - catch ALL errors
+        window.onerror = function(msg, url, line, col, error) {
+            showError('JS Error: ' + msg + ' (line ' + line + ')');
+            return false;
         };
 
-        // Status element for debugging
-        const statusEl = document.getElementById('status');
-        let statusTimeout = null;
+        window.addEventListener('unhandledrejection', function(event) {
+            showError('Promise Error: ' + event.reason);
+        });
 
-        function updateStatus(msg, persistent = false) {
+        const statusEl = document.getElementById('status');
+
+        function showStatus(msg) {
             console.log('MirrorGo: ' + msg);
             statusEl.textContent = 'MirrorGo: ' + msg;
-            statusEl.style.opacity = '1';
-
-            if (statusTimeout) {
-                clearTimeout(statusTimeout);
-            }
-
-            if (!persistent) {
-                statusTimeout = setTimeout(() => {
-                    statusEl.style.opacity = '0.3';
-                }, 8000);
-            }
+            statusEl.className = '';
         }
 
-        // Error handling with detailed info
-        playerManager.addEventListener(
-            cast.framework.events.EventType.ERROR,
-            (event) => {
-                const errorCode = event.detailedErrorCode || event.error?.code || 'UNKNOWN';
-                const errorMsg = event.error?.message || 'No details';
-                console.error('MirrorGo ERROR:', errorCode, errorMsg, event);
-                updateStatus('Error: ' + errorCode + ' - ' + errorMsg, true);
-            }
-        );
+        function showError(msg) {
+            console.error('MirrorGo ERROR: ' + msg);
+            statusEl.textContent = 'ERROR: ' + msg;
+            statusEl.className = 'error';
+        }
 
-        // Segment request events
-        playerManager.addEventListener(
-            cast.framework.events.EventType.SEGMENT_DOWNLOADED,
-            (event) => {
-                console.log('MirrorGo: Segment downloaded, size:', event.size);
-            }
-        );
+        showStatus('Loading Cast SDK...');
 
-        // Media loading events
-        playerManager.addEventListener(
-            cast.framework.events.EventType.PLAYER_LOADING,
-            (event) => {
-                console.log('MirrorGo: Loading media');
-                updateStatus('Loading stream...', true);
-            }
-        );
+        try {
+            const context = cast.framework.CastReceiverContext.getInstance();
+            const playerManager = context.getPlayerManager();
+            const playbackConfig = new cast.framework.PlaybackConfig();
 
-        playerManager.addEventListener(
-            cast.framework.events.EventType.PLAYER_LOAD_COMPLETE,
-            (event) => {
-                console.log('MirrorGo: Media loaded successfully');
-                updateStatus('Playing');
-            }
-        );
+            showStatus('Configuring Shaka Player...');
 
-        playerManager.addEventListener(
-            cast.framework.events.EventType.BUFFERING,
-            (event) => {
-                if (event.isBuffering) {
-                    console.log('MirrorGo: Buffering...');
-                    updateStatus('Buffering...');
-                } else {
-                    console.log('MirrorGo: Playback resumed');
-                    updateStatus('Playing');
+            // Enable Shaka Player for fMP4 HLS support
+            playbackConfig.useShakaForHls = true;
+
+            // Configure for live streaming
+            playbackConfig.initialBandwidth = 2000000;
+            playbackConfig.autoResumeDuration = 5;
+            playbackConfig.protectionSystem = cast.framework.ContentProtection.NONE;
+
+            // Shaka Player config for live HLS
+            playbackConfig.shakaConfig = {
+                streaming: {
+                    lowLatencyMode: false,
+                    rebufferingGoal: 2,
+                    bufferingGoal: 10,
+                    bufferBehind: 30,
+                    retryParameters: {
+                        maxAttempts: 3,
+                        baseDelay: 1000,
+                        backoffFactor: 2,
+                        timeout: 30000
+                    }
+                },
+                manifest: {
+                    hls: {
+                        ignoreManifestProgramDateTime: true,
+                        ignoreTextStreamFailures: true
+                    },
+                    retryParameters: {
+                        maxAttempts: 3,
+                        baseDelay: 1000,
+                        backoffFactor: 2,
+                        timeout: 30000
+                    }
                 }
-            }
-        );
+            };
 
-        // Media status updates
-        playerManager.addEventListener(
-            cast.framework.events.EventType.MEDIA_STATUS,
-            (event) => {
-                const state = event.mediaStatus?.playerState;
-                console.log('MirrorGo: Player state:', state);
-                if (state === 'PLAYING') {
-                    updateStatus('Playing');
-                } else if (state === 'PAUSED') {
-                    updateStatus('Paused');
-                } else if (state === 'IDLE') {
-                    updateStatus('Ready');
-                } else if (state === 'BUFFERING') {
-                    updateStatus('Buffering...');
+            // ALL error events
+            playerManager.addEventListener(
+                cast.framework.events.EventType.ERROR,
+                (event) => {
+                    const code = event.detailedErrorCode || 'UNKNOWN';
+                    const msg = event.error ? JSON.stringify(event.error) : 'No details';
+                    showError('Code ' + code + ': ' + msg);
                 }
-            }
-        );
+            );
 
-        // Intercept load requests
-        playerManager.setMessageInterceptor(
-            cast.framework.messages.MessageType.LOAD,
-            (loadRequestData) => {
-                const url = loadRequestData.media?.contentUrl;
-                const type = loadRequestData.media?.contentType;
-                const streamType = loadRequestData.media?.streamType;
-
-                console.log('MirrorGo: === LOAD REQUEST ===');
-                console.log('MirrorGo: URL:', url);
-                console.log('MirrorGo: Type:', type);
-                console.log('MirrorGo: Stream:', streamType);
-                console.log('MirrorGo: HLS Segment Format:', loadRequestData.media?.hlsVideoSegmentFormat);
-
-                updateStatus('Loading: ' + (url || 'unknown'), true);
-
-                // Ensure HLS segment format is set
-                if (loadRequestData.media && !loadRequestData.media.hlsVideoSegmentFormat) {
-                    loadRequestData.media.hlsVideoSegmentFormat = cast.framework.messages.HlsVideoSegmentFormat.FMP4;
-                    loadRequestData.media.hlsSegmentFormat = cast.framework.messages.HlsSegmentFormat.FMP4;
-                    console.log('MirrorGo: Set HLS segment format to FMP4');
+            // Request failed
+            playerManager.addEventListener(
+                cast.framework.events.EventType.REQUEST_FAILED,
+                (event) => {
+                    showError('Request failed: ' + JSON.stringify(event));
                 }
+            );
 
-                return loadRequestData;
-            }
-        );
+            // Abort
+            playerManager.addEventListener(
+                cast.framework.events.EventType.ABORT,
+                (event) => {
+                    showError('Playback aborted');
+                }
+            );
 
-        // Configure receiver options
-        const receiverOptions = new cast.framework.CastReceiverOptions();
-        receiverOptions.disableIdleTimeout = true;
-        receiverOptions.playbackConfig = playbackConfig;
-        receiverOptions.maxInactivity = 3600;
+            // Media element events
+            playerManager.addEventListener(
+                cast.framework.events.EventType.MEDIA_FINISHED,
+                (event) => {
+                    showStatus('Media finished');
+                }
+            );
 
-        // Allow local network access (for HTTP streams)
-        receiverOptions.enforceSupportedCommands = false;
+            // Loading
+            playerManager.addEventListener(
+                cast.framework.events.EventType.PLAYER_LOADING,
+                (event) => {
+                    showStatus('Loading stream...');
+                }
+            );
 
-        console.log('MirrorGo Receiver: Starting with Shaka Player for HLS fMP4');
-        console.log('MirrorGo Receiver: Playback config:', JSON.stringify(playbackConfig, null, 2));
-        updateStatus('Ready', true);
+            playerManager.addEventListener(
+                cast.framework.events.EventType.PLAYER_LOAD_COMPLETE,
+                (event) => {
+                    showStatus('Playing!');
+                }
+            );
 
-        // Start the receiver
-        context.start(receiverOptions);
+            playerManager.addEventListener(
+                cast.framework.events.EventType.BUFFERING,
+                (event) => {
+                    showStatus(event.isBuffering ? 'Buffering...' : 'Playing');
+                }
+            );
+
+            // Intercept LOAD to log and modify
+            playerManager.setMessageInterceptor(
+                cast.framework.messages.MessageType.LOAD,
+                (request) => {
+                    const url = request.media?.contentUrl || 'unknown';
+                    showStatus('Load: ' + url.substring(0, 50));
+                    console.log('LOAD REQUEST:', JSON.stringify(request, null, 2));
+
+                    // Force fMP4 format
+                    if (request.media) {
+                        request.media.hlsVideoSegmentFormat = cast.framework.messages.HlsVideoSegmentFormat.FMP4;
+                        request.media.hlsSegmentFormat = cast.framework.messages.HlsSegmentFormat.FMP4;
+                    }
+
+                    return request;
+                }
+            );
+
+            // Intercept errors at message level
+            playerManager.setMessageInterceptor(
+                cast.framework.messages.MessageType.ERROR,
+                (error) => {
+                    showError('MSG Error: ' + JSON.stringify(error));
+                    return error;
+                }
+            );
+
+            // Receiver options
+            const options = new cast.framework.CastReceiverOptions();
+            options.disableIdleTimeout = true;
+            options.playbackConfig = playbackConfig;
+            options.maxInactivity = 3600;
+
+            showStatus('Starting receiver...');
+
+            // Start
+            context.start(options);
+
+            showStatus('Ready - waiting for stream');
+
+        } catch (e) {
+            showError('Init failed: ' + e.message);
+        }
     </script>
 </body>
 </html>
