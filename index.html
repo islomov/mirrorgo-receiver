@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MirrorGo Receiver4</title>
+    <title>MirrorGo Receiver 5</title>
     <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
     <style>
         body {
@@ -43,15 +43,11 @@
     <cast-media-player></cast-media-player>
 
     <script>
-        // Global error handler - catch ALL errors
+        // Global error handler
         window.onerror = function(msg, url, line, col, error) {
-            showError('JS Error: ' + msg + ' (line ' + line + ')');
+            showError('JS: ' + msg);
             return false;
         };
-
-        window.addEventListener('unhandledrejection', function(event) {
-            showError('Promise Error: ' + event.reason);
-        });
 
         const statusEl = document.getElementById('status');
 
@@ -67,131 +63,69 @@
             statusEl.className = 'error';
         }
 
-        showStatus('Loading Cast SDK...');
+        showStatus('Loading...');
 
         try {
             const context = cast.framework.CastReceiverContext.getInstance();
             const playerManager = context.getPlayerManager();
             const playbackConfig = new cast.framework.PlaybackConfig();
 
-            showStatus('Configuring Shaka Player...');
-
-            // Enable Shaka Player for fMP4 HLS support
+            // Enable Shaka Player for fMP4 HLS
             playbackConfig.useShakaForHls = true;
-
-            // Configure for live streaming
             playbackConfig.initialBandwidth = 2000000;
             playbackConfig.autoResumeDuration = 5;
-            playbackConfig.protectionSystem = cast.framework.ContentProtection.NONE;
 
-            // Shaka Player config for live HLS
+            // Shaka config
             playbackConfig.shakaConfig = {
                 streaming: {
-                    lowLatencyMode: false,
                     rebufferingGoal: 2,
                     bufferingGoal: 10,
-                    bufferBehind: 30,
-                    retryParameters: {
-                        maxAttempts: 3,
-                        baseDelay: 1000,
-                        backoffFactor: 2,
-                        timeout: 30000
-                    }
+                    bufferBehind: 30
                 },
                 manifest: {
                     hls: {
-                        ignoreManifestProgramDateTime: true,
-                        ignoreTextStreamFailures: true
-                    },
-                    retryParameters: {
-                        maxAttempts: 3,
-                        baseDelay: 1000,
-                        backoffFactor: 2,
-                        timeout: 30000
+                        ignoreManifestProgramDateTime: true
                     }
                 }
             };
 
-            // ALL error events
+            // Error event
             playerManager.addEventListener(
                 cast.framework.events.EventType.ERROR,
                 (event) => {
-                    const code = event.detailedErrorCode || 'UNKNOWN';
-                    const msg = event.error ? JSON.stringify(event.error) : 'No details';
-                    showError('Code ' + code + ': ' + msg);
+                    showError('Code ' + (event.detailedErrorCode || 'unknown'));
                 }
             );
 
-            // Request failed
-            playerManager.addEventListener(
-                cast.framework.events.EventType.REQUEST_FAILED,
-                (event) => {
-                    showError('Request failed: ' + JSON.stringify(event));
-                }
-            );
-
-            // Abort
-            playerManager.addEventListener(
-                cast.framework.events.EventType.ABORT,
-                (event) => {
-                    showError('Playback aborted');
-                }
-            );
-
-            // Media element events
-            playerManager.addEventListener(
-                cast.framework.events.EventType.MEDIA_FINISHED,
-                (event) => {
-                    showStatus('Media finished');
-                }
-            );
-
-            // Loading
+            // Player loading
             playerManager.addEventListener(
                 cast.framework.events.EventType.PLAYER_LOADING,
-                (event) => {
-                    showStatus('Loading stream...');
-                }
+                () => showStatus('Loading stream...')
             );
 
+            // Player load complete
             playerManager.addEventListener(
                 cast.framework.events.EventType.PLAYER_LOAD_COMPLETE,
-                (event) => {
-                    showStatus('Playing!');
-                }
+                () => showStatus('Playing!')
             );
 
+            // Buffering
             playerManager.addEventListener(
                 cast.framework.events.EventType.BUFFERING,
-                (event) => {
-                    showStatus(event.isBuffering ? 'Buffering...' : 'Playing');
-                }
+                (event) => showStatus(event.isBuffering ? 'Buffering...' : 'Playing')
             );
 
-            // Intercept LOAD to log and modify
+            // Intercept LOAD
             playerManager.setMessageInterceptor(
                 cast.framework.messages.MessageType.LOAD,
                 (request) => {
-                    const url = request.media?.contentUrl || 'unknown';
-                    showStatus('Load: ' + url.substring(0, 50));
-                    console.log('LOAD REQUEST:', JSON.stringify(request, null, 2));
-
-                    // Force fMP4 format
+                    showStatus('Load: ' + (request.media?.contentUrl || 'unknown').substring(0, 40));
+                    
                     if (request.media) {
                         request.media.hlsVideoSegmentFormat = cast.framework.messages.HlsVideoSegmentFormat.FMP4;
                         request.media.hlsSegmentFormat = cast.framework.messages.HlsSegmentFormat.FMP4;
                     }
-
                     return request;
-                }
-            );
-
-            // Intercept errors at message level
-            playerManager.setMessageInterceptor(
-                cast.framework.messages.MessageType.ERROR,
-                (error) => {
-                    showError('MSG Error: ' + JSON.stringify(error));
-                    return error;
                 }
             );
 
@@ -201,15 +135,11 @@
             options.playbackConfig = playbackConfig;
             options.maxInactivity = 3600;
 
-            showStatus('Starting receiver...');
-
-            // Start
             context.start(options);
-
-            showStatus('Ready - waiting for stream');
+            showStatus('Ready');
 
         } catch (e) {
-            showError('Init failed: ' + e.message);
+            showError('Init: ' + e.message);
         }
     </script>
 </body>
