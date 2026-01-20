@@ -3,82 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MirrorGo Receiver 7</title>
+    <title>MirrorGo Receiver</title>
     <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
     <style>
-        body { margin: 0; padding: 0; background: #000; overflow: hidden; }
-        cast-media-player { --progress-color: #9333EA; --background-color: #000; }
-        #status {
-            position: fixed; top: 20px; left: 20px;
-            color: #00FF00; font-family: monospace; font-size: 20px;
-            z-index: 9999; background: rgba(0,0,0,0.9);
-            padding: 15px 25px; border-radius: 8px; border: 2px solid #00FF00;
-            max-width: 80%; word-wrap: break-word;
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            overflow: hidden;
         }
-        #status.error { color: #FF0000; border-color: #FF0000; }
+        #mirrorImage {
+            position: absolute;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+        #status {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #9333EA;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 32px;
+            text-align: center;
+            z-index: 1000;
+        }
+        #status.connected {
+            top: 20px;
+            left: 20px;
+            transform: none;
+            font-size: 18px;
+            background: rgba(0,0,0,0.7);
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
-    <div id="status">MirrorGo: Init...</div>
-    <cast-media-player></cast-media-player>
+    <div id="status">MirrorGo<br><span style="font-size: 18px;">Waiting for connection...</span></div>
+    <img id="mirrorImage" src="" alt="Screen Mirror">
 
     <script>
-        window.onerror = function(msg) { showError('JS: ' + msg); return false; };
+        const NAMESPACE = 'urn:x-cast:com.mirrorgo.stream';
 
-        const statusEl = document.getElementById('status');
-        function showStatus(msg) { console.log('Status: ' + msg); statusEl.textContent = 'MirrorGo: ' + msg; statusEl.className = ''; }
-        function showError(msg) { console.error('Error: ' + msg); statusEl.textContent = 'ERROR: ' + msg; statusEl.className = 'error'; }
+        const context = cast.framework.CastReceiverContext.getInstance();
+        const mirrorImage = document.getElementById('mirrorImage');
+        const status = document.getElementById('status');
 
-        try {
-            const context = cast.framework.CastReceiverContext.getInstance();
-            const playerManager = context.getPlayerManager();
-            const playbackConfig = new cast.framework.PlaybackConfig();
+        let streamUrl = null;
+        let frameCount = 0;
+        let isStreaming = false;
 
-            // Use Shaka for fMP4 HLS
-            playbackConfig.useShakaForHls = true;
-            playbackConfig.initialBandwidth = 2000000;
+        function showStatus(msg) {
+            console.log('MirrorGo: ' + msg);
+            status.innerHTML = 'MirrorGo<br><span style="font-size: 18px;">' + msg + '</span>';
+        }
 
-            // Minimal Shaka config - let it auto-detect most settings
-            playbackConfig.shakaConfig = {
-                streaming: {
-                    useNativeHlsOnSafari: false,
-                    bufferingGoal: 10,
-                    rebufferingGoal: 2
+        function showConnected() {
+            status.className = 'connected';
+            status.textContent = 'MirrorGo: Streaming';
+            setTimeout(function() { status.style.opacity = '0.5'; }, 3000);
+        }
+
+        function setImgSrc() {
+            if (!streamUrl || !isStreaming) return;
+            var currentTime = new Date().getTime();
+            mirrorImage.src = streamUrl + '?time=' + currentTime;
+        }
+
+        mirrorImage.onload = function() {
+            frameCount++;
+            if (frameCount === 1) {
+                mirrorImage.style.display = 'block';
+                showConnected();
+            }
+            setImgSrc();
+        };
+
+        mirrorImage.onerror = function() {
+            setTimeout(setImgSrc, 100);
+        };
+
+        context.addCustomMessageListener(NAMESPACE, function(event) {
+            console.log('MirrorGo: Received message:', event.data);
+
+            try {
+                const data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
+
+                if (data.type === 'START_STREAM' && data.url) {
+                    streamUrl = data.url;
+                    isStreaming = true;
+                    frameCount = 0;
+                    showStatus('Connecting to stream...');
+                    console.log('MirrorGo: Starting stream from:', streamUrl);
+                    setImgSrc();
+                } else if (data.type === 'STOP_STREAM') {
+                    isStreaming = false;
+                    streamUrl = null;
+                    mirrorImage.style.display = 'none';
+                    status.className = '';
+                    showStatus('Stream stopped');
                 }
-            };
+            } catch (e) {
+                console.error('MirrorGo: Error parsing message:', e);
+            }
+        });
 
-            playerManager.addEventListener(cast.framework.events.EventType.ERROR, (e) => {
-                const code = e.detailedErrorCode || 'none';
-                const reason = e.error ? (e.error.shakaErrorCode || e.error.message || JSON.stringify(e.error)) : 'unknown';
-                showError(code + ': ' + reason);
-            });
+        const options = new cast.framework.CastReceiverOptions();
+        options.disableIdleTimeout = true;
+        options.maxInactivity = 3600;
+        options.customNamespaces = {};
+        options.customNamespaces[NAMESPACE] = cast.framework.system.MessageType.JSON;
 
-            playerManager.addEventListener(cast.framework.events.EventType.PLAYER_LOADING, () => showStatus('Loading...'));
-            playerManager.addEventListener(cast.framework.events.EventType.PLAYER_LOAD_COMPLETE, () => showStatus('Playing!'));
-            playerManager.addEventListener(cast.framework.events.EventType.BUFFERING, (e) => showStatus(e.isBuffering ? 'Buffering...' : 'Playing'));
-
-            playerManager.setMessageInterceptor(cast.framework.messages.MessageType.LOAD, (req) => {
-                const url = req.media?.contentUrl || '?';
-                showStatus('Load: ' + url.substring(0, 50));
-
-                if (req.media) {
-                    // Force fMP4 and LIVE stream type
-                    req.media.hlsVideoSegmentFormat = cast.framework.messages.HlsVideoSegmentFormat.FMP4;
-                    req.media.hlsSegmentFormat = cast.framework.messages.HlsSegmentFormat.FMP4;
-                    req.media.streamType = cast.framework.messages.StreamType.LIVE;
-                }
-                return req;
-            });
-
-            const options = new cast.framework.CastReceiverOptions();
-            options.disableIdleTimeout = true;
-            options.playbackConfig = playbackConfig;
-            options.useLegacyDashSupport = false;
-
-            context.start(options);
-            showStatus('Ready (Shaka)');
-
-        } catch (e) { showError('Init: ' + e.message); }
+        showStatus('Waiting for connection...');
+        context.start(options);
     </script>
 </body>
 </html>
