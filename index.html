@@ -1,86 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>MirrorGo Receiver</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #000;
-      overflow: hidden;
-    }
-    cast-media-player {
-      --advancement-background: #333;
-      --advancement-text-color: #fff;
-      --progress-color: #9333EA;
-      --splash-image: none;
-      --background-color: #000;
-    }
-  </style>
-  <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MirrorGo Receiver</title>
+    <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            overflow: hidden;
+        }
+        cast-media-player {
+            --progress-color: #9333EA;
+            --splash-image: none;
+            --background-color: #000;
+        }
+        #status {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            color: #9333EA;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 18px;
+            z-index: 1000;
+            opacity: 0.8;
+        }
+    </style>
 </head>
 <body>
-  <cast-media-player></cast-media-player>
-  <script>
-    const context = cast.framework.CastReceiverContext.getInstance();
-    const playerManager = context.getPlayerManager();
+    <div id="status">MirrorGo2</div>
+    <cast-media-player></cast-media-player>
 
-    // === KEY SETTING: Enable Shaka Player for HLS ===
-    // This is what makes fMP4 HLS work on Chromecast
-    const playbackConfig = new cast.framework.PlaybackConfig();
-    playbackConfig.useShakaForHls = true;
-    
-    // Configure for live streaming / low latency
-    playbackConfig.initialBandwidth = 2000000; // 2 Mbps initial
-    playbackConfig.autoResumeDuration = 5; // Resume within 5 seconds
-    
-    // Apply playback config
-    playerManager.setPlaybackConfig(playbackConfig);
+    <script>
+        const context = cast.framework.CastReceiverContext.getInstance();
+        const playerManager = context.getPlayerManager();
+        const playbackConfig = new cast.framework.PlaybackConfig();
 
-    // === Logging for debugging (remove in production) ===
-    playerManager.addEventListener(
-      cast.framework.events.EventType.ERROR,
-      (event) => {
-        console.log('ERROR:', JSON.stringify(event));
-      }
-    );
+        // Enable Shaka Player for fMP4 HLS support (critical for our stream format)
+        playbackConfig.useShakaForHls = true;
 
-    playerManager.addEventListener(
-      cast.framework.events.EventType.MEDIA_STATUS,
-      (event) => {
-        console.log('MEDIA_STATUS:', event.mediaStatus?.playerState);
-      }
-    );
+        // Configure for live streaming
+        playbackConfig.initialBandwidth = 2000000; // 2 Mbps
+        playbackConfig.autoResumeDuration = 5;
 
-    playerManager.addEventListener(
-      cast.framework.events.EventType.PLAYER_LOADING,
-      () => {
-        console.log('PLAYER_LOADING');
-      }
-    );
+        // Allow insecure content for local network HTTP streams
+        playbackConfig.protectionSystem = cast.framework.ContentProtection.NONE;
 
-    playerManager.addEventListener(
-      cast.framework.events.EventType.PLAYER_LOAD_COMPLETE,
-      () => {
-        console.log('PLAYER_LOAD_COMPLETE - Playback should start');
-      }
-    );
+        // Status element for debugging
+        const statusEl = document.getElementById('status');
 
-    playerManager.addEventListener(
-      cast.framework.events.EventType.BUFFERING,
-      (event) => {
-        console.log('BUFFERING:', event.isBuffering);
-      }
-    );
+        function updateStatus(msg) {
+            console.log('MirrorGo Receiver: ' + msg);
+            statusEl.textContent = 'MirrorGo: ' + msg;
+            // Hide status after 5 seconds
+            setTimeout(() => { statusEl.style.opacity = '0'; }, 5000);
+        }
 
-    // === Start the receiver ===
-    const options = new cast.framework.CastReceiverOptions();
-    options.playbackConfig = playbackConfig;
-    options.disableIdleTimeout = true; // Keep receiver alive for screen mirroring
-    
-    console.log('MirrorGo Receiver starting with Shaka HLS enabled...');
-    context.start(options);
-  </script>
+        // Error handling
+        playerManager.addEventListener(
+            cast.framework.events.EventType.ERROR,
+            (event) => {
+                console.error('MirrorGo Receiver ERROR:', event.detailedErrorCode, event.error);
+                updateStatus('Error: ' + event.detailedErrorCode);
+            }
+        );
+
+        // Media loading events
+        playerManager.addEventListener(
+            cast.framework.events.EventType.PLAYER_LOADING,
+            (event) => {
+                console.log('MirrorGo Receiver: Loading media');
+                updateStatus('Loading...');
+            }
+        );
+
+        playerManager.addEventListener(
+            cast.framework.events.EventType.PLAYER_LOAD_COMPLETE,
+            (event) => {
+                console.log('MirrorGo Receiver: Media loaded');
+                updateStatus('Playing');
+            }
+        );
+
+        playerManager.addEventListener(
+            cast.framework.events.EventType.BUFFERING,
+            (event) => {
+                if (event.isBuffering) {
+                    console.log('MirrorGo Receiver: Buffering');
+                    updateStatus('Buffering...');
+                }
+            }
+        );
+
+        // Media status updates
+        playerManager.addEventListener(
+            cast.framework.events.EventType.MEDIA_STATUS,
+            (event) => {
+                const state = event.mediaStatus?.playerState;
+                console.log('MirrorGo Receiver: Player state:', state);
+                if (state === 'PLAYING') {
+                    updateStatus('Playing');
+                } else if (state === 'PAUSED') {
+                    updateStatus('Paused');
+                } else if (state === 'IDLE') {
+                    updateStatus('Ready');
+                }
+            }
+        );
+
+        // Intercept load requests to log stream info
+        playerManager.setMessageInterceptor(
+            cast.framework.messages.MessageType.LOAD,
+            (loadRequestData) => {
+                console.log('MirrorGo Receiver: Load request received');
+                console.log('MirrorGo Receiver: Content URL:', loadRequestData.media?.contentUrl);
+                console.log('MirrorGo Receiver: Content Type:', loadRequestData.media?.contentType);
+                console.log('MirrorGo Receiver: Stream Type:', loadRequestData.media?.streamType);
+                updateStatus('Loading stream...');
+                return loadRequestData;
+            }
+        );
+
+        // Configure receiver options
+        const receiverOptions = new cast.framework.CastReceiverOptions();
+        receiverOptions.disableIdleTimeout = true; // Keep alive for screen mirroring
+        receiverOptions.playbackConfig = playbackConfig;
+        receiverOptions.maxInactivity = 3600; // 1 hour max inactivity
+
+        console.log('MirrorGo Receiver: Starting with Shaka Player for HLS fMP4');
+        updateStatus('Ready');
+
+        // Start the receiver
+        context.start(receiverOptions);
+    </script>
 </body>
 </html>
