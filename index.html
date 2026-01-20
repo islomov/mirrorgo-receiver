@@ -3,144 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MirrorGo Receiver 5</title>
+    <title>MirrorGo Receiver 6</title>
     <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #000;
-            overflow: hidden;
-        }
-        cast-media-player {
-            --progress-color: #9333EA;
-            --splash-image: none;
-            --background-color: #000;
-        }
+        body { margin: 0; padding: 0; background: #000; overflow: hidden; }
+        cast-media-player { --progress-color: #9333EA; --background-color: #000; }
         #status {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            color: #00FF00;
-            font-family: monospace;
-            font-size: 20px;
-            z-index: 9999;
-            background: rgba(0,0,0,0.9);
-            padding: 15px 25px;
-            border-radius: 8px;
-            border: 2px solid #00FF00;
-            max-width: 80%;
-            word-wrap: break-word;
+            position: fixed; top: 20px; left: 20px;
+            color: #00FF00; font-family: monospace; font-size: 20px;
+            z-index: 9999; background: rgba(0,0,0,0.9);
+            padding: 15px 25px; border-radius: 8px; border: 2px solid #00FF00;
+            max-width: 80%; word-wrap: break-word;
         }
-        #status.error {
-            color: #FF0000;
-            border-color: #FF0000;
-        }
+        #status.error { color: #FF0000; border-color: #FF0000; }
     </style>
 </head>
 <body>
-    <div id="status">MirrorGo: Initializing...</div>
+    <div id="status">MirrorGo: Init...</div>
     <cast-media-player></cast-media-player>
 
     <script>
-        // Global error handler
-        window.onerror = function(msg, url, line, col, error) {
-            showError('JS: ' + msg);
-            return false;
-        };
+        window.onerror = function(msg) { showError('JS: ' + msg); return false; };
 
         const statusEl = document.getElementById('status');
-
-        function showStatus(msg) {
-            console.log('MirrorGo: ' + msg);
-            statusEl.textContent = 'MirrorGo: ' + msg;
-            statusEl.className = '';
-        }
-
-        function showError(msg) {
-            console.error('MirrorGo ERROR: ' + msg);
-            statusEl.textContent = 'ERROR: ' + msg;
-            statusEl.className = 'error';
-        }
-
-        showStatus('Loading...');
+        function showStatus(msg) { statusEl.textContent = 'MirrorGo: ' + msg; statusEl.className = ''; }
+        function showError(msg) { statusEl.textContent = 'ERROR: ' + msg; statusEl.className = 'error'; }
 
         try {
             const context = cast.framework.CastReceiverContext.getInstance();
             const playerManager = context.getPlayerManager();
             const playbackConfig = new cast.framework.PlaybackConfig();
 
-            // Enable Shaka Player for fMP4 HLS
-            playbackConfig.useShakaForHls = true;
+            // TRY WITHOUT SHAKA - use default MPL
+            playbackConfig.useShakaForHls = false;
             playbackConfig.initialBandwidth = 2000000;
-            playbackConfig.autoResumeDuration = 5;
 
-            // Shaka config
-            playbackConfig.shakaConfig = {
-                streaming: {
-                    rebufferingGoal: 2,
-                    bufferingGoal: 10,
-                    bufferBehind: 30
-                },
-                manifest: {
-                    hls: {
-                        ignoreManifestProgramDateTime: true
-                    }
+            playerManager.addEventListener(cast.framework.events.EventType.ERROR, (e) => {
+                showError('Code ' + (e.detailedErrorCode || 'unknown'));
+            });
+
+            playerManager.addEventListener(cast.framework.events.EventType.PLAYER_LOADING, () => showStatus('Loading...'));
+            playerManager.addEventListener(cast.framework.events.EventType.PLAYER_LOAD_COMPLETE, () => showStatus('Playing!'));
+            playerManager.addEventListener(cast.framework.events.EventType.BUFFERING, (e) => showStatus(e.isBuffering ? 'Buffering...' : 'Playing'));
+
+            playerManager.setMessageInterceptor(cast.framework.messages.MessageType.LOAD, (req) => {
+                showStatus('Load: ' + (req.media?.contentUrl || '?').substring(0, 40));
+                if (req.media) {
+                    // Tell MPL this is fMP4 format
+                    req.media.hlsVideoSegmentFormat = cast.framework.messages.HlsVideoSegmentFormat.FMP4;
+                    req.media.hlsSegmentFormat = cast.framework.messages.HlsSegmentFormat.FMP4;
                 }
-            };
+                return req;
+            });
 
-            // Error event
-            playerManager.addEventListener(
-                cast.framework.events.EventType.ERROR,
-                (event) => {
-                    showError('Code ' + (event.detailedErrorCode || 'unknown'));
-                }
-            );
-
-            // Player loading
-            playerManager.addEventListener(
-                cast.framework.events.EventType.PLAYER_LOADING,
-                () => showStatus('Loading stream...')
-            );
-
-            // Player load complete
-            playerManager.addEventListener(
-                cast.framework.events.EventType.PLAYER_LOAD_COMPLETE,
-                () => showStatus('Playing!')
-            );
-
-            // Buffering
-            playerManager.addEventListener(
-                cast.framework.events.EventType.BUFFERING,
-                (event) => showStatus(event.isBuffering ? 'Buffering...' : 'Playing')
-            );
-
-            // Intercept LOAD
-            playerManager.setMessageInterceptor(
-                cast.framework.messages.MessageType.LOAD,
-                (request) => {
-                    showStatus('Load: ' + (request.media?.contentUrl || 'unknown').substring(0, 40));
-                    
-                    if (request.media) {
-                        request.media.hlsVideoSegmentFormat = cast.framework.messages.HlsVideoSegmentFormat.FMP4;
-                        request.media.hlsSegmentFormat = cast.framework.messages.HlsSegmentFormat.FMP4;
-                    }
-                    return request;
-                }
-            );
-
-            // Receiver options
             const options = new cast.framework.CastReceiverOptions();
             options.disableIdleTimeout = true;
             options.playbackConfig = playbackConfig;
-            options.maxInactivity = 3600;
-
             context.start(options);
-            showStatus('Ready');
+            showStatus('Ready (MPL mode)');
 
-        } catch (e) {
-            showError('Init: ' + e.message);
-        }
+        } catch (e) { showError('Init: ' + e.message); }
     </script>
 </body>
 </html>
