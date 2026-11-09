@@ -25,15 +25,6 @@
             transform: translate(-50%, -50%);
             display: none;
         }
-        #mirrorCanvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: none;
-        }
         #status {
             position: fixed;
             top: 50%;
@@ -54,50 +45,25 @@
             padding: 10px 20px;
             border-radius: 8px;
         }
-        #stats {
-            position: fixed;
-            right: 20px;
-            bottom: 20px;
-            color: #fff;
-            font-family: monospace;
-            font-size: 16px;
-            white-space: pre;
-            background: rgba(0,0,0,0.6);
-            padding: 8px 12px;
-            border-radius: 6px;
-            z-index: 1000;
-            display: none;
-        }
     </style>
 </head>
 <body>
     <div id="status">MirrorGo<br><span style="font-size: 18px;">Waiting for connection...</span></div>
     <img id="mirrorImage" src="" alt="Screen Mirror">
-    <canvas id="mirrorCanvas"></canvas>
-    <div id="stats"></div>
 
     <script>
         const NAMESPACE = 'urn:x-cast:com.mirrorgo.stream';
-        // HELLO/READY, STREAM_STARTED, STREAM_ERROR (see GoogleCastService.swift).
-        const PROTOCOL_VERSION = 2;
-        // No frame on screen this long after START_STREAM → report STREAM_ERROR.
-        const STREAM_START_TIMEOUT = 6000;
 
         const context = cast.framework.CastReceiverContext.getInstance();
         const mirrorImage = document.getElementById('mirrorImage');
-        const canvas = document.getElementById('mirrorCanvas');
-        const canvasContext = canvas.getContext('2d');
         const status = document.getElementById('status');
-        const statsView = document.getElementById('stats');
 
-        let streamSender = null;
-        let streamStartTimer = null;
-        let hasShownFrame = false;
+        let streamUrl = null;
+        let frameCount = 0;
+        let isStreaming = false;
 
         function showStatus(msg) {
             console.log('MirrorGo: ' + msg);
-            status.className = '';
-            status.style.opacity = '1';
             status.innerHTML = 'MirrorGo<br><span style="font-size: 18px;">' + msg + '</span>';
         }
 
@@ -107,282 +73,6 @@
             setTimeout(function() { status.style.opacity = '0.5'; }, 3000);
         }
 
-        function sendToSender(senderId, message) {
-            if (!senderId) return;
-            try {
-                context.sendCustomMessage(NAMESPACE, senderId, message);
-            } catch (e) {
-                console.warn('MirrorGo: could not message the phone', e);
-            }
-        }
-
-        /// The first frame is on screen: tell the phone, once per stream.
-        function frameShown() {
-            if (hasShownFrame) return;
-            hasShownFrame = true;
-            clearTimeout(streamStartTimer);
-            showConnected();
-            sendToSender(streamSender, { type: 'STREAM_STARTED' });
-        }
-
-        function nowSeconds() {
-            return performance.now() / 1000;
-        }
-
-        function sleep(ms) {
-            return new Promise(function(resolve) { setTimeout(resolve, ms); });
-        }
-
-        // ---- Buffered video (framesUrl) ----
-        // The phone sends every frame with its capture time. Frames are held back
-        // VIDEO_DELAY seconds and drawn at capture time + delay, so Wi-Fi hiccups
-        // shorter than the delay never reach the screen and motion keeps the
-        // phone's pace. Frames that arrive too late are skipped, so the delay
-        // never grows.
-        const VIDEO_DELAY = 1.2;          // seconds behind the phone
-        const DECODE_AHEAD = 0.15;        // decode frames due within this many seconds (~4 frames, ~15 MB decoded)
-        const MAX_PARALLEL_DECODES = 2;
-        const MAX_QUEUED_FRAMES = 240;    // safety cap (~8 s at 30 fps), compressed JPEGs
-        // Phone → TV clock: the lowest (response start − capture) time seen
-        // recently is the network's best case; everything is scheduled relative
-        // to it. Response start, not end, so a big catch-up batch doesn't count.
-        const CLOCK_WINDOW = 10;          // seconds of arrivals considered
-        const CLOCK_SETTLE = 2;           // seconds after the first frame when changes apply at once
-        const CLOCK_SLEW = 0.02;          // afterwards, follow at up to 20 ms per second…
-        const CLOCK_JUMP = 0.5;           // …or jump if they're bigger than this
-
-        let framesUrl = null;
-        let videoGeneration = 0;
-        let frameSeq = -1;
-        let frameQueue = [];              // { time, blob, image, decoding, failed }
-        let lastQueuedTime = -Infinity;
-        let decodesInFlight = 0;
-        let clockOffset = null;           // TV time − phone time, network delay included
-        let clockTarget = null;
-        let clockBuckets = [];            // { second, min }
-        let clockStartedAt = null;
-        let lastRenderTime = 0;
-        let statsEnabled = false;
-        let stats = null;
-
-        function resetStats() {
-            stats = { since: nowSeconds(), drawn: 0, skipped: 0, received: 0, bytes: 0, decodeMs: 0, decoded: 0, audioLate: 0 };
-        }
-
-        function startVideo(url) {
-            stopVideo();
-            framesUrl = url;
-            frameSeq = -1;
-            lastQueuedTime = -Infinity;
-            clockOffset = null;
-            clockTarget = null;
-            clockBuckets = [];
-            clockStartedAt = null;
-            resetStats();
-            const generation = ++videoGeneration;
-            pollFrames(generation);
-            lastRenderTime = nowSeconds();
-            requestAnimationFrame(function() { renderFrame(generation); });
-        }
-
-        function stopVideo() {
-            videoGeneration++;
-            framesUrl = null;
-            frameQueue.forEach(releaseFrame);
-            frameQueue = [];
-            canvas.style.display = 'none';
-        }
-
-        async function pollFrames(generation) {
-            while (generation === videoGeneration) {
-                try {
-                    const response = await fetch(framesUrl + '?after=' + frameSeq, { cache: 'no-store' });
-                    const respondedAt = nowSeconds();
-                    if (!response.ok) throw new Error('HTTP ' + response.status);
-                    const seq = parseInt(response.headers.get('X-Frames-Seq'), 10);
-                    const data = await response.arrayBuffer();
-                    if (generation !== videoGeneration) return;
-                    if (!isNaN(seq)) frameSeq = seq;
-                    receiveFrames(data, respondedAt);
-                } catch (e) {
-                    if (generation !== videoGeneration) return;
-                    console.warn('MirrorGo: frame request failed', e);
-                    await sleep(250);
-                }
-            }
-        }
-
-        /// Each frame: UInt32 sequence, UInt32 length, Float64 capture time (all
-        /// little-endian), then the JPEG.
-        function receiveFrames(data, respondedAt) {
-            const view = new DataView(data);
-            let offset = 0;
-            while (offset + 16 <= data.byteLength) {
-                const length = view.getUint32(offset + 4, true);
-                const time = view.getFloat64(offset + 8, true);
-                offset += 16;
-                if (offset + length > data.byteLength) break;
-                const blob = new Blob([new Uint8Array(data, offset, length)], { type: 'image/jpeg' });
-                offset += length;
-
-                stats.received++;
-                stats.bytes += length;
-                noteArrival(time, respondedAt);
-                if (time < lastQueuedTime) continue;  // Out of order: a newer frame is already queued.
-                lastQueuedTime = time;
-                frameQueue.push({ time: time, blob: blob, image: null, decoding: false, failed: false });
-            }
-            while (frameQueue.length > MAX_QUEUED_FRAMES) {
-                releaseFrame(frameQueue.shift());
-                stats.skipped++;
-            }
-        }
-
-        function noteArrival(phoneTime, arrivedAt) {
-            const now = nowSeconds();
-            const sample = arrivedAt - phoneTime;
-            if (clockStartedAt === null) clockStartedAt = now;
-            const second = Math.floor(now);
-            const last = clockBuckets[clockBuckets.length - 1];
-            if (last && last.second === second) {
-                last.min = Math.min(last.min, sample);
-            } else {
-                clockBuckets.push({ second: second, min: sample });
-            }
-            while (clockBuckets.length && clockBuckets[0].second <= second - CLOCK_WINDOW) {
-                clockBuckets.shift();
-            }
-            clockTarget = Math.min.apply(null, clockBuckets.map(function(b) { return b.min; }));
-            if (clockOffset === null || now - clockStartedAt < CLOCK_SETTLE || Math.abs(clockTarget - clockOffset) > CLOCK_JUMP) {
-                clockOffset = clockTarget;
-            }
-        }
-
-        function slewClock(elapsed) {
-            if (clockOffset === null) return;
-            const step = CLOCK_SLEW * elapsed;
-            clockOffset += Math.max(-step, Math.min(step, clockTarget - clockOffset));
-        }
-
-        /// When a frame or sound captured at `phoneTime` should play, in TV seconds.
-        function playbackTime(phoneTime) {
-            return phoneTime + clockOffset + VIDEO_DELAY;
-        }
-
-        function renderFrame(generation) {
-            if (generation !== videoGeneration) return;
-            requestAnimationFrame(function() { renderFrame(generation); });
-
-            const now = nowSeconds();
-            slewClock(Math.min(now - lastRenderTime, 0.1));
-            lastRenderTime = now;
-            if (clockOffset === null) return;
-
-            frameQueue = frameQueue.filter(function(frame) {
-                if (frame.failed) stats.skipped++;
-                return !frame.failed;
-            });
-
-            // Draw the newest frame that's due and decoded; anything older is skipped.
-            let due = -1;
-            while (due + 1 < frameQueue.length && playbackTime(frameQueue[due + 1].time) <= now) due++;
-            let pick = due;
-            while (pick >= 0 && !frameQueue[pick].image) pick--;
-            if (pick >= 0) {
-                drawFrame(frameQueue[pick].image);
-                stats.drawn++;
-                stats.skipped += pick;
-                frameQueue.splice(0, pick + 1).forEach(releaseFrame);
-            }
-
-            // Frames older than the newest due one would only be skipped: don't decode them.
-            for (let i = Math.max(due, 0); i < frameQueue.length && decodesInFlight < MAX_PARALLEL_DECODES; i++) {
-                const frame = frameQueue[i];
-                if (playbackTime(frame.time) - now > DECODE_AHEAD) break;
-                if (!frame.image && !frame.decoding) decodeFrame(frame);
-            }
-
-            updateStats(now);
-        }
-
-        function drawFrame(image) {
-            const width = image.width, height = image.height;
-            if (canvas.width !== width || canvas.height !== height) {
-                canvas.width = width;
-                canvas.height = height;
-            }
-            canvasContext.drawImage(image, 0, 0);
-            if (canvas.style.display !== 'block') {
-                canvas.style.display = 'block';
-                mirrorImage.style.display = 'none';
-            }
-            frameShown();
-        }
-
-        function decodeFrame(frame) {
-            frame.decoding = true;
-            decodesInFlight++;
-            const started = performance.now();
-            decodeImage(frame.blob).then(function(image) {
-                stats.decodeMs += performance.now() - started;
-                stats.decoded++;
-                if (frame.released) {
-                    closeImage(image);
-                } else {
-                    frame.image = image;
-                }
-            }).catch(function(e) {
-                console.warn('MirrorGo: could not decode a frame', e);
-                frame.failed = true;
-            }).then(function() {
-                frame.decoding = false;
-                decodesInFlight--;
-            });
-        }
-
-        function decodeImage(blob) {
-            if (window.createImageBitmap) return createImageBitmap(blob);
-            return new Promise(function(resolve, reject) {
-                const url = URL.createObjectURL(blob);
-                const image = new Image();
-                image.onload = function() { URL.revokeObjectURL(url); resolve(image); };
-                image.onerror = function() { URL.revokeObjectURL(url); reject(new Error('decode failed')); };
-                image.src = url;
-            });
-        }
-
-        function releaseFrame(frame) {
-            frame.released = true;
-            if (frame.image) closeImage(frame.image);
-            frame.image = null;
-            frame.blob = null;
-        }
-
-        function closeImage(image) {
-            if (image.close) image.close();
-        }
-
-        function updateStats(now) {
-            if (!statsEnabled) return;
-            const elapsed = now - stats.since;
-            if (elapsed < 1) return;
-            const newest = frameQueue.length ? frameQueue[frameQueue.length - 1].time : null;
-            const buffered = newest === null ? 0 : Math.max(0, playbackTime(newest) - now);
-            statsView.textContent =
-                'fps       ' + (stats.drawn / elapsed).toFixed(1) + '\n' +
-                'received  ' + (stats.received / elapsed).toFixed(1) + ' fps, ' + (stats.bytes * 8 / elapsed / 1e6).toFixed(1) + ' Mbit/s\n' +
-                'buffered  ' + buffered.toFixed(2) + ' s (' + frameQueue.length + ' frames)\n' +
-                'skipped   ' + stats.skipped + '\n' +
-                'decode    ' + (stats.decoded ? stats.decodeMs / stats.decoded : 0).toFixed(1) + ' ms\n' +
-                'delay     ' + VIDEO_DELAY.toFixed(2) + ' s + network\n' +
-                'audio late ' + stats.audioLate;
-            resetStats();
-        }
-
-        // ---- Newest-frame video (url, for apps without framesUrl) ----
-        let streamUrl = null;
-        let isStreaming = false;
-
         function setImgSrc() {
             if (!streamUrl || !isStreaming) return;
             var currentTime = new Date().getTime();
@@ -390,11 +80,11 @@
         }
 
         mirrorImage.onload = function() {
-            if (!isStreaming) return;
-            if (mirrorImage.style.display !== 'block') {
+            frameCount++;
+            if (frameCount === 1) {
                 mirrorImage.style.display = 'block';
+                showConnected();
             }
-            frameShown();
             setImgSrc();
         };
 
@@ -404,13 +94,10 @@
 
         // ---- App audio ----
         // The phone serves 16-bit interleaved PCM. Each request returns whatever
-        // arrived after `after` (empty while Sound is off). With the buffered
-        // video, chunks play at their capture time + VIDEO_DELAY so they stay in
-        // sync with the picture; otherwise they're scheduled back to back with a
-        // small jitter buffer.
-        const AUDIO_TARGET_LATENCY = 0.15; // seconds of audio buffered ahead (newest-frame video)
-        const AUDIO_MAX_LATENCY = 0.5;     // drift past this resets the buffer (newest-frame video)
-        const AUDIO_RESYNC = 0.04;         // off the video clock by more than this → reschedule
+        // arrived after `after` (empty while Sound is off), and the chunks are
+        // scheduled back to back with a small jitter buffer.
+        const AUDIO_TARGET_LATENCY = 0.15; // seconds of audio buffered ahead
+        const AUDIO_MAX_LATENCY = 0.5;     // drift past this resets the buffer
 
         let audioContext = null;
         let audioUrl = null;
@@ -443,39 +130,19 @@
                     const seq = parseInt(response.headers.get('X-Audio-Seq'), 10);
                     const rate = parseInt(response.headers.get('X-Audio-Rate'), 10) || 48000;
                     const channels = parseInt(response.headers.get('X-Audio-Channels'), 10) || 2;
-                    const time = parseFloat(response.headers.get('X-Audio-Time'));
                     const data = await response.arrayBuffer();
                     if (generation !== audioGeneration) return;
                     if (!isNaN(seq)) audioSeq = seq;
-                    if (data.byteLength > 0) playPCM(data, rate, channels, isNaN(time) ? null : time);
+                    if (data.byteLength > 0) playPCM(data, rate, channels);
                 } catch (e) {
                     if (generation !== audioGeneration) return;
                     console.warn('MirrorGo: audio request failed', e);
-                    await sleep(250);
+                    await new Promise(function(resolve) { setTimeout(resolve, 250); });
                 }
             }
         }
 
-        /// Audio-context time at which a sound captured at `phoneTime` should play.
-        function audioPlaybackTime(phoneTime) {
-            let contextTime = audioContext.currentTime;
-            let performanceTime = performance.now();
-            if (audioContext.getOutputTimestamp) {
-                // What's leaving the speakers right now, so output latency is included.
-                const stamp = audioContext.getOutputTimestamp();
-                if (stamp.performanceTime) {
-                    contextTime = stamp.contextTime;
-                    performanceTime = stamp.performanceTime;
-                }
-            }
-            return contextTime + playbackTime(phoneTime) - performanceTime / 1000;
-        }
-
-        function playPCM(data, rate, channels, time) {
-            const isBuffered = framesUrl !== null && time !== null;
-            // Nothing to sync to until the first video frame has arrived.
-            if (isBuffered && clockOffset === null) return;
-
+        function playPCM(data, rate, channels) {
             const samples = new Int16Array(data, 0, Math.floor(data.byteLength / 2));
             const frames = Math.floor(samples.length / channels);
             if (frames === 0) return;
@@ -489,18 +156,7 @@
             }
 
             const now = audioContext.currentTime;
-            if (isBuffered) {
-                const target = audioPlaybackTime(time);
-                if (target + buffer.duration < now) {
-                    stats.audioLate++;
-                    return;
-                }
-                // Chunks normally follow each other exactly; only a gap in the
-                // phone's audio or clock drift moves the schedule.
-                if (Math.abs(audioNextTime - target) > AUDIO_RESYNC) {
-                    audioNextTime = Math.max(target, now);
-                }
-            } else if (audioNextTime < now || audioNextTime > now + AUDIO_MAX_LATENCY) {
+            if (audioNextTime < now || audioNextTime > now + AUDIO_MAX_LATENCY) {
                 audioNextTime = now + AUDIO_TARGET_LATENCY;
             }
             const source = audioContext.createBufferSource();
@@ -510,65 +166,30 @@
             audioNextTime += buffer.duration;
         }
 
-        // ---- Messages from the phone ----
-
-        function startStream(data, senderId) {
-            if (data.framesUrl && data.framesUrl === framesUrl) {
-                // Sent again after the phone reconnected: keep playing (and the buffer).
-                streamSender = senderId;
-                if (hasShownFrame) sendToSender(senderId, { type: 'STREAM_STARTED' });
-                if (data.audioUrl && data.audioUrl !== audioUrl) startAudio(data.audioUrl);
-                return;
-            }
-            stopStream();
-            streamSender = senderId;
-            hasShownFrame = false;
-            statsEnabled = data.stats === '1' || data.stats === true;
-            statsView.style.display = statsEnabled ? 'block' : 'none';
-            showStatus('Connecting to stream...');
-            streamStartTimer = setTimeout(function() {
-                sendToSender(streamSender, {
-                    type: 'STREAM_ERROR',
-                    reason: "Your TV couldn't reach your iPhone. Make sure both are on the same Wi-Fi network, then try again.",
-                });
-            }, STREAM_START_TIMEOUT);
-
-            if (data.framesUrl) {
-                console.log('MirrorGo: Starting buffered stream from:', data.framesUrl);
-                startVideo(data.framesUrl);
-            } else {
-                console.log('MirrorGo: Starting stream from:', data.url);
-                streamUrl = data.url;
-                isStreaming = true;
-                setImgSrc();
-            }
-            if (data.audioUrl) {
-                startAudio(data.audioUrl);
-            }
-        }
-
-        function stopStream() {
-            clearTimeout(streamStartTimer);
-            stopAudio();
-            stopVideo();
-            isStreaming = false;
-            streamUrl = null;
-            mirrorImage.style.display = 'none';
-            statsView.style.display = 'none';
-        }
-
         context.addCustomMessageListener(NAMESPACE, function(event) {
             console.log('MirrorGo: Received message:', event.data);
 
             try {
                 const data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
 
-                if (data.type === 'HELLO') {
-                    sendToSender(event.senderId, { type: 'READY', version: PROTOCOL_VERSION });
-                } else if (data.type === 'START_STREAM' && (data.url || data.framesUrl)) {
-                    startStream(data, event.senderId);
+                if (data.type === 'START_STREAM' && data.url) {
+                    streamUrl = data.url;
+                    isStreaming = true;
+                    frameCount = 0;
+                    showStatus('Connecting to stream...');
+                    console.log('MirrorGo: Starting stream from:', streamUrl);
+                    setImgSrc();
+                    if (data.audioUrl) {
+                        startAudio(data.audioUrl);
+                    } else {
+                        stopAudio();
+                    }
                 } else if (data.type === 'STOP_STREAM') {
-                    stopStream();
+                    stopAudio();
+                    isStreaming = false;
+                    streamUrl = null;
+                    mirrorImage.style.display = 'none';
+                    status.className = '';
                     showStatus('Stream stopped');
                 }
             } catch (e) {
