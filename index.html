@@ -92,6 +92,80 @@
             setTimeout(setImgSrc, 100);
         };
 
+        // ---- App audio ----
+        // The phone serves 16-bit interleaved PCM. Each request returns whatever
+        // arrived after `after` (empty while Sound is off), and the chunks are
+        // scheduled back to back with a small jitter buffer.
+        const AUDIO_TARGET_LATENCY = 0.15; // seconds of audio buffered ahead
+        const AUDIO_MAX_LATENCY = 0.5;     // drift past this resets the buffer
+
+        let audioContext = null;
+        let audioUrl = null;
+        let audioSeq = -1;
+        let audioGeneration = 0;
+        let audioNextTime = 0;
+
+        function startAudio(url) {
+            stopAudio();
+            audioUrl = url;
+            audioSeq = -1;
+            audioNextTime = 0;
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)({ latencyHint: 'interactive' });
+            }
+            audioContext.resume();
+            pollAudio(++audioGeneration);
+        }
+
+        function stopAudio() {
+            audioGeneration++;
+            audioUrl = null;
+        }
+
+        async function pollAudio(generation) {
+            while (generation === audioGeneration) {
+                try {
+                    const response = await fetch(audioUrl + '?after=' + audioSeq, { cache: 'no-store' });
+                    if (!response.ok) throw new Error('HTTP ' + response.status);
+                    const seq = parseInt(response.headers.get('X-Audio-Seq'), 10);
+                    const rate = parseInt(response.headers.get('X-Audio-Rate'), 10) || 48000;
+                    const channels = parseInt(response.headers.get('X-Audio-Channels'), 10) || 2;
+                    const data = await response.arrayBuffer();
+                    if (generation !== audioGeneration) return;
+                    if (!isNaN(seq)) audioSeq = seq;
+                    if (data.byteLength > 0) playPCM(data, rate, channels);
+                } catch (e) {
+                    if (generation !== audioGeneration) return;
+                    console.warn('MirrorGo: audio request failed', e);
+                    await new Promise(function(resolve) { setTimeout(resolve, 250); });
+                }
+            }
+        }
+
+        function playPCM(data, rate, channels) {
+            const samples = new Int16Array(data, 0, Math.floor(data.byteLength / 2));
+            const frames = Math.floor(samples.length / channels);
+            if (frames === 0) return;
+
+            const buffer = audioContext.createBuffer(channels, frames, rate);
+            for (let c = 0; c < channels; c++) {
+                const output = buffer.getChannelData(c);
+                for (let i = 0; i < frames; i++) {
+                    output[i] = samples[i * channels + c] / 32768;
+                }
+            }
+
+            const now = audioContext.currentTime;
+            if (audioNextTime < now || audioNextTime > now + AUDIO_MAX_LATENCY) {
+                audioNextTime = now + AUDIO_TARGET_LATENCY;
+            }
+            const source = audioContext.createBufferSource();
+            source.buffer = buffer;
+            source.connect(audioContext.destination);
+            source.start(audioNextTime);
+            audioNextTime += buffer.duration;
+        }
+
         context.addCustomMessageListener(NAMESPACE, function(event) {
             console.log('MirrorGo: Received message:', event.data);
 
@@ -105,7 +179,13 @@
                     showStatus('Connecting to stream...');
                     console.log('MirrorGo: Starting stream from:', streamUrl);
                     setImgSrc();
+                    if (data.audioUrl) {
+                        startAudio(data.audioUrl);
+                    } else {
+                        stopAudio();
+                    }
                 } else if (data.type === 'STOP_STREAM') {
+                    stopAudio();
                     isStreaming = false;
                     streamUrl = null;
                     mirrorImage.style.display = 'none';
