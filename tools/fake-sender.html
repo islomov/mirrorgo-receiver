@@ -15,6 +15,7 @@
 
   Links (like IPTV in the app): untick "mirror" to join without offering, paste a link and
   "Play link" (`media-load`); the page's `capabilities` / `media-status` show in the log.
+  Kind "image" sends an image (with an optional fallback URL), "youtube" a YouTube video id.
   URL parameters: mirror=0, link=<url>.
 -->
 <html lang="en">
@@ -39,7 +40,9 @@
   <span id="state">idle</span>
 </div>
 <div style="margin-top: 8px">
-  link <input id="link" size="70" placeholder="https://…/playlist.m3u8">
+  <select id="kind"><option>video</option><option>image</option><option>youtube</option></select>
+  link <input id="link" size="70" placeholder="https://…/playlist.m3u8 · image URL · YouTube video id">
+  fallback <input id="fallback" size="30" placeholder="image: thumbnail URL">
   <label><input type="checkbox" id="live" checked> live</label>
   <button id="play-link">Play link</button>
   <button id="pause-link">Pause</button>
@@ -205,8 +208,11 @@ $("stop").onclick = () => {
 };
 $("play-link").onclick = () => {
   closePc();
-  const url = $("link").value.trim();
-  send({ type: "media-load", id: ++mediaId, url, mime: /\.m3u8/i.test(url) ? "application/x-mpegURL" : "", live: $("live").checked, title: "Fake sender link", start: 0 });
+  const url = $("link").value.trim(), kind = $("kind").value;
+  const message = { type: "media-load", id: ++mediaId, kind, url, mime: /\.m3u8/i.test(url) ? "application/x-mpegURL" : "", live: $("live").checked, title: "Fake sender link", start: 0 };
+  if (kind === "image") message.fallbackUrl = $("fallback").value.trim();
+  if (kind === "youtube") Object.assign(message, { url: `https://www.youtube.com/watch?v=${url}`, videoId: url, live: false });
+  send(message);
   log(`→ media-load #${mediaId}`);
 };
 $("pause-link").onclick = () => send({ type: "media-control", id: mediaId, action: "pause" });

@@ -65,9 +65,14 @@ const player = new WebRTCPlayer(video, {
 });
 
 const media = new MediaPlayer(video, {
+  image: $("image"),
+  youtube: $("youtube"),
   log: log,
   forceHlsJs: /(^|[?&])hlsjs=1(&|$)/.test(location.search), // testing hls.js where HLS is native
-  onStatus: function (status) { signaling.send(status); },
+  onStatus: function (status) {
+    signaling.send(status);
+    renderSound(); // YouTube's mute state changes without events
+  },
   onStateChange: function (state) {
     app.media = state;
     if (state === MediaState.ended) app.stopped = true;
@@ -200,6 +205,8 @@ function render() {
   app.screen = view.screen;
   body.setAttribute("data-screen", view.screen);
   body.setAttribute("data-variant", view.variant || "");
+  // What the playing screen shows: the <video> (mirroring, a video link), an image or YouTube.
+  body.setAttribute("data-media", media.active ? media.kind : "");
 
   const offlineText = app.status === "offline" ? strings.offline : app.status === "reconnecting" ? strings.reconnecting : "";
 
@@ -231,7 +238,7 @@ function render() {
   if (view.screen === "playing") {
     if (screenChanged) {
       showControls();
-      $("sound").focus();
+      if ($("sound").hidden) $("fullscreen").focus(); else $("sound").focus();
     }
   }
   renderSound();
@@ -270,18 +277,24 @@ function restartSignaling() {
 
 function renderSound() {
   const button = $("sound");
-  button.textContent = video.muted ? strings.tapForSound : strings.mute;
-  button.className = video.muted ? "button primary" : "button";
+  const muted = media.active ? media.isMuted() : video.muted;
+  button.hidden = media.active && media.kind === "image";
+  button.textContent = muted ? strings.tapForSound : strings.mute;
+  button.className = muted ? "button primary" : "button";
 }
 
 // A link may start muted (autoplay with sound refused) after the screen rendered.
 video.addEventListener("volumechange", renderSound);
 
 $("sound").addEventListener("click", function () {
-  video.muted = !video.muted;
-  if (!video.muted) {
-    const played = video.play();
-    if (played && played.catch) played.catch(function () {});
+  if (media.active) {
+    media.setMuted(!media.isMuted());
+  } else {
+    video.muted = !video.muted;
+    if (!video.muted) {
+      const played = video.play();
+      if (played && played.catch) played.catch(function () {});
+    }
   }
   renderSound();
 });
@@ -409,9 +422,9 @@ async function renderDebug() {
 function mediaLine() {
   const status = media.status();
   if (!status) return media.state;
-  return status.state + (status.error ? " (" + status.error + ")" : "") + "  " + fmt(status.time, 1) + " s" +
-    (status.duration ? " / " + fmt(status.duration, 1) + " s" : "") + (status.muted ? "  muted" : "") +
-    "  " + (media.hls ? "hls.js" : "native") + "  " + (video.videoWidth || "–") + "x" + (video.videoHeight || "–");
+  const player = media.kind === "video" ? (media.hls ? "hls.js" : "native") + "  " + (video.videoWidth || "–") + "x" + (video.videoHeight || "–") : "";
+  return media.kind + "  " + status.state + (status.error ? " (" + status.error + ")" : "") + "  " + fmt(status.time, 1) + " s" +
+    (status.duration ? " / " + fmt(status.duration, 1) + " s" : "") + (status.muted ? "  muted" : "") + "  " + player;
 }
 
 // MARK: Start

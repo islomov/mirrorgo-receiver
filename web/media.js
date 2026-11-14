@@ -1,12 +1,16 @@
-// Media player: plays a link the phone sends (`media-load`, e.g. an IPTV channel) in the page's own
-// <video>. The browser fetches it itself, so the phone isn't needed while it plays (it can go to the
-// background, or away). Reports how it's going (`media-status`) through `onStatus`.
+// Media player: shows what the phone sends as a link (`media-load`) in the page itself. The browser
+// fetches it, so the phone isn't needed while it plays (it can go to the background, or away).
+// Reports how it's going (`media-status`) through `onStatus`. Kinds:
 //
-// HLS: the browser's own player when it has one (Safari, smart TV browsers; no CORS needed), else
-// hls.js over Media Source Extensions (loaded on first use; the stream's host must allow CORS). A
-// native player that fails gets one more try with hls.js.
+// - video (IPTV channels): the page's <video>. HLS: the browser's own player when it has one
+//   (Safari, smart TV browsers; no CORS needed), else hls.js over Media Source Extensions (loaded on
+//   first use; the stream's host must allow CORS). A native player that fails gets one more try
+//   with hls.js.
+// - image (web images): an <img>; `fallbackUrl` (a thumbnail) if the image itself doesn't load.
+// - youtube (`videoId`, `start`): YouTube's embedded player (IFrame API, loaded on first use).
 //
 //   const media = new MediaPlayer(video, {
+//     image, youtube,                  // the <img> and the YouTube player's container
 //     onStatus(status) { ... },        // send to the phone: {type: "media-status", ...}
 //     onStateChange(state) { ... },    // see MediaState
 //   });
@@ -22,7 +26,9 @@
  * playing
  * paused
  * ended     played to the end
- * error     couldn't play it (`error`: unsupported | network | decode)
+ * error     couldn't play it (`error`: unsupported | network | decode, YouTube: blocked (not
+ *           allowed outside YouTube) | unavailable (private or removed))
+ * An image is "playing" once it's shown.
  */
 export const MediaState = {
   idle: "idle",
@@ -35,6 +41,11 @@ export const MediaState = {
 
 const STATUS_EVERY_MS = 2000;
 const HLS_SCRIPT = "/vendor/hls.min.js";
+const YOUTUBE_API = "https://www.youtube.com/iframe_api";
+/** YouTube still not playing (autoplay with sound refused): play it muted. */
+const YOUTUBE_MUTED_AFTER_MS = 2500;
+const YOUTUBE_CHECK_MS = 500;
+const KINDS = { video: true, image: true, youtube: true };
 
 /** What this browser can play, for the phone (`capabilities`). */
 export function capabilities(video) {
@@ -51,6 +62,10 @@ export function capabilities(video) {
 export class MediaPlayer {
   constructor(video, options) {
     this.video = video;
+    this.image = options.image;
+    this.youtube = options.youtube;      // container; YouTube's iframe goes in its first child
+    this.yt = null;                      // the YT.Player, kept for the next video
+    this.ytMutedTimer = null;
     this.onStatus = options.onStatus || function () {};
     this.onStateChange = options.onStateChange || function () {};
     this.log = options.log || function () {};
@@ -67,7 +82,7 @@ export class MediaPlayer {
     const on = function (type, handler) {
       video.addEventListener(type, function () {
         // The same <video> shows the mirrored screen: only our own playback counts.
-        if (self.current && !video.srcObject) handler();
+        if (self.current && self.current.kind === "video" && !video.srcObject) handler();
       });
     };
     on("playing", function () { self.setState(MediaState.playing); });
@@ -87,25 +102,45 @@ export class MediaPlayer {
     return this.state === MediaState.loading || this.state === MediaState.playing || this.state === MediaState.paused;
   }
 
-  /** `media-load {id, url, mime, live, title, start}`: replaces whatever plays. */
+  /** What's loaded: "video" | "image" | "youtube", or "". */
+  get kind() {
+    return this.current ? this.current.kind : "";
+  }
+
+  /**
+   * `media-load {id, kind, url, mime, live, title, start, fallbackUrl, videoId}`: replaces whatever
+   * plays.
+   */
   load(message) {
     this.stop();
     const url = typeof message.url === "string" ? message.url : "";
     this.current = {
       id: message.id,
+      kind: KINDS[message.kind] ? message.kind : "video",
       url: url,
       mime: typeof message.mime === "string" ? message.mime : "",
       live: message.live === true,
       title: typeof message.title === "string" ? message.title : "",
       start: typeof message.start === "number" ? message.start : 0,
+      fallbackUrl: typeof message.fallbackUrl === "string" ? message.fallbackUrl : "",
+      videoId: typeof message.videoId === "string" ? message.videoId : "",
     };
     this.triedHlsJs = false;
     this.recoveredOnce = false;
     this.setState(MediaState.loading);
     this.startStatusTimer();
 
+    if (this.current.kind === "youtube") {
+      if (/^[\w-]{6,20}$/.test(this.current.videoId)) this.playYouTube();
+      else this.fail("unsupported", "no video id");
+      return;
+    }
     if (!/^https?:\/\//i.test(url)) {
       this.fail("unsupported", "not an http(s) link");
+      return;
+    }
+    if (this.current.kind === "image") {
+      this.showImage();
       return;
     }
     const video = this.video;
@@ -131,7 +166,15 @@ export class MediaPlayer {
   control(message) {
     if (!this.current) return;
     const video = this.video;
-    if (message.action === "pause") {
+    if (this.current.kind === "youtube") {
+      const yt = this.ytReady();
+      if (!yt) return;
+      if (message.action === "pause") yt.pauseVideo();
+      else if (message.action === "play") yt.playVideo();
+      else if (message.action === "seek" && typeof message.time === "number") yt.seekTo(message.time, true);
+    } else if (this.current.kind === "image") {
+      return;
+    } else if (message.action === "pause") {
       video.pause();
     } else if (message.action === "play") {
       this.play();
@@ -145,15 +188,26 @@ export class MediaPlayer {
   stop() {
     if (!this.current && this.state === MediaState.idle) return;
     // Forgotten first: the events emptying the <video> fires aren't ours any more.
+    const kind = this.kind;
     this.current = null;
     this.error = null;
     this.stopStatusTimer();
+    this.clearYouTubeTimer();
     this.destroyHls();
     const video = this.video;
-    if (!video.srcObject) {
+    if (kind === "video" && !video.srcObject) {
       video.pause();
       video.removeAttribute("src");
       try { video.load(); } catch (e) { /* nothing loaded */ }
+    }
+    if (kind === "image" && this.image) {
+      this.image.onload = null;
+      this.image.onerror = null;
+      this.image.removeAttribute("src");
+    }
+    if (kind === "youtube") {
+      const yt = this.ytReady();
+      if (yt) yt.stopVideo();
     }
     this.setState(MediaState.idle);
   }
@@ -161,18 +215,47 @@ export class MediaPlayer {
   /** The `media-status` message for what's loaded, or null. */
   status() {
     if (!this.current) return null;
-    const video = this.video;
-    const duration = isFinite(video.duration) && video.duration > 0 ? video.duration : null;
-    const status = {
-      type: "media-status",
-      id: this.current.id,
-      state: this.state,
-      time: isFinite(video.currentTime) ? Math.round(video.currentTime * 10) / 10 : null,
-      duration: this.current.live ? null : duration,
-      muted: video.muted,
-    };
+    const status = { type: "media-status", id: this.current.id, state: this.state, time: null, duration: null, muted: this.isMuted() };
+    if (this.current.kind === "video") {
+      const video = this.video;
+      status.time = isFinite(video.currentTime) ? Math.round(video.currentTime * 10) / 10 : null;
+      status.duration = !this.current.live && isFinite(video.duration) && video.duration > 0 ? video.duration : null;
+    } else if (this.current.kind === "youtube") {
+      const yt = this.ytReady();
+      if (yt) {
+        status.time = Math.round(yt.getCurrentTime() * 10) / 10;
+        status.duration = yt.getDuration() > 0 ? yt.getDuration() : null;
+      }
+    }
     if (this.error) status.error = this.error;
     return status;
+  }
+
+  /** Whether what plays has its sound off (an image never has sound). */
+  isMuted() {
+    if (!this.current || this.current.kind === "image") return false;
+    if (this.current.kind === "youtube") {
+      const yt = this.ytReady();
+      return yt ? yt.isMuted() : false;
+    }
+    return this.video.muted;
+  }
+
+  /** The page's sound button. */
+  setMuted(muted) {
+    if (!this.current) return;
+    if (this.current.kind === "youtube") {
+      const yt = this.ytReady();
+      if (!yt) return;
+      if (muted) yt.mute(); else yt.unMute();
+    } else if (this.current.kind === "video") {
+      this.video.muted = muted;
+      if (!muted) {
+        const played = this.video.play();
+        if (played && played.catch) played.catch(function () {});
+      }
+    }
+    this.sendStatus();
   }
 
   sendStatus() {
@@ -234,6 +317,112 @@ export class MediaPlayer {
     });
   }
 
+  // MARK: Images
+
+  showImage() {
+    const self = this;
+    const current = this.current;
+    const image = this.image;
+    let usedFallback = false;
+    this.log("media: image " + shortURL(current.url));
+    image.onload = function () {
+      if (self.current === current) self.setState(MediaState.playing);
+    };
+    image.onerror = function () {
+      if (self.current !== current) return;
+      if (!usedFallback && /^https?:\/\//i.test(current.fallbackUrl)) {
+        usedFallback = true;
+        self.log("media: image didn't load, showing its thumbnail");
+        image.src = current.fallbackUrl;
+        return;
+      }
+      self.fail("network", "image didn't load");
+    };
+    image.src = current.url;
+  }
+
+  // MARK: YouTube
+
+  playYouTube() {
+    const self = this;
+    const current = this.current;
+    this.log("media: YouTube " + current.videoId);
+    loadYouTubeApi().then(function () {
+      if (self.current !== current) return;
+      const start = Math.max(0, Math.floor(current.start));
+      if (self.yt && self.yt.loadVideoById) {
+        self.yt.unMute();
+        self.yt.loadVideoById({ videoId: current.videoId, startSeconds: start });
+      } else if (!self.yt) {
+        const holder = document.createElement("div");
+        self.youtube.innerHTML = "";
+        self.youtube.appendChild(holder);
+        self.yt = new window.YT.Player(holder, {
+          width: "100%",
+          height: "100%",
+          videoId: current.videoId,
+          playerVars: { autoplay: 1, start: start, controls: 0, rel: 0, playsinline: 1, iv_load_policy: 3 },
+          events: {
+            onReady: function (event) {
+              self.log("media: YouTube player ready");
+              if (self.kind === "youtube") event.target.playVideo();
+            },
+            onStateChange: function (event) { self.onYouTubeState(event.data); },
+            onError: function (event) { self.onYouTubeError(event.data); },
+          },
+        });
+      }
+      // Autoplay with sound refused leaves it waiting: play it muted (the sound button unmutes).
+      self.clearYouTubeTimer();
+      let checks = 0;
+      self.ytMutedTimer = setInterval(function () {
+        const yt = self.ytReady();
+        if (self.current !== current || self.state !== MediaState.loading || ++checks > 40) {
+          self.clearYouTubeTimer();
+          return;
+        }
+        if (!yt || checks * YOUTUBE_CHECK_MS < YOUTUBE_MUTED_AFTER_MS) return;
+        const state = yt.getPlayerState();
+        if (state === window.YT.PlayerState.BUFFERING || state === window.YT.PlayerState.PLAYING) return;
+        self.log("media: YouTube didn't start (state " + state + ", muted " + yt.isMuted() + "), playing it muted");
+        if (!yt.isMuted()) yt.mute();
+        yt.playVideo();
+        self.sendStatus();
+      }, YOUTUBE_CHECK_MS);
+    }, function () {
+      if (self.current === current) self.fail("network", "YouTube's player didn't load");
+    });
+  }
+
+  onYouTubeState(state) {
+    if (this.kind !== "youtube" || !window.YT) return;
+    this.log("media: YouTube state " + state);
+    const S = window.YT.PlayerState;
+    if (state === S.PLAYING) this.setState(MediaState.playing);
+    else if (state === S.PAUSED) this.setState(MediaState.paused);
+    else if (state === S.BUFFERING) this.setState(MediaState.loading);
+    else if (state === S.ENDED) this.setState(MediaState.ended);
+  }
+
+  onYouTubeError(code) {
+    if (this.kind !== "youtube") return;
+    // 101 / 150: the owner doesn't allow it outside YouTube; 100: private or removed.
+    const kind = code === 101 || code === 150 ? "blocked" : code === 100 ? "unavailable" : "unsupported";
+    this.fail(kind, "YouTube error " + code);
+  }
+
+  /** The YouTube player, once its API is ready to take calls. */
+  ytReady() {
+    return this.yt && typeof this.yt.getPlayerState === "function" ? this.yt : null;
+  }
+
+  clearYouTubeTimer() {
+    if (this.ytMutedTimer) clearInterval(this.ytMutedTimer);
+    this.ytMutedTimer = null;
+  }
+
+  // MARK: Errors
+
   onVideoError() {
     if (this.hls) return; // hls.js reports its own errors
     const error = this.video.error;
@@ -255,6 +444,8 @@ export class MediaPlayer {
     this.log("media: failed (" + kind + "): " + detail);
     this.error = kind;
     this.destroyHls();
+    this.clearYouTubeTimer();
+    if (this.current.kind === "youtube" && this.ytReady()) this.ytReady().stopVideo();
     this.stopStatusTimer();
     this.setState(MediaState.error);
   }
@@ -303,6 +494,31 @@ function nativeHls(video) {
 
 function mediaSourceSupported() {
   return !!(window.MediaSource || window.ManagedMediaSource || window.WebKitMediaSource);
+}
+
+let youTubePromise = null;
+
+/** Loads YouTube's IFrame API once. */
+function loadYouTubeApi() {
+  if (window.YT && window.YT.Player) return Promise.resolve();
+  if (!youTubePromise) {
+    youTubePromise = new Promise(function (resolve, reject) {
+      const previous = window.onYouTubeIframeAPIReady;
+      window.onYouTubeIframeAPIReady = function () {
+        if (previous) previous();
+        resolve();
+      };
+      const script = document.createElement("script");
+      script.src = YOUTUBE_API;
+      script.async = true;
+      script.onerror = function () {
+        youTubePromise = null;
+        reject(new Error("YouTube's API didn't load"));
+      };
+      document.head.appendChild(script);
+    });
+  }
+  return youTubePromise;
 }
 
 let hlsPromise = null;
