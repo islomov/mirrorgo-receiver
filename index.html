@@ -36,6 +36,17 @@
             text-align: center;
             z-index: 1000;
         }
+        #youtube {
+            position: absolute;
+            inset: 0;
+            display: none;
+            background-color: black;
+        }
+        #youtube iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
         #status.connected {
             top: 20px;
             left: 20px;
@@ -50,6 +61,7 @@
 <body>
     <div id="status">MirrorGo<br><span style="font-size: 18px;">Waiting for connection...</span></div>
     <img id="mirrorImage" src="" alt="Screen Mirror">
+    <div id="youtube"><div id="youtubePlayer"></div></div>
 
     <script>
         const NAMESPACE = 'urn:x-cast:com.mirrorgo.stream';
@@ -64,6 +76,7 @@
 
         function showStatus(msg) {
             console.log('MirrorGo: ' + msg);
+            status.style.display = '';
             status.innerHTML = 'MirrorGo<br><span style="font-size: 18px;">' + msg + '</span>';
         }
 
@@ -166,6 +179,143 @@
             audioNextTime += buffer.duration;
         }
 
+        // ---- YouTube ----
+        // PLAY_YOUTUBE {videoId, start} plays a video in YouTube's embedded player.
+        // The app hears back YOUTUBE_STARTED once it plays, YOUTUBE_ERROR {reason}
+        // if it can't, and YOUTUBE_ENDED when it finished or something replaced it
+        // (mirroring, a gallery item). All carry the videoId.
+        const youtubeContainer = document.getElementById('youtube');
+        let youtubeApi = null;
+        let youtubePlayer = null;
+        let youtubeVideoId = null;
+        let youtubeStarted = false;
+
+        function sendToApp(message) {
+            // No sender ID: every connected sender gets it.
+            context.sendCustomMessage(NAMESPACE, undefined, message);
+        }
+
+        function loadYouTubeApi() {
+            if (youtubeApi) return youtubeApi;
+            youtubeApi = new Promise(function(resolve, reject) {
+                if (window.YT && window.YT.Player) { resolve(); return; }
+                window.onYouTubeIframeAPIReady = resolve;
+                const script = document.createElement('script');
+                script.src = 'https://www.youtube.com/iframe_api';
+                script.onerror = function() {
+                    youtubeApi = null;
+                    reject(new Error('Could not load YouTube.'));
+                };
+                document.head.appendChild(script);
+            });
+            return youtubeApi;
+        }
+
+        async function playYouTube(videoId, start) {
+            stopMirroring();
+            if (youtubeVideoId && youtubeVideoId !== videoId) {
+                sendToApp({ type: 'YOUTUBE_ENDED', videoId: youtubeVideoId });
+            }
+            youtubeVideoId = videoId;
+            youtubeStarted = false;
+            showStatus('Loading YouTube...');
+            try {
+                await loadYouTubeApi();
+            } catch (e) {
+                youtubeFailed(videoId, 'Your TV couldn\'t load YouTube. Check its internet connection.');
+                return;
+            }
+            if (youtubeVideoId !== videoId) return;  // Replaced meanwhile.
+
+            youtubeContainer.style.display = 'block';
+            if (youtubePlayer) {
+                youtubePlayer.loadVideoById({ videoId: videoId, startSeconds: start });
+                return;
+            }
+            youtubePlayer = new YT.Player('youtubePlayer', {
+                width: '100%',
+                height: '100%',
+                videoId: videoId,
+                playerVars: { autoplay: 1, start: start, controls: 0, rel: 0, playsinline: 1 },
+                events: {
+                    onReady: function(event) { event.target.playVideo(); },
+                    onStateChange: onYouTubeStateChange,
+                    onError: onYouTubeError
+                }
+            });
+        }
+
+        function onYouTubeStateChange(event) {
+            const videoId = youtubeVideoId;
+            if (!videoId) return;
+            if (event.data === YT.PlayerState.PLAYING && !youtubeStarted) {
+                youtubeStarted = true;
+                status.style.display = 'none';
+                sendToApp({ type: 'YOUTUBE_STARTED', videoId: videoId });
+            } else if (event.data === YT.PlayerState.ENDED) {
+                stopYouTube(true);
+                showStatus('Video ended');
+            }
+        }
+
+        function onYouTubeError(event) {
+            const videoId = youtubeVideoId;
+            if (!videoId) return;
+            let reason;
+            switch (event.data) {
+                case 101:
+                case 150:
+                    reason = 'This video can\'t be played outside YouTube. Try another one.';
+                    break;
+                case 100:
+                    reason = 'This video is private or was removed.';
+                    break;
+                default:
+                    reason = 'Your TV couldn\'t play this video (YouTube error ' + event.data + ').';
+            }
+            youtubeFailed(videoId, reason);
+        }
+
+        function youtubeFailed(videoId, reason) {
+            if (youtubeVideoId !== videoId) return;
+            console.warn('MirrorGo: YouTube failed: ' + reason);
+            hideYouTube();
+            sendToApp({ type: 'YOUTUBE_ERROR', videoId: videoId, reason: reason });
+            showStatus('Waiting for connection...');
+        }
+
+        // `notify`: tell the app, when something else replaces the video.
+        function stopYouTube(notify) {
+            const videoId = youtubeVideoId;
+            if (!videoId) return;
+            hideYouTube();
+            if (notify) sendToApp({ type: 'YOUTUBE_ENDED', videoId: videoId });
+        }
+
+        function hideYouTube() {
+            youtubeVideoId = null;
+            youtubeStarted = false;
+            if (youtubePlayer && youtubePlayer.stopVideo) youtubePlayer.stopVideo();
+            youtubeContainer.style.display = 'none';
+        }
+
+        function stopMirroring() {
+            stopAudio();
+            isStreaming = false;
+            streamUrl = null;
+            mirrorImage.style.display = 'none';
+            status.className = '';
+        }
+
+        // A gallery video (standard media LOAD) replaces the YouTube video.
+        context.getPlayerManager().setMessageInterceptor(
+            cast.framework.messages.MessageType.LOAD,
+            function(request) {
+                stopYouTube(true);
+                return request;
+            }
+        );
+
         context.addCustomMessageListener(NAMESPACE, function(event) {
             console.log('MirrorGo: Received message:', event.data);
 
@@ -173,6 +323,7 @@
                 const data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
 
                 if (data.type === 'START_STREAM' && data.url) {
+                    stopYouTube(true);
                     streamUrl = data.url;
                     isStreaming = true;
                     frameCount = 0;
@@ -185,12 +336,15 @@
                         stopAudio();
                     }
                 } else if (data.type === 'STOP_STREAM') {
-                    stopAudio();
-                    isStreaming = false;
-                    streamUrl = null;
-                    mirrorImage.style.display = 'none';
-                    status.className = '';
+                    stopMirroring();
                     showStatus('Stream stopped');
+                } else if (data.type === 'PLAY_YOUTUBE' && data.videoId) {
+                    playYouTube(String(data.videoId), Math.max(0, parseInt(data.start, 10) || 0));
+                } else if (data.type === 'STOP_YOUTUBE') {
+                    if (youtubeVideoId) {
+                        stopYouTube(false);
+                        showStatus('Waiting for connection...');
+                    }
                 }
             } catch (e) {
                 console.error('MirrorGo: Error parsing message:', e);
