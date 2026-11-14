@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "smrr",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-01",
+  // Static site from ../web; the Worker runs first so it can redirect www and,
+  // later, handle /ws and /api/*.
+  "assets": {
+    "directory": "../web",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "routes": [
+    { "pattern": "smrr.tv", "custom_domain": true },
+    { "pattern": "www.smrr.tv", "custom_domain": true }
+  ],
+  "workers_dev": false,
+  "preview_urls": false,
+  "observability": { "enabled": true }
+}
