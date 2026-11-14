@@ -24,21 +24,28 @@ const CHROME = process.env.CHROME || "/Applications/Google Chrome.app/Contents/M
 const SHOTS = process.env.SHOTS;
 // Mux's public test stream (HLS, CORS allowed: works with hls.js too).
 const LINK = process.env.LINK === "0" ? null : process.env.LINK || "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8";
+// Default: tools/test-image.png from the local file server below.
+const IMAGE_ENV = process.env.IMAGE;
+// The IFrame API's own sample video; YOUTUBE=0 skips the YouTube step.
+const YOUTUBE = process.env.YOUTUBE === "0" ? null : process.env.YOUTUBE || "M7lc1UVf-VE";
 const here = path.dirname(fileURLToPath(import.meta.url));
 
 // Serve tools/ on localhost (a secure context for canvas capture / AudioContext).
 const files = http.createServer((req, res) => {
   const file = path.join(here, new URL(req.url, "http://x").pathname);
   if (!file.startsWith(here) || !fs.existsSync(file)) return res.writeHead(404).end();
-  res.writeHead(200, { "content-type": "text/html; charset=utf-8" }).end(fs.readFileSync(file));
+  const type = file.endsWith(".png") ? "image/png" : "text/html; charset=utf-8";
+  res.writeHead(200, { "content-type": type }).end(fs.readFileSync(file));
 });
 await new Promise((r) => files.listen(0, "127.0.0.1", r));
 const senderBase = `http://localhost:${files.address().port}/fake-sender.html`;
+const IMAGE = IMAGE_ENV || `http://localhost:${files.address().port}/test-image.png`;
 
 const browser = await puppeteer.launch({
   executablePath: CHROME,
   headless: true,
-  args: ["--autoplay-policy=no-user-gesture-required", "--window-size=1920,1080"],
+  // Not flagged as automated: YouTube's player stalls for headless / automated browsers.
+  args: ["--autoplay-policy=no-user-gesture-required", "--window-size=1920,1080", "--disable-blink-features=AutomationControlled"],
   defaultViewport: { width: 1920, height: 1080 },
 });
 
@@ -54,6 +61,7 @@ const check = (ok, what) => {
 try {
   step(`viewer ${SERVER}/?debug=1`);
   const viewer = await browser.newPage();
+  await viewer.setUserAgent((await browser.userAgent()).replace("HeadlessChrome", "Chrome"));
   viewer.on("console", (m) => process.env.VERBOSE && console.log("  [viewer]", m.text()));
   await viewer.goto(`${SERVER}/?debug=1`);
   await viewer.waitForFunction(() => /^\d{3} \d{3}$/.test(document.getElementById("code").textContent), { timeout: 10000, polling: 200 });
@@ -182,13 +190,52 @@ try {
     await again.click("#stop-link");
     await waitMedia("idle", 5000);
 
+    step("link: an image (its own URL broken, so the fallback shows)");
+    await again.select("#kind", "image");
+    await again.$eval("#link", (e) => { e.value = "https://smrr.tv/no-such-image.jpg"; });
+    await again.$eval("#fallback", (e, url) => { e.value = url; }, IMAGE);
+    await again.click("#play-link");
+    await waitMedia("playing", 15000);
+    check(await viewer.evaluate(() => document.getElementById("image").naturalWidth > 0), "image shown (fallback)");
+    check((await viewer.$eval("body", (b) => b.dataset.media)) === "image", "image mode, no sound button");
+    check(await viewer.$eval("#sound", (b) => b.hidden), "sound button hidden");
+    if (SHOTS) await viewer.screenshot({ path: path.join(SHOTS, "smrr-link-image.png") });
+
     step("link: a link that doesn't exist fails");
+    await again.select("#kind", "video");
     await again.$eval("#link", (e) => { e.value = "https://smrr.tv/no-such-stream.m3u8"; });
     await again.click("#play-link");
     await waitMedia("error", 20000);
     check((await viewer.$eval("body", (b) => b.dataset.screen)) === "message", "error message on the page");
     check(/link error \((network|unsupported)\)/.test(await again.$eval("#state", (e) => e.textContent)), "sender got media-status error");
     await again.close();
+
+    if (YOUTUBE) {
+      // Sent from here, not a sender tab: YouTube only starts in the tab in front, and the tabs
+      // behind it are throttled.
+      step(`link: YouTube ${YOUTUBE}`);
+      const lookup = await (await fetch(`${SERVER}/api/rooms/${code}`, { headers: { origin: SERVER } })).json();
+      const ws = new WebSocket(lookup.signalingURL);
+      const statuses = [];
+      ws.addEventListener("message", (e) => { const m = JSON.parse(e.data); if (m.type === "media-status") statuses.push(m); });
+      await new Promise((r) => ws.addEventListener("open", r));
+      await viewer.bringToFront();
+      ws.send(JSON.stringify({ type: "media-load", id: 9, kind: "youtube", url: `https://www.youtube.com/watch?v=${YOUTUBE}`, videoId: YOUTUBE, start: 5 }));
+      await waitMedia("playing", 30000);
+      await new Promise((r) => setTimeout(r, 3000));
+      const yt = (await viewer.$eval("#debug", (e) => e.textContent)).split("\n").find((l) => l.startsWith("LINK"));
+      console.log(yt);
+      check(/youtube\s+playing\s+([6-9]|[1-9]\d)/.test(yt), "YouTube playing from 5 s, time moving");
+      check(statuses.some((m) => m.id === 9 && m.state === "playing"), "sender got media-status playing");
+      if (SHOTS) await viewer.screenshot({ path: path.join(SHOTS, "smrr-link-youtube.png") });
+      ws.send(JSON.stringify({ type: "media-control", id: 9, action: "pause" }));
+      await waitMedia("paused", 5000);
+      check(true, "paused from the phone");
+      ws.send(JSON.stringify({ type: "media-stop" }));
+      await waitMedia("idle", 5000);
+      check(true, "stopped");
+      ws.close();
+    }
   }
 } catch (error) {
   failed = true;
