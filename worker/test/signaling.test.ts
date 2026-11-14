@@ -218,6 +218,32 @@ describe("relay", () => {
     await sender.expectSilence();
   });
 
+  it("relays media-load / media-control / media-stop to the page, capabilities / media-status to the phone", async () => {
+    const { viewer, room } = await newViewer();
+    const { sender } = await senderFor(room.code);
+    await viewer.next("peer-joined");
+
+    const load = JSON.stringify({ type: "media-load", id: 1, url: "https://example.com/live.m3u8", mime: "application/x-mpegURL", live: true, title: "News", start: 0 });
+    sender.send(load);
+    expect(await viewer.nextRaw()).toBe(load);
+    const capabilities = JSON.stringify({ type: "capabilities", webrtc: true, hls: "native", mp4: true });
+    viewer.send(capabilities);
+    expect(await sender.nextRaw()).toBe(capabilities);
+    const status = JSON.stringify({ type: "media-status", id: 1, state: "playing", time: 3.5, duration: null, muted: true });
+    viewer.send(status);
+    expect(await sender.nextRaw()).toBe(status);
+    sender.send({ type: "media-control", id: 1, action: "pause" });
+    expect(await viewer.next()).toEqual({ type: "media-control", id: 1, action: "pause" });
+    sender.send({ type: "media-stop" });
+    expect(await viewer.next()).toEqual({ type: "media-stop" });
+
+    // Wrong direction
+    viewer.send({ type: "media-load", url: "https://example.com/x.m3u8" });
+    sender.send({ type: "media-status", state: "playing" });
+    await viewer.expectSilence();
+    await sender.expectSilence();
+  });
+
   it("drops unknown types, wrong-direction types, bad JSON and messages over 64 KB", async () => {
     const { viewer, room } = await newViewer();
     const { sender } = await senderFor(room.code);

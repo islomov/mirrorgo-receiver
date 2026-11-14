@@ -12,6 +12,10 @@
   sender, offers H.264-only video (a canvas with a running millisecond clock) + Opus audio (a beep
   every second, with a white flash on the same frame, to eyeball A/V sync), answers peer-joined /
   peer-left / restart-ice, and sends `bye` on Stop.
+
+  Links (like IPTV in the app): untick "mirror" to join without offering, paste a link and
+  "Play link" (`media-load`); the page's `capabilities` / `media-status` show in the log.
+  URL parameters: mirror=0, link=<url>.
 -->
 <html lang="en">
 <head>
@@ -31,7 +35,16 @@
   code <input id="code" size="8" inputmode="numeric" maxlength="6">
   <button id="connect">Connect</button>
   <button id="stop">Stop (bye)</button>
+  <label><input type="checkbox" id="mirror" checked> mirror</label>
   <span id="state">idle</span>
+</div>
+<div style="margin-top: 8px">
+  link <input id="link" size="70" placeholder="https://…/playlist.m3u8">
+  <label><input type="checkbox" id="live" checked> live</label>
+  <button id="play-link">Play link</button>
+  <button id="pause-link">Pause</button>
+  <button id="resume-link">Play</button>
+  <button id="stop-link">Stop link</button>
 </div>
 <canvas id="canvas" width="1280" height="720"></canvas>
 <div id="log"></div>
@@ -40,6 +53,9 @@ const params = new URLSearchParams(location.search);
 const $ = (id) => document.getElementById(id);
 $("server").value = params.get("server") || "https://smrr.tv";
 $("code").value = params.get("code") || "";
+$("link").value = params.get("link") || "";
+$("mirror").checked = params.get("mirror") !== "0";
+let mediaId = 0;
 
 let ws, pc, iceServers = [], stream, pingTimer, stopped = true, failures = 0;
 const log = (s) => { const l = $("log"); l.textContent = `${(performance.now() / 1000).toFixed(1)}s ${s}\n` + l.textContent; console.log("[fake-sender]", s); };
@@ -125,13 +141,19 @@ function open(url) {
 
 async function handle(m) {
   if (m.type === "pong") return;
+  if (m.type === "media-status" || m.type === "capabilities") {
+    const { type, ...rest } = m;
+    log(`← ${type} ${JSON.stringify(rest)}`);
+    if (type === "media-status") setState(`link ${m.state}${m.error ? " (" + m.error + ")" : ""}`);
+    return;
+  }
   log(`← ${m.type}${m.role ? " " + m.role : ""}`);
   if (m.type === "ready") {
     iceServers = m.iceServers || [];
     setState(m.viewerConnected ? "viewer here" : "waiting for viewer");
-    if (m.viewerConnected) await offer(false);
+    if (m.viewerConnected && $("mirror").checked) await offer(false);
   } else if (m.type === "peer-joined" && m.role === "viewer") {
-    await offer(false);
+    if ($("mirror").checked) await offer(false);
   } else if (m.type === "peer-left" && m.role === "viewer") {
     closePc();
     setState("waiting for viewer");
@@ -181,6 +203,15 @@ $("stop").onclick = () => {
   if (ws) ws.close(1000);
   setState("stopped");
 };
+$("play-link").onclick = () => {
+  closePc();
+  const url = $("link").value.trim();
+  send({ type: "media-load", id: ++mediaId, url, mime: /\.m3u8/i.test(url) ? "application/x-mpegURL" : "", live: $("live").checked, title: "Fake sender link", start: 0 });
+  log(`→ media-load #${mediaId}`);
+};
+$("pause-link").onclick = () => send({ type: "media-control", id: mediaId, action: "pause" });
+$("resume-link").onclick = () => send({ type: "media-control", id: mediaId, action: "play" });
+$("stop-link").onclick = () => { send({ type: "media-stop" }); log("→ media-stop"); };
 if (params.get("autostart") === "1") $("connect").click();
 </script>
 </body>

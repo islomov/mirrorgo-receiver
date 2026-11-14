@@ -14,10 +14,15 @@ export const strings = {
   qrHint: "Or scan with your iPhone camera",
 
   starting: "iPhone connected. Starting…",
-  startingHint: "Start Screen Mirroring in MirrorGo if it hasn't started yet.",
+  startingHint: "Start Screen Mirroring or play a channel in MirrorGo.",
 
   stoppedTitle: "Mirroring stopped",
   stoppedHint: "Start again from your iPhone. The code stays the same.",
+  mediaStoppedTitle: "Playback stopped",
+  mediaStoppedHint: "Pick something to play in MirrorGo. The code stays the same.",
+  mediaFailedTitle: "This browser couldn't play it",
+  mediaFailedHint: "Try another channel from your iPhone. The code stays the same.",
+  loading: "Loading…",
 
   iceFailed: "Couldn't connect. Make sure your iPhone and this device are on the same Wi-Fi.",
   replacedTitle: "This code is open in another window",

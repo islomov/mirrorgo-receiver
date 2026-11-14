@@ -1,6 +1,8 @@
 # smrr.tv signaling protocol v1 (contract between web page, Worker and iOS)
 
-Both sides talk only to the Worker (`https://smrr.tv`, `wss://smrr.tv/ws`). Media is peer-to-peer.
+Both sides talk only to the Worker (`https://smrr.tv`, `wss://smrr.tv/ws`). Media never goes through it:
+the mirrored screen is peer-to-peer (WebRTC), and links the phone sends (IPTV channels, …) are fetched by
+the browser itself (see "Links").
 All WebSocket messages are JSON text frames with a `type`. Unknown types are ignored by clients.
 
 ## HTTP
@@ -20,7 +22,8 @@ All WebSocket messages are JSON text frames with a `type`. Unknown types are ign
 
 - Viewer (the page): `/ws?role=viewer` for a new room, or `/ws?role=viewer&code=123456&token=<viewerToken>`
   to rejoin after a reload. A rejoin that doesn't match a live room silently gets a NEW room (new code).
-- Sender (the iOS extension): `/ws?role=sender&code=123456&token=<senderToken>`.
+- Sender: `/ws?role=sender&code=123456&token=<senderToken>`. The broadcast extension while mirroring,
+  the app itself while it plays a link. One at a time: the newer one replaces the older (4001).
   Rejected **before the upgrade** with HTTP `404` (no live room) or `403` (wrong token), so the client
   can tell "code expired" from a network error.
 
@@ -39,10 +42,34 @@ All WebSocket messages are JSON text frames with a `type`. Unknown types are ign
 - `{"type":"peer-left","role":"viewer"|"sender"}` when the other side's socket closes.
 
 ### Relayed unchanged to the other side (dropped if it isn't connected; max 64 KB per message)
-- sender → viewer: `offer {"sdp":"...","iceRestart":false}`, `candidate`, `bye {"reason":"..."}`
-- viewer → sender: `answer {"sdp":"..."}`, `candidate`, `restart-ice {}` (ask for an ICE restart), `bye {}`
+- sender → viewer: `offer {"sdp":"...","iceRestart":false}`, `candidate`, `bye {"reason":"..."}`,
+  `media-load`, `media-control`, `media-stop` (see "Links")
+- viewer → sender: `answer {"sdp":"..."}`, `candidate`, `restart-ice {}` (ask for an ICE restart), `bye {}`,
+  `capabilities`, `media-status` (see "Links")
 - `candidate`: `{"type":"candidate","candidate":"candidate:...","sdpMid":"0","sdpMLineIndex":0}`
 - Any other type from a client is ignored (not relayed).
+
+### Links (the page's own player, no WebRTC)
+For media that's already on the internet over HTTPS (IPTV channels): the page plays the link in its
+`<video>`, so the phone isn't needed while it plays (it can go to the background, or lose its socket).
+HLS uses the browser's own player when it has one (Safari, smart TV browsers: no CORS needed), else
+hls.js over MSE (the stream's host must allow CORS). Content served by the phone itself (`http://` on the
+LAN) can't be played this way: an HTTPS page can't load it.
+
+- sender → viewer `{"type":"media-load","id":1,"url":"https://…/index.m3u8","mime":"application/x-mpegURL","live":true,"title":"…","start":0}`
+  replaces whatever the page shows (a WebRTC stream too). `id`: chosen by the phone, echoed in
+  `media-status`, so reports about an earlier link can be told apart. `start`: seconds (not for live).
+- sender → viewer `{"type":"media-control","id":1,"action":"play"|"pause"|"seek","time":12.5}`
+- sender → viewer `{"type":"media-stop"}`: back to the code ("Playback stopped").
+- viewer → sender `{"type":"media-status","id":1,"state":"loading"|"playing"|"paused"|"ended"|"error","time":3.2,"duration":null,"muted":false,"error":"unsupported"|"network"|"decode"}`
+  on every change, every 2 s while a link is loaded, and when a sender joins. `duration` is null for
+  live streams. `muted`: the browser refused to autoplay with sound; the page shows a sound button
+  (focused, so OK on a TV remote unmutes). `error` only with `state: "error"`: `unsupported` (no player
+  for it), `network` (offline, geo-blocked, no CORS for hls.js), `decode`.
+- viewer → sender `{"type":"capabilities","v":1,"webrtc":true,"hls":"native"|"hls.js"|"none","mp4":true,"screen":{"width":1920,"height":1080}}`
+  when a sender joins.
+- A `bye` from the sender also stops the link; a sender that just disconnects (`peer-left`) doesn't.
+- An `offer` stops the link: mirroring takes over.
 
 ### Keepalive
 Clients send exactly the text `{"type":"ping"}` every 20 s; the server answers `{"type":"pong"}`
@@ -72,6 +99,9 @@ Clients must not auto-reconnect after 4001 / 4004; after 4008 the viewer starts 
 5. Viewer reload: phone gets `peer-left viewer`, closes its peer connection, waits; `peer-joined viewer` → new offer.
 6. Broadcast stop: phone sends `bye`, closes the socket → viewer gets `bye` / `peer-left sender` → "stopped" screen, same code.
 7. Page sees ICE `disconnected` for 5 s → sends `restart-ice`; the phone answers with an `offer` with `iceRestart: true`.
+8. A link: the app joins as the sender (`ready`; the page answers `capabilities`), sends `media-load`, and
+   follows `media-status`. It may disconnect and come back; the page plays on and reports the current
+   `media-status` when it's back. Stop: `media-stop` + `bye`.
 
 ## Implementation notes (Worker)
 - Room = one SQLite-backed Durable Object, `idFromName(code)`. A new viewer gets a random code;

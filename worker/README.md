@@ -1,7 +1,8 @@
 # smrr.tv Worker
 
 Serves the MirrorGo web receiver at https://smrr.tv: the static page in `../web` and the WebRTC
-signaling between the page (viewer) and the iOS broadcast extension (sender). Protocol:
+signaling between the page (viewer) and MirrorGo (sender: the broadcast extension while mirroring,
+the app while the page plays a link it sent). Protocol:
 [`../PROTOCOL.md`](../PROTOCOL.md).
 
 - `src/index.ts`: routes (`/ws`, `/api/rooms/:code`, `/c/:code`, `/healthz`, www → apex redirect, assets).
