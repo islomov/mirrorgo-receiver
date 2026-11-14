@@ -1,0 +1,186 @@
+/* smrr.tv: readable from a sofa (huge code, high contrast), works from phones to 1920×1080 TVs.
+   Kept conservative for older TV browsers: no `inset`, no flex `gap`, plain fallbacks before clamp(). */
+
+html, body { height: 100%; margin: 0; }
+body {
+  background: #0b0b12;
+  color: #f5f5fa;
+  font: 500 18px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+* { box-sizing: border-box; }
+h1 { margin: 0; font-weight: 700; letter-spacing: -0.01em; }
+p { margin: 0; }
+
+/* MARK: Screens */
+
+.screen {
+  display: none;
+  position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+  padding: 4vh 5vw;
+  overflow: auto;
+}
+body[data-screen="connecting"] #screen-connecting,
+body[data-screen="code"] #screen-code,
+body[data-screen="message"] #screen-message { display: flex; }
+
+.center {
+  flex-direction: column; align-items: center; justify-content: center; text-align: center;
+}
+.center > * + * { margin-top: 3vh; }
+
+.lead { font-size: 28px; font-size: clamp(20px, 2.6vw, 44px); color: #c9c9d6; }
+.hint { font-size: 22px; font-size: clamp(17px, 1.9vw, 34px); color: #a9a9bd; max-width: 32em; }
+#screen-message h1 { font-size: 40px; font-size: clamp(26px, 3.6vw, 64px); max-width: 20em; }
+
+.spinner {
+  width: 64px; height: 64px;
+  border: 6px solid rgba(255, 255, 255, 0.15); border-top-color: #8f7dff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* MARK: Code screen */
+
+#screen-code { flex-direction: column; }
+.brand {
+  font-size: 24px; font-size: clamp(18px, 1.8vw, 34px);
+  font-weight: 700; letter-spacing: 0.01em; color: #b9adff;
+}
+.code-layout {
+  flex: 1;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+}
+.code-layout > * + * { margin-top: 3vh; }
+#code-title { font-size: 44px; font-size: clamp(26px, 3.4vw, 64px); }
+#code-hint:empty { display: none; }
+
+.code-row { display: flex; align-items: center; justify-content: center; }
+.code-box { text-align: center; }
+.label {
+  font-size: 20px; font-size: clamp(15px, 1.5vw, 28px);
+  text-transform: uppercase; letter-spacing: 0.12em; color: #a9a9bd;
+}
+.code {
+  font-size: 160px; font-size: clamp(64px, 14vw, 300px);
+  font-weight: 800; line-height: 1.05; letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: #ffffff;
+}
+@media (max-height: 700px) and (min-aspect-ratio: 1/1) {
+  .code { font-size: 22vh; }
+}
+
+.qr { margin: 0 0 0 5vw; text-align: center; }
+.qr-image {
+  width: 220px; height: 220px;
+  width: clamp(140px, 17vh, 300px); height: clamp(140px, 17vh, 300px);
+  background: #fff; border-radius: 12px; overflow: hidden;
+}
+.qr-image svg { display: block; width: 100%; height: 100%; }
+.qr figcaption { margin-top: 10px; font-size: 16px; font-size: clamp(13px, 1.1vw, 22px); color: #a9a9bd; }
+
+.steps {
+  display: flex; justify-content: center; flex-wrap: wrap;
+  list-style: none; margin: 0; padding: 0;
+  counter-reset: step;
+}
+.steps li {
+  display: flex; align-items: center;
+  margin: 1vh 1.6vw;
+  font-size: 24px; font-size: clamp(17px, 1.9vw, 36px);
+  counter-increment: step;
+}
+.steps li::before {
+  content: counter(step);
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: 1.7em; height: 1.7em; margin-right: 0.5em;
+  border-radius: 50%;
+  background: #6d5dfc; color: #fff; font-weight: 700; font-size: 0.9em;
+}
+.status {
+  min-height: 1.4em;
+  font-size: 24px; font-size: clamp(17px, 1.9vw, 36px);
+  color: #ffd27a;
+}
+
+/* Starting / stopped: the title says it, the steps stay as a reminder. */
+body[data-variant="starting"] #code-title { color: #7ee2a8; }
+
+/* Portrait (phones): stack everything. */
+@media (max-aspect-ratio: 1/1) {
+  .code-row { flex-direction: column; }
+  .qr { margin: 3vh 0 0; }
+  .code { font-size: 18vw; }
+  .steps { flex-direction: column; align-items: flex-start; }
+}
+
+/* MARK: Playing */
+
+#video {
+  position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: contain; background: #000;
+  visibility: hidden;
+}
+body[data-screen="playing"] #video { visibility: visible; }
+body[data-screen="playing"] { background: #000; }
+
+.controls {
+  display: none;
+  position: fixed; right: 3vw; bottom: 4vh;
+  transition: opacity 0.3s;
+}
+body[data-screen="playing"] .controls { display: flex; }
+.controls .button + .button { margin-left: 16px; }
+body.idle[data-screen="playing"] .controls { opacity: 0; pointer-events: none; }
+body.idle[data-screen="playing"], body.idle[data-screen="playing"] * { cursor: none; }
+
+.toast {
+  display: none;
+  position: fixed; top: 4vh; left: 50%; transform: translateX(-50%);
+  padding: 12px 24px; border-radius: 999px;
+  background: rgba(0, 0, 0, 0.75); color: #fff;
+  font-size: 22px; font-size: clamp(16px, 1.6vw, 30px);
+}
+.toast.visible { display: block; }
+
+/* MARK: Buttons (focusable with a TV remote / keyboard) */
+
+.button {
+  font: inherit;
+  font-size: 22px; font-size: clamp(16px, 1.6vw, 30px);
+  font-weight: 600;
+  padding: 0.65em 1.3em;
+  border: 0; border-radius: 999px;
+  background: rgba(40, 40, 52, 0.85); color: #fff;
+  cursor: pointer;
+}
+.button.primary { background: #6d5dfc; }
+.button:hover { filter: brightness(1.15); }
+.button:focus { outline: 4px solid #fff; outline-offset: 4px; }
+.button:focus:not(:focus-visible) { outline: none; }
+.button[hidden] { display: none; }
+
+/* MARK: Debug overlay (?debug=1) */
+
+.debug {
+  position: fixed; top: 8px; left: 8px; z-index: 10;
+  max-width: calc(100vw - 16px); max-height: calc(100vh - 16px); overflow: auto;
+  margin: 0; padding: 8px 10px; border-radius: 8px;
+  background: rgba(0, 0, 0, 0.72); color: #e6e6e6;
+  font: 12px/1.35 ui-monospace, Menlo, Consolas, monospace;
+  white-space: pre;
+  pointer-events: none;
+}
+.debug[hidden] { display: none; }
+
+/* MARK: Join page (/c/<code>) */
+
+.join h1 { font-size: 40px; font-size: clamp(26px, 4vw, 56px); }
+.join .code { font-size: 96px; font-size: clamp(56px, 12vw, 160px); }
+.join a.button { text-decoration: none; display: inline-block; }

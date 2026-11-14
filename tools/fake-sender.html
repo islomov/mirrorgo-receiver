@@ -1,0 +1,187 @@
+<!doctype html>
+<!--
+  Fake MirrorGo sender for testing the smrr.tv page without an iPhone. NOT deployed (outside web/).
+
+  Serve it from localhost (canvas capture and AudioContext need a secure context), e.g.
+    cd tools && python3 -m http.server 8000
+  then open http://localhost:8000/fake-sender.html?server=https://smrr.tv
+  (or ?server=http://localhost:8787 for `wrangler dev`), type the code shown by the page, Connect.
+  URL parameters for automation: code=123456, autostart=1.
+
+  It behaves like the phone (PROTOCOL.md): GET /api/rooms/:code → signalingURL, connects as the
+  sender, offers H.264-only video (a canvas with a running millisecond clock) + Opus audio (a beep
+  every second, with a white flash on the same frame, to eyeball A/V sync), answers peer-joined /
+  peer-left / restart-ice, and sends `bye` on Stop.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fake MirrorGo sender</title>
+<style>
+  body { margin: 0; padding: 16px; background: #111; color: #eee; font: 14px/1.4 ui-monospace, Menlo, monospace; }
+  input, button { font: inherit; padding: 6px 10px; }
+  #log { white-space: pre; margin-top: 12px; max-height: 40vh; overflow: auto; }
+  canvas { width: 640px; max-width: 100%; display: block; margin-top: 12px; background: #000; }
+</style>
+</head>
+<body>
+<div>
+  server <input id="server" size="28">
+  code <input id="code" size="8" inputmode="numeric" maxlength="6">
+  <button id="connect">Connect</button>
+  <button id="stop">Stop (bye)</button>
+  <span id="state">idle</span>
+</div>
+<canvas id="canvas" width="1280" height="720"></canvas>
+<div id="log"></div>
+<script>
+const params = new URLSearchParams(location.search);
+const $ = (id) => document.getElementById(id);
+$("server").value = params.get("server") || "https://smrr.tv";
+$("code").value = params.get("code") || "";
+
+let ws, pc, iceServers = [], stream, pingTimer, stopped = true, failures = 0;
+const log = (s) => { const l = $("log"); l.textContent = `${(performance.now() / 1000).toFixed(1)}s ${s}\n` + l.textContent; console.log("[fake-sender]", s); };
+const setState = (s) => { $("state").textContent = s; document.title = `sender: ${s}`; };
+const send = (m) => { if (ws && ws.readyState === 1) ws.send(JSON.stringify(m)); };
+
+// MARK: Media: canvas clock + beeping oscillator
+
+function makeStream() {
+  const canvas = $("canvas"), g = canvas.getContext("2d");
+  const t0 = performance.now();
+  let frames = 0;
+  (function draw() {
+    const ms = performance.now() - t0;
+    const flash = ms % 1000 < 50;
+    g.fillStyle = flash ? "#fff" : "#101830";
+    g.fillRect(0, 0, 1280, 720);
+    g.fillStyle = flash ? "#000" : "#fff";
+    g.font = "bold 200px Menlo, monospace";
+    g.textAlign = "center";
+    g.fillText((ms / 1000).toFixed(3), 640, 360);
+    g.font = "40px Menlo, monospace";
+    g.fillText(`frame ${++frames}   ${new Date().toISOString().slice(11, 23)}`, 640, 470);
+    g.fillStyle = "#3f3";
+    g.fillRect((ms % 2000) / 2000 * 1240, 560, 40, 60);
+    requestAnimationFrame(draw);
+  })();
+  const video = canvas.captureStream(30).getVideoTracks()[0];
+
+  const ctx = new AudioContext();
+  const osc = ctx.createOscillator(), gain = ctx.createGain(), pan = ctx.createStereoPanner();
+  osc.frequency.value = 880;
+  gain.gain.value = 0;
+  const dest = ctx.createMediaStreamDestination();
+  osc.connect(gain).connect(pan).connect(dest);
+  // Beep 50 ms at every whole second (same moment as the white flash), alternating left / right.
+  const start = ctx.currentTime + 0.1;
+  for (let i = 0; i < 3600; i++) {
+    gain.gain.setValueAtTime(0.25, start + i);
+    gain.gain.setValueAtTime(0, start + i + 0.05);
+    pan.pan.setValueAtTime(i % 2 ? 1 : -1, start + i);
+  }
+  osc.start();
+  ctx.resume();
+  return new MediaStream([video, dest.stream.getAudioTracks()[0]]);
+}
+
+// MARK: Signaling (like the iOS extension)
+
+async function connect() {
+  const server = $("server").value.replace(/\/$/, ""), code = $("code").value.trim();
+  if (!stream) stream = makeStream();
+  stopped = false;
+  setState("looking up");
+  const res = await fetch(`${server}/api/rooms/${code}`);
+  const body = await res.json().catch(() => ({}));
+  if (!res.ok) { setState(`lookup ${res.status} ${body.error || ""}`); log(`lookup failed: ${res.status}`); return; }
+  log(`lookup ok, token ${body.senderToken.slice(0, 6)}…`);
+  open(body.signalingURL);
+}
+
+function open(url) {
+  ws = new WebSocket(url);
+  const socket = ws;
+  setState("connecting");
+  ws.onopen = () => {
+    failures = 0;
+    send({ type: "hello", v: 1, role: "sender", app: "FakeSender/1 web" });
+    clearInterval(pingTimer);
+    pingTimer = setInterval(() => socket.readyState === 1 && socket.send('{"type":"ping"}'), 20000);
+  };
+  ws.onmessage = (e) => handle(JSON.parse(e.data));
+  ws.onclose = (e) => {
+    clearInterval(pingTimer);
+    if (socket !== ws) return;
+    log(`signaling closed ${e.code} ${e.reason}`);
+    if (stopped || e.code === 4001 || e.code === 4004) { setState(`closed ${e.code}`); closePc(); return; }
+    const delay = Math.min(15000, 500 * 2 ** failures++);
+    setState(`reconnecting in ${delay} ms`);
+    setTimeout(() => !stopped && open(url), delay);
+  };
+}
+
+async function handle(m) {
+  if (m.type === "pong") return;
+  log(`← ${m.type}${m.role ? " " + m.role : ""}`);
+  if (m.type === "ready") {
+    iceServers = m.iceServers || [];
+    setState(m.viewerConnected ? "viewer here" : "waiting for viewer");
+    if (m.viewerConnected) await offer(false);
+  } else if (m.type === "peer-joined" && m.role === "viewer") {
+    await offer(false);
+  } else if (m.type === "peer-left" && m.role === "viewer") {
+    closePc();
+    setState("waiting for viewer");
+  } else if (m.type === "answer" && pc) {
+    await pc.setRemoteDescription({ type: "answer", sdp: m.sdp });
+  } else if (m.type === "candidate" && pc && m.candidate) {
+    await pc.addIceCandidate({ candidate: m.candidate, sdpMid: m.sdpMid, sdpMLineIndex: m.sdpMLineIndex }).catch((e) => log(`addIceCandidate ${e}`));
+  } else if (m.type === "restart-ice") {
+    if (pc) await offer(true); else await offer(false);
+  }
+}
+
+async function offer(iceRestart) {
+  if (!iceRestart) {
+    closePc();
+    pc = new RTCPeerConnection({ iceServers });
+    const current = pc;
+    pc.onicecandidate = (e) => e.candidate && e.candidate.candidate && current === pc &&
+      send({ type: "candidate", candidate: e.candidate.candidate, sdpMid: e.candidate.sdpMid, sdpMLineIndex: e.candidate.sdpMLineIndex });
+    pc.oniceconnectionstatechange = () => { if (current === pc) { log(`ICE ${pc.iceConnectionState}`); setState(`ICE ${pc.iceConnectionState}`); } };
+    for (const track of stream.getTracks()) {
+      const t = pc.addTransceiver(track, { direction: "sendonly", streams: [stream] });
+      if (track.kind === "video") {
+        // H.264 (+ RTX) only, like the phone.
+        const codecs = RTCRtpSender.getCapabilities("video").codecs
+          .filter((c) => /h264|rtx/i.test(c.mimeType));
+        t.setCodecPreferences(codecs);
+      }
+    }
+  }
+  const o = await pc.createOffer(iceRestart ? { iceRestart: true } : undefined);
+  await pc.setLocalDescription(o);
+  send({ type: "offer", sdp: pc.localDescription.sdp, iceRestart });
+  log(`→ offer${iceRestart ? " (ICE restart)" : ""}`);
+}
+
+function closePc() {
+  if (pc) pc.close();
+  pc = null;
+}
+
+$("connect").onclick = () => connect().catch((e) => { log(`error ${e}`); setState("error"); });
+$("stop").onclick = () => {
+  stopped = true;
+  send({ type: "bye", reason: "stopped" });
+  closePc();
+  if (ws) ws.close(1000);
+  setState("stopped");
+};
+if (params.get("autostart") === "1") $("connect").click();
+</script>
+</body>
+</html>

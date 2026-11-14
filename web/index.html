@@ -2,26 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0b0b12">
+  <meta name="description" content="Mirror your iPhone screen to this browser with MirrorGo.">
   <title>smrr.tv</title>
-  <meta name="robots" content="noindex">
-  <style>
-    :root { color-scheme: dark; }
-    html, body { height: 100%; margin: 0; }
-    body {
-      display: grid; place-items: center;
-      background: #0b0b12; color: #f2f2f7;
-      font: 500 18px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      text-align: center;
-    }
-    h1 { font-size: clamp(40px, 8vw, 96px); margin: 0 0 12px; letter-spacing: -0.02em; }
-    p { margin: 0; opacity: 0.7; }
-  </style>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%236d5dfc'/%3E%3Crect x='7' y='9' width='18' height='12' rx='2' fill='none' stroke='white' stroke-width='2.5'/%3E%3Cpath d='M12 25h8' stroke='white' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/style.css">
 </head>
-<body>
-  <main>
-    <h1>smrr.tv</h1>
-    <p>Mirror your iPhone to this browser with MirrorGo. Coming soon.</p>
-  </main>
+<body data-screen="connecting">
+  <video id="video" autoplay playsinline muted></video>
+
+  <!-- Connecting to the server -->
+  <section class="screen center" id="screen-connecting">
+    <div class="spinner" aria-hidden="true"></div>
+    <p class="lead" id="connecting-text" role="status"></p>
+  </section>
+
+  <!-- The code (also: phone connected / starting, and stopped) -->
+  <section class="screen" id="screen-code">
+    <header class="brand" id="brand"></header>
+    <main class="code-layout">
+      <h1 id="code-title"></h1>
+      <p class="hint" id="code-hint"></p>
+      <div class="code-row">
+        <div class="code-box">
+          <div class="label" id="code-label"></div>
+          <div class="code" id="code" aria-live="polite"></div>
+        </div>
+        <figure class="qr">
+          <div class="qr-image" id="qr"></div>
+          <figcaption id="qr-hint"></figcaption>
+        </figure>
+      </div>
+      <ol class="steps" id="steps"></ol>
+      <p class="status" id="code-status" role="status"></p>
+    </main>
+  </section>
+
+  <!-- Errors and notices -->
+  <section class="screen center" id="screen-message">
+    <h1 id="message-title"></h1>
+    <p class="hint" id="message-hint"></p>
+    <button type="button" class="button primary" id="message-action"></button>
+  </section>
+
+  <!-- Playing -->
+  <div class="toast" id="toast" role="status"></div>
+  <div class="controls" id="controls">
+    <button type="button" class="button primary" id="sound"></button>
+    <button type="button" class="button" id="fullscreen"></button>
+  </div>
+
+  <pre class="debug" id="debug" hidden></pre>
+
+  <script type="module" src="/app.js"></script>
+  <script nomodule>
+    // Browsers without ES modules can't run the player either. (The only string outside strings.js.)
+    document.getElementById("connecting-text").textContent =
+      "This browser can't play the mirrored screen. Try Chrome, Edge, Safari or Firefox.";
+    document.querySelector(".spinner").style.display = "none";
+  </script>
 </body>
 </html>
