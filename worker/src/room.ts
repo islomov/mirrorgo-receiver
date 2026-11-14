@@ -1,6 +1,6 @@
 // One room = one Durable Object, addressed by idFromName(code). It holds at most one viewer
-// (the web page) and one sender (the iOS extension) WebSocket, relays the WebRTC signaling
-// between them, and deletes itself when the room ends, which frees the code again.
+// (the web page) and one sender (the iOS app or its broadcast extension) WebSocket, relays the
+// signaling between them, and deletes itself when the room ends, which frees the code again.
 // Protocol: ../../PROTOCOL.md.
 
 import { DurableObject } from "cloudflare:workers";
@@ -36,10 +36,13 @@ interface SocketAttachment {
   id: string;
 }
 
-/** Messages each role may send; everything else is ignored. */
+/**
+ * Messages each role may send; everything else is ignored. WebRTC signaling, plus links the page
+ * plays itself (`media-*`) and what the page can play (`capabilities`).
+ */
 const RELAYED: Record<Role, ReadonlySet<string>> = {
-  sender: new Set(["offer", "candidate", "bye"]),
-  viewer: new Set(["answer", "candidate", "restart-ice", "bye"]),
+  sender: new Set(["offer", "candidate", "bye", "media-load", "media-control", "media-stop"]),
+  viewer: new Set(["answer", "candidate", "restart-ice", "bye", "capabilities", "media-status"]),
 };
 
 const other = (role: Role): Role => (role === "viewer" ? "sender" : "viewer");

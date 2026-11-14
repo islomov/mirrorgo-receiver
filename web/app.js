@@ -1,10 +1,12 @@
-// smrr.tv page: shows a code, waits for MirrorGo on the iPhone and plays its screen.
+// smrr.tv page: shows a code, waits for MirrorGo on the iPhone and plays its screen, or a link it
+// sends (an IPTV channel, …) in the page's own player.
 // States: connecting → code → starting (phone connected) → playing → stopped (same code) / error.
-// Signaling: signaling.js, WebRTC: player.js, strings: strings.js, protocol: PROTOCOL.md.
+// Signaling: signaling.js, WebRTC: player.js, links: media.js, strings: strings.js, protocol: PROTOCOL.md.
 
 import { strings, spacedCode } from "./strings.js";
 import { SignalingClient } from "./signaling.js";
 import { WebRTCPlayer, PlayerState } from "./player.js";
+import { MediaPlayer, MediaState, capabilities } from "./media.js";
 import qrcode from "./vendor/qrcode.js";
 
 const $ = function (id) { return document.getElementById(id); };
@@ -16,8 +18,10 @@ const app = {
   status: "connecting",   // signaling: connecting | open | reconnecting | offline | replaced | closed
   room: null,             // the `room` message
   senderConnected: false,
-  stopped: false,         // the phone stopped mirroring (keeps the code)
+  stopped: false,         // the phone stopped mirroring / playing (keeps the code)
+  activity: "mirroring",  // what the phone did last: "mirroring" (WebRTC) | "media" (a link)
   player: PlayerState.idle,
+  media: MediaState.idle,
   screen: null,
 };
 
@@ -60,7 +64,24 @@ const player = new WebRTCPlayer(video, {
   },
 });
 
+const media = new MediaPlayer(video, {
+  log: log,
+  forceHlsJs: /(^|[?&])hlsjs=1(&|$)/.test(location.search), // testing hls.js where HLS is native
+  onStatus: function (status) { signaling.send(status); },
+  onStateChange: function (state) {
+    app.media = state;
+    if (state === MediaState.ended) app.stopped = true;
+    render();
+  },
+});
+
 // MARK: Signaling
+
+/** Tells a phone that just joined what this browser plays, and what's playing. */
+function greetSender() {
+  signaling.send(capabilities(video));
+  media.sendStatus();
+}
 
 function onRoom(room) {
   const newCode = !app.room || app.room.code !== room.code;
@@ -76,6 +97,7 @@ function onRoom(room) {
   } else {
     log("rejoined room");
   }
+  if (app.senderConnected) greetSender();
   render();
 }
 
@@ -85,27 +107,49 @@ function onSignalingMessage(message) {
       if (message.role === "sender") {
         log("phone connected");
         app.senderConnected = true;
-        app.stopped = false;
+        if (!media.active) app.stopped = false;
+        greetSender();
       }
       break;
     case "peer-left":
       if (message.role === "sender") {
         log("phone left");
         app.senderConnected = false;
-        // Media is peer-to-peer: if it's still flowing, the phone's signaling socket may just be
+        // A link plays on without the phone (it may be in the background). WebRTC media is
+        // peer-to-peer: if it's still flowing, the phone's signaling socket may just be
         // reconnecting. Otherwise the phone has stopped.
-        if (app.player !== PlayerState.playing) stopMirroring();
+        if (!media.active && app.player !== PlayerState.playing) stopMirroring();
       }
       break;
     case "bye":
-      log("phone stopped mirroring");
+      log("phone left");
       app.senderConnected = false;
+      media.stop();
       stopMirroring();
       break;
     case "offer":
       app.senderConnected = true;
       app.stopped = false;
+      app.activity = "mirroring";
+      media.stop();
       player.handle(message);
+      break;
+    case "media-load":
+      log("phone sent a link");
+      app.senderConnected = true;
+      app.stopped = false;
+      app.activity = "media";
+      player.close();
+      app.player = PlayerState.idle;
+      media.load(message);
+      break;
+    case "media-control":
+      media.control(message);
+      break;
+    case "media-stop":
+      log("phone stopped the link");
+      media.stop();
+      app.stopped = true;
       break;
     case "candidate":
       player.handle(message);
@@ -132,12 +176,18 @@ function currentView() {
     return { screen: "message", title: strings.roomClosedTitle, action: strings.newCode, onAction: restartSignaling };
   }
   if (app.player === PlayerState.playing || app.player === PlayerState.reconnecting) return { screen: "playing" };
+  if (media.active) return { screen: "playing" };
   if (!app.room) return { screen: "connecting" };
+  if (app.media === MediaState.error) {
+    return { screen: "message", title: strings.mediaFailedTitle, hint: strings.mediaFailedHint };
+  }
   if (app.player === PlayerState.failed) {
     return { screen: "message", title: strings.iceFailed, action: strings.tryAgain, onAction: function () { player.retry(); } };
   }
-  if (app.senderConnected || app.player === PlayerState.connecting) return { screen: "code", variant: "starting" };
+  if (app.player === PlayerState.connecting) return { screen: "code", variant: "starting" };
+  // Before "phone connected": the app stays in the room for a moment after stopping a link.
   if (app.stopped) return { screen: "code", variant: "stopped" };
+  if (app.senderConnected) return { screen: "code", variant: "starting" };
   return { screen: "code", variant: "waiting" };
 }
 
@@ -156,8 +206,9 @@ function render() {
   if (view.screen === "connecting") {
     $("connecting-text").textContent = offlineText || strings.connecting;
   } else if (view.screen === "code") {
-    const titles = { waiting: strings.codeTitle, starting: strings.starting, stopped: strings.stoppedTitle };
-    const hints = { waiting: "", starting: strings.startingHint, stopped: strings.stoppedHint };
+    const stoppedMedia = app.activity === "media";
+    const titles = { waiting: strings.codeTitle, starting: strings.starting, stopped: stoppedMedia ? strings.mediaStoppedTitle : strings.stoppedTitle };
+    const hints = { waiting: "", starting: strings.startingHint, stopped: stoppedMedia ? strings.mediaStoppedHint : strings.stoppedHint };
     $("code-title").textContent = titles[view.variant];
     $("code-hint").textContent = hints[view.variant];
     $("code-status").textContent = offlineText;
@@ -173,8 +224,9 @@ function render() {
 
   const toast = $("toast");
   const reconnecting = view.screen === "playing" && app.player === PlayerState.reconnecting;
-  toast.textContent = reconnecting ? strings.reconnecting : "";
-  toast.className = reconnecting ? "toast visible" : "toast";
+  const loading = view.screen === "playing" && app.media === MediaState.loading;
+  toast.textContent = reconnecting ? strings.reconnecting : loading ? strings.loading : "";
+  toast.className = reconnecting || loading ? "toast visible" : "toast";
 
   if (view.screen === "playing") {
     if (screenChanged) {
@@ -206,6 +258,7 @@ function renderQR(text) {
 
 function restartSignaling() {
   player.close();
+  media.stop();
   app.player = PlayerState.idle;
   app.room = null;
   app.stopped = false;
@@ -220,6 +273,9 @@ function renderSound() {
   button.textContent = video.muted ? strings.tapForSound : strings.mute;
   button.className = video.muted ? "button primary" : "button";
 }
+
+// A link may start muted (autoplay with sound refused) after the screen rendered.
+video.addEventListener("volumechange", renderSound);
 
 $("sound").addEventListener("click", function () {
   video.muted = !video.muted;
@@ -345,8 +401,17 @@ async function renderDebug() {
     "NET    rtt " + fmt(P.rttMs, 1) + " ms  " + (s.pair ? P.local + " ⇄ " + P.remote : "no candidate pair"),
     "       candidates: browser " + s.localCandidates + ", phone " + s.remoteCandidates +
       "  offer→first frame " + fmt(s.offerToFirstFrameMs) + " ms",
+    "LINK   " + mediaLine(),
     "",
   ].concat(events).join("\n");
+}
+
+function mediaLine() {
+  const status = media.status();
+  if (!status) return media.state;
+  return status.state + (status.error ? " (" + status.error + ")" : "") + "  " + fmt(status.time, 1) + " s" +
+    (status.duration ? " / " + fmt(status.duration, 1) + " s" : "") + (status.muted ? "  muted" : "") +
+    "  " + (media.hls ? "hls.js" : "native") + "  " + (video.videoWidth || "–") + "x" + (video.videoHeight || "–");
 }
 
 // MARK: Start
@@ -364,7 +429,7 @@ strings.steps.forEach(function (step) {
 renderFullscreen();
 
 if (debug) {
-  window.smrr = { app: app, player: player, signaling: signaling }; // for the console and tools/e2e.mjs
+  window.smrr = { app: app, player: player, media: media, signaling: signaling }; // for the console and tools/e2e.mjs
   $("debug").hidden = false;
   setInterval(function () { renderDebug().catch(function () {}); }, 1000);
 }
