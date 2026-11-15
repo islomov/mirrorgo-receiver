@@ -15,6 +15,7 @@ export const strings = {
 
   starting: "iPhone connected. Starting…",
   startingHint: "Start Screen Mirroring or play a channel in MirrorGo.",
+  launchedStarting: "Starting from MirrorGo…",
 
   stoppedTitle: "Mirroring stopped",
   stoppedHint: "Start again from your iPhone. The code stays the same.",

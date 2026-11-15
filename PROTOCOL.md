@@ -18,6 +18,18 @@ All WebSocket messages are JSON text frames with a `type`. Unknown types are ign
 - `404 {"error":"not_found"}`: no live room with that code (never existed, expired, closed).
 - `429 {"error":"rate_limited"}` + `Retry-After: <s>`: more than 10 lookups per minute from one IP.
 
+### `POST /api/rooms` (the app, before opening the TV's browser on the page)
+For TVs whose browser the app can open at a URL (LG webOS): no code to type. Creates a room with no
+viewer yet. `cache-control: no-store`, JSON bodies, no CORS (only the app calls it).
+- `201 {"v":1,"code":"123456","senderToken":"<32 hex>","signalingURL":"wss://smrr.tv/ws?role=sender&code=123456&token=<32 hex>","viewerURL":"https://smrr.tv/#room=123456-<viewerToken>"}`
+  The app opens `viewerURL` in the TV's browser and joins as the sender (it may join before the page).
+  The viewer token is in the fragment, which browsers don't send to the server (no tokens in logs).
+  The page stores it like a reload's room (sessionStorage), removes the fragment from the address and
+  connects with `/ws?role=viewer&code=…&token=…`, which joins this room. It starts signaling even
+  without WebRTC (links don't need it) and shows "Starting from MirrorGo…" instead of the steps.
+- `405`: not POST. `429 {"error":"rate_limited"}` + `Retry-After: <s>`: more than 10 rooms per minute from one IP.
+  `503 {"error":"busy"}`: no free code found.
+
 ## WebSocket `/ws`
 
 - Viewer (the page): `/ws?role=viewer` for a new room, or `/ws?role=viewer&code=123456&token=<viewerToken>`
@@ -89,7 +101,10 @@ Clients send exactly the text `{"type":"ping"}` every 20 s; the server answers `
 Clients must not auto-reconnect after 4001 / 4004; after 4008 the viewer starts a new room.
 
 ## Room lifetime
-- Created when a viewer connects without a (valid) code. Code: 6 random digits, unique among live rooms.
+- Created when a viewer connects without a (valid) code, or by the app (`POST /api/rooms`). Code: 6
+  random digits, unique among live rooms.
+- Created by the app: closed (sender gets 4004) if its page hasn't connected within 2 minutes. Once it
+  has, the rules below apply.
 - No sender has ever joined within 10 min → expires (viewer closed with 4008).
 - Once a sender has joined, it lives while the viewer is connected. The sender token stays valid,
   so the phone can stop and start the broadcast again without a new code.
@@ -117,7 +132,7 @@ Clients must not auto-reconnect after 4001 / 4004; after 4008 the viewer starts 
   is never found even if the alarm hasn't run yet. Ending a room closes its sockets and calls
   `deleteAll()`, which frees the code.
 - Rate limits (Workers Rate Limiting binding, per IP, approximate per Cloudflare location):
-  `GET /api/rooms/:code` 10/min; sender WebSocket upgrades 30/min (their 404 vs 403 would otherwise
+  `GET /api/rooms/:code` 10/min; `POST /api/rooms` 10/min; sender WebSocket upgrades 30/min (their 404 vs 403 would otherwise
   reveal live codes). A limited sender upgrade gets HTTP `429` + `Retry-After`.
 - `/ws` without `Upgrade: websocket` → `426`; unknown `role` → `400`; a sender with a malformed code
   or token → `404`.

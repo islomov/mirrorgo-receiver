@@ -6,6 +6,11 @@ export const PROTOCOL_VERSION = 1;
 export const ROOM_TTL_MS = 10 * 60 * 1000;
 /** The viewer has been gone this long → room closed (4004 to the sender). */
 export const VIEWER_GRACE_MS = 60 * 1000;
+/**
+ * A room the app created (`POST /api/rooms`) is closed if its page hasn't connected by then: the app
+ * opens the TV's browser on it, which can take a while to start.
+ */
+export const LAUNCH_GRACE_MS = 2 * 60 * 1000;
 /** Largest message relayed between the peers. */
 export const MAX_MESSAGE_BYTES = 64 * 1024;
 

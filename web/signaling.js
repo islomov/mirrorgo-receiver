@@ -167,6 +167,19 @@ export class SignalingClient {
   }
 }
 
+/**
+ * A room the app created and opened this page on (the TV's browser, launched with
+ * `#room=<code>-<viewerToken>`, see POST /api/rooms): stored like the room of a reload, so the
+ * connection rejoins it. The fragment is removed from the address. True if there was one.
+ */
+export function adoptRoomFromURL() {
+  const match = /^#room=(\d{6})-([0-9a-f]{32})$/.exec(location.hash);
+  if (!match) return false;
+  saveRoom(match[1], match[2]);
+  try { history.replaceState(null, "", location.pathname + location.search); } catch (e) { /* old browser */ }
+  return true;
+}
+
 function loadRoom() {
   try {
     const saved = JSON.parse(sessionStorage.getItem(SESSION_KEY) || "null");

@@ -27,6 +27,7 @@ export default {
     }
     if (url.pathname === "/ws") return handleWebSocket(request, url, env);
 
+    if (url.pathname === "/api/rooms") return handleCreate(request, url, env);
     const lookup = url.pathname.match(/^\/api\/rooms\/([^/]*)$/);
     if (lookup) return handleLookup(request, url, lookup[1], env);
     if (url.pathname.startsWith("/api/")) return json({ error: "not_found" }, 404, CORS);
@@ -39,6 +40,39 @@ export default {
     return env.ASSETS.fetch(request);
   },
 } satisfies ExportedHandler<Env>;
+
+// MARK: POST /api/rooms
+
+/**
+ * The app creates a room for a page it opens itself (the TV's browser, launched with `viewerURL`), so
+ * nobody has to type a code. The tokens go only to the app; the viewer's is in the URL's fragment,
+ * which browsers don't send to the server.
+ */
+async function handleCreate(request: Request, url: URL, env: Env): Promise<Response> {
+  if (request.method !== "POST") return json({ error: "method_not_allowed" }, 405, { allow: "POST" });
+
+  const { success } = await env.CREATE_LIMITER.limit({ key: clientIP(request) });
+  if (!success) {
+    log("create-rate-limited");
+    return json({ error: "rate_limited" }, 429, { "retry-after": RETRY_AFTER_S });
+  }
+  for (let attempt = 0; attempt < MAX_CODE_ATTEMPTS; attempt++) {
+    const code = randomCode();
+    const tokens = await roomStub(env, code).create(code);
+    if (!tokens) continue;
+    const viewerURL = new URL("/", url);
+    viewerURL.hash = `room=${code}-${tokens.viewerToken}`;
+    return json({
+      v: PROTOCOL_VERSION,
+      code,
+      senderToken: tokens.senderToken,
+      signalingURL: senderSignalingURL(url, code, tokens.senderToken),
+      viewerURL: viewerURL.toString(),
+    }, 201);
+  }
+  log("no-free-code");
+  return json({ error: "busy" }, 503);
+}
 
 // MARK: GET /api/rooms/:code
 
@@ -61,10 +95,7 @@ async function handleLookup(request: Request, url: URL, code: string, env: Env):
   const senderToken = await roomStub(env, code).lookup();
   if (!senderToken) return json({ error: "not_found" }, 404, CORS);
 
-  const signalingURL = new URL("/ws", url);
-  signalingURL.protocol = url.protocol === "https:" ? "wss:" : "ws:";
-  signalingURL.search = new URLSearchParams({ role: "sender", code, token: senderToken }).toString();
-  return json({ v: PROTOCOL_VERSION, code, senderToken, signalingURL: signalingURL.toString() }, 200, CORS);
+  return json({ v: PROTOCOL_VERSION, code, senderToken, signalingURL: senderSignalingURL(url, code, senderToken) }, 200, CORS);
 }
 
 // MARK: /ws
@@ -103,6 +134,14 @@ async function handleWebSocket(request: Request, url: URL, env: Env): Promise<Re
 }
 
 // MARK: Helpers
+
+/** `wss://<this origin>/ws?role=sender&code=…&token=…` (`ws:` under `wrangler dev`). */
+function senderSignalingURL(url: URL, code: string, senderToken: string): string {
+  const signalingURL = new URL("/ws", url);
+  signalingURL.protocol = url.protocol === "https:" ? "wss:" : "ws:";
+  signalingURL.search = new URLSearchParams({ role: "sender", code, token: senderToken }).toString();
+  return signalingURL.toString();
+}
 
 function roomStub(env: Env, code: string) {
   return env.ROOMS.get(env.ROOMS.idFromName(code));
