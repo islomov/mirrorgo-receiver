@@ -176,12 +176,31 @@ export class WebRTCPlayer {
       if (source === stream) stream.addTrack(e.track);
       if (self.video.srcObject !== source) {
         self.video.srcObject = source;
-        const played = self.video.play();
-        if (played && played.catch) played.catch(function () {});
+        self.playWithSound(source);
       }
       self.log("track " + e.track.kind);
     };
     this.watchFrames();
+  }
+
+  /**
+   * With sound if the browser lets us, else muted (the page's sound button unmutes).
+   * In the Cast receiver nobody can press that button, and Cast allows autoplay with
+   * sound: starting muted there meant mirroring never had sound on the TV.
+   */
+  playWithSound(source) {
+    const video = this.video;
+    const self = this;
+    video.muted = false;
+    const played = video.play();
+    if (!played || !played.catch) return; // old browsers: no promise
+    played.catch(function (error) {
+      if (video.srcObject !== source || (error && error.name === "AbortError")) return;
+      self.log("autoplay with sound refused, playing muted");
+      video.muted = true;
+      const again = video.play();
+      if (again && again.catch) again.catch(function () {});
+    });
   }
 
   // The phone only offers H.264 (+ RTX); this keeps it first if a browser lists others too.
