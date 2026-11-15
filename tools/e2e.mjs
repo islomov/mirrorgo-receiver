@@ -9,7 +9,9 @@
 //
 // Flow: page shows a code → fake sender connects → playing (debug stats) → page reload rejoins the
 // same code and plays again → ICE restart requested by the page → sender sends bye → "stopped"
-// with the same code → sender starts again → playing → socket drops → stopped. Links: a sender plays
+// with the same code → sender starts again → playing → the sender freezes (no bye, its socket stays
+// open: an app killed, out of Wi-Fi) → stopped, not "Reconnecting…" or an error → a sender comes back →
+// playing → socket drops → stopped. Links: a sender plays
 // a link in the page's own player → pause / play → its socket drops, the link plays on → a new sender
 // gets the status and stops the link.
 
@@ -64,7 +66,7 @@ try {
   await viewer.setUserAgent((await browser.userAgent()).replace("HeadlessChrome", "Chrome"));
   viewer.on("console", (m) => process.env.VERBOSE && console.log("  [viewer]", m.text()));
   await viewer.goto(`${SERVER}/?debug=1`);
-  await viewer.waitForFunction(() => /^\d{3} \d{3}$/.test(document.getElementById("code").textContent), { timeout: 10000, polling: 200 });
+  await viewer.waitForFunction(() => /^\d{6}$/.test(document.getElementById("code").textContent), { timeout: 10000, polling: 200 });
   const code = (await viewer.$eval("#code", (e) => e.textContent)).replace(" ", "");
   console.log(`code ${code} (${ms()})`);
   check((await viewer.$eval("body", (b) => b.dataset.screen)) === "code", "code screen");
@@ -81,7 +83,7 @@ try {
   }
 
   step("fake sender connects");
-  const sender = await browser.newPage();
+  let sender = await browser.newPage();
   sender.on("console", (m) => process.env.VERBOSE && console.log("  [sender]", m.text()));
   await sender.goto(`${senderBase}?server=${encodeURIComponent(SERVER)}&code=${code}&autostart=1`);
   const playing = () => viewer.waitForFunction(() => document.body.dataset.screen === "playing", { timeout: 20000, polling: 200 });
@@ -122,6 +124,32 @@ try {
   await sender.click("#connect");
   await playing();
   console.log(`playing again after ${Date.now() - start} ms`);
+
+  step("sender freezes: no bye, its socket stays open (the server still thinks it's there)");
+  start = Date.now();
+  await sender.evaluate(() => {
+    handle = async () => {}; // deaf from now on: no answers to ICE restarts
+    closePc();
+  });
+  await viewer.waitForFunction(() => document.body.dataset.variant === "stopped", { timeout: 45000, polling: 200 });
+  console.log(`stopped ${Date.now() - start} ms after the sender froze`);
+  check((await viewer.$eval("body", (b) => b.dataset.screen)) === "code", "code screen (not an error)");
+  check((await viewer.$eval("#code-title", (e) => e.textContent)) === "Mirroring stopped", "\"Mirroring stopped\"");
+  check((await viewer.$eval("#code", (e) => e.textContent)).replace(" ", "") === code, "same code");
+  check((await viewer.$eval("#toast", (e) => e.textContent)) === "", "no \"Reconnecting…\" toast");
+  if (SHOTS) await viewer.screenshot({ path: path.join(SHOTS, "smrr-phone-gone.png") });
+
+  step("the phone comes back (a new sender with the same code)");
+  start = Date.now();
+  const frozen = sender;
+  sender = await browser.newPage();
+  sender.on("console", (m) => process.env.VERBOSE && console.log("  [sender]", m.text()));
+  await sender.goto(`${senderBase}?server=${encodeURIComponent(SERVER)}&code=${code}&autostart=1`);
+  await playing();
+  console.log(`playing again after ${Date.now() - start} ms`);
+  await frozen.close();
+  await new Promise((r) => setTimeout(r, 2000));
+  check((await viewer.$eval("body", (b) => b.dataset.screen)) === "playing", "still playing after the frozen sender's page closed");
 
   step("sender page closes without bye (socket drops)");
   await sender.close();

@@ -13,6 +13,11 @@ const $ = function (id) { return document.getElementById(id); };
 const video = $("video");
 const debug = /(^|[?&])debug=1(&|$)/.test(location.search);
 const IDLE_AFTER_MS = 3000;
+// Mirroring lost its connection and hasn't come back by then: the phone is gone (app killed, out
+// of Wi-Fi), even if the server hasn't noticed (a dead socket can look open for minutes). The page
+// says mirroring stopped instead of "Reconnecting…" over a frozen frame, or an error. The phone
+// tries ICE restarts for up to 60 s: if one gets through, the page plays again.
+const GIVE_UP_AFTER_MS = 15000;
 // Opened by the app on a room it created (the TV's browser): no code. Its own screen ("app") says
 // what the phone is doing instead of showing the code, QR code and steps.
 const launchedCode = adoptRoomFromURL();
@@ -28,7 +33,9 @@ const app = {
   media: MediaState.idle,
   screen: null,
   sessionEnded: false,    // launched by the app: its room is gone (the page doesn't get a code)
+  lost: false,            // mirroring dropped and didn't come back (GIVE_UP_AFTER_MS): shown as stopped
 };
+let giveUpTimer = null;
 
 const events = [];
 function log(line) {
@@ -65,9 +72,47 @@ const player = new WebRTCPlayer(video, {
       stopMirroring();
       return;
     }
+    followConnection(state);
     render();
   },
 });
+
+/**
+ * Watches a mirroring connection that dropped. Reconnecting for too long, or failing after it had
+ * played, means the phone is gone: shown as stopped (same code). The peer connection is kept, so a
+ * late ICE restart from the phone still brings the picture back.
+ */
+function followConnection(state) {
+  if (state === PlayerState.reconnecting) {
+    if (!giveUpTimer && !app.lost) {
+      giveUpTimer = setTimeout(function () {
+        giveUpTimer = null;
+        if (app.player === PlayerState.reconnecting || app.player === PlayerState.failed) {
+          log("connection lost for " + GIVE_UP_AFTER_MS / 1000 + " s: phone gone");
+          app.lost = true;
+          app.activity = "mirroring";
+          render();
+        }
+      }, GIVE_UP_AFTER_MS);
+    }
+    return;
+  }
+  if (state === PlayerState.failed && player.hadFrame) {
+    // It had played: not a Wi-Fi setup problem ("same Wi-Fi" error), the phone went away.
+    log("connection failed after playing: phone gone");
+    clearGiveUpTimer();
+    app.lost = true;
+    app.activity = "mirroring";
+    return;
+  }
+  clearGiveUpTimer();
+  if (state === PlayerState.playing || state === PlayerState.idle || state === PlayerState.connecting) app.lost = false;
+}
+
+function clearGiveUpTimer() {
+  if (giveUpTimer) clearTimeout(giveUpTimer);
+  giveUpTimer = null;
+}
 
 const media = new MediaPlayer(video, {
   image: $("image"),
@@ -159,6 +204,8 @@ function onSignalingMessage(message) {
       app.senderConnected = true;
       app.stopped = false;
       app.activity = "media";
+      clearGiveUpTimer();
+      app.lost = false;
       player.close();
       app.player = PlayerState.idle;
       media.load(message);
@@ -179,8 +226,10 @@ function onSignalingMessage(message) {
 }
 
 function stopMirroring() {
+  clearGiveUpTimer();
   player.close();
   app.player = PlayerState.idle;
+  app.lost = false;
   app.stopped = true;
   render();
 }
@@ -198,16 +247,18 @@ function currentView() {
   if (app.status === "closed") {
     return { screen: "message", title: strings.roomClosedTitle, action: strings.newCode, onAction: restartSignaling };
   }
-  if (app.player === PlayerState.playing || app.player === PlayerState.reconnecting) return { screen: "playing" };
+  if (app.player === PlayerState.playing) return { screen: "playing" };
+  if (app.player === PlayerState.reconnecting && !app.lost) return { screen: "playing" };
   if (media.active) return { screen: "playing" };
   if (!app.room) return { screen: "connecting" };
   if (app.media === MediaState.error) {
     return { screen: "message", title: strings.mediaFailedTitle, hint: launchedByApp ? strings.appMediaFailedHint : strings.mediaFailedHint };
   }
+  const screen = launchedByApp ? "app" : "code";
+  if (app.lost) return { screen: screen, variant: "stopped" };
   if (app.player === PlayerState.failed) {
     return { screen: "message", title: strings.iceFailed, action: strings.tryAgain, onAction: function () { player.retry(); } };
   }
-  const screen = launchedByApp ? "app" : "code";
   if (app.player === PlayerState.connecting) return { screen: screen, variant: "starting" };
   // Before "phone connected": the app stays in the room for a moment after stopping a link.
   if (app.stopped) return { screen: screen, variant: "stopped" };
@@ -317,6 +368,8 @@ function renderQR(text) {
 }
 
 function restartSignaling() {
+  clearGiveUpTimer();
+  app.lost = false;
   player.close();
   media.stop();
   app.player = PlayerState.idle;
