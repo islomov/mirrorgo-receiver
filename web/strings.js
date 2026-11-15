@@ -12,6 +12,7 @@ export const strings = {
   codeLabel: "Your code",
   steps: ["Open MirrorGo on your iPhone", "Tap TV Browser", "Enter this code"],
   qrHint: "Or scan with your iPhone camera",
+  sameWifi: "Your iPhone and this screen need the same Wi-Fi.",
 
   starting: "iPhone connected. Starting…",
   startingHint: "Start Screen Mirroring or play a channel in MirrorGo.",

@@ -1,16 +1,25 @@
-/* smrr.tv: readable from a sofa (huge code, high contrast), works from phones to 1920×1080 TVs.
+/* smrr.tv: MirrorGo's look (near-black page, dark cards with a hairline border, Sora, the purple
+   gradient), readable from a sofa, from phones to 1920×1080 TVs. The code and the QR code are about
+   the same height, side by side.
    Kept conservative for older TV browsers: no `inset`, no flex `gap`, plain fallbacks before clamp(). */
+
+@font-face { font-family: "Sora"; font-weight: 500; font-display: swap; src: url("/fonts/Sora-Medium.ttf") format("truetype"); }
+@font-face { font-family: "Sora"; font-weight: 600; font-display: swap; src: url("/fonts/Sora-SemiBold.ttf") format("truetype"); }
+@font-face { font-family: "Sora"; font-weight: 700; font-display: swap; src: url("/fonts/Sora-Bold.ttf") format("truetype"); }
+
+/* The app's colours: appBackground #0e0e12, surfacePrimary #1b1b22, fill #24242d, fillStrong #2e2e38,
+   textSecondary #8e8e99, cardBorder white 6%, primaryPurpleStart #755cff → primaryPurpleEnd #5c44e2. */
 
 html, body { height: 100%; margin: 0; }
 body {
-  background: #0b0b12;
-  color: #f5f5fa;
-  font: 500 18px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #0e0e12;
+  color: #ffffff;
+  font: 500 18px/1.4 "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow: hidden;
 }
 * { box-sizing: border-box; }
-h1 { margin: 0; font-weight: 700; letter-spacing: -0.01em; }
+h1 { margin: 0; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
 p { margin: 0; }
 
 /* MARK: Screens */
@@ -18,7 +27,7 @@ p { margin: 0; }
 .screen {
   display: none;
   position: fixed; top: 0; right: 0; bottom: 0; left: 0;
-  padding: 4vh 5vw;
+  padding: 5vh 5vw;
   overflow: auto;
 }
 body[data-screen="connecting"] #screen-connecting,
@@ -31,113 +40,170 @@ body[data-screen="app"] #screen-app { display: flex; }
 }
 .center > * + * { margin-top: 3vh; }
 
-.lead { font-size: 28px; font-size: clamp(20px, 2.6vw, 44px); color: #c9c9d6; }
-.hint { font-size: 22px; font-size: clamp(17px, 1.9vw, 34px); color: #a9a9bd; max-width: 32em; }
-#screen-message h1 { font-size: 40px; font-size: clamp(26px, 3.6vw, 64px); max-width: 20em; }
+.lead { font-size: 28px; font-size: clamp(20px, 2.4vw, 42px); color: #8e8e99; }
+.hint { font-size: 22px; font-size: clamp(16px, 1.7vw, 32px); color: #8e8e99; max-width: 32em; }
+#screen-message h1 { font-size: 40px; font-size: clamp(26px, 3.4vw, 60px); max-width: 20em; }
 
 .spinner {
   width: 64px; height: 64px;
-  border: 6px solid rgba(255, 255, 255, 0.15); border-top-color: #8f7dff;
+  border: 6px solid rgba(255, 255, 255, 0.1); border-top-color: #755cff;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* MARK: Brand (top left): the app icon's TV on the gradient, then the site */
+
+.brand, .app-brand {
+  display: flex; align-items: center;
+  font-size: 24px; font-size: clamp(18px, 1.7vw, 32px);
+  font-weight: 700; letter-spacing: -0.01em; color: #ffffff;
+}
+.brand-mark {
+  display: block; flex: none;
+  width: 1.6em; height: 1.6em; margin-right: 0.5em;
+  border-radius: 28%;
+  background: #755cff;
+  background: linear-gradient(180deg, #755cff 0%, #5c44e2 100%);
+}
+.brand-mark svg { display: block; width: 100%; height: 100%; }
+
 /* MARK: Code screen */
 
 #screen-code { flex-direction: column; }
-.brand {
-  font-size: 24px; font-size: clamp(18px, 1.8vw, 34px);
-  font-weight: 700; letter-spacing: 0.01em; color: #b9adff;
-}
 .code-layout {
   flex: 1;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center;
+  display: flex; align-items: center; justify-content: center;
 }
-.code-layout > * + * { margin-top: 3vh; }
-#code-title { font-size: 44px; font-size: clamp(26px, 3.4vw, 64px); }
+.code-main { text-align: left; }
+
+#code-title { font-size: 48px; font-size: clamp(28px, 3.2vw, 64px); max-width: 10em; }
+#code-hint { margin-top: 1.5vh; }
 #code-hint:empty { display: none; }
 
-.code-row { display: flex; align-items: center; justify-content: center; }
-.code-box { text-align: center; }
 .label {
-  font-size: 20px; font-size: clamp(15px, 1.5vw, 28px);
-  text-transform: uppercase; letter-spacing: 0.12em; color: #a9a9bd;
+  margin-top: 5vh;
+  font-size: 18px; font-size: clamp(13px, 1.1vw, 22px);
+  font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; color: #8e8e99;
 }
-.code {
-  font-size: 160px; font-size: clamp(64px, 14vw, 300px);
-  font-weight: 800; line-height: 1.05; letter-spacing: 0.04em;
-  font-variant-numeric: tabular-nums;
+
+/* The code in boxes, like the ones it's typed into on the phone. */
+.code-digits {
+  display: flex; align-items: center;
+  margin-top: 1.6vh;
+  font-size: 88px; font-size: clamp(40px, 5vw, 112px);
+  font-weight: 700; line-height: 1;
   white-space: nowrap;
-  color: #ffffff;
 }
-@media (max-height: 700px) and (min-aspect-ratio: 1/1) {
-  .code { font-size: 22vh; }
+.code-digits .digit {
+  display: flex; align-items: center; justify-content: center; flex: none;
+  width: 1.12em; height: 1.4em;
+  margin-right: 0.12em;
+  border-radius: 0.24em;
+  background: #24242d;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  font-variant-numeric: tabular-nums;
+}
+.code-digits .digit:last-child { margin-right: 0; }
+.code-digits .dash {
+  display: block; flex: none;
+  width: 0.3em; height: 0.07em; margin: 0 0.24em 0 0.12em;
+  border-radius: 0.04em;
+  background: #755cff;
 }
 
-.qr { margin: 0 0 0 5vw; text-align: center; }
-.qr-image {
-  width: 220px; height: 220px;
-  width: clamp(140px, 17vh, 300px); height: clamp(140px, 17vh, 300px);
-  background: #fff; border-radius: 12px; overflow: hidden;
-}
-.qr-image svg { display: block; width: 100%; height: 100%; }
-.qr figcaption { margin-top: 10px; font-size: 16px; font-size: clamp(13px, 1.1vw, 22px); color: #a9a9bd; }
-
+/* 1 2 3: numbered like the app's steps (gradient rounded squares). */
 .steps {
-  display: flex; justify-content: center; flex-wrap: wrap;
-  list-style: none; margin: 0; padding: 0;
+  list-style: none; margin: 5vh 0 0; padding: 0;
   counter-reset: step;
 }
 .steps li {
   display: flex; align-items: center;
-  margin: 1vh 1.6vw;
-  font-size: 24px; font-size: clamp(17px, 1.9vw, 36px);
+  font-size: 24px; font-size: clamp(16px, 1.6vw, 32px);
   counter-increment: step;
 }
+.steps li + li { margin-top: 1.6vh; }
 .steps li::before {
   content: counter(step);
-  display: inline-flex; align-items: center; justify-content: center; flex: none;
-  width: 1.7em; height: 1.7em; margin-right: 0.5em;
-  border-radius: 50%;
-  background: #6d5dfc; color: #fff; font-weight: 700; font-size: 0.9em;
+  display: flex; align-items: center; justify-content: center; flex: none;
+  width: 1.75em; height: 1.75em; margin-right: 0.7em;
+  border-radius: 0.5em;
+  background: #755cff;
+  background: linear-gradient(180deg, #755cff 0%, #5c44e2 100%);
+  color: #fff; font-weight: 600; font-size: 0.85em;
+}
+.wifi {
+  margin-top: 2.4vh;
+  font-size: 18px; font-size: clamp(13px, 1.2vw, 24px);
+  color: #8e8e99;
 }
 .status {
-  min-height: 1.4em;
-  font-size: 24px; font-size: clamp(17px, 1.9vw, 36px);
+  min-height: 1.4em; margin-top: 1.6vh;
+  font-size: 22px; font-size: clamp(16px, 1.6vw, 30px);
   color: #ffd27a;
 }
 
-/* Starting / stopped: the title says it, the steps stay as a reminder. */
+/* The QR code, on a dark card, as tall as the text beside it. */
+.qr {
+  flex: none;
+  margin: 0 0 0 6vw; padding: 2.4vh;
+  text-align: center;
+  background: #1b1b22;
+  border: 2px solid rgba(255, 255, 255, 0.06);
+  border-radius: 28px;
+}
+.qr-image {
+  width: 380px; height: 380px;
+  width: clamp(180px, 42vh, 480px); height: clamp(180px, 42vh, 480px);
+  margin: 0 auto;
+  background: #fff; border-radius: 16px; overflow: hidden;
+}
+.qr-image svg { display: block; width: 100%; height: 100%; }
+.qr figcaption {
+  margin-top: 2vh;
+  font-size: 18px; font-size: clamp(13px, 1.2vw, 24px);
+  color: #8e8e99;
+}
+
+/* Starting / stopped: the title says it, the code and steps stay as a reminder. */
 body[data-variant="starting"] #code-title { color: #7ee2a8; }
 
-/* Portrait (phones): stack everything. */
+/* Short landscape windows (laptops, small browser windows): tighter. */
+@media (max-height: 640px) and (min-aspect-ratio: 1/1) {
+  .label, .steps { margin-top: 3.5vh; }
+  .code-digits { font-size: 11vh; }
+  .qr-image { width: 46vh; height: 46vh; }
+}
+
+/* Portrait (phones, tablets): one column, centred. */
 @media (max-aspect-ratio: 1/1) {
-  .code-row { flex-direction: column; }
-  .qr { margin: 3vh 0 0; }
-  .code { font-size: 18vw; }
-  .steps { flex-direction: column; align-items: flex-start; }
+  .code-layout { flex-direction: column; justify-content: flex-start; padding-top: 4vh; }
+  .code-main { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  #code-title { font-size: 7.5vw; }
+  .label { margin-top: 4vh; }
+  .code-digits { font-size: 9.5vw; }
+  .steps { margin-top: 4vh; }
+  .steps li { font-size: 4.2vw; }
+  .wifi { font-size: 3.4vw; }
+  .qr { margin: 4vh 0 0; }
+  .qr-image { width: 44vw; height: 44vw; }
+  .qr figcaption { font-size: 3.4vw; }
 }
 
 /* MARK: App screen (opened by the app on the TV: no code) */
 
 #screen-app { position: fixed; }
-.app-brand {
-  position: absolute; top: 4vh; left: 5vw;
-  font-size: 24px; font-size: clamp(18px, 1.8vw, 34px);
-  font-weight: 700; letter-spacing: 0.01em; color: #b9adff;
-}
+.app-brand { position: absolute; top: 5vh; left: 5vw; }
 .app-mark {
   width: 132px; height: 132px;
   width: clamp(96px, 14vh, 200px); height: clamp(96px, 14vh, 200px);
   border-radius: 28%;
-  background: #6d5dfc;
-  background: linear-gradient(135deg, #8f7dff 0%, #5a48f0 100%);
-  box-shadow: 0 0 0 0 rgba(143, 125, 255, 0.45);
+  background: #755cff;
+  background: linear-gradient(180deg, #755cff 0%, #5c44e2 100%);
+  box-shadow: 0 0 0 0 rgba(117, 92, 255, 0.45);
 }
 .app-mark svg { display: block; width: 100%; height: 100%; }
-#screen-app h1 { font-size: 48px; font-size: clamp(28px, 3.8vw, 72px); max-width: 20em; }
+#screen-app h1 { font-size: 48px; font-size: clamp(28px, 3.6vw, 68px); max-width: 20em; }
 #screen-app .hint:empty { display: none; }
 #screen-app .status:empty { display: none; }
 
@@ -145,13 +211,13 @@ body[data-variant="starting"] #code-title { color: #7ee2a8; }
 body[data-variant="waiting"] .app-mark,
 body[data-variant="starting"] .app-mark { animation: breathe 2.4s ease-out infinite; }
 @keyframes breathe {
-  0% { box-shadow: 0 0 0 0 rgba(143, 125, 255, 0.45); }
-  70% { box-shadow: 0 0 0 4vh rgba(143, 125, 255, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(143, 125, 255, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(117, 92, 255, 0.45); }
+  70% { box-shadow: 0 0 0 4vh rgba(117, 92, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(117, 92, 255, 0); }
 }
 body[data-variant="starting"] #app-title { color: #7ee2a8; }
 body[data-variant="stopped"] .app-mark,
-body[data-variant="ended"] .app-mark { background: #3a3a4d; }
+body[data-variant="ended"] .app-mark { background: #2e2e38; }
 
 .dots { display: none; }
 body[data-variant="waiting"] .dots,
@@ -159,7 +225,7 @@ body[data-variant="starting"] .dots { display: block; }
 .dots span {
   display: inline-block;
   width: 14px; height: 14px; margin: 0 8px;
-  border-radius: 50%; background: #8f7dff;
+  border-radius: 50%; background: #755cff;
   animation: dot 1.2s ease-in-out infinite;
 }
 .dots span:nth-child(2) { animation-delay: 0.2s; }
@@ -219,12 +285,12 @@ body.idle[data-screen="playing"], body.idle[data-screen="playing"] * { cursor: n
   font: inherit;
   font-size: 22px; font-size: clamp(16px, 1.6vw, 30px);
   font-weight: 600;
-  padding: 0.65em 1.3em;
-  border: 0; border-radius: 999px;
-  background: rgba(40, 40, 52, 0.85); color: #fff;
+  padding: 0.7em 1.4em;
+  border: 0; border-radius: 0.9em;
+  background: rgba(46, 46, 56, 0.9); color: #fff;
   cursor: pointer;
 }
-.button.primary { background: #6d5dfc; }
+.button.primary { background: #755cff; background: linear-gradient(180deg, #755cff 0%, #5c44e2 100%); }
 .button:hover { filter: brightness(1.15); }
 .button:focus { outline: 4px solid #fff; outline-offset: 4px; }
 .button:focus:not(:focus-visible) { outline: none; }
@@ -246,5 +312,9 @@ body.idle[data-screen="playing"], body.idle[data-screen="playing"] * { cursor: n
 /* MARK: Join page (/c/<code>) */
 
 .join h1 { font-size: 40px; font-size: clamp(26px, 4vw, 56px); }
-.join .code { font-size: 96px; font-size: clamp(56px, 12vw, 160px); }
+.join .code {
+  font-size: 96px; font-size: clamp(56px, 12vw, 160px);
+  font-weight: 700; line-height: 1.05; letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
 .join a.button { text-decoration: none; display: inline-block; }

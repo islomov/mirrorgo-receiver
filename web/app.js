@@ -111,7 +111,7 @@ function onRoom(room) {
     log("room " + room.code);
     app.stopped = false;
     player.close();
-    $("code").textContent = spacedCode(room.code);
+    renderCode(room.code);
     renderQR(location.origin + "/c/" + room.code);
   } else {
     log("rejoined room");
@@ -275,6 +275,27 @@ function render() {
   }
   renderSound();
   updateWakeLock(view.screen === "playing");
+}
+
+/** The code in boxes, like the ones it's typed into on the phone: "769 397" → 7 6 9 – 3 9 7. */
+function renderCode(code) {
+  const box = $("code");
+  const digits = String(code);
+  box.innerHTML = "";
+  box.setAttribute("aria-label", spacedCode(digits));
+  for (let i = 0; i < digits.length; i++) {
+    if (i === Math.floor(digits.length / 2)) {
+      const dash = document.createElement("span");
+      dash.className = "dash";
+      dash.setAttribute("aria-hidden", "true");
+      box.appendChild(dash);
+    }
+    const digit = document.createElement("span");
+    digit.className = "digit";
+    digit.setAttribute("aria-hidden", "true");
+    digit.textContent = digits.charAt(i);
+    box.appendChild(digit);
+  }
 }
 
 function renderQR(text) {
@@ -473,6 +494,7 @@ $("app-use-code").textContent = strings.appUseCode;
 $("brand").textContent = strings.brand;
 $("code-label").textContent = strings.codeLabel;
 $("qr-hint").textContent = strings.qrHint;
+$("code-wifi").textContent = strings.sameWifi;
 $("steps").innerHTML = "";
 strings.steps.forEach(function (step) {
   const li = document.createElement("li");
