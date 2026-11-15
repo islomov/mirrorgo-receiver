@@ -15,7 +15,20 @@ export const strings = {
 
   starting: "iPhone connected. Starting…",
   startingHint: "Start Screen Mirroring or play a channel in MirrorGo.",
-  launchedStarting: "Starting from MirrorGo…",
+
+  // The page the app opened itself on the TV (no code): what the phone is doing.
+  appPageTitle: "MirrorGo",
+  appBrand: "MirrorGo · smrr.tv",
+  appWaitingTitle: "Connecting to your iPhone…",
+  appWaitingHint: "Keep MirrorGo open on your iPhone.",
+  appStartingTitle: "Connected to MirrorGo",
+  appStartingHint: "Starting on this TV…",
+  appStoppedTitle: "Nothing playing",
+  appStoppedHint: "Pick a channel, photo or video in MirrorGo on your iPhone.",
+  appEndedTitle: "MirrorGo has disconnected",
+  appEndedHint: "Cast again from MirrorGo on your iPhone: it opens this page by itself.",
+  appUseCode: "Connect with a code instead",
+  appMediaFailedHint: "Try something else from MirrorGo on your iPhone.",
 
   stoppedTitle: "Mirroring stopped",
   stoppedHint: "Start again from your iPhone. The code stays the same.",

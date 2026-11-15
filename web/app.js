@@ -13,8 +13,10 @@ const $ = function (id) { return document.getElementById(id); };
 const video = $("video");
 const debug = /(^|[?&])debug=1(&|$)/.test(location.search);
 const IDLE_AFTER_MS = 3000;
-// Opened by the app on a room it created (the TV's browser, for a channel): no code to type.
-const launchedByApp = adoptRoomFromURL();
+// Opened by the app on a room it created (the TV's browser): no code. Its own screen ("app") says
+// what the phone is doing instead of showing the code, QR code and steps.
+const launchedCode = adoptRoomFromURL();
+const launchedByApp = launchedCode !== null;
 
 const app = {
   status: "connecting",   // signaling: connecting | open | reconnecting | offline | replaced | closed
@@ -25,6 +27,7 @@ const app = {
   player: PlayerState.idle,
   media: MediaState.idle,
   screen: null,
+  sessionEnded: false,    // launched by the app: its room is gone (the page doesn't get a code)
 };
 
 const events = [];
@@ -91,6 +94,15 @@ function greetSender() {
 }
 
 function onRoom(room) {
+  if (launchedByApp && room.code !== launchedCode) {
+    // The app's room has ended, so the server opened a new one: that's for people typing codes.
+    log("app's room ended");
+    signaling.stop();
+    signaling.forgetRoom();
+    app.sessionEnded = true;
+    render();
+    return;
+  }
   const newCode = !app.room || app.room.code !== room.code;
   app.room = room;
   app.senderConnected = room.senderConnected === true;
@@ -180,6 +192,9 @@ function currentView() {
   if (app.status === "replaced") {
     return { screen: "message", title: strings.replacedTitle, hint: strings.replacedHint, action: strings.useThisWindow, onAction: restartSignaling };
   }
+  if (launchedByApp && (app.sessionEnded || app.status === "closed")) {
+    return { screen: "app", variant: "ended" };
+  }
   if (app.status === "closed") {
     return { screen: "message", title: strings.roomClosedTitle, action: strings.newCode, onAction: restartSignaling };
   }
@@ -187,16 +202,17 @@ function currentView() {
   if (media.active) return { screen: "playing" };
   if (!app.room) return { screen: "connecting" };
   if (app.media === MediaState.error) {
-    return { screen: "message", title: strings.mediaFailedTitle, hint: strings.mediaFailedHint };
+    return { screen: "message", title: strings.mediaFailedTitle, hint: launchedByApp ? strings.appMediaFailedHint : strings.mediaFailedHint };
   }
   if (app.player === PlayerState.failed) {
     return { screen: "message", title: strings.iceFailed, action: strings.tryAgain, onAction: function () { player.retry(); } };
   }
-  if (app.player === PlayerState.connecting) return { screen: "code", variant: "starting" };
+  const screen = launchedByApp ? "app" : "code";
+  if (app.player === PlayerState.connecting) return { screen: screen, variant: "starting" };
   // Before "phone connected": the app stays in the room for a moment after stopping a link.
-  if (app.stopped) return { screen: "code", variant: "stopped" };
-  if (app.senderConnected) return { screen: "code", variant: "starting" };
-  return { screen: "code", variant: "waiting" };
+  if (app.stopped) return { screen: screen, variant: "stopped" };
+  if (app.senderConnected) return { screen: screen, variant: "starting" };
+  return { screen: screen, variant: "waiting" };
 }
 
 let messageAction = null;
@@ -217,11 +233,24 @@ function render() {
     $("connecting-text").textContent = offlineText || strings.connecting;
   } else if (view.screen === "code") {
     const stoppedMedia = app.activity === "media";
-    const titles = { waiting: strings.codeTitle, starting: launchedByApp ? strings.launchedStarting : strings.starting, stopped: stoppedMedia ? strings.mediaStoppedTitle : strings.stoppedTitle };
-    const hints = { waiting: "", starting: launchedByApp ? "" : strings.startingHint, stopped: stoppedMedia ? strings.mediaStoppedHint : strings.stoppedHint };
+    const titles = { waiting: strings.codeTitle, starting: strings.starting, stopped: stoppedMedia ? strings.mediaStoppedTitle : strings.stoppedTitle };
+    const hints = { waiting: "", starting: strings.startingHint, stopped: stoppedMedia ? strings.mediaStoppedHint : strings.stoppedHint };
     $("code-title").textContent = titles[view.variant];
     $("code-hint").textContent = hints[view.variant];
     $("code-status").textContent = offlineText;
+  } else if (view.screen === "app") {
+    const texts = {
+      waiting: [strings.appWaitingTitle, strings.appWaitingHint],
+      starting: [strings.appStartingTitle, strings.appStartingHint],
+      stopped: [strings.appStoppedTitle, strings.appStoppedHint],
+      ended: [strings.appEndedTitle, strings.appEndedHint],
+    }[view.variant];
+    $("app-title").textContent = texts[0];
+    $("app-hint").textContent = texts[1];
+    $("app-status").textContent = view.variant === "ended" ? "" : offlineText;
+    const useCode = $("app-use-code");
+    useCode.hidden = view.variant !== "ended";
+    if (screenChanged && view.variant === "ended") useCode.focus();
   } else if (view.screen === "message") {
     $("message-title").textContent = view.title;
     $("message-hint").textContent = view.hint || "";
@@ -300,6 +329,12 @@ $("sound").addEventListener("click", function () {
     }
   }
   renderSound();
+});
+
+// Ended: this page becomes a normal smrr.tv page (a new room with a code).
+$("app-use-code").addEventListener("click", function () {
+  signaling.forgetRoom();
+  location.replace("/");
 });
 
 $("message-action").addEventListener("click", function () {
@@ -432,7 +467,9 @@ function mediaLine() {
 
 // MARK: Start
 
-document.title = strings.pageTitle;
+document.title = launchedByApp ? strings.appPageTitle : strings.pageTitle;
+$("app-brand").textContent = strings.appBrand;
+$("app-use-code").textContent = strings.appUseCode;
 $("brand").textContent = strings.brand;
 $("code-label").textContent = strings.codeLabel;
 $("qr-hint").textContent = strings.qrHint;
