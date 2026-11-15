@@ -4,7 +4,7 @@
 // Signaling: signaling.js, WebRTC: player.js, links: media.js, strings: strings.js, protocol: PROTOCOL.md.
 
 import { strings, spacedCode } from "./strings.js";
-import { SignalingClient } from "./signaling.js";
+import { SignalingClient, adoptRoomFromURL } from "./signaling.js";
 import { WebRTCPlayer, PlayerState } from "./player.js";
 import { MediaPlayer, MediaState, capabilities } from "./media.js";
 import qrcode from "./vendor/qrcode.js";
@@ -13,6 +13,8 @@ const $ = function (id) { return document.getElementById(id); };
 const video = $("video");
 const debug = /(^|[?&])debug=1(&|$)/.test(location.search);
 const IDLE_AFTER_MS = 3000;
+// Opened by the app on a room it created (the TV's browser, for a channel): no code to type.
+const launchedByApp = adoptRoomFromURL();
 
 const app = {
   status: "connecting",   // signaling: connecting | open | reconnecting | offline | replaced | closed
@@ -133,6 +135,7 @@ function onSignalingMessage(message) {
       stopMirroring();
       break;
     case "offer":
+      if (!window.RTCPeerConnection) break; // a page opened for a link, in a browser without WebRTC
       app.senderConnected = true;
       app.stopped = false;
       app.activity = "mirroring";
@@ -173,7 +176,7 @@ function stopMirroring() {
 // MARK: Rendering
 
 function currentView() {
-  if (!window.RTCPeerConnection) return { screen: "message", title: strings.unsupported };
+  if (!window.RTCPeerConnection && !launchedByApp) return { screen: "message", title: strings.unsupported };
   if (app.status === "replaced") {
     return { screen: "message", title: strings.replacedTitle, hint: strings.replacedHint, action: strings.useThisWindow, onAction: restartSignaling };
   }
@@ -214,8 +217,8 @@ function render() {
     $("connecting-text").textContent = offlineText || strings.connecting;
   } else if (view.screen === "code") {
     const stoppedMedia = app.activity === "media";
-    const titles = { waiting: strings.codeTitle, starting: strings.starting, stopped: stoppedMedia ? strings.mediaStoppedTitle : strings.stoppedTitle };
-    const hints = { waiting: "", starting: strings.startingHint, stopped: stoppedMedia ? strings.mediaStoppedHint : strings.stoppedHint };
+    const titles = { waiting: strings.codeTitle, starting: launchedByApp ? strings.launchedStarting : strings.starting, stopped: stoppedMedia ? strings.mediaStoppedTitle : strings.stoppedTitle };
+    const hints = { waiting: "", starting: launchedByApp ? "" : strings.startingHint, stopped: stoppedMedia ? strings.mediaStoppedHint : strings.stoppedHint };
     $("code-title").textContent = titles[view.variant];
     $("code-hint").textContent = hints[view.variant];
     $("code-status").textContent = offlineText;
@@ -448,4 +451,5 @@ if (debug) {
 }
 
 render();
-if (window.RTCPeerConnection) signaling.start();
+// Links (channels) play without WebRTC: a page the app opened for one connects anyway.
+if (window.RTCPeerConnection || launchedByApp) signaling.start();

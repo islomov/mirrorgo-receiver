@@ -8,6 +8,7 @@ import {
   CloseCode,
   MAX_MESSAGE_BYTES,
   PROTOCOL_VERSION,
+  LAUNCH_GRACE_MS,
   ROOM_TTL_MS,
   VIEWER_GRACE_MS,
   type Role,
@@ -26,6 +27,11 @@ interface RoomRecord {
   senderEverJoined: boolean;
   /** When the viewer's socket closed, null while it's connected. */
   viewerLeftAt: number | null;
+  /**
+   * A room the app created: closed if no viewer has connected by then. Null once one has (and in
+   * rooms created by a viewer; absent in records stored before this field existed).
+   */
+  viewerDueBy?: number | null;
   /** Ids of the current sockets (older replaced sockets may still be closing). */
   viewerSocket: string | null;
   senderSocket: string | null;
@@ -99,6 +105,30 @@ export class Room extends DurableObject<Env> {
       default:
         return json({ error: "not_found" }, 404);
     }
+  }
+
+  /**
+   * `POST /api/rooms`: a room for a page the app is about to open (the TV's browser), with no viewer
+   * yet. The page joins it like a reload (`/viewer/rejoin` with the viewer token). Null if this code
+   * is taken by a live room.
+   */
+  async create(code: string): Promise<{ viewerToken: string; senderToken: string } | null> {
+    const now = Date.now();
+    if (this.liveRoom(now)) return null;
+    const created: RoomRecord = {
+      code,
+      viewerToken: randomToken(),
+      senderToken: randomToken(),
+      createdAt: now,
+      senderEverJoined: false,
+      viewerLeftAt: null,
+      viewerDueBy: now + LAUNCH_GRACE_MS,
+      viewerSocket: null,
+      senderSocket: null,
+    };
+    this.save(created);
+    log("room-created", { code, by: "app" });
+    return { viewerToken: created.viewerToken, senderToken: created.senderToken };
   }
 
   /** `GET /api/rooms/:code`: the sender token of the live room, or null. */
@@ -186,6 +216,10 @@ export class Room extends DurableObject<Env> {
       this.end(room, CloseCode.roomClosed, "room closed", "room-closed");
       return undefined;
     }
+    if (room.viewerDueBy != null && now >= room.viewerDueBy) {
+      this.end(room, CloseCode.roomClosed, "room closed", "room-never-opened");
+      return undefined;
+    }
     return room;
   }
 
@@ -193,6 +227,7 @@ export class Room extends DurableObject<Env> {
     const deadlines: number[] = [];
     if (!room.senderEverJoined) deadlines.push(room.createdAt + ROOM_TTL_MS);
     if (room.viewerLeftAt !== null) deadlines.push(room.viewerLeftAt + VIEWER_GRACE_MS);
+    if (room.viewerDueBy != null) deadlines.push(room.viewerDueBy);
     if (deadlines.length) void this.ctx.storage.setAlarm(Math.min(...deadlines));
     else void this.ctx.storage.deleteAlarm();
   }
@@ -227,7 +262,10 @@ export class Room extends DurableObject<Env> {
     }
 
     room[`${role}Socket`] = id;
-    if (role === "viewer") room.viewerLeftAt = null;
+    if (role === "viewer") {
+      room.viewerLeftAt = null;
+      room.viewerDueBy = null;
+    }
     else room.senderEverJoined = true;
     this.save(room);
 

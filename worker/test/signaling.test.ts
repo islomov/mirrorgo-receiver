@@ -111,6 +111,10 @@ async function senderFor(code: string): Promise<{ sender: Client; ready: Msg }> 
   return { sender, ready };
 }
 
+async function createRoom(ip = freshIP(), origin = ORIGIN): Promise<Response> {
+  return SELF.fetch(`${origin}/api/rooms`, { method: "POST", headers: { "cf-connecting-ip": ip } });
+}
+
 const stub = (code: string) => env.ROOMS.get(env.ROOMS.idFromName(code));
 
 /** Moves the room's clock back by `ms` (creation and viewer-left times). */
@@ -397,6 +401,76 @@ describe("lifetime", () => {
     await ageRoom(room.code, 11 * 60 * 1000);
     expect((await lookup(room.code)).status).toBe(404);
     expect(await viewer.closed()).toEqual({ code: 4008, reason: "expired" });
+  });
+});
+
+describe("rooms created by the app", () => {
+  it("creates a room with no viewer: sender token, signaling URL and the page's URL with the viewer token in its fragment", async () => {
+    const res = await createRoom();
+    expect(res.status).toBe(201);
+    expect(res.headers.get("cache-control")).toBe("no-store");
+    const room = (await res.json()) as Msg;
+    expect(room.v).toBe(1);
+    expect(room.code).toMatch(/^\d{6}$/);
+    expect(room.senderToken).toMatch(/^[0-9a-f]{32}$/);
+    expect(room.signalingURL).toBe(`wss://smrr.tv/ws?role=sender&code=${room.code}&token=${room.senderToken}`);
+    const viewerURL = new URL(room.viewerURL);
+    expect(viewerURL.origin + viewerURL.pathname + viewerURL.search).toBe("https://smrr.tv/");
+    const [, code, viewerToken] = viewerURL.hash.match(/^#room=(\d{6})-([0-9a-f]{32})$/)!;
+    expect(code).toBe(room.code);
+    expect(viewerToken).not.toBe(room.senderToken);
+
+    // Looked up like any room, with the same sender token.
+    expect(((await (await lookup(room.code)).json()) as Msg).senderToken).toBe(room.senderToken);
+  });
+
+  it("lets the sender join first and the page join with the viewer token from its URL", async () => {
+    const room = (await (await createRoom()).json()) as Msg;
+    const viewerToken = new URL(room.viewerURL).hash.split("-")[1];
+
+    const sender = await connect(`/ws?role=sender&code=${room.code}&token=${room.senderToken}`);
+    expect(await sender.next("ready")).toMatchObject({ code: room.code, viewerConnected: false });
+    sender.send({ type: "media-load", id: 1, url: "https://example.com/a.m3u8" });
+
+    const viewer = await connect(`/ws?role=viewer&code=${room.code}&token=${viewerToken}`);
+    expect(await viewer.next("room")).toMatchObject({ code: room.code, viewerToken, senderConnected: true });
+    await viewer.expectSilence(); // the link sent before it came was dropped
+    expect(await sender.next("peer-joined")).toEqual({ type: "peer-joined", role: "viewer" });
+    sender.send({ type: "media-load", id: 2, url: "https://example.com/a.m3u8" });
+    expect((await viewer.next("media-load")).id).toBe(2);
+  });
+
+  it("closes a room whose page never connected within 2 minutes; once it has, the usual rules apply", async () => {
+    const never = (await (await createRoom()).json()) as Msg;
+    const sender = await connect(`/ws?role=sender&code=${never.code}&token=${never.senderToken}`);
+    await sender.next("ready");
+    await runInDurableObject(stub(never.code), (_, state) => {
+      const room = state.storage.kv.get<Msg>("room")!;
+      room.viewerDueBy -= 2 * 60 * 1000;
+      state.storage.kv.put("room", room);
+    });
+    expect(await runDurableObjectAlarm(stub(never.code))).toBe(true);
+    expect(await sender.closed()).toEqual({ code: 4004, reason: "room closed" });
+    expect((await lookup(never.code)).status).toBe(404);
+
+    const opened = (await (await createRoom()).json()) as Msg;
+    const viewerToken = new URL(opened.viewerURL).hash.split("-")[1];
+    await connect(`/ws?role=viewer&code=${opened.code}&token=${viewerToken}`);
+    const dueBy = await runInDurableObject(stub(opened.code), (_, state) => state.storage.kv.get<Msg>("room")!.viewerDueBy);
+    expect(dueBy).toBeNull();
+    await ageRoom(opened.code, 5 * 60 * 1000);
+    await runDurableObjectAlarm(stub(opened.code));
+    expect((await lookup(opened.code)).status).toBe(200);
+  });
+
+  it("only takes POST, and allows 10 rooms per minute per IP", async () => {
+    expect((await SELF.fetch(`${ORIGIN}/api/rooms`)).status).toBe(405);
+    const ip = freshIP();
+    for (let i = 0; i < 10; i++) expect((await createRoom(ip)).status).toBe(201);
+    const limited = await createRoom(ip);
+    expect(limited.status).toBe(429);
+    expect(limited.headers.get("retry-after")).toBe("60");
+    expect((await createRoom()).status).toBe(201);
   });
 });
 
