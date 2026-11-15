@@ -126,6 +126,10 @@ Clients must not auto-reconnect after 4001 / 4004; after 4008 the viewer starts 
 5. Viewer reload: phone gets `peer-left viewer`, closes its peer connection, waits; `peer-joined viewer` → new offer.
 6. Broadcast stop: phone sends `bye`, closes the socket → viewer gets `bye` / `peer-left sender` → "stopped" screen, same code.
 7. Page sees ICE `disconnected` for 5 s → sends `restart-ice`; the phone answers with an `offer` with `iceRestart: true`.
+   Still not back 15 s after it dropped (or ICE `failed` after it had played): the phone is gone (app
+   killed, out of Wi-Fi) even if the server still lists it (a dead socket can look open for minutes):
+   "stopped" screen, same code. The page keeps its peer connection, so a late ICE restart still
+   brings the picture back; a new `offer` plays as usual.
 8. A link: the app joins as the sender (`ready`; the page answers `capabilities`), sends `media-load`, and
    follows `media-status`. It may disconnect and come back; the page plays on and reports the current
    `media-status` when it's back. Stop: `media-stop` + `bye`.
