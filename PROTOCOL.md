@@ -26,7 +26,12 @@ viewer yet. `cache-control: no-store`, JSON bodies, no CORS (only the app calls 
   The viewer token is in the fragment, which browsers don't send to the server (no tokens in logs).
   The page stores it like a reload's room (sessionStorage), removes the fragment from the address and
   connects with `/ws?role=viewer&code=…&token=…`, which joins this room. It starts signaling even
-  without WebRTC (links don't need it) and shows "Starting from MirrorGo…" instead of the steps.
+  without WebRTC (links don't need it). Such a page (also after a reload: the room is marked
+  `launched` in sessionStorage) never shows a code: its own screen says what the phone is doing
+  (connecting to the iPhone / connected, starting / nothing playing / disconnected). If its room has
+  ended (4004, or a rejoin answered with another room's code) it says MirrorGo has disconnected and
+  offers "Connect with a code instead" (a normal page). The app's player content (links, WebRTC for
+  photos and videos) is the same as for a page with a code.
 - `405`: not POST. `429 {"error":"rate_limited"}` + `Retry-After: <s>`: more than 10 rooms per minute from one IP.
   `503 {"error":"busy"}`: no free code found.
 

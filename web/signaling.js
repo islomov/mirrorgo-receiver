@@ -91,7 +91,8 @@ export class SignalingClient {
       if (!message || typeof message.type !== "string" || message.type === "pong") return;
       if (message.type === "room") {
         self.failures = 0;
-        saveRoom(message.code, message.viewerToken);
+        const saved = loadRoom();
+        saveRoom(message.code, message.viewerToken, !!(saved && saved.launched && saved.code === message.code));
         self.onStatus("open");
         self.onRoom(message);
       } else {
@@ -170,14 +171,17 @@ export class SignalingClient {
 /**
  * A room the app created and opened this page on (the TV's browser, launched with
  * `#room=<code>-<viewerToken>`, see POST /api/rooms): stored like the room of a reload, so the
- * connection rejoins it. The fragment is removed from the address. True if there was one.
+ * connection rejoins it, and marked as the app's. The fragment is removed from the address.
+ * Returns the code of the app's room this page is in (also after a reload), or null.
  */
 export function adoptRoomFromURL() {
   const match = /^#room=(\d{6})-([0-9a-f]{32})$/.exec(location.hash);
-  if (!match) return false;
-  saveRoom(match[1], match[2]);
-  try { history.replaceState(null, "", location.pathname + location.search); } catch (e) { /* old browser */ }
-  return true;
+  if (match) {
+    saveRoom(match[1], match[2], true);
+    try { history.replaceState(null, "", location.pathname + location.search); } catch (e) { /* old browser */ }
+  }
+  const saved = loadRoom();
+  return saved && saved.launched ? saved.code : null;
 }
 
 function loadRoom() {
@@ -188,6 +192,9 @@ function loadRoom() {
   return null;
 }
 
-function saveRoom(code, viewerToken) {
-  try { sessionStorage.setItem(SESSION_KEY, JSON.stringify({ code: code, viewerToken: viewerToken })); } catch (e) { /* storage disabled */ }
+/** `launched`: a room the app created for this page (it shows no code). */
+function saveRoom(code, viewerToken, launched) {
+  const room = { code: code, viewerToken: viewerToken };
+  if (launched) room.launched = true;
+  try { sessionStorage.setItem(SESSION_KEY, JSON.stringify(room)); } catch (e) { /* storage disabled */ }
 }
