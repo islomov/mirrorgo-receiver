@@ -16,6 +16,7 @@ import shutil
 import sys
 from pathlib import Path
 
+import blog as B
 import content as C
 
 ROOT = Path(__file__).resolve().parent
@@ -182,7 +183,7 @@ def website_schema():
 
 # MARK: Layout
 
-NAV = [("/#features", "Features"), ("/#tvs", "TVs"), ("/#how", "How it works"), ("/help/", "Help")]
+NAV = [("/#features", "Features"), ("/#tvs", "TVs"), ("/blog/", "Guides"), ("/help/", "Help")]
 
 
 def header():
@@ -199,18 +200,19 @@ def header():
 
 def footer():
     tvs = "".join(f'<li><a href="/{t["page"]}/">{esc(t["name"])}</a></li>' for t in C.TVS if t["page"])
-    feats = "".join(f'<li><a href="/#{f["id"]}">{esc(f["name"])}</a></li>' for f in C.FEATURES[:6])
+    brands = "".join(f'<li><a href="/{b["slug"]}/">{esc(b["name"])} TV</a></li>' for b in C.BRANDS)
     year = datetime.date.today().year
     return f"""<footer class="footer">
   <div class="wrap">
     <div class="cols">
       <div>
         <a class="brand" href="/"><img src="/img/icon.webp" alt="" width="34" height="34" loading="lazy">{C.APP_NAME}</a>
-        <p style="margin-top:14px;max-width:26em">{esc(C.TAGLINE)}. Samsung, LG, Google TV, Chromecast, Fire TV, Apple TV and any web browser.</p>
+        <p style="margin-top:14px;max-width:26em">{esc(C.TAGLINE)}. Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV and any web browser.</p>
       </div>
       <div><h4>Mirror to</h4><ul>{tvs}</ul></div>
-      <div><h4>Cast</h4><ul>{feats}</ul></div>
+      <div><h4>TV brands</h4><ul>{brands}</ul></div>
       <div><h4>Support</h4><ul>
+        <li><a href="/blog/">Guides</a></li>
         <li><a href="/help/">Help &amp; FAQ</a></li>
         <li><a href="mailto:{C.SUPPORT_EMAIL}">{C.SUPPORT_EMAIL}</a></li>
         <li><a href="https://smrr.tv">smrr.tv</a> (TV browser)</li>
@@ -219,7 +221,7 @@ def footer():
     </div>
     <div class="legal">
       <span>© {year} {C.APP_NAME}</span>
-      <span>Samsung, LG, Google TV, Chromecast, Fire TV, Apple TV and AirPlay are trademarks of their owners. MirrorGo isn't affiliated with them.</span>
+      <span>Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV, AirPlay and the TV brands named are trademarks of their owners. MirrorGo isn't affiliated with them.</span>
     </div>
   </div>
 </footer>"""
@@ -319,10 +321,12 @@ def showcase_row(i, item):
 
 def build_home():
     chips = "".join(
-        (f'<a class="chip" href="/{t["page"]}/">' if t["page"] else '<span class="chip">')
-        + f'<i style="background:{t["color"]}"></i>{esc(t["name"])}'
-        + ("</a>" if t["page"] else "</span>")
+        f'<a class="chip" href="/{t["page"]}/"><i style="background:{t["color"]}"></i>{esc(t["name"])}</a>'
         for t in C.TVS
+    )
+    brand_chips = "".join(
+        f'<a class="chip brand-chip" href="/{b["slug"]}/" style="--bc:{b["color"]}">{esc(b["name"])}</a>'
+        for b in C.BRANDS
     )
     tiles = "".join(
         f'<a class="tile reveal" href="#{f["id"]}" style="--c:{f["colors"][0]}">{icon(f)}<h3>{esc(f["name"])}</h3>'
@@ -336,6 +340,11 @@ def build_home():
     steps = "".join(f'<div class="step reveal"><h3>{esc(t)}</h3><p>{esc(d)}</p></div>' for t, d in C.STEPS)
     privacy = "".join(f"<li><b>{esc(t)}</b>{esc(d)}</li>" for t, d in C.PRIVACY_POINTS)
     faq_items = [faq_item(i) for i in C.HOME_FAQ]
+    guide_cards = "".join(
+        f'<a class="card" href="/blog/#{t["id"]}"><b><i class="dot" style="background:{t["color"]}"></i>{esc(t["name"])}</b>'
+        f'<span>{len([1 for tv_id, _ in B.posts() if tv_id == t["id"]]) + 1} guides</span></a>'
+        for t in C.TVS
+    )
     faq = "".join(faq_details(item, open_first=(n == 0)) for n, item in enumerate(faq_items))
 
     body = f"""
@@ -360,6 +369,7 @@ def build_home():
   <div class="wrap">
     <p>Works with the TV you already have</p>
     <div class="chips">{chips}</div>
+    <div class="chips" style="margin-top:10px">{brand_chips}</div>
   </div>
 </section>
 
@@ -397,7 +407,7 @@ def build_home():
       <p>MirrorGo finds your TV on the Wi-Fi and dims anything it can't play.</p>
     </div>
     <div class="reveal">{compatibility_table()}</div>
-    <p class="table-foot">Samsung smart TVs from 2016 · LG webOS TVs · Google TV, Android TV and Chromecast · Fire TV Stick, Cube and Fire TV smart TVs · Apple TV and AirPlay TVs · any browser through smrr.tv</p>
+    <p class="table-foot">Samsung smart TVs from 2016 · LG webOS TVs · Roku TVs and players · Google TV and Android TV (Sony, TCL, Hisense, Philips, Xiaomi…) · Chromecast · Fire TV Stick, Cube and Fire TV smart TVs · Apple TV and AirPlay TVs · any browser through smrr.tv</p>
   </div>
 </section>
 
@@ -412,6 +422,18 @@ def build_home():
       </div>
       <ul>{privacy}</ul>
     </div>
+  </div>
+</section>
+
+<section id="guides">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Guides</span>
+      <h2>Step by step, for your TV</h2>
+      <p>How to connect, mirror, and cast photos, videos, YouTube and live TV to each kind of TV.</p>
+    </div>
+    <div class="cards guide-grid">{guide_cards}</div>
+    <p class="table-foot" style="margin-top:22px"><a href="/blog/">All guides →</a></p>
   </div>
 </section>
 
@@ -465,10 +487,11 @@ def build_guide(g):
         for q, a in g["faq"]
     )
     others = "".join(
-        f'<a class="card" href="/{o["page"]}/"><b>{esc(o["name"])}</b><span>Mirror your iPhone to {esc(o["name"])}</span></a>'
+        f'<a class="card" href="/{o["page"]}/"><b>{esc(o["name"])}</b><span>{esc(guide_h1(o["id"]))}</span></a>'
         for o in C.TVS if o["page"] and o["id"] != t["id"]
     )
     shot = "browser_code" if t["id"] == "browser" else "mirroring"
+    articles = post_cards(t["id"])
     body = f"""
 <section class="page-hero">
   <div class="wrap split">
@@ -492,6 +515,8 @@ def build_guide(g):
     {sections}
     <h2>Questions</h2>
     <div class="faq" style="margin:0">{faq}</div>
+    <h2>More guides for {esc(t['name'])}</h2>
+    <div class="cards">{articles}</div>
     <h2>Other TVs</h2>
     <div class="cards">{others}</div>
   </div>
@@ -508,6 +533,213 @@ def build_guide(g):
     schemas = [howto, faq_schema(g["faq"]),
                breadcrumbs_schema([("MirrorGo", "/"), (t["name"], f"/{g['slug']}/")])]
     return page(f"/{g['slug']}/", g["title"], g["description"], body, schemas)
+
+
+# MARK: Blog
+
+def guide_h1(tv_id):
+    return next(g["h1"] for g in C.TV_GUIDES if g["tv"] == tv_id)
+
+
+def post_url(tv_id, t):
+    return f"/blog/{B.slug(tv_id, t)}/"
+
+
+def post_cards(tv_id, exclude=None):
+    """Cards for a TV's articles (and its mirroring guide)."""
+    t = tv(tv_id)
+    cards = [f'<a class="card" href="/{t["page"]}/"><b>Screen mirroring</b><span>{esc(guide_h1(tv_id))}</span></a>']
+    for pid, topic in B.posts():
+        if pid != tv_id or topic["id"] == exclude:
+            continue
+        title = topic["title"].format(art=B.PLATFORMS[pid].get("title_art", B.PLATFORMS[pid]["art"]))
+        cards.append(f'<a class="card" href="{post_url(pid, topic)}"><b>{esc(topic["label"])}</b><span>{esc(title)}</span></a>')
+    return "".join(cards)
+
+
+def build_post(tv_id, topic):
+    t = tv(tv_id)
+    p = B.PLATFORMS[tv_id]
+    art, title_art = p["art"], p.get("title_art", p["art"])
+    path = post_url(tv_id, topic)
+    title = topic["title"].format(art=title_art)
+    h1 = topic["h1"].format(art=art)
+    lead = topic["lead"].format(art=art)
+    connect_post = post_url(tv_id, B.topic("connect"))
+    if topic["id"] == "connect":
+        steps = p["connect"]
+        specifics = p["connect_notes"]
+    else:
+        steps = [s.format(art=art) for s in topic["steps"]]
+        specifics = [p[topic["id"]]]
+    steps_html = "".join(
+        f'<li><a href="{connect_post}">{esc(s)}</a></li>' if (topic["id"] != "connect" and i == 0) else f"<li>{esc(s)}</li>"
+        for i, s in enumerate(steps)
+    )
+    specifics_html = "".join(f"<p>{esc(x)}</p>" for x in specifics)
+    tips = "".join(f"<li>{esc(x)}</li>" for x in topic["tips"])
+    same_topic = "".join(
+        f'<a class="card" href="{post_url(o, topic)}"><b>{esc(tv(o)["name"])}</b>'
+        f'<span>{esc(topic["title"].format(art=B.PLATFORMS[o].get("title_art", B.PLATFORMS[o]["art"])))}</span></a>'
+        for o, tp in B.posts() if tp["id"] == topic["id"] and o != tv_id
+    )
+    shot, alt = topic["shot"]
+    if topic["id"] == "connect" and tv_id == "browser":
+        shot, alt = "browser_code", "Typing the smrr.tv code in MirrorGo"
+    body = f"""
+<section class="page-hero">
+  <div class="wrap split">
+    <div>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">MirrorGo</a> › <a href="/blog/">Guides</a> › <a href="/blog/#{t['id']}">{esc(t['name'])}</a></nav>
+      <h1>{esc(h1)}</h1>
+      <p class="lead">{esc(lead)}</p>
+      <div class="answer-box">
+        <h2>Step by step</h2>
+        <ol>{steps_html}</ol>
+      </div>
+      <p class="byline">Updated <time datetime="{B.PUBLISHED}">{B.PUBLISHED}</time> · MirrorGo for iPhone</p>
+    </div>
+    {phone(shot, alt, "float", eager=True)}
+  </div>
+</section>
+<section style="padding-top:30px">
+  <div class="wrap prose">
+    <h2>On {esc(t['name'])}</h2>
+    {specifics_html}
+    <h2>Good to know</h2>
+    <ul>{tips}</ul>
+    <div class="cta" style="margin-top:30px">{download_button()}</div>
+    <h2>More for {esc(t['name'])}</h2>
+    <div class="cards">{post_cards(tv_id, exclude=topic["id"])}</div>
+    <h2>{esc(topic['label'])} on other TVs</h2>
+    <div class="cards">{same_topic}</div>
+  </div>
+</section>
+"""
+    article = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": title,
+        "description": lead,
+        "datePublished": B.PUBLISHED,
+        "dateModified": B.PUBLISHED,
+        "mainEntityOfPage": url(path),
+        "image": url(f"/img/screens/{shot}.webp"),
+        "author": {"@type": "Organization", "name": C.APP_NAME, "url": url("/")},
+        "publisher": {"@type": "Organization", "name": C.APP_NAME, "logo": {"@type": "ImageObject", "url": url("/img/icon-512.png")}},
+        "about": {"@id": url("/#app")},
+    }
+    howto = {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": h1,
+        "description": lead,
+        "tool": [{"@type": "HowToTool", "name": "MirrorGo for iPhone"}],
+        "step": [{"@type": "HowToStep", "position": i, "text": s} for i, s in enumerate(steps, 1)],
+    }
+    crumbs = breadcrumbs_schema([("MirrorGo", "/"), ("Guides", "/blog/"), (h1, path)])
+    desc = lead if len(lead) <= 160 else lead[:157].rsplit(" ", 1)[0] + "…"
+    return path, page(path, f"{title} | MirrorGo", desc, body, [article, howto, crumbs])
+
+
+def build_blog_index():
+    groups = []
+    for t in C.TVS:
+        items = [f'<li><a href="/{t["page"]}/">{esc(guide_h1(t["id"]))}</a></li>']
+        for pid, topic in B.posts():
+            if pid == t["id"]:
+                p = B.PLATFORMS[pid]
+                items.append(f'<li><a href="{post_url(pid, topic)}">{esc(topic["h1"].format(art=p["art"]))}</a></li>')
+        groups.append(f'<div class="blog-group" id="{t["id"]}"><h2><i class="dot" style="background:{t["color"]}"></i>{esc(t["name"])}</h2>'
+                      f'<ul>{"".join(items)}</ul></div>')
+    brands = "".join(f'<a class="card" href="/{b["slug"]}/"><b>{esc(b["name"])}</b><span>Mirror your iPhone to a {esc(b["name"])} TV</span></a>' for b in C.BRANDS)
+    body = f"""
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">MirrorGo</a> › Guides</nav>
+    <h1>Guides</h1>
+    <p class="lead">Step-by-step guides for every kind of TV: connecting your iPhone, mirroring the screen, and casting photos, videos, web images, YouTube, web videos and free live TV.</p>
+  </div>
+</section>
+<section style="padding-top:10px">
+  <div class="wrap">
+    <div class="blog-groups">{"".join(groups)}</div>
+    <div class="prose" style="max-width:none"><h2>By TV brand</h2><div class="cards">{brands}</div></div>
+  </div>
+</section>
+"""
+    collection = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "MirrorGo guides",
+        "url": url("/blog/"),
+        "hasPart": [{"@type": "BlogPosting", "headline": tp["title"].format(art=B.PLATFORMS[pid].get("title_art", B.PLATFORMS[pid]["art"])),
+                     "url": url(post_url(pid, tp))} for pid, tp in B.posts()],
+    }
+    return page("/blog/", "Guides: Mirror and Cast an iPhone to Any TV | MirrorGo",
+                "Step-by-step guides to connect an iPhone to Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire "
+                "TV, Apple TV or a web browser, and cast photos, videos, YouTube and live TV.", body,
+                [collection, breadcrumbs_schema([("MirrorGo", "/"), ("Guides", "/blog/")])])
+
+
+# MARK: TV brands
+
+def build_brand(b):
+    kinds = [tv(k) for k in b["platforms"]]
+    cards = "".join(
+        f'<a class="card" href="/{k["page"]}/"><b><i class="dot" style="background:{k["color"]}"></i>{esc(k["name"])}</b>'
+        f'<span>{"Any model, through smrr.tv" if k["id"] == "browser" else esc(guide_h1(k["id"]))}</span></a>'
+        for k in kinds
+    )
+    guides = "".join(
+        f'<li><a href="{post_url(k["id"], B.topic(tp))}">{esc(B.topic(tp)["h1"].format(art=B.PLATFORMS[k["id"]]["art"]))}</a></li>'
+        for k in kinds for tp in ("connect", "photos", "iptv")
+    )
+    names = ", ".join(k["name"] for k in kinds if k["id"] != "browser")
+    steps = [
+        f"Find out which system your {b['name']} TV runs ({names}): its logo is on the start screen and the remote.",
+        "Put your iPhone on the same Wi-Fi as the TV.",
+        "Open MirrorGo, tap Connect your TV and pick your TV.",
+        f"Open Screen Mirroring and tap Start mirroring, then {C.START_SHARING}.",
+    ]
+    steps_html = "".join(f"<li>{esc(s)}</li>" for s in steps)
+    path = f"/{b['slug']}/"
+    body = f"""
+<section class="page-hero">
+  <div class="wrap split">
+    <div>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">MirrorGo</a> › {esc(b['name'])} TV</nav>
+      <h1>Mirror your iPhone to a {esc(b['name'])} TV</h1>
+      <p class="lead">{esc(b['about'])} {esc(b['which'])}</p>
+      <div class="answer-box">
+        <h2>How to do it</h2>
+        <ol>{steps_html}</ol>
+      </div>
+      <div class="cta" style="margin-top:26px">{download_button()}</div>
+    </div>
+    {phone("mirroring", f"MirrorGo ready to mirror an iPhone to a {b['name']} TV", "float", eager=True)}
+  </div>
+</section>
+<section style="padding-top:30px">
+  <div class="wrap prose">
+    <h2>{esc(b['name'])} TVs, by system</h2>
+    <div class="cards">{cards}</div>
+    <h2>Guides</h2>
+    <ul>{guides}</ul>
+  </div>
+</section>
+"""
+    howto = {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": f"Mirror your iPhone to a {b['name']} TV",
+        "tool": [{"@type": "HowToTool", "name": "MirrorGo for iPhone"}],
+        "step": [{"@type": "HowToStep", "position": i, "text": s} for i, s in enumerate(steps, 1)],
+    }
+    return path, page(path, f"How to Mirror an iPhone to a {b['name']} TV | MirrorGo",
+                      f"Mirror your iPhone to a {b['name']} TV and cast photos, videos, YouTube and live TV with MirrorGo. "
+                      f"Works with {names}.", body,
+                      [howto, breadcrumbs_schema([("MirrorGo", "/"), (f"{b['name']} TV", path)])])
 
 
 # MARK: Help
@@ -603,6 +835,7 @@ def build_404():
 
 def llms_txt():
     tv_lines = "\n".join(f"- [{t['name']}]({url('/' + t['page'] + '/')})" for t in C.TVS if t["page"])
+    brand_lines = "\n".join(f"- [{b['name']} TV]({url('/' + b['slug'] + '/')}): {b['about']}" for b in C.BRANDS)
     feats = "\n".join(f"- {f['name']}: {f['short']}" for f in C.FEATURES)
     compat = []
     for name, cells in C.COMPATIBILITY:
@@ -631,11 +864,20 @@ def llms_txt():
 
 {compat}
 
-## Guides
+## Pages
 
 - [Home]({url('/')}): features, supported TVs, compatibility, FAQ
 - [Help & FAQ]({url('/help/')}): connecting, screen mirroring, casting, permissions, troubleshooting
+- [Guides]({url('/blog/')}): step-by-step guides per kind of TV (connect, photos & videos, web images, live TV, YouTube, web videos, camera)
+
+## Mirroring guides by kind of TV
+
 {tv_lines}
+
+## By TV brand
+
+{brand_lines}
+
 - [Privacy policy]({url('/privacy/')})
 """
 
@@ -706,6 +948,16 @@ def main():
     for g in C.TV_GUIDES:
         write(f"{g['slug']}/index.html", build_guide(g))
         paths.append(f"/{g['slug']}/")
+    for b in C.BRANDS:
+        path, html_ = build_brand(b)
+        write(path.strip("/") + "/index.html", html_)
+        paths.append(path)
+    write("blog/index.html", build_blog_index())
+    paths.append("/blog/")
+    for tv_id, topic in B.posts():
+        path, html_ = build_post(tv_id, topic)
+        write(path.strip("/") + "/index.html", html_)
+        paths.append(path)
     write("help/index.html", build_help())
     write("privacy/index.html", build_privacy())
     paths += ["/help/", "/privacy/"]
