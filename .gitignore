@@ -3,3 +3,7 @@ node_modules/
 .dev.vars
 .DS_Store
 worker/worker-configuration.d.ts
+site/public/
+# Built by site/build.py (smrr.tv/landing-page)
+web/landing-page/
+web/llms.txt
