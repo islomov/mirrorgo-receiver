@@ -11,6 +11,8 @@ export { Room } from "./room";
 const MAX_CODE_ATTEMPTS = 8;
 const RETRY_AFTER_S = "60";
 const CORS = { "access-control-allow-origin": "*" };
+/** MirrorGo's landing page (../site), first served here at /landing-page. */
+const LANDING_ORIGIN = "https://mirrorgo.app";
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
@@ -20,6 +22,12 @@ export default {
     if (url.hostname === "www.smrr.tv") {
       url.hostname = "smrr.tv";
       return Response.redirect(url.toString(), 301);
+    }
+
+    // The landing page moved to its own domain: same page there, permanently.
+    const landing = url.pathname.match(/^\/landing-page(\/.*)?$/);
+    if (landing) {
+      return Response.redirect(`${LANDING_ORIGIN}${landing[1] ?? "/"}${url.search}`, 301);
     }
 
     if (url.pathname === "/healthz") {
