@@ -65,6 +65,7 @@ const web = {
 const firetv = {
   pageTitle: "MirrorGo",
   brand: "MirrorGo",
+  surfaceBadge: "for Fire TV",
   offline: "Can't connect. Check your Fire TV's internet connection.",
 
   codeTitle: "Mirror your iPhone to this TV",
