@@ -2,8 +2,8 @@
 """Builds mirrorgo.app into site/public: static HTML (no framework, no JS needed to read it),
 structured data for search engines and AI answer engines, sitemap, robots.txt and llms.txt.
 
-    python3 site/build.py            # → site/public
-    python3 site/build.py --serve    # build, then serve on http://localhost:8000
+    python3 site/build.py            # → web/landing-page (served at smrr.tv/landing-page)
+    python3 site/build.py --serve    # build, then serve web/ on http://localhost:8000/landing-page/
 
 Python 3.9+, standard library only. Text lives in content.py.
 """
@@ -11,6 +11,7 @@ Python 3.9+, standard library only. Text lives in content.py.
 import datetime
 import html
 import json
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -19,7 +20,10 @@ import content as C
 
 ROOT = Path(__file__).resolve().parent
 SRC = ROOT / "src"
-OUT = ROOT / "public"
+# Under smrr.tv the pages go into the smrr.tv Worker's static files (../web/landing-page, gitignored);
+# on a domain of their own, into site/public.
+WEB = ROOT.parent / "web"
+OUT = WEB / C.BASE_PATH.strip("/") if C.BASE_PATH else ROOT / "public"
 TODAY = datetime.date.today().isoformat()
 SHOT_W, SHOT_H = 640, 1392  # src/img/screens/*.webp
 
@@ -29,7 +33,14 @@ def esc(text):
 
 
 def url(path):
-    return C.SITE_URL + path
+    return C.SITE_URL + C.BASE_PATH + path
+
+
+def with_base(markup):
+    """Root-relative links and sources ("/help/", "/img/…") under BASE_PATH."""
+    if not C.BASE_PATH:
+        return markup
+    return re.sub(r'((?:href|src)=")/(?!/)', lambda m: m.group(1) + C.BASE_PATH + "/", markup)
 
 
 def app_store_url():
@@ -645,10 +656,10 @@ def sitemap(paths):
 
 def manifest():
     return json.dumps({
-        "name": C.APP_NAME, "short_name": C.APP_NAME, "start_url": "/", "display": "browser",
+        "name": C.APP_NAME, "short_name": C.APP_NAME, "start_url": f"{C.BASE_PATH}/", "display": "browser",
         "background_color": "#0e0e12", "theme_color": "#0e0e12",
-        "icons": [{"src": "/img/icon-512.png", "sizes": "512x512", "type": "image/png"},
-                  {"src": "/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"}],
+        "icons": [{"src": f"{C.BASE_PATH}/img/icon-512.png", "sizes": "512x512", "type": "image/png"},
+                  {"src": f"{C.BASE_PATH}/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"}],
     }, indent=2)
 
 
@@ -670,8 +681,10 @@ HEADERS = """/*
 
 # MARK: Build
 
-def write(rel, text):
-    path = OUT / rel
+def write(rel, text, root=None):
+    if rel.endswith(".html"):
+        text = with_base(text)
+    path = (root or OUT) / rel
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(text, encoding="utf-8")
 
@@ -696,19 +709,25 @@ def main():
     write("help/index.html", build_help())
     write("privacy/index.html", build_privacy())
     paths += ["/help/", "/privacy/"]
-    write("404.html", build_404())
     write("sitemap.xml", sitemap(paths))
-    write("robots.txt", robots_txt())
-    write("llms.txt", llms_txt())
     write("site.webmanifest", manifest())
-    write("_headers", HEADERS)
+    if C.BASE_PATH:
+        # robots.txt and llms.txt only count at the root: smrr.tv's robots.txt is web/robots.txt
+        # (it points at this sitemap); llms.txt is written there too. 404 and _headers stay smrr.tv's.
+        write("llms.txt", llms_txt(), root=WEB)
+    else:
+        write("404.html", build_404())
+        write("robots.txt", robots_txt())
+        write("llms.txt", llms_txt())
+        write("_headers", HEADERS)
     print(f"Built {len(paths)} pages into {OUT}")
 
     if "--serve" in sys.argv:
         import functools
         import http.server
-        handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(OUT))
-        print("Serving on http://localhost:8000")
+        served = WEB if C.BASE_PATH else OUT
+        handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(served))
+        print(f"Serving on http://localhost:8000{C.BASE_PATH}/")
         http.server.ThreadingHTTPServer(("127.0.0.1", 8000), handler).serve_forever()
 
 

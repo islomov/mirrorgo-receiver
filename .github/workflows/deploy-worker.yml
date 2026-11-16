@@ -1,6 +1,7 @@
 name: Deploy smrr.tv
 
-# Deploys the web receiver (web/) and the Worker (worker/) to Cloudflare.
+# Deploys the web receiver (web/), the landing page (site/, built into web/landing-page) and the
+# Worker (worker/) to Cloudflare.
 # The Cast receiver (root index.html) is still served by GitHub Pages.
 on:
   push:
@@ -8,12 +9,14 @@ on:
     paths:
       - "web/**"
       - "worker/**"
+      - "site/**"
       - ".github/workflows/deploy-worker.yml"
   # Pull requests only run the type-check and tests.
   pull_request:
     paths:
       - "web/**"
       - "worker/**"
+      - "site/**"
       - ".github/workflows/deploy-worker.yml"
   workflow_dispatch:
 
@@ -37,6 +40,8 @@ jobs:
           node-version: 24
           cache: npm
           cache-dependency-path: worker/package-lock.json
+      - name: Build the landing page (smrr.tv/landing-page)
+        run: python3 ../site/build.py
       - run: npm ci
       - name: Type-check
         run: npm run typecheck

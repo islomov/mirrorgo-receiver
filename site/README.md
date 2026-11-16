@@ -1,12 +1,19 @@
-# mirrorgo.app — the MirrorGo landing page
+# MirrorGo landing page — https://smrr.tv/landing-page/
 
-Static site, no framework: `build.py` (Python 3.9+, standard library only) writes `public/` from
-`content.py` (all the text) and `src/` (CSS, JS, fonts, images). `public/` is generated, not committed.
+Static site, no framework: `build.py` (Python 3.9+, standard library only) builds `content.py` (all the
+text) and `src/` (CSS, JS, fonts, images) into `../web/landing-page/`, which the smrr.tv Worker serves
+with the rest of `web/`. The output is gitignored; `.github/workflows/deploy-worker.yml` builds it before
+every smrr.tv deploy (pushes to `main` touching `site/`, `web/` or `worker/`).
 
 ```bash
-python3 site/build.py            # → site/public
-python3 site/build.py --serve    # build, then http://localhost:8000
+python3 site/build.py            # → web/landing-page
+python3 site/build.py --serve    # build, then http://localhost:8000/landing-page/
 ```
+
+Run the build before `npm run dev` in `worker/` to see it at http://localhost:8787/landing-page/.
+`web/robots.txt` (committed) points at its sitemap; `web/llms.txt` is generated.
+
+Paths below are under `/landing-page`.
 
 | Path | What |
 |------|------|
@@ -14,7 +21,7 @@ python3 site/build.py --serve    # build, then http://localhost:8000
 | `/mirror-iphone-to-samsung-tv/`, `-lg-tv/`, `-chromecast/`, `-fire-tv/`, `-browser/` | One guide per kind of TV (the searches people actually make) |
 | `/help/` | The app's whole FAQ (same text as the app's Help screen) |
 | `/privacy/` | Privacy policy (App Store "Privacy Policy URL") |
-| `robots.txt`, `sitemap.xml`, `llms.txt` | For search engines and AI answer engines |
+| `sitemap.xml` (+ `/robots.txt`, `/llms.txt` at smrr.tv's root) | For search engines and AI answer engines |
 
 ## Search and AI answer engines (SEO / GEO)
 
@@ -26,7 +33,9 @@ python3 site/build.py --serve    # build, then http://localhost:8000
   facts plainly (which TVs, what works, what doesn't), which is what AI answers quote.
 - `llms.txt` sums up the app, the compatibility table and the pages for AI crawlers.
 - `robots.txt` allows every crawler. **In Cloudflare, keep "Block AI bots", "AI Labyrinth" and
-  "Managed robots.txt" off for mirrorgo.app** (Security › Bots), or AI answer engines can't read the site.
+  "Managed robots.txt" off for the zone** (Security › Bots), or AI answer engines can't read the site.
+- Submit `https://smrr.tv/landing-page/sitemap.xml` in Google Search Console and Bing Webmaster Tools
+  (Bing also feeds ChatGPT search).
 - `hreflang` is already set (`en` + `x-default`), so translated pages can be added under `/<lang>/` later.
 
 ## Keeping it in step with the app
@@ -41,19 +50,11 @@ python3 site/build.py --serve    # build, then http://localhost:8000
   pages get the Smart App Banner. Swap the button for Apple's official "Download on the App Store"
   badge (Apple's marketing tools) at the same time.
 
-## Hosting
+## Moving it to its own domain (mirrorgo.app) later
 
-Cloudflare, in the same account as smrr.tv: `wrangler.jsonc` deploys `public/` as its own Worker with
-static assets (`mirrorgo-site`, free, no Worker script). `.github/workflows/deploy-site.yml` builds and
-deploys on every push to `main` that touches `site/` (the same `CLOUDFLARE_API_TOKEN` /
-`CLOUDFLARE_ACCOUNT_ID` secrets as smrr.tv).
-
-Domain, once bought:
-
-1. Register `mirrorgo.app` (Cloudflare Registrar sells `.app` at cost) or add it to Cloudflare as a zone.
-2. Uncomment the `routes` line in `wrangler.jsonc` (custom domain `mirrorgo.app`) and push.
-3. Add `www.mirrorgo.app` → `https://mirrorgo.app` as a Redirect Rule (Rules › Redirect Rules).
-4. Submit `https://mirrorgo.app/sitemap.xml` in Google Search Console and Bing Webmaster Tools (Bing
-   also feeds ChatGPT search).
-
-If the domain changes, change `SITE_URL` in `content.py` (canonical URLs, sitemap, structured data).
+1. Register `mirrorgo.app` in the same Cloudflare account.
+2. In `content.py`: `SITE_URL = "https://mirrorgo.app"`, `BASE_PATH = ""`. The build then writes
+   `site/public/` with its own `robots.txt`, `llms.txt`, `404.html` and `_headers`.
+3. Deploy `site/public` as its own static-assets Worker with the custom domain `mirrorgo.app`, and
+   redirect `smrr.tv/landing-page/*` there (301) so links and search rankings carry over.
+4. Submit the new sitemap in Google Search Console and Bing Webmaster Tools.

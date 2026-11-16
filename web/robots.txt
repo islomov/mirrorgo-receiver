@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://smrr.tv/landing-page/sitemap.xml

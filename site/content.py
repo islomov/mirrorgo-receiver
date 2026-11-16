@@ -7,7 +7,10 @@ can play (`MediaCastCoordinator.canCast`, `CameraCastCoordinator.canCast`, `YouT
 
 # MARK: Site
 
-SITE_URL = "https://mirrorgo.app"
+# Where the site is served. For now under smrr.tv (built into ../web/landing-page and deployed with the
+# smrr.tv Worker); for its own domain later: SITE_URL = "https://mirrorgo.app", BASE_PATH = "".
+SITE_URL = "https://smrr.tv"
+BASE_PATH = "/landing-page"
 APP_NAME = "MirrorGo"
 # The App Store id (the digits in apps.apple.com/app/…/id<digits>). Empty until the app is live:
 # the download buttons then say "Coming soon to the App Store" and link nowhere.
