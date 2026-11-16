@@ -45,6 +45,11 @@ export default {
       return env.ASSETS.fetch(new Request(new URL("/join", url), request));
     }
 
+    // The MirrorGo Fire TV app opens /?app=firetv: its own page (../web/firetv.html), same receiver.
+    if (url.pathname === "/" && url.searchParams.get("app") === "firetv") {
+      return env.ASSETS.fetch(new Request(new URL("/firetv", url), request));
+    }
+
     return env.ASSETS.fetch(request);
   },
 } satisfies ExportedHandler<Env>;

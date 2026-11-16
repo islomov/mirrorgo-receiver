@@ -1,5 +1,5 @@
 // Every user-facing string of the site, in one place (English only for now).
-// `strings` is the web page's, with the `firetv` ones on top on /firetv (body data-surface="firetv").
+// `strings` is the web page's, with the `firetv` ones on top on /?app=firetv (firetv.html, body data-surface="firetv").
 
 const web = {
   pageTitle: "smrr.tv · Mirror your iPhone",
@@ -61,7 +61,7 @@ const web = {
   joinHome: "Show a code on this device",
 };
 
-/** /firetv: the MirrorGo Fire TV app's page. A TV, a remote, MirrorGo's name. */
+/** /?app=firetv: the MirrorGo Fire TV app's page. A TV, a remote, MirrorGo's name. */
 const firetv = {
   pageTitle: "MirrorGo",
   brand: "MirrorGo",

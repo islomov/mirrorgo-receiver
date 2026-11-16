@@ -22,7 +22,7 @@ const GIVE_UP_AFTER_MS = 15000;
 // what the phone is doing instead of showing the code, QR code and steps.
 const launchedCode = adoptRoomFromURL();
 const launchedByApp = launchedCode !== null;
-// /firetv (firetv.html): the MirrorGo Fire TV app's page. Same receiver, its own layout and strings.
+// /?app=firetv (firetv.html): the MirrorGo Fire TV app's page. Same receiver, its own layout and strings.
 const firetv = document.body.getAttribute("data-surface") === "firetv";
 
 const app = {
@@ -369,7 +369,7 @@ function renderQR(text) {
     '<rect width="' + size + '" height="' + size + '" fill="#fff"/><path d="' + path + '" fill="#000"/></svg>';
 }
 
-/** /firetv: the app's bridge (window.MirrorGoTV) names this TV. */
+/** /?app=firetv: the app's bridge (window.MirrorGoTV) names this TV. */
 function renderFireTV() {
   const bridge = window.MirrorGoTV;
   let name = "";
@@ -418,7 +418,7 @@ $("sound").addEventListener("click", function () {
   renderSound();
 });
 
-// Ended: this page becomes a normal smrr.tv page (a new room with a code). Not on /firetv.
+// Ended: this page becomes a normal smrr.tv page (a new room with a code). Not on /?app=firetv.
 if ($("app-use-code")) {
   $("app-use-code").addEventListener("click", function () {
     signaling.forgetRoom();

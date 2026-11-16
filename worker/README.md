@@ -7,6 +7,7 @@ the app while the page plays a link it sent). Protocol:
 
 - `src/index.ts`: routes (`/ws`, `/api/rooms/:code`, `/c/:code`, `/healthz`, www → apex redirect, assets).
 - `src/room.ts`: the `Room` Durable Object (one per code; WebSocket hibernation, alarms for the TTLs).
+- `/?app=firetv` → `../web/firetv.html`: the page of the MirrorGo Fire TV app (islomov/mirrorgo-firetv).
 - `/landing-page/*` → `https://mirrorgo.app/*` (301): the landing page (`../site/`) moved to its own domain.
 - `wrangler.jsonc`: DO binding + `new_sqlite_classes` migration, rate limits, `ICE_SERVERS` var.
 

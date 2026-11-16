@@ -501,6 +501,17 @@ describe("site", () => {
     expect(await home.text()).toContain("app.js");
   });
 
+  it("serves the Fire TV app's page for /?app=firetv, the normal page otherwise", async () => {
+    const firetv = await SELF.fetch(`${ORIGIN}/?app=firetv`);
+    expect(firetv.status).toBe(200);
+    expect(await firetv.text()).toContain('data-surface="firetv"');
+    for (const path of ["/", "/?app=other"]) {
+      const page = await (await SELF.fetch(`${ORIGIN}${path}`)).text();
+      expect(page).toContain("app.js");
+      expect(page).not.toContain('data-surface="firetv"');
+    }
+  });
+
   it("redirects the old /landing-page URLs to the same page on mirrorgo.app", async () => {
     for (const [from, to] of [
       ["/landing-page", "https://mirrorgo.app/"],
