@@ -76,6 +76,12 @@ const firetv = {
   mediaFailedTitle: "This TV couldn't play it",
   iceFailed: "Couldn't connect. Make sure your iPhone and this TV are on the same Wi-Fi.",
   tapForSound: "Press OK for sound",
+
+  // The web page's say "browser" / "window" and name desktop browsers.
+  unsupported: "This Fire TV can't play the mirrored screen. Update it in Settings → My Fire TV → About.",
+  replacedTitle: "This code is open on another screen",
+  replacedHint: "Only one screen can show your iPhone at a time.",
+  useThisWindow: "Show it here",
 };
 
 const surface = document.body ? document.body.getAttribute("data-surface") : null;
