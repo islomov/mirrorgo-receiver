@@ -218,6 +218,7 @@ def footer():
         <li><a href="https://smrr.tv">smrr.tv</a> (TV browser)</li>
         <li><a href="/privacy/">Privacy</a></li>
         <li><a href="/terms/">Terms of use</a></li>
+        <li><a href="/firetv/privacy/">Fire TV app: privacy</a> · <a href="/firetv/terms/">terms</a></li>
       </ul></div>
     </div>
     <div class="legal">
@@ -784,7 +785,7 @@ def build_privacy():
 </section>
 <section style="padding-top:10px">
   <div class="wrap prose">
-    {p("MirrorGo is built so that what you show on your TV stays between your iPhone and your TV. This policy explains what the app and our website smrr.tv handle, and why.")}
+    {p("MirrorGo is built so that what you show on your TV stays between your iPhone and your TV. This policy explains what the app and our website smrr.tv handle, and why. The MirrorGo TV app for Fire TV and Android TV has <a href='/firetv/privacy/'>its own privacy policy</a>.")}
     <h2>No account, no tracking</h2>
     {p("MirrorGo has no account and no sign-up. The app contains no advertising and no third-party analytics or tracking.")}
     <h2>Your screen, photos and videos</h2>
@@ -874,6 +875,99 @@ def build_terms():
                 body, [breadcrumbs_schema([("MirrorGo", "/"), ("Terms of use", "/terms/")])])
 
 
+# MARK: Fire TV app (islomov/mirrorgo-firetv: smrr.tv full screen in a WebView, announced as _mirrorgo._tcp)
+
+FIRETV_APP = "MirrorGo for Fire TV"
+
+
+def legal_page(path, crumb, h1, title, description, sections_html):
+    body = f"""
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">MirrorGo</a> › {esc(crumb)}</nav>
+    <h1>{esc(h1)}</h1>
+    <p class="lead">Last updated {TODAY}</p>
+  </div>
+</section>
+<section style="padding-top:10px">
+  <div class="wrap prose">
+{sections_html}
+  </div>
+</section>
+"""
+    return page(path, title, description, body, [breadcrumbs_schema([("MirrorGo", "/"), (crumb, path)])])
+
+
+def build_firetv_privacy():
+    p = lambda text: f"<p>{text}</p>"
+    mail = f'<a href="mailto:{C.SUPPORT_EMAIL}">{C.SUPPORT_EMAIL}</a>'
+    html_ = f"""
+    {p(f"This policy covers {FIRETV_APP}, the TV app that receives what you mirror or cast from MirrorGo on your iPhone. It runs on Amazon Fire TV and on Android TV / Google TV. For the iPhone app, see the <a href='/privacy/'>MirrorGo privacy policy</a>.")}
+    <h2>In short</h2>
+    <ul>
+      <li>No account, no sign-up, no advertising, no analytics or tracking.</li>
+      <li>The app only asks for internet access. It never uses a camera or microphone.</li>
+      <li>What you mirror from your iPhone goes straight to the TV over your Wi-Fi; we don't see or store it.</li>
+    </ul>
+    <h2>How the app works</h2>
+    {p("The app shows our web page smrr.tv full screen. The page shows a 6-digit code, and MirrorGo on your iPhone connects to it, either with that code or by finding the TV on your network. Your iPhone then sends the picture and sound straight to the TV over your Wi-Fi, or sends it a link (a live TV channel, a web video, a YouTube video) that the TV plays itself.")}
+    <h2>What our server sees</h2>
+    {p("To connect your iPhone and the TV, the smrr.tv server sees both devices' IP addresses, the session's code and when it was used. It keeps them only as long as needed to run and protect the service, for example to limit attempts to guess codes. The picture and sound don't pass through our server. To help the two devices reach each other on your network, they also contact a standard connection (STUN) server run by Cloudflare, which sees their IP addresses.")}
+    <h2>What other devices on your network can see</h2>
+    {p("While the app is open, it announces the TV on your local network so MirrorGo on your iPhone can list it: the TV's name (as set in its settings, else its model), its model, the app's version and the current 6-digit code. Any device on the same network can see this, just as anyone in the room can see the code on screen. The announcement stops when you leave the app.")}
+    <h2>What the TV fetches from others</h2>
+    {p("When you cast a link, the TV fetches it directly from where it lives, which sees the TV's IP address like any website you visit: live TV channels from their own streaming servers, web videos from the site they come from, and YouTube videos through YouTube's embedded player, under Google's privacy policy. If you use none of these, the TV only talks to your iPhone and smrr.tv.")}
+    <h2>Stored on the TV</h2>
+    {p("The page keeps the current session (its code) in the browser's session storage, and the TV's web view may cache parts of the page so it loads faster. Nothing else is stored. The app sets no cookies of its own and isn't included in device backups. Uninstalling the app removes it all.")}
+    <h2>Children</h2>
+    {p("The app doesn't knowingly collect personal information from anyone, including children.")}
+    <h2>Amazon and Google</h2>
+    {p("If you got the app from the Amazon Appstore or Google Play, the store and your device's maker handle your account, downloads and device under their own privacy policies.")}
+    <h2>Changes and contact</h2>
+    {p(f"If this policy changes, we'll update this page and its date. Questions: {mail}. See also the <a href='/firetv/terms/'>terms of use for {FIRETV_APP}</a>.")}
+"""
+    return legal_page("/firetv/privacy/", "Fire TV app privacy", f"{FIRETV_APP}: privacy policy",
+                      f"Privacy Policy: {FIRETV_APP} | MirrorGo",
+                      f"How {FIRETV_APP} handles data: no account, no tracking, internet access only; what you mirror "
+                      "goes straight from your iPhone to the TV.", html_)
+
+
+def build_firetv_terms():
+    p = lambda text: f"<p>{text}</p>"
+    mail = f'<a href="mailto:{C.SUPPORT_EMAIL}">{C.SUPPORT_EMAIL}</a>'
+    html_ = f"""
+    {p(f"These Terms of Use (“Terms”) govern your use of {FIRETV_APP} (the “App”), the TV app for Amazon Fire TV and Android TV / Google TV that receives what you mirror or cast from MirrorGo on your iPhone, operated by the makers of MirrorGo (“we”, “our”, “us”). By installing or using the App, you agree to these Terms. If you don't agree, don't use the App. MirrorGo on the iPhone has its own <a href='/terms/'>terms of use</a>.")}
+    <h2>1. The App</h2>
+    {p("The App shows our web page smrr.tv full screen so MirrorGo on your iPhone can mirror its screen and cast photos, videos, web videos, live TV channels and YouTube to your TV. It needs an internet connection, and your iPhone and TV on the same network. Features depend on your TV, network and content, may change, and aren't guaranteed to work with every device.")}
+    <h2>2. Using the App</h2>
+    <ul>
+      <li>Use the App only for lawful purposes and in line with applicable laws and regulations.</li>
+      <li>Don't misuse the App or smrr.tv, interfere with how they work, try to get unauthorized access, or reverse engineer the App except where the law allows.</li>
+      <li>The App announces your TV and its code on your local network (see the <a href="/firetv/privacy/">privacy policy</a>). Use it on networks where you're comfortable with that.</li>
+    </ul>
+    <h2>3. Content</h2>
+    {p("You are responsible for what you mirror or cast to the App and for having the right to show it. Live TV channels, web videos and YouTube videos come from third parties we don't own or control; live TV channels are free, public streams listed by the community-run iptv-org project, and their availability, content and legality where you live are outside our control. YouTube content is subject to YouTube's terms. Respect the rights and terms of the services whose content you watch.")}
+    <h2>4. Price</h2>
+    {p("The App is free. MirrorGo on the iPhone may offer paid features under its own terms.")}
+    <h2>5. Intellectual property</h2>
+    {p("The App and smrr.tv, including their software, text, graphics and logos, belong to us or our licensors. You may not copy, reproduce, distribute or create derivative works from them without our prior written permission. Amazon, Fire TV, Android TV, Google TV and YouTube are trademarks of their owners; the App isn't affiliated with or endorsed by them.")}
+    <h2>6. No warranty</h2>
+    {p("The App is provided “as is” and “as available”, without warranties of any kind, express or implied, to the fullest extent the law allows. We don't promise that it will be uninterrupted, error-free, or work with every TV or network.")}
+    <h2>7. Limitation of liability</h2>
+    {p("To the fullest extent the law allows, we aren't liable for any indirect, incidental, special or consequential damages, or for loss of data, revenue or profits, arising from your use of, or inability to use, the App. Nothing in these Terms limits liability that can't be limited by law.")}
+    <h2>8. App stores</h2>
+    {p("If you got the App from the Amazon Appstore or Google Play, that store's terms also apply to your download and use. The store isn't responsible for the App or its support; we are.")}
+    <h2>9. Ending your use and changes</h2>
+    {p("You can stop using the App at any time by uninstalling it. We may update these Terms; when we do, we'll change the date at the top of this page. Using the App after a change means you accept the updated Terms.")}
+    <h2>10. Contact</h2>
+    {p(f"Questions about these Terms: {mail}.")}
+"""
+    return legal_page("/firetv/terms/", "Fire TV app terms", f"{FIRETV_APP}: terms of use",
+                      f"Terms of Use: {FIRETV_APP} | MirrorGo",
+                      f"The terms for using {FIRETV_APP}, the TV app that receives what you mirror and cast from "
+                      "MirrorGo on your iPhone.", html_)
+
+
 def build_404():
     body = """
 <section class="page-hero" style="text-align:center;padding:120px 0">
@@ -935,6 +1029,7 @@ def llms_txt():
 
 - [Privacy policy]({url('/privacy/')})
 - [Terms of use]({url('/terms/')})
+- [Fire TV app privacy policy]({url('/firetv/privacy/')}), [terms of use]({url('/firetv/terms/')})
 """
 
 
@@ -1017,7 +1112,9 @@ def main():
     write("help/index.html", build_help())
     write("privacy/index.html", build_privacy())
     write("terms/index.html", build_terms())
-    paths += ["/help/", "/privacy/", "/terms/"]
+    write("firetv/privacy/index.html", build_firetv_privacy())
+    write("firetv/terms/index.html", build_firetv_terms())
+    paths += ["/help/", "/privacy/", "/terms/", "/firetv/privacy/", "/firetv/terms/"]
     write("sitemap.xml", sitemap(paths))
     write("site.webmanifest", manifest())
     if C.BASE_PATH:
