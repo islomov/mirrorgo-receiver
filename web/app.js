@@ -369,8 +369,9 @@ function renderQR(text) {
     '<rect width="' + size + '" height="' + size + '" fill="#fff"/><path d="' + path + '" fill="#000"/></svg>';
 }
 
-/** /firetv: the app's bridge (window.MirrorGoTV) names this TV. */
+/** /firetv: "for Fire TV" next to MirrorGo; the app's bridge (window.MirrorGoTV) names this TV. */
 function renderFireTV() {
+  $("surface-badge").textContent = strings.surfaceBadge;
   const bridge = window.MirrorGoTV;
   let name = "";
   try {

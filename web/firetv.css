@@ -20,6 +20,16 @@ body[data-surface="firetv"][data-screen="playing"] { background: #000; }
   width: 1.7em; height: 1.7em; margin-right: 0.5em;
   border-radius: 24%;
 }
+/* "for Fire TV" after the name: which page this is (text, not Amazon's logo). */
+.surface-badge {
+  margin-left: 0.6em;
+  padding: 0.3em 0.75em;
+  font-size: 0.6em; font-weight: 600; letter-spacing: 0;
+  color: #d9d2ff;
+  background: rgba(117, 92, 255, 0.18);
+  border: 2px solid rgba(117, 92, 255, 0.45);
+  border-radius: 999px;
+}
 .tv-name {
   font-size: 20px; font-size: clamp(14px, 1.3vw, 26px);
   font-weight: 600; color: #c9c9d4;
