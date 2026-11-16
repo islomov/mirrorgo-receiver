@@ -1,0 +1,16 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  // mirrorgo.app: the MirrorGo landing page. Static files only (no Worker script), built by build.py.
+  "name": "mirrorgo-site",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./public",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  // Preview at https://mirrorgo-site.<account>.workers.dev until the domain is added.
+  "workers_dev": true,
+  "preview_urls": false
+  // Once mirrorgo.app is a zone in this Cloudflare account, add:
+  // , "routes": [{ "pattern": "mirrorgo.app", "custom_domain": true }]
+}

@@ -3,3 +3,4 @@ node_modules/
 .dev.vars
 .DS_Store
 worker/worker-configuration.d.ts
+site/public/
