@@ -1,6 +1,7 @@
 // Every user-facing string of the site, in one place (English only for now).
+// `strings` is the web page's, with the `firetv` ones on top on /firetv (body data-surface="firetv").
 
-export const strings = {
+const web = {
   pageTitle: "smrr.tv · Mirror your iPhone",
   brand: "smrr.tv",
 
@@ -59,6 +60,27 @@ export const strings = {
   joinNoCode: "Open smrr.tv on your TV or computer to get a code.",
   joinHome: "Show a code on this device",
 };
+
+/** /firetv: the MirrorGo Fire TV app's page. A TV, a remote, MirrorGo's name. */
+const firetv = {
+  pageTitle: "MirrorGo",
+  brand: "MirrorGo",
+  offline: "Can't connect. Check your Fire TV's internet connection.",
+
+  codeTitle: "Mirror your iPhone to this TV",
+  sameWifi: "Your iPhone and this TV need the same Wi-Fi.",
+  qrTitle: "No MirrorGo on your iPhone?",
+  qrHint: "Scan with your iPhone camera to get it",
+  tvName: (name) => `This TV: ${name}`,
+
+  mediaFailedTitle: "This TV couldn't play it",
+  iceFailed: "Couldn't connect. Make sure your iPhone and this TV are on the same Wi-Fi.",
+  tapForSound: "Press OK for sound",
+};
+
+const surface = document.body ? document.body.getAttribute("data-surface") : null;
+
+export const strings = Object.assign({}, web, surface === "firetv" ? firetv : {});
 
 /** "123456" → "123 456" */
 export function spacedCode(code) {
