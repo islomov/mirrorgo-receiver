@@ -217,10 +217,11 @@ def footer():
         <li><a href="mailto:{C.SUPPORT_EMAIL}">{C.SUPPORT_EMAIL}</a></li>
         <li><a href="https://smrr.tv">smrr.tv</a> (TV browser)</li>
         <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="/terms/">Terms of use</a></li>
       </ul></div>
     </div>
     <div class="legal">
-      <span>© {year} {C.APP_NAME}</span>
+      <span>© {year} {C.APP_NAME} · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms of use</a></span>
       <span>Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV, AirPlay and the TV brands named are trademarks of their owners. MirrorGo isn't affiliated with them.</span>
     </div>
   </div>
@@ -810,13 +811,67 @@ def build_privacy():
     <h2>Children</h2>
     {p("MirrorGo doesn't knowingly collect personal information from anyone, including children.")}
     <h2>Changes and contact</h2>
-    {p(f'If this policy changes, we will update this page and its date. Questions: <a href="mailto:{C.SUPPORT_EMAIL}">{C.SUPPORT_EMAIL}</a>.')}
+    {p(f'If this policy changes, we will update this page and its date. Questions: <a href="mailto:{C.SUPPORT_EMAIL}">{C.SUPPORT_EMAIL}</a>. See also our <a href="/terms/">Terms of use</a>.')}
   </div>
 </section>
 """
     return page("/privacy/", "Privacy Policy | MirrorGo",
                 "How MirrorGo handles your data: no account, no tracking, your screen and photos go straight from "
                 "your iPhone to your TV.", body, [breadcrumbs_schema([("MirrorGo", "/"), ("Privacy", "/privacy/")])])
+
+
+def build_terms():
+    """Terms of use. The app's Settings shows the short version (SettingViewModel.content in MirrorGo)."""
+    p = lambda text: f"<p>{text}</p>"
+    mail = f'<a href="mailto:{C.SUPPORT_EMAIL}">{C.SUPPORT_EMAIL}</a>'
+    body = f"""
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">MirrorGo</a> › Terms of use</nav>
+    <h1>Terms of use</h1>
+    <p class="lead">Last updated {TODAY}</p>
+  </div>
+</section>
+<section style="padding-top:10px">
+  <div class="wrap prose">
+    {p("These Terms of Use (“Terms”) govern your use of the MirrorGo app for iPhone, the website mirrorgo.app and the TV web page smrr.tv (together, the “Service”), operated by the makers of MirrorGo (“we”, “our”, “us”). By downloading, accessing or using the Service, you agree to these Terms. If you don't agree, don't use the Service.")}
+    <h2>1. The Service</h2>
+    {p("MirrorGo mirrors your iPhone's screen and casts photos, videos, your camera, web videos, web images, live TV channels and YouTube to TVs, streaming devices and web browsers on your own network. Which features work depends on your TV, your network and the content; they may change as TVs and services change, and we don't guarantee that every TV, model or piece of content is supported.")}
+    <h2>2. Using the Service</h2>
+    <ul>
+      <li>Use the Service only for lawful purposes and in line with applicable laws and regulations.</li>
+      <li>Don't misuse the Service, interfere with how it works, try to get unauthorized access to any part of it, or reverse engineer it except where the law allows.</li>
+      <li>Only connect to and cast to TVs and devices you are allowed to use.</li>
+    </ul>
+    <h2>3. Your content and other people's content</h2>
+    {p("You are responsible for what you mirror or cast, and for having the right to show it. MirrorGo doesn't host, upload or store your photos, videos or screen: they go from your iPhone to your TV over your network.")}
+    {p("Web videos, web images, YouTube and live TV channels come from third parties that MirrorGo doesn't own or control. Live TV channels are free, publicly available streams listed by the community-run iptv-org project; we don't operate, host or endorse them, and their availability, content and legality where you live are outside our control. YouTube content is subject to YouTube's own terms. Web images come from Wikimedia Commons under their own licences, shown with each image. Respect the rights and terms of the services whose content you watch, and don't use MirrorGo to get around copy protection: protected content (for example from paid streaming apps) can't be mirrored or cast.")}
+    <h2>4. Subscriptions and purchases</h2>
+    {p("Some features may need a paid subscription or purchase. Payment is charged to your Apple ID by Apple. Subscriptions renew automatically unless turned off at least 24 hours before the end of the current period; you can manage or cancel them in your iPhone's Settings › your name › Subscriptions. Refunds are handled by Apple under its policies. Use Restore Purchase in MirrorGo's Settings to get a purchase back on a new device.")}
+    <h2>5. Intellectual property</h2>
+    {p("The Service, including its software, text, graphics and logos, belongs to us or our licensors. You may not copy, reproduce, distribute or create derivative works from it without our prior written permission. Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV, AirPlay, YouTube and other names are trademarks of their owners; MirrorGo isn't affiliated with or endorsed by them.")}
+    <h2>6. Third-party services and links</h2>
+    {p("The Service works with, and may link to, third-party devices, websites and services. We aren't responsible for their content, policies or practices, or for changes they make that affect the Service.")}
+    <h2>7. Privacy</h2>
+    {p('How we handle data is described in our <a href="/privacy/">Privacy policy</a>.')}
+    <h2>8. No warranty</h2>
+    {p("The Service is provided “as is” and “as available”, without warranties of any kind, express or implied, to the fullest extent the law allows. We don't promise that it will be uninterrupted, error-free, or work with every TV or network.")}
+    <h2>9. Limitation of liability</h2>
+    {p("To the fullest extent the law allows, we aren't liable for any indirect, incidental, special or consequential damages, or for loss of data, revenue or profits, arising from your use of, or inability to use, the Service. Nothing in these Terms limits liability that can't be limited by law.")}
+    <h2>10. Ending your use</h2>
+    {p("You can stop using the Service at any time by deleting the app. We may suspend or end access to the Service if you break these Terms.")}
+    <h2>11. Apple's terms</h2>
+    {p("The app is licensed to you under Apple's Licensed Application End User License Agreement, together with these Terms. Apple isn't responsible for the app or its support. Where these Terms and Apple's agreement differ, Apple's agreement applies to the extent required.")}
+    <h2>12. Changes</h2>
+    {p("We may update these Terms. When we do, we'll change the date at the top of this page. Using the Service after a change means you accept the updated Terms.")}
+    <h2>13. Contact</h2>
+    {p(f"Questions about these Terms: {mail}.")}
+  </div>
+</section>
+"""
+    return page("/terms/", "Terms of Use | MirrorGo",
+                "The terms for using MirrorGo, the screen mirroring and casting app for iPhone, and its websites.",
+                body, [breadcrumbs_schema([("MirrorGo", "/"), ("Terms of use", "/terms/")])])
 
 
 def build_404():
@@ -879,6 +934,7 @@ def llms_txt():
 {brand_lines}
 
 - [Privacy policy]({url('/privacy/')})
+- [Terms of use]({url('/terms/')})
 """
 
 
@@ -960,7 +1016,8 @@ def main():
         paths.append(path)
     write("help/index.html", build_help())
     write("privacy/index.html", build_privacy())
-    paths += ["/help/", "/privacy/"]
+    write("terms/index.html", build_terms())
+    paths += ["/help/", "/privacy/", "/terms/"]
     write("sitemap.xml", sitemap(paths))
     write("site.webmanifest", manifest())
     if C.BASE_PATH:
