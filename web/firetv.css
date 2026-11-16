@@ -1,0 +1,43 @@
+/* /firetv: the MirrorGo Fire TV app's page (firetv.html), on top of style.css. Always a 16:9 TV seen
+   from the sofa, driven by the remote: MirrorGo's icon and name instead of smrr.tv, the app icon's
+   glow behind the screens. */
+
+body[data-surface="firetv"] {
+  background-color: #0e0e12;
+  background-image:
+    radial-gradient(ellipse 60% 80% at 100% 0%, rgba(96, 76, 196, 0.42), rgba(96, 76, 196, 0) 70%),
+    radial-gradient(ellipse 50% 60% at 0% 100%, rgba(38, 72, 150, 0.32), rgba(38, 72, 150, 0) 70%);
+}
+body[data-surface="firetv"][data-screen="playing"] { background: #000; }
+
+/* MARK: Header: MirrorGo (left), this TV's name (right) */
+
+.tv-header {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.brand-icon {
+  display: block; flex: none;
+  width: 1.7em; height: 1.7em; margin-right: 0.5em;
+  border-radius: 24%;
+}
+.tv-name {
+  font-size: 20px; font-size: clamp(14px, 1.3vw, 26px);
+  font-weight: 600; color: #c9c9d4;
+  padding: 0.5em 1.1em;
+  background: rgba(27, 27, 34, 0.85);
+  border: 2px solid rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+}
+.tv-name[hidden] { display: none; }
+
+/* MARK: Connecting: the icon above the spinner */
+
+.tv-logo {
+  display: block;
+  width: 120px; height: 120px;
+  width: clamp(80px, 14vh, 180px); height: clamp(80px, 14vh, 180px);
+  border-radius: 24%;
+}
+
+/* The WebView is already full screen: no button for it. */
+body[data-surface="firetv"] #fullscreen { display: none; }

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0e0e12">
+  <meta name="robots" content="noindex">
+  <title>MirrorGo</title>
+  <link rel="preload" href="/fonts/Sora-Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/firetv.css">
+</head>
+<!-- The MirrorGo app for Fire TV (islomov/mirrorgo-firetv) shows this page full screen in a WebView.
+     Same receiver as / (app.js), its own layout and wording (strings.js `firetv`): MirrorGo branding,
+     "this TV", no full-screen button. -->
+<body data-surface="firetv" data-screen="connecting">
+  <video id="video" autoplay playsinline muted></video>
+  <img id="image" alt="">
+  <div id="youtube"></div>
+
+  <!-- Connecting to the server -->
+  <section class="screen center" id="screen-connecting">
+    <img class="tv-logo" src="/img/mirrorgo.webp" alt="">
+    <div class="spinner" aria-hidden="true"></div>
+    <p class="lead" id="connecting-text" role="status"></p>
+  </section>
+
+  <!-- The code (also: phone connected / starting, and stopped) -->
+  <section class="screen" id="screen-code">
+    <header class="tv-header">
+      <div class="brand">
+        <img class="brand-icon" src="/img/mirrorgo.webp" alt="">
+        <span id="brand"></span>
+      </div>
+      <div class="tv-name" id="tv-name" hidden></div>
+    </header>
+    <main class="code-layout">
+      <div class="code-main">
+        <h1 id="code-title"></h1>
+        <p class="hint" id="code-hint"></p>
+        <div class="label" id="code-label"></div>
+        <div class="code-digits" id="code" aria-live="polite"></div>
+        <ol class="steps" id="steps"></ol>
+        <p class="wifi" id="code-wifi"></p>
+        <p class="status" id="code-status" role="status"></p>
+      </div>
+      <figure class="qr">
+        <div class="qr-image" id="qr"></div>
+        <figcaption id="qr-hint"></figcaption>
+      </figure>
+    </main>
+  </section>
+
+  <!-- Errors and notices -->
+  <section class="screen center" id="screen-message">
+    <h1 id="message-title"></h1>
+    <p class="hint" id="message-hint"></p>
+    <button type="button" class="button primary" id="message-action"></button>
+  </section>
+
+  <!-- Playing -->
+  <div class="toast" id="toast" role="status"></div>
+  <div class="controls" id="controls">
+    <button type="button" class="button primary" id="sound"></button>
+    <button type="button" class="button" id="fullscreen" hidden></button>
+  </div>
+
+  <pre class="debug" id="debug" hidden></pre>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
