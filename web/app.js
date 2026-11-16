@@ -22,10 +22,8 @@ const GIVE_UP_AFTER_MS = 15000;
 // what the phone is doing instead of showing the code, QR code and steps.
 const launchedCode = adoptRoomFromURL();
 const launchedByApp = launchedCode !== null;
-// /firetv (firetv.html): the MirrorGo Fire TV app's page. Same receiver, its own layout and strings;
-// its QR code gets MirrorGo for iPhone (the code is typed in the app, there's no browser to open).
+// /firetv (firetv.html): the MirrorGo Fire TV app's page. Same receiver, its own layout and strings.
 const firetv = document.body.getAttribute("data-surface") === "firetv";
-const GET_THE_APP_URL = "https://mirrorgo.app";
 
 const app = {
   status: "connecting",   // signaling: connecting | open | reconnecting | offline | replaced | closed
@@ -161,7 +159,7 @@ function onRoom(room) {
     app.stopped = false;
     player.close();
     renderCode(room.code);
-    if (!firetv) renderQR(location.origin + "/c/" + room.code);
+    renderQR(location.origin + "/c/" + room.code);
   } else {
     log("rejoined room");
   }
@@ -371,10 +369,8 @@ function renderQR(text) {
     '<rect width="' + size + '" height="' + size + '" fill="#fff"/><path d="' + path + '" fill="#000"/></svg>';
 }
 
-/** /firetv: the QR code gets the iPhone app; the app's bridge (window.MirrorGoTV) names this TV. */
+/** /firetv: the app's bridge (window.MirrorGoTV) names this TV. */
 function renderFireTV() {
-  $("qr-title").textContent = strings.qrTitle;
-  renderQR(GET_THE_APP_URL);
   const bridge = window.MirrorGoTV;
   let name = "";
   try {

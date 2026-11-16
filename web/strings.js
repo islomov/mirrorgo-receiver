@@ -69,8 +69,6 @@ const firetv = {
 
   codeTitle: "Mirror your iPhone to this TV",
   sameWifi: "Your iPhone and this TV need the same Wi-Fi.",
-  qrTitle: "No MirrorGo on your iPhone?",
-  qrHint: "Scan with your iPhone camera to get it",
   tvName: (name) => `This TV: ${name}`,
 
   mediaFailedTitle: "This TV couldn't play it",

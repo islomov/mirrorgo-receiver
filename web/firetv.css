@@ -1,6 +1,6 @@
 /* /firetv: the MirrorGo Fire TV app's page (firetv.html), on top of style.css. Always a 16:9 TV seen
    from the sofa, driven by the remote: MirrorGo's icon and name instead of smrr.tv, the app icon's
-   glow behind the screens, a smaller QR code (it gets MirrorGo for iPhone, not the code). */
+   glow behind the screens. */
 
 body[data-surface="firetv"] {
   background-color: #0e0e12;
@@ -37,20 +37,6 @@ body[data-surface="firetv"][data-screen="playing"] { background: #000; }
   width: 120px; height: 120px;
   width: clamp(80px, 14vh, 180px); height: clamp(80px, 14vh, 180px);
   border-radius: 24%;
-}
-
-/* MARK: Code screen */
-
-/* "Get MirrorGo for iPhone": smaller than the web page's QR code (the code is what matters here). */
-body[data-surface="firetv"] .qr { padding: 3vh 2.4vh 2.4vh; max-width: 34vw; }
-.qr-title {
-  margin-bottom: 2vh;
-  font-size: 22px; font-size: clamp(15px, 1.5vw, 30px);
-  font-weight: 700; color: #ffffff;
-}
-body[data-surface="firetv"] .qr-image {
-  width: 280px; height: 280px;
-  width: clamp(140px, 32vh, 360px); height: clamp(140px, 32vh, 360px);
 }
 
 /* The WebView is already full screen: no button for it. */

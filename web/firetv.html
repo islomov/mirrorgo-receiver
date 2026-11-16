@@ -13,7 +13,7 @@
 </head>
 <!-- The MirrorGo app for Fire TV (islomov/mirrorgo-firetv) shows this page full screen in a WebView.
      Same receiver as / (app.js), its own layout and wording (strings.js `firetv`): MirrorGo branding,
-     "this TV", the QR code gets MirrorGo for iPhone, no full-screen button. -->
+     "this TV", no full-screen button. -->
 <body data-surface="firetv" data-screen="connecting">
   <video id="video" autoplay playsinline muted></video>
   <img id="image" alt="">
@@ -46,7 +46,6 @@
         <p class="status" id="code-status" role="status"></p>
       </div>
       <figure class="qr">
-        <div class="qr-title" id="qr-title"></div>
         <div class="qr-image" id="qr"></div>
         <figcaption id="qr-hint"></figcaption>
       </figure>
