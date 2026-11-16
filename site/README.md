@@ -17,7 +17,9 @@ here (301).
 | Path | What |
 |------|------|
 | `/` | Hero, features with app screenshots, how it works, compatibility table, privacy, FAQ |
-| `/mirror-iphone-to-samsung-tv/`, `-lg-tv/`, `-chromecast/`, `-fire-tv/`, `-browser/` | One guide per kind of TV (the searches people actually make) |
+| `/mirror-iphone-to-<tv>/` | Mirroring guide per kind of TV (`content.TV_GUIDES`): Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV, browser |
+| `/mirror-iphone-to-<brand>-tv/` | Per TV maker (`content.BRANDS`: Sony, TCL, Hisense, VIZIO, Philips, Xiaomi, Toshiba, Panasonic), pointing at the systems its TVs run |
+| `/blog/`, `/blog/<slug>/` | Guides (`blog.py`): per kind of TV × connect, photos & videos, web images, live TV, YouTube, web videos, camera. Each article is the topic's steps plus that TV's own notes |
 | `/help/` | The app's whole FAQ (same text as the app's Help screen) |
 | `/privacy/` | Privacy policy (App Store "Privacy Policy URL") |
 | `robots.txt`, `sitemap.xml`, `llms.txt` | For search engines and AI answer engines |
