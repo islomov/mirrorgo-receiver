@@ -1,0 +1,21 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  // mirrorgo.app: MirrorGo's landing page. Static files built by build.py into ./public; worker.js
+  // only sends www.mirrorgo.app to mirrorgo.app.
+  "name": "mirrorgo-site",
+  "main": "worker.js",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+    "run_worker_first": true
+  },
+  "routes": [
+    { "pattern": "mirrorgo.app", "custom_domain": true },
+    { "pattern": "www.mirrorgo.app", "custom_domain": true }
+  ],
+  "workers_dev": false,
+  "preview_urls": false
+}

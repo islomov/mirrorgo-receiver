@@ -7,8 +7,7 @@ the app while the page plays a link it sent). Protocol:
 
 - `src/index.ts`: routes (`/ws`, `/api/rooms/:code`, `/c/:code`, `/healthz`, www → apex redirect, assets).
 - `src/room.ts`: the `Room` Durable Object (one per code; WebSocket hibernation, alarms for the TTLs).
-- `../site/`: the MirrorGo landing page, built into `../web/landing-page` (served at `/landing-page/`,
-  see `../site/README.md`). Run `python3 ../site/build.py` before `npm run dev` to see it locally.
+- `/landing-page/*` → `https://mirrorgo.app/*` (301): the landing page (`../site/`) moved to its own domain.
 - `wrangler.jsonc`: DO binding + `new_sqlite_classes` migration, rate limits, `ICE_SERVERS` var.
 
 The Cast receiver (`../index.html`) is separate: GitHub Pages serves it at

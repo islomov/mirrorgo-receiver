@@ -501,6 +501,21 @@ describe("site", () => {
     expect(await home.text()).toContain("app.js");
   });
 
+  it("redirects the old /landing-page URLs to the same page on mirrorgo.app", async () => {
+    for (const [from, to] of [
+      ["/landing-page", "https://mirrorgo.app/"],
+      ["/landing-page/", "https://mirrorgo.app/"],
+      ["/landing-page/help/", "https://mirrorgo.app/help/"],
+      ["/landing-page/mirror-iphone-to-lg-tv/?ref=x", "https://mirrorgo.app/mirror-iphone-to-lg-tv/?ref=x"],
+    ]) {
+      const res = await SELF.fetch(`${ORIGIN}${from}`, { redirect: "manual" });
+      expect(res.status).toBe(301);
+      expect(res.headers.get("location")).toBe(to);
+    }
+    const other = await SELF.fetch(`${ORIGIN}/landing-pages`, { redirect: "manual" });
+    expect(other.status).not.toBe(301);
+  });
+
   it("returns JSON 404 for unknown API paths", async () => {
     const res = await SELF.fetch(`${ORIGIN}/api/nope`);
     expect(res.status).toBe(404);
