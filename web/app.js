@@ -288,6 +288,7 @@ function render() {
     const stoppedMedia = app.activity === "media";
     const titles = { waiting: strings.codeTitle, starting: strings.starting, stopped: stoppedMedia ? strings.mediaStoppedTitle : strings.stoppedTitle };
     const hints = { waiting: "", starting: strings.startingHint, stopped: stoppedMedia ? strings.mediaStoppedHint : strings.stoppedHint };
+    renderNewCode(view.variant);
     $("code-title").textContent = titles[view.variant];
     $("code-hint").textContent = hints[view.variant];
     $("code-status").textContent = offlineText;
@@ -380,6 +381,20 @@ function renderFireTV() {
   $("tv-name").hidden = !name;
 }
 
+/** /firetv: "Get a new code", while no phone is in the room. */
+let newCodeAsked = false;
+
+function renderNewCode(variant) {
+  const button = $("new-code");
+  if (!button) return;
+  button.hidden = variant !== "waiting";
+  // Pressed with the remote: keep the focus on it, so OK again gets another code.
+  if (newCodeAsked && !button.hidden) {
+    newCodeAsked = false;
+    button.focus();
+  }
+}
+
 function restartSignaling() {
   clearGiveUpTimer();
   app.lost = false;
@@ -423,6 +438,17 @@ if ($("app-use-code")) {
   $("app-use-code").addEventListener("click", function () {
     signaling.forgetRoom();
     location.replace("/");
+  });
+}
+
+// /firetv: leave this room for a new one (a new code; the Fire TV app announces it). The page
+// otherwise keeps its room across reloads (sessionStorage).
+if ($("new-code")) {
+  $("new-code").addEventListener("click", function () {
+    log("new code asked");
+    newCodeAsked = true;
+    signaling.forgetRoom();
+    restartSignaling();
   });
 }
 
@@ -570,6 +596,7 @@ strings.steps.forEach(function (step) {
   $("steps").appendChild(li);
 });
 renderFullscreen();
+if ($("new-code")) $("new-code").textContent = strings.newCode;
 if (firetv) renderFireTV();
 
 if (debug) {

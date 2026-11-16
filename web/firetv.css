@@ -39,5 +39,8 @@ body[data-surface="firetv"][data-screen="playing"] { background: #000; }
   border-radius: 24%;
 }
 
+/* "Get a new code", under the steps. */
+.new-code { margin-top: 3vh; }
+
 /* The WebView is already full screen: no button for it. */
 body[data-surface="firetv"] #fullscreen { display: none; }
