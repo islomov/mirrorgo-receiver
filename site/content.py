@@ -15,7 +15,7 @@ APP_NAME = "MirrorGo"
 # The App Store id (the digits in apps.apple.com/app/…/id<digits>). Empty until the app is live:
 # the download buttons then say "Coming soon to the App Store" and link nowhere.
 APP_STORE_ID = ""
-SUPPORT_EMAIL = "support@smrr.tv"
+SUPPORT_EMAIL = "support@viralapps.studio"
 MIN_IOS = "16.6"
 
 TAGLINE = "Screen mirroring and casting for iPhone"
