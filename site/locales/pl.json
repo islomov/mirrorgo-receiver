@@ -273,7 +273,7 @@
    "points": [
     "Przeglądaj według tematu (muzyka, wiadomości, sport, na żywo) lub wyszukuj",
     "Na telewizorach Samsung i LG otwiera się w aplikacji YouTube na telewizorze",
-    "Działa też na Roku, Google TV, Android TV, Chromecast i w przeglądarkach",
+    "Działa też na Google TV, Android TV, Chromecast i w przeglądarkach",
     "Gra dalej, gdy opuścisz ekran"
    ],
    "alts": [
@@ -344,7 +344,7 @@
   ],
   [
    "Działa z",
-   "Samsung (od 2016 roku), LG z webOS, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV i telewizory z AirPlay oraz każda przeglądarka przez smrr.tv."
+   "Samsung (od 2016 roku), LG z webOS, Roku (dublowanie ekranu), Google TV, Android TV, Chromecast, Fire TV, Apple TV i telewizory z AirPlay oraz każda przeglądarka przez smrr.tv."
   ],
   [
    "Na telewizorze",
@@ -386,7 +386,7 @@
    "ul": [
     "Telewizory Smart TV Samsung (od 2016 roku)",
     "Telewizory Smart TV LG (webOS)",
-    "Telewizory Roku i odtwarzacze Roku",
+    "Telewizory Roku i odtwarzacze Roku (dublowanie ekranu)",
     "Google TV, Android TV i Chromecast",
     "Amazon Fire TV: przystawki Stick, Cube i telewizory z Fire TV",
     "Apple TV i telewizory z AirPlay",
@@ -497,6 +497,7 @@
    "q": "Co mogę przesyłać oprócz ekranu?",
    "a": "Zdjęcia i filmy z galerii, obraz z kamery, filmy i obrazy z sieci, kanały telewizyjne (IPTV) i YouTube. Nie każdy telewizor odtworzy wszystko: na ekranie głównym to, czego Twój telewizor nie odtworzy, jest wyszarzone.",
    "ul": [
+    "Roku wyświetla tylko dublowany ekran: zdjęć, filmów, obrazu z kamery, YouTube i telewizji na żywo nie można jeszcze na nie przesyłać.",
     "YouTube nie działa na Fire TV ani przez AirPlay.",
     "Przez AirPlay kamera wymaga włączonej Synchronizacji ekranu w centrum sterowania.",
     "Fire TV i AirPlay pokazują obraz z kamery bez dźwięku."
@@ -751,14 +752,14 @@
   },
   "roku": {
    "title": "Jak wyświetlić ekran iPhone’a na Roku TV lub odtwarzaczu Roku",
-   "description": "Dubluj ekran iPhone’a na Roku TV, Roku Streaming Stick lub Roku Ultra z MirrorGo i przesyłaj zdjęcia, filmy, YouTube i telewizję na żywo przez Wi-Fi. Bez kabli.",
+   "description": "Dubluj ekran iPhone’a na Roku TV, Roku Streaming Stick lub Roku Ultra z MirrorGo, z dźwiękiem, przez Wi-Fi. Bez kabli, bez AirPlay i bez instalowania czegokolwiek na Roku.",
    "h1": "Dubluj ekran iPhone’a na Roku",
-   "lead": "MirrorGo wyświetla ekran iPhone’a na telewizorach Roku TV (TCL, Hisense, Sharp i innych modelach z Roku TV) oraz odtwarzaczach Roku, przez Twoją sieć Wi-Fi.",
+   "lead": "MirrorGo wyświetla ekran iPhone’a z dźwiękiem na telewizorach Roku TV (TCL, Hisense, Sharp i innych modelach z Roku TV) oraz odtwarzaczach Roku, przez Twoją sieć Wi-Fi. Obraz gra we wbudowanym odtwarzaczu Roku: na Roku nie trzeba niczego instalować.",
    "steps": [
     "Włącz Roku i połącz iPhone’a z tą samą siecią Wi-Fi.",
     "Otwórz MirrorGo, stuknij Połącz z telewizorem i wybierz swoje Roku.",
     "Otwórz Dublowanie ekranu, stuknij Rozpocznij dublowanie, a potem Rozpocznij udostępnianie (przed iOS 26: Rozpocznij transmisję).",
-    "Ekran pojawi się na telewizorze w ciągu kilku sekund."
+    "Ekran pojawi się na telewizorze w ciągu kilku sekund. Aby zakończyć, stuknij Zatrzymaj dublowanie albo naciśnij Home na pilocie Roku."
    ],
    "features": [
     [
@@ -767,7 +768,7 @@
     ],
     [
      "Zdjęcia i filmy",
-     null
+     "Dubluj ekran, aby je pokazać"
     ],
     [
      "Kamera",
@@ -775,7 +776,7 @@
     ],
     [
      "YouTube",
-     null
+     "Użyj aplikacji YouTube na Roku"
     ],
     [
      "Filmy z sieci",
@@ -800,7 +801,13 @@
     [
      "Jeśli Roku nie ma na liście",
      [
-      "Upewnij się, że telefon i Roku są w tej samej sieci Wi-Fi (nie w sieci dla gości), że MirrorGo ma dostęp do sieci lokalnej w Ustawieniach i że VPN jest wyłączony. Na Roku sprawdź, czy w Ustawienia › System › Zaawansowane ustawienia systemu › Sterowanie przez aplikacje mobilne (Settings › System › Advanced system settings › Control by mobile apps) dostęp jest dozwolony."
+      "Upewnij się, że telefon i Roku są w tej samej sieci Wi-Fi (nie w sieci dla gości), że MirrorGo ma dostęp do sieci lokalnej w Ustawieniach i że VPN jest wyłączony. Na Roku otwórz Ustawienia › System › Zaawansowane ustawienia systemu › Sterowanie przez aplikacje mobilne (Settings › System › Advanced system settings › Control by mobile apps) i ustaw Dostęp do sieci (Network access) na Domyślny (Default)."
+     ]
+    ],
+    [
+     "Jak to działa",
+     [
+      "MirrorGo komunikuje się z Roku przez Twoją sieć Wi-Fi tak samo jak oficjalna aplikacja mobilna Roku, a ekran gra we wbudowanym odtwarzaczu Roku jako strumień wideo na żywo z iPhone’a. Nie trzeba instalować żadnego kanału Roku ani wpisywać kodu. Obraz jest kilka sekund opóźniony względem telefonu."
      ]
     ]
    ],
@@ -812,6 +819,14 @@
     [
      "Czy mogę dublować ekran iPhone’a na Roku bez AirPlay?",
      "Tak. MirrorGo nie korzysta z AirPlay, więc działa z urządzeniami Roku, które go nie obsługują."
+    ],
+    [
+     "Czy jest dźwięk, gdy dubluję ekran iPhone’a na Roku?",
+     "Tak. Dźwięk odtwarzany przez aplikacje trafia na Roku razem z obrazem. MirrorGo nigdy nie przesyła dźwięku z mikrofonu."
+    ],
+    [
+     "Czy mogę przesyłać na Roku zdjęcia, YouTube lub telewizję na żywo?",
+     "Jeszcze nie: na Roku MirrorGo dubluje ekran. Aby pokazać zdjęcia i filmy, włącz dublowanie ekranu i otwórz je na iPhonie."
     ]
    ]
   },
@@ -1415,14 +1430,9 @@
    ],
    "connect_notes": [
     "MirrorGo działa z telewizorami Roku TV (TCL, Hisense, Sharp, Philips i inne modele z Roku TV) oraz odtwarzaczami Roku: Roku Express, Streaming Stick i Ultra.",
-    "Roku nie ma na liście? Na Roku otwórz Ustawienia › System › Zaawansowane ustawienia systemu › Sterowanie przez aplikacje mobilne (Settings › System › Advanced system settings › Control by mobile apps) i upewnij się, że dostęp sieciowy nie jest wyłączony."
-   ],
-   "photos": "Roku odtwarza je na pełnym ekranie i w pełnej jakości; odtwarzasz, wstrzymujesz i przewijasz z telefonu.",
-   "images": "Obrazy wyświetlają się na Roku na pełnym ekranie, dopasowane do telewizora.",
-   "iptv": "Kanał gra na Roku, gdy korzystasz z innych aplikacji lub zablokujesz telefon.",
-   "youtube": "Film gra na Roku od momentu, w którym oglądanie zostało przerwane.",
-   "webvideos": "Roku odtwarza film, który iPhone znalazł na stronie; nie zamykaj MirrorGo podczas odtwarzania.",
-   "camera": "Obraz z kamery pojawia się na Roku na żywo."
+    "Roku nie ma na liście? Na Roku otwórz Ustawienia › System › Zaawansowane ustawienia systemu › Sterowanie przez aplikacje mobilne (Settings › System › Advanced system settings › Control by mobile apps) i ustaw Dostęp do sieci (Network access) na Domyślny (Default).",
+    "Na Roku MirrorGo dubluje ekran z dźwiękiem we wbudowanym odtwarzaczu Roku. Zdjęć, filmów, obrazu z kamery, YouTube i telewizji na żywo nie można jeszcze przesyłać na Roku."
+   ]
   },
   "googletv": {
    "forms": {

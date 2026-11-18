@@ -273,7 +273,7 @@
    "points": [
     "Blader per onderwerp (muziek, nieuws, sport, live) of zoek",
     "Opent in de YouTube-app van de tv op Samsung en LG",
-    "Speelt ook af op Roku, Google TV, Android TV, Chromecast en webbrowsers",
+    "Speelt ook af op Google TV, Android TV, Chromecast en webbrowsers",
     "Speelt door als je het scherm verlaat"
    ],
    "alts": [
@@ -344,7 +344,7 @@
   ],
   [
    "Werkt met",
-   "Samsung (2016 en nieuwer), LG webOS, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV en AirPlay-tv's, en elke webbrowser via smrr.tv."
+   "Samsung (2016 en nieuwer), LG webOS, Roku (scherm spiegelen), Google TV, Android TV, Chromecast, Fire TV, Apple TV en AirPlay-tv's, en elke webbrowser via smrr.tv."
   ],
   [
    "Op de tv",
@@ -386,7 +386,7 @@
    "ul": [
     "Samsung-smart-tv's (2016 en nieuwer)",
     "LG-smart-tv's (webOS)",
-    "Roku-tv's en Roku-streamingspelers",
+    "Roku-tv's en Roku-streamingspelers (scherm spiegelen)",
     "Google TV, Android TV en Chromecast",
     "Amazon Fire TV: sticks, Cube en Fire TV-smart-tv's",
     "Apple TV en AirPlay-tv's",
@@ -497,6 +497,7 @@
    "q": "Wat kan ik casten behalve mijn scherm?",
    "a": "Foto's en video's uit je galerij, je camera, video's en afbeeldingen van het web, tv-zenders (IPTV) en YouTube. Niet elke tv speelt alles af: op het beginscherm is gedimd wat je tv niet kan afspelen.",
    "ul": [
+    "Op een Roku werkt alleen scherm spiegelen: foto's, video's, de camera, YouTube en live tv kun je er nog niet naar casten.",
     "YouTube speelt niet af op Fire TV of via AirPlay.",
     "Via AirPlay heeft de camera Synchrone weergave in het bedieningspaneel nodig.",
     "Fire TV en AirPlay tonen de camera zonder geluid."
@@ -751,14 +752,14 @@
   },
   "roku": {
    "title": "iPhone spiegelen naar een Roku-tv of Roku-speler",
-   "description": "Spiegel je iPhone naar een Roku-tv, Roku Streaming Stick of Roku Ultra met MirrorGo, en cast foto's, video's, YouTube en live tv via Wi-Fi. Zonder kabels.",
+   "description": "Spiegel je iPhone-scherm met geluid naar een Roku-tv, Roku Streaming Stick of Roku Ultra met MirrorGo, via Wi-Fi. Zonder kabels, zonder AirPlay en zonder iets op de Roku te installeren.",
    "h1": "Spiegel je iPhone naar een Roku",
-   "lead": "MirrorGo toont je iPhone-scherm via je Wi-Fi op Roku-tv's (TCL, Hisense, Sharp en andere Roku TV-modellen) en Roku-streamingspelers.",
+   "lead": "MirrorGo toont je iPhone-scherm met geluid via je Wi-Fi op Roku-tv's (TCL, Hisense, Sharp en andere Roku TV-modellen) en Roku-streamingspelers. Het speelt af in de eigen speler van de Roku: je hoeft niets op de Roku te installeren.",
    "steps": [
     "Zet de Roku aan en zet je iPhone op hetzelfde Wi-Fi-netwerk.",
     "Open MirrorGo, tik op Verbind je tv en kies je Roku.",
     "Open Scherm spiegelen, tik op Start spiegelen en dan op Start delen (Start uitzending vóór iOS 26).",
-    "Binnen een paar seconden staat je scherm op de tv."
+    "Binnen een paar seconden staat je scherm op de tv. Om te stoppen tik je op Stop spiegelen, of druk je op Home op de afstandsbediening van de Roku."
    ],
    "features": [
     [
@@ -767,7 +768,7 @@
     ],
     [
      "Foto's en video's",
-     null
+     "Spiegel je scherm om ze te tonen"
     ],
     [
      "Camera",
@@ -775,7 +776,7 @@
     ],
     [
      "YouTube",
-     null
+     "Gebruik de YouTube-app op de Roku"
     ],
     [
      "Webvideo's",
@@ -800,7 +801,13 @@
     [
      "Als je Roku niet in de lijst staat",
      [
-      "Zorg dat de telefoon en de Roku op hetzelfde Wi-Fi-netwerk zitten (geen gastnetwerk), dat MirrorGo in Instellingen toegang heeft tot het lokale netwerk, en dat er geen vpn aanstaat. Controleer op de Roku of Instellingen › Systeem › Geavanceerde systeeminstellingen › Bediening via mobiele apps (Control by mobile apps) toegang toestaat."
+      "Zorg dat de telefoon en de Roku op hetzelfde Wi-Fi-netwerk zitten (geen gastnetwerk), dat MirrorGo in Instellingen toegang heeft tot het lokale netwerk, en dat er geen vpn aanstaat. Open op de Roku Instellingen › Systeem › Geavanceerde systeeminstellingen › Bediening via mobiele apps (Control by mobile apps) en zet Netwerktoegang op Standaard (Network access: Default)."
+     ]
+    ],
+    [
+     "Hoe het werkt",
+     [
+      "MirrorGo praat via je Wi-Fi met de Roku zoals de eigen mobiele app van Roku dat doet, en je scherm speelt af in de ingebouwde speler van de Roku als livevideostream vanaf je iPhone. Er is geen Roku-kanaal om te installeren en geen code om in te typen. Het beeld loopt een paar seconden achter op je telefoon."
      ]
     ]
    ],
@@ -812,6 +819,14 @@
     [
      "Kan ik mijn iPhone naar een Roku spiegelen zonder AirPlay?",
      "Ja. MirrorGo gebruikt geen AirPlay, dus het werkt met Rokus die het niet ondersteunen."
+    ],
+    [
+     "Is er geluid als ik mijn iPhone naar een Roku spiegel?",
+     "Ja. Het geluid dat je apps afspelen gaat samen met het beeld naar de Roku. MirrorGo stuurt nooit de microfoon mee."
+    ],
+    [
+     "Kan ik foto's, YouTube of live tv naar een Roku casten?",
+     "Nog niet: op een Roku spiegelt MirrorGo je scherm. Wil je je foto's en video's laten zien, start dan scherm spiegelen en open ze op je iPhone."
     ]
    ]
   },
@@ -1403,14 +1418,9 @@
    ],
    "connect_notes": [
     "MirrorGo werkt met Roku-tv's (TCL, Hisense, Sharp, Philips en andere Roku TV-modellen) en Roku-streamingspelers: de Roku Express, Streaming Stick en Ultra.",
-    "Roku niet in de lijst? Open op de Roku Instellingen › Systeem › Geavanceerde systeeminstellingen › Bediening via mobiele apps (Control by mobile apps) en zorg dat netwerktoegang niet is uitgeschakeld."
-   ],
-   "photos": "De Roku speelt ze af op volledig scherm en in volle kwaliteit; afspelen, pauzeren en spoelen doe je op de telefoon.",
-   "images": "Afbeeldingen verschijnen op volledig scherm op de Roku, op maat van de tv.",
-   "iptv": "De zender speelt af op de Roku terwijl je andere apps gebruikt of je telefoon vergrendelt.",
-   "youtube": "De video speelt af op de Roku vanaf het punt waar je was.",
-   "webvideos": "De Roku speelt de video af die je iPhone op de pagina heeft gevonden; houd MirrorGo open zolang hij speelt.",
-   "camera": "De camera verschijnt live op de Roku."
+    "Roku niet in de lijst? Open op de Roku Instellingen › Systeem › Geavanceerde systeeminstellingen › Bediening via mobiele apps (Control by mobile apps) en zet Netwerktoegang op Standaard (Network access: Default).",
+    "Op een Roku spiegelt MirrorGo je scherm, met geluid, in de eigen speler van de Roku. Foto's, video's, de camera, YouTube en live tv kun je nog niet naar een Roku casten."
+   ]
   },
   "googletv": {
    "forms": {

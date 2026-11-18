@@ -923,12 +923,14 @@ def build_privacy():
 </section>
 <section style="padding-top:10px">
   <div class="wrap prose">
-    {p("MirrorGo is built so that what you show on your TV stays between your iPhone and your TV. This policy explains what the app and our website smrr.tv handle, and why. The MirrorGo TV app for Fire TV and Android TV has <a href='/firetv/privacy/'>its own privacy policy</a>.")}
+    {p("MirrorGo is built so that what you show on your TV stays between your iPhone and your TV. This policy explains what the app and our website smrr.tv handle, and why. The MirrorGo TV app for Fire TV and Android TV has <a href='/firetv/privacy/'>its own privacy policy</a>. Nothing is installed on a Roku: how MirrorGo works with it is described below.")}
     <h2>No account, no tracking</h2>
     {p("MirrorGo has no account and no sign-up. The app contains no advertising and no third-party analytics or tracking.")}
     <h2>Your screen, photos and videos</h2>
     {p("When you mirror your screen or cast photos, videos or your camera, they go directly from your iPhone to your TV over your own Wi-Fi network. They are not uploaded to us or to anyone else, and we cannot see them.")}
     {p("Screen mirroring sends the sound your apps play. MirrorGo uses the microphone only to add sound when you cast your camera, and only while it is casting.")}
+    <h2>Mirroring to a Roku</h2>
+    {p("MirrorGo talks to a Roku over your own network with Roku's External Control Protocol, the way Roku's own mobile app does. To find and recognise it, MirrorGo asks the Roku for its name, model, serial number and network address; to show your screen, it asks the Roku's built-in player to play a live video stream that your iPhone serves over your Wi-Fi. The picture and sound go directly from your iPhone to the Roku: they don't pass through our servers, and we can't see them. While you mirror, MirrorGo checks what the Roku's player and screen are showing, only to know when mirroring has ended. None of this leaves your network or is sent to us, and MirrorGo installs nothing on the Roku. The Roku itself is covered by Roku's own privacy policy.")}
     <h2>Mirroring to a web browser (smrr.tv)</h2>
     {p("When you connect to a web browser through smrr.tv, our server helps your iPhone and the browser find each other. It sees their IP addresses, the code of the session and when it was used, and keeps them only as long as needed to run and protect the service, for example to limit attempts to guess codes. The picture and sound then go directly between your iPhone and the browser over your Wi-Fi; they do not pass through our server.")}
     <h2>Stored on your iPhone</h2>
@@ -942,7 +944,7 @@ def build_privacy():
     </ul>
     {p("You can change any of them at any time in the iPhone's Settings › MirrorGo.")}
     <h2>Content from other services</h2>
-    {p("Some features show content from other services, which receive your request like any website you visit: YouTube (Google) in the YouTube screen; the websites you open in Web Videos (a private browser that keeps no history, cookies or cache); Wikimedia Commons for web images; the public iptv-org channel list and the channels' own streaming servers for live TV; and Google Cast for Chromecast and Google TV devices. Their own privacy policies apply.")}
+    {p("Some features show content from other services, which receive your request like any website you visit: YouTube (Google) in the YouTube screen; the websites you open in Web Videos (a private browser that keeps no history, cookies or cache); Wikimedia Commons for web images; the public iptv-org channel list and the channels' own streaming servers for live TV; Google Cast for Chromecast and Google TV devices; and the built-in player of Roku devices. Their own privacy policies apply.")}
     <h2>Purchases</h2>
     {p("Purchases are handled by Apple through the App Store. We don't receive your payment details.")}
     <h2>Support emails</h2>
@@ -976,7 +978,7 @@ def build_terms():
   <div class="wrap prose">
     {p("These Terms of Use (“Terms”) govern your use of the MirrorGo app for iPhone, the website mirrorgo.app and the TV web page smrr.tv (together, the “Service”), operated by the makers of MirrorGo (“we”, “our”, “us”). By downloading, accessing or using the Service, you agree to these Terms. If you don't agree, don't use the Service.")}
     <h2>1. The Service</h2>
-    {p("MirrorGo mirrors your iPhone's screen and casts photos, videos, your camera, web videos, web images, live TV channels and YouTube to TVs, streaming devices and web browsers on your own network. Which features work depends on your TV, your network and the content; they may change as TVs and services change, and we don't guarantee that every TV, model or piece of content is supported.")}
+    {p("MirrorGo mirrors your iPhone's screen and casts photos, videos, your camera, web videos, web images, live TV channels and YouTube to TVs, streaming devices and web browsers on your own network. Which features work depends on your TV, your network and the content; they may change as TVs and services change, and we don't guarantee that every TV, model or piece of content is supported. On Roku TVs and Roku players, MirrorGo currently offers screen mirroring only, played by the Roku's built-in player; nothing is installed on the Roku.")}
     <h2>2. Using the Service</h2>
     <ul>
       <li>Use the Service only for lawful purposes and in line with applicable laws and regulations.</li>
@@ -991,7 +993,7 @@ def build_terms():
     <h2>5. Intellectual property</h2>
     {p("The Service, including its software, text, graphics and logos, belongs to us or our licensors. You may not copy, reproduce, distribute or create derivative works from it without our prior written permission. Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV, AirPlay, YouTube and other names are trademarks of their owners; MirrorGo isn't affiliated with or endorsed by them.")}
     <h2>6. Third-party services and links</h2>
-    {p("The Service works with, and may link to, third-party devices, websites and services. We aren't responsible for their content, policies or practices, or for changes they make that affect the Service.")}
+    {p("The Service works with, and may link to, third-party devices, websites and services, such as Samsung, LG, Roku, Google Cast, Fire TV and AirPlay devices. We aren't responsible for their content, policies or practices, or for changes they make that affect the Service, for example a TV update that changes or turns off the features MirrorGo relies on (on a Roku, “Control by mobile apps”).")}
     <h2>7. Privacy</h2>
     {p('How we handle data is described in our <a href="/privacy/">Privacy policy</a>.')}
     <h2>8. No warranty</h2>

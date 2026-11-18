@@ -273,7 +273,7 @@
    "points": [
     "Parcourez par thème (musique, actualités, sport, direct) ou cherchez",
     "S'ouvre dans l'app YouTube de la TV sur Samsung et LG",
-    "Fonctionne aussi sur Roku, Google TV, Android TV, Chromecast et les navigateurs web",
+    "Fonctionne aussi sur Google TV, Android TV, Chromecast et les navigateurs web",
     "La lecture continue quand vous quittez l'écran"
    ],
    "alts": [
@@ -344,7 +344,7 @@
   ],
   [
    "Compatible avec",
-   "Samsung (2016 et plus récent), LG webOS, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV et TV AirPlay, et tout navigateur web via smrr.tv."
+   "Samsung (2016 et plus récent), LG webOS, Roku (recopie de l'écran), Google TV, Android TV, Chromecast, Fire TV, Apple TV et TV AirPlay, et tout navigateur web via smrr.tv."
   ],
   [
    "Sur la TV",
@@ -386,7 +386,7 @@
    "ul": [
     "TV connectées Samsung (2016 et plus récentes)",
     "TV connectées LG (webOS)",
-    "TV Roku et lecteurs de streaming Roku",
+    "TV Roku et lecteurs de streaming Roku (recopie de l'écran)",
     "Google TV, Android TV et Chromecast",
     "Amazon Fire TV : clés, Cube et TV connectées Fire TV",
     "Apple TV et TV AirPlay",
@@ -497,6 +497,7 @@
    "q": "Que puis-je diffuser à part mon écran ?",
    "a": "Les photos et vidéos de votre galerie, votre caméra, des vidéos et images du web, des chaînes TV (IPTV) et YouTube. Toutes les TV ne lisent pas tout : sur l'Accueil, ce que votre TV ne peut pas lire est grisé.",
    "ul": [
+    "Le Roku affiche seulement la recopie de l'écran : les photos, les vidéos, la caméra, YouTube et la TV en direct ne s'y diffusent pas encore.",
     "YouTube ne fonctionne pas sur Fire TV ni via AirPlay.",
     "Via AirPlay, la caméra nécessite la recopie de l'écran activée dans le centre de contrôle.",
     "Fire TV et AirPlay affichent la caméra sans le son."
@@ -751,14 +752,14 @@
   },
   "roku": {
    "title": "Dupliquer l'écran d'un iPhone sur une TV Roku ou un lecteur Roku",
-   "description": "Dupliquez l'écran de votre iPhone sur une TV Roku, un Roku Streaming Stick ou un Roku Ultra avec MirrorGo, et diffusez photos, vidéos, YouTube et TV en direct par Wi-Fi. Sans câble.",
+   "description": "Dupliquez l'écran de votre iPhone sur une TV Roku, un Roku Streaming Stick ou un Roku Ultra avec MirrorGo, avec le son, par Wi-Fi. Sans câble, sans AirPlay, rien à installer sur le Roku.",
    "h1": "Dupliquez votre iPhone sur un Roku",
-   "lead": "MirrorGo affiche l'écran de votre iPhone sur les TV Roku (TCL, Hisense, Sharp et autres modèles Roku TV) et les lecteurs de streaming Roku, par votre Wi-Fi.",
+   "lead": "MirrorGo affiche l'écran de votre iPhone, avec le son, sur les TV Roku (TCL, Hisense, Sharp et autres modèles Roku TV) et les lecteurs de streaming Roku, par votre Wi-Fi. L'image passe par le lecteur du Roku lui-même : rien à installer sur le Roku.",
    "steps": [
     "Allumez le Roku et connectez votre iPhone au même Wi-Fi.",
     "Ouvrez MirrorGo, touchez Connecter votre TV et choisissez votre Roku.",
     "Ouvrez Recopie de l'écran, touchez Lancer la recopie, puis Démarrer le partage (Démarrer la diffusion avant iOS 26).",
-    "Votre écran s'affiche sur la TV en quelques secondes."
+    "Votre écran s'affiche sur la TV en quelques secondes. Pour arrêter, touchez Arrêter la recopie, ou appuyez sur Accueil sur la télécommande Roku."
    ],
    "features": [
     [
@@ -767,7 +768,7 @@
     ],
     [
      "Photos et vidéos",
-     null
+     "Dupliquez votre écran pour les montrer"
     ],
     [
      "Caméra",
@@ -775,7 +776,7 @@
     ],
     [
      "YouTube",
-     null
+     "Utilisez l'app YouTube du Roku"
     ],
     [
      "Vidéos web",
@@ -800,7 +801,13 @@
     [
      "Si votre Roku n'apparaît pas",
      [
-      "Vérifiez que le téléphone et le Roku sont sur le même Wi-Fi (pas un réseau invité), que MirrorGo a l'accès au réseau local dans Réglages, et qu'aucun VPN n'est activé. Sur le Roku, vérifiez que Paramètres › Système › Paramètres système avancés › Contrôle par applications mobiles (Control by mobile apps) autorise l'accès."
+      "Vérifiez que le téléphone et le Roku sont sur le même Wi-Fi (pas un réseau invité), que MirrorGo a l'accès au réseau local dans Réglages, et qu'aucun VPN n'est activé. Sur le Roku, ouvrez Paramètres › Système › Paramètres système avancés › Contrôle par applications mobiles (Control by mobile apps) et réglez Accès réseau (Network access) sur Par défaut (Default)."
+     ]
+    ],
+    [
+     "Comment ça marche",
+     [
+      "MirrorGo communique avec le Roku comme l'app mobile de Roku, par votre Wi-Fi, et votre écran est lu par le lecteur intégré du Roku, en flux vidéo en direct depuis votre iPhone. Aucune chaîne Roku à installer, aucun code à saisir. L'image a quelques secondes de retard sur votre téléphone."
      ]
     ]
    ],
@@ -812,6 +819,14 @@
     [
      "Puis-je dupliquer mon iPhone sur un Roku sans AirPlay ?",
      "Oui. MirrorGo n'utilise pas AirPlay : il fonctionne donc avec les Roku qui ne le prennent pas en charge."
+    ],
+    [
+     "Y a-t-il le son quand je duplique mon iPhone sur un Roku ?",
+     "Oui. Le son que jouent vos apps part vers le Roku avec l'image. MirrorGo n'envoie jamais le micro."
+    ],
+    [
+     "Puis-je diffuser des photos, YouTube ou la TV en direct sur un Roku ?",
+     "Pas encore : sur un Roku, MirrorGo duplique votre écran. Pour montrer vos photos et vidéos, lancez la recopie de l'écran et ouvrez-les sur votre iPhone."
     ]
    ]
   },
@@ -1403,14 +1418,9 @@
    ],
    "connect_notes": [
     "MirrorGo fonctionne avec les TV Roku (TCL, Hisense, Sharp, Philips et autres modèles Roku TV) et les lecteurs de streaming Roku : Roku Express, Streaming Stick et Ultra.",
-    "Roku absent de la liste ? Sur le Roku, ouvrez Paramètres › Système › Paramètres système avancés › Contrôle par applications mobiles (Control by mobile apps) et vérifiez que l'accès réseau n'est pas désactivé."
-   ],
-   "photos": "Le Roku les lit en plein écran et en pleine qualité ; lecture, pause et avance depuis le téléphone.",
-   "images": "Les images s'affichent en plein écran sur le Roku, à la taille de la TV.",
-   "iptv": "La chaîne continue sur le Roku pendant que vous utilisez d'autres apps ou verrouillez le téléphone.",
-   "youtube": "La vidéo est lue sur le Roku à partir de là où vous en étiez.",
-   "webvideos": "Le Roku lit la vidéo que votre iPhone a trouvée sur la page ; gardez MirrorGo ouvert pendant la lecture.",
-   "camera": "La caméra s'affiche en direct sur le Roku."
+    "Roku absent de la liste ? Sur le Roku, ouvrez Paramètres › Système › Paramètres système avancés › Contrôle par applications mobiles (Control by mobile apps) et réglez Accès réseau (Network access) sur Par défaut (Default).",
+    "Sur un Roku, MirrorGo duplique votre écran, avec le son, dans le lecteur du Roku lui-même. Les photos, les vidéos, la caméra, YouTube et la TV en direct ne se diffusent pas encore sur un Roku."
+   ]
   },
   "googletv": {
    "forms": {
