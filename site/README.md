@@ -13,6 +13,23 @@ python3 site/build.py --serve    # build, then http://localhost:8000/
 python3 site/build.py --check    # what's missing or broken in each translation
 ```
 
+## Visitors and clicks
+
+`site.js` sends each page view (with `document.referrer` and any `?ref=` / `?utm_source=` / `?src=`) and each
+link click (the link, and where it is: header, footer, hero, a section's id…) to `POST /e`; `worker.js` writes
+it to the Workers Analytics Engine dataset `mirrorgo_site` (kept 3 months). No cookies, no storage, no IP or
+identifiers: only the referrer's domain, the country and the kind of device (the privacy policy says so).
+Bots that don't run JavaScript aren't counted.
+
+```bash
+CLOUDFLARE_ACCOUNT_ID=… CLOUDFLARE_API_TOKEN=… python3 site/stats.py --days 30
+```
+
+prints where visitors come from, the pages viewed, the App Store button's clicks by page and place, every
+link clicked, countries, devices, languages and a per-day count. The token needs **Account Analytics: Read**.
+To tell your own links apart (a post, a profile, an ad), add `?ref=<name>` to them, e.g.
+`https://mirrorgo.app/?ref=tiktok`: it shows as that source.
+
 It was first served at `smrr.tv/landing-page/`; the smrr.tv Worker now sends those URLs to the same page
 here (301).
 

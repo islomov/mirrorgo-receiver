@@ -923,7 +923,7 @@ def build_privacy():
 </section>
 <section style="padding-top:10px">
   <div class="wrap prose">
-    {p("MirrorGo is built so that what you show on your TV stays between your iPhone and your TV. This policy explains what the app and our website smrr.tv handle, and why. The MirrorGo TV app for Fire TV and Android TV has <a href='/firetv/privacy/'>its own privacy policy</a>. Nothing is installed on a Roku: how MirrorGo works with it is described below.")}
+    {p("MirrorGo is built so that what you show on your TV stays between your iPhone and your TV. This policy explains what the app and our websites mirrorgo.app and smrr.tv handle, and why. The MirrorGo TV app for Fire TV and Android TV has <a href='/firetv/privacy/'>its own privacy policy</a>. Nothing is installed on a Roku: how MirrorGo works with it is described below.")}
     <h2>No account, no tracking</h2>
     {p("MirrorGo has no account and no sign-up. The app contains no advertising and no third-party analytics or tracking.")}
     <h2>Your screen, photos and videos</h2>
@@ -945,6 +945,8 @@ def build_privacy():
     {p("You can change any of them at any time in the iPhone's Settings › MirrorGo.")}
     <h2>Content from other services</h2>
     {p("Some features show content from other services, which receive your request like any website you visit: YouTube (Google) in the YouTube screen; the websites you open in Web Videos (a private browser that keeps no history, cookies or cache); Wikimedia Commons for web images; the public iptv-org channel list and the channels' own streaming servers for live TV; Google Cast for Chromecast and Google TV devices; and the built-in player of Roku devices. Their own privacy policies apply.")}
+    <h2>Our website mirrorgo.app</h2>
+    {p("To know which pages help people find MirrorGo, mirrorgo.app counts its page views and the links clicked on it: for each, the page and its language, the link and where it is on the page, the website that sent you there (its domain only, or the name in a link's <code>ref</code> or <code>utm_source</code>), your country and the kind of device (phone, tablet or computer, and its operating system). It sets no cookies, stores nothing on your device, and doesn't keep your IP address or anything else that identifies you. The counts are kept for three months, on Cloudflare, which hosts the site.")}
     <h2>Purchases</h2>
     {p("Purchases are handled by Apple through the App Store. We don't receive your payment details.")}
     <h2>Support emails</h2>
