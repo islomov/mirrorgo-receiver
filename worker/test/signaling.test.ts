@@ -521,3 +521,175 @@ describe("site", () => {
     expect(res.status).toBe(404);
   });
 });
+
+// MARK: HTTP viewers (TVs without WebSockets, e.g. Roku)
+
+async function httpViewer(body: Msg | string = {}, ip = freshIP()): Promise<Response> {
+  return SELF.fetch(`${ORIGIN}/api/viewer`, {
+    method: "POST",
+    body: typeof body === "string" ? body : JSON.stringify(body),
+    headers: { "cf-connecting-ip": ip },
+  });
+}
+
+async function newHttpViewer(): Promise<Msg> {
+  const res = await httpViewer();
+  expect(res.status).toBe(201);
+  return (await res.json()) as Msg;
+}
+
+const sessionQuery = (v: Msg) => `code=${v.code}&token=${v.viewerToken}&session=${v.session}`;
+
+async function poll(v: Msg, after = 0): Promise<Response> {
+  return SELF.fetch(`${ORIGIN}/api/viewer/poll?${sessionQuery(v)}&after=${after}`);
+}
+
+async function polled(v: Msg, after = 0): Promise<Msg> {
+  const res = await poll(v, after);
+  expect(res.status).toBe(200);
+  expect(res.headers.get("cache-control")).toBe("no-store");
+  return (await res.json()) as Msg;
+}
+
+async function sendHttp(v: Msg, m: Msg | string): Promise<Response> {
+  return SELF.fetch(`${ORIGIN}/api/viewer/send?${sessionQuery(v)}`, {
+    method: "POST",
+    body: typeof m === "string" ? m : JSON.stringify(m),
+  });
+}
+
+/** Moves the HTTP viewer's last poll back by `ms`. */
+async function agePoll(code: string, ms: number) {
+  await runInDurableObject(stub(code), (_, state) => {
+    const room = state.storage.kv.get<Msg>("room")!;
+    room.viewerPolledAt -= ms;
+    state.storage.kv.put("room", room);
+  });
+}
+
+describe("HTTP viewers", () => {
+  it("creates a room: code, viewer token, session, and how often to poll", async () => {
+    const v = await newHttpViewer();
+    expect(v).toMatchObject({ type: "room", v: 1, seq: 0, senderConnected: false, pollIntervalMs: 3000 });
+    expect(v.code).toMatch(/^\d{6}$/);
+    expect(v.viewerToken).toMatch(/^[0-9a-f]{32}$/);
+    expect(v.session).toMatch(/^[0-9a-f]{32}$/);
+    expect((await lookup(v.code)).status).toBe(200);
+    expect(await polled(v)).toEqual({ seq: 0, messages: [], senderConnected: false, pollIntervalMs: 3000 });
+  });
+
+  it("relays the sender's messages through polls (no ICE candidates) and the viewer's sends to the sender", async () => {
+    const v = await newHttpViewer();
+    const { sender, ready } = await senderFor(v.code);
+    expect(ready.viewerConnected).toBe(true);
+
+    let p = await polled(v);
+    expect(p).toMatchObject({ messages: [{ type: "peer-joined", role: "sender" }], senderConnected: true, pollIntervalMs: 1000 });
+
+    const load = { type: "media-load", id: 1, kind: "video", url: "https://example.com/a.m3u8", live: true };
+    sender.send(load);
+    sender.send({ type: "candidate", candidate: "candidate:1", sdpMid: "0", sdpMLineIndex: 0 });
+    sender.send({ type: "offer", sdp: "v=0", iceRestart: false });
+    sender.send({ type: "media-control", id: 1, action: "pause" });
+    await new Promise((r) => setTimeout(r, 50));
+
+    const next = await polled(v, p.seq);
+    expect(next.messages).toEqual([load, { type: "offer", sdp: "v=0", iceRestart: false }, { type: "media-control", id: 1, action: "pause" }]);
+    // Not acknowledged yet: the same again. Acknowledged: gone.
+    expect((await polled(v, p.seq)).messages).toHaveLength(3);
+    expect((await polled(v, next.seq)).messages).toEqual([]);
+    expect((await polled(v, 0)).messages).toEqual([]);
+
+    const caps = { type: "capabilities", v: 1, webrtc: false, hls: "native", mp4: true };
+    expect(await (await sendHttp(v, caps)).json()).toEqual({ delivered: true });
+    expect(await sender.next("capabilities")).toEqual(caps);
+    expect((await sendHttp(v, { type: "media-status", id: 1, state: "playing", time: 1 })).status).toBe(200);
+    await sender.next("media-status");
+    expect((await sendHttp(v, { type: "bye" })).status).toBe(200);
+    await sender.next("bye");
+
+    expect(await (await sendHttp(v, { type: "hello", v: 1, role: "viewer" })).json()).toEqual({ delivered: false });
+    expect((await sendHttp(v, { type: "media-load" })).status).toBe(400);
+    expect((await sendHttp(v, "not json")).status).toBe(400);
+    expect((await sendHttp(v, JSON.stringify({ type: "media-status", pad: "x".repeat(70_000) }))).status).toBe(413);
+    await sender.expectSilence();
+  });
+
+  it("answers 404 for wrong tokens, sessions of dead rooms and bad parameters; only POST / GET", async () => {
+    const v = await newHttpViewer();
+    expect((await poll({ ...v, viewerToken: "0".repeat(32) })).status).toBe(404);
+    expect((await poll({ ...v, code: "000000" === v.code ? "000001" : "000000" })).status).toBe(404);
+    expect((await poll({ ...v, session: "nope" })).status).toBe(404);
+    expect((await SELF.fetch(`${ORIGIN}/api/viewer/poll?${sessionQuery(v)}&after=-1`)).status).toBe(400);
+    expect((await SELF.fetch(`${ORIGIN}/api/viewer`)).status).toBe(405);
+    expect((await SELF.fetch(`${ORIGIN}/api/viewer/poll?${sessionQuery(v)}`, { method: "POST" })).status).toBe(405);
+    expect((await httpViewer("not json")).status).toBe(400);
+  });
+
+  it("counts a viewer that stopped polling as gone after 15 s; it rejoins with its token (same code)", async () => {
+    const v = await newHttpViewer();
+    const { sender } = await senderFor(v.code);
+    await polled(v);
+
+    await agePoll(v.code, 10 * 1000);
+    await runDurableObjectAlarm(stub(v.code)); // not due yet
+    await sender.expectSilence();
+
+    await agePoll(v.code, 6 * 1000);
+    expect(await runDurableObjectAlarm(stub(v.code))).toBe(true);
+    await sender.next("peer-left");
+    expect(await (await poll(v)).json()).toEqual({ error: "gone" });
+    expect((await poll(v)).status).toBe(410);
+
+    const res = await httpViewer({ code: v.code, token: v.viewerToken });
+    expect(res.status).toBe(200);
+    const again = (await res.json()) as Msg;
+    expect(again).toMatchObject({ code: v.code, viewerToken: v.viewerToken, senderConnected: true });
+    expect(again.session).not.toBe(v.session);
+    expect((await sender.next("peer-joined")).role).toBe("viewer");
+    expect((await poll(v)).status).toBe(409); // the old session was replaced
+    expect((await poll(again)).status).toBe(200);
+  });
+
+  it("closes the room 60 s after the viewer stopped polling; its rejoin then gets a new room", async () => {
+    const v = await newHttpViewer();
+    const { sender } = await senderFor(v.code);
+    await agePoll(v.code, 16 * 1000);
+    await runDurableObjectAlarm(stub(v.code));
+    await sender.next("peer-left");
+
+    await ageRoom(v.code, 61 * 1000);
+    expect(await runDurableObjectAlarm(stub(v.code))).toBe(true);
+    expect(await sender.closed()).toEqual({ code: 4004, reason: "room closed" });
+    expect((await poll(v)).status).toBe(404);
+    const res = await httpViewer({ code: v.code, token: v.viewerToken });
+    expect(res.status).toBe(201);
+    expect(((await res.json()) as Msg).viewerToken).not.toBe(v.viewerToken);
+  });
+
+  it("expires like any room when no sender joins within 10 minutes", async () => {
+    const v = await newHttpViewer();
+    await ageRoom(v.code, 11 * 60 * 1000);
+    await agePoll(v.code, -11 * 60 * 1000); // it kept polling
+    expect((await poll(v)).status).toBe(404);
+  });
+
+  it("hands the room over between a page and an HTTP viewer with the same token", async () => {
+    const v = await newHttpViewer();
+    const page = await connect(`/ws?role=viewer&code=${v.code}&token=${v.viewerToken}`);
+    expect((await page.next("room")).code).toBe(v.code);
+    expect((await poll(v)).status).toBe(409);
+
+    const back = await httpViewer({ code: v.code, token: v.viewerToken });
+    expect(back.status).toBe(200);
+    expect(await page.closed()).toEqual({ code: 4001, reason: "replaced" });
+  });
+
+  it("allows 10 new rooms per minute per IP", async () => {
+    const ip = freshIP();
+    for (let i = 0; i < 10; i++) expect((await httpViewer({}, ip)).status).toBe(201);
+    const res = await httpViewer({}, ip);
+    expect(res.status).toBe(429);
+    expect(res.headers.get("retry-after")).toBe("60");
+  });
+});

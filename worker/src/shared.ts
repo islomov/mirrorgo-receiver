@@ -14,6 +14,16 @@ export const LAUNCH_GRACE_MS = 2 * 60 * 1000;
 /** Largest message relayed between the peers. */
 export const MAX_MESSAGE_BYTES = 64 * 1024;
 
+/**
+ * HTTP viewers (TVs without WebSockets, e.g. Roku: `/api/viewer`): how often to poll while no sender
+ * is in the room / while one is, and how long without a poll before the viewer counts as gone.
+ */
+export const POLL_IDLE_MS = 3000;
+export const POLL_ACTIVE_MS = 1000;
+export const POLL_GONE_MS = 15 * 1000;
+/** Messages kept for an HTTP viewer until it polls (oldest dropped first). */
+export const OUTBOX_MAX = 100;
+
 export const CloseCode = {
   replaced: 4001,
   roomClosed: 4004,

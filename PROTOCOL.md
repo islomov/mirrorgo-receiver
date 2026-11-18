@@ -105,6 +105,40 @@ Clients send exactly the text `{"type":"ping"}` every 20 s; the server answers `
 - `4008 expired`: no sender joined within 10 minutes of the room's creation (viewer gets a new room by reconnecting without a code).
 Clients must not auto-reconnect after 4001 / 4004; after 4008 the viewer starts a new room.
 
+## HTTP viewers (TV apps without WebSockets: Roku)
+
+A viewer that can't hold a WebSocket (Roku's BrightScript has no WebSocket client) joins a room over
+plain HTTPS and polls. To the sender it's an ordinary viewer (`viewerConnected`, `peer-joined` /
+`peer-left viewer`, the same relayed messages), except that it never gets ICE `candidate`s: it can't
+do WebRTC, says so in `capabilities` (`"webrtc": false`) and answers an `offer` with `bye`. The page's
+WebSocket and an HTTP viewer can take the room over from each other with the viewer token (the older
+one is replaced: 4001 / `409`). JSON bodies, `cache-control: no-store`, no CORS.
+
+### `POST /api/viewer`
+Body `{}`: a new room. Body `{"code":"123456","token":"<viewerToken>"}`: rejoin it (app restarted,
+network back); a room that's gone or a wrong token gets a new room, like a page's rejoin.
+- `201` (new) / `200` (rejoined) `{"type":"room","v":1,"code":"123456","viewerToken":"<32 hex>","session":"<32 hex>","seq":0,"senderConnected":false,"pollIntervalMs":3000}`
+  `session` identifies this viewer instance (for /poll and /send). `seq`: poll with `after=seq`.
+- `429 {"error":"rate_limited"}` + `Retry-After`: more than 10 new rooms per minute from one IP (shared
+  with `POST /api/rooms`). `503 {"error":"busy"}`, `400 {"error":"bad_json"}`, `405`.
+
+### `GET /api/viewer/poll?code=&token=&session=&after=<seq>`
+- `200 {"seq":7,"messages":[{"type":"peer-joined","role":"sender"},{"type":"media-load",…}],"senderConnected":true,"pollIntervalMs":1000}`:
+  everything for the viewer after `after`, oldest first; poll again after `pollIntervalMs` (1 s while a
+  sender is in the room, 3 s otherwise) with `after=seq`. Messages up to `after` are dropped
+  (acknowledged); unacknowledged ones come again. At most 100 are kept (oldest dropped).
+- `404 {"error":"not_found"}`: no such room (ended, expired) or a wrong code / token / session format →
+  start over with `POST /api/viewer` (the room's code is gone).
+- `410 {"error":"gone"}`: no poll for 15 s, so the viewer counted as gone (the sender got `peer-left`)
+  → rejoin with `POST /api/viewer` and the code + token (same code, within 60 s).
+- `409 {"error":"replaced"}`: another viewer (the page, another TV) took the room with the token.
+
+### `POST /api/viewer/send?code=&token=&session=`
+Body: one message for the sender, as on the WebSocket: `capabilities`, `media-status`, `bye` (also
+`answer`, `candidate`, `restart-ice`); `hello` is logged, not relayed. Sending also counts as a poll.
+- `200 {"delivered":true|false}` (false: no sender connected, dropped like on the WebSocket).
+- `400` bad JSON or type, `413` over 64 KB, `404` / `409` / `410` as for /poll.
+
 ## Room lifetime
 - Created when a viewer connects without a (valid) code, or by the app (`POST /api/rooms`). Code: 6
   random digits, unique among live rooms.
@@ -114,7 +148,8 @@ Clients must not auto-reconnect after 4001 / 4004; after 4008 the viewer starts 
 - Once a sender has joined, it lives while the viewer is connected. The sender token stays valid,
   so the phone can stop and start the broadcast again without a new code.
 - Viewer disconnected for more than 60 s → closed (sender closed with 4004). A reload within 60 s
-  rejoins the same room (`code` + `viewerToken` from sessionStorage).
+  rejoins the same room (`code` + `viewerToken` from sessionStorage). An HTTP viewer is disconnected
+  15 s after its last poll; the 60 s count from then.
 
 ## Call flow
 1. Viewer connects → `room`. Page shows the code.
@@ -140,8 +175,11 @@ Clients must not auto-reconnect after 4001 / 4004; after 4008 the viewer starts 
 - Deadlines are enforced by an alarm and also checked on every access, so a room past its deadline
   is never found even if the alarm hasn't run yet. Ending a room closes its sockets and calls
   `deleteAll()`, which frees the code.
+- HTTP viewer: `viewerSocket` is `http:<session>`; each poll stores its time (alarm 15 s later);
+  the messages for it wait in the object's storage (`outbox`) until a poll acknowledges them. /poll and
+  /send answer `404` for "no room" and "wrong token" alike, so they don't reveal live codes.
 - Rate limits (Workers Rate Limiting binding, per IP, approximate per Cloudflare location):
-  `GET /api/rooms/:code` 10/min; `POST /api/rooms` 10/min; sender WebSocket upgrades 30/min (their 404 vs 403 would otherwise
+  `GET /api/rooms/:code` 10/min; `POST /api/rooms` and new rooms from `POST /api/viewer` 10/min (one limit); sender WebSocket upgrades 30/min (their 404 vs 403 would otherwise
   reveal live codes). A limited sender upgrade gets HTTP `429` + `Retry-After`.
 - `/ws` without `Upgrade: websocket` → `426`; unknown `role` → `400`; a sender with a malformed code
   or token → `404`.
