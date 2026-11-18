@@ -963,8 +963,16 @@ def build_privacy():
 
 
 def build_terms():
-    """Terms of use. The app's Settings shows the short version (SettingViewModel.content in MirrorGo)."""
+    """Terms of use, with the open-source licences of the iPhone app at the end (licenses.json, from the
+    app's frameworks; the app opens this page from Settings › Terms of Use)."""
     p = lambda text: f"<p>{text}</p>"
+    licences = json.loads((ROOT / "licenses.json").read_text())
+    licence_items = "".join(
+        f'<details style="margin-top:10px"><summary>{esc(item["name"])} '
+        f'<span class="muted" style="font-weight:400">· {esc(item["license"])}</span></summary>'
+        f'<pre style="white-space:pre-wrap;margin:0;padding:0 22px 22px;font-size:13px;line-height:1.5;color:#cfcfd8">'
+        f'{esc(item["text"])}</pre></details>'
+        for item in licences)
     mail = f'<a href="mailto:{SUPPORT_EMAIL}">{SUPPORT_EMAIL}</a>'
     body = f"""
 <section class="page-hero">
@@ -988,8 +996,8 @@ def build_terms():
     <h2>3. Your content and other people's content</h2>
     {p("You are responsible for what you mirror or cast, and for having the right to show it. MirrorGo doesn't host, upload or store your photos, videos or screen: they go from your iPhone to your TV over your network.")}
     {p("Web videos, web images, YouTube and live TV channels come from third parties that MirrorGo doesn't own or control. Live TV channels are free, publicly available streams listed by the community-run iptv-org project; we don't operate, host or endorse them, and their availability, content and legality where you live are outside our control. YouTube content is subject to YouTube's own terms. Web images come from Wikimedia Commons under their own licences, shown with each image. Respect the rights and terms of the services whose content you watch, and don't use MirrorGo to get around copy protection: protected content (for example from paid streaming apps) can't be mirrored or cast.")}
-    <h2>4. Subscriptions and purchases</h2>
-    {p("Some features may need a paid subscription or purchase. Payment is charged to your Apple ID by Apple. Subscriptions renew automatically unless turned off at least 24 hours before the end of the current period; you can manage or cancel them in your iPhone's Settings › your name › Subscriptions. Refunds are handled by Apple under its policies. Use Restore Purchase in MirrorGo's Settings to get a purchase back on a new device.")}
+    <h2>4. Price</h2>
+    {p("MirrorGo is free to download and use. If paid features are added later, they will be charged to your Apple ID by Apple under its terms, and these Terms will be updated first.")}
     <h2>5. Intellectual property</h2>
     {p("The Service, including its software, text, graphics and logos, belongs to us or our licensors. You may not copy, reproduce, distribute or create derivative works from it without our prior written permission. Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV, AirPlay, YouTube and other names are trademarks of their owners; MirrorGo isn't affiliated with or endorsed by them.")}
     <h2>6. Third-party services and links</h2>
@@ -1008,6 +1016,9 @@ def build_terms():
     {p("We may update these Terms. When we do, we'll change the date at the top of this page. Using the Service after a change means you accept the updated Terms.")}
     <h2>13. Contact</h2>
     {p(f"Questions about these Terms: {mail}.")}
+    <h2>14. Open-source software</h2>
+    {p("The MirrorGo app includes the following software, used under their licences:")}
+    {licence_items}
   </div>
 </section>
 """
