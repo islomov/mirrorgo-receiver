@@ -273,7 +273,7 @@
    "points": [
     "Browse by topic (music, news, sports, live) or search",
     "Opens in the TV's YouTube app on Samsung and LG",
-    "Plays on Roku, Google TV, Android TV, Chromecast and web browsers too",
+    "Plays on Google TV, Android TV, Chromecast and web browsers too",
     "Keeps playing when you leave the screen"
    ],
    "alts": [
@@ -344,7 +344,7 @@
   ],
   [
    "Works with",
-   "Samsung (2016 and newer), LG webOS, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV and AirPlay TVs, and any web browser through smrr.tv."
+   "Samsung (2016 and newer), LG webOS, Roku (screen mirroring), Google TV, Android TV, Chromecast, Fire TV, Apple TV and AirPlay TVs, and any web browser through smrr.tv."
   ],
   [
    "On the TV",
@@ -386,7 +386,7 @@
    "ul": [
     "Samsung smart TVs (2016 and newer)",
     "LG smart TVs (webOS)",
-    "Roku TVs and Roku streaming players",
+    "Roku TVs and Roku streaming players (screen mirroring)",
     "Google TV, Android TV and Chromecast",
     "Amazon Fire TV: sticks, Cube and Fire TV smart TVs",
     "Apple TV and AirPlay TVs",
@@ -497,6 +497,7 @@
    "q": "What can I cast besides my screen?",
    "a": "Photos and videos from your gallery, your camera, videos and images from the web, TV channels (IPTV) and YouTube. Not every TV plays everything: on Home, what your TV can't play is dimmed.",
    "ul": [
+    "Roku shows screen mirroring only: photos, videos, the camera, YouTube and live TV don't cast to it yet.",
     "YouTube doesn't play on Fire TV or over AirPlay.",
     "Over AirPlay, the camera needs Screen Mirroring on in Control Center.",
     "Fire TV and AirPlay show the camera without sound."
@@ -751,14 +752,14 @@
   },
   "roku": {
    "title": "How to Mirror an iPhone to a Roku TV or Roku Player",
-   "description": "Mirror your iPhone screen to a Roku TV, Roku Streaming Stick or Roku Ultra with MirrorGo, and cast photos, videos, YouTube and live TV over Wi-Fi. No cables.",
+   "description": "Mirror your iPhone screen to a Roku TV, Roku Streaming Stick or Roku Ultra with MirrorGo, with sound, over Wi-Fi. No cables, no AirPlay, nothing to install on the Roku.",
    "h1": "Mirror your iPhone to a Roku",
-   "lead": "MirrorGo shows your iPhone screen on Roku TVs (TCL, Hisense, Sharp and other Roku TV models) and Roku streaming players, over your Wi-Fi.",
+   "lead": "MirrorGo shows your iPhone screen, with sound, on Roku TVs (TCL, Hisense, Sharp and other Roku TV models) and Roku streaming players, over your Wi-Fi. It plays in the Roku's own player: nothing to install on the Roku.",
    "steps": [
     "Turn on the Roku and put your iPhone on the same Wi-Fi.",
     "Open MirrorGo, tap Connect your TV and pick your Roku.",
     "Open Screen Mirroring, tap Start mirroring, then Start Sharing (Start Broadcast before iOS 26).",
-    "Your screen shows on the TV in a few seconds."
+    "Your screen shows on the TV in a few seconds. To stop, tap Stop mirroring, or press Home on the Roku remote."
    ],
    "features": [
     [
@@ -767,7 +768,7 @@
     ],
     [
      "Photos & videos",
-     null
+     "Mirror your screen to show them"
     ],
     [
      "Camera",
@@ -775,7 +776,7 @@
     ],
     [
      "YouTube",
-     null
+     "Use the YouTube app on the Roku"
     ],
     [
      "Web videos",
@@ -800,7 +801,13 @@
     [
      "If your Roku isn't listed",
      [
-      "Make sure the phone and the Roku are on the same Wi-Fi (not a guest network), that MirrorGo has Local Network access in Settings, and that no VPN is on. On the Roku, check Settings › System › Advanced system settings › Control by mobile apps is set to allow access."
+      "Make sure the phone and the Roku are on the same Wi-Fi (not a guest network), that MirrorGo has Local Network access in Settings, and that no VPN is on. On the Roku, open Settings › System › Advanced system settings › Control by mobile apps, and set Network access to Default."
+     ]
+    ],
+    [
+     "How it works",
+     [
+      "MirrorGo talks to the Roku the way Roku's own mobile app does, over your Wi-Fi, and your screen plays in the Roku's built-in player as a live video stream from your iPhone. There's no Roku channel to install and no code to type. The picture runs a few seconds behind your phone."
      ]
     ]
    ],
@@ -812,6 +819,14 @@
     [
      "Can I mirror my iPhone to a Roku without AirPlay?",
      "Yes. MirrorGo doesn't use AirPlay, so it works with Rokus that don't support it."
+    ],
+    [
+     "Is there sound when I mirror my iPhone to a Roku?",
+     "Yes. The sound your apps play goes to the Roku with the picture. MirrorGo never sends the microphone."
+    ],
+    [
+     "Can I cast photos, YouTube or live TV to a Roku?",
+     "Not yet: on a Roku, MirrorGo mirrors your screen. To show your photos and videos, start screen mirroring and open them on your iPhone."
     ]
    ]
   },
@@ -1403,14 +1418,9 @@
    ],
    "connect_notes": [
     "MirrorGo works with Roku TVs (TCL, Hisense, Sharp, Philips and other Roku TV models) and Roku streaming players: the Roku Express, Streaming Stick and Ultra.",
-    "Roku not listed? On the Roku, open Settings › System › Advanced system settings › Control by mobile apps and make sure network access isn't disabled."
-   ],
-   "photos": "The Roku plays them full screen and in full quality; play, pause and seek from the phone.",
-   "images": "Images show full screen on the Roku, sized for the TV.",
-   "iptv": "The channel plays on the Roku while you use other apps or lock your phone.",
-   "youtube": "The video plays on the Roku from the point you were watching.",
-   "webvideos": "The Roku plays the video your iPhone found on the page; keep MirrorGo open while it plays.",
-   "camera": "The camera shows live on the Roku."
+    "Roku not listed? On the Roku, open Settings › System › Advanced system settings › Control by mobile apps and set Network access to Default.",
+    "On a Roku, MirrorGo mirrors your screen, with sound, in the Roku's own player. Photos, videos, the camera, YouTube and live TV don't cast to a Roku yet."
+   ]
   },
   "googletv": {
    "forms": {

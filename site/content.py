@@ -58,12 +58,12 @@ def every(**exceptions):
 # Rows: (FEATURES id, row name, what each TV in TVS does).
 COMPATIBILITY = [
     ("screen-mirroring", "Screen mirroring", every(firetv=note("No sound"), airplay=note("From Control Center"))),
-    ("photos-videos", "Photos & videos", every()),
-    ("camera", "Camera", every(firetv=note("No sound"), airplay=note("With Screen Mirroring on"))),
-    ("web-videos", "Web videos", every()),
-    ("iptv", "Live TV channels (IPTV)", every()),
-    ("youtube", "YouTube", every(firetv=NO, airplay=NO)),
-    ("web-images", "Web images", every()),
+    ("photos-videos", "Photos & videos", every(roku=NO)),
+    ("camera", "Camera", every(roku=NO, firetv=note("No sound"), airplay=note("With Screen Mirroring on"))),
+    ("web-videos", "Web videos", every(roku=NO)),
+    ("iptv", "Live TV channels (IPTV)", every(roku=NO)),
+    ("youtube", "YouTube", every(roku=NO, firetv=NO, airplay=NO)),
+    ("web-images", "Web images", every(roku=NO)),
 ]
 
 # TV makers: which kinds of TV (TVS ids) their sets run, for the brand pages.
@@ -222,7 +222,7 @@ SHOWCASE = [
         "points": [
             "Browse by topic (music, news, sports, live) or search",
             "Opens in the TV's YouTube app on Samsung and LG",
-            "Plays on Roku, Google TV, Android TV, Chromecast and web browsers too",
+            "Plays on Google TV, Android TV, Chromecast and web browsers too",
             "Keeps playing when you leave the screen",
         ],
         "shots": [("youtube", "Casting YouTube to a TV with MirrorGo")],
@@ -273,8 +273,8 @@ PRIVACY_POINTS = [
 QUICK_FACTS = [
     ("What it is", "An iPhone app that mirrors the screen and casts photos, videos, the camera, web videos, "
                    "live TV and YouTube to a TV."),
-    ("Works with", "Samsung (2016 and newer), LG webOS, Roku, Google TV, Android TV, Chromecast, Fire TV, "
-                   "Apple TV and AirPlay TVs, and any web browser through smrr.tv."),
+    ("Works with", "Samsung (2016 and newer), LG webOS, Roku (screen mirroring), Google TV, Android TV, "
+                   "Chromecast, Fire TV, Apple TV and AirPlay TVs, and any web browser through smrr.tv."),
     ("On the TV", "Nothing to install. The iPhone and the TV only need to be on the same Wi-Fi."),
     ("iPhone", f"iOS {MIN_IOS} or later."),
     ("Sound", "Yes, the sound your apps play (screen mirroring to Fire TV and some older LG TVs is picture only)."),
@@ -320,7 +320,7 @@ FAQ_SECTIONS = [
         {"id": "tvs", "q": "Which TVs does MirrorGo work with?",
          "a": "Most smart TVs and streaming sticks. Nothing needs to be installed on the TV.",
          "ul": ["Samsung smart TVs (2016 and newer)", "LG smart TVs (webOS)",
-                "Roku TVs and Roku streaming players", "Google TV, Android TV and Chromecast",
+                "Roku TVs and Roku streaming players (screen mirroring)", "Google TV, Android TV and Chromecast",
                 "Amazon Fire TV: sticks, Cube and Fire TV smart TVs",
                 "Apple TV and AirPlay TVs",
                 "Any other TV, computer or tablet with a web browser, through smrr.tv"]},
@@ -396,7 +396,8 @@ FAQ_SECTIONS = [
         {"id": "whatCast", "q": "What can I cast besides my screen?",
          "a": "Photos and videos from your gallery, your camera, videos and images from the web, TV channels (IPTV) "
               "and YouTube. Not every TV plays everything: on Home, what your TV can't play is dimmed.",
-         "ul": ["YouTube doesn't play on Fire TV or over AirPlay.",
+         "ul": ["Roku shows screen mirroring only: photos, videos, the camera, YouTube and live TV don't cast to it yet.",
+                "YouTube doesn't play on Fire TV or over AirPlay.",
                 "Over AirPlay, the camera needs Screen Mirroring on in Control Center.",
                 "Fire TV and AirPlay show the camera without sound."]},
         {"id": "lgCheck", "q": "My LG TV asks \"Is it playing on your TV?\"",
@@ -551,25 +552,27 @@ TV_GUIDES = [
         "tv": "roku",
         "slug": "mirror-iphone-to-roku",
         "title": "How to Mirror an iPhone to a Roku TV or Roku Player",
-        "description": "Mirror your iPhone screen to a Roku TV, Roku Streaming Stick or Roku Ultra with MirrorGo, and "
-                       "cast photos, videos, YouTube and live TV over Wi-Fi. No cables.",
+        "description": "Mirror your iPhone screen to a Roku TV, Roku Streaming Stick or Roku Ultra with MirrorGo, "
+                       "with sound, over Wi-Fi. No cables, no AirPlay, nothing to install on the Roku.",
         "h1": "Mirror your iPhone to a Roku",
-        "lead": "MirrorGo shows your iPhone screen on Roku TVs (TCL, Hisense, Sharp and other Roku TV models) and "
-                "Roku streaming players, over your Wi-Fi.",
+        "lead": "MirrorGo shows your iPhone screen, with sound, on Roku TVs (TCL, Hisense, Sharp and other Roku TV "
+                "models) and Roku streaming players, over your Wi-Fi. It plays in the Roku's own player: nothing to "
+                "install on the Roku.",
         "steps": [
             "Turn on the Roku and put your iPhone on the same Wi-Fi.",
             "Open MirrorGo, tap Connect your TV and pick your Roku.",
             f"Open Screen Mirroring, tap Start mirroring, then {START_SHARING}.",
-            "Your screen shows on the TV in a few seconds.",
+            "Your screen shows on the TV in a few seconds. To stop, tap Stop mirroring, or press Home on the Roku "
+            "remote.",
         ],
         "features": [
             ("Screen mirroring", "ok", "With sound"),
-            ("Photos & videos", "ok", None),
-            ("Camera", "ok", None),
-            ("YouTube", "ok", None),
-            ("Web videos", "ok", None),
-            ("Live TV channels", "ok", None),
-            ("Web images", "ok", None),
+            ("Photos & videos", "not", "Mirror your screen to show them"),
+            ("Camera", "not", None),
+            ("YouTube", "not", "Use the YouTube app on the Roku"),
+            ("Web videos", "not", None),
+            ("Live TV channels", "not", None),
+            ("Web images", "not", None),
         ],
         "sections": [
             ("Which Rokus work?",
@@ -577,14 +580,23 @@ TV_GUIDES = [
               "Roku Express, Streaming Stick and Ultra. MirrorGo finds them on your Wi-Fi."]),
             ("If your Roku isn't listed",
              ["Make sure the phone and the Roku are on the same Wi-Fi (not a guest network), that MirrorGo has "
-              "Local Network access in Settings, and that no VPN is on. On the Roku, check Settings › System › "
-              "Advanced system settings › Control by mobile apps is set to allow access."]),
+              "Local Network access in Settings, and that no VPN is on. On the Roku, open Settings › System › "
+              "Advanced system settings › Control by mobile apps, and set Network access to Default."]),
+            ("How it works",
+             ["MirrorGo talks to the Roku the way Roku's own mobile app does, over your Wi-Fi, and your screen plays "
+              "in the Roku's built-in player as a live video stream from your iPhone. There's no Roku channel to "
+              "install and no code to type. The picture runs a few seconds behind your phone."]),
         ],
         "faq": [
             ("Do I need to install anything on my Roku?",
              "No. You only install MirrorGo on your iPhone; the Roku just needs to be on and on the same Wi-Fi."),
             ("Can I mirror my iPhone to a Roku without AirPlay?",
              "Yes. MirrorGo doesn't use AirPlay, so it works with Rokus that don't support it."),
+            ("Is there sound when I mirror my iPhone to a Roku?",
+             "Yes. The sound your apps play goes to the Roku with the picture. MirrorGo never sends the microphone."),
+            ("Can I cast photos, YouTube or live TV to a Roku?",
+             "Not yet: on a Roku, MirrorGo mirrors your screen. To show your photos and videos, start screen "
+             "mirroring and open them on your iPhone."),
         ],
     },
     {

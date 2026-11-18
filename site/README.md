@@ -4,7 +4,7 @@ Static site, no framework: `build.py` (Python 3.9+, standard library only) build
 `blog.py` (the English text), `i18n.py` (the layout's text, and the translations in `locales/`) and `src/`
 (CSS, JS, fonts, images) into `public/` (gitignored), in 15 languages. `wrangler.jsonc` deploys it to
 Cloudflare as its own Worker, `mirrorgo-site`, on `mirrorgo.app` (`worker.js` only redirects
-`www.mirrorgo.app`). `.github/workflows/deploy-site.yml` builds and deploys on every push to `main` that
+`www.mirrorgo.app`, and the removed Roku casting articles: a Roku only gets screen mirroring). `.github/workflows/deploy-site.yml` builds and deploys on every push to `main` that
 touches `site/`, with the same `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID` secrets as smrr.tv.
 
 ```bash

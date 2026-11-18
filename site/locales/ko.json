@@ -273,7 +273,7 @@
    "points": [
     "주제별(음악, 뉴스, 스포츠, 라이브)로 둘러보거나 검색",
     "삼성과 LG에서는 TV의 YouTube 앱에서 열립니다",
-    "Roku, Google TV, Android TV, Chromecast, 웹 브라우저에서도 재생",
+    "Google TV, Android TV, Chromecast, 웹 브라우저에서도 재생",
     "화면을 나가도 계속 재생"
    ],
    "alts": [
@@ -344,7 +344,7 @@
   ],
   [
    "지원 기기",
-   "삼성(2016년 이후 모델), LG webOS, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV 및 AirPlay TV, 그리고 smrr.tv를 통한 모든 웹 브라우저."
+   "삼성(2016년 이후 모델), LG webOS, Roku(화면 미러링), Google TV, Android TV, Chromecast, Fire TV, Apple TV 및 AirPlay TV, 그리고 smrr.tv를 통한 모든 웹 브라우저."
   ],
   [
    "TV에서",
@@ -386,7 +386,7 @@
    "ul": [
     "삼성 스마트 TV(2016년 이후 모델)",
     "LG 스마트 TV(webOS)",
-    "Roku TV 및 Roku 스트리밍 플레이어",
+    "Roku TV 및 Roku 스트리밍 플레이어(화면 미러링)",
     "Google TV, Android TV, Chromecast",
     "Amazon Fire TV: 스틱, Cube, Fire TV 스마트 TV",
     "Apple TV 및 AirPlay TV",
@@ -497,6 +497,7 @@
    "q": "화면 외에 무엇을 전송할 수 있나요?",
    "a": "갤러리의 사진과 비디오, 카메라, 웹의 비디오와 이미지, TV 채널(IPTV), YouTube를 전송할 수 있습니다. 모든 TV가 모든 것을 재생하지는 않으며, 홈에서 내 TV가 재생할 수 없는 항목은 흐리게 표시됩니다.",
    "ul": [
+    "Roku는 화면 미러링만 지원합니다. 사진, 비디오, 카메라, YouTube, 실시간 TV는 아직 Roku로 전송할 수 없습니다.",
     "YouTube는 Fire TV나 AirPlay에서 재생되지 않습니다.",
     "AirPlay에서 카메라를 사용하려면 제어 센터에서 화면 미러링을 켜야 합니다.",
     "Fire TV와 AirPlay는 카메라를 사운드 없이 표시합니다."
@@ -751,14 +752,14 @@
   },
   "roku": {
    "title": "iPhone을 Roku TV 또는 Roku 플레이어에 미러링하는 방법",
-   "description": "MirrorGo로 iPhone 화면을 Roku TV, Roku Streaming Stick, Roku Ultra에 미러링하고 Wi-Fi로 사진, 비디오, YouTube, 실시간 TV를 전송하세요. 케이블 불필요.",
+   "description": "MirrorGo로 iPhone 화면을 Roku TV, Roku Streaming Stick, Roku Ultra에 Wi-Fi로 사운드와 함께 미러링하세요. 케이블도 AirPlay도 필요 없고, Roku에 아무것도 설치하지 않습니다.",
    "h1": "iPhone을 Roku에 미러링하기",
-   "lead": "MirrorGo는 Wi-Fi를 통해 iPhone 화면을 Roku TV(TCL, Hisense, Sharp 및 기타 Roku TV 모델)와 Roku 스트리밍 플레이어에 표시합니다.",
+   "lead": "MirrorGo는 Wi-Fi를 통해 iPhone 화면을 사운드와 함께 Roku TV(TCL, Hisense, Sharp 및 기타 Roku TV 모델)와 Roku 스트리밍 플레이어에 표시합니다. Roku 자체 플레이어에서 재생되므로 Roku에 아무것도 설치할 필요가 없습니다.",
    "steps": [
     "Roku를 켜고 iPhone을 같은 Wi-Fi에 연결하세요.",
     "MirrorGo를 열고 TV 연결을 탭한 다음 Roku를 선택하세요.",
     "화면 미러링을 열고 미러링 시작을 탭한 다음 공유 시작(iOS 26 이전 버전에서는 방송 시작)을 탭하세요.",
-    "몇 초 후 TV에 화면이 표시됩니다."
+    "몇 초 후 TV에 화면이 표시됩니다. 중지하려면 미러링 중지를 탭하거나 Roku 리모컨의 홈 버튼을 누르세요."
    ],
    "features": [
     [
@@ -767,7 +768,7 @@
     ],
     [
      "사진 및 비디오",
-     null
+     "화면을 미러링해서 표시"
     ],
     [
      "카메라",
@@ -775,7 +776,7 @@
     ],
     [
      "YouTube",
-     null
+     "Roku의 YouTube 앱 사용"
     ],
     [
      "웹 비디오",
@@ -800,7 +801,13 @@
     [
      "Roku가 목록에 없는 경우",
      [
-      "iPhone과 Roku가 같은 Wi-Fi(게스트 네트워크 제외)에 있는지, 설정에서 MirrorGo의 로컬 네트워크 접근이 켜져 있는지, VPN이 꺼져 있는지 확인하세요. Roku에서 설정 › 시스템 › 고급 시스템 설정 › 모바일 앱으로 제어(Settings › System › Advanced system settings › Control by mobile apps)가 접근을 허용하도록 설정되어 있는지 확인하세요."
+      "iPhone과 Roku가 같은 Wi-Fi(게스트 네트워크 제외)에 있는지, 설정에서 MirrorGo의 로컬 네트워크 접근이 켜져 있는지, VPN이 꺼져 있는지 확인하세요. Roku에서 설정 › 시스템 › 고급 시스템 설정 › 모바일 앱으로 제어(Settings › System › Advanced system settings › Control by mobile apps)를 열고 네트워크 접근(Network access)을 기본값(Default)으로 설정하세요."
+     ]
+    ],
+    [
+     "작동 방식",
+     [
+      "MirrorGo는 Roku 공식 모바일 앱과 같은 방식으로 Wi-Fi를 통해 Roku와 통신하며, iPhone 화면은 iPhone에서 보내는 실시간 비디오 스트림으로 Roku 내장 플레이어에서 재생됩니다. Roku 채널을 설치하거나 코드를 입력할 필요가 없습니다. 화면은 iPhone보다 몇 초 늦게 표시됩니다."
      ]
     ]
    ],
@@ -812,6 +819,14 @@
     [
      "AirPlay 없이 iPhone을 Roku에 미러링할 수 있나요?",
      "예. MirrorGo는 AirPlay를 사용하지 않으므로 AirPlay를 지원하지 않는 Roku에서도 작동합니다."
+    ],
+    [
+     "iPhone을 Roku에 미러링할 때 소리가 나나요?",
+     "예. 앱에서 재생되는 사운드가 화면과 함께 Roku로 전달됩니다. MirrorGo는 마이크를 절대 전송하지 않습니다."
+    ],
+    [
+     "Roku로 사진, YouTube, 실시간 TV를 전송할 수 있나요?",
+     "아직은 안 됩니다. Roku에서는 MirrorGo가 화면을 미러링합니다. 사진과 비디오를 보여 주려면 화면 미러링을 시작하고 iPhone에서 여세요."
     ]
    ]
   },
@@ -1403,14 +1418,9 @@
    ],
    "connect_notes": [
     "MirrorGo는 Roku TV(TCL, Hisense, Sharp, Philips 및 기타 Roku TV 모델)와 Roku 스트리밍 플레이어(Roku Express, Streaming Stick, Ultra)를 지원합니다.",
-    "Roku가 목록에 없나요? Roku에서 설정 › 시스템 › 고급 시스템 설정 › 모바일 앱으로 제어(Settings › System › Advanced system settings › Control by mobile apps)를 열고 네트워크 접근이 비활성화되어 있지 않은지 확인하세요."
-   ],
-   "photos": "Roku가 전체 화면, 원본 화질로 재생합니다. 재생, 일시 정지, 탐색은 iPhone에서 하세요.",
-   "images": "이미지는 TV에 맞는 크기로 Roku에 전체 화면으로 표시됩니다.",
-   "iptv": "다른 앱을 사용하거나 iPhone을 잠가도 Roku에서 채널이 계속 재생됩니다.",
-   "youtube": "Roku에서 보던 지점부터 비디오가 재생됩니다.",
-   "webvideos": "iPhone이 페이지에서 찾은 비디오를 Roku가 재생합니다. 재생하는 동안 MirrorGo를 열어 두세요.",
-   "camera": "카메라 화면이 Roku에 실시간으로 표시됩니다."
+    "Roku가 목록에 없나요? Roku에서 설정 › 시스템 › 고급 시스템 설정 › 모바일 앱으로 제어(Settings › System › Advanced system settings › Control by mobile apps)를 열고 네트워크 접근(Network access)을 기본값(Default)으로 설정하세요.",
+    "Roku에서는 MirrorGo가 화면을 사운드와 함께 Roku 자체 플레이어로 미러링합니다. 사진, 비디오, 카메라, YouTube, 실시간 TV는 아직 Roku로 전송할 수 없습니다."
+   ]
   },
   "googletv": {
    "forms": {

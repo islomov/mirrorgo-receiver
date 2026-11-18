@@ -273,7 +273,7 @@
    "points": [
     "Bla etter emne (musikk, nyheter, sport, direkte) eller søk",
     "Åpnes i TV-ens egen YouTube-app på Samsung og LG",
-    "Spilles også av på Roku, Google TV, Android TV, Chromecast og i nettlesere",
+    "Spilles også av på Google TV, Android TV, Chromecast og i nettlesere",
     "Fortsetter å spille når du forlater skjermen"
    ],
    "alts": [
@@ -344,7 +344,7 @@
   ],
   [
    "Fungerer med",
-   "Samsung (2016 og nyere), LG webOS, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV og AirPlay-TV-er, og alle nettlesere via smrr.tv."
+   "Samsung (2016 og nyere), LG webOS, Roku (skjermspeiling), Google TV, Android TV, Chromecast, Fire TV, Apple TV og AirPlay-TV-er, og alle nettlesere via smrr.tv."
   ],
   [
    "På TV-en",
@@ -386,7 +386,7 @@
    "ul": [
     "Samsung smart-TV-er (2016 og nyere)",
     "LG smart-TV-er (webOS)",
-    "Roku-TV-er og Roku-strømmespillere",
+    "Roku-TV-er og Roku-strømmespillere (skjermspeiling)",
     "Google TV, Android TV og Chromecast",
     "Amazon Fire TV: strømmepinner, Cube og smart-TV-er med Fire TV",
     "Apple TV og AirPlay-TV-er",
@@ -497,6 +497,7 @@
    "q": "Hva kan jeg caste i tillegg til skjermen?",
    "a": "Bilder og videoer fra galleriet, kameraet, videoer og bilder fra nettet, TV-kanaler (IPTV) og YouTube. Ikke alle TV-er spiller av alt: på startskjermen er det TV-en ikke kan spille av, gråtonet.",
    "ul": [
+    "Roku viser bare skjermspeiling: bilder, videoer, kameraet, YouTube og direkte-TV kan ikke castes dit ennå.",
     "YouTube spilles ikke av på Fire TV eller via AirPlay.",
     "Via AirPlay krever kameraet at Skjermspeiling er på i Kontrollsenter.",
     "Fire TV og AirPlay viser kameraet uten lyd."
@@ -751,14 +752,14 @@
   },
   "roku": {
    "title": "Slik speiler du iPhone til Roku-TV eller Roku-spiller",
-   "description": "Speil iPhone-skjermen til en Roku-TV, Roku Streaming Stick eller Roku Ultra med MirrorGo, og cast bilder, video, YouTube og direkte-TV over Wi-Fi. Ingen kabler.",
+   "description": "Speil iPhone-skjermen til en Roku-TV, Roku Streaming Stick eller Roku Ultra med MirrorGo, med lyd, over Wi-Fi. Ingen kabler, ingen AirPlay og ingenting å installere på Rokuen.",
    "h1": "Speil iPhonen din til en Roku",
-   "lead": "MirrorGo viser iPhone-skjermen på Roku-TV-er (TCL, Hisense, Sharp og andre Roku TV-modeller) og Roku-strømmespillere, over Wi-Fi-nettet ditt.",
+   "lead": "MirrorGo viser iPhone-skjermen, med lyd, på Roku-TV-er (TCL, Hisense, Sharp og andre Roku TV-modeller) og Roku-strømmespillere, over Wi-Fi-nettet ditt. Den spilles av i Rokuens egen spiller: ingenting å installere på Rokuen.",
    "steps": [
     "Slå på Rokuen og koble iPhonen til samme Wi-Fi.",
     "Åpne MirrorGo, trykk på Koble til TV-en og velg Rokuen din.",
     "Åpne Skjermspeiling, trykk på Start speiling og deretter på Start deling (Start kringkasting før iOS 26).",
-    "Skjermen vises på TV-en etter noen sekunder."
+    "Skjermen vises på TV-en etter noen sekunder. For å stoppe trykker du på Stopp speiling, eller på Hjem-knappen på Roku-fjernkontrollen."
    ],
    "features": [
     [
@@ -767,7 +768,7 @@
     ],
     [
      "Bilder og videoer",
-     null
+     "Speil skjermen for å vise dem"
     ],
     [
      "Kamera",
@@ -775,7 +776,7 @@
     ],
     [
      "YouTube",
-     null
+     "Bruk YouTube-appen på Rokuen"
     ],
     [
      "Nettvideoer",
@@ -800,7 +801,13 @@
     [
      "Hvis Rokuen ikke står i listen",
      [
-      "Sjekk at telefonen og Rokuen er på samme Wi-Fi (ikke et gjestenettverk), at MirrorGo har tilgang til Lokalt nettverk i Innstillinger, og at ingen VPN er på. På Rokuen sjekker du at Innstillinger › System › Avanserte systeminnstillinger › Kontroll via mobilapper (Settings › System › Advanced system settings › Control by mobile apps) er satt til å tillate tilgang."
+      "Sjekk at telefonen og Rokuen er på samme Wi-Fi (ikke et gjestenettverk), at MirrorGo har tilgang til Lokalt nettverk i Innstillinger, og at ingen VPN er på. På Rokuen åpner du Innstillinger › System › Avanserte systeminnstillinger › Kontroll via mobilapper (Settings › System › Advanced system settings › Control by mobile apps) og setter Nettverkstilgang til Standard (Network access: Default)."
+     ]
+    ],
+    [
+     "Slik fungerer det",
+     [
+      "MirrorGo snakker med Rokuen på samme måte som Rokus egen mobilapp, over Wi-Fi-nettet ditt, og skjermen spilles av i Rokuens innebygde spiller som en direkte videostrøm fra iPhonen. Det er ingen Roku-kanal å installere og ingen kode å skrive inn. Bildet ligger noen sekunder etter telefonen."
      ]
     ]
    ],
@@ -812,6 +819,14 @@
     [
      "Kan jeg speile iPhonen til en Roku uten AirPlay?",
      "Ja. MirrorGo bruker ikke AirPlay, så den fungerer med Roku-enheter som ikke støtter det."
+    ],
+    [
+     "Er det lyd når jeg speiler iPhonen til en Roku?",
+     "Ja. Lyden appene dine spiller av, går til Rokuen sammen med bildet. MirrorGo sender aldri mikrofonen."
+    ],
+    [
+     "Kan jeg caste bilder, YouTube eller direkte-TV til en Roku?",
+     "Ikke ennå: på en Roku speiler MirrorGo skjermen din. For å vise bildene og videoene dine starter du skjermspeiling og åpner dem på iPhonen."
     ]
    ]
   },
@@ -1409,14 +1424,9 @@
    ],
    "connect_notes": [
     "MirrorGo fungerer med Roku-TV-er (TCL, Hisense, Sharp, Philips og andre Roku TV-modeller) og Roku-strømmespillere: Roku Express, Streaming Stick og Ultra.",
-    "Står ikke Rokuen i listen? Åpne Innstillinger › System › Avanserte systeminnstillinger › Kontroll via mobilapper (Settings › System › Advanced system settings › Control by mobile apps) på Rokuen, og sjekk at nettverkstilgang ikke er deaktivert."
-   ],
-   "photos": "Rokuen spiller dem av i fullskjerm og full kvalitet; spill av, pause og spol fra telefonen.",
-   "images": "Bildene vises i fullskjerm på Rokuen, tilpasset TV-en.",
-   "iptv": "Kanalen spilles av på Rokuen mens du bruker andre apper eller låser telefonen.",
-   "youtube": "Videoen spilles av på Rokuen fra der du var i videoen.",
-   "webvideos": "Rokuen spiller av videoen iPhonen fant på siden; la MirrorGo være åpen mens den spilles.",
-   "camera": "Kameraet vises direkte på Rokuen."
+    "Står ikke Rokuen i listen? Åpne Innstillinger › System › Avanserte systeminnstillinger › Kontroll via mobilapper (Settings › System › Advanced system settings › Control by mobile apps) på Rokuen, og sett Nettverkstilgang til Standard (Network access: Default).",
+    "På en Roku speiler MirrorGo skjermen, med lyd, i Rokuens egen spiller. Bilder, videoer, kameraet, YouTube og direkte-TV kan ikke castes til en Roku ennå."
+   ]
   },
   "googletv": {
    "forms": {

@@ -273,7 +273,7 @@
    "points": [
     "依主題（音樂、新聞、體育、直播）瀏覽或搜尋",
     "在 Samsung 和 LG 上，會在電視的 YouTube App 中開啟",
-    "也能在 Roku、Google TV、Android TV、Chromecast 和網頁瀏覽器上播放",
+    "也能在 Google TV、Android TV、Chromecast 和網頁瀏覽器上播放",
     "離開畫面後仍會繼續播放"
    ],
    "alts": [
@@ -344,7 +344,7 @@
   ],
   [
    "支援裝置",
-   "Samsung（2016 年起的機型）、LG webOS、Roku、Google TV、Android TV、Chromecast、Fire TV、Apple TV 與 AirPlay 電視，以及透過 smrr.tv 支援任何網頁瀏覽器。"
+   "Samsung（2016 年起的機型）、LG webOS、Roku（螢幕鏡像輸出）、Google TV、Android TV、Chromecast、Fire TV、Apple TV 與 AirPlay 電視，以及透過 smrr.tv 支援任何網頁瀏覽器。"
   ],
   [
    "電視端",
@@ -386,7 +386,7 @@
    "ul": [
     "Samsung 智慧電視（2016 年起的機型）",
     "LG 智慧電視（webOS）",
-    "Roku 電視和 Roku 串流播放器",
+    "Roku 電視和 Roku 串流播放器（螢幕鏡像輸出）",
     "Google TV、Android TV 和 Chromecast",
     "Amazon Fire TV：串流棒、Cube 和 Fire TV 智慧電視",
     "Apple TV 與 AirPlay 電視",
@@ -497,6 +497,7 @@
    "q": "除了螢幕，還能投放什麼？",
    "a": "圖庫中的照片和影片、相機畫面、網路上的影片和圖片、電視頻道（IPTV）和 YouTube。不是每台電視都能播放所有內容：在首頁上，電視無法播放的項目會以淡色顯示。",
    "ul": [
+    "Roku 只支援螢幕鏡像輸出：照片、影片、相機、YouTube 和直播電視目前還無法投放到 Roku。",
     "YouTube 無法在 Fire TV 上或透過 AirPlay 播放。",
     "透過 AirPlay 時，相機需要先在控制中心開啟「螢幕鏡像輸出」。",
     "Fire TV 和 AirPlay 顯示相機畫面時沒有聲音。"
@@ -751,14 +752,14 @@
   },
   "roku": {
    "title": "如何將 iPhone 投影到 Roku 電視或 Roku 播放器",
-   "description": "用 MirrorGo 將 iPhone 螢幕鏡像輸出到 Roku 電視、Roku Streaming Stick 或 Roku Ultra，並透過 Wi-Fi 投放照片、影片、YouTube 和直播電視。免接線。",
+   "description": "用 MirrorGo 透過 Wi-Fi 將 iPhone 螢幕連同聲音鏡像輸出到 Roku 電視、Roku Streaming Stick 或 Roku Ultra。免接線、不需 AirPlay，Roku 上也不用安裝任何東西。",
    "h1": "將 iPhone 鏡像輸出到 Roku",
-   "lead": "MirrorGo 透過你的 Wi-Fi，將 iPhone 螢幕顯示在 Roku 電視（TCL、Hisense、Sharp 等 Roku TV 機型）和 Roku 串流播放器上。",
+   "lead": "MirrorGo 透過你的 Wi-Fi，將 iPhone 螢幕連同聲音顯示在 Roku 電視（TCL、Hisense、Sharp 等 Roku TV 機型）和 Roku 串流播放器上。畫面在 Roku 內建的播放器中播放：Roku 上不用安裝任何東西。",
    "steps": [
     "打開 Roku，讓 iPhone 連上同一個 Wi-Fi。",
     "打開 MirrorGo，點一下「連接電視」，然後選擇你的 Roku。",
     "打開「螢幕鏡像輸出」，點一下「開始鏡像輸出」，再點一下「開始分享」（iOS 26 以前為「開始廣播」）。",
-    "幾秒後，你的螢幕就會出現在電視上。"
+    "幾秒後，你的螢幕就會出現在電視上。要停止時，點一下「停止鏡像輸出」，或按 Roku 遙控器上的 Home 鍵。"
    ],
    "features": [
     [
@@ -767,7 +768,7 @@
     ],
     [
      "照片與影片",
-     null
+     "用螢幕鏡像輸出來顯示"
     ],
     [
      "相機",
@@ -775,7 +776,7 @@
     ],
     [
      "YouTube",
-     null
+     "使用 Roku 上的 YouTube App"
     ],
     [
      "網頁影片",
@@ -800,7 +801,13 @@
     [
      "如果清單中沒有你的 Roku",
      [
-      "請確認手機和 Roku 連上同一個 Wi-Fi（不是訪客網路）、MirrorGo 在「設定」中已取得「區域網路」權限，而且沒有開啟 VPN。在 Roku 上，確認「設定 › 系統 › 進階系統設定 › 行動 App 控制」（Settings › System › Advanced system settings › Control by mobile apps）已設為允許存取。"
+      "請確認手機和 Roku 連上同一個 Wi-Fi（不是訪客網路）、MirrorGo 在「設定」中已取得「區域網路」權限，而且沒有開啟 VPN。在 Roku 上，打開「設定 › 系統 › 進階系統設定 › 行動 App 控制」（Settings › System › Advanced system settings › Control by mobile apps），並將「網路存取」（Network access）設為「預設」（Default）。"
+     ]
+    ],
+    [
+     "運作方式",
+     [
+      "MirrorGo 透過你的 Wi-Fi，以 Roku 官方行動 App 的方式與 Roku 溝通，你的螢幕會以來自 iPhone 的即時影像串流，在 Roku 內建的播放器中播放。不用安裝 Roku 頻道，也不用輸入代碼。畫面會比手機慢幾秒。"
      ]
     ]
    ],
@@ -812,6 +819,14 @@
     [
      "沒有 AirPlay 也能將 iPhone 鏡像輸出到 Roku 嗎？",
      "可以。MirrorGo 不使用 AirPlay，所以不支援 AirPlay 的 Roku 也能用。"
+    ],
+    [
+     "將 iPhone 鏡像輸出到 Roku 時有聲音嗎？",
+     "有。App 播放的聲音會和畫面一起傳到 Roku。MirrorGo 絕不傳送麥克風。"
+    ],
+    [
+     "可以將照片、YouTube 或直播電視投放到 Roku 嗎？",
+     "目前還不行：在 Roku 上，MirrorGo 會鏡像輸出你的螢幕。要顯示照片和影片，請開始螢幕鏡像輸出，再在 iPhone 上打開它們。"
     ]
    ]
   },
@@ -1403,14 +1418,9 @@
    ],
    "connect_notes": [
     "MirrorGo 支援 Roku 電視（TCL、Hisense、Sharp、Philips 等 Roku TV 機型）和 Roku 串流播放器：Roku Express、Streaming Stick 和 Ultra。",
-    "清單中沒有 Roku？請在 Roku 上打開「設定 › 系統 › 進階系統設定 › 行動 App 控制」（Settings › System › Advanced system settings › Control by mobile apps），並確認網路存取沒有被停用。"
-   ],
-   "photos": "Roku 會以全螢幕、完整畫質播放；在手機上播放、暫停和快轉。",
-   "images": "圖片會在 Roku 上全螢幕顯示，並依電視調整大小。",
-   "iptv": "你使用其他 App 或鎖定手機時，頻道仍會在 Roku 上繼續播放。",
-   "youtube": "影片會在 Roku 上從你剛才看到的地方開始播放。",
-   "webvideos": "Roku 會播放 iPhone 在網頁上找到的影片；播放期間請保持 MirrorGo 開啟。",
-   "camera": "相機畫面會即時顯示在 Roku 上。"
+    "清單中沒有 Roku？請在 Roku 上打開「設定 › 系統 › 進階系統設定 › 行動 App 控制」（Settings › System › Advanced system settings › Control by mobile apps），並將「網路存取」（Network access）設為「預設」（Default）。",
+    "在 Roku 上，MirrorGo 會在 Roku 內建的播放器中鏡像輸出你的螢幕，並包含聲音。照片、影片、相機、YouTube 和直播電視目前還無法投放到 Roku。"
+   ]
   },
   "googletv": {
    "forms": {

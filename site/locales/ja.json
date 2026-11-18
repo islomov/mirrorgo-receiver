@@ -273,7 +273,7 @@
    "points": [
     "トピック（音楽、ニュース、スポーツ、ライブ）から探すか、検索",
     "SamsungとLGではテレビのYouTubeアプリで開きます",
-    "Roku、Google TV、Android TV、Chromecast、Webブラウザでも再生可能",
+    "Google TV、Android TV、Chromecast、Webブラウザでも再生可能",
     "画面を離れても再生が続きます"
    ],
    "alts": [
@@ -344,7 +344,7 @@
   ],
   [
    "対応機器",
-   "Samsung（2016年以降）、LG webOS、Roku、Google TV、Android TV、Chromecast、Fire TV、Apple TVとAirPlay対応テレビ、そしてsmrr.tv経由であらゆるWebブラウザ。"
+   "Samsung（2016年以降）、LG webOS、Roku（画面ミラーリング）、Google TV、Android TV、Chromecast、Fire TV、Apple TVとAirPlay対応テレビ、そしてsmrr.tv経由であらゆるWebブラウザ。"
   ],
   [
    "テレビ側",
@@ -386,7 +386,7 @@
    "ul": [
     "Samsungスマートテレビ（2016年以降）",
     "LGスマートテレビ（webOS）",
-    "RokuテレビとRokuストリーミングプレーヤー",
+    "RokuテレビとRokuストリーミングプレーヤー（画面ミラーリング）",
     "Google TV、Android TV、Chromecast",
     "Amazon Fire TV：Fire TV Stick、Fire TV Cube、Fire TVスマートテレビ",
     "Apple TVとAirPlay対応テレビ",
@@ -497,6 +497,7 @@
    "q": "画面以外に何をキャストできますか？",
    "a": "写真ライブラリの写真やビデオ、カメラ、Webのビデオや画像、テレビチャンネル（IPTV）、YouTubeです。テレビによって再生できないものもあり、ホームではお使いのテレビで再生できないものがグレー表示になります。",
    "ul": [
+    "Rokuは画面ミラーリングのみに対応しています。写真、ビデオ、カメラ、YouTube、ライブTVはまだRokuにキャストできません。",
     "YouTubeはFire TVやAirPlayでは再生できません。",
     "AirPlayでカメラを映すには、コントロールセンターで画面ミラーリングをオンにする必要があります。",
     "Fire TVとAirPlayでは、カメラの映像は音声なしで表示されます。"
@@ -751,14 +752,14 @@
   },
   "roku": {
    "title": "iPhoneをRokuテレビやRokuプレーヤーにミラーリングする方法",
-   "description": "MirrorGoでiPhoneの画面をRokuテレビ、Roku Streaming Stick、Roku Ultraにミラーリングし、写真、ビデオ、YouTube、ライブTVをWi-Fi経由でキャスト。ケーブル不要です。",
+   "description": "MirrorGoでiPhoneの画面をRokuテレビ、Roku Streaming Stick、Roku UltraにWi-Fi経由で音声付きでミラーリング。ケーブルもAirPlayも不要で、Rokuには何もインストールしません。",
    "h1": "iPhoneをRokuにミラーリング",
-   "lead": "MirrorGoは、Wi-Fi経由でiPhoneの画面をRokuテレビ（TCL、Hisense、SharpなどのRoku TVモデル）やRokuストリーミングプレーヤーに映します。",
+   "lead": "MirrorGoは、Wi-Fi経由でiPhoneの画面を音声付きでRokuテレビ（TCL、Hisense、SharpなどのRoku TVモデル）やRokuストリーミングプレーヤーに映します。Roku本体のプレーヤーで再生されるので、Rokuには何もインストールする必要はありません。",
    "steps": [
     "Rokuの電源を入れ、iPhoneを同じWi-Fiに接続します。",
     "MirrorGoを開いて「テレビに接続」をタップし、お使いのRokuを選びます。",
     "「画面ミラーリング」を開いて「ミラーリングを開始」をタップし、続いて「共有を開始」（iOS 26より前は「ブロードキャストを開始」）をタップします。",
-    "数秒でテレビに画面が映ります。"
+    "数秒でテレビに画面が映ります。停止するには、「ミラーリングを停止」をタップするか、Rokuのリモコンのホームボタンを押します。"
    ],
    "features": [
     [
@@ -767,7 +768,7 @@
     ],
     [
      "写真とビデオ",
-     null
+     "画面ミラーリングで表示"
     ],
     [
      "カメラ",
@@ -775,7 +776,7 @@
     ],
     [
      "YouTube",
-     null
+     "RokuのYouTubeアプリを使用"
     ],
     [
      "Webビデオ",
@@ -800,7 +801,13 @@
     [
      "Rokuがリストに表示されない場合",
      [
-      "iPhoneとRokuが同じWi-Fi（ゲストネットワーク以外）につながっていること、「設定」でMirrorGoのローカルネットワークへのアクセスがオンになっていること、VPNがオフであることを確認してください。Roku側では、「設定」›「システム」›「システムの詳細設定」›「モバイルアプリによる操作」（Settings › System › Advanced system settings › Control by mobile apps）でアクセスが許可されているか確認してください。"
+      "iPhoneとRokuが同じWi-Fi（ゲストネットワーク以外）につながっていること、「設定」でMirrorGoのローカルネットワークへのアクセスがオンになっていること、VPNがオフであることを確認してください。Roku側では、「設定」›「システム」›「システムの詳細設定」›「モバイルアプリによる操作」（Settings › System › Advanced system settings › Control by mobile apps）を開き、「ネットワークアクセス」（Network access）を「デフォルト」（Default）に設定してください。"
+     ]
+    ],
+    [
+     "仕組み",
+     [
+      "MirrorGoは、Roku公式のモバイルアプリと同じ方法でWi-Fi経由でRokuとやり取りし、iPhoneの画面はiPhoneからのライブビデオストリームとしてRoku内蔵のプレーヤーで再生されます。Rokuにチャンネルをインストールする必要も、コードを入力する必要もありません。映像はiPhoneより数秒遅れて表示されます。"
      ]
     ]
    ],
@@ -812,6 +819,14 @@
     [
      "AirPlayなしでiPhoneをRokuにミラーリングできますか？",
      "はい。MirrorGoはAirPlayを使わないので、AirPlay非対応のRokuでも使えます。"
+    ],
+    [
+     "iPhoneをRokuにミラーリングすると音は出ますか？",
+     "はい。アプリが再生する音声が映像と一緒にRokuに送られます。MirrorGoがマイクの音を送ることはありません。"
+    ],
+    [
+     "Rokuに写真、YouTube、ライブTVをキャストできますか？",
+     "まだできません。Rokuでは、MirrorGoは画面をミラーリングします。写真やビデオを見せるには、画面ミラーリングを開始してiPhoneで開いてください。"
     ]
    ]
   },
@@ -1403,14 +1418,9 @@
    ],
    "connect_notes": [
     "MirrorGoは、Rokuテレビ（TCL、Hisense、Sharp、PhilipsなどのRoku TVモデル）と、Rokuストリーミングプレーヤー（Roku Express、Streaming Stick、Ultra）に対応しています。",
-    "Rokuがリストに表示されない場合は、Rokuで「設定」›「システム」›「システムの詳細設定」›「モバイルアプリによる操作」（Settings › System › Advanced system settings › Control by mobile apps）を開き、ネットワークアクセスが無効になっていないか確認してください。"
-   ],
-   "photos": "Rokuが全画面・フル画質で再生します。再生、一時停止、シークはiPhoneで操作します。",
-   "images": "画像はRokuで、テレビに合わせたサイズで全画面表示されます。",
-   "iptv": "ほかのアプリを使ったりiPhoneをロックしたりしても、チャンネルはRokuで再生され続けます。",
-   "youtube": "ビデオはRokuで、見ていた場面から再生されます。",
-   "webvideos": "iPhoneがページで見つけたビデオをRokuが再生します。再生中はMirrorGoを開いたままにしてください。",
-   "camera": "カメラの映像がRokuにライブで表示されます。"
+    "Rokuがリストに表示されない場合は、Rokuで「設定」›「システム」›「システムの詳細設定」›「モバイルアプリによる操作」（Settings › System › Advanced system settings › Control by mobile apps）を開き、「ネットワークアクセス」（Network access）を「デフォルト」（Default）に設定してください。",
+    "Rokuでは、MirrorGoは画面を音声付きでミラーリングし、Roku本体のプレーヤーで再生します。写真、ビデオ、カメラ、YouTube、ライブTVはまだRokuにキャストできません。"
+   ]
   },
   "googletv": {
    "forms": {

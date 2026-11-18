@@ -273,7 +273,7 @@
    "points": [
     "Selaa aiheittain (musiikki, uutiset, urheilu, live) tai hae",
     "Avautuu television YouTube-sovelluksessa Samsungilla ja LG:llä",
-    "Toimii myös Rokussa, Google TV:ssä, Android TV:ssä, Chromecastissa ja verkkoselaimissa",
+    "Toimii myös Google TV:ssä, Android TV:ssä, Chromecastissa ja verkkoselaimissa",
     "Toisto jatkuu, kun poistut näkymästä"
    ],
    "alts": [
@@ -344,7 +344,7 @@
   ],
   [
    "Yhteensopiva",
-   "Samsung (2016 ja uudemmat), LG webOS, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV ja AirPlay-televisiot sekä mikä tahansa verkkoselain smrr.tv:n kautta."
+   "Samsung (2016 ja uudemmat), LG webOS, Roku (näytön peilaus), Google TV, Android TV, Chromecast, Fire TV, Apple TV ja AirPlay-televisiot sekä mikä tahansa verkkoselain smrr.tv:n kautta."
   ],
   [
    "Televisiossa",
@@ -386,7 +386,7 @@
    "ul": [
     "Samsung-älytelevisiot (2016 ja uudemmat)",
     "LG-älytelevisiot (webOS)",
-    "Roku-televisiot ja Roku-suoratoistosoittimet",
+    "Roku-televisiot ja Roku-suoratoistosoittimet (näytön peilaus)",
     "Google TV, Android TV ja Chromecast",
     "Amazon Fire TV: tikut, Cube ja Fire TV -älytelevisiot",
     "Apple TV ja AirPlay-televisiot",
@@ -497,6 +497,7 @@
    "q": "Mitä muuta voin suoratoistaa kuin näyttöni?",
    "a": "Kuvia ja videoita galleriastasi, kamerasi kuvaa, videoita ja kuvia verkosta, TV-kanavia (IPTV) ja YouTubea. Kaikki televisiot eivät toista kaikkea: Koti-näkymässä himmennetään se, mitä televisiosi ei pysty toistamaan.",
    "ul": [
+    "Rokussa toimii vain näytön peilaus: kuvia, videoita, kameraa, YouTubea ja live-TV:tä ei voi vielä suoratoistaa siihen.",
     "YouTube ei toimi Fire TV:ssä eikä AirPlayn kautta.",
     "AirPlayn kautta kamera vaatii, että Näytön peilaus on päällä Ohjauskeskuksessa.",
     "Fire TV ja AirPlay näyttävät kameran kuvan ilman ääntä."
@@ -751,14 +752,14 @@
   },
   "roku": {
    "title": "iPhonen peilaus Roku-televisioon tai Roku-soittimeen",
-   "description": "Peilaa iPhonen näyttö Roku-televisioon, Roku Streaming Stickiin tai Roku Ultraan MirrorGolla ja suoratoista kuvia, videoita, YouTubea ja live-TV:tä Wi-Fin kautta. Ei kaapeleita.",
+   "description": "Peilaa iPhonen näyttö äänen kanssa Roku-televisioon, Roku Streaming Stickiin tai Roku Ultraan MirrorGolla Wi-Fin kautta. Ei kaapeleita, ei AirPlayta eikä mitään asennettavaa Rokuun.",
    "h1": "Peilaa iPhone Roku-laitteeseen",
-   "lead": "MirrorGo näyttää iPhonesi näytön Roku-televisioissa (TCL, Hisense, Sharp ja muut Roku TV -mallit) ja Roku-suoratoistosoittimissa Wi-Fi-verkkosi kautta.",
+   "lead": "MirrorGo näyttää iPhonesi näytön äänen kanssa Roku-televisioissa (TCL, Hisense, Sharp ja muut Roku TV -mallit) ja Roku-suoratoistosoittimissa Wi-Fi-verkkosi kautta. Kuva toistuu Rokun omassa soittimessa: Rokuun ei tarvitse asentaa mitään.",
    "steps": [
     "Käynnistä Roku ja yhdistä iPhone samaan Wi-Fi-verkkoon.",
     "Avaa MirrorGo, napauta Yhdistä televisio ja valitse Rokusi.",
     "Avaa Näytön peilaus, napauta Aloita peilaus ja sitten Aloita jakaminen (ennen iOS 26:ta Aloita lähetys).",
-    "Näyttösi tulee televisioon muutamassa sekunnissa."
+    "Näyttösi tulee televisioon muutamassa sekunnissa. Lopeta napauttamalla Lopeta peilaus tai painamalla Roku-kaukosäätimen Koti-painiketta."
    ],
    "features": [
     [
@@ -767,7 +768,7 @@
     ],
     [
      "Kuvat ja videot",
-     null
+     "Näytä ne peilaamalla näyttö"
     ],
     [
      "Kamera",
@@ -775,7 +776,7 @@
     ],
     [
      "YouTube",
-     null
+     "Käytä Rokun YouTube-sovellusta"
     ],
     [
      "Verkkovideot",
@@ -800,7 +801,13 @@
     [
      "Jos Rokusi ei näy listassa",
      [
-      "Varmista, että puhelin ja Roku ovat samassa Wi-Fi-verkossa (eivät vierasverkossa), että MirrorGolla on paikallisverkon käyttöoikeus Asetuksissa ja ettei VPN ole päällä. Tarkista Rokussa, että Asetukset › Järjestelmä › Järjestelmän lisäasetukset › Ohjaus mobiilisovelluksilla (Settings › System › Advanced system settings › Control by mobile apps) sallii pääsyn."
+      "Varmista, että puhelin ja Roku ovat samassa Wi-Fi-verkossa (eivät vierasverkossa), että MirrorGolla on paikallisverkon käyttöoikeus Asetuksissa ja ettei VPN ole päällä. Avaa Rokussa Asetukset › Järjestelmä › Järjestelmän lisäasetukset › Ohjaus mobiilisovelluksilla (Settings › System › Advanced system settings › Control by mobile apps) ja valitse Verkkokäytön arvoksi Oletus (Network access: Default)."
+     ]
+    ],
+    [
+     "Miten se toimii",
+     [
+      "MirrorGo viestii Rokun kanssa Wi-Fi-verkkosi kautta samalla tavalla kuin Rokun oma mobiilisovellus, ja näyttösi toistuu Rokun sisäänrakennetussa soittimessa suorana videovirtana iPhonesta. Rokuun ei asenneta kanavaa, eikä koodia tarvitse kirjoittaa. Kuva on muutaman sekunnin puhelinta jäljessä."
      ]
     ]
    ],
@@ -812,6 +819,14 @@
     [
      "Voinko peilata iPhonen Rokuun ilman AirPlayta?",
      "Kyllä. MirrorGo ei käytä AirPlayta, joten se toimii myös Roku-laitteissa, jotka eivät tue sitä."
+    ],
+    [
+     "Kuuluuko ääni, kun peilaan iPhonen Rokuun?",
+     "Kyllä. Sovellustesi toistama ääni siirtyy Rokuun kuvan mukana. MirrorGo ei koskaan lähetä mikrofonin ääntä."
+    ],
+    [
+     "Voinko suoratoistaa kuvia, YouTubea tai live-TV:tä Rokuun?",
+     "Ei vielä: Rokussa MirrorGo peilaa näyttösi. Jos haluat näyttää kuvia ja videoita, aloita näytön peilaus ja avaa ne iPhonessa."
     ]
    ]
   },
@@ -1412,14 +1427,9 @@
    ],
    "connect_notes": [
     "MirrorGo toimii Roku-televisioissa (TCL, Hisense, Sharp, Philips ja muut Roku TV -mallit) ja Roku-suoratoistosoittimissa: Roku Express, Streaming Stick ja Ultra.",
-    "Eikö Roku näy listassa? Avaa Rokussa Asetukset › Järjestelmä › Järjestelmän lisäasetukset › Ohjaus mobiilisovelluksilla (Settings › System › Advanced system settings › Control by mobile apps) ja varmista, ettei verkkoyhteyttä ole estetty."
-   ],
-   "photos": "Roku toistaa ne koko näytöllä ja täydellä laadulla; toista, keskeytä ja kelaa puhelimesta.",
-   "images": "Kuvat näkyvät Rokussa koko näytöllä television kokoon sovitettuina.",
-   "iptv": "Kanava toistuu Rokussa, kun käytät muita sovelluksia tai lukitset puhelimen.",
-   "youtube": "Video toistuu Rokussa siitä kohdasta, johon jäit.",
-   "webvideos": "Roku toistaa videon, jonka iPhonesi löysi sivulta; pidä MirrorGo auki toiston ajan.",
-   "camera": "Kameran kuva näkyy suorana Rokussa."
+    "Eikö Roku näy listassa? Avaa Rokussa Asetukset › Järjestelmä › Järjestelmän lisäasetukset › Ohjaus mobiilisovelluksilla (Settings › System › Advanced system settings › Control by mobile apps) ja valitse Verkkokäytön arvoksi Oletus (Network access: Default).",
+    "Rokussa MirrorGo peilaa näyttösi äänen kanssa Rokun omassa soittimessa. Kuvia, videoita, kameraa, YouTubea ja live-TV:tä ei voi vielä suoratoistaa Rokuun."
+   ]
   },
   "googletv": {
    "forms": {

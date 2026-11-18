@@ -1,7 +1,7 @@
 {
   "$schema": "https://unpkg.com/wrangler/config-schema.json",
   // mirrorgo.app: MirrorGo's landing page. Static files built by build.py into ./public; worker.js
-  // only sends www.mirrorgo.app to mirrorgo.app.
+  // only sends www.mirrorgo.app to mirrorgo.app, and the removed Roku articles to the Roku guide.
   "name": "mirrorgo-site",
   "main": "worker.js",
   "compatibility_date": "2026-11-01",

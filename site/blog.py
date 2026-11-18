@@ -223,14 +223,17 @@ PLATFORMS = {
             "MirrorGo works with Roku TVs (TCL, Hisense, Sharp, Philips and other Roku TV models) and Roku streaming "
             "players: the Roku Express, Streaming Stick and Ultra.",
             "Roku not listed? On the Roku, open Settings › System › Advanced system settings › Control by mobile apps "
-            "and make sure network access isn't disabled.",
+            "and set Network access to Default.",
+            "On a Roku, MirrorGo mirrors your screen, with sound, in the Roku's own player. Photos, videos, the camera, "
+            "YouTube and live TV don't cast to a Roku yet.",
         ],
-        "photos": "The Roku plays them full screen and in full quality; play, pause and seek from the phone.",
-        "images": "Images show full screen on the Roku, sized for the TV.",
-        "iptv": "The channel plays on the Roku while you use other apps or lock your phone.",
-        "youtube": "The video plays on the Roku from the point you were watching.",
-        "webvideos": "The Roku plays the video your iPhone found on the page; keep MirrorGo open while it plays.",
-        "camera": "The camera shows live on the Roku.",
+        # Screen mirroring only (RokuService): no casting yet.
+        "photos": None,
+        "images": None,
+        "iptv": None,
+        "youtube": None,
+        "webvideos": None,
+        "camera": None,
     },
     "googletv": {
         "art": "a Google TV", "x": "google-tv",
