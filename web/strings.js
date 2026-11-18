@@ -59,6 +59,8 @@ const web = {
 
   joinTitle: "Almost there",
   joinBody: (code) => `Open MirrorGo on your iPhone, tap TV Browser and enter ${code}.`,
+  // Scanned on a MirrorGo TV app (`/c/<code>?tv=<key>`): the iPhone joins it as the TV, not as TV Browser.
+  joinBodyTVApp: (code) => `Open MirrorGo on your iPhone, tap Connect your TV, then MirrorGo TV app, and enter ${code}.`,
   joinNoCode: "Open smrr.tv on your TV or computer to get a code.",
   joinHome: "Show a code on this device",
 };
@@ -71,6 +73,9 @@ const tv = {
   offline: "Can't connect. Check this TV's internet connection.",
 
   codeTitle: "Mirror your iPhone to this TV",
+  // Not "TV Browser": on the iPhone, the TV apps have their own entry (MIRR-152).
+  steps: ["Open MirrorGo on your iPhone", "Tap Connect your TV, then MirrorGo TV app", "Scan this QR code"],
+  qrHint: "Scan with MirrorGo on your iPhone",
   sameWifi: "Your iPhone and this TV need the same Wi-Fi.",
   tvName: (name) => `This TV: ${name}`,
 
@@ -120,6 +125,9 @@ const tvKey = surface === "tv" ? location.pathname.replace(/^\/+|\/+$/g, "").toL
 
 // Not Object.hasOwn: older TV browsers (Tizen, webOS) don't have it.
 const tvOwn = Object.prototype.hasOwnProperty.call(tvs, tvKey) ? tvs[tvKey] : {};
+
+/** The TV app this page is in ("lg"), or "" (smrr.tv in a browser, or an unknown path). */
+export const tvAppKey = Object.prototype.hasOwnProperty.call(tvs, tvKey) ? tvKey : "";
 
 export const strings = Object.assign({}, web, surface === "tv" ? tv : {}, tvOwn);
 

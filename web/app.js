@@ -3,7 +3,7 @@
 // States: connecting → code → starting (phone connected) → playing → stopped (same code) / error.
 // Signaling: signaling.js, WebRTC: player.js, links: media.js, strings: strings.js, protocol: PROTOCOL.md.
 
-import { strings, spacedCode } from "./strings.js";
+import { strings, spacedCode, tvAppKey } from "./strings.js";
 import { SignalingClient, adoptRoomFromURL } from "./signaling.js";
 import { WebRTCPlayer, PlayerState } from "./player.js";
 import { MediaPlayer, MediaState, capabilities } from "./media.js";
@@ -160,7 +160,7 @@ function onRoom(room) {
     app.stopped = false;
     player.close();
     renderCode(room.code);
-    renderQR(location.origin + "/c/" + room.code);
+    renderQR(qrTarget(room.code));
   } else {
     log("rejoined room");
   }
@@ -351,6 +351,12 @@ function renderCode(code) {
     digit.textContent = digits.charAt(i);
     box.appendChild(digit);
   }
+}
+
+/** The QR code's link. A TV app's names its TV (`?tv=lg`), so the iPhone lists it as that TV, not as a browser. */
+function qrTarget(code) {
+  const target = location.origin + "/c/" + code;
+  return tvAppKey ? target + "?tv=" + tvAppKey : target;
 }
 
 function renderQR(text) {

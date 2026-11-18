@@ -8,5 +8,8 @@ const code = match ? match[1] : null;
 document.title = strings.pageTitle;
 document.getElementById("title").textContent = code ? strings.joinTitle : strings.brand;
 document.getElementById("code").textContent = code ? spacedCode(code) : "";
-document.getElementById("body").textContent = code ? strings.joinBody(spacedCode(code)) : strings.joinNoCode;
+// The QR code of a MirrorGo TV app names its TV: point at the TV app entry, not TV Browser.
+const fromTVApp = new URLSearchParams(location.search).has("tv");
+const body = fromTVApp ? strings.joinBodyTVApp : strings.joinBody;
+document.getElementById("body").textContent = code ? body(spacedCode(code)) : strings.joinNoCode;
 document.getElementById("home").textContent = strings.joinHome;
