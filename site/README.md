@@ -1,7 +1,8 @@
 # MirrorGo landing page — https://mirrorgo.app
 
-Static site, no framework: `build.py` (Python 3.9+, standard library only) builds `content.py` (all the
-text) and `src/` (CSS, JS, fonts, images) into `public/` (gitignored). `wrangler.jsonc` deploys it to
+Static site, no framework: `build.py` (Python 3.9+, standard library only) builds `content.py` and
+`blog.py` (the English text), `i18n.py` (the layout's text, and the translations in `locales/`) and `src/`
+(CSS, JS, fonts, images) into `public/` (gitignored), in 15 languages. `wrangler.jsonc` deploys it to
 Cloudflare as its own Worker, `mirrorgo-site`, on `mirrorgo.app` (`worker.js` only redirects
 `www.mirrorgo.app`). `.github/workflows/deploy-site.yml` builds and deploys on every push to `main` that
 touches `site/`, with the same `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID` secrets as smrr.tv.
@@ -9,10 +10,32 @@ touches `site/`, with the same `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID` 
 ```bash
 python3 site/build.py            # → site/public
 python3 site/build.py --serve    # build, then http://localhost:8000/
+python3 site/build.py --check    # what's missing or broken in each translation
 ```
 
 It was first served at `smrr.tv/landing-page/`; the smrr.tv Worker now sends those URLs to the same page
 here (301).
+
+## Languages
+
+English is at the root; German, French, Spanish, Italian, Portuguese (Portugal), Dutch, Swedish, Danish,
+Norwegian, Finnish, Polish, Japanese, Korean and Traditional Chinese are under `/<code>/` with the same
+paths (`content.LANGUAGES`): the developed markets of Tier 1 and Tier 2. The privacy policy and terms are
+English only.
+
+- Every build writes **`locales/en.json`**: every English text of the site in one tree. When English
+  changes, its git diff is what to translate; put the same change in each `locales/<code>.json`.
+- Each `locales/<code>.json` is that tree translated (rules in `i18n.py`). Anything missing or broken
+  falls back to English and `--check` lists it; CI runs `--check` and fails on a problem.
+- Blog articles are templates (`blog.TOPICS`) filled with each TV's name in the forms a language needs
+  (`platforms.<tv>.forms`: German has its cases, Finnish and Polish theirs…).
+- Pages carry `hreflang` links to every language (and `x-default` → English), `og:locale`, and each
+  language has its own sitemap (`sitemap-<code>.xml`, listed by `sitemap.xml`) with the alternates.
+- Nothing redirects by language (crawlers and shared links always get the URL's language). When the
+  browser prefers another of the site's languages, `site.js` offers it in a small pill; picking a
+  language, or closing the pill, is remembered.
+- Adding a language: a line in `content.LANGUAGES` and its `locales/<code>.json`; the CSS has font
+  stacks for scripts Sora doesn't cover (`:lang(ja)`…).
 
 | Path | What |
 |------|------|
@@ -21,23 +44,28 @@ here (301).
 | `/mirror-iphone-to-<brand>-tv/` | Per TV maker (`content.BRANDS`: Sony, TCL, Hisense, VIZIO, Philips, Xiaomi, Toshiba, Panasonic), pointing at the systems its TVs run |
 | `/blog/`, `/blog/<slug>/` | Guides (`blog.py`): per kind of TV × connect, photos & videos, web images, live TV, YouTube, web videos, camera. Each article is the topic's steps plus that TV's own notes |
 | `/help/` | The app's whole FAQ (same text as the app's Help screen) |
-| `/privacy/` | Privacy policy (App Store "Privacy Policy URL") |
-| `robots.txt`, `sitemap.xml`, `llms.txt` | For search engines and AI answer engines |
+| `/<code>/…` | All of the above in each other language |
+| `/privacy/`, `/terms/`, `/firetv/…` | Privacy policy (App Store "Privacy Policy URL") and terms, English only |
+| `robots.txt`, `sitemap.xml`, `llms.txt`, `llms-full.txt` | For search engines and AI answer engines |
 
 ## Search and AI answer engines (SEO / GEO)
 
 - Every page is plain HTML: readable with no JavaScript (the scroll animations only hide content once
   `site.js` has run).
-- Structured data (JSON-LD): `MobileApplication` + `WebSite` + `FAQPage` on `/`, `HowTo` + `FAQPage` +
-  `BreadcrumbList` on each TV guide, `FAQPage` on `/help/`.
+- Structured data (JSON-LD), with `inLanguage`: `Organization` + `MobileApplication` + `WebSite` +
+  `FAQPage` on `/`, `HowTo` + `FAQPage` + `BreadcrumbList` on each TV guide, `BlogPosting` + `HowTo` on
+  each article, `FAQPage` on `/help/`.
+- The home page has quotable facts: "What is MirrorGo?" (a short definition list) and "AirPlay or
+  MirrorGo?" (what an iPhone does alone vs. with MirrorGo), the questions AI answers get asked.
 - Answer-first copy: each TV guide opens with a one-paragraph answer and the numbered steps, and states
   facts plainly (which TVs, what works, what doesn't), which is what AI answers quote.
-- `llms.txt` sums up the app, the compatibility table and the pages for AI crawlers.
-- `robots.txt` allows every crawler. **In Cloudflare, keep "Block AI bots", "AI Labyrinth" and
+- `llms.txt` sums up the app, the compatibility table, the pages and the languages for AI crawlers;
+  `llms-full.txt` is the help and every TV guide in one Markdown file.
+- `robots.txt` allows every crawler, and names the AI ones (GPTBot, ClaudeBot, PerplexityBot…). **In Cloudflare, keep "Block AI bots", "AI Labyrinth" and
   "Managed robots.txt" off for the zone** (Security › Bots), or AI answer engines can't read the site.
 - Submit `https://mirrorgo.app/sitemap.xml` in Google Search Console and Bing Webmaster Tools
   (Bing also feeds ChatGPT search).
-- `hreflang` is already set (`en` + `x-default`), so translated pages can be added under `/<lang>/` later.
+- Sitemaps' `lastmod` is the date of the last commit to `site/`, so it only moves when the site does.
 
 ## Keeping it in step with the app
 

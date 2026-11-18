@@ -1,0 +1,1546 @@
+{
+ "ui": {
+  "skip": "跳至內容",
+  "home_aria": "MirrorGo 首頁",
+  "menu": "選單",
+  "language": "語言",
+  "nav_features": "功能",
+  "nav_tvs": "電視",
+  "nav_guides": "教學",
+  "nav_help": "說明",
+  "download": "在 App Store 下載",
+  "coming_soon": "即將在 App Store 推出",
+  "footer_blurb": "iPhone 螢幕鏡像輸出與投放。支援 Samsung、LG、Roku、Google TV、Android TV、Chromecast、Fire TV、Apple TV 與任何網頁瀏覽器。",
+  "footer_mirror_to": "鏡像輸出到",
+  "footer_brands": "電視品牌",
+  "footer_support": "支援",
+  "footer_languages": "語言",
+  "brand_tv": "{brand} 電視",
+  "guides": "教學",
+  "help_faq": "說明與常見問題",
+  "tv_browser": "smrr.tv（電視瀏覽器）",
+  "privacy": "隱私權",
+  "terms": "使用條款",
+  "firetv_app_privacy": "Fire TV App：隱私權",
+  "firetv_app_terms": "條款",
+  "english_only": "（英文）",
+  "trademarks": "Samsung、LG、Roku、Google TV、Android TV、Chromecast、Fire TV、Apple TV、AirPlay 及文中提及的電視品牌均為其各自所有者的商標。MirrorGo 與這些公司並無關聯。",
+  "home_title": "MirrorGo：iPhone 螢幕鏡像輸出、投影到電視",
+  "home_description": "將 iPhone 畫面鏡像輸出到 Samsung、LG、Roku、Google TV、Chromecast、Fire TV、Apple TV 或任何網頁瀏覽器，並投放照片、影片、YouTube 與 9,000+ 個直播電視頻道。電視免裝 App。",
+  "eyebrow": "iPhone 專用 · 電視免裝 App",
+  "home_h1": "把你的 iPhone 投上{big}",
+  "home_h1_big": "大螢幕",
+  "check_tv": "查看你的電視",
+  "fine_wifi": "同一個 Wi-Fi，免接線",
+  "fine_sound": "含聲音",
+  "fine_account": "免註冊帳號",
+  "hero_alt": "MirrorGo 的首頁畫面",
+  "live_pill": "鏡像輸出中",
+  "works_with_tv": "你家現有的電視就能用",
+  "supported_tvs": "支援的電視",
+  "facts_kicker": "重點一覽",
+  "facts_h2": "MirrorGo 是什麼？",
+  "features_kicker": "一個 App 全包辦",
+  "features_h2": "鏡像輸出，或直接投放",
+  "features_p": "顯示整個螢幕，或只傳送你正在看的內容，畫質完整，手機也能照常使用。",
+  "works_on": "支援：",
+  "how_kicker": "使用方式",
+  "how_h2": "點三下就上電視",
+  "how_p": "免接線、免轉接器，電視上什麼都不用安裝。",
+  "tvs_kicker": "相容性",
+  "tvs_h2": "你的電視能用哪些功能",
+  "tvs_p": "MirrorGo 會在 Wi-Fi 上找到你的電視，並將電視無法播放的功能以淡色顯示。",
+  "tvs_foot": "2016 年起的 Samsung 智慧電視 · LG webOS 電視 · Roku 電視與播放器 · Google TV 與 Android TV（Sony、TCL、Hisense、Philips、Xiaomi…）· Chromecast · Fire TV Stick、Cube 與 Fire TV 智慧電視 · Apple TV 與 AirPlay 電視 · 透過 smrr.tv 支援任何瀏覽器",
+  "compat_caption": "MirrorGo 在各類電視上能顯示的內容",
+  "compat_feature": "功能",
+  "yes": "是",
+  "no": "否",
+  "airplay_kicker": "AirPlay 還是 MirrorGo？",
+  "airplay_h2": "支援的電視比 AirPlay 更多",
+  "airplay_p": "iPhone 本身只能鏡像輸出到 Apple TV 或支援 AirPlay 的電視。MirrorGo 幾乎支援其他所有電視，還提供更多可以看的內容。",
+  "airplay_col_what": "將 iPhone 顯示在",
+  "airplay_col_iphone": "僅用 iPhone（AirPlay）",
+  "airplay_col_mirrorgo": "使用 MirrorGo",
+  "privacy_kicker": "從設計就重視隱私",
+  "privacy_h2": "你的手機、你的電視、你的 Wi-Fi",
+  "privacy_p": "你鏡像輸出和投放的內容會直接從 iPhone 傳到電視。MirrorGo 不需要帳號，你的照片和影片也不會經過任何伺服器。",
+  "privacy_link": "閱讀隱私權政策 →",
+  "guides_kicker": "教學",
+  "guides_h2": "依你的電視，一步步教你",
+  "guides_p": "教你如何在各類電視上連線、鏡像輸出，以及投放照片、影片、YouTube 和直播電視。",
+  "n_guides": "{n} 篇教學",
+  "all_guides": "所有教學 →",
+  "faq_kicker": "問題",
+  "faq_h2": "常見問題",
+  "all_help": "所有說明主題 →",
+  "final_h2": "把你的 iPhone 投上電視",
+  "final_p": "螢幕鏡像輸出、照片、影片、YouTube、網頁影片和數千個直播頻道。一個 App，任何電視都能用。",
+  "app_icon_alt": "MirrorGo App 圖示",
+  "how_to_do_it": "操作方式",
+  "guide_phone_alt": "MirrorGo 已準備好鏡像輸出 iPhone 畫面（{tv}）",
+  "what_you_can_do": "{tv}：可以使用的功能",
+  "questions": "問題",
+  "more_guides_for": "{tv}：更多教學",
+  "other_tvs": "其他電視",
+  "status_ok": "可用",
+  "status_part": "部分可用",
+  "status_not": "此電視不支援",
+  "howto_tool": "iPhone 版 MirrorGo",
+  "screen_mirroring": "螢幕鏡像輸出",
+  "step_by_step": "步驟教學",
+  "updated": "更新於 {date}",
+  "on_tv": "{tv}：運作方式",
+  "good_to_know": "小提醒",
+  "more_for": "{tv}：其他教學",
+  "topic_on_other_tvs": "其他電視：{topic}",
+  "browser_code_alt": "在 MirrorGo 中輸入 smrr.tv 的代碼",
+  "page_title": "{title} | MirrorGo",
+  "blog_h1": "教學",
+  "blog_lead": "各類電視的步驟教學：連接 iPhone、鏡像輸出螢幕，以及投放照片、影片、網路圖片、YouTube、網頁影片和免費直播電視。",
+  "blog_title": "教學：將 iPhone 投影、投放到任何電視 | MirrorGo",
+  "blog_description": "一步步教你將 iPhone 連接到 Samsung、LG、Roku、Google TV、Android TV、Chromecast、Fire TV、Apple TV 或網頁瀏覽器，並投放照片、影片、YouTube 和直播電視。",
+  "blog_collection": "MirrorGo 教學",
+  "by_brand": "依電視品牌",
+  "brand_h1": "將 iPhone 鏡像輸出到 {brand} 電視",
+  "brand_title": "如何將 iPhone 投影到 {brand} 電視 | MirrorGo",
+  "brand_description": "用 MirrorGo 將 iPhone 鏡像輸出到 {brand} 電視，並投放照片、影片、YouTube 和直播電視。支援 {systems}。",
+  "brand_step_1": "確認你的 {brand} 電視使用哪個系統（{systems}）：系統標誌會顯示在開機主畫面和遙控器上。",
+  "brand_step_2": "讓 iPhone 和電視連上同一個 Wi-Fi。",
+  "brand_step_3": "打開 MirrorGo，點一下「連接電視」，然後選擇你的電視。",
+  "brand_step_4": "打開「螢幕鏡像輸出」，點一下「開始鏡像輸出」，然後點一下{start}。",
+  "brand_phone_alt": "MirrorGo 已準備好將 iPhone 鏡像輸出到 {brand} 電視",
+  "brand_any_model": "任何機型都能透過 smrr.tv 使用",
+  "brand_by_system": "{brand} 電視（依系統分類）",
+  "help_crumb": "說明",
+  "help_h1": "說明與常見問題",
+  "help_lead": "大家最常問的問題都在這裡。還是無法解決？請寄信到 {email}，並附上你的電視型號。",
+  "help_title": "MirrorGo 說明：螢幕鏡像輸出與投放常見問題",
+  "help_description": "如何連接電視、鏡像輸出 iPhone 螢幕、解決找不到電視、沒有聲音、延遲和黑畫面的問題，以及用 MirrorGo 投放照片、影片、YouTube 和 IPTV。",
+  "nf_title": "找不到網頁 | MirrorGo",
+  "nf_description": "這個網頁不存在。",
+  "nf_h1": "這個網頁沒有在電視上播出",
+  "nf_lead": "連結可能已經過期。請回到首頁或查看說明。",
+  "nf_home": "首頁",
+  "nf_help": "說明"
+ },
+ "site": {
+  "tagline": "iPhone 螢幕鏡像輸出與投放",
+  "one_liner": "MirrorGo 是一款 iPhone App，可將螢幕鏡像輸出到電視，並投放照片、影片、相機畫面、網頁影片、直播電視頻道和 YouTube。支援 Samsung、LG、Roku、Google TV、Android TV、Chromecast、Fire TV、Apple TV 和任何網頁瀏覽器，因此 Sony、TCL、Hisense、Vizio、Philips 和大多數其他智慧電視也都能用，電視上不需要安裝任何東西。",
+  "start_sharing": "「開始分享」（iOS 26 以前為「開始廣播」）"
+ },
+ "tvs": {
+  "samsung": {
+   "name": "Samsung 電視",
+   "short": "Samsung"
+  },
+  "lg": {
+   "name": "LG 電視",
+   "short": "LG"
+  },
+  "roku": {
+   "name": "Roku"
+  },
+  "googletv": {
+   "name": "Google TV"
+  },
+  "androidtv": {
+   "name": "Android TV"
+  },
+  "chromecast": {
+   "name": "Chromecast"
+  },
+  "firetv": {
+   "name": "Fire TV"
+  },
+  "airplay": {
+   "name": "Apple TV 與 AirPlay",
+   "short": "AirPlay"
+  },
+  "browser": {
+   "name": "任何網頁瀏覽器",
+   "short": "瀏覽器"
+  }
+ },
+ "compat_rows": {
+  "screen-mirroring": "螢幕鏡像輸出",
+  "photos-videos": "照片與影片",
+  "camera": "相機",
+  "web-videos": "網頁影片",
+  "iptv": "直播電視頻道（IPTV）",
+  "youtube": "YouTube",
+  "web-images": "網路圖片"
+ },
+ "compat_notes": {
+  "From Control Center": "從控制中心",
+  "No sound": "無聲音",
+  "With Screen Mirroring on": "需開啟螢幕鏡像輸出"
+ },
+ "features": {
+  "screen-mirroring": {
+   "name": "螢幕鏡像輸出",
+   "short": "整個 iPhone 螢幕顯示在電視上，含聲音，任何 App 都適用。"
+  },
+  "photos-videos": {
+   "name": "照片與影片",
+   "short": "你的圖庫登上大螢幕，影片保持完整畫質，還能播放幻燈片。"
+  },
+  "camera": {
+   "name": "相機",
+   "short": "用前置或後置相機，在電視上即時顯示房間、白板或你的寵物。"
+  },
+  "youtube": {
+   "name": "YouTube",
+   "short": "由電視自行播放影片，畫質完整，從你剛才看到的地方接著播。"
+  },
+  "web-videos": {
+   "name": "網頁影片",
+   "short": "打開網站、播放影片，點一下「投放到電視」。自動阻擋廣告。"
+  },
+  "iptv": {
+   "name": "直播電視（IPTV）",
+   "short": "來自 180+ 個國家的 9,000+ 個免費頻道，還能加入你自己的 M3U 播放清單。"
+  },
+  "web-images": {
+   "name": "網路圖片",
+   "short": "搜尋 Wikimedia Commons 的免費圖片，並以全螢幕顯示。"
+  },
+  "any-browser": {
+   "name": "任何網頁瀏覽器",
+   "short": "找不到電視？在任何電視或電腦上打開 smrr.tv，輸入代碼即可。"
+  }
+ },
+ "showcase": {
+  "screen-mirroring": {
+   "title": "將 iPhone 螢幕鏡像輸出到電視",
+   "text": "手機上的一切都會即時顯示在電視上：App、遊戲、照片、網站、簡報。只要啟動一次，就能繼續使用手機，電視會同步跟上。",
+   "points": [
+    "任何 App 都適用，切換 App 時也不會中斷",
+    "App 的聲音會傳到電視，絕不傳送麥克風",
+    "高、中、低畫質：要更清晰，或在 Wi-Fi 繁忙時更流暢",
+    "自動旋轉：把手機轉成橫向，電視也會跟著轉",
+    "簡短教學一步步告訴你 iOS 如何開始鏡像輸出"
+   ],
+   "alts": [
+    "MirrorGo 的「螢幕鏡像輸出」畫面，含畫質、自動旋轉和聲音設定",
+    "MirrorGo 的教學：螢幕鏡像輸出的四個開始步驟"
+   ]
+  },
+  "photos-videos": {
+   "title": "你的照片和影片，登上大螢幕",
+   "text": "選一張照片或一段影片，就會出現在電視上。滑到下一個，電視也會跟著換。影片以完整畫質播放，含聲音，並由手機控制。",
+   "points": [
+    "照片以電視的解析度顯示，影片保持原始畫質",
+    "自動播放：幻燈片（每張照片 5 到 30 秒），影片播到結束，然後重複播放",
+    "在手機上播放、暫停和快轉，由電視負責播放",
+    "4K 和 HEVC 影片：只有電視無法播放時才會轉檔",
+    "透過你的 Wi-Fi 直接從手機傳到電視，絕不上傳"
+   ],
+   "alts": [
+    "用 MirrorGo 從 iPhone 圖庫投放照片"
+   ]
+  },
+  "iptv": {
+   "title": "數千個免費直播電視頻道",
+   "text": "依國家或類別瀏覽免費的公開電視頻道，從新聞、體育、電影、音樂到兒童節目，點一下就在電視上播放。你也可以加入自己的 M3U 播放清單。",
+   "points": [
+    "來自 180+ 個國家的 9,000+ 個頻道，分為 29 個類別",
+    "點一下就能打開「我的最愛」",
+    "加入你自己的 M3U 播放清單連結",
+    "鎖定手機或打開其他 App 時，仍會繼續播放"
+   ],
+   "alts": [
+    "MirrorGo 的 IPTV 畫面：播放清單、類別和國家",
+    "MirrorGo 中來自美國的直播電視頻道"
+   ],
+   "footnote": "頻道來自公開的 iptv-org 清單。和所有免費串流一樣，有些頻道有時會離線，或只能在所屬國家內播放。"
+  },
+  "web-videos": {
+   "title": "投放任何網站上的影片",
+   "text": "在 MirrorGo 的隱私瀏覽器中打開網站並播放影片：MirrorGo 會找到影片並傳送到電視，由電視以完整畫質播放，你則可以繼續瀏覽。",
+   "points": [
+    "打開任何網站、播放影片，點一下「投放到電視」",
+    "選出真正的影片而不是廣告，並阻擋廣告聯播網",
+    "從你在網頁上看到的地方接著播",
+    "隱私瀏覽：不保留瀏覽紀錄、Cookie 或快取"
+   ],
+   "alts": [
+    "MirrorGo 的網頁影片瀏覽器，含熱門網站"
+   ]
+  },
+  "youtube": {
+   "title": "YouTube 上電視，由電視自行播放",
+   "text": "在 MirrorGo 中依主題或搜尋找到影片，然後點一下「投放到電視」。電視會自行播放影片，畫質完整，從你剛才看到的地方開始。",
+   "points": [
+    "依主題（音樂、新聞、體育、直播）瀏覽或搜尋",
+    "在 Samsung 和 LG 上，會在電視的 YouTube App 中開啟",
+    "也能在 Roku、Google TV、Android TV、Chromecast 和網頁瀏覽器上播放",
+    "離開畫面後仍會繼續播放"
+   ],
+   "alts": [
+    "用 MirrorGo 將 YouTube 投放到電視"
+   ]
+  },
+  "web-images": {
+   "title": "精美免費圖片，全螢幕呈現",
+   "text": "搜尋 Wikimedia Commons 的免費圖片（風景、太空、城市、藝術），並以電視的完整解析度顯示，或播放幻燈片。",
+   "points": [
+    "數百萬張免費、開放授權的圖片",
+    "幻燈片時間由你決定",
+    "每張圖片都會顯示作者和授權"
+   ],
+   "alts": [
+    "準備用 MirrorGo 投放的 Wikimedia Commons 風景圖片"
+   ]
+  },
+  "any-browser": {
+   "title": "沒有智慧電視 App？用任何網頁瀏覽器",
+   "text": "任何有網頁瀏覽器的電視、電腦或平板都能顯示你的 iPhone，連 MirrorGo 找不到的也可以。在上面打開 smrr.tv，然後輸入畫面上的 6 位數代碼，或掃描它的 QR Code。",
+   "points": [
+    "智慧電視、PC、Mac 和平板都適用",
+    "影像直接透過你的 Wi-Fi 傳送，含聲音",
+    "附近的 LG 和 Samsung 電視，MirrorGo 會幫你打開電視的瀏覽器"
+   ],
+   "alts": [
+    "在 MirrorGo 中輸入 smrr.tv 代碼，鏡像輸出到網頁瀏覽器"
+   ]
+  }
+ },
+ "steps": [
+  [
+   "連上同一個 Wi-Fi",
+   "讓 iPhone 和電視連上同一個 Wi-Fi。免接線，電視也不用裝 App。"
+  ],
+  [
+   "選擇你的電視",
+   "MirrorGo 會找到附近的電視。點一下你的電視；LG 和 Samsung 電視會請你按一次「允許」。"
+  ],
+  [
+   "鏡像輸出或投放",
+   "開始螢幕鏡像輸出，或打開照片、影片、YouTube、網站或電視頻道。"
+  ]
+ ],
+ "privacy_points": [
+  [
+   "免註冊帳號",
+   "什麼都不用註冊。打開 App 就能連線。"
+  ],
+  [
+   "只在你的 Wi-Fi 內",
+   "照片、影片和你的螢幕會直接從手機傳到電視，不會上傳到任何地方。"
+  ],
+  [
+   "只傳 App 聲音",
+   "鏡像輸出只會傳送 App 播放的聲音，絕不傳送你的麥克風。"
+  ],
+  [
+   "隱私瀏覽",
+   "「網頁影片」不保留瀏覽紀錄、Cookie 或快取。"
+  ]
+ ],
+ "quick_facts": [
+  [
+   "這是什麼",
+   "一款 iPhone App，可將螢幕鏡像輸出到電視，並投放照片、影片、相機畫面、網頁影片、直播電視和 YouTube。"
+  ],
+  [
+   "支援裝置",
+   "Samsung（2016 年起的機型）、LG webOS、Roku、Google TV、Android TV、Chromecast、Fire TV、Apple TV 與 AirPlay 電視，以及透過 smrr.tv 支援任何網頁瀏覽器。"
+  ],
+  [
+   "電視端",
+   "什麼都不用安裝。iPhone 和電視只要連上同一個 Wi-Fi 即可。"
+  ],
+  [
+   "iPhone",
+   "iOS 16.6 或以上版本。"
+  ],
+  [
+   "聲音",
+   "有，會傳送 App 播放的聲音（鏡像輸出到 Fire TV 和部分舊款 LG 電視時只有畫面）。"
+  ],
+  [
+   "隱私",
+   "免註冊帳號。你的螢幕、照片和影片會透過你的 Wi-Fi 直接從 iPhone 傳到電視。"
+  ]
+ ],
+ "airplay_compare": [
+  "Apple TV 與 AirPlay 電視",
+  "不支援 AirPlay 的 Samsung、LG 和 Roku 電視",
+  "Chromecast、Google TV 和 Android TV",
+  "Amazon Fire TV",
+  "任何有網頁瀏覽器的電視或電腦",
+  "9,000+ 個免費直播電視頻道"
+ ],
+ "faq_sections": [
+  "開始使用",
+  "連線",
+  "螢幕鏡像輸出",
+  "投放",
+  "權限",
+  "其他問題"
+ ],
+ "faq": {
+  "tvs": {
+   "q": "MirrorGo 支援哪些電視？",
+   "a": "大多數智慧電視和串流棒都支援。電視上不需要安裝任何東西。",
+   "ul": [
+    "Samsung 智慧電視（2016 年起的機型）",
+    "LG 智慧電視（webOS）",
+    "Roku 電視和 Roku 串流播放器",
+    "Google TV、Android TV 和 Chromecast",
+    "Amazon Fire TV：串流棒、Cube 和 Fire TV 智慧電視",
+    "Apple TV 與 AirPlay 電視",
+    "其他任何有網頁瀏覽器的電視、電腦或平板，透過 smrr.tv 使用"
+   ]
+  },
+  "connect": {
+   "q": "如何連接電視？",
+   "a": "打開電視，並確認電視和手機連上同一個 Wi-Fi。然後：",
+   "ol": [
+    "在首頁點一下「連接電視」，或點一下任何畫面頂端的電視按鈕。",
+    "從清單中選擇你的電視。",
+    "LG 和 Samsung 電視第一次會詢問：用遙控器在電視上選擇「允許」。"
+   ],
+   "note": "MirrorGo 會記住你的電視，下次會自動再次連線。"
+  },
+  "notFound": {
+   "q": "清單中找不到我的電視",
+   "a": "MirrorGo 會在你的 Wi-Fi 上尋找電視。找不到時，通常是以下原因之一：",
+   "ul": [
+    "手機和電視連到不同的網路。請使用同一個 Wi-Fi，不要用訪客網路。",
+    "MirrorGo 的「區域網路」權限已關閉。這時 iOS 會對 App 隱藏所有電視。",
+    "VPN 已開啟。投放時請先關閉。",
+    "電視處於待機或卡住了。請將電視完全開機，或重新啟動電視和路由器。"
+   ],
+   "note": "還是找不到？任何有網頁瀏覽器的電視都能透過 smrr.tv 使用：請參閱「如何鏡像輸出到網頁瀏覽器？」"
+  },
+  "allow": {
+   "q": "我的電視不讓 MirrorGo 連線",
+   "a": "LG 和 Samsung 電視在手機控制前會先詢問。MirrorGo 第一次連線時，電視上會出現訊息：用遙控器選擇「允許」。之後就不會再詢問。",
+   "ul": [
+    "LG：錯過訊息或選了「拒絕」？再連線一次，電視就會再詢問。",
+    "Samsung：選了「拒絕」？電視會記住這個選擇。請在電視上打開「設定 › 一般 › 外部裝置管理員 › 裝置連線管理員 › 裝置清單」（Settings › General › External Device Manager › Device Connection Manager › Device List），然後允許 MirrorGo，或將它刪除，讓電視重新詢問。",
+    "舊款 LG 電視：請在電視的網路設定中開啟 LG Connect Apps。"
+   ]
+  },
+  "lost": {
+   "q": "連線一直中斷",
+   "a": "App 在背景執行時，iOS 會關閉 MirrorGo 與電視的連線，Wi-Fi 短暫不穩也可能導致中斷。MirrorGo 會在幾秒內自動重新連線，螢幕鏡像輸出在這段期間也會持續進行。",
+   "ul": [
+    "看到「連線中斷」？請確認電視已開機並連上同一個 Wi-Fi，然後點一下「重試」。",
+    "訊號弱時比較容易中斷：讓手機和電視靠近路由器。"
+   ]
+  },
+  "browser": {
+   "q": "如何鏡像輸出到網頁瀏覽器？",
+   "a": "任何有網頁瀏覽器的電視、電腦或平板都能顯示你的螢幕，連 MirrorGo 找不到的電視也可以。",
+   "ol": [
+    "在它的網頁瀏覽器中打開 smrr.tv。網頁會顯示 6 位數代碼。",
+    "在 MirrorGo 中打開電視清單，點一下「瀏覽器（smrr.tv）」。",
+    "輸入代碼，或掃描網頁上的 QR Code。"
+   ],
+   "note": "鏡像輸出期間請保持網頁開啟。手機和瀏覽器必須連上同一個 Wi-Fi。附近的 LG 或 Samsung 電視，可以用「在…上開啟」幫你打開電視的瀏覽器。"
+  },
+  "mirror": {
+   "q": "如何鏡像輸出我的螢幕？",
+   "ol": [
+    "連接電視，然後打開「螢幕鏡像輸出」。",
+    "點一下「開始鏡像輸出」。iOS 會請你確認：點一下「開始分享」（iOS 26 以前為「開始廣播」）。",
+    "等 3 秒倒數結束後，點一下對話框外的地方將它關閉。",
+    "等待電視 5–10 秒。不要停止後重新開始，那樣只會從頭來過。"
+   ],
+   "note": "要停止時，點一下「停止鏡像輸出」，或點一下螢幕頂端的紅色指示。"
+  },
+  "airPlay": {
+   "q": "如何鏡像輸出到 Apple TV 或 AirPlay 電視？",
+   "a": "iOS 會自行鏡像輸出到 AirPlay 裝置，所以要從控制中心開始，而不是從 App：",
+   "ol": [
+    "從右上角向下滑動，打開控制中心。",
+    "點一下「螢幕鏡像輸出」。",
+    "選擇你的 Apple TV 或 AirPlay 電視。"
+   ],
+   "note": "要停止時，再點一下「螢幕鏡像輸出」，然後點一下「停止鏡像輸出」。"
+  },
+  "nothingShows": {
+   "q": "已開始鏡像輸出，但電視上什麼都沒有",
+   "ul": [
+    "給電視最多 10 秒。停止後重新開始只會從頭來過。",
+    "確認是正確的電視：電視名稱顯示在「螢幕鏡像輸出」畫面頂端。",
+    "鏡像輸出到網頁瀏覽器？請在瀏覽器上保持 smrr.tv 開啟，並和手機連上同一個 Wi-Fi。",
+    "還是沒畫面？停止鏡像輸出，重新啟動電視，再次連線後重新開始。"
+   ]
+  },
+  "black": {
+   "q": "有些 App 顯示為黑畫面",
+   "a": "Netflix、Prime Video、Disney+ 等串流 App 會保護自己的影片，因此 iOS 會改送出黑畫面。任何鏡像輸出 App 都無法避開。",
+   "note": "如果該 App 有自己的投放按鈕，請改用它。YouTube 則請在 MirrorGo 中打開 YouTube：由電視自行播放影片。"
+  },
+  "sound": {
+   "q": "電視沒有聲音",
+   "ul": [
+    "確認「螢幕鏡像輸出」中的「聲音」已開啟，且電視沒有靜音。",
+    "MirrorGo 會傳送 App 播放的聲音，絕不傳送麥克風。",
+    "Fire TV 和部分舊款 LG 電視只顯示畫面，沒有聲音。",
+    "有些 App 不允許錄製它們的聲音，所以聲音會留在手機上。"
+   ]
+  },
+  "lag": {
+   "q": "鏡像輸出有延遲或畫面模糊",
+   "a": "鏡像輸出一定會比手機稍微慢一點。延遲多少取決於電視和你的 Wi-Fi。",
+   "ul": [
+    "開始前選擇較低的「畫質」讓畫面更流暢，或選擇較高的畫質讓畫面更清晰。",
+    "靠近路由器，或改用它的 5 GHz 網路。",
+    "在看影片？改用投放（照片與影片、網頁影片、YouTube）：電視會以完整畫質播放，聲音也會同步。"
+   ]
+  },
+  "whatCast": {
+   "q": "除了螢幕，還能投放什麼？",
+   "a": "圖庫中的照片和影片、相機畫面、網路上的影片和圖片、電視頻道（IPTV）和 YouTube。不是每台電視都能播放所有內容：在首頁上，電視無法播放的項目會以淡色顯示。",
+   "ul": [
+    "YouTube 無法在 Fire TV 上或透過 AirPlay 播放。",
+    "透過 AirPlay 時，相機需要先在控制中心開啟「螢幕鏡像輸出」。",
+    "Fire TV 和 AirPlay 顯示相機畫面時沒有聲音。"
+   ]
+  },
+  "lgCheck": {
+   "q": "我的 LG 電視問「電視上有在播放嗎？」",
+   "a": "在 LG 電視上，MirrorGo 會先用電視的網頁瀏覽器播放照片、影片和頻道，因為它能播放的格式最多。幾秒後，App 會詢問是否正常播放：",
+   "ul": [
+    "是：繼續使用，在這個畫面上不會再詢問。",
+    "否：MirrorGo 會關閉瀏覽器，改用電視內建的播放器播放，然後再詢問一次。",
+    "還是無法播放？點一下「寄信給客服」，並告訴我們你的電視型號。"
+   ]
+  },
+  "webVideo": {
+   "q": "網頁影片無法投放",
+   "ul": [
+    "請先在網頁上播放影片：MirrorGo 找到影片後，「投放到電視」就會啟用。",
+    "找到不只一個？從清單中選擇正確的影片（「第 1 個，共 3 個」）。",
+    "很短的片段不會投放，以免廣告出現在電視上。",
+    "有些網站會保護自己的影片，就像 Netflix 一樣。這些影片無法投放。",
+    "播放期間請保持 MirrorGo 開啟：影片會經由你的手機傳送。"
+   ]
+  },
+  "iptv": {
+   "q": "電視頻道無法播放",
+   "a": "頻道是免費的公開串流。任何時候都可能有些頻道離線，或只能在所屬國家內播放。如果某個頻道無法開始播放，請換另一個試試。",
+   "note": "離開清單或鎖定手機後，頻道仍會繼續播放。可以從首頁底部的列停止播放。"
+  },
+  "background": {
+   "q": "投放時可以使用手機嗎？",
+   "ul": [
+    "螢幕鏡像輸出：可以。螢幕上的一切都會顯示在電視上，任何 App 都適用。",
+    "電視頻道和 YouTube 在你離開畫面後，仍會在電視上繼續播放。",
+    "照片與影片、相機和網頁影片在你關閉畫面時就會停止。"
+   ]
+  },
+  "localNetwork": {
+   "q": "為什麼 MirrorGo 需要「區域網路」權限？",
+   "a": "MirrorGo 透過你的 Wi-Fi 與電視溝通，而 iOS 只有在取得「區域網路」權限後才允許這麼做。沒有這項權限，就找不到任何電視，也無法投放。它只用於你自己網路上的裝置。",
+   "ol": [
+    "點一下「打開設定」",
+    "開啟「區域網路」",
+    "回到 MirrorGo"
+   ]
+  },
+  "permissions": {
+   "q": "照片、相機和麥克風權限是做什麼用的？",
+   "ul": [
+    "照片：用來顯示和投放你的照片和影片。若只提供受限取用，只會顯示你選取的項目。",
+    "相機：用來投放相機畫面，以及掃描 smrr.tv 上的代碼。",
+    "麥克風：投放相機畫面時的聲音。"
+   ],
+   "note": "你的照片和影片會透過你的 Wi-Fi 直接從手機傳到電視，不會上傳到任何地方。"
+  },
+  "denied": {
+   "q": "我拒絕了某項權限，要怎麼開啟？",
+   "a": "iOS 只會詢問一次。要更改設定，請打開「設定」，點一下 MirrorGo，然後開啟「區域網路」、「照片」、「相機」或「麥克風」。"
+  },
+  "problem": {
+   "q": "其他功能無法正常運作",
+   "a": "請將 MirrorGo 更新到最新版本，並重新啟動電視。如果還是沒用，請在 App 的「說明」中點一下「聯絡我們」。郵件中已經附上你的 App 版本、iOS 版本、手機型號和電視類型；請再補上你的電視型號。"
+  }
+ },
+ "brands": {
+  "sony": {
+   "about": "Sony BRAVIA 電視自 2015 年起使用 Android TV，2021 年起改用 Google TV，並內建 Chromecast；許多近期的 BRAVIA 機型也支援 AirPlay。",
+   "which": "在 Google TV 或 Android TV 的 BRAVIA 上，MirrorGo 會在你的 Wi-Fi 上以名稱找到電視，所有功能都能用：螢幕鏡像輸出、照片與影片、YouTube、直播電視等。"
+  },
+  "tcl": {
+   "about": "TCL 電視使用多種系統：Google TV（舊機型為 Android TV）、Roku TV，部分機型則為 Fire TV。系統標誌會顯示在電視的開機主畫面和遙控器上。",
+   "which": "無論你的 TCL 使用哪個系統，MirrorGo 的連線方式都一樣：連上同一個 Wi-Fi，點一下「連接電視」，從清單中選擇電視。"
+  },
+  "hisense": {
+   "about": "Hisense 電視依機型和國家不同，使用 VIDAA、Google TV／Android TV、Roku TV 或 Fire TV。",
+   "which": "Google TV、Android TV、Roku TV 和 Fire TV 機型會出現在 MirrorGo 的電視清單中。VIDAA 機型則請在電視的網頁瀏覽器中打開 smrr.tv，並用畫面上的代碼進行鏡像輸出。"
+  },
+  "vizio": {
+   "about": "VIZIO SmartCast 電視內建 Chromecast，許多機型也支援 AirPlay。",
+   "which": "MirrorGo 會透過內建的 Chromecast 找到 SmartCast 電視，因此你可以鏡像輸出螢幕，並投放照片、影片、YouTube 和直播電視。"
+  },
+  "philips": {
+   "about": "許多 Philips 電視使用 Google TV 或 Android TV，並內建 Chromecast；其他機型則使用 Titan OS 或 Saphi。",
+   "which": "Google TV 和 Android TV 機型會出現在 MirrorGo 的電視清單中。其他機型請在電視的網頁瀏覽器中打開 smrr.tv，並用畫面上的代碼進行鏡像輸出。"
+  },
+  "xiaomi": {
+   "about": "Xiaomi 電視、Mi Box 和 Xiaomi TV Stick 使用 Google TV 或 Android TV，並內建 Chromecast。",
+   "which": "MirrorGo 會在你的 Wi-Fi 上找到它們，所有功能都能用：螢幕鏡像輸出、照片與影片、YouTube、直播電視等。"
+  },
+  "toshiba": {
+   "about": "Toshiba 智慧電視在美國使用 Fire TV，在其他地區則使用其他系統，例如 Android TV 或 VIDAA。",
+   "which": "Fire TV 和 Android TV 機型會出現在 MirrorGo 的電視清單中。其他機型請在電視的網頁瀏覽器中打開 smrr.tv，並用畫面上的代碼進行鏡像輸出。"
+  },
+  "panasonic": {
+   "about": "近期的 Panasonic 電視使用 Fire TV；較早的機型則使用 Panasonic 自家的 my Home Screen。",
+   "which": "Fire TV 機型會出現在 MirrorGo 的電視清單中。my Home Screen 機型請在電視的網頁瀏覽器中打開 smrr.tv，並用畫面上的代碼進行鏡像輸出。"
+  }
+ },
+ "guides": {
+  "samsung": {
+   "title": "如何將 iPhone 投影到 Samsung 電視（免接線、電視免裝 App）",
+   "description": "用 MirrorGo 透過 Wi-Fi 將 iPhone 螢幕鏡像輸出到 Samsung 智慧電視，並投放照片、影片、YouTube 和直播電視。支援 2016 年起的 Samsung 電視，電視免裝任何東西。",
+   "h1": "將 iPhone 鏡像輸出到 Samsung 電視",
+   "lead": "MirrorGo 透過你的 Wi-Fi，將 iPhone 螢幕顯示在 Samsung 智慧電視（Tizen，2016 年起的機型）上。電視上不用安裝任何東西：由電視內建的播放器播放，含聲音。",
+   "steps": [
+    "打開 Samsung 電視，讓 iPhone 連上同一個 Wi-Fi。",
+    "打開 MirrorGo，點一下「連接電視」，然後選擇你的 Samsung 電視。",
+    "第一次連線時，用遙控器在電視上選擇「允許」。",
+    "打開「螢幕鏡像輸出」，點一下「開始鏡像輸出」，再點一下「開始分享」（iOS 26 以前為「開始廣播」）。5–10 秒後，你的螢幕就會出現在電視上。"
+   ],
+   "features": [
+    [
+     "螢幕鏡像輸出",
+     "含聲音；可設定畫質、聲音和自動旋轉"
+    ],
+    [
+     "照片與影片",
+     "由電視播放，電視支援時也包括 4K 和 HEVC"
+    ],
+    [
+     "相機",
+     "含聲音"
+    ],
+    [
+     "YouTube",
+     "在電視內建的 YouTube App 中開啟"
+    ],
+    [
+     "網頁影片",
+     null
+    ],
+    [
+     "直播電視頻道",
+     null
+    ],
+    [
+     "網路圖片",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "哪些 Samsung 電視可以用？",
+     [
+      "使用 Tizen 系統、2016 年起的 Samsung 智慧電視，例如 Crystal UHD、QLED、Neo QLED、OLED 和 The Frame 系列。MirrorGo 會自動在你的 Wi-Fi 上找到它們，電視不用裝 App。",
+      "許多 2018 年起的 Samsung 電視也支援 AirPlay。不論有沒有 AirPlay，MirrorGo 都能用，還額外提供網站影片投放、直播電視頻道和 YouTube。"
+     ]
+    ],
+    [
+     "如果電視不讓 MirrorGo 連線",
+     [
+      "Samsung 電視在手機控制前會先詢問。如果你選了「拒絕」，電視會記住這個選擇：請在電視上打開「設定 › 一般 › 外部裝置管理員 › 裝置連線管理員 › 裝置清單」（Settings › General › External Device Manager › Device Connection Manager › Device List），然後允許 MirrorGo，或將它刪除，讓電視重新詢問。"
+     ]
+    ],
+    [
+     "讓鏡像輸出更流暢",
+     [
+      "鏡像輸出一定會比手機稍微慢一點，Wi-Fi 繁忙時更明顯。選擇較低的畫質讓畫面更流暢、讓手機靠近路由器，或改用投放而不是鏡像輸出影片：這樣電視會以完整畫質播放，聲音也會同步。"
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "我需要在 Samsung 電視上安裝 App 嗎？",
+     "不用。MirrorGo 使用 Samsung 智慧電視內建的功能：電視的媒體播放器和遙控連線。你只需要在 iPhone 上安裝 MirrorGo。"
+    ],
+    [
+     "將 iPhone 鏡像輸出到 Samsung 電視時有聲音嗎？",
+     "有。App 播放的聲音會和畫面一起傳到電視；請在「螢幕鏡像輸出」中開啟「聲音」。MirrorGo 絕不傳送你的麥克風。"
+    ],
+    [
+     "可以將 Netflix 或 Disney+ 鏡像輸出到 Samsung 電視嗎？",
+     "任何鏡像輸出 App 都做不到：串流 App 會保護自己的影片，iOS 會改送出黑畫面。請使用該 App 自己的投放按鈕，或電視上的同款 App。"
+    ]
+   ]
+  },
+  "lg": {
+   "title": "如何將 iPhone 投影到 LG 電視（webOS，免接線）",
+   "description": "用 MirrorGo 透過 Wi-Fi 將 iPhone 鏡像輸出到 LG 智慧電視（webOS），並投放照片、影片、YouTube 和直播電視頻道。電視免裝 App。",
+   "h1": "將 iPhone 鏡像輸出到 LG 電視",
+   "lead": "MirrorGo 透過你的 Wi-Fi，將 iPhone 螢幕顯示在 LG 智慧電視（webOS）上。較新的 LG 電視使用 LG 自家的螢幕分享功能；較舊的電視則在電視的網頁瀏覽器中顯示你的螢幕。什麼都不用安裝。",
+   "steps": [
+    "打開 LG 電視，讓 iPhone 連上同一個 Wi-Fi。",
+    "打開 MirrorGo，點一下「連接電視」，然後選擇你的 LG 電視。",
+    "第一次連線時，用遙控器在電視上選擇「允許」。",
+    "打開「螢幕鏡像輸出」，點一下「開始鏡像輸出」，再點一下「開始分享」（iOS 26 以前為「開始廣播」）。5–10 秒後，你的螢幕就會出現在電視上。"
+   ],
+   "features": [
+    [
+     "螢幕鏡像輸出",
+     "大多數 LG 電視含聲音（部分舊款只有畫面）"
+    ],
+    [
+     "照片與影片",
+     null
+    ],
+    [
+     "相機",
+     null
+    ],
+    [
+     "YouTube",
+     "在電視內建的 YouTube App 中開啟"
+    ],
+    [
+     "網頁影片",
+     null
+    ],
+    [
+     "直播電視頻道",
+     null
+    ],
+    [
+     "網路圖片",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "哪些 LG 電視可以用？",
+     [
+      "使用 webOS 的 LG 智慧電視。在 webOS 22 和更新版本上，MirrorGo 使用 LG 自家的螢幕分享功能（LG Cast）。webOS 4（2018 年）起的較舊 LG 電視，則在電視的網頁瀏覽器中顯示你的螢幕，MirrorGo 會幫你打開瀏覽器。"
+     ]
+    ],
+    [
+     "如果電視不讓 MirrorGo 連線",
+     [
+      "LG 電視在手機控制前會先詢問。錯過訊息或選了「拒絕」？再連線一次，電視就會再詢問。較舊的 LG 電視請在電視的網路設定中開啟 LG Connect Apps。"
+     ]
+    ],
+    [
+     "「電視上有在播放嗎？」",
+     [
+      "在 LG 電視上，MirrorGo 會先用電視的網頁瀏覽器播放照片、影片和頻道，因為它能播放的格式最多。幾秒後，App 會詢問是否正常播放。點一下「否」，就會改用電視內建的播放器。"
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "我需要在 LG 電視上安裝 App 嗎？",
+     "不用。MirrorGo 使用 LG webOS 電視內建的功能：LG 的螢幕分享、電視的網頁瀏覽器和媒體播放器。你只需要在 iPhone 上安裝 MirrorGo。"
+    ],
+    [
+     "為什麼鏡像輸出時我的 LG 電視沒有聲音？",
+     "大多數 LG 電視都會播放 App 的聲音。部分舊機型只顯示畫面、沒有聲音；在這些電視上想看有聲音的影片，請改用投放（照片與影片、網頁影片或 YouTube），而不是鏡像輸出。"
+    ],
+    [
+     "MirrorGo 可以用在不支援 AirPlay 的 LG 電視上嗎？",
+     "可以。MirrorGo 不需要 AirPlay：支援 2018 年起的 LG webOS 電視。"
+    ]
+   ]
+  },
+  "roku": {
+   "title": "如何將 iPhone 投影到 Roku 電視或 Roku 播放器",
+   "description": "用 MirrorGo 將 iPhone 螢幕鏡像輸出到 Roku 電視、Roku Streaming Stick 或 Roku Ultra，並透過 Wi-Fi 投放照片、影片、YouTube 和直播電視。免接線。",
+   "h1": "將 iPhone 鏡像輸出到 Roku",
+   "lead": "MirrorGo 透過你的 Wi-Fi，將 iPhone 螢幕顯示在 Roku 電視（TCL、Hisense、Sharp 等 Roku TV 機型）和 Roku 串流播放器上。",
+   "steps": [
+    "打開 Roku，讓 iPhone 連上同一個 Wi-Fi。",
+    "打開 MirrorGo，點一下「連接電視」，然後選擇你的 Roku。",
+    "打開「螢幕鏡像輸出」，點一下「開始鏡像輸出」，再點一下「開始分享」（iOS 26 以前為「開始廣播」）。",
+    "幾秒後，你的螢幕就會出現在電視上。"
+   ],
+   "features": [
+    [
+     "螢幕鏡像輸出",
+     "含聲音"
+    ],
+    [
+     "照片與影片",
+     null
+    ],
+    [
+     "相機",
+     null
+    ],
+    [
+     "YouTube",
+     null
+    ],
+    [
+     "網頁影片",
+     null
+    ],
+    [
+     "直播電視頻道",
+     null
+    ],
+    [
+     "網路圖片",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "哪些 Roku 可以用？",
+     [
+      "TCL、Hisense、Sharp、Philips、Westinghouse 等品牌的 Roku 電視，以及 Roku 串流播放器：Roku Express、Streaming Stick 和 Ultra。MirrorGo 會在你的 Wi-Fi 上找到它們。"
+     ]
+    ],
+    [
+     "如果清單中沒有你的 Roku",
+     [
+      "請確認手機和 Roku 連上同一個 Wi-Fi（不是訪客網路）、MirrorGo 在「設定」中已取得「區域網路」權限，而且沒有開啟 VPN。在 Roku 上，確認「設定 › 系統 › 進階系統設定 › 行動 App 控制」（Settings › System › Advanced system settings › Control by mobile apps）已設為允許存取。"
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "我需要在 Roku 上安裝任何東西嗎？",
+     "不用。你只需要在 iPhone 上安裝 MirrorGo；Roku 只要開機並連上同一個 Wi-Fi 即可。"
+    ],
+    [
+     "沒有 AirPlay 也能將 iPhone 鏡像輸出到 Roku 嗎？",
+     "可以。MirrorGo 不使用 AirPlay，所以不支援 AirPlay 的 Roku 也能用。"
+    ]
+   ]
+  },
+  "googletv": {
+   "title": "如何將 iPhone 投影到 Google TV",
+   "description": "用 MirrorGo 將 iPhone 鏡像輸出到 Google TV（Sony、TCL、Hisense、Philips、Chromecast with Google TV、Google TV Streamer），並投放照片、影片、YouTube 和直播電視。",
+   "h1": "將 iPhone 鏡像輸出到 Google TV",
+   "lead": "MirrorGo 將 iPhone 螢幕顯示在 Google TV 上：包括 Sony、TCL、Hisense、Philips 等品牌的電視、Chromecast with Google TV 和 Google TV Streamer。電視上不用安裝任何東西。",
+   "steps": [
+    "打開電視，讓 iPhone 連上同一個 Wi-Fi。",
+    "打開 MirrorGo，點一下「連接電視」，然後選擇你的 Google TV。",
+    "打開「螢幕鏡像輸出」，點一下「開始鏡像輸出」，再點一下「開始分享」（iOS 26 以前為「開始廣播」）。",
+    "幾秒後，你的螢幕就會出現在電視上。"
+   ],
+   "features": [
+    [
+     "螢幕鏡像輸出",
+     "含聲音"
+    ],
+    [
+     "照片與影片",
+     null
+    ],
+    [
+     "相機",
+     "含聲音"
+    ],
+    [
+     "YouTube",
+     "由電視播放，從你剛才看到的地方接著播"
+    ],
+    [
+     "網頁影片",
+     null
+    ],
+    [
+     "直播電視頻道",
+     "不需要手機也能繼續播放"
+    ],
+    [
+     "網路圖片",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "哪些電視使用 Google TV？",
+     [
+      "大多數近期的 Sony BRAVIA、TCL、Hisense 和 Philips 電視，以及 Google 自家的 Chromecast with Google TV 和 Google TV Streamer，都使用 Google TV。它內建 Chromecast，MirrorGo 就是透過它在你的 Wi-Fi 上找到電視。"
+     ]
+    ],
+    [
+     "如果清單中沒有你的電視",
+     [
+      "請確認手機和電視連上同一個 Wi-Fi（不是訪客網路）、MirrorGo 在「設定」中已取得「區域網路」權限，而且沒有開啟 VPN。還是找不到？在電視的瀏覽器中打開 smrr.tv，在那裡鏡像輸出。"
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "可以將整個 iPhone 螢幕鏡像輸出到 Google TV 嗎？",
+     "可以。大多數 Google TV 機型不支援 AirPlay，但 MirrorGo 會透過電視內建的 Chromecast 鏡像輸出你的整個螢幕，含聲音。"
+    ],
+    [
+     "我需要 Google Home App 嗎？",
+     "不需要。電視只要完成設定並連上你的 Wi-Fi 即可。MirrorGo 會直接連線。"
+    ]
+   ]
+  },
+  "androidtv": {
+   "title": "如何將 iPhone 投影到 Android TV",
+   "description": "用 MirrorGo 透過 Wi-Fi 將 iPhone 鏡像輸出到 Android TV（Sony、Philips、Xiaomi、TCL、Sharp 等），並投放照片、影片、YouTube 和直播電視頻道。",
+   "h1": "將 iPhone 鏡像輸出到 Android TV",
+   "lead": "MirrorGo 將 iPhone 螢幕顯示在 Sony、Philips、Xiaomi、TCL、Sharp 等品牌的 Android TV 上，也支援 Mi Box 和 NVIDIA SHIELD 等 Android TV 盒。電視上不用安裝任何東西。",
+   "steps": [
+    "打開電視，讓 iPhone 連上同一個 Wi-Fi。",
+    "打開 MirrorGo，點一下「連接電視」，然後選擇你的 Android TV。",
+    "打開「螢幕鏡像輸出」，點一下「開始鏡像輸出」，再點一下「開始分享」（iOS 26 以前為「開始廣播」）。",
+    "幾秒後，你的螢幕就會出現在電視上。"
+   ],
+   "features": [
+    [
+     "螢幕鏡像輸出",
+     "含聲音"
+    ],
+    [
+     "照片與影片",
+     null
+    ],
+    [
+     "相機",
+     "含聲音"
+    ],
+    [
+     "YouTube",
+     "由電視播放，從你剛才看到的地方接著播"
+    ],
+    [
+     "網頁影片",
+     null
+    ],
+    [
+     "直播電視頻道",
+     "不需要手機也能繼續播放"
+    ],
+    [
+     "網路圖片",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "哪些 Android TV 可以用？",
+     [
+      "內建 Chromecast 的 Android TV 電視和電視盒（幾乎全部都有內建）：Sony BRAVIA、Philips、Xiaomi Mi TV、TCL、Sharp、Mi Box、Xiaomi TV Stick 和 NVIDIA SHIELD。MirrorGo 會透過 Chromecast 在你的 Wi-Fi 上找到它們。"
+     ]
+    ],
+    [
+     "如果清單中沒有你的電視",
+     [
+      "請確認手機和電視連上同一個 Wi-Fi（不是訪客網路）、MirrorGo 在「設定」中已取得「區域網路」權限，而且沒有開啟 VPN。有些電視要完全開機才會回應，待機時不會。"
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "我需要在 Android TV 上安裝 App 嗎？",
+     "不用。MirrorGo 使用 Android TV 內建的 Chromecast。你只需要在 iPhone 上安裝 MirrorGo。"
+    ],
+    [
+     "沒有 AirPlay，iPhone 也能鏡像輸出到 Android TV 嗎？",
+     "可以。有了 MirrorGo，iPhone 會透過電視內建的 Chromecast 鏡像輸出，不需要 AirPlay。"
+    ]
+   ]
+  },
+  "chromecast": {
+   "title": "如何將 iPhone 投影到 Chromecast",
+   "description": "用 MirrorGo 將 iPhone 螢幕鏡像輸出到 Chromecast，並透過 Wi-Fi 投放照片、影片、YouTube 和直播電視頻道。不需要 Google Home App。",
+   "h1": "將 iPhone 鏡像輸出到 Chromecast",
+   "lead": "MirrorGo 透過 Chromecast 顯示你的 iPhone 螢幕，也支援 VIZIO SmartCast 等內建 Chromecast 的電視。電視上不用安裝任何東西。",
+   "steps": [
+    "打開電視，讓 iPhone 和 Chromecast 連上同一個 Wi-Fi。",
+    "打開 MirrorGo，點一下「連接電視」，然後選擇你的 Chromecast。",
+    "打開「螢幕鏡像輸出」，點一下「開始鏡像輸出」，再點一下「開始分享」（iOS 26 以前為「開始廣播」）。",
+    "幾秒後，你的螢幕就會出現在電視上。"
+   ],
+   "features": [
+    [
+     "螢幕鏡像輸出",
+     "含聲音"
+    ],
+    [
+     "照片與影片",
+     null
+    ],
+    [
+     "相機",
+     "含聲音"
+    ],
+    [
+     "YouTube",
+     "由 Chromecast 播放，從你剛才看到的地方接著播"
+    ],
+    [
+     "網頁影片",
+     null
+    ],
+    [
+     "直播電視頻道",
+     "不需要手機也能繼續播放"
+    ],
+    [
+     "網路圖片",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "哪些裝置可以用？",
+     [
+      "所有 Chromecast（不論有沒有 Google TV），以及內建 Chromecast 的電視和智慧螢幕音箱，例如 VIZIO SmartCast 電視。MirrorGo 會用和 Google 自家 App 相同的方式，在你的 Wi-Fi 上找到它們。"
+     ]
+    ],
+    [
+     "如果清單中沒有你的 Chromecast",
+     [
+      "請確認手機和 Chromecast 連上同一個 Wi-Fi（不是訪客網路）、MirrorGo 在「設定」中已取得「區域網路」權限，而且沒有開啟 VPN。還是找不到？在任何螢幕的瀏覽器中打開 smrr.tv，在那裡鏡像輸出。"
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "可以將整個 iPhone 螢幕鏡像輸出到 Chromecast 嗎？",
+     "可以。由於 Chromecast 不支援 AirPlay，iPhone 本身做不到，但 MirrorGo 可以將你的整個螢幕鏡像輸出到 Chromecast，含聲音。"
+    ],
+    [
+     "我需要 Google Home App 嗎？",
+     "不需要。你的 Chromecast 只要完成設定並連上你的 Wi-Fi 即可。MirrorGo 會直接連線。"
+    ]
+   ]
+  },
+  "firetv": {
+   "title": "如何將 iPhone 投影到 Fire TV Stick（Fire TV 免裝 App）",
+   "description": "用 MirrorGo 將 iPhone 鏡像輸出到 Amazon Fire TV Stick、Fire TV Cube 或 Fire TV 智慧電視，Fire TV 上不用安裝任何東西。還能投放照片、影片和直播電視。",
+   "h1": "將 iPhone 鏡像輸出到 Fire TV",
+   "lead": "MirrorGo 使用每台 Fire TV 內建的播放器，將 iPhone 顯示在 Fire TV Stick、Fire TV Cube 和 Fire TV 智慧電視上。Fire TV 上不用安裝任何東西。",
+   "steps": [
+    "打開 Fire TV，讓 iPhone 連上同一個 Wi-Fi。",
+    "打開 MirrorGo，點一下「連接電視」，然後選擇你的 Fire TV。",
+    "打開「螢幕鏡像輸出」，點一下「開始鏡像輸出」，再點一下「開始分享」（iOS 26 以前為「開始廣播」）。",
+    "你的螢幕就會出現在電視上。要停止時，點一下「停止鏡像輸出」，或按 Fire TV 遙控器上的主畫面鍵（Home）。"
+   ],
+   "features": [
+    [
+     "螢幕鏡像輸出",
+     "只有畫面，沒有聲音"
+    ],
+    [
+     "照片與影片",
+     "影片含聲音"
+    ],
+    [
+     "相機",
+     "只有畫面，沒有聲音"
+    ],
+    [
+     "YouTube",
+     "請使用 Fire TV 上的 YouTube App"
+    ],
+    [
+     "網頁影片",
+     "含聲音"
+    ],
+    [
+     "直播電視頻道",
+     "含聲音；不需要手機也能繼續播放"
+    ],
+    [
+     "網路圖片",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "哪些 Fire TV 可以用？",
+     [
+      "Fire TV Stick（包括 4K 和 4K Max）、Fire TV Cube，以及內建 Fire TV 的智慧電視（Amazon、Toshiba、Insignia 等）。MirrorGo 會在你的 Wi-Fi 上找到它們。"
+     ]
+    ],
+    [
+     "觀看有聲音的影片",
+     [
+      "鏡像輸出到 Fire TV 時只有畫面、沒有聲音。想看有聲音的影片，請改用投放：圖庫中的照片和影片、網頁影片和直播電視頻道都有聲音。"
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "我需要在 Fire TV 上安裝 App 嗎？",
+     "不用。每台 Fire TV 都內建媒體播放器，MirrorGo 就是使用它。你只需要在 iPhone 上安裝 MirrorGo。"
+    ],
+    [
+     "可以將 iPhone 鏡像輸出到 Fire TV Stick 並帶有聲音嗎？",
+     "螢幕鏡像輸出只有畫面。你投放的影片（圖庫、網頁影片、直播電視頻道）則有聲音。"
+    ]
+   ]
+  },
+  "airplay": {
+   "title": "如何將 iPhone 鏡像輸出、投放到 Apple TV 和 AirPlay 電視",
+   "description": "將 iPhone 鏡像輸出到 Apple TV 或 AirPlay 電視（Samsung、LG、Sony、VIZIO 等），並用 MirrorGo 投放照片、影片、網頁影片和直播電視頻道。",
+   "h1": "將 iPhone 鏡像輸出、投放到 Apple TV 和 AirPlay 電視",
+   "lead": "iPhone 本身就能從控制中心鏡像輸出到 Apple TV 或 AirPlay 電視。MirrorGo 補上 iOS 做不到的部分：直播電視頻道、網站影片和網路圖片，透過 AirPlay 播放。",
+   "steps": [
+    "讓 iPhone 和 Apple TV 或 AirPlay 電視連上同一個 Wi-Fi。",
+    "鏡像輸出螢幕：打開控制中心，點一下「螢幕鏡像輸出」，然後選擇電視。",
+    "投放：打開 MirrorGo，點一下「連接電視」，再點一下「選擇 AirPlay 裝置」，然後選擇電視。",
+    "在 MirrorGo 中打開「照片與影片」、「網頁影片」或「IPTV」並播放：內容會透過 AirPlay 傳到電視。"
+   ],
+   "features": [
+    [
+     "螢幕鏡像輸出",
+     "從控制中心（iOS 內建）"
+    ],
+    [
+     "照片與影片",
+     "以 AirPlay 影片播放"
+    ],
+    [
+     "相機",
+     "需開啟螢幕鏡像輸出，無聲音"
+    ],
+    [
+     "YouTube",
+     "請使用 YouTube App 自己的 AirPlay 按鈕"
+    ],
+    [
+     "網頁影片",
+     null
+    ],
+    [
+     "直播電視頻道",
+     null
+    ],
+    [
+     "網路圖片",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "哪些裝置可以用？",
+     [
+      "Apple TV HD 和 Apple TV 4K、Mac，以及內建 AirPlay 的電視：許多 2018 年起的 Samsung、LG、Sony、VIZIO、TCL、Philips 和 Roku 機型。"
+     ]
+    ],
+    [
+     "為什麼鏡像輸出要從控制中心開始",
+     [
+      "Apple 不允許 App 啟動 AirPlay 螢幕鏡像輸出，只有控制中心可以。MirrorGo 會告訴你步驟；開始鏡像輸出後，MirrorGo 的相機畫面也能在電視上全螢幕顯示。"
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "可以從 MirrorGo 停止 AirPlay 嗎？",
+     "打開 MirrorGo 的電視清單，點一下 AirPlay 卡片，然後在選單中選擇「iPhone」：這樣就會結束 AirPlay。要停止螢幕鏡像輸出，請使用「控制中心 › 螢幕鏡像輸出 › 停止鏡像輸出」。"
+    ],
+    [
+     "MirrorGo 需要 Apple TV 嗎？",
+     "不需要。Apple TV 只是其中一個選擇；MirrorGo 也支援 Samsung、LG、Roku、Google TV、Fire TV 和任何網頁瀏覽器，不需要 AirPlay。"
+    ]
+   ]
+  },
+  "browser": {
+   "title": "透過網頁瀏覽器將 iPhone 投影到任何電視或電腦（smrr.tv）",
+   "description": "將 iPhone 鏡像輸出到任何有網頁瀏覽器的智慧電視、PC、Mac 或平板：打開 smrr.tv，在 MirrorGo 中輸入 6 位數代碼，就完成了。電視或電腦都不用裝 App。",
+   "h1": "將 iPhone 鏡像輸出到任何有網頁瀏覽器的螢幕",
+   "lead": "任何有網頁瀏覽器的電視、電腦或平板都能顯示你的 iPhone，連 MirrorGo 找不到的電視也可以。在上面打開 smrr.tv，在 MirrorGo 中輸入它的代碼，你的螢幕就會出現在上面，含聲音。",
+   "steps": [
+    "在電視或電腦的網頁瀏覽器中打開 smrr.tv。網頁會顯示 6 位數代碼和 QR Code。",
+    "在 MirrorGo 中打開電視清單，點一下「鏡像輸出到網頁瀏覽器」。",
+    "輸入代碼，或掃描 QR Code。",
+    "打開「螢幕鏡像輸出」，點一下「開始鏡像輸出」，再點一下「開始分享」（iOS 26 以前為「開始廣播」）。"
+   ],
+   "features": [
+    [
+     "螢幕鏡像輸出",
+     "含聲音"
+    ],
+    [
+     "照片與影片",
+     null
+    ],
+    [
+     "相機",
+     null
+    ],
+    [
+     "YouTube",
+     null
+    ],
+    [
+     "網頁影片",
+     null
+    ],
+    [
+     "直播電視頻道",
+     "由瀏覽器自行播放頻道"
+    ],
+    [
+     "網路圖片",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "哪些螢幕可以用",
+     [
+      "有現代網頁瀏覽器的智慧電視、Windows PC、Mac、Chromebook 和平板，搭配 Chrome、Edge、Safari 或 Firefox 等較新的瀏覽器。"
+     ]
+    ],
+    [
+     "隱私又直接",
+     [
+      "影像會透過你的 Wi-Fi 直接從 iPhone 傳到瀏覽器。smrr.tv 只負責讓兩者配對，你的螢幕畫面不會經過它。所以兩者必須連上同一個 Wi-Fi。"
+     ]
+    ],
+    [
+     "小技巧",
+     [
+      "鏡像輸出期間請保持 smrr.tv 網頁開啟。重新整理網頁會自動重新連線。",
+      "附近的 LG 或 Samsung 電視，可以用 MirrorGo 的「在…上開啟」按鈕幫你打開電視的瀏覽器。"
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "我需要在電視或電腦上安裝任何東西嗎？",
+     "不用，只需要網頁瀏覽器。打開 smrr.tv，將畫面上的代碼輸入 MirrorGo 即可。"
+    ],
+    [
+     "別人可以用我的代碼看到我的螢幕嗎？",
+     "要連線，手機必須取得該螢幕上顯示的代碼，所以一定要有人正看著那個螢幕。影像本身只會在你自己的 Wi-Fi 中傳送。"
+    ]
+   ]
+  }
+ },
+ "topics": {
+  "connect": {
+   "label": "連線",
+   "title": "iPhone 連接{title_art}教學",
+   "h1": "如何將 iPhone 與{art}連線",
+   "lead": "用 MirrorGo 將 iPhone 與{art}連線只要幾秒鐘：兩者連上同一個 Wi-Fi，選擇電視，就完成了。電視上不用安裝任何東西，MirrorGo 也會記住它，下次直接連線。",
+   "shot_alt": "MirrorGo 的首頁畫面，含「連接電視」按鈕",
+   "tips": [
+    "手機和電視必須連上同一個 Wi-Fi 網路，不能是訪客網路。",
+    "MirrorGo 需要「區域網路」權限（iOS 第一次會詢問）。如果你拒絕了：設定 › MirrorGo › 區域網路。",
+    "投放時請關閉手機上的 VPN。",
+    "完全找不到電視？任何有網頁瀏覽器的電視都能透過 smrr.tv 使用。"
+   ]
+  },
+  "photos": {
+   "label": "照片與影片",
+   "title": "如何將 iPhone 照片和影片投放到{title_art}上",
+   "h1": "如何將 iPhone 的照片和影片投放到{art}上",
+   "lead": "用 MirrorGo，你可以在{art}上以完整畫質顯示 iPhone 圖庫中的照片和影片，並在手機上滑動切換，電視會同步跟上。",
+   "shot_alt": "用 MirrorGo 從 iPhone 圖庫投放照片",
+   "steps": [
+    "將 MirrorGo 與{art}連線。",
+    "在 MirrorGo 的首頁點一下「照片與影片」，並允許取用你的照片。",
+    "在頂端選擇「影片」或「照片」，然後點一下你要的項目。",
+    "點一下「開始投放」。稍等一下就會出現在電視上。",
+    "滑動畫面下方的縮圖列，電視會同步跟上。影片的播放、暫停和快轉都在手機上操作。"
+   ],
+   "tips": [
+    "「自動播放」（縮圖列開頭的按鈕）會變成幻燈片：每張照片 5 到 30 秒，影片播到結束，開啟「重複播放」則會從頭再來。",
+    "若只提供受限的照片取用權限，只會顯示你選取的照片。要顯示全部：設定 › MirrorGo › 照片 › 完整取用。",
+    "你的照片和影片會透過你的 Wi-Fi 從 iPhone 傳到電視，不會上傳到任何地方。",
+    "關閉畫面時，投放就會停止。"
+   ]
+  },
+  "images": {
+   "label": "網路圖片",
+   "title": "如何用 iPhone 在{title_art}上顯示免費網路圖片",
+   "h1": "如何在{art}上顯示精美的免費圖片",
+   "lead": "MirrorGo 可搜尋 Wikimedia Commons 上數百萬張免費、開放授權的圖片（風景、太空、城市、動物、藝術），並在{art}上以全螢幕逐張顯示或播放幻燈片。",
+   "shot_alt": "準備用 MirrorGo 投放的 Wikimedia Commons 風景圖片",
+   "steps": [
+    "將 MirrorGo 與{art}連線。",
+    "在 MirrorGo 的首頁點一下「網路圖片」。",
+    "搜尋任何內容，或點一下主題：自然、太空、城市、動物、海洋、山岳、藝術、花卉。",
+    "點一下圖片，然後點一下「開始投放」。",
+    "滑到下一張圖片，電視會同步跟上，或開啟幻燈片。"
+   ],
+   "tips": [
+    "每張圖片都會顯示標題、作者和授權：點一下 ↗ 即可在 Wikimedia Commons 上打開它的頁面。",
+    "最近的搜尋會保留在開始畫面上，你喜歡的主題點一下就能打開。",
+    "可能含有成人內容的圖片會被過濾掉。"
+   ]
+  },
+  "iptv": {
+   "label": "直播電視（IPTV）",
+   "title": "如何用 iPhone 在{title_art}上看免費直播電視頻道（IPTV）",
+   "h1": "如何在{art}上收看免費直播電視頻道",
+   "lead": "MirrorGo 收錄來自 180 多個國家、超過 9,000 個免費公開的直播電視頻道（新聞、體育、電影、音樂、兒童節目等），點一下就能在{art}上播放。你也可以加入自己的 M3U 播放清單。",
+   "shot_alt": "MirrorGo 的 IPTV 畫面：播放清單、類別和國家",
+   "steps": [
+    "將 MirrorGo 與{art}連線。",
+    "在 MirrorGo 的首頁點一下「IPTV」。",
+    "選擇國家或類別，或依名稱搜尋頻道。",
+    "點一下頻道，就會在電視上開始播放。點一下其他頻道即可切換。",
+    "點一下 ☆ 將頻道加入「我的最愛」；點一下 + 加入 M3U 播放清單連結。"
+   ],
+   "tips": [
+    "離開清單或鎖定手機後，頻道仍會繼續播放。可以從首頁底部的列停止播放。",
+    "頻道是來自 iptv-org 清單的免費公開串流：任何時候都可能有些頻道離線，或只能在所屬國家內播放。如果某個頻道無法開始播放，請換另一個試試。",
+    "你自己的播放清單必須是指向 M3U 檔案（或單一 HLS 串流）的 HTTPS 連結。"
+   ]
+  },
+  "youtube": {
+   "label": "YouTube",
+   "title": "如何從 iPhone 將 YouTube 投放到{title_art}上",
+   "h1": "如何從 iPhone 將 YouTube 投放到{art}上",
+   "lead": "在 MirrorGo 中找到 YouTube 影片，點一下「投放到電視」：影片會由{art}自行播放，畫質完整，從你剛才看到的地方開始，手機也能照常使用。",
+   "shot_alt": "在 MirrorGo 中尋找要投放的 YouTube 影片",
+   "steps": [
+    "將 MirrorGo 與{art}連線。",
+    "在 MirrorGo 的首頁點一下「YouTube」。",
+    "選擇主題（音樂、新聞、體育、直播…）或搜尋，然後打開影片。",
+    "點一下「投放到電視」。影片會從你剛才看到的地方開始在電視上播放。"
+   ],
+   "tips": [
+    "離開畫面後影片仍會繼續播放。點一下「停止」即可在電視上關閉。",
+    "投放影片比鏡像輸出更好：電視會以完整畫質播放，聲音也會同步。"
+   ]
+  },
+  "webvideos": {
+   "label": "網頁影片",
+   "title": "如何用 iPhone 將任何網站的影片投放到{title_art}上",
+   "h1": "如何將網站上的影片投放到{art}上",
+   "lead": "在 MirrorGo 中打開網站、播放影片，然後點一下「投放到電視」：MirrorGo 會找到影片（而不是廣告），由{art}以完整畫質播放，你則可以繼續瀏覽。",
+   "shot_alt": "MirrorGo 的網頁影片瀏覽器，含熱門網站",
+   "steps": [
+    "將 MirrorGo 與{art}連線。",
+    "在 MirrorGo 的首頁點一下「網頁影片」。",
+    "從捷徑打開網站，或輸入網址。",
+    "在網頁上播放影片。MirrorGo 找到影片後，「投放到電視」就會啟用。",
+    "點一下「投放到電視」。如果找到多個影片，請選擇正確的那一個（「第 1 個，共 3 個」）。"
+   ],
+   "tips": [
+    "MirrorGo 會阻擋廣告聯播網，也絕不投放很短的片段，讓廣告不會出現在電視上。",
+    "會保護自家影片的網站（Netflix、Prime Video、Disney+）無法投放。",
+    "播放期間請保持 MirrorGo 開啟。瀏覽是私密的：不保留瀏覽紀錄、Cookie 或快取。"
+   ]
+  },
+  "camera": {
+   "label": "相機",
+   "title": "如何在{title_art}上即時顯示 iPhone 相機畫面",
+   "h1": "如何在{art}上即時顯示 iPhone 的相機畫面",
+   "lead": "MirrorGo 讓你的 iPhone 變成{art}的即時攝影機：用前置或後置相機，顯示房間、白板、文件、你的寵物或你自己。",
+   "shot_alt": "MirrorGo 的首頁畫面，含「相機」方塊",
+   "steps": [
+    "將 MirrorGo 與{art}連線。",
+    "在 MirrorGo 的首頁點一下「相機」，並允許取用相機。",
+    "選擇前置或後置相機；如果也要麥克風的聲音，請開啟「聲音」。",
+    "點一下「開始投放」。電視會顯示相機拍到的畫面，並與地平線保持水平。"
+   ],
+   "tips": [
+    "前置相機的畫面在電視上會左右翻轉，和預覽畫面一樣。",
+    "關閉畫面或離開 App 時，投放就會停止（iOS 會停止相機）。"
+   ]
+  }
+ },
+ "platforms": {
+  "samsung": {
+   "forms": {
+    "art": " Samsung 電視",
+    "title_art": " Samsung 電視"
+   },
+   "connect": [
+    "打開 Samsung 電視，讓 iPhone 連上同一個 Wi-Fi。",
+    "打開 MirrorGo，點一下「連接電視」。你的 Samsung 電視會以它的名稱出現。",
+    "點一下電視。第一次連線時，電視會詢問是否允許 MirrorGo：用遙控器選擇「允許」。",
+    "連線完成。MirrorGo 會記住電視，電視也會記住 MirrorGo，所以之後不會再詢問。"
+   ],
+   "connect_notes": [
+    "MirrorGo 支援 2016 年起的 Samsung 智慧電視（Tizen）。它會連接電視的遙控連線和內建媒體播放器，所以電視上不用安裝任何東西。",
+    "不小心選了「拒絕」？電視會記住這個選擇。請在電視上打開「設定 › 一般 › 外部裝置管理員 › 裝置連線管理員 › 裝置清單」（Settings › General › External Device Manager › Device Connection Manager › Device List），然後允許 MirrorGo，或將它刪除，讓電視重新詢問。"
+   ],
+   "photos": "Samsung 電視會用內建的媒體播放器播放：MirrorGo 透過你的 Wi-Fi 從 iPhone 提供每張照片或每段影片，再由電視讀取，所以影片會以完整畫質播放，並由電視發出聲音。HEVC 格式的 iPhone 影片會直接傳送；如果你的電視無法播放，MirrorGo 會改用 H.264 傳送，並記住這個設定供下次使用。",
+   "images": "圖片會在電視內建的媒體播放器中顯示，並依電視螢幕調整大小。",
+   "iptv": "MirrorGo 會先把頻道的串流交給 Samsung 電視自行播放。如果幾秒內沒有開始播放，MirrorGo 會改由 iPhone 轉送串流，並記住你的電視需要這樣做；手機可以鎖定，但請保持連上 Wi-Fi。",
+   "youtube": "在 Samsung 上，影片會在電視內建的 YouTube App 中開啟，MirrorGo 會像 YouTube 手機 App 一樣控制它，從你剛才看到的地方開始播放。",
+   "webvideos": "Samsung 的播放器會透過你的 iPhone 收到一條連續的影片串流，網站的廣告時段也會接在一起，所以能從頭播到尾；從手機快轉時，會從該位置重新開始播放。",
+   "camera": "含聲音：開始前開啟「聲音」，MirrorGo 就會加入麥克風的聲音。"
+  },
+  "lg": {
+   "forms": {
+    "art": " LG 電視",
+    "title_art": " LG 電視"
+   },
+   "connect": [
+    "打開 LG 電視，讓 iPhone 連上同一個 Wi-Fi。",
+    "打開 MirrorGo，點一下「連接電視」。你的 LG 電視會以它的名稱出現。",
+    "點一下電視。第一次連線時，電視會詢問是否允許 MirrorGo：用遙控器選擇「允許」（或「是」）。",
+    "連線完成。MirrorGo 會保存電視的金鑰，下次就能直接連線。"
+   ],
+   "connect_notes": [
+    "MirrorGo 支援使用 webOS 的 LG 智慧電視。電視上不用安裝任何東西：MirrorGo 會用和 LG 自家手機 App 相同的方式與電視溝通。",
+    "錯過訊息或選了「拒絕」？只要再連線一次，電視就會再詢問。較舊的 LG 電視請先在電視的網路設定中開啟 LG Connect Apps。"
+   ],
+   "photos": "在 LG 上，MirrorGo 會先用電視的網頁瀏覽器播放，它會幫你打開瀏覽器，而瀏覽器能播放的影片格式最多。幾秒後，App 會詢問「電視上有在播放嗎？」：點一下「否」，它就會關閉瀏覽器，改用電視內建的播放器。不論哪種方式，照片和影片都是透過你的 Wi-Fi 傳送，不經過網際網路。",
+   "images": "MirrorGo 會打開電視的網頁瀏覽器，由瀏覽器直接從 Wikimedia Commons 載入完整解析度的圖片。如果沒有顯示，請在 MirrorGo 詢問「電視上有在播放嗎？」時點一下「否」，它就會改用電視內建的播放器。",
+   "iptv": "頻道會在 LG 電視的網頁瀏覽器中播放，它能處理 LG 內建播放器處理不了的內容：免費頻道中的廣告時段、分開的音軌和加密串流。如果無法播放，請在 MirrorGo 詢問「電視上有在播放嗎？」時點一下「否」，它就會改試電視的播放器。",
+   "youtube": "在 LG 上，影片會在電視內建的 YouTube App 中開啟，從你剛才看到的地方開始播放。",
+   "webvideos": "MirrorGo 會打開電視的網頁瀏覽器，並傳送影片的連結。如果網站只在有你手機的 Cookie 時才能播放，就會改由 iPhone 將影片串流到電視。",
+   "camera": "相機畫面會先在電視的網頁瀏覽器中顯示，同樣會詢問「電視上有在播放嗎？」；點一下「否」就會改用電視內建的播放器。"
+  },
+  "roku": {
+   "forms": {
+    "art": " Roku ",
+    "title_art": " Roku "
+   },
+   "connect": [
+    "打開 Roku 電視或 Roku 播放器，讓 iPhone 連上同一個 Wi-Fi。",
+    "打開 MirrorGo，點一下「連接電視」。你的 Roku 會以它的名稱出現。",
+    "點一下即可連線。不用輸入代碼。",
+    "連線完成。MirrorGo 會記住你的 Roku，下次直接使用。"
+   ],
+   "connect_notes": [
+    "MirrorGo 支援 Roku 電視（TCL、Hisense、Sharp、Philips 等 Roku TV 機型）和 Roku 串流播放器：Roku Express、Streaming Stick 和 Ultra。",
+    "清單中沒有 Roku？請在 Roku 上打開「設定 › 系統 › 進階系統設定 › 行動 App 控制」（Settings › System › Advanced system settings › Control by mobile apps），並確認網路存取沒有被停用。"
+   ],
+   "photos": "Roku 會以全螢幕、完整畫質播放；在手機上播放、暫停和快轉。",
+   "images": "圖片會在 Roku 上全螢幕顯示，並依電視調整大小。",
+   "iptv": "你使用其他 App 或鎖定手機時，頻道仍會在 Roku 上繼續播放。",
+   "youtube": "影片會在 Roku 上從你剛才看到的地方開始播放。",
+   "webvideos": "Roku 會播放 iPhone 在網頁上找到的影片；播放期間請保持 MirrorGo 開啟。",
+   "camera": "相機畫面會即時顯示在 Roku 上。"
+  },
+  "googletv": {
+   "forms": {
+    "art": " Google TV ",
+    "title_art": " Google TV "
+   },
+   "connect": [
+    "打開 Google TV，讓 iPhone 連上同一個 Wi-Fi。",
+    "打開 MirrorGo，點一下「連接電視」。你的電視會以它在 Google Home 中的名稱出現（例如「客廳電視」）。",
+    "點一下即可連線。不用代碼，電視上也不會出現訊息。",
+    "連線完成。下次 MirrorGo 會再次自動連線。"
+   ],
+   "connect_notes": [
+    "Google TV 內建 Chromecast，MirrorGo 就是透過它與電視溝通：支援 Sony、TCL、Hisense 和 Philips 的 Google TV、Chromecast with Google TV 和 Google TV Streamer。",
+    "清單中沒有？請將電視完全開機（不是待機），並確認它和手機連上同一個 Wi-Fi，且 MirrorGo 已取得「區域網路」權限。"
+   ],
+   "photos": "照片會透過你的 Wi-Fi 以全螢幕圖片傳到電視；影片則在電視上的 MirrorGo 播放器中播放，播放、暫停和快轉都在手機上操作。",
+   "images": "圖片會透過電視內建的 Chromecast 全螢幕顯示。",
+   "iptv": "電視會自行讀取頻道，所以即使手機鎖定或不在房間裡，也會繼續播放。",
+   "youtube": "影片會在電視上 MirrorGo 應用程式內的 YouTube 播放器中播放，從你剛才看到的地方開始。",
+   "webvideos": "電視會透過 MirrorGo 播放影片，由 MirrorGo 從你的手機轉送網站的影片；播放期間請保持 MirrorGo 開啟。",
+   "camera": "含聲音：開始前開啟「聲音」，MirrorGo 就會加入麥克風的聲音。"
+  },
+  "androidtv": {
+   "forms": {
+    "art": " Android TV ",
+    "title_art": " Android TV "
+   },
+   "connect": [
+    "打開 Android TV，讓 iPhone 連上同一個 Wi-Fi。",
+    "打開 MirrorGo，點一下「連接電視」。你的電視會以它的 Chromecast 名稱出現。",
+    "點一下即可連線。不用代碼，電視上也不會出現訊息。",
+    "連線完成。下次 MirrorGo 會再次自動連線。"
+   ],
+   "connect_notes": [
+    "幾乎每台 Android TV 都內建 Chromecast，MirrorGo 就是透過它與電視溝通：Sony BRAVIA、Philips、Xiaomi、TCL、Sharp、Mi Box、Xiaomi TV Stick 和 NVIDIA SHIELD。",
+    "清單中沒有？請將電視完全開機（不是待機），並確認它和手機連上同一個 Wi-Fi，且 MirrorGo 已取得「區域網路」權限。"
+   ],
+   "photos": "照片會透過你的 Wi-Fi 以全螢幕圖片傳到電視；影片則在電視上的 MirrorGo 播放器中播放，播放、暫停和快轉都在手機上操作。",
+   "images": "圖片會透過電視內建的 Chromecast 全螢幕顯示。",
+   "iptv": "電視會自行讀取頻道，所以即使手機鎖定或不在房間裡，也會繼續播放。",
+   "youtube": "影片會在電視上 MirrorGo 應用程式內的 YouTube 播放器中播放，從你剛才看到的地方開始。",
+   "webvideos": "電視會透過 MirrorGo 播放影片，由 MirrorGo 從你的手機轉送網站的影片；播放期間請保持 MirrorGo 開啟。",
+   "camera": "含聲音：開始前開啟「聲音」，MirrorGo 就會加入麥克風的聲音。"
+  },
+  "chromecast": {
+   "forms": {
+    "art": " Chromecast ",
+    "title_art": " Chromecast "
+   },
+   "connect": [
+    "打開接著 Chromecast 的電視，讓 iPhone 連上同一個 Wi-Fi。",
+    "打開 MirrorGo，點一下「連接電視」。Chromecast 會以它在 Google Home 中的名稱出現。",
+    "點一下即可連線。不用代碼，也不需要 Google Home App。",
+    "連線完成。下次 MirrorGo 會再次自動連線。"
+   ],
+   "connect_notes": [
+    "所有 Chromecast 都能用，不論有沒有 Google TV；VIZIO SmartCast 電視等內建 Chromecast 的電視也可以。",
+    "清單中沒有？請確認 Chromecast 和手機連上同一個 Wi-Fi（不是訪客網路），且 MirrorGo 在「設定」中已取得「區域網路」權限。"
+   ],
+   "photos": "照片會透過你的 Wi-Fi 以全螢幕圖片傳到電視；影片則在 Chromecast 上的 MirrorGo 播放器中播放，播放、暫停和快轉都在手機上操作。",
+   "images": "圖片會透過 Chromecast 全螢幕顯示。",
+   "iptv": "Chromecast 會自行讀取頻道，所以即使手機鎖定，也會繼續播放。",
+   "youtube": "影片會在 Chromecast 上 MirrorGo 應用程式內的 YouTube 播放器中播放，從你剛才看到的地方開始。",
+   "webvideos": "Chromecast 會透過 MirrorGo 播放影片，由 MirrorGo 從你的手機轉送網站的影片；播放期間請保持 MirrorGo 開啟。",
+   "camera": "含聲音：開始前開啟「聲音」，MirrorGo 就會加入麥克風的聲音。"
+  },
+  "firetv": {
+   "forms": {
+    "art": " Fire TV ",
+    "title_art": " Fire TV "
+   },
+   "connect": [
+    "打開 Fire TV，讓 iPhone 連上同一個 Wi-Fi。",
+    "打開 MirrorGo，點一下「連接電視」。你的 Fire TV 會以它的名稱出現。",
+    "點一下即可連線。Fire TV 免裝 App，不用配對，也不用代碼。",
+    "連線完成。下次 MirrorGo 會再次自動連線。"
+   ],
+   "connect_notes": [
+    "每台 Fire TV 都內建媒體播放器，MirrorGo 就是使用它：Fire TV Stick（包括 4K 和 4K Max）、Fire TV Cube，以及內建 Fire TV 的智慧電視。",
+    "清單中沒有？按 Fire TV 遙控器上的主畫面鍵（Home）喚醒它，並確認它和手機連上同一個 Wi-Fi。"
+   ],
+   "photos": "照片以圖片傳送，影片則以 MP4 檔案透過你的 Wi-Fi 從 iPhone 提供。Fire TV 無法播放 iPhone 預設的影片格式 HEVC，所以 MirrorGo 會先將這些影片轉成 H.264；較長的影片需要稍等一下。",
+   "images": "圖片會在 Fire TV 內建的播放器中全螢幕顯示。",
+   "iptv": "Fire TV 會自行播放頻道的串流，所以不需要手機也能繼續播放。",
+   "webvideos": "Fire TV 會播放由 iPhone 轉送的網站影片；播放期間請保持 MirrorGo 開啟。",
+   "camera": "只有畫面：Fire TV 內建的播放器顯示相機畫面時沒有聲音。"
+  },
+  "airplay": {
+   "forms": {
+    "art": " Apple TV ",
+    "title_art": " Apple TV "
+   },
+   "connect": [
+    "打開 Apple TV 或 AirPlay 電視，讓 iPhone 連上同一個 Wi-Fi。",
+    "打開 MirrorGo，點一下「連接電視」，再點一下「選擇 AirPlay 裝置」。",
+    "在 iOS 的 AirPlay 選單中選擇你的 Apple TV 或 AirPlay 電視。第一次連線時，電視可能會顯示一組代碼，請在 iPhone 上輸入。",
+    "連線完成：MirrorGo 會顯示「已透過 AirPlay 連線」。要中斷連線，請打開同一個選單並選擇「iPhone」。"
+   ],
+   "connect_notes": [
+    "支援 Apple TV HD 和 Apple TV 4K，以及內建 AirPlay 的電視：許多 2018 年起的 Samsung、LG、Sony、VIZIO、TCL 和 Roku 機型。",
+    "要將整個螢幕鏡像輸出到 AirPlay 裝置，請使用「控制中心 › 螢幕鏡像輸出」：Apple 不允許 App 啟動它。"
+   ],
+   "photos": "影片會透過 AirPlay 播放，照片也一樣：MirrorGo 會將每張照片轉成一段簡短的靜態影片。在控制中心開啟「螢幕鏡像輸出」後，照片則會直接顯示在電視上。",
+   "images": "圖片會以靜態影片透過 AirPlay 傳送；在控制中心開啟「螢幕鏡像輸出」時，則會直接顯示在電視上。",
+   "iptv": "頻道會透過 AirPlay 播放：由 Apple TV 自行讀取串流。",
+   "webvideos": "影片會透過 AirPlay 播放；播放期間請保持 MirrorGo 開啟。",
+   "camera": "請先在控制中心開啟「螢幕鏡像輸出」：相機畫面就會在電視上全螢幕顯示，沒有聲音。"
+  },
+  "browser": {
+   "forms": {
+    "art": "網頁瀏覽器",
+    "title_art": "網頁瀏覽器"
+   },
+   "connect": [
+    "在電視、電腦或平板的網頁瀏覽器中打開 smrr.tv。網頁會顯示 6 位數代碼和 QR Code。",
+    "在 MirrorGo 中點一下「連接電視」，再點一下「鏡像輸出到網頁瀏覽器」。",
+    "輸入代碼，或點一下「掃描 QR Code」並將相機對準它。",
+    "連線完成。網頁會改為顯示你的手機，而不是代碼。"
+   ],
+   "connect_notes": [
+    "任何有現代網頁瀏覽器的螢幕都能用：MirrorGo 找不到的智慧電視、Windows PC、Mac、Chromebook 和平板。附近的 LG 或 Samsung 電視，可以用「在…上開啟」幫你打開電視的瀏覽器。",
+    "手機和瀏覽器會直接連線，所以必須連上同一個 Wi-Fi。請保持網頁開啟；重新整理網頁會自動重新連線。"
+   ],
+   "photos": "照片和影片會透過你的 Wi-Fi，以即時串流直接從 iPhone 傳到瀏覽器，以 16:9 填滿螢幕，並包含影片的聲音。",
+   "images": "網頁會自行從 Wikimedia Commons 載入完整解析度的圖片。",
+   "iptv": "網頁會自行播放頻道，所以鎖定手機後仍會繼續播放；重新整理網頁會接著播放。",
+   "youtube": "影片會在 smrr.tv 網頁上的 YouTube 播放器中播放，從你剛才看到的地方開始。",
+   "webvideos": "網頁會收到影片的連結並自行播放。如果網站只在有你手機的 Cookie 時才能播放，就會改由 iPhone 將影片串流到網頁。",
+   "camera": "透過你的 Wi-Fi 即時串流，開啟「聲音」時含聲音。"
+  }
+ }
+}

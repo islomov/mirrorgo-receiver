@@ -1,0 +1,1582 @@
+{
+ "ui": {
+  "skip": "Zum Inhalt springen",
+  "home_aria": "MirrorGo Startseite",
+  "menu": "Menü",
+  "language": "Sprache",
+  "nav_features": "Funktionen",
+  "nav_tvs": "Fernseher",
+  "nav_guides": "Anleitungen",
+  "nav_help": "Hilfe",
+  "download": "Laden im App Store",
+  "coming_soon": "Bald im App Store",
+  "footer_blurb": "Bildschirmspiegelung und Streaming fürs iPhone. Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV und jeder Webbrowser.",
+  "footer_mirror_to": "Spiegeln auf",
+  "footer_brands": "TV-Marken",
+  "footer_support": "Support",
+  "footer_languages": "Sprachen",
+  "brand_tv": "{brand}-Fernseher",
+  "guides": "Anleitungen",
+  "help_faq": "Hilfe & FAQ",
+  "tv_browser": "smrr.tv (Browser auf dem TV)",
+  "privacy": "Datenschutz",
+  "terms": "Nutzungsbedingungen",
+  "firetv_app_privacy": "Fire-TV-App: Datenschutz",
+  "firetv_app_terms": "Nutzungsbedingungen",
+  "english_only": "(Englisch)",
+  "trademarks": "Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV, AirPlay und die genannten TV-Marken sind Marken ihrer jeweiligen Inhaber. MirrorGo steht in keiner Verbindung zu ihnen.",
+  "home_title": "MirrorGo: iPhone auf den Fernseher spiegeln & streamen",
+  "home_description": "Spiegle dein iPhone auf Samsung, LG, Roku, Google TV, Chromecast, Fire TV, Apple TV oder jeden Webbrowser und streame Fotos, Videos, YouTube und 9.000+ Live-TV-Sender. Ohne App auf dem TV.",
+  "eyebrow": "Fürs iPhone · Keine App auf dem TV",
+  "home_h1": "Dein iPhone auf dem {big}",
+  "home_h1_big": "großen Bildschirm",
+  "check_tv": "Deinen Fernseher prüfen",
+  "fine_wifi": "Selbes WLAN, keine Kabel",
+  "fine_sound": "Mit Ton",
+  "fine_account": "Kein Konto",
+  "hero_alt": "Startbildschirm von MirrorGo",
+  "live_pill": "Spiegelung",
+  "works_with_tv": "Funktioniert mit dem Fernseher, den du schon hast",
+  "supported_tvs": "Unterstützte Fernseher",
+  "facts_kicker": "Auf einen Blick",
+  "facts_h2": "Was ist MirrorGo?",
+  "features_kicker": "Alles in einer App",
+  "features_h2": "Spiegeln oder streamen",
+  "features_p": "Zeig deinen ganzen Bildschirm oder schick nur das, was du gerade schaust – in voller Qualität, während du dein iPhone frei nutzen kannst.",
+  "works_on": "Funktioniert auf:",
+  "how_kicker": "So funktioniert's",
+  "how_h2": "Mit drei Fingertipps auf dem Fernseher",
+  "how_p": "Keine Kabel, keine Adapter, nichts auf dem Fernseher zu installieren.",
+  "tvs_kicker": "Kompatibilität",
+  "tvs_h2": "Was auf deinem Fernseher funktioniert",
+  "tvs_p": "MirrorGo findet deinen Fernseher im WLAN und graut alles aus, was er nicht abspielen kann.",
+  "tvs_foot": "Samsung Smart TVs ab 2016 · LG webOS-Fernseher · Roku TVs und Player · Google TV und Android TV (Sony, TCL, Hisense, Philips, Xiaomi …) · Chromecast · Fire TV Stick, Cube und Fire TV Smart TVs · Apple TV und AirPlay-Fernseher · jeder Browser über smrr.tv",
+  "compat_caption": "Was MirrorGo auf welchem Fernseher zeigen kann",
+  "compat_feature": "Funktion",
+  "yes": "Ja",
+  "no": "Nein",
+  "airplay_kicker": "AirPlay oder MirrorGo?",
+  "airplay_h2": "Mehr Fernseher als mit AirPlay",
+  "airplay_p": "Von sich aus spiegelt ein iPhone nur auf ein Apple TV oder einen Fernseher mit AirPlay. MirrorGo bringt fast jeden anderen Fernseher dazu – und Inhalte, die du darauf anschauen kannst.",
+  "airplay_col_what": "Dein iPhone zeigen auf",
+  "airplay_col_iphone": "Nur iPhone (AirPlay)",
+  "airplay_col_mirrorgo": "Mit MirrorGo",
+  "privacy_kicker": "Datenschutz eingebaut",
+  "privacy_h2": "Dein iPhone, dein Fernseher, dein WLAN",
+  "privacy_p": "Was du spiegelst und streamst, geht direkt von deinem iPhone zu deinem Fernseher. MirrorGo braucht kein Konto und lädt deine Fotos und Videos auf keinen Server.",
+  "privacy_link": "Datenschutzerklärung lesen →",
+  "guides_kicker": "Anleitungen",
+  "guides_h2": "Schritt für Schritt, für deinen Fernseher",
+  "guides_p": "So verbindest du dein iPhone, spiegelst den Bildschirm und streamst Fotos, Videos, YouTube und Live-TV – für jede Art von Fernseher.",
+  "n_guides": "{n} Anleitungen",
+  "all_guides": "Alle Anleitungen →",
+  "faq_kicker": "Fragen",
+  "faq_h2": "Häufige Fragen",
+  "all_help": "Alle Hilfethemen →",
+  "final_h2": "Bring dein iPhone auf den Fernseher",
+  "final_p": "Bildschirmspiegelung, Fotos, Videos, YouTube, Webvideos und Tausende Live-Sender. Eine App, jeder Fernseher.",
+  "app_icon_alt": "App-Symbol von MirrorGo",
+  "how_to_do_it": "So geht's",
+  "guide_phone_alt": "MirrorGo, bereit zum Spiegeln eines iPhones – {tv}",
+  "what_you_can_do": "{tv}: Das kannst du machen",
+  "questions": "Fragen",
+  "more_guides_for": "{tv}: weitere Anleitungen",
+  "other_tvs": "Andere Fernseher",
+  "status_ok": "Funktioniert",
+  "status_part": "Teilweise",
+  "status_not": "Nicht auf diesem Fernseher",
+  "howto_tool": "MirrorGo fürs iPhone",
+  "screen_mirroring": "Bildschirmspiegelung",
+  "step_by_step": "Schritt für Schritt",
+  "updated": "Aktualisiert: {date}",
+  "on_tv": "{tv}: So läuft es",
+  "good_to_know": "Gut zu wissen",
+  "more_for": "{tv}: mehr Anleitungen",
+  "topic_on_other_tvs": "{topic}: andere Fernseher",
+  "browser_code_alt": "Den smrr.tv-Code in MirrorGo eingeben",
+  "page_title": "{title} | MirrorGo",
+  "blog_h1": "Anleitungen",
+  "blog_lead": "Schritt-für-Schritt-Anleitungen für jede Art von Fernseher: iPhone verbinden, Bildschirm spiegeln und Fotos, Videos, Webbilder, YouTube, Webvideos und kostenloses Live-TV streamen.",
+  "blog_title": "Anleitungen: iPhone auf jeden TV spiegeln & streamen | MirrorGo",
+  "blog_description": "Schritt für Schritt: iPhone mit Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV oder einem Webbrowser verbinden und Fotos, Videos, YouTube und Live-TV streamen.",
+  "blog_collection": "MirrorGo-Anleitungen",
+  "by_brand": "Nach TV-Marke",
+  "brand_h1": "Spiegle dein iPhone auf einen {brand}-Fernseher",
+  "brand_title": "iPhone auf {brand}-Fernseher spiegeln: So geht's | MirrorGo",
+  "brand_description": "Spiegle dein iPhone auf einen {brand}-Fernseher und streame Fotos, Videos, YouTube und Live-TV mit MirrorGo. Funktioniert mit {systems}.",
+  "brand_step_1": "Finde heraus, welches System auf deinem {brand}-Fernseher läuft ({systems}): Das Logo siehst du auf dem Startbildschirm und auf der Fernbedienung.",
+  "brand_step_2": "Verbinde dein iPhone mit demselben WLAN wie den Fernseher.",
+  "brand_step_3": "Öffne MirrorGo, tippe auf „TV verbinden“ und wähle deinen Fernseher.",
+  "brand_step_4": "Öffne „Bildschirmspiegelung“ und tippe auf „Spiegelung starten“, dann auf {start}.",
+  "brand_phone_alt": "MirrorGo, bereit zum Spiegeln eines iPhones auf einen {brand}-Fernseher",
+  "brand_any_model": "Jedes Modell, über smrr.tv",
+  "brand_by_system": "{brand}-Fernseher nach System",
+  "help_crumb": "Hilfe",
+  "help_h1": "Hilfe & FAQ",
+  "help_lead": "Antworten auf die häufigsten Fragen. Kommst du nicht weiter? Schreib an {email} und nenn uns das Modell deines Fernsehers.",
+  "help_title": "MirrorGo-Hilfe: FAQ zu Bildschirmspiegelung & Streaming",
+  "help_description": "So verbindest du deinen Fernseher, spiegelst dein iPhone, löst Probleme mit nicht gefundenem TV, Ton, Verzögerung und schwarzem Bild und streamst Fotos, Videos, YouTube und IPTV.",
+  "nf_title": "Seite nicht gefunden | MirrorGo",
+  "nf_description": "Diese Seite gibt es nicht.",
+  "nf_h1": "Diese Seite ist nicht auf Sendung",
+  "nf_lead": "Der Link ist vielleicht veraltet. Versuch's mit der Startseite oder der Hilfe.",
+  "nf_home": "Startseite",
+  "nf_help": "Hilfe"
+ },
+ "site": {
+  "tagline": "Bildschirmspiegelung und Streaming fürs iPhone",
+  "one_liner": "MirrorGo ist eine iPhone-App, die deinen Bildschirm auf den Fernseher spiegelt und Fotos, Videos, deine Kamera, Webvideos, Live-TV-Sender und YouTube darauf streamt. Sie funktioniert mit Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV und jedem Webbrowser – und damit auch mit Sony, TCL, Hisense, Vizio, Philips und den meisten anderen Smart TVs, ohne dass du etwas auf dem Fernseher installieren musst.",
+  "start_sharing": "„Teilen starten“ (vor iOS 26: „Übertragung starten“)"
+ },
+ "tvs": {
+  "samsung": {
+   "name": "Samsung TV",
+   "short": "Samsung"
+  },
+  "lg": {
+   "name": "LG TV",
+   "short": "LG"
+  },
+  "roku": {
+   "name": "Roku"
+  },
+  "googletv": {
+   "name": "Google TV"
+  },
+  "androidtv": {
+   "name": "Android TV"
+  },
+  "chromecast": {
+   "name": "Chromecast"
+  },
+  "firetv": {
+   "name": "Fire TV"
+  },
+  "airplay": {
+   "name": "Apple TV & AirPlay",
+   "short": "AirPlay"
+  },
+  "browser": {
+   "name": "Jeder Webbrowser",
+   "short": "Browser"
+  }
+ },
+ "compat_rows": {
+  "screen-mirroring": "Bildschirmspiegelung",
+  "photos-videos": "Fotos & Videos",
+  "camera": "Kamera",
+  "web-videos": "Webvideos",
+  "iptv": "Live-TV-Sender (IPTV)",
+  "youtube": "YouTube",
+  "web-images": "Webbilder"
+ },
+ "compat_notes": {
+  "From Control Center": "Über das Kontrollzentrum",
+  "No sound": "Ohne Ton",
+  "With Screen Mirroring on": "Mit aktiver Bildschirmsynchronisierung"
+ },
+ "features": {
+  "screen-mirroring": {
+   "name": "Bildschirmspiegelung",
+   "short": "Dein ganzer iPhone-Bildschirm auf dem Fernseher, mit Ton, in jeder App."
+  },
+  "photos-videos": {
+   "name": "Fotos & Videos",
+   "short": "Deine Mediathek auf dem großen Bildschirm, Videos in voller Qualität, mit Diashow."
+  },
+  "camera": {
+   "name": "Kamera",
+   "short": "Zeig den Raum, ein Whiteboard oder dein Haustier live auf dem Fernseher, mit Front- oder Rückkamera."
+  },
+  "youtube": {
+   "name": "YouTube",
+   "short": "Der Fernseher spielt das Video selbst ab, in voller Qualität, ab der Stelle, an der du warst."
+  },
+  "web-videos": {
+   "name": "Webvideos",
+   "short": "Website öffnen, Video abspielen, auf „Auf TV streamen“ tippen. Werbung wird blockiert."
+  },
+  "iptv": {
+   "name": "Live-TV (IPTV)",
+   "short": "9.000+ kostenlose Sender aus 180+ Ländern, dazu deine eigenen M3U-Playlists."
+  },
+  "web-images": {
+   "name": "Webbilder",
+   "short": "Such kostenlose Bilder auf Wikimedia Commons und zeig sie im Vollbild."
+  },
+  "any-browser": {
+   "name": "Jeder Webbrowser",
+   "short": "Kein Fernseher gefunden? Öffne smrr.tv auf einem beliebigen Fernseher oder Computer und gib den Code ein."
+  }
+ },
+ "showcase": {
+  "screen-mirroring": {
+   "title": "Spiegle deinen iPhone-Bildschirm auf den Fernseher",
+   "text": "Alles auf deinem iPhone erscheint in Echtzeit auf dem Fernseher: Apps, Spiele, Fotos, Websites, Präsentationen. Einmal starten und dein iPhone ganz normal weiter nutzen – der Fernseher zieht mit.",
+   "points": [
+    "Funktioniert in jeder App und läuft weiter, wenn du die App wechselst",
+    "Der Ton deiner Apps kommt aus dem Fernseher, nie das Mikrofon",
+    "Qualität Hoch, Mittel oder Niedrig: schärfer oder flüssiger bei vollem WLAN",
+    "Automatisch drehen: Dreh das iPhone quer und der Fernseher zieht mit",
+    "Eine kurze Anleitung zeigt Schritt für Schritt, wie iOS die Spiegelung startet"
+   ],
+   "alts": [
+    "Der Bildschirm „Bildschirmspiegelung“ in MirrorGo mit den Einstellungen Qualität, Automatisch drehen und Ton",
+    "Die Anleitung in MirrorGo: So startet die Bildschirmspiegelung, in vier Schritten"
+   ]
+  },
+  "photos-videos": {
+   "title": "Deine Fotos und Videos auf dem großen Bildschirm",
+   "text": "Wähl ein Foto oder Video aus und schon ist es auf dem Fernseher. Wisch zum nächsten und der Fernseher zieht mit. Videos laufen in voller Qualität und mit Ton, gesteuert von deinem iPhone.",
+   "points": [
+    "Fotos in der Auflösung des Fernsehers, Videos in Originalqualität",
+    "Automatisch abspielen: als Diashow (5 bis 30 s pro Foto), Videos bis zum Ende, dann wiederholen",
+    "Abspielen, pausieren und spulen auf dem iPhone, der Fernseher spielt ab",
+    "4K- und HEVC-Videos: nur umgewandelt für Fernseher, die sie nicht abspielen können",
+    "Direkt vom iPhone über dein WLAN auf den Fernseher, nie hochgeladen"
+   ],
+   "alts": [
+    "Ein Foto aus der iPhone-Mediathek mit MirrorGo streamen"
+   ]
+  },
+  "iptv": {
+   "title": "Tausende kostenlose Live-TV-Sender",
+   "text": "Stöbere in kostenlosen, öffentlichen TV-Sendern nach Land oder Kategorie, von Nachrichten über Sport, Filme und Musik bis Kinderprogramm, und spiel sie mit einem Fingertipp auf deinem Fernseher ab. Du kannst auch deine eigenen M3U-Playlists hinzufügen.",
+   "points": [
+    "9.000+ Sender aus 180+ Ländern, in 29 Kategorien",
+    "Favoriten nur einen Fingertipp entfernt",
+    "Eigene M3U-Playlist-Links hinzufügen",
+    "Läuft weiter, wenn du dein iPhone sperrst oder eine andere App öffnest"
+   ],
+   "alts": [
+    "Der IPTV-Bildschirm in MirrorGo: Playlists, Kategorien und Länder",
+    "Live-TV-Sender aus den USA in MirrorGo"
+   ],
+   "footnote": "Die Sender stammen aus der öffentlichen iptv-org-Liste. Wie alle kostenlosen Streams sind manche zeitweise offline oder laufen nur in ihrem eigenen Land."
+  },
+  "web-videos": {
+   "title": "Videos von jeder Website streamen",
+   "text": "Öffne eine Website im privaten Browser von MirrorGo und spiel das Video ab: MirrorGo findet es und schickt es an den Fernseher, der es in voller Qualität abspielt, während du weitersurfst.",
+   "points": [
+    "Beliebige Website öffnen, Video abspielen, auf „Auf TV streamen“ tippen",
+    "Erkennt das echte Video statt der Werbung und blockiert Werbenetzwerke",
+    "Macht dort weiter, wo du auf der Seite warst",
+    "Privates Surfen: Verlauf, Cookies und Cache werden nicht gespeichert"
+   ],
+   "alts": [
+    "Der Webvideo-Browser von MirrorGo mit beliebten Websites"
+   ]
+  },
+  "youtube": {
+   "title": "YouTube auf deinem Fernseher, abgespielt vom Fernseher",
+   "text": "Such ein Video in MirrorGo, nach Thema oder per Suche, und tippe auf „Auf TV streamen“. Der Fernseher spielt das Video selbst ab, in voller Qualität, ab der Stelle, an der du warst.",
+   "points": [
+    "Nach Thema stöbern (Musik, Nachrichten, Sport, Live) oder suchen",
+    "Öffnet sich auf Samsung und LG in der YouTube-App des Fernsehers",
+    "Läuft auch auf Roku, Google TV, Android TV, Chromecast und in Webbrowsern",
+    "Läuft weiter, wenn du den Bildschirm verlässt"
+   ],
+   "alts": [
+    "YouTube mit MirrorGo auf einen Fernseher streamen"
+   ]
+  },
+  "web-images": {
+   "title": "Schöne kostenlose Bilder im Vollbild",
+   "text": "Such kostenlose Bilder auf Wikimedia Commons (Landschaften, Weltraum, Städte, Kunst) und zeig sie in voller Auflösung auf dem Fernseher, einzeln oder als Diashow.",
+   "points": [
+    "Millionen kostenlose, frei lizenzierte Bilder",
+    "Diashow mit deinem eigenen Tempo",
+    "Urheber und Lizenz bei jedem Bild"
+   ],
+   "alts": [
+    "Eine Landschaft von Wikimedia Commons, bereit zum Streamen mit MirrorGo"
+   ]
+  },
+  "any-browser": {
+   "title": "Keine Smart-TV-App? Nimm einfach einen Webbrowser",
+   "text": "Jeder Fernseher, Computer oder jedes Tablet mit Webbrowser kann dein iPhone zeigen, auch einer, den MirrorGo nicht findet. Öffne dort smrr.tv und gib den 6-stelligen Code ein, der angezeigt wird, oder scanne den QR-Code.",
+   "points": [
+    "Funktioniert auf Smart TVs, PCs, Macs und Tablets",
+    "Das Video geht direkt über dein WLAN, mit Ton",
+    "Bei LG- und Samsung-Fernsehern in der Nähe öffnet MirrorGo den Browser des Fernsehers für dich"
+   ],
+   "alts": [
+    "Den smrr.tv-Code in MirrorGo eingeben, um auf einen Webbrowser zu spiegeln"
+   ]
+  }
+ },
+ "steps": [
+  [
+   "Ins selbe WLAN",
+   "Verbinde dein iPhone mit demselben WLAN wie deinen Fernseher. Keine Kabel, keine TV-App."
+  ],
+  [
+   "Fernseher wählen",
+   "MirrorGo findet die Fernseher in deiner Nähe. Tippe auf deinen; auf LG- und Samsung-Fernsehern wählst du einmal „Zulassen“."
+  ],
+  [
+   "Spiegeln oder streamen",
+   "Starte die Bildschirmspiegelung oder öffne Fotos, Videos, YouTube, eine Website oder einen TV-Sender."
+  ]
+ ],
+ "privacy_points": [
+  [
+   "Kein Konto",
+   "Keine Registrierung. App öffnen und verbinden."
+  ],
+  [
+   "Bleibt in deinem WLAN",
+   "Fotos, Videos und dein Bildschirm gehen direkt von deinem iPhone zu deinem Fernseher. Sie werden nirgendwo hochgeladen."
+  ],
+  [
+   "Nur App-Ton",
+   "Bei der Spiegelung wird der Ton deiner Apps übertragen, nie dein Mikrofon."
+  ],
+  [
+   "Privates Surfen",
+   "Webvideos speichert keinen Verlauf, keine Cookies und keinen Cache."
+  ]
+ ],
+ "quick_facts": [
+  [
+   "Was es ist",
+   "Eine iPhone-App, die den Bildschirm spiegelt und Fotos, Videos, die Kamera, Webvideos, Live-TV und YouTube auf einen Fernseher streamt."
+  ],
+  [
+   "Funktioniert mit",
+   "Samsung (ab 2016), LG webOS, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV und AirPlay-Fernsehern sowie jedem Webbrowser über smrr.tv."
+  ],
+  [
+   "Auf dem Fernseher",
+   "Nichts zu installieren. iPhone und Fernseher müssen nur im selben WLAN sein."
+  ],
+  [
+   "iPhone",
+   "iOS 16.6 oder neuer."
+  ],
+  [
+   "Ton",
+   "Ja, der Ton deiner Apps (die Bildschirmspiegelung auf Fire TV und manche ältere LG-Fernseher zeigt nur das Bild)."
+  ],
+  [
+   "Datenschutz",
+   "Kein Konto. Dein Bildschirm, deine Fotos und Videos gehen über dein WLAN direkt vom iPhone zum Fernseher."
+  ]
+ ],
+ "airplay_compare": [
+  "Apple TV und AirPlay-Fernseher",
+  "Samsung-, LG- und Roku-Fernseher ohne AirPlay",
+  "Chromecast, Google TV und Android TV",
+  "Amazon Fire TV",
+  "Jeder Fernseher oder Computer mit Webbrowser",
+  "9.000+ kostenlose Live-TV-Sender"
+ ],
+ "faq_sections": [
+  "Erste Schritte",
+  "Verbinden",
+  "Bildschirmspiegelung",
+  "Streamen",
+  "Berechtigungen",
+  "Sonstiges"
+ ],
+ "faq": {
+  "tvs": {
+   "q": "Mit welchen Fernsehern funktioniert MirrorGo?",
+   "a": "Mit den meisten Smart TVs und Streaming-Sticks. Auf dem Fernseher muss nichts installiert werden.",
+   "ul": [
+    "Samsung Smart TVs (ab 2016)",
+    "LG Smart TVs (webOS)",
+    "Roku TVs und Roku Streaming-Player",
+    "Google TV, Android TV und Chromecast",
+    "Amazon Fire TV: Sticks, Cube und Fire TV Smart TVs",
+    "Apple TV und AirPlay-Fernseher",
+    "Jeder andere Fernseher, Computer oder jedes Tablet mit Webbrowser, über smrr.tv"
+   ]
+  },
+  "connect": {
+   "q": "Wie verbinde ich mich mit meinem Fernseher?",
+   "a": "Schalte den Fernseher ein und achte darauf, dass er im selben WLAN ist wie dein iPhone. Dann:",
+   "ol": [
+    "Tippe auf dem Startbildschirm auf „TV verbinden“ oder oben auf einem beliebigen Bildschirm auf die TV-Taste.",
+    "Wähle deinen Fernseher aus der Liste.",
+    "LG- und Samsung-Fernseher fragen beim ersten Mal nach: Wähle mit der Fernbedienung „Zulassen“ auf dem Fernseher."
+   ],
+   "note": "MirrorGo merkt sich deinen Fernseher und verbindet sich beim nächsten Mal wieder mit ihm."
+  },
+  "notFound": {
+   "q": "Mein Fernseher ist nicht in der Liste",
+   "a": "MirrorGo findet Fernseher in deinem WLAN. Fehlt einer, liegt es meist an einem dieser Punkte:",
+   "ul": [
+    "iPhone und Fernseher sind in verschiedenen Netzwerken. Nutze dasselbe WLAN, kein Gastnetzwerk.",
+    "Der Zugriff auf das lokale Netzwerk ist für MirrorGo aus. Dann verbirgt iOS alle Fernseher vor der App.",
+    "Ein VPN ist aktiv. Schalte es aus, während du streamst.",
+    "Der Fernseher ist im Standby oder hängt. Schalte ihn ganz ein oder starte ihn und deinen Router neu."
+   ],
+   "note": "Fehlt er immer noch? Jeder Fernseher mit Webbrowser funktioniert über smrr.tv: siehe „Wie spiegle ich auf einen Webbrowser?“"
+  },
+  "allow": {
+   "q": "Mein Fernseher lässt MirrorGo nicht verbinden",
+   "a": "LG- und Samsung-Fernseher fragen, bevor ein Smartphone sie steuern darf. Wenn sich MirrorGo zum ersten Mal verbindet, erscheint auf dem Fernseher eine Meldung: Wähle mit der Fernbedienung „Zulassen“. Danach wird nicht mehr gefragt.",
+   "ul": [
+    "LG: Meldung verpasst oder „Ablehnen“ gewählt? Verbinde dich erneut, dann fragt der Fernseher noch einmal.",
+    "Samsung: „Ablehnen“ gewählt? Das merkt sich der Fernseher. Öffne auf dem Fernseher Einstellungen › Allgemein › Externe Geräteverwaltung › Geräteverbindungs-Manager › Geräteliste und lass MirrorGo dort zu oder lösche es, damit der Fernseher erneut fragt.",
+    "Ältere LG-Fernseher: Schalte LG Connect Apps in den Netzwerkeinstellungen des Fernsehers ein."
+   ]
+  },
+  "lost": {
+   "q": "Die Verbindung bricht immer wieder ab",
+   "a": "iOS trennt die Verbindung von MirrorGo zum Fernseher, während die App im Hintergrund ist, und auch ein kurzer WLAN-Aussetzer kann sie trennen. MirrorGo verbindet sich nach ein paar Sekunden von selbst wieder, und die Bildschirmspiegelung läuft in der Zwischenzeit weiter.",
+   "ul": [
+    "Du siehst „Verbindung verloren“? Prüfe, ob der Fernseher eingeschaltet und im selben WLAN ist, und tippe dann auf „Erneut versuchen“.",
+    "Bei schwachem Signal bricht die Verbindung öfter ab: Halte iPhone und Fernseher in der Nähe des Routers."
+   ]
+  },
+  "browser": {
+   "q": "Wie spiegle ich auf einen Webbrowser?",
+   "a": "Jeder Fernseher, Computer oder jedes Tablet mit Webbrowser kann deinen Bildschirm zeigen, auch wenn MirrorGo es nicht als Fernseher findet.",
+   "ol": [
+    "Öffne smrr.tv in dessen Webbrowser. Die Seite zeigt einen 6-stelligen Code.",
+    "Öffne in MirrorGo die TV-Liste und tippe auf „Browser (smrr.tv)“.",
+    "Gib den Code ein oder scanne den QR-Code auf der Seite."
+   ],
+   "note": "Lass die Seite geöffnet, solange du spiegelst. iPhone und Browser müssen im selben WLAN sein. Bei einem LG- oder Samsung-Fernseher in der Nähe öffnet „Öffnen auf …“ den Browser des Fernsehers für dich."
+  },
+  "mirror": {
+   "q": "Wie spiegle ich meinen Bildschirm?",
+   "ol": [
+    "Verbinde deinen Fernseher und öffne dann „Bildschirmspiegelung“.",
+    "Tippe auf „Spiegelung starten“. iOS fragt nach einer Bestätigung: Tippe auf „Teilen starten“ (vor iOS 26: „Übertragung starten“).",
+    "Tippe nach dem 3-Sekunden-Countdown außerhalb des Fensters, um es zu schließen.",
+    "Warte 5–10 Sekunden auf den Fernseher. Nicht stoppen und neu starten: Dann beginnt alles von vorn."
+   ],
+   "note": "Zum Beenden tippst du auf „Spiegelung beenden“ oder auf die rote Anzeige oben auf deinem Bildschirm."
+  },
+  "airPlay": {
+   "q": "Wie spiegle ich auf ein Apple TV oder einen AirPlay-Fernseher?",
+   "a": "iOS spiegelt selbst auf AirPlay-Geräte. Deshalb startest du es im Kontrollzentrum, nicht in einer App:",
+   "ol": [
+    "Streich von der oberen rechten Ecke nach unten, um das Kontrollzentrum zu öffnen.",
+    "Tippe auf „Bildschirmsynchronisierung“.",
+    "Wähle dein Apple TV oder deinen AirPlay-Fernseher."
+   ],
+   "note": "Zum Beenden tippst du erneut auf „Bildschirmsynchronisierung“ und dann auf „Synchronisierung beenden“."
+  },
+  "nothingShows": {
+   "q": "Die Spiegelung läuft, aber der Fernseher zeigt nichts",
+   "ul": [
+    "Gib dem Fernseher bis zu 10 Sekunden. Stoppen und neu starten fängt nur wieder von vorn an.",
+    "Prüfe, ob es der richtige Fernseher ist: Sein Name steht oben in „Bildschirmspiegelung“.",
+    "Du spiegelst auf einen Webbrowser? Lass smrr.tv dort geöffnet, im selben WLAN wie dein iPhone.",
+    "Immer noch nichts? Beende die Spiegelung, starte den Fernseher neu, verbinde dich erneut und starte noch einmal."
+   ]
+  },
+  "black": {
+   "q": "Manche Apps zeigen nur ein schwarzes Bild",
+   "a": "Netflix, Prime Video, Disney+ und andere Streaming-Apps schützen ihre Videos, deshalb sendet iOS stattdessen ein schwarzes Bild. Das kann keine Spiegelungs-App umgehen.",
+   "note": "Nutze die eigene Streaming-Taste der App, falls sie eine hat. Für YouTube öffnest du YouTube in MirrorGo: Der Fernseher spielt das Video dann selbst ab."
+  },
+  "sound": {
+   "q": "Auf dem Fernseher kommt kein Ton",
+   "ul": [
+    "Prüfe, ob „Ton“ in „Bildschirmspiegelung“ eingeschaltet und der Fernseher nicht stummgeschaltet ist.",
+    "MirrorGo überträgt den Ton deiner Apps, nie das Mikrofon.",
+    "Fire TV und manche ältere LG-Fernseher zeigen das Bild ohne Ton.",
+    "Manche Apps lassen nicht zu, dass ihr Ton aufgenommen wird. Er bleibt dann auf dem iPhone."
+   ]
+  },
+  "lag": {
+   "q": "Die Spiegelung ruckelt oder ist unscharf",
+   "a": "Die Spiegelung läuft immer etwas hinter deinem iPhone her. Wie viel, hängt vom Fernseher und deinem WLAN ab.",
+   "ul": [
+    "Wähl vor dem Start eine niedrigere „Qualität“ für ein flüssigeres Bild oder eine höhere für ein schärferes.",
+    "Geh näher an den Router oder nutze sein 5-GHz-Netz.",
+    "Du schaust ein Video? Streame es stattdessen (Galerie, Webvideos, YouTube): Der Fernseher spielt es in voller Qualität ab, mit synchronem Ton."
+   ]
+  },
+  "whatCast": {
+   "q": "Was kann ich außer meinem Bildschirm noch streamen?",
+   "a": "Fotos und Videos aus deiner Galerie, deine Kamera, Videos und Bilder aus dem Web, TV-Sender (IPTV) und YouTube. Nicht jeder Fernseher spielt alles ab: Auf dem Startbildschirm ist ausgegraut, was dein Fernseher nicht abspielen kann.",
+   "ul": [
+    "YouTube läuft nicht auf Fire TV und nicht über AirPlay.",
+    "Über AirPlay braucht die Kamera eine aktive Bildschirmsynchronisierung im Kontrollzentrum.",
+    "Fire TV und AirPlay zeigen die Kamera ohne Ton."
+   ]
+  },
+  "lgCheck": {
+   "q": "Mein LG-Fernseher fragt „Läuft es auf deinem Fernseher?“",
+   "a": "Auf LG-Fernsehern spielt MirrorGo Fotos, Videos und Sender zuerst im Webbrowser des Fernsehers ab, der am meisten abspielen kann. Nach ein paar Sekunden fragt es, ob es funktioniert:",
+   "ul": [
+    "Ja: Alles läuft weiter, auf diesem Bildschirm wird nicht mehr gefragt.",
+    "Nein: MirrorGo schließt den Browser, spielt es stattdessen mit dem eigenen Player des Fernsehers ab und fragt noch einmal.",
+    "Funktioniert es immer noch nicht? Tippe auf „Support per E-Mail“ und nenn uns das Modell deines Fernsehers."
+   ]
+  },
+  "webVideo": {
+   "q": "Ein Webvideo lässt sich nicht streamen",
+   "ul": [
+    "Spiel das Video zuerst auf der Seite ab: „Auf TV streamen“ wird aktiv, sobald MirrorGo es findet.",
+    "Mehrere gefunden? Wähl das richtige aus der Liste („1 von 3“).",
+    "Sehr kurze Clips werden nicht gestreamt, damit keine Werbung auf dem Fernseher landet.",
+    "Manche Websites schützen ihre Videos, so wie Netflix. Die lassen sich nicht streamen.",
+    "Lass MirrorGo geöffnet, während es läuft: Das Video geht über dein iPhone."
+   ]
+  },
+  "iptv": {
+   "q": "Ein TV-Sender läuft nicht",
+   "a": "Die Sender sind kostenlose öffentliche Streams. Manche sind gerade offline oder laufen nur in ihrem eigenen Land. Startet einer nicht, probier einen anderen.",
+   "note": "Sender laufen weiter, wenn du die Liste verlässt oder dein iPhone sperrst. Stoppen kannst du sie über die Leiste unten auf dem Startbildschirm."
+  },
+  "background": {
+   "q": "Kann ich mein iPhone beim Streamen nutzen?",
+   "ul": [
+    "Bildschirmspiegelung: ja. Alles auf deinem Bildschirm erscheint auf dem Fernseher, in jeder App.",
+    "TV-Sender und YouTube laufen auf dem Fernseher weiter, wenn du sie verlässt.",
+    "Galerie, Kamera und Webvideos stoppen, wenn du ihren Bildschirm schließt."
+   ]
+  },
+  "localNetwork": {
+   "q": "Warum braucht MirrorGo Zugriff auf das lokale Netzwerk?",
+   "a": "MirrorGo spricht über dein WLAN mit deinem Fernseher, und iOS erlaubt das nur mit Zugriff auf das lokale Netzwerk. Ohne ihn lässt sich kein Fernseher finden und nichts streamen. Er wird nur für Geräte in deinem eigenen Netzwerk genutzt.",
+   "ol": [
+    "Tippe auf „Einstellungen öffnen“",
+    "Schalte „Lokales Netzwerk“ ein",
+    "Kehr zu MirrorGo zurück"
+   ]
+  },
+  "permissions": {
+   "q": "Wofür braucht MirrorGo Fotos, Kamera und Mikrofon?",
+   "ul": [
+    "Fotos: um deine Fotos und Videos anzuzeigen und zu streamen. Bei eingeschränktem Zugriff erscheinen nur die, die du ausgewählt hast.",
+    "Kamera: um deine Kamera zu streamen und den Code auf smrr.tv zu scannen.",
+    "Mikrofon: für den Ton, wenn du deine Kamera streamst."
+   ],
+   "note": "Deine Fotos und Videos gehen über dein WLAN direkt von deinem iPhone zum Fernseher. Sie werden nirgendwo hochgeladen."
+  },
+  "denied": {
+   "q": "Ich habe eine Berechtigung abgelehnt. Wie schalte ich sie ein?",
+   "a": "iOS fragt nur einmal. Um deine Antwort zu ändern, öffne „Einstellungen“, tippe auf „MirrorGo“ und schalte „Lokales Netzwerk“, „Fotos“, „Kamera“ oder „Mikrofon“ ein."
+  },
+  "problem": {
+   "q": "Etwas anderes funktioniert nicht",
+   "a": "Aktualisiere MirrorGo auf die neueste Version und starte den Fernseher neu. Hilft das nicht, tippe in der Hilfe der App auf „Kontakt“. Die E-Mail enthält schon deine App-Version, deine iOS-Version, dein iPhone-Modell und die Art deines Fernsehers; bitte ergänze das Modell deines Fernsehers."
+  }
+ },
+ "brands": {
+  "sony": {
+   "about": "Sony BRAVIA-Fernseher laufen seit 2015 mit Android TV und seit 2021 mit Google TV, mit integriertem Chromecast. Viele aktuelle BRAVIA-Modelle unterstützen auch AirPlay.",
+   "which": "Auf einem BRAVIA mit Google TV oder Android TV findet MirrorGo den Fernseher unter seinem Namen in deinem WLAN und kann alles nutzen: Bildschirmspiegelung, Fotos und Videos, YouTube, Live-TV und mehr."
+  },
+  "tcl": {
+   "about": "TCL baut Fernseher mit verschiedenen Systemen: Google TV (bei älteren Modellen Android TV), Roku TV und bei manchen Modellen Fire TV. Das Logo des Systems siehst du auf dem Startbildschirm und auf der Fernbedienung.",
+   "which": "Egal, welches System dein TCL hat: MirrorGo verbindet sich immer gleich. Selbes WLAN, auf „TV verbinden“ tippen, Fernseher aus der Liste wählen."
+  },
+  "hisense": {
+   "about": "Hisense-Fernseher laufen je nach Modell und Land mit VIDAA, Google TV / Android TV, Roku TV oder Fire TV.",
+   "which": "Modelle mit Google TV, Android TV, Roku TV und Fire TV erscheinen in der TV-Liste von MirrorGo. Auf einem VIDAA-Modell öffnest du smrr.tv im Webbrowser des Fernsehers und spiegelst dort mit dem angezeigten Code."
+  },
+  "vizio": {
+   "about": "VIZIO SmartCast-Fernseher haben Chromecast integriert, viele unterstützen auch AirPlay.",
+   "which": "MirrorGo findet einen SmartCast-Fernseher über seinen integrierten Chromecast. So kannst du deinen Bildschirm spiegeln und Fotos, Videos, YouTube und Live-TV darauf streamen."
+  },
+  "philips": {
+   "about": "Viele Philips-Fernseher laufen mit Google TV oder Android TV und haben Chromecast integriert; andere laufen mit Titan OS oder Saphi.",
+   "which": "Modelle mit Google TV und Android TV erscheinen in der TV-Liste von MirrorGo. Auf anderen Modellen öffnest du smrr.tv im Webbrowser des Fernsehers und spiegelst dort mit dem angezeigten Code."
+  },
+  "xiaomi": {
+   "about": "Xiaomi-Fernseher, die Mi Box und der Xiaomi TV Stick laufen mit Google TV oder Android TV und haben Chromecast integriert.",
+   "which": "MirrorGo findet sie in deinem WLAN und kann alles nutzen: Bildschirmspiegelung, Fotos und Videos, YouTube, Live-TV und mehr."
+  },
+  "toshiba": {
+   "about": "Toshiba Smart TVs laufen in den USA mit Fire TV und anderswo mit anderen Systemen, etwa Android TV oder VIDAA.",
+   "which": "Modelle mit Fire TV und Android TV erscheinen in der TV-Liste von MirrorGo. Auf anderen Modellen öffnest du smrr.tv im Webbrowser des Fernsehers und spiegelst dort mit dem angezeigten Code."
+  },
+  "panasonic": {
+   "about": "Aktuelle Panasonic-Fernseher laufen mit Fire TV, ältere mit Panasonics eigenem my Home Screen.",
+   "which": "Modelle mit Fire TV erscheinen in der TV-Liste von MirrorGo. Auf einem Modell mit my Home Screen öffnest du smrr.tv im Webbrowser des Fernsehers und spiegelst dort mit dem angezeigten Code."
+  }
+ },
+ "guides": {
+  "samsung": {
+   "title": "iPhone auf Samsung-Fernseher spiegeln (ohne Kabel, ohne TV-App)",
+   "description": "Spiegle deinen iPhone-Bildschirm mit MirrorGo per WLAN auf einen Samsung Smart TV und streame Fotos, Videos, YouTube und Live-TV. Für Samsung-Fernseher ab 2016, ohne Installation auf dem TV.",
+   "h1": "Spiegle dein iPhone auf einen Samsung-Fernseher",
+   "lead": "MirrorGo zeigt deinen iPhone-Bildschirm über dein WLAN auf Samsung Smart TVs (Tizen, ab 2016). Auf dem Fernseher musst du nichts installieren: Er spielt alles im eigenen Player ab, mit Ton.",
+   "steps": [
+    "Schalte deinen Samsung-Fernseher ein und verbinde dein iPhone mit demselben WLAN.",
+    "Öffne MirrorGo, tippe auf „TV verbinden“ und wähle deinen Samsung-Fernseher.",
+    "Wähle beim ersten Mal mit der Fernbedienung „Zulassen“ auf dem Fernseher.",
+    "Öffne „Bildschirmspiegelung“, tippe auf „Spiegelung starten“ und dann auf „Teilen starten“ (vor iOS 26: „Übertragung starten“). Nach 5–10 Sekunden ist dein Bildschirm auf dem Fernseher."
+   ],
+   "features": [
+    [
+     "Bildschirmspiegelung",
+     "Mit Ton; Einstellungen für Qualität, Ton und Automatisch drehen"
+    ],
+    [
+     "Fotos & Videos",
+     "Vom Fernseher abgespielt, auch 4K und HEVC, wenn der Fernseher sie unterstützt"
+    ],
+    [
+     "Kamera",
+     "Mit Ton"
+    ],
+    [
+     "YouTube",
+     "Öffnet sich in der YouTube-App des Fernsehers"
+    ],
+    [
+     "Webvideos",
+     null
+    ],
+    [
+     "Live-TV-Sender",
+     null
+    ],
+    [
+     "Webbilder",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Welche Samsung-Fernseher funktionieren?",
+     [
+      "Samsung Smart TVs mit Tizen ab den Modellen von 2016, etwa die Serien Crystal UHD, QLED, Neo QLED, OLED und The Frame. MirrorGo findet sie von selbst in deinem WLAN, ohne App auf dem Fernseher.",
+      "Viele Samsung-Fernseher ab 2018 unterstützen auch AirPlay. MirrorGo funktioniert mit und ohne AirPlay und bringt zusätzlich Videos von Websites, Live-TV-Sender und YouTube auf den Fernseher."
+     ]
+    ],
+    [
+     "Wenn der Fernseher MirrorGo nicht verbinden lässt",
+     [
+      "Samsung-Fernseher fragen, bevor ein Smartphone sie steuern darf. Hast du „Ablehnen“ gewählt, merkt sich der Fernseher das: Öffne auf dem Fernseher Einstellungen › Allgemein › Externe Geräteverwaltung › Geräteverbindungs-Manager › Geräteliste und lass MirrorGo dort zu oder lösche es, damit der Fernseher erneut fragt."
+     ]
+    ],
+    [
+     "Flüssigere Spiegelung",
+     [
+      "Die Spiegelung läuft immer etwas hinter deinem iPhone her, bei vollem WLAN mehr. Wähl eine niedrigere Qualität für ein flüssigeres Bild, halte das iPhone in der Nähe des Routers oder streame Videos, statt sie zu spiegeln: Dann spielt der Fernseher sie in voller Qualität ab, mit synchronem Ton."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Muss ich eine App auf meinem Samsung-Fernseher installieren?",
+     "Nein. MirrorGo nutzt, was in Samsung Smart TVs schon eingebaut ist: den Mediaplayer des Fernsehers und seine Fernsteuerungs-Verbindung. Du installierst MirrorGo nur auf deinem iPhone."
+    ],
+    [
+     "Gibt es Ton, wenn ich mein iPhone auf einen Samsung-Fernseher spiegle?",
+     "Ja. Der Ton deiner Apps geht mit dem Bild an den Fernseher; schalte dazu „Ton“ in „Bildschirmspiegelung“ ein. MirrorGo überträgt nie dein Mikrofon."
+    ],
+    [
+     "Kann ich Netflix oder Disney+ auf meinen Samsung-Fernseher spiegeln?",
+     "Das kann keine Spiegelungs-App: Streaming-Apps schützen ihre Videos, und iOS sendet stattdessen ein schwarzes Bild. Nutze die eigene Streaming-Taste der App oder ihre App auf dem Fernseher."
+    ]
+   ]
+  },
+  "lg": {
+   "title": "iPhone auf LG-Fernseher spiegeln (webOS, ohne Kabel)",
+   "description": "Spiegle dein iPhone mit MirrorGo per WLAN auf einen LG Smart TV (webOS) und streame Fotos, Videos, YouTube und Live-TV-Sender. Keine App auf dem Fernseher nötig.",
+   "h1": "Spiegle dein iPhone auf einen LG-Fernseher",
+   "lead": "MirrorGo zeigt deinen iPhone-Bildschirm über dein WLAN auf LG Smart TVs (webOS). Auf neueren LG-Fernsehern nutzt es LGs eigene Bildschirmfreigabe, ältere zeigen deinen Bildschirm im Webbrowser des Fernsehers. Nichts zu installieren.",
+   "steps": [
+    "Schalte deinen LG-Fernseher ein und verbinde dein iPhone mit demselben WLAN.",
+    "Öffne MirrorGo, tippe auf „TV verbinden“ und wähle deinen LG-Fernseher.",
+    "Wähle beim ersten Mal mit der Fernbedienung „Zulassen“ auf dem Fernseher.",
+    "Öffne „Bildschirmspiegelung“, tippe auf „Spiegelung starten“ und dann auf „Teilen starten“ (vor iOS 26: „Übertragung starten“). Nach 5–10 Sekunden ist dein Bildschirm auf dem Fernseher."
+   ],
+   "features": [
+    [
+     "Bildschirmspiegelung",
+     "Mit Ton auf den meisten LG-Fernsehern (manche ältere zeigen nur das Bild)"
+    ],
+    [
+     "Fotos & Videos",
+     null
+    ],
+    [
+     "Kamera",
+     null
+    ],
+    [
+     "YouTube",
+     "Öffnet sich in der YouTube-App des Fernsehers"
+    ],
+    [
+     "Webvideos",
+     null
+    ],
+    [
+     "Live-TV-Sender",
+     null
+    ],
+    [
+     "Webbilder",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Welche LG-Fernseher funktionieren?",
+     [
+      "LG Smart TVs mit webOS. Ab webOS 22 nutzt MirrorGo LGs eigene Bildschirmfreigabe (LG Cast). Ältere LG-Fernseher ab webOS 4 (2018) zeigen deinen Bildschirm im Webbrowser des Fernsehers, den MirrorGo für dich öffnet."
+     ]
+    ],
+    [
+     "Wenn der Fernseher MirrorGo nicht verbinden lässt",
+     [
+      "LG-Fernseher fragen, bevor ein Smartphone sie steuern darf. Meldung verpasst oder „Ablehnen“ gewählt? Verbinde dich erneut, dann fragt der Fernseher noch einmal. Auf älteren LG-Fernsehern schaltest du LG Connect Apps in den Netzwerkeinstellungen des Fernsehers ein."
+     ]
+    ],
+    [
+     "„Läuft es auf deinem Fernseher?“",
+     [
+      "Auf LG-Fernsehern spielt MirrorGo Fotos, Videos und Sender zuerst im Webbrowser des Fernsehers ab, der am meisten abspielen kann. Nach ein paar Sekunden fragt es, ob es funktioniert. Tippst du auf „Nein“, wechselt es stattdessen zum eigenen Player des Fernsehers."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Muss ich eine App auf meinem LG-Fernseher installieren?",
+     "Nein. MirrorGo nutzt, was in LG webOS-Fernsehern schon eingebaut ist: LGs Bildschirmfreigabe, den Webbrowser des Fernsehers und seinen Mediaplayer. Du installierst MirrorGo nur auf deinem iPhone."
+    ],
+    [
+     "Warum gibt mein LG-Fernseher beim Spiegeln keinen Ton aus?",
+     "Die meisten LG-Fernseher geben den Ton deiner Apps wieder. Manche ältere Modelle zeigen das Bild ohne Ton; um dort ein Video mit Ton zu schauen, streame es (Fotos & Videos, Webvideos oder YouTube), statt es zu spiegeln."
+    ],
+    [
+     "Funktioniert MirrorGo mit LG-Fernsehern ohne AirPlay?",
+     "Ja. MirrorGo braucht kein AirPlay: Es funktioniert mit LG webOS-Fernsehern ab 2018."
+    ]
+   ]
+  },
+  "roku": {
+   "title": "iPhone auf Roku TV oder Roku-Player spiegeln: So geht's",
+   "description": "Spiegle deinen iPhone-Bildschirm mit MirrorGo auf einen Roku TV, Roku Streaming Stick oder Roku Ultra und streame Fotos, Videos, YouTube und Live-TV per WLAN. Ohne Kabel.",
+   "h1": "Spiegle dein iPhone auf einen Roku",
+   "lead": "MirrorGo zeigt deinen iPhone-Bildschirm über dein WLAN auf Roku TVs (TCL, Hisense, Sharp und andere Roku-TV-Modelle) und Roku Streaming-Playern.",
+   "steps": [
+    "Schalte den Roku ein und verbinde dein iPhone mit demselben WLAN.",
+    "Öffne MirrorGo, tippe auf „TV verbinden“ und wähle deinen Roku.",
+    "Öffne „Bildschirmspiegelung“, tippe auf „Spiegelung starten“ und dann auf „Teilen starten“ (vor iOS 26: „Übertragung starten“).",
+    "Nach ein paar Sekunden ist dein Bildschirm auf dem Fernseher."
+   ],
+   "features": [
+    [
+     "Bildschirmspiegelung",
+     "Mit Ton"
+    ],
+    [
+     "Fotos & Videos",
+     null
+    ],
+    [
+     "Kamera",
+     null
+    ],
+    [
+     "YouTube",
+     null
+    ],
+    [
+     "Webvideos",
+     null
+    ],
+    [
+     "Live-TV-Sender",
+     null
+    ],
+    [
+     "Webbilder",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Welche Rokus funktionieren?",
+     [
+      "Roku TVs von TCL, Hisense, Sharp, Philips, Westinghouse und anderen sowie Roku Streaming-Player: Roku Express, Streaming Stick und Ultra. MirrorGo findet sie in deinem WLAN."
+     ]
+    ],
+    [
+     "Wenn dein Roku nicht in der Liste ist",
+     [
+      "Achte darauf, dass iPhone und Roku im selben WLAN sind (kein Gastnetzwerk), dass MirrorGo in den Einstellungen Zugriff auf das lokale Netzwerk hat und dass kein VPN aktiv ist. Prüfe auf dem Roku, ob unter Einstellungen › System › Erweiterte Systemeinstellungen › Steuerung durch mobile Apps (Control by mobile apps) der Zugriff erlaubt ist."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Muss ich etwas auf meinem Roku installieren?",
+     "Nein. Du installierst MirrorGo nur auf deinem iPhone; der Roku muss nur eingeschaltet und im selben WLAN sein."
+    ],
+    [
+     "Kann ich mein iPhone ohne AirPlay auf einen Roku spiegeln?",
+     "Ja. MirrorGo nutzt kein AirPlay und funktioniert deshalb auch mit Rokus, die es nicht unterstützen."
+    ]
+   ]
+  },
+  "googletv": {
+   "title": "iPhone auf Google TV spiegeln: So geht's",
+   "description": "Spiegle dein iPhone mit MirrorGo auf ein Google TV (Sony, TCL, Hisense, Philips, Chromecast mit Google TV, Google TV Streamer) und streame Fotos, Videos, YouTube und Live-TV.",
+   "h1": "Spiegle dein iPhone auf Google TV",
+   "lead": "MirrorGo zeigt deinen iPhone-Bildschirm auf Google TV: auf Fernsehern von Sony, TCL, Hisense, Philips und anderen, auf dem Chromecast mit Google TV und dem Google TV Streamer. Auf dem Fernseher musst du nichts installieren.",
+   "steps": [
+    "Schalte den Fernseher ein und verbinde dein iPhone mit demselben WLAN.",
+    "Öffne MirrorGo, tippe auf „TV verbinden“ und wähle dein Google TV.",
+    "Öffne „Bildschirmspiegelung“, tippe auf „Spiegelung starten“ und dann auf „Teilen starten“ (vor iOS 26: „Übertragung starten“).",
+    "Nach ein paar Sekunden ist dein Bildschirm auf dem Fernseher."
+   ],
+   "features": [
+    [
+     "Bildschirmspiegelung",
+     "Mit Ton"
+    ],
+    [
+     "Fotos & Videos",
+     null
+    ],
+    [
+     "Kamera",
+     "Mit Ton"
+    ],
+    [
+     "YouTube",
+     "Vom Fernseher abgespielt, ab der Stelle, an der du warst"
+    ],
+    [
+     "Webvideos",
+     null
+    ],
+    [
+     "Live-TV-Sender",
+     "Laufen ohne das iPhone weiter"
+    ],
+    [
+     "Webbilder",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Welche Fernseher laufen mit Google TV?",
+     [
+      "Google TV läuft auf den meisten aktuellen Fernsehern von Sony BRAVIA, TCL, Hisense und Philips sowie auf Googles eigenem Chromecast mit Google TV und dem Google TV Streamer. Es hat Chromecast integriert, und darüber findet MirrorGo es in deinem WLAN."
+     ]
+    ],
+    [
+     "Wenn dein Fernseher nicht in der Liste ist",
+     [
+      "Achte darauf, dass iPhone und Fernseher im selben WLAN sind (kein Gastnetzwerk), dass MirrorGo in den Einstellungen Zugriff auf das lokale Netzwerk hat und dass kein VPN aktiv ist. Fehlt er immer noch? Öffne smrr.tv im Browser des Fernsehers und spiegle dort."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Kann ich meinen ganzen iPhone-Bildschirm auf Google TV spiegeln?",
+     "Ja. Die meisten Google-TV-Modelle unterstützen kein AirPlay, aber MirrorGo spiegelt deinen ganzen Bildschirm mit Ton über den integrierten Chromecast."
+    ],
+    [
+     "Brauche ich die Google Home App?",
+     "Nein. Der Fernseher muss nur eingerichtet und in deinem WLAN sein. MirrorGo verbindet sich direkt mit ihm."
+    ]
+   ]
+  },
+  "androidtv": {
+   "title": "iPhone auf Android TV spiegeln: So geht's",
+   "description": "Spiegle dein iPhone mit MirrorGo per WLAN auf einen Android TV (Sony, Philips, Xiaomi, TCL, Sharp und mehr) und streame Fotos, Videos, YouTube und Live-TV-Sender.",
+   "h1": "Spiegle dein iPhone auf einen Android TV",
+   "lead": "MirrorGo zeigt deinen iPhone-Bildschirm auf Android-TV-Fernsehern von Sony, Philips, Xiaomi, TCL, Sharp und anderen sowie auf Android-TV-Boxen wie der Mi Box und NVIDIA SHIELD. Auf dem Fernseher musst du nichts installieren.",
+   "steps": [
+    "Schalte den Fernseher ein und verbinde dein iPhone mit demselben WLAN.",
+    "Öffne MirrorGo, tippe auf „TV verbinden“ und wähle deinen Android TV.",
+    "Öffne „Bildschirmspiegelung“, tippe auf „Spiegelung starten“ und dann auf „Teilen starten“ (vor iOS 26: „Übertragung starten“).",
+    "Nach ein paar Sekunden ist dein Bildschirm auf dem Fernseher."
+   ],
+   "features": [
+    [
+     "Bildschirmspiegelung",
+     "Mit Ton"
+    ],
+    [
+     "Fotos & Videos",
+     null
+    ],
+    [
+     "Kamera",
+     "Mit Ton"
+    ],
+    [
+     "YouTube",
+     "Vom Fernseher abgespielt, ab der Stelle, an der du warst"
+    ],
+    [
+     "Webvideos",
+     null
+    ],
+    [
+     "Live-TV-Sender",
+     "Laufen ohne das iPhone weiter"
+    ],
+    [
+     "Webbilder",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Welche Android TVs funktionieren?",
+     [
+      "Android-TV-Fernseher und -Boxen mit integriertem Chromecast, also fast alle: Sony BRAVIA, Philips, Xiaomi Mi TV, TCL, Sharp, die Mi Box, der Xiaomi TV Stick und NVIDIA SHIELD. Darüber findet MirrorGo sie in deinem WLAN."
+     ]
+    ],
+    [
+     "Wenn dein Fernseher nicht in der Liste ist",
+     [
+      "Achte darauf, dass iPhone und Fernseher im selben WLAN sind (kein Gastnetzwerk), dass MirrorGo in den Einstellungen Zugriff auf das lokale Netzwerk hat und dass kein VPN aktiv ist. Manche Fernseher antworten erst, wenn sie ganz eingeschaltet sind, nicht im Standby."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Muss ich eine App auf meinem Android TV installieren?",
+     "Nein. MirrorGo nutzt den in Android TV integrierten Chromecast. Du installierst MirrorGo nur auf deinem iPhone."
+    ],
+    [
+     "Kann ein iPhone ohne AirPlay auf einen Android TV spiegeln?",
+     "Ja. Mit MirrorGo spiegelt dein iPhone über den integrierten Chromecast des Fernsehers, ganz ohne AirPlay."
+    ]
+   ]
+  },
+  "chromecast": {
+   "title": "iPhone auf Chromecast spiegeln: So geht's",
+   "description": "Spiegle deinen iPhone-Bildschirm mit MirrorGo auf einen Chromecast und streame Fotos, Videos, YouTube und Live-TV-Sender per WLAN. Keine Google Home App nötig.",
+   "h1": "Spiegle dein iPhone auf einen Chromecast",
+   "lead": "MirrorGo zeigt deinen iPhone-Bildschirm über einen Chromecast und auf Fernsehern mit integriertem Chromecast wie VIZIO SmartCast. Auf dem Fernseher musst du nichts installieren.",
+   "steps": [
+    "Schalte den Fernseher ein und verbinde dein iPhone mit demselben WLAN wie den Chromecast.",
+    "Öffne MirrorGo, tippe auf „TV verbinden“ und wähle deinen Chromecast.",
+    "Öffne „Bildschirmspiegelung“, tippe auf „Spiegelung starten“ und dann auf „Teilen starten“ (vor iOS 26: „Übertragung starten“).",
+    "Nach ein paar Sekunden ist dein Bildschirm auf dem Fernseher."
+   ],
+   "features": [
+    [
+     "Bildschirmspiegelung",
+     "Mit Ton"
+    ],
+    [
+     "Fotos & Videos",
+     null
+    ],
+    [
+     "Kamera",
+     "Mit Ton"
+    ],
+    [
+     "YouTube",
+     "Vom Chromecast abgespielt, ab der Stelle, an der du warst"
+    ],
+    [
+     "Webvideos",
+     null
+    ],
+    [
+     "Live-TV-Sender",
+     "Laufen ohne das iPhone weiter"
+    ],
+    [
+     "Webbilder",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Welche Geräte funktionieren?",
+     [
+      "Jeder Chromecast, mit oder ohne Google TV, sowie Fernseher und Smart Displays mit integriertem Chromecast, etwa VIZIO SmartCast-Fernseher. MirrorGo findet sie in deinem WLAN genauso wie Googles eigene Apps."
+     ]
+    ],
+    [
+     "Wenn dein Chromecast nicht in der Liste ist",
+     [
+      "Achte darauf, dass iPhone und Chromecast im selben WLAN sind (kein Gastnetzwerk), dass MirrorGo in den Einstellungen Zugriff auf das lokale Netzwerk hat und dass kein VPN aktiv ist. Fehlt er immer noch? Öffne smrr.tv in einem Browser auf einem beliebigen Bildschirm und spiegle dort."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Kann ich meinen ganzen iPhone-Bildschirm auf einen Chromecast spiegeln?",
+     "Ja. Von sich aus kann das iPhone das nicht, weil Chromecast kein AirPlay unterstützt, aber MirrorGo spiegelt deinen ganzen Bildschirm mit Ton auf einen Chromecast."
+    ],
+    [
+     "Brauche ich die Google Home App?",
+     "Nein. Dein Chromecast muss nur eingerichtet und in deinem WLAN sein. MirrorGo verbindet sich direkt mit ihm."
+    ]
+   ]
+  },
+  "firetv": {
+   "title": "iPhone auf Fire TV Stick spiegeln (ohne App auf dem Fire TV)",
+   "description": "Spiegle dein iPhone mit MirrorGo auf einen Amazon Fire TV Stick, Fire TV Cube oder Fire TV Smart TV, ohne etwas auf dem Fire TV zu installieren. Streame auch Fotos, Videos und Live-TV.",
+   "h1": "Spiegle dein iPhone auf einen Fire TV",
+   "lead": "MirrorGo zeigt dein iPhone auf Fire TV Sticks, dem Fire TV Cube und Fire TV Smart TVs – über den Player, der in jedem Fire TV eingebaut ist. Auf dem Fire TV musst du nichts installieren.",
+   "steps": [
+    "Schalte den Fire TV ein und verbinde dein iPhone mit demselben WLAN.",
+    "Öffne MirrorGo, tippe auf „TV verbinden“ und wähle deinen Fire TV.",
+    "Öffne „Bildschirmspiegelung“, tippe auf „Spiegelung starten“ und dann auf „Teilen starten“ (vor iOS 26: „Übertragung starten“).",
+    "Dein Bildschirm erscheint auf dem Fernseher. Zum Beenden tippst du auf „Spiegelung beenden“ oder drückst die Home-Taste auf der Fire-TV-Fernbedienung."
+   ],
+   "features": [
+    [
+     "Bildschirmspiegelung",
+     "Nur Bild, kein Ton"
+    ],
+    [
+     "Fotos & Videos",
+     "Videos mit Ton"
+    ],
+    [
+     "Kamera",
+     "Nur Bild, kein Ton"
+    ],
+    [
+     "YouTube",
+     "Nutze die YouTube-App auf dem Fire TV"
+    ],
+    [
+     "Webvideos",
+     "Mit Ton"
+    ],
+    [
+     "Live-TV-Sender",
+     "Mit Ton; laufen ohne das iPhone weiter"
+    ],
+    [
+     "Webbilder",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Welche Fire TVs funktionieren?",
+     [
+      "Fire TV Sticks (auch 4K und 4K Max), der Fire TV Cube und Smart TVs mit integriertem Fire TV (Amazon, Toshiba, Insignia und andere). MirrorGo findet sie in deinem WLAN."
+     ]
+    ],
+    [
+     "Videos mit Ton schauen",
+     [
+      "Beim Spiegeln auf einen Fire TV siehst du das Bild ohne Ton. Um ein Video mit Ton zu schauen, streame es stattdessen: Fotos und Videos aus deiner Galerie, Webvideos und Live-TV-Sender laufen alle mit Ton."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Muss ich eine App auf meinem Fire TV installieren?",
+     "Nein. Jeder Fire TV hat einen eingebauten Mediaplayer, und den nutzt MirrorGo. Du installierst MirrorGo nur auf deinem iPhone."
+    ],
+    [
+     "Kann ich ein iPhone mit Ton auf einen Fire TV Stick spiegeln?",
+     "Die Bildschirmspiegelung zeigt nur das Bild. Videos, die du streamst (Galerie, Webvideos, Live-TV-Sender), laufen mit Ton."
+    ]
+   ]
+  },
+  "airplay": {
+   "title": "iPhone auf Apple TV & AirPlay-Fernseher spiegeln und streamen",
+   "description": "Spiegle dein iPhone auf ein Apple TV oder einen AirPlay-Fernseher (Samsung, LG, Sony, VIZIO und mehr) und streame Fotos, Videos, Webvideos und Live-TV-Sender mit MirrorGo.",
+   "h1": "Spiegle und streame dein iPhone auf Apple TV und AirPlay-Fernseher",
+   "lead": "iPhones spiegeln von sich aus auf ein Apple TV oder einen AirPlay-Fernseher, über das Kontrollzentrum. MirrorGo ergänzt, was iOS nicht kann: Live-TV-Sender, Videos von Websites und Webbilder, abgespielt über AirPlay.",
+   "steps": [
+    "Verbinde dein iPhone mit demselben WLAN wie das Apple TV oder den AirPlay-Fernseher.",
+    "Bildschirm spiegeln: Öffne das Kontrollzentrum, tippe auf „Bildschirmsynchronisierung“ und wähle den Fernseher.",
+    "Streamen: Öffne MirrorGo, tippe auf „TV verbinden“, dann auf „AirPlay-Gerät wählen“, und wähle den Fernseher.",
+    "Öffne in MirrorGo „Fotos & Videos“, „Webvideos“ oder „IPTV“ und starte die Wiedergabe: Sie läuft über AirPlay auf dem Fernseher."
+   ],
+   "features": [
+    [
+     "Bildschirmspiegelung",
+     "Über das Kontrollzentrum (iOS selbst)"
+    ],
+    [
+     "Fotos & Videos",
+     "Als AirPlay-Video"
+    ],
+    [
+     "Kamera",
+     "Mit aktiver Bildschirmsynchronisierung, ohne Ton"
+    ],
+    [
+     "YouTube",
+     "Nutze die AirPlay-Taste der YouTube-App"
+    ],
+    [
+     "Webvideos",
+     null
+    ],
+    [
+     "Live-TV-Sender",
+     null
+    ],
+    [
+     "Webbilder",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Welche Geräte funktionieren?",
+     [
+      "Apple TV HD und Apple TV 4K, Macs und Fernseher mit integriertem AirPlay: viele Modelle von Samsung, LG, Sony, VIZIO, TCL, Philips und Roku ab 2018."
+     ]
+    ],
+    [
+     "Warum die Spiegelung im Kontrollzentrum startet",
+     [
+      "Apple erlaubt Apps nicht, die AirPlay-Bildschirmsynchronisierung zu starten; das kann nur das Kontrollzentrum. MirrorGo zeigt dir die Schritte, und sobald die Spiegelung läuft, kann auch seine Kamera im Vollbild auf dem Fernseher erscheinen."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Kann ich AirPlay in MirrorGo beenden?",
+     "Öffne die TV-Liste in MirrorGo, tippe auf die AirPlay-Karte und wähle im Menü „iPhone“: Damit endet AirPlay. Um die Bildschirmspiegelung zu beenden, nutze Kontrollzentrum › Bildschirmsynchronisierung › Synchronisierung beenden."
+    ],
+    [
+     "Braucht MirrorGo ein Apple TV?",
+     "Nein. Ein Apple TV ist eine Möglichkeit; MirrorGo funktioniert auch mit Samsung, LG, Roku, Google TV, Fire TV und jedem Webbrowser, ohne AirPlay."
+    ]
+   ]
+  },
+  "browser": {
+   "title": "iPhone per Webbrowser auf jeden TV oder PC spiegeln (smrr.tv)",
+   "description": "Spiegle dein iPhone auf jeden Smart TV, PC, Mac oder jedes Tablet mit Webbrowser: smrr.tv öffnen, 6-stelligen Code in MirrorGo eingeben, fertig. Keine App auf TV oder Computer.",
+   "h1": "Spiegle dein iPhone auf jeden Bildschirm mit Webbrowser",
+   "lead": "Jeder Fernseher, Computer oder jedes Tablet mit Webbrowser kann dein iPhone zeigen, auch ein Fernseher, den MirrorGo nicht findet. Öffne dort smrr.tv, gib den Code in MirrorGo ein, und dein Bildschirm ist zu sehen, mit Ton.",
+   "steps": [
+    "Öffne auf dem Fernseher oder Computer smrr.tv im Webbrowser. Die Seite zeigt einen 6-stelligen Code und einen QR-Code.",
+    "Öffne in MirrorGo die TV-Liste und tippe auf „Im Webbrowser spiegeln“.",
+    "Gib den Code ein oder scanne den QR-Code.",
+    "Öffne „Bildschirmspiegelung“, tippe auf „Spiegelung starten“ und dann auf „Teilen starten“ (vor iOS 26: „Übertragung starten“)."
+   ],
+   "features": [
+    [
+     "Bildschirmspiegelung",
+     "Mit Ton"
+    ],
+    [
+     "Fotos & Videos",
+     null
+    ],
+    [
+     "Kamera",
+     null
+    ],
+    [
+     "YouTube",
+     null
+    ],
+    [
+     "Webvideos",
+     null
+    ],
+    [
+     "Live-TV-Sender",
+     "Der Browser spielt den Sender selbst ab"
+    ],
+    [
+     "Webbilder",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Was als Bildschirm funktioniert",
+     [
+      "Smart TVs mit modernem Webbrowser, Windows-PCs, Macs, Chromebooks und Tablets mit einem aktuellen Browser wie Chrome, Edge, Safari oder Firefox."
+     ]
+    ],
+    [
+     "Privat und direkt",
+     [
+      "Das Video geht über dein WLAN direkt von deinem iPhone zum Browser. smrr.tv bringt die beiden nur zusammen; dein Bildschirm läuft nicht darüber. Deshalb müssen beide im selben WLAN sein."
+     ]
+    ],
+    [
+     "Tipps",
+     [
+      "Lass die smrr.tv-Seite geöffnet, solange du spiegelst. Lädst du sie neu, verbindet sie sich von selbst wieder.",
+      "Bei einem LG- oder Samsung-Fernseher in der Nähe öffnet die Taste „Öffnen auf …“ in MirrorGo den Browser des Fernsehers für dich."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Muss ich etwas auf dem Fernseher oder Computer installieren?",
+     "Nein, nur ein Webbrowser ist nötig. Öffne smrr.tv und gib den angezeigten Code in MirrorGo ein."
+    ],
+    [
+     "Kann jemand anderes mit meinem Code meinen Bildschirm sehen?",
+     "Zum Verbinden braucht ein iPhone den Code, der auf diesem Bildschirm angezeigt wird – jemand muss ihn also direkt vor sich haben. Das Video selbst läuft nur über dein eigenes WLAN."
+    ]
+   ]
+  }
+ },
+ "topics": {
+  "connect": {
+   "label": "Verbinden",
+   "title": "iPhone mit {name} verbinden: So geht's",
+   "h1": "So verbindest du dein iPhone mit {dat}",
+   "lead": "Mit MirrorGo verbindest du dein iPhone in wenigen Sekunden mit {dat}: beide ins selbe WLAN, Fernseher wählen, fertig. Auf dem Fernseher musst du nichts installieren, und MirrorGo merkt sich die Verbindung fürs nächste Mal.",
+   "shot_alt": "Startbildschirm von MirrorGo mit der Taste „TV verbinden“",
+   "tips": [
+    "iPhone und Fernseher müssen im selben WLAN-Netzwerk sein, nicht in einem Gastnetzwerk.",
+    "MirrorGo braucht Zugriff auf das lokale Netzwerk (iOS fragt beim ersten Mal). Hast du abgelehnt: Einstellungen › MirrorGo › Lokales Netzwerk.",
+    "Schalte ein VPN auf dem iPhone aus, während du streamst.",
+    "Gar kein Fernseher gefunden? Jeder Fernseher mit Webbrowser funktioniert über smrr.tv."
+   ]
+  },
+  "photos": {
+   "label": "Fotos & Videos",
+   "title": "Fotos & Videos vom iPhone {t_on} streamen",
+   "h1": "So streamst du Fotos und Videos von deinem iPhone {on}",
+   "lead": "Mit MirrorGo zeigst du die Fotos und Videos aus deiner iPhone-Mediathek {on}, in voller Qualität. Du wischst auf dem iPhone weiter, und der große Bildschirm zieht mit.",
+   "shot_alt": "Ein Foto aus der iPhone-Mediathek mit MirrorGo streamen",
+   "steps": [
+    "Verbinde MirrorGo mit {dat}.",
+    "Tippe auf dem Startbildschirm von MirrorGo auf „Fotos & Videos“ und erlaube den Zugriff auf deine Fotos.",
+    "Wähle oben „Videos“ oder „Fotos“ und tippe auf das Foto oder Video, das du zeigen willst.",
+    "Tippe auf „Streamen starten“. Kurz darauf erscheint es auf dem Fernseher.",
+    "Wisch durch die Leiste unter dem Bild: Der Fernseher zieht mit. Videos startest, pausierst und spulst du auf dem iPhone."
+   ],
+   "tips": [
+    "„Automatisch abspielen“ (die Taste am Anfang der Leiste) macht daraus eine Diashow: 5 bis 30 Sekunden pro Foto, Videos bis zum Ende, und mit „Wiederholen“ geht es von vorn los.",
+    "Bei eingeschränktem Fotozugriff erscheinen nur die Fotos, die du ausgewählt hast. Um alle zu zeigen: Einstellungen › MirrorGo › Fotos › Voller Zugriff.",
+    "Deine Fotos und Videos gehen über dein WLAN von deinem iPhone zum Fernseher. Sie werden nirgendwo hochgeladen.",
+    "Das Streamen endet, wenn du den Bildschirm schließt."
+   ]
+  },
+  "images": {
+   "label": "Webbilder",
+   "title": "Kostenlose Webbilder vom iPhone {t_on} zeigen",
+   "h1": "So zeigst du schöne kostenlose Bilder {on}",
+   "lead": "MirrorGo durchsucht Millionen kostenlose, frei lizenzierte Bilder auf Wikimedia Commons (Landschaften, Weltraum, Städte, Tiere, Kunst) und zeigt sie im Vollbild {on}, einzeln oder als Diashow.",
+   "shot_alt": "Eine Landschaft von Wikimedia Commons, bereit zum Streamen mit MirrorGo",
+   "steps": [
+    "Verbinde MirrorGo mit {dat}.",
+    "Tippe auf dem Startbildschirm von MirrorGo auf „Webbilder“.",
+    "Such nach etwas Beliebigem oder tippe auf ein Thema: Natur, Weltraum, Städte, Tiere, Ozean, Berge, Kunst, Blumen.",
+    "Tippe auf ein Bild und dann auf „Streamen starten“.",
+    "Wisch zum nächsten Bild, und der Fernseher zieht mit – oder schalte die Diashow ein."
+   ],
+   "tips": [
+    "Zu jedem Bild siehst du Titel, Urheber und Lizenz: Tippe auf ↗, um seine Seite auf Wikimedia Commons zu öffnen.",
+    "Deine letzten Suchen bleiben auf der Startansicht, so sind deine Lieblingsthemen nur einen Fingertipp entfernt.",
+    "Bilder, die nicht jugendfrei sein könnten, werden herausgefiltert."
+   ]
+  },
+  "iptv": {
+   "label": "Live-TV (IPTV)",
+   "title": "Gratis Live-TV (IPTV) per iPhone {t_on} schauen",
+   "h1": "So schaust du kostenlose Live-TV-Sender {on}",
+   "lead": "MirrorGo listet mehr als 9.000 kostenlose, öffentliche Live-TV-Sender aus über 180 Ländern (Nachrichten, Sport, Filme, Musik, Kinderprogramm und mehr) und spielt sie mit einem Fingertipp {on} ab. Du kannst auch deine eigenen M3U-Playlists hinzufügen.",
+   "shot_alt": "Der IPTV-Bildschirm in MirrorGo: Playlists, Kategorien und Länder",
+   "steps": [
+    "Verbinde MirrorGo mit {dat}.",
+    "Tippe auf dem Startbildschirm von MirrorGo auf „IPTV“.",
+    "Wähl ein Land oder eine Kategorie oder such einen Sender nach seinem Namen.",
+    "Tippe auf einen Sender: Er startet auf dem Fernseher. Tippe auf einen anderen, um umzuschalten.",
+    "Tippe auf ☆, um einen Sender in den „Favoriten“ zu speichern; tippe auf +, um einen M3U-Playlist-Link hinzuzufügen."
+   ],
+   "tips": [
+    "Der Sender läuft weiter, wenn du die Liste verlässt oder dein iPhone sperrst. Stoppen kannst du ihn über die Leiste unten auf dem Startbildschirm.",
+    "Die Sender sind kostenlose öffentliche Streams aus der iptv-org-Liste: Manche sind gerade offline oder laufen nur in ihrem eigenen Land. Startet einer nicht, probier einen anderen.",
+    "Deine eigene Playlist muss ein HTTPS-Link zu einer M3U-Datei sein (oder zu einem einzelnen HLS-Stream)."
+   ]
+  },
+  "youtube": {
+   "label": "YouTube",
+   "title": "YouTube vom iPhone {t_on} streamen: So geht's",
+   "h1": "So streamst du YouTube von deinem iPhone {on}",
+   "lead": "Such ein YouTube-Video in MirrorGo und tippe auf „Auf TV streamen“: Das Video läuft dann direkt {on}, in voller Qualität und ab der Stelle, an der du warst – und dein iPhone bleibt frei.",
+   "shot_alt": "Ein YouTube-Video zum Streamen in MirrorGo suchen",
+   "steps": [
+    "Verbinde MirrorGo mit {dat}.",
+    "Tippe auf dem Startbildschirm von MirrorGo auf „YouTube“.",
+    "Wähl ein Thema (Musik, Nachrichten, Sport, Live …) oder such und öffne ein Video.",
+    "Tippe auf „Auf TV streamen“. Das Video startet auf dem Fernseher an der Stelle, an der du warst."
+   ],
+   "tips": [
+    "Das Video läuft weiter, wenn du den Bildschirm verlässt. Tippe auf „Stopp“, um es auf dem Fernseher zu beenden.",
+    "Das Video zu streamen ist besser, als es zu spiegeln: Der Fernseher spielt es in voller Qualität ab, mit synchronem Ton."
+   ]
+  },
+  "webvideos": {
+   "label": "Webvideos",
+   "title": "Videos von Websites per iPhone {t_on} streamen",
+   "h1": "So streamst du Videos von Websites {on}",
+   "lead": "Öffne eine Website in MirrorGo, spiel ihr Video ab und tippe auf „Auf TV streamen“: MirrorGo findet das Video (nicht die Werbung), und es läuft in voller Qualität {on}, während du weitersurfst.",
+   "shot_alt": "Der Webvideo-Browser von MirrorGo mit beliebten Websites",
+   "steps": [
+    "Verbinde MirrorGo mit {dat}.",
+    "Tippe auf dem Startbildschirm von MirrorGo auf „Webvideos“.",
+    "Öffne eine Website über die Verknüpfungen oder gib ihre Adresse ein.",
+    "Spiel das Video auf der Seite ab. „Auf TV streamen“ wird aktiv, sobald MirrorGo es findet.",
+    "Tippe auf „Auf TV streamen“. Wurden mehrere Videos gefunden, wähl das richtige („1 von 3“)."
+   ],
+   "tips": [
+    "MirrorGo blockiert Werbenetzwerke und streamt nie sehr kurze Clips, damit keine Werbung auf dem Fernseher landet.",
+    "Websites, die ihre Videos schützen (Netflix, Prime Video, Disney+), lassen sich nicht streamen.",
+    "Lass MirrorGo geöffnet, während das Video läuft. Das Surfen ist privat: Verlauf, Cookies und Cache werden nicht gespeichert."
+   ]
+  },
+  "camera": {
+   "label": "Kamera",
+   "title": "iPhone-Kamera live {t_on} zeigen: So geht's",
+   "h1": "So zeigst du die Kamera deines iPhones live {on}",
+   "lead": "Mit MirrorGo wird dein iPhone zur Live-Kamera: Zeig {on} den Raum, ein Whiteboard, ein Dokument, dein Haustier oder dich selbst, mit der Front- oder Rückkamera.",
+   "shot_alt": "Startbildschirm von MirrorGo mit der Kachel „Kamera“",
+   "steps": [
+    "Verbinde MirrorGo mit {dat}.",
+    "Tippe auf dem Startbildschirm von MirrorGo auf „Kamera“ und erlaube den Kamerazugriff.",
+    "Wähl die Front- oder Rückkamera und schalte „Ton“ ein, wenn du auch das Mikrofon willst.",
+    "Tippe auf „Streamen starten“. Der Fernseher zeigt, was die Kamera sieht, gerade am Horizont ausgerichtet."
+   ],
+   "tips": [
+    "Das Bild der Frontkamera wird auf dem Fernseher gespiegelt, wie in der Vorschau.",
+    "Das Streamen endet, wenn du den Bildschirm schließt oder die App verlässt (iOS stoppt dann die Kamera)."
+   ]
+  }
+ },
+ "platforms": {
+  "samsung": {
+   "forms": {
+    "art": "einem Samsung-Fernseher",
+    "title_art": "Samsung TV",
+    "dat": "einem Samsung-Fernseher",
+    "on": "auf einem Samsung-Fernseher",
+    "t_on": "auf Samsung TV",
+    "name": "Samsung TV"
+   },
+   "connect": [
+    "Schalte deinen Samsung-Fernseher ein und verbinde dein iPhone mit demselben WLAN.",
+    "Öffne MirrorGo und tippe auf „TV verbinden“. Dein Samsung-Fernseher erscheint unter seinem Namen.",
+    "Tippe darauf. Beim ersten Mal fragt der Fernseher, ob er MirrorGo zulassen soll: Wähle mit der Fernbedienung „Zulassen“.",
+    "Verbunden. MirrorGo merkt sich den Fernseher und der Fernseher merkt sich MirrorGo, du wirst also nicht noch einmal gefragt."
+   ],
+   "connect_notes": [
+    "MirrorGo funktioniert mit Samsung Smart TVs ab 2016 (Tizen). Es verbindet sich mit der Fernsteuerungs-Schnittstelle des Fernsehers und seinem eingebauten Mediaplayer, deshalb muss auf dem Fernseher nichts installiert werden.",
+    "Aus Versehen „Ablehnen“ gewählt? Das merkt sich der Fernseher. Öffne auf dem Fernseher Einstellungen › Allgemein › Externe Geräteverwaltung › Geräteverbindungs-Manager › Geräteliste und lass MirrorGo dort zu oder lösche es, damit der Fernseher erneut fragt."
+   ],
+   "photos": "Der Samsung-Fernseher spielt sie in seinem eigenen Mediaplayer ab: MirrorGo stellt jedes Foto und Video von deinem iPhone über dein WLAN bereit, und der Fernseher holt es sich. So laufen Videos in voller Qualität mit dem Ton des Fernsehers. iPhone-Videos in HEVC gehen unverändert raus; kann dein Fernseher eines nicht abspielen, schickt MirrorGo es stattdessen als H.264 und merkt sich das fürs nächste Mal.",
+   "images": "Die Bilder erscheinen im eigenen Mediaplayer des Fernsehers, passend für seinen Bildschirm.",
+   "iptv": "Dein Samsung-Fernseher bekommt den Stream des Senders zuerst, um ihn selbst abzuspielen. Läuft er nach ein paar Sekunden nicht, leitet MirrorGo den Stream stattdessen über dein iPhone und merkt sich, dass dein Fernseher das braucht. Das iPhone darf gesperrt sein, muss aber im WLAN bleiben.",
+   "youtube": "Auf Samsung öffnet sich das Video in der YouTube-App des Fernsehers, die MirrorGo so steuert wie die YouTube-App fürs Smartphone, und startet an der Stelle, an der du warst.",
+   "webvideos": "Samsungs Player bekommt das Video als einen durchgehenden Stream über dein iPhone, mit eingefügten Werbepausen der Website, damit es von Anfang bis Ende läuft; spulst du auf dem iPhone, startet es an dieser Stelle neu.",
+   "camera": "Mit Ton: Schalte „Ton“ ein, bevor du startest, dann nimmt MirrorGo das Mikrofon dazu."
+  },
+  "lg": {
+   "forms": {
+    "art": "einem LG-Fernseher",
+    "title_art": "LG TV",
+    "dat": "einem LG-Fernseher",
+    "on": "auf einem LG-Fernseher",
+    "t_on": "auf LG TV",
+    "name": "LG TV"
+   },
+   "connect": [
+    "Schalte deinen LG-Fernseher ein und verbinde dein iPhone mit demselben WLAN.",
+    "Öffne MirrorGo und tippe auf „TV verbinden“. Dein LG-Fernseher erscheint unter seinem Namen.",
+    "Tippe darauf. Beim ersten Mal fragt der Fernseher, ob er MirrorGo zulassen soll: Wähle mit der Fernbedienung „Zulassen“ (oder „Ja“).",
+    "Verbunden. MirrorGo speichert den Schlüssel des Fernsehers und verbindet sich beim nächsten Mal sofort."
+   ],
+   "connect_notes": [
+    "MirrorGo funktioniert mit LG Smart TVs mit webOS. Auf dem Fernseher wird nichts installiert: MirrorGo spricht mit ihm so wie LGs eigene Smartphone-Apps.",
+    "Meldung verpasst oder „Ablehnen“ gewählt? Verbinde dich einfach erneut, dann fragt der Fernseher noch einmal. Auf älteren LG-Fernsehern schaltest du vorher LG Connect Apps in den Netzwerkeinstellungen des Fernsehers ein."
+   ],
+   "photos": "Auf LG spielt MirrorGo sie zuerst im Webbrowser des Fernsehers ab, den es für dich öffnet und der die meisten Videoformate abspielt. Nach ein paar Sekunden fragt es „Läuft es auf deinem Fernseher?“: Tippst du auf „Nein“, schließt es den Browser und nutzt stattdessen den eigenen Player des Fernsehers. So oder so gehen die Fotos und Videos über dein WLAN, nicht übers Internet.",
+   "images": "MirrorGo öffnet den Webbrowser des Fernsehers, der das Bild direkt von Wikimedia Commons in voller Auflösung lädt. Erscheint nichts, tippe auf „Nein“, wenn MirrorGo „Läuft es auf deinem Fernseher?“ fragt, dann nutzt es den eigenen Player des Fernsehers.",
+   "iptv": "Der Sender läuft im Webbrowser des LG-Fernsehers, der kann, was LGs eigener Player nicht kann: Werbepausen in kostenlosen Sendern, getrennte Tonspuren und verschlüsselte Streams. Läuft er nicht, tippe auf „Nein“, wenn MirrorGo „Läuft es auf deinem Fernseher?“ fragt, dann versucht es den Player des Fernsehers.",
+   "youtube": "Auf LG öffnet sich das Video in der YouTube-App des Fernsehers, an der Stelle, an der du warst.",
+   "webvideos": "MirrorGo öffnet den Webbrowser des Fernsehers und schickt ihm den Link des Videos. Spielt die Website es nur mit den Cookies deines iPhones ab, streamt dein iPhone es stattdessen zum Fernseher.",
+   "camera": "Die Kamera erscheint zuerst im Webbrowser des Fernsehers, mit derselben Frage „Läuft es auf deinem Fernseher?“; „Nein“ wechselt zum eigenen Player des Fernsehers."
+  },
+  "roku": {
+   "forms": {
+    "art": "einem Roku",
+    "title_art": "Roku",
+    "dat": "einem Roku",
+    "on": "auf einem Roku",
+    "t_on": "auf Roku",
+    "name": "Roku"
+   },
+   "connect": [
+    "Schalte deinen Roku TV oder Roku-Player ein und verbinde dein iPhone mit demselben WLAN.",
+    "Öffne MirrorGo und tippe auf „TV verbinden“. Dein Roku erscheint unter seinem Namen.",
+    "Tippe darauf, um dich zu verbinden. Kein Code nötig.",
+    "Verbunden. MirrorGo merkt sich deinen Roku fürs nächste Mal."
+   ],
+   "connect_notes": [
+    "MirrorGo funktioniert mit Roku TVs (TCL, Hisense, Sharp, Philips und andere Roku-TV-Modelle) und Roku Streaming-Playern: Roku Express, Streaming Stick und Ultra.",
+    "Roku nicht in der Liste? Öffne auf dem Roku Einstellungen › System › Erweiterte Systemeinstellungen › Steuerung durch mobile Apps (Control by mobile apps) und achte darauf, dass der Netzwerkzugriff nicht deaktiviert ist."
+   ],
+   "photos": "Der Roku spielt sie im Vollbild und in voller Qualität ab; abspielen, pausieren und spulen kannst du auf dem iPhone.",
+   "images": "Die Bilder erscheinen im Vollbild auf dem Roku, passend für den Fernseher.",
+   "iptv": "Der Sender läuft auf dem Roku weiter, während du andere Apps nutzt oder dein iPhone sperrst.",
+   "youtube": "Das Video läuft auf dem Roku ab der Stelle, an der du warst.",
+   "webvideos": "Der Roku spielt das Video ab, das dein iPhone auf der Seite gefunden hat; lass MirrorGo geöffnet, während es läuft.",
+   "camera": "Die Kamera erscheint live auf dem Roku."
+  },
+  "googletv": {
+   "forms": {
+    "art": "einem Google TV",
+    "title_art": "Google TV",
+    "dat": "einem Google TV",
+    "on": "auf einem Google TV",
+    "t_on": "auf Google TV",
+    "name": "Google TV"
+   },
+   "connect": [
+    "Schalte dein Google TV ein und verbinde dein iPhone mit demselben WLAN.",
+    "Öffne MirrorGo und tippe auf „TV verbinden“. Dein Fernseher erscheint unter dem Namen, den er in Google Home hat (zum Beispiel „Wohnzimmer-TV“).",
+    "Tippe darauf, um dich zu verbinden. Kein Code, keine Meldung auf dem Fernseher.",
+    "Verbunden. MirrorGo verbindet sich beim nächsten Mal wieder mit ihm."
+   ],
+   "connect_notes": [
+    "Google TV hat Chromecast integriert, und darüber spricht MirrorGo mit ihm: auf Google-TV-Fernsehern von Sony, TCL, Hisense und Philips, dem Chromecast mit Google TV und dem Google TV Streamer.",
+    "Nicht in der Liste? Weck den Fernseher ganz auf (nicht Standby) und prüfe, ob er im selben WLAN wie das iPhone ist und ob MirrorGo Zugriff auf das lokale Netzwerk hat."
+   ],
+   "photos": "Fotos gehen über dein WLAN als Vollbild an den Fernseher; Videos laufen im Player von MirrorGo auf dem Fernseher, abspielen, pausieren und spulen kannst du auf dem iPhone.",
+   "images": "Die Bilder erscheinen im Vollbild über den integrierten Chromecast des Fernsehers.",
+   "iptv": "Der Fernseher holt sich den Sender selbst und spielt ihn deshalb weiter, auch wenn dein iPhone gesperrt oder nicht im Raum ist.",
+   "youtube": "Das Video läuft im YouTube-Player in der App von MirrorGo auf dem Fernseher, ab der Stelle, an der du warst.",
+   "webvideos": "Der Fernseher spielt das Video über MirrorGo ab, das das Video der Website von deinem iPhone weiterreicht; lass MirrorGo geöffnet, während es läuft.",
+   "camera": "Mit Ton: Schalte „Ton“ ein, bevor du startest, dann nimmt MirrorGo das Mikrofon dazu."
+  },
+  "androidtv": {
+   "forms": {
+    "art": "einem Android TV",
+    "title_art": "Android TV",
+    "dat": "einem Android TV",
+    "on": "auf einem Android TV",
+    "t_on": "auf Android TV",
+    "name": "Android TV"
+   },
+   "connect": [
+    "Schalte deinen Android TV ein und verbinde dein iPhone mit demselben WLAN.",
+    "Öffne MirrorGo und tippe auf „TV verbinden“. Dein Fernseher erscheint unter seinem Chromecast-Namen.",
+    "Tippe darauf, um dich zu verbinden. Kein Code, keine Meldung auf dem Fernseher.",
+    "Verbunden. MirrorGo verbindet sich beim nächsten Mal wieder mit ihm."
+   ],
+   "connect_notes": [
+    "Fast jeder Android TV hat Chromecast integriert, und darüber spricht MirrorGo mit dem Fernseher: Sony BRAVIA, Philips, Xiaomi, TCL, Sharp, die Mi Box, der Xiaomi TV Stick und NVIDIA SHIELD.",
+    "Nicht in der Liste? Weck den Fernseher ganz auf (nicht Standby) und prüfe, ob er im selben WLAN wie das iPhone ist und ob MirrorGo Zugriff auf das lokale Netzwerk hat."
+   ],
+   "photos": "Fotos gehen über dein WLAN als Vollbild an den Fernseher; Videos laufen im Player von MirrorGo auf dem Fernseher, abspielen, pausieren und spulen kannst du auf dem iPhone.",
+   "images": "Die Bilder erscheinen im Vollbild über den integrierten Chromecast des Fernsehers.",
+   "iptv": "Der Fernseher holt sich den Sender selbst und spielt ihn deshalb weiter, auch wenn dein iPhone gesperrt oder nicht im Raum ist.",
+   "youtube": "Das Video läuft im YouTube-Player in der App von MirrorGo auf dem Fernseher, ab der Stelle, an der du warst.",
+   "webvideos": "Der Fernseher spielt das Video über MirrorGo ab, das das Video der Website von deinem iPhone weiterreicht; lass MirrorGo geöffnet, während es läuft.",
+   "camera": "Mit Ton: Schalte „Ton“ ein, bevor du startest, dann nimmt MirrorGo das Mikrofon dazu."
+  },
+  "chromecast": {
+   "forms": {
+    "art": "einem Chromecast",
+    "title_art": "Chromecast",
+    "dat": "einem Chromecast",
+    "on": "auf einem Chromecast",
+    "t_on": "auf Chromecast",
+    "name": "Chromecast"
+   },
+   "connect": [
+    "Schalte den Fernseher ein, an dem dein Chromecast steckt, und verbinde dein iPhone mit demselben WLAN.",
+    "Öffne MirrorGo und tippe auf „TV verbinden“. Der Chromecast erscheint unter seinem Namen aus Google Home.",
+    "Tippe darauf, um dich zu verbinden. Kein Code, keine Google Home App nötig.",
+    "Verbunden. MirrorGo verbindet sich beim nächsten Mal wieder mit ihm."
+   ],
+   "connect_notes": [
+    "Jeder Chromecast funktioniert, mit oder ohne Google TV, genauso wie Fernseher mit integriertem Chromecast, etwa VIZIO SmartCast-Fernseher.",
+    "Nicht in der Liste? Prüfe, ob der Chromecast im selben WLAN wie das iPhone ist (kein Gastnetzwerk) und ob MirrorGo in den Einstellungen Zugriff auf das lokale Netzwerk hat."
+   ],
+   "photos": "Fotos gehen über dein WLAN als Vollbild an den Fernseher; Videos laufen im Player von MirrorGo auf dem Chromecast, abspielen, pausieren und spulen kannst du auf dem iPhone.",
+   "images": "Die Bilder erscheinen im Vollbild über den Chromecast.",
+   "iptv": "Der Chromecast holt sich den Sender selbst und spielt ihn deshalb weiter, auch wenn dein iPhone gesperrt ist.",
+   "youtube": "Das Video läuft im YouTube-Player in der App von MirrorGo auf dem Chromecast, ab der Stelle, an der du warst.",
+   "webvideos": "Der Chromecast spielt das Video über MirrorGo ab, das das Video der Website von deinem iPhone weiterreicht; lass MirrorGo geöffnet, während es läuft.",
+   "camera": "Mit Ton: Schalte „Ton“ ein, bevor du startest, dann nimmt MirrorGo das Mikrofon dazu."
+  },
+  "firetv": {
+   "forms": {
+    "art": "einem Fire TV",
+    "title_art": "Fire TV",
+    "dat": "einem Fire TV",
+    "on": "auf einem Fire TV",
+    "t_on": "auf Fire TV",
+    "name": "Fire TV"
+   },
+   "connect": [
+    "Schalte deinen Fire TV ein und verbinde dein iPhone mit demselben WLAN.",
+    "Öffne MirrorGo und tippe auf „TV verbinden“. Dein Fire TV erscheint unter seinem Namen.",
+    "Tippe darauf, um dich zu verbinden. Keine App auf dem Fire TV, kein Koppeln, kein Code.",
+    "Verbunden. MirrorGo verbindet sich beim nächsten Mal wieder mit ihm."
+   ],
+   "connect_notes": [
+    "Jeder Fire TV hat einen eingebauten Mediaplayer, und den nutzt MirrorGo: Fire TV Sticks (auch 4K und 4K Max), der Fire TV Cube und Smart TVs mit integriertem Fire TV.",
+    "Nicht in der Liste? Drück die Home-Taste auf der Fire-TV-Fernbedienung, um ihn aufzuwecken, und prüfe, ob er im selben WLAN wie das iPhone ist."
+   ],
+   "photos": "Fotos gehen als Bilder und Videos als MP4-Dateien, die dein iPhone über dein WLAN bereitstellt. Fire TV kann kein HEVC abspielen, das Standard-Videoformat des iPhones, deshalb wandelt MirrorGo diese Videos vorher in H.264 um; bei langen Videos dauert das einen Moment.",
+   "images": "Die Bilder erscheinen im Vollbild im eingebauten Player des Fire TV.",
+   "iptv": "Der Fire TV spielt den Stream des Senders selbst ab und spielt ihn deshalb auch ohne dein iPhone weiter.",
+   "webvideos": "Der Fire TV spielt das Video der Website ab, das dein iPhone weiterreicht; lass MirrorGo geöffnet, während es läuft.",
+   "camera": "Nur Bild: Der eingebaute Player des Fire TV zeigt die Kamera ohne Ton."
+  },
+  "airplay": {
+   "forms": {
+    "art": "einem Apple TV",
+    "title_art": "Apple TV",
+    "dat": "einem Apple TV",
+    "on": "auf einem Apple TV",
+    "t_on": "auf Apple TV",
+    "name": "Apple TV"
+   },
+   "connect": [
+    "Schalte dein Apple TV oder deinen AirPlay-Fernseher ein und verbinde dein iPhone mit demselben WLAN.",
+    "Öffne MirrorGo, tippe auf „TV verbinden“ und dann auf „AirPlay-Gerät wählen“.",
+    "Wähle dein Apple TV oder deinen AirPlay-Fernseher im AirPlay-Menü von iOS. Beim ersten Mal zeigt der Fernseher eventuell einen Code, den du auf dem iPhone eingibst.",
+    "Verbunden: MirrorGo zeigt „Über AirPlay verbunden“. Zum Trennen öffnest du dasselbe Menü und wählst „iPhone“."
+   ],
+   "connect_notes": [
+    "Das funktioniert mit Apple TV HD und Apple TV 4K sowie mit Fernsehern mit integriertem AirPlay: viele Modelle von Samsung, LG, Sony, VIZIO, TCL und Roku ab 2018.",
+    "Um deinen ganzen Bildschirm auf ein AirPlay-Gerät zu spiegeln, nutze Kontrollzentrum › Bildschirmsynchronisierung: Apple erlaubt Apps nicht, das zu starten."
+   ],
+   "photos": "Videos laufen über AirPlay, und Fotos auch: MirrorGo macht aus jedem ein kurzes Standbild-Video. Ist die Bildschirmsynchronisierung im Kontrollzentrum aktiv, erscheinen Fotos stattdessen direkt auf dem Fernseher.",
+   "images": "Bilder gehen als Standbild-Videos über AirPlay oder direkt auf den Fernseher, wenn die Bildschirmsynchronisierung im Kontrollzentrum aktiv ist.",
+   "iptv": "Der Sender läuft über AirPlay: Das Apple TV holt sich den Stream selbst.",
+   "webvideos": "Das Video läuft über AirPlay; lass MirrorGo geöffnet, während es läuft.",
+   "camera": "Schalte zuerst die Bildschirmsynchronisierung im Kontrollzentrum ein: Dann erscheint die Kamera im Vollbild auf dem Fernseher, ohne Ton."
+  },
+  "browser": {
+   "forms": {
+    "art": "einem Webbrowser",
+    "title_art": "Webbrowser",
+    "dat": "einem Webbrowser",
+    "on": "in einem Webbrowser",
+    "t_on": "im Webbrowser",
+    "name": "Webbrowser"
+   },
+   "connect": [
+    "Öffne auf dem Fernseher, Computer oder Tablet smrr.tv im Webbrowser. Die Seite zeigt einen 6-stelligen Code und einen QR-Code.",
+    "Tippe in MirrorGo auf „TV verbinden“ und dann auf „Im Webbrowser spiegeln“.",
+    "Gib den Code ein oder tippe auf „QR-Code scannen“ und richte die Kamera darauf.",
+    "Verbunden. Die Seite zeigt jetzt dein iPhone statt des Codes."
+   ],
+   "connect_notes": [
+    "Jeder Bildschirm mit modernem Webbrowser funktioniert: Smart TVs, die MirrorGo nicht als Fernseher findet, Windows-PCs, Macs, Chromebooks und Tablets. Bei einem LG- oder Samsung-Fernseher in der Nähe öffnet „Öffnen auf …“ den Browser für dich.",
+    "iPhone und Browser verbinden sich direkt, deshalb müssen sie im selben WLAN sein. Lass die Seite geöffnet; lädst du sie neu, verbindet sie sich von selbst wieder."
+   ],
+   "photos": "Fotos und Videos gehen über dein WLAN direkt von deinem iPhone zum Browser, als Live-Stream im Format 16:9 bildschirmfüllend und mit dem Ton des Videos.",
+   "images": "Die Seite lädt das Bild selbst von Wikimedia Commons, in voller Auflösung.",
+   "iptv": "Die Seite spielt den Sender selbst ab und spielt ihn deshalb weiter, wenn du dein iPhone sperrst; lädst du die Seite neu, läuft er wieder an.",
+   "youtube": "Das Video läuft im YouTube-Player auf der smrr.tv-Seite, ab der Stelle, an der du warst.",
+   "webvideos": "Die Seite bekommt den Link des Videos und spielt es selbst ab. Spielt die Website es nur mit den Cookies deines iPhones ab, streamt dein iPhone es stattdessen zur Seite.",
+   "camera": "Live über dein WLAN gestreamt, mit Ton, wenn „Ton“ eingeschaltet ist."
+  }
+ }
+}

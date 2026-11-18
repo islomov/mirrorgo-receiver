@@ -1,47 +1,93 @@
 #!/usr/bin/env python3
-"""Builds mirrorgo.app into site/public: static HTML (no framework, no JS needed to read it),
-structured data for search engines and AI answer engines, sitemap, robots.txt and llms.txt.
+"""Builds mirrorgo.app into site/public: static HTML (no framework, no JS needed to read it) in every
+language of content.LANGUAGES, structured data for search engines and AI answer engines, sitemaps,
+robots.txt, llms.txt and llms-full.txt.
 
-    python3 site/build.py            # → web/landing-page (served at smrr.tv/landing-page)
-    python3 site/build.py --serve    # build, then serve web/ on http://localhost:8000/landing-page/
+    python3 site/build.py            # → site/public
+    python3 site/build.py --serve    # build, then http://localhost:8000/
+    python3 site/build.py --check    # what's missing or broken in each translation (locales/*.json)
 
-Python 3.9+, standard library only. Text lives in content.py.
+Python 3.9+, standard library only. English text lives in content.py, blog.py and i18n.UI; the other
+languages in locales/<code>.json (see i18n.py). English is at the root, the others under /<code>/, with
+the same paths. The legal pages (privacy, terms) are English only.
 """
 
 import datetime
 import html
 import json
-import re
 import shutil
+import subprocess
 import sys
 from pathlib import Path
 
-import blog as B
-import content as C
+import blog as B_EN
+import content as C_EN
+import i18n
 
 ROOT = Path(__file__).resolve().parent
 SRC = ROOT / "src"
-# Under smrr.tv the pages go into the smrr.tv Worker's static files (../web/landing-page, gitignored);
-# on a domain of their own, into site/public.
-WEB = ROOT.parent / "web"
-OUT = WEB / C.BASE_PATH.strip("/") if C.BASE_PATH else ROOT / "public"
+OUT = ROOT / "public"
 TODAY = datetime.date.today().isoformat()
 SHOT_W, SHOT_H = 640, 1392  # src/img/screens/*.webp
+SITE_URL = C_EN.SITE_URL
+APP_NAME = C_EN.APP_NAME
+SUPPORT_EMAIL = C_EN.SUPPORT_EMAIL
+# Pages that only exist in English, whatever the language of the page linking to them.
+ENGLISH_ONLY = ("/privacy/", "/terms/", "/firetv/")
+
+
+def last_changed():
+    """The date of the last commit that touched the site (stable between builds of the same commit)."""
+    try:
+        out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", str(ROOT)], capture_output=True,
+                             text=True, cwd=ROOT, timeout=10).stdout.strip()
+        return out or TODAY
+    except (OSError, subprocess.SubprocessError):
+        return TODAY
+
+
+LASTMOD = last_changed()
+
+# MARK: Language being built
+
+# Set by use(): the content and blog in that language, its layout texts, and its LANGUAGES entry.
+C, B, UI = C_EN, B_EN, i18n.UI
+LANG = C_EN.LANGUAGES[0]
+LANGS = {lang[0]: lang for lang in C_EN.LANGUAGES}
+PROBLEMS = {}
+
+
+def use(code):
+    global C, B, UI, LANG
+    C, B, UI, problems = i18n.localize(code)
+    LANG = LANGS[code]
+    PROBLEMS[code] = problems
+
+
+def prefix(code=None):
+    code = code or LANG[0]
+    return "" if code == "en" else f"/{code}"
+
+
+def h(path):
+    """A link to a page of the site, in the language being built (legal pages are English only)."""
+    if path.startswith(ENGLISH_ONLY):
+        return path
+    return prefix() + path
+
+
+def url(path, code="en"):
+    return SITE_URL + prefix(code) + path
+
+
+def T(key, **values):
+    """A layout text in the language being built."""
+    text = UI[key]
+    return text.format(**values) if values else text
 
 
 def esc(text):
     return html.escape(text, quote=True)
-
-
-def url(path):
-    return C.SITE_URL + C.BASE_PATH + path
-
-
-def with_base(markup):
-    """Root-relative links and sources ("/help/", "/img/…") under BASE_PATH."""
-    if not C.BASE_PATH:
-        return markup
-    return re.sub(r'((?:href|src)=")/(?!/)', lambda m: m.group(1) + C.BASE_PATH + "/", markup)
 
 
 def app_store_url():
@@ -64,10 +110,18 @@ def faq_item(faq_id):
     return next(item for item in all_faq() if item["id"] == faq_id)
 
 
+def forms(tv_id):
+    return B.PLATFORMS[tv_id]["forms"]
+
+
 # MARK: Pieces
 
 DOWNLOAD_SVG = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" '
                 'stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg>')
+
+GLOBE_SVG = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">'
+             '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6'
+             '-3.7-9S9.5 5.6 12 3z"/></svg>')
 
 INLINE_ICONS = {
     "mirroring": '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6.5" width="13" height="10" rx="2.6" '
@@ -88,8 +142,8 @@ def download_button(extra_class=""):
     link = app_store_url()
     cls = f"btn {extra_class}".strip()
     if link:
-        return f'<a class="{cls}" href="{link}" rel="noopener">{DOWNLOAD_SVG}Download on the App Store</a>'
-    return f'<span class="{cls} disabled" aria-disabled="true">{DOWNLOAD_SVG}Coming soon to the App Store</span>'
+        return f'<a class="{cls}" href="{link}" rel="noopener">{DOWNLOAD_SVG}{esc(T("download"))}</a>'
+    return f'<span class="{cls} disabled" aria-disabled="true">{DOWNLOAD_SVG}{esc(T("coming_soon"))}</span>'
 
 
 def phone(shot, alt, cls="", eager=False):
@@ -130,6 +184,7 @@ def faq_schema(pairs):
     return {
         "@context": "https://schema.org",
         "@type": "FAQPage",
+        "inLanguage": LANG[1],
         "mainEntity": [
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in pairs
         ],
@@ -141,9 +196,37 @@ def breadcrumbs_schema(items):
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            {"@type": "ListItem", "position": i, "name": name, "item": url(path)}
+            {"@type": "ListItem", "position": i, "name": name, "item": url(path, LANG[0])}
             for i, (name, path) in enumerate(items, 1)
         ],
+    }
+
+
+def howto_schema(name, description, steps):
+    data = {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": name,
+        "inLanguage": LANG[1],
+        "tool": [{"@type": "HowToTool", "name": T("howto_tool")}],
+        "step": [{"@type": "HowToStep", "position": i, "text": s} for i, s in enumerate(steps, 1)],
+    }
+    if description:
+        data["description"] = description
+    return data
+
+
+def organization_schema():
+    return {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": url("/#org"),
+        "name": APP_NAME,
+        "url": url("/"),
+        "logo": url("/img/icon-512.png"),
+        "email": SUPPORT_EMAIL,
+        "contactPoint": {"@type": "ContactPoint", "contactType": "customer support", "email": SUPPORT_EMAIL,
+                         "availableLanguage": ["English"]},
     }
 
 
@@ -152,16 +235,18 @@ def app_schema():
         "@context": "https://schema.org",
         "@type": "MobileApplication",
         "@id": url("/#app"),
-        "name": C.APP_NAME,
+        "name": APP_NAME,
         "alternateName": "MirrorGo: Screen Mirroring & Cast to TV",
         "description": C.ONE_LINER,
-        "url": url("/"),
+        "url": url("/", LANG[0]),
         "operatingSystem": f"iOS {C.MIN_IOS} or later",
         "applicationCategory": "UtilitiesApplication",
         "image": url("/img/icon-512.png"),
         "screenshot": [url(f"/img/screens/{s}.webp") for s in ("home", "mirroring", "detail_media", "iptv", "youtube")],
         "featureList": [f"{f['name']}: {f['short']}" for f in C.FEATURES],
         "availableOnDevice": "iPhone",
+        "publisher": {"@id": url("/#org")},
+        "inLanguage": LANG[1],
     }
     if app_store_url():
         data["downloadUrl"] = app_store_url()
@@ -174,85 +259,123 @@ def website_schema():
         "@context": "https://schema.org",
         "@type": "WebSite",
         "@id": url("/#website"),
-        "name": C.APP_NAME,
+        "name": APP_NAME,
         "url": url("/"),
-        "inLanguage": "en",
+        "inLanguage": [lang[1] for lang in C_EN.LANGUAGES],
+        "publisher": {"@id": url("/#org")},
         "about": {"@id": url("/#app")},
     }
 
 
 # MARK: Layout
 
-NAV = [("/#features", "Features"), ("/#tvs", "TVs"), ("/blog/", "Guides"), ("/help/", "Help")]
+def nav():
+    return [("/#features", T("nav_features")), ("/#tvs", T("nav_tvs")), ("/blog/", T("nav_guides")),
+            ("/help/", T("nav_help"))]
 
 
-def header():
-    links = "".join(f'<a href="{href}">{label}</a>' for href, label in NAV)
+def language_links(path, translated):
+    """Each language's version of this page (or its home, for English-only pages), current one first."""
+    return [(lang, prefix(lang[0]) + (path if translated else "/")) for lang in C_EN.LANGUAGES]
+
+
+def language_menu(path, translated):
+    current = ' aria-current="true"'
+    items = "".join(
+        f'<li><a href="{href}" hreflang="{lang[1]}" lang="{lang[2]}"{current if lang[0] == LANG[0] else ""}>'
+        f'{esc(lang[4])}</a></li>'
+        for lang, href in language_links(path, translated)
+    )
+    short = LANG[0].split("-")[0].upper()
+    return (f'<details class="lang-menu"><summary aria-label="{esc(T("language"))}: {esc(LANG[4])}">{GLOBE_SVG}'
+            f'<span>{short}</span></summary><ul>{items}</ul></details>')
+
+
+def header(path, translated):
+    links = "".join(f'<a href="{h(href)}">{esc(label)}</a>' for href, label in nav())
     return f"""<header class="header">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="{C.APP_NAME} home"><img src="/img/icon.webp" alt="" width="34" height="34">{C.APP_NAME}</a>
+    <a class="brand" href="{h('/')}" aria-label="{esc(T('home_aria'))}"><img src="/img/icon.webp" alt="" width="34" height="34">{APP_NAME}</a>
     <nav class="nav" id="nav" aria-label="Main">{links}</nav>
-    <button class="menu-btn" aria-label="Menu" aria-controls="nav" aria-expanded="false">☰</button>
+    {language_menu(path, translated)}
+    <button class="menu-btn" aria-label="{esc(T('menu'))}" aria-controls="nav" aria-expanded="false">☰</button>
     {download_button("small")}
   </div>
 </header>"""
 
 
-def footer():
-    tvs = "".join(f'<li><a href="/{t["page"]}/">{esc(t["name"])}</a></li>' for t in C.TVS if t["page"])
-    brands = "".join(f'<li><a href="/{b["slug"]}/">{esc(b["name"])} TV</a></li>' for b in C.BRANDS)
+def footer(path, translated):
+    tvs = "".join(f'<li><a href="{h("/" + t["page"] + "/")}">{esc(t["name"])}</a></li>' for t in C.TVS if t["page"])
+    brands = "".join(f'<li><a href="{h("/" + b["slug"] + "/")}">{esc(T("brand_tv", brand=b["name"]))}</a></li>'
+                     for b in C.BRANDS)
+    english = f' <span class="muted">{esc(T("english_only"))}</span>' if LANG[0] != "en" else ""
+    langs = " · ".join(
+        f'<a href="{href}" hreflang="{lang[1]}" lang="{lang[2]}">{esc(lang[4])}</a>'
+        for lang, href in language_links(path, translated)
+    )
     year = datetime.date.today().year
     return f"""<footer class="footer">
   <div class="wrap">
     <div class="cols">
       <div>
-        <a class="brand" href="/"><img src="/img/icon.webp" alt="" width="34" height="34" loading="lazy">{C.APP_NAME}</a>
-        <p style="margin-top:14px;max-width:26em">{esc(C.TAGLINE)}. Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV and any web browser.</p>
+        <a class="brand" href="{h('/')}"><img src="/img/icon.webp" alt="" width="34" height="34" loading="lazy">{APP_NAME}</a>
+        <p style="margin-top:14px;max-width:26em">{esc(T("footer_blurb"))}</p>
       </div>
-      <div><h4>Mirror to</h4><ul>{tvs}</ul></div>
-      <div><h4>TV brands</h4><ul>{brands}</ul></div>
-      <div><h4>Support</h4><ul>
-        <li><a href="/blog/">Guides</a></li>
-        <li><a href="/help/">Help &amp; FAQ</a></li>
-        <li><a href="mailto:{C.SUPPORT_EMAIL}">{C.SUPPORT_EMAIL}</a></li>
-        <li><a href="https://smrr.tv">smrr.tv</a> (TV browser)</li>
-        <li><a href="/privacy/">Privacy</a></li>
-        <li><a href="/terms/">Terms of use</a></li>
-        <li><a href="/firetv/privacy/">Fire TV app: privacy</a> · <a href="/firetv/terms/">terms</a></li>
+      <div><h4>{esc(T("footer_mirror_to"))}</h4><ul>{tvs}</ul></div>
+      <div><h4>{esc(T("footer_brands"))}</h4><ul>{brands}</ul></div>
+      <div><h4>{esc(T("footer_support"))}</h4><ul>
+        <li><a href="{h('/blog/')}">{esc(T("guides"))}</a></li>
+        <li><a href="{h('/help/')}">{esc(T("help_faq"))}</a></li>
+        <li><a href="mailto:{SUPPORT_EMAIL}">{SUPPORT_EMAIL}</a></li>
+        <li><a href="https://smrr.tv">{esc(T("tv_browser"))}</a></li>
+        <li><a href="/privacy/">{esc(T("privacy"))}</a>{english}</li>
+        <li><a href="/terms/">{esc(T("terms"))}</a>{english}</li>
+        <li><a href="/firetv/privacy/">{esc(T("firetv_app_privacy"))}</a> · <a href="/firetv/terms/">{esc(T("firetv_app_terms"))}</a></li>
       </ul></div>
     </div>
+    <nav class="langs" aria-label="{esc(T("footer_languages"))}">{langs}</nav>
     <div class="legal">
-      <span>© {year} {C.APP_NAME} · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms of use</a></span>
-      <span>Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV, AirPlay and the TV brands named are trademarks of their owners. MirrorGo isn't affiliated with them.</span>
+      <span>© {year} {APP_NAME} · <a href="/privacy/">{esc(T("privacy"))}</a> · <a href="/terms/">{esc(T("terms"))}</a></span>
+      <span>{esc(T("trademarks"))}</span>
     </div>
   </div>
 </footer>"""
 
 
-def page(path, title, description, body, schemas=(), og_image="/img/og.png", noindex=False):
-    canonical = url(path)
+def page(path, title, description, body, schemas=(), noindex=False, translated=True, og_image="/img/og.png"):
+    """A whole page. `translated`: it exists in every language (else English only, like the legal pages)."""
+    canonical = url(path, LANG[0])
     store = (f'<meta name="apple-itunes-app" content="app-id={C.APP_STORE_ID}">' if C.APP_STORE_ID else "")
     ld = "\n".join(
         f'<script type="application/ld+json">{json.dumps(s, ensure_ascii=False, separators=(",", ":"))}</script>'
         for s in schemas
     )
     robots = '<meta name="robots" content="noindex">' if noindex else '<meta name="robots" content="index, follow, max-image-preview:large">'
+    if translated and not noindex:
+        alternates = "\n".join(f'<link rel="alternate" hreflang="{lang[1]}" href="{url(path, lang[0])}">'
+                               for lang in C_EN.LANGUAGES)
+        alternates += f'\n<link rel="alternate" hreflang="x-default" href="{url(path)}">'
+        og_alternates = "\n".join(f'<meta property="og:locale:alternate" content="{lang[3]}">'
+                                  for lang in C_EN.LANGUAGES if lang[0] != LANG[0])
+    else:
+        alternates = og_alternates = ""
     return f"""<!doctype html>
-<html lang="en">
+<html lang="{LANG[2]}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(description)}">
-<link rel="canonical" href="{canonical}">
-<link rel="alternate" hreflang="en" href="{canonical}">
-<link rel="alternate" hreflang="x-default" href="{canonical}">
+{"" if noindex else f'<link rel="canonical" href="{canonical}">'}
+{alternates}
 {robots}
 <meta name="theme-color" content="#0e0e12">
 <meta name="color-scheme" content="dark">
 {store}
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="{C.APP_NAME}">
+<meta property="og:site_name" content="{APP_NAME}">
+<meta property="og:locale" content="{LANG[3]}">
+{og_alternates}
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(description)}">
 <meta property="og:url" content="{canonical}">
@@ -263,17 +386,17 @@ def page(path, title, description, body, schemas=(), og_image="/img/og.png", noi
 <link rel="icon" href="/img/favicon-64.png" type="image/png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="preload" href="/fonts/Sora-Bold.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/fonts/Sora-Bold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
 {ld}
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-{header()}
+<a class="skip" href="#main">{esc(T("skip"))}</a>
+{header(path, translated)}
 <main id="main">
 {body}
 </main>
-{footer()}
+{footer(path, translated)}
 <script src="/site.js" defer></script>
 </body>
 </html>
@@ -285,16 +408,30 @@ def page(path, title, description, body, schemas=(), og_image="/img/og.png", noi
 def compatibility_table():
     head = "".join(f'<th scope="col">{esc(t.get("short", t["name"]))}</th>' for t in C.TVS)
     rows = []
-    for name, cells in C.COMPATIBILITY:
+    for _, name, cells in C.COMPATIBILITY:
         tds = []
         for t in C.TVS:
             status, detail = cells[t["id"]]
-            mark = '<span class="yes" aria-label="Yes">✓</span>' if status == "yes" else '<span class="no" aria-label="No">—</span>'
+            mark = (f'<span class="yes" role="img" aria-label="{esc(T("yes"))}">✓</span>' if status == "yes" else
+                    f'<span class="no" role="img" aria-label="{esc(T("no"))}">—</span>')
             extra = f'<span class="note-cell">{esc(detail)}</span>' if detail else ""
             tds.append(f"<td>{mark}{extra}</td>")
-        rows.append(f'<tr><td scope="row">{esc(name)}</td>{"".join(tds)}</tr>')
-    return (f'<div class="table-wrap"><table><caption class="skip">What MirrorGo can show on each kind of TV</caption>'
-            f'<thead><tr><th scope="col">Feature</th>{head}</tr></thead><tbody>{"".join(rows)}</tbody></table></div>')
+        rows.append(f'<tr><th scope="row">{esc(name)}</th>{"".join(tds)}</tr>')
+    return (f'<div class="table-wrap"><table><caption class="skip">{esc(T("compat_caption"))}</caption>'
+            f'<thead><tr><th scope="col">{esc(T("compat_feature"))}</th>{head}</tr></thead><tbody>{"".join(rows)}</tbody></table></div>')
+
+
+def airplay_table():
+    def mark(status):
+        if status == "yes":
+            return f'<span class="yes" role="img" aria-label="{esc(T("yes"))}">✓</span>'
+        return f'<span class="no" role="img" aria-label="{esc(T("no"))}">—</span>'
+
+    rows = "".join(f'<tr><th scope="row">{esc(name)}</th><td>{mark(iphone)}</td><td class="hl">{mark(mg)}</td></tr>'
+                   for name, iphone, mg in C.AIRPLAY_COMPARE)
+    return (f'<div class="table-wrap compare"><table><thead><tr><th scope="col">{esc(T("airplay_col_what"))}</th>'
+            f'<th scope="col">{esc(T("airplay_col_iphone"))}</th><th scope="col" class="hl">{esc(T("airplay_col_mirrorgo"))}</th>'
+            f'</tr></thead><tbody>{rows}</tbody></table></div>')
 
 
 def showcase_row(i, item):
@@ -304,10 +441,10 @@ def showcase_row(i, item):
     phones = "".join(phone(s, alt, "back float" if j == 1 else "") for j, (s, alt) in enumerate(shots))
     points = "".join(f"<li>{esc(p)}</li>" for p in item["points"])
     works = ""
-    cells = C.COMPATIBILITY_BY_FEATURE.get(item["feature"])
+    cells = next((cells for fid, _, cells in C.COMPATIBILITY if fid == item["feature"]), None)
     if cells:
         tvs_ok = [t.get("short", t["name"]) for t in C.TVS if cells[t["id"]][0] == "yes"]
-        works = f'<p class="works-on"><b>Works on:</b> {esc(", ".join(tvs_ok))}</p>'
+        works = f'<p class="works-on"><b>{esc(T("works_on"))}</b> {esc(", ".join(tvs_ok))}</p>'
     foot = f'<p class="works-on">{esc(item["footnote"])}</p>' if item.get("footnote") else ""
     return f"""<div class="feature{' flip' if i % 2 else ''} reveal" id="{feat['id']}">
   <div class="{media_cls}" style="--glow:{item['glow']}">{phones}</div>
@@ -323,11 +460,11 @@ def showcase_row(i, item):
 
 def build_home():
     chips = "".join(
-        f'<a class="chip" href="/{t["page"]}/"><i style="background:{t["color"]}"></i>{esc(t["name"])}</a>'
+        f'<a class="chip" href="{h("/" + t["page"] + "/")}"><i style="background:{t["color"]}"></i>{esc(t["name"])}</a>'
         for t in C.TVS
     )
     brand_chips = "".join(
-        f'<a class="chip brand-chip" href="/{b["slug"]}/" style="--bc:{b["color"]}">{esc(b["name"])}</a>'
+        f'<a class="chip brand-chip" href="{h("/" + b["slug"] + "/")}" style="--bc:{b["color"]}">{esc(b["name"])}</a>'
         for b in C.BRANDS
     )
     tiles = "".join(
@@ -338,49 +475,63 @@ def build_home():
         f'<p>{esc(f["short"])}</p></div>'
         for f in C.FEATURES
     )
+    facts = "".join(f"<div><dt>{esc(k)}</dt><dd>{esc(v)}</dd></div>" for k, v in C.QUICK_FACTS)
     showcase = "".join(showcase_row(i, item) for i, item in enumerate(C.SHOWCASE))
     steps = "".join(f'<div class="step reveal"><h3>{esc(t)}</h3><p>{esc(d)}</p></div>' for t, d in C.STEPS)
     privacy = "".join(f"<li><b>{esc(t)}</b>{esc(d)}</li>" for t, d in C.PRIVACY_POINTS)
     faq_items = [faq_item(i) for i in C.HOME_FAQ]
     guide_cards = "".join(
-        f'<a class="card" href="/blog/#{t["id"]}"><b><i class="dot" style="background:{t["color"]}"></i>{esc(t["name"])}</b>'
-        f'<span>{len([1 for tv_id, _ in B.posts() if tv_id == t["id"]]) + 1} guides</span></a>'
+        f'<a class="card" href="{h("/blog/")}#{t["id"]}"><b><i class="dot" style="background:{t["color"]}"></i>{esc(t["name"])}</b>'
+        f'<span>{esc(T("n_guides", n=len([1 for tv_id, _ in B.posts() if tv_id == t["id"]]) + 1))}</span></a>'
         for t in C.TVS
     )
     faq = "".join(faq_details(item, open_first=(n == 0)) for n, item in enumerate(faq_items))
+    h1 = esc(UI["home_h1"]).format(big=f'<span class="grad-text">{esc(T("home_h1_big"))}</span>')
 
     body = f"""
 <section class="hero">
   <div class="wrap">
     <div>
-      <span class="eyebrow"><span class="dot"></span>For iPhone · No app on the TV</span>
-      <h1>Your iPhone on the <span class="grad-text">big screen</span></h1>
+      <span class="eyebrow"><span class="dot"></span>{esc(T("eyebrow"))}</span>
+      <h1>{h1}</h1>
       <p class="lead">{esc(C.ONE_LINER)}</p>
-      <div class="cta">{download_button()}<a class="btn ghost" href="#tvs">Check your TV</a></div>
-      <p class="fine"><span>Same Wi-Fi, no cables</span><span>Sound included</span><span>No account</span></p>
+      <div class="cta">{download_button()}<a class="btn ghost" href="#tvs">{esc(T("check_tv"))}</a></div>
+      <p class="fine"><span>{esc(T("fine_wifi"))}</span><span>{esc(T("fine_sound"))}</span><span>{esc(T("fine_account"))}</span></p>
     </div>
     <div class="scene" aria-hidden="true">
-      <div class="tv-wrap"><div class="tv"><span class="live-pill"><i></i>Mirroring</span><img src="/img/screens/home.webp" alt="" width="{SHOT_W}" height="{SHOT_H}" fetchpriority="high"></div><div class="tv-foot"></div></div>
+      <div class="tv-wrap"><div class="tv"><span class="live-pill"><i></i>{esc(T("live_pill"))}</span><img src="/img/screens/home.webp" alt="" width="{SHOT_W}" height="{SHOT_H}" fetchpriority="high"></div><div class="tv-foot"></div></div>
       <div class="beam"><i></i><i></i><i></i><i></i><i></i></div>
-      {phone("home", "MirrorGo's Home screen", "float", eager=True)}
+      {phone("home", T("hero_alt"), "float", eager=True)}
     </div>
   </div>
 </section>
 
-<section class="brands" aria-label="Supported TVs">
+<section class="brands" aria-label="{esc(T("supported_tvs"))}">
   <div class="wrap">
-    <p>Works with the TV you already have</p>
+    <p>{esc(T("works_with_tv"))}</p>
     <div class="chips">{chips}</div>
     <div class="chips" style="margin-top:10px">{brand_chips}</div>
+  </div>
+</section>
+
+<section id="about" class="facts-section">
+  <div class="wrap">
+    <div class="facts reveal">
+      <div class="facts-head">
+        <span class="kicker">{esc(T("facts_kicker"))}</span>
+        <h2>{esc(T("facts_h2"))}</h2>
+      </div>
+      <dl>{facts}</dl>
+    </div>
   </div>
 </section>
 
 <section id="features">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="kicker">Everything in one app</span>
-      <h2>Mirror it, or cast it</h2>
-      <p>Show your whole screen, or send just what you're watching, in full quality, while your phone stays free.</p>
+      <span class="kicker">{esc(T("features_kicker"))}</span>
+      <h2>{esc(T("features_h2"))}</h2>
+      <p>{esc(T("features_p"))}</p>
     </div>
     <div class="tiles">{tiles}</div>
   </div>
@@ -393,9 +544,9 @@ def build_home():
 <section id="how">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="kicker">How it works</span>
-      <h2>On the TV in three taps</h2>
-      <p>No cables, no adapters, nothing to install on the TV.</p>
+      <span class="kicker">{esc(T("how_kicker"))}</span>
+      <h2>{esc(T("how_h2"))}</h2>
+      <p>{esc(T("how_p"))}</p>
     </div>
     <div class="steps">{steps}</div>
   </div>
@@ -404,12 +555,25 @@ def build_home():
 <section id="tvs">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="kicker">Compatibility</span>
-      <h2>What works on your TV</h2>
-      <p>MirrorGo finds your TV on the Wi-Fi and dims anything it can't play.</p>
+      <span class="kicker">{esc(T("tvs_kicker"))}</span>
+      <h2>{esc(T("tvs_h2"))}</h2>
+      <p>{esc(T("tvs_p"))}</p>
     </div>
     <div class="reveal">{compatibility_table()}</div>
-    <p class="table-foot">Samsung smart TVs from 2016 · LG webOS TVs · Roku TVs and players · Google TV and Android TV (Sony, TCL, Hisense, Philips, Xiaomi…) · Chromecast · Fire TV Stick, Cube and Fire TV smart TVs · Apple TV and AirPlay TVs · any browser through smrr.tv</p>
+    <p class="table-foot">{esc(T("tvs_foot"))}</p>
+  </div>
+</section>
+
+<section id="airplay">
+  <div class="wrap">
+    <div class="split-head reveal">
+      <div>
+        <span class="kicker">{esc(T("airplay_kicker"))}</span>
+        <h2>{esc(T("airplay_h2"))}</h2>
+        <p>{esc(T("airplay_p"))}</p>
+      </div>
+      {airplay_table()}
+    </div>
   </div>
 </section>
 
@@ -417,10 +581,10 @@ def build_home():
   <div class="wrap">
     <div class="band reveal">
       <div>
-        <span class="kicker">Private by design</span>
-        <h2>Your phone, your TV, your Wi-Fi</h2>
-        <p class="muted" style="margin-top:16px;font-size:18px">What you mirror and cast goes straight from your iPhone to your TV. MirrorGo has no account, and keeps your photos and videos off any server.</p>
-        <p style="margin-top:18px"><a href="/privacy/">Read the privacy policy →</a></p>
+        <span class="kicker">{esc(T("privacy_kicker"))}</span>
+        <h2>{esc(T("privacy_h2"))}</h2>
+        <p class="muted" style="margin-top:16px;font-size:18px">{esc(T("privacy_p"))}</p>
+        <p style="margin-top:18px"><a href="/privacy/">{esc(T("privacy_link"))}</a></p>
       </div>
       <ul>{privacy}</ul>
     </div>
@@ -430,66 +594,61 @@ def build_home():
 <section id="guides">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="kicker">Guides</span>
-      <h2>Step by step, for your TV</h2>
-      <p>How to connect, mirror, and cast photos, videos, YouTube and live TV to each kind of TV.</p>
+      <span class="kicker">{esc(T("guides_kicker"))}</span>
+      <h2>{esc(T("guides_h2"))}</h2>
+      <p>{esc(T("guides_p"))}</p>
     </div>
     <div class="cards guide-grid">{guide_cards}</div>
-    <p class="table-foot" style="margin-top:22px"><a href="/blog/">All guides →</a></p>
+    <p class="table-foot" style="margin-top:22px"><a href="{h('/blog/')}">{esc(T("all_guides"))}</a></p>
   </div>
 </section>
 
 <section id="faq">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="kicker">Questions</span>
-      <h2>Frequently asked questions</h2>
+      <span class="kicker">{esc(T("faq_kicker"))}</span>
+      <h2>{esc(T("faq_h2"))}</h2>
     </div>
     <div class="faq">{faq}</div>
-    <p class="table-foot" style="margin-top:22px"><a href="/help/">All help topics →</a></p>
+    <p class="table-foot" style="margin-top:22px"><a href="{h('/help/')}">{esc(T("all_help"))}</a></p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
     <div class="final reveal">
-      <img class="app-icon" src="/img/icon.webp" alt="{C.APP_NAME} app icon" width="92" height="92" loading="lazy">
-      <h2>Put your iPhone on the TV</h2>
-      <p>Screen mirroring, photos, videos, YouTube, web videos and thousands of live channels. One app, any TV.</p>
+      <img class="app-icon" src="/img/icon.webp" alt="{esc(T("app_icon_alt"))}" width="92" height="92" loading="lazy">
+      <h2>{esc(T("final_h2"))}</h2>
+      <p>{esc(T("final_p"))}</p>
       {download_button()}
     </div>
   </div>
 </section>
 """
-    schemas = [website_schema(), app_schema(), faq_schema([(i["q"], answer_text(i)) for i in faq_items])]
-    title = "MirrorGo: Screen Mirroring & Cast to TV for iPhone"
-    desc = ("Mirror your iPhone to Samsung, LG, Google TV, Chromecast, Fire TV, Apple TV or any web browser, and cast "
-            "photos, videos, YouTube, web videos and 9,000+ live TV channels. No app on the TV.")
-    return page("/", title, desc, body, schemas)
+    schemas = [organization_schema(), website_schema(), app_schema(),
+               faq_schema([(i["q"], answer_text(i)) for i in faq_items])]
+    return page("/", T("home_title"), T("home_description"), body, schemas)
 
 
 # MARK: TV guides
-
-STATUS_LABEL = {"ok": "Works", "part": "Partly", "not": "Not on this TV"}
-
 
 def build_guide(g):
     t = tv(g["tv"])
     steps = "".join(f"<li>{esc(s)}</li>" for s in g["steps"])
     feats = "".join(
-        f'<li>{esc(name)}<span class="status {st}">{STATUS_LABEL[st]}</span>'
+        f'<li>{esc(name)}<span class="status {st}">{esc(T("status_" + st))}</span>'
         + (f"<small>{esc(detail)}</small>" if detail else "") + "</li>"
         for name, st, detail in g["features"]
     )
     sections = "".join(
-        f"<h2>{esc(h)}</h2>" + "".join(f"<p>{esc(p)}</p>" for p in paras) for h, paras in g["sections"]
+        f"<h2>{esc(hd)}</h2>" + "".join(f"<p>{esc(p)}</p>" for p in paras) for hd, paras in g["sections"]
     )
     faq = "".join(
         f'<details><summary><h3>{esc(q)}</h3></summary><div class="answer"><p>{esc(a)}</p></div></details>'
         for q, a in g["faq"]
     )
     others = "".join(
-        f'<a class="card" href="/{o["page"]}/"><b>{esc(o["name"])}</b><span>{esc(guide_h1(o["id"]))}</span></a>'
+        f'<a class="card" href="{h("/" + o["page"] + "/")}"><b>{esc(o["name"])}</b><span>{esc(guide_h1(o["id"]))}</span></a>'
         for o in C.TVS if o["page"] and o["id"] != t["id"]
     )
     shot = "browser_code" if t["id"] == "browser" else "mirroring"
@@ -498,42 +657,34 @@ def build_guide(g):
 <section class="page-hero">
   <div class="wrap split">
     <div>
-      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">MirrorGo</a> › {esc(t['name'])}</nav>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="{h('/')}">{APP_NAME}</a> › {esc(t['name'])}</nav>
       <h1>{esc(g['h1'])}</h1>
       <p class="lead">{esc(g['lead'])}</p>
       <div class="answer-box">
-        <h2>How to do it</h2>
+        <h2>{esc(T("how_to_do_it"))}</h2>
         <ol>{steps}</ol>
       </div>
       <div class="cta" style="margin-top:26px">{download_button()}</div>
     </div>
-    {phone(shot, f"MirrorGo ready to mirror an iPhone to {t['name']}", "float", eager=True)}
+    {phone(shot, T("guide_phone_alt", tv=t['name']), "float", eager=True)}
   </div>
 </section>
 <section style="padding-top:30px">
   <div class="wrap prose">
-    <h2>What you can do on {esc(t['name'])}</h2>
+    <h2>{esc(T("what_you_can_do", tv=t['name']))}</h2>
     <ul class="feature-list">{feats}</ul>
     {sections}
-    <h2>Questions</h2>
+    <h2>{esc(T("questions"))}</h2>
     <div class="faq" style="margin:0">{faq}</div>
-    <h2>More guides for {esc(t['name'])}</h2>
+    <h2>{esc(T("more_guides_for", tv=t['name']))}</h2>
     <div class="cards">{articles}</div>
-    <h2>Other TVs</h2>
+    <h2>{esc(T("other_tvs"))}</h2>
     <div class="cards">{others}</div>
   </div>
 </section>
 """
-    howto = {
-        "@context": "https://schema.org",
-        "@type": "HowTo",
-        "name": g["h1"],
-        "description": g["lead"],
-        "tool": [{"@type": "HowToTool", "name": "MirrorGo for iPhone"}],
-        "step": [{"@type": "HowToStep", "position": i, "text": s} for i, s in enumerate(g["steps"], 1)],
-    }
-    schemas = [howto, faq_schema(g["faq"]),
-               breadcrumbs_schema([("MirrorGo", "/"), (t["name"], f"/{g['slug']}/")])]
+    schemas = [howto_schema(g["h1"], g["lead"], g["steps"]), faq_schema(g["faq"]),
+               breadcrumbs_schema([(APP_NAME, "/"), (t["name"], f"/{g['slug']}/")])]
     return page(f"/{g['slug']}/", g["title"], g["description"], body, schemas)
 
 
@@ -543,36 +694,41 @@ def guide_h1(tv_id):
     return next(g["h1"] for g in C.TV_GUIDES if g["tv"] == tv_id)
 
 
-def post_url(tv_id, t):
-    return f"/blog/{B.slug(tv_id, t)}/"
+def post_url(tv_id, topic):
+    return f"/blog/{B.slug(tv_id, topic)}/"
+
+
+def post_title(tv_id, topic):
+    return topic["title"].format(**forms(tv_id))
 
 
 def post_cards(tv_id, exclude=None):
     """Cards for a TV's articles (and its mirroring guide)."""
     t = tv(tv_id)
-    cards = [f'<a class="card" href="/{t["page"]}/"><b>Screen mirroring</b><span>{esc(guide_h1(tv_id))}</span></a>']
+    cards = [f'<a class="card" href="{h("/" + t["page"] + "/")}"><b>{esc(T("screen_mirroring"))}</b>'
+             f'<span>{esc(guide_h1(tv_id))}</span></a>']
     for pid, topic in B.posts():
         if pid != tv_id or topic["id"] == exclude:
             continue
-        title = topic["title"].format(art=B.PLATFORMS[pid].get("title_art", B.PLATFORMS[pid]["art"]))
-        cards.append(f'<a class="card" href="{post_url(pid, topic)}"><b>{esc(topic["label"])}</b><span>{esc(title)}</span></a>')
+        cards.append(f'<a class="card" href="{h(post_url(pid, topic))}"><b>{esc(topic["label"])}</b>'
+                     f'<span>{esc(post_title(pid, topic))}</span></a>')
     return "".join(cards)
 
 
 def build_post(tv_id, topic):
     t = tv(tv_id)
     p = B.PLATFORMS[tv_id]
-    art, title_art = p["art"], p.get("title_art", p["art"])
+    f = forms(tv_id)
     path = post_url(tv_id, topic)
-    title = topic["title"].format(art=title_art)
-    h1 = topic["h1"].format(art=art)
-    lead = topic["lead"].format(art=art)
-    connect_post = post_url(tv_id, B.topic("connect"))
+    title = post_title(tv_id, topic)
+    h1 = topic["h1"].format(**f)
+    lead = topic["lead"].format(**f)
+    connect_post = h(post_url(tv_id, B.topic("connect")))
     if topic["id"] == "connect":
         steps = p["connect"]
         specifics = p["connect_notes"]
     else:
-        steps = [s.format(art=art) for s in topic["steps"]]
+        steps = [s.format(**f) for s in topic["steps"]]
         specifics = [p[topic["id"]]]
     steps_html = "".join(
         f'<li><a href="{connect_post}">{esc(s)}</a></li>' if (topic["id"] != "connect" and i == 0) else f"<li>{esc(s)}</li>"
@@ -581,39 +737,40 @@ def build_post(tv_id, topic):
     specifics_html = "".join(f"<p>{esc(x)}</p>" for x in specifics)
     tips = "".join(f"<li>{esc(x)}</li>" for x in topic["tips"])
     same_topic = "".join(
-        f'<a class="card" href="{post_url(o, topic)}"><b>{esc(tv(o)["name"])}</b>'
-        f'<span>{esc(topic["title"].format(art=B.PLATFORMS[o].get("title_art", B.PLATFORMS[o]["art"])))}</span></a>'
+        f'<a class="card" href="{h(post_url(o, topic))}"><b>{esc(tv(o)["name"])}</b>'
+        f'<span>{esc(post_title(o, topic))}</span></a>'
         for o, tp in B.posts() if tp["id"] == topic["id"] and o != tv_id
     )
+    updated = esc(UI["updated"]).format(date=f'<time datetime="{B.PUBLISHED}">{B.PUBLISHED}</time>')
     shot, alt = topic["shot"]
     if topic["id"] == "connect" and tv_id == "browser":
-        shot, alt = "browser_code", "Typing the smrr.tv code in MirrorGo"
+        shot, alt = "browser_code", T("browser_code_alt")
     body = f"""
 <section class="page-hero">
   <div class="wrap split">
     <div>
-      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">MirrorGo</a> › <a href="/blog/">Guides</a> › <a href="/blog/#{t['id']}">{esc(t['name'])}</a></nav>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="{h('/')}">{APP_NAME}</a> › <a href="{h('/blog/')}">{esc(T("guides"))}</a> › <a href="{h('/blog/')}#{t['id']}">{esc(t['name'])}</a></nav>
       <h1>{esc(h1)}</h1>
       <p class="lead">{esc(lead)}</p>
       <div class="answer-box">
-        <h2>Step by step</h2>
+        <h2>{esc(T("step_by_step"))}</h2>
         <ol>{steps_html}</ol>
       </div>
-      <p class="byline">Updated <time datetime="{B.PUBLISHED}">{B.PUBLISHED}</time> · MirrorGo for iPhone</p>
+      <p class="byline">{updated} · {esc(T("howto_tool"))}</p>
     </div>
     {phone(shot, alt, "float", eager=True)}
   </div>
 </section>
 <section style="padding-top:30px">
   <div class="wrap prose">
-    <h2>On {esc(t['name'])}</h2>
+    <h2>{esc(T("on_tv", tv=t['name']))}</h2>
     {specifics_html}
-    <h2>Good to know</h2>
+    <h2>{esc(T("good_to_know"))}</h2>
     <ul>{tips}</ul>
     <div class="cta" style="margin-top:30px">{download_button()}</div>
-    <h2>More for {esc(t['name'])}</h2>
+    <h2>{esc(T("more_for", tv=t['name']))}</h2>
     <div class="cards">{post_cards(tv_id, exclude=topic["id"])}</div>
-    <h2>{esc(topic['label'])} on other TVs</h2>
+    <h2>{esc(T("topic_on_other_tvs", topic=topic['label']))}</h2>
     <div class="cards">{same_topic}</div>
   </div>
 </section>
@@ -623,65 +780,57 @@ def build_post(tv_id, topic):
         "@type": "BlogPosting",
         "headline": title,
         "description": lead,
+        "inLanguage": LANG[1],
         "datePublished": B.PUBLISHED,
-        "dateModified": B.PUBLISHED,
-        "mainEntityOfPage": url(path),
+        "dateModified": max(B.PUBLISHED, LASTMOD),
+        "mainEntityOfPage": url(path, LANG[0]),
         "image": url(f"/img/screens/{shot}.webp"),
-        "author": {"@type": "Organization", "name": C.APP_NAME, "url": url("/")},
-        "publisher": {"@type": "Organization", "name": C.APP_NAME, "logo": {"@type": "ImageObject", "url": url("/img/icon-512.png")}},
+        "author": {"@type": "Organization", "name": APP_NAME, "url": url("/")},
+        "publisher": {"@type": "Organization", "name": APP_NAME, "logo": {"@type": "ImageObject", "url": url("/img/icon-512.png")}},
         "about": {"@id": url("/#app")},
     }
-    howto = {
-        "@context": "https://schema.org",
-        "@type": "HowTo",
-        "name": h1,
-        "description": lead,
-        "tool": [{"@type": "HowToTool", "name": "MirrorGo for iPhone"}],
-        "step": [{"@type": "HowToStep", "position": i, "text": s} for i, s in enumerate(steps, 1)],
-    }
-    crumbs = breadcrumbs_schema([("MirrorGo", "/"), ("Guides", "/blog/"), (h1, path)])
+    crumbs = breadcrumbs_schema([(APP_NAME, "/"), (T("guides"), "/blog/"), (h1, path)])
     desc = lead if len(lead) <= 160 else lead[:157].rsplit(" ", 1)[0] + "…"
-    return path, page(path, f"{title} | MirrorGo", desc, body, [article, howto, crumbs])
+    return path, page(path, T("page_title", title=title), desc, body, [article, howto_schema(h1, lead, steps), crumbs])
 
 
 def build_blog_index():
     groups = []
     for t in C.TVS:
-        items = [f'<li><a href="/{t["page"]}/">{esc(guide_h1(t["id"]))}</a></li>']
+        items = [f'<li><a href="{h("/" + t["page"] + "/")}">{esc(guide_h1(t["id"]))}</a></li>']
         for pid, topic in B.posts():
             if pid == t["id"]:
-                p = B.PLATFORMS[pid]
-                items.append(f'<li><a href="{post_url(pid, topic)}">{esc(topic["h1"].format(art=p["art"]))}</a></li>')
+                items.append(f'<li><a href="{h(post_url(pid, topic))}">{esc(topic["h1"].format(**forms(pid)))}</a></li>')
         groups.append(f'<div class="blog-group" id="{t["id"]}"><h2><i class="dot" style="background:{t["color"]}"></i>{esc(t["name"])}</h2>'
                       f'<ul>{"".join(items)}</ul></div>')
-    brands = "".join(f'<a class="card" href="/{b["slug"]}/"><b>{esc(b["name"])}</b><span>Mirror your iPhone to a {esc(b["name"])} TV</span></a>' for b in C.BRANDS)
+    brands = "".join(f'<a class="card" href="{h("/" + b["slug"] + "/")}"><b>{esc(b["name"])}</b>'
+                     f'<span>{esc(T("brand_h1", brand=b["name"]))}</span></a>' for b in C.BRANDS)
     body = f"""
 <section class="page-hero">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">MirrorGo</a> › Guides</nav>
-    <h1>Guides</h1>
-    <p class="lead">Step-by-step guides for every kind of TV: connecting your iPhone, mirroring the screen, and casting photos, videos, web images, YouTube, web videos and free live TV.</p>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="{h('/')}">{APP_NAME}</a> › {esc(T("guides"))}</nav>
+    <h1>{esc(T("blog_h1"))}</h1>
+    <p class="lead">{esc(T("blog_lead"))}</p>
   </div>
 </section>
 <section style="padding-top:10px">
   <div class="wrap">
     <div class="blog-groups">{"".join(groups)}</div>
-    <div class="prose" style="max-width:none"><h2>By TV brand</h2><div class="cards">{brands}</div></div>
+    <div class="prose" style="max-width:none"><h2>{esc(T("by_brand"))}</h2><div class="cards">{brands}</div></div>
   </div>
 </section>
 """
     collection = {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "name": "MirrorGo guides",
-        "url": url("/blog/"),
-        "hasPart": [{"@type": "BlogPosting", "headline": tp["title"].format(art=B.PLATFORMS[pid].get("title_art", B.PLATFORMS[pid]["art"])),
-                     "url": url(post_url(pid, tp))} for pid, tp in B.posts()],
+        "name": T("blog_collection"),
+        "url": url("/blog/", LANG[0]),
+        "inLanguage": LANG[1],
+        "hasPart": [{"@type": "BlogPosting", "headline": post_title(pid, tp), "url": url(post_url(pid, tp), LANG[0])}
+                    for pid, tp in B.posts()],
     }
-    return page("/blog/", "Guides: Mirror and Cast an iPhone to Any TV | MirrorGo",
-                "Step-by-step guides to connect an iPhone to Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire "
-                "TV, Apple TV or a web browser, and cast photos, videos, YouTube and live TV.", body,
-                [collection, breadcrumbs_schema([("MirrorGo", "/"), ("Guides", "/blog/")])])
+    return page("/blog/", T("blog_title"), T("blog_description"), body,
+                [collection, breadcrumbs_schema([(APP_NAME, "/"), (T("guides"), "/blog/")])])
 
 
 # MARK: TV brands
@@ -689,59 +838,49 @@ def build_blog_index():
 def build_brand(b):
     kinds = [tv(k) for k in b["platforms"]]
     cards = "".join(
-        f'<a class="card" href="/{k["page"]}/"><b><i class="dot" style="background:{k["color"]}"></i>{esc(k["name"])}</b>'
-        f'<span>{"Any model, through smrr.tv" if k["id"] == "browser" else esc(guide_h1(k["id"]))}</span></a>'
+        f'<a class="card" href="{h("/" + k["page"] + "/")}"><b><i class="dot" style="background:{k["color"]}"></i>{esc(k["name"])}</b>'
+        f'<span>{esc(T("brand_any_model")) if k["id"] == "browser" else esc(guide_h1(k["id"]))}</span></a>'
         for k in kinds
     )
     guides = "".join(
-        f'<li><a href="{post_url(k["id"], B.topic(tp))}">{esc(B.topic(tp)["h1"].format(art=B.PLATFORMS[k["id"]]["art"]))}</a></li>'
+        f'<li><a href="{h(post_url(k["id"], B.topic(tp)))}">{esc(B.topic(tp)["h1"].format(**forms(k["id"])))}</a></li>'
         for k in kinds for tp in ("connect", "photos", "iptv")
     )
     names = ", ".join(k["name"] for k in kinds if k["id"] != "browser")
-    steps = [
-        f"Find out which system your {b['name']} TV runs ({names}): its logo is on the start screen and the remote.",
-        "Put your iPhone on the same Wi-Fi as the TV.",
-        "Open MirrorGo, tap Connect your TV and pick your TV.",
-        f"Open Screen Mirroring and tap Start mirroring, then {C.START_SHARING}.",
-    ]
+    steps = [T("brand_step_1", brand=b["name"], systems=names), T("brand_step_2"), T("brand_step_3"),
+             T("brand_step_4", start=C.START_SHARING)]
     steps_html = "".join(f"<li>{esc(s)}</li>" for s in steps)
     path = f"/{b['slug']}/"
+    h1 = T("brand_h1", brand=b["name"])
     body = f"""
 <section class="page-hero">
   <div class="wrap split">
     <div>
-      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">MirrorGo</a> › {esc(b['name'])} TV</nav>
-      <h1>Mirror your iPhone to a {esc(b['name'])} TV</h1>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="{h('/')}">{APP_NAME}</a> › {esc(T("brand_tv", brand=b['name']))}</nav>
+      <h1>{esc(h1)}</h1>
       <p class="lead">{esc(b['about'])} {esc(b['which'])}</p>
       <div class="answer-box">
-        <h2>How to do it</h2>
+        <h2>{esc(T("how_to_do_it"))}</h2>
         <ol>{steps_html}</ol>
       </div>
       <div class="cta" style="margin-top:26px">{download_button()}</div>
     </div>
-    {phone("mirroring", f"MirrorGo ready to mirror an iPhone to a {b['name']} TV", "float", eager=True)}
+    {phone("mirroring", T("brand_phone_alt", brand=b['name']), "float", eager=True)}
   </div>
 </section>
 <section style="padding-top:30px">
   <div class="wrap prose">
-    <h2>{esc(b['name'])} TVs, by system</h2>
+    <h2>{esc(T("brand_by_system", brand=b['name']))}</h2>
     <div class="cards">{cards}</div>
-    <h2>Guides</h2>
+    <h2>{esc(T("guides"))}</h2>
     <ul>{guides}</ul>
   </div>
 </section>
 """
-    howto = {
-        "@context": "https://schema.org",
-        "@type": "HowTo",
-        "name": f"Mirror your iPhone to a {b['name']} TV",
-        "tool": [{"@type": "HowToTool", "name": "MirrorGo for iPhone"}],
-        "step": [{"@type": "HowToStep", "position": i, "text": s} for i, s in enumerate(steps, 1)],
-    }
-    return path, page(path, f"How to Mirror an iPhone to a {b['name']} TV | MirrorGo",
-                      f"Mirror your iPhone to a {b['name']} TV and cast photos, videos, YouTube and live TV with MirrorGo. "
-                      f"Works with {names}.", body,
-                      [howto, breadcrumbs_schema([("MirrorGo", "/"), (f"{b['name']} TV", path)])])
+    schemas = [howto_schema(h1, None, steps),
+               breadcrumbs_schema([(APP_NAME, "/"), (T("brand_tv", brand=b["name"]), path)])]
+    return path, page(path, T("brand_title", brand=b["name"]),
+                      T("brand_description", brand=b["name"], systems=names), body, schemas)
 
 
 # MARK: Help
@@ -753,22 +892,21 @@ def build_help():
         groups.append(f'<div class="faq-group"><h2>{esc(title)}</h2><div class="faq">'
                       + "".join(faq_details(i) for i in items) + "</div></div>")
         pairs += [(i["q"], answer_text(i)) for i in items]
+    lead = esc(UI["help_lead"]).format(email=f'<a href="mailto:{SUPPORT_EMAIL}">{SUPPORT_EMAIL}</a>')
     body = f"""
 <section class="page-hero">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">MirrorGo</a> › Help</nav>
-    <h1>Help &amp; FAQ</h1>
-    <p class="lead">Answers to the questions people ask most. Still stuck? Email <a href="mailto:{C.SUPPORT_EMAIL}">{C.SUPPORT_EMAIL}</a> with your TV's model.</p>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="{h('/')}">{APP_NAME}</a> › {esc(T("help_crumb"))}</nav>
+    <h1>{esc(T("help_h1"))}</h1>
+    <p class="lead">{lead}</p>
   </div>
 </section>
 <section style="padding-top:20px">
   <div class="wrap" style="max-width:900px">{"".join(groups)}</div>
 </section>
 """
-    schemas = [faq_schema(pairs), breadcrumbs_schema([("MirrorGo", "/"), ("Help", "/help/")])]
-    return page("/help/", "MirrorGo Help: Screen Mirroring & Casting FAQ",
-                "How to connect your TV, mirror your iPhone screen, fix a TV that isn't found, sound, lag and "
-                "black screens, and cast photos, videos, YouTube and IPTV with MirrorGo.", body, schemas)
+    schemas = [faq_schema(pairs), breadcrumbs_schema([(APP_NAME, "/"), (T("help_crumb"), "/help/")])]
+    return page("/help/", T("help_title"), T("help_description"), body, schemas)
 
 
 # MARK: Privacy
@@ -812,19 +950,20 @@ def build_privacy():
     <h2>Children</h2>
     {p("MirrorGo doesn't knowingly collect personal information from anyone, including children.")}
     <h2>Changes and contact</h2>
-    {p(f'If this policy changes, we will update this page and its date. Questions: <a href="mailto:{C.SUPPORT_EMAIL}">{C.SUPPORT_EMAIL}</a>. See also our <a href="/terms/">Terms of use</a>.')}
+    {p(f'If this policy changes, we will update this page and its date. Questions: <a href="mailto:{SUPPORT_EMAIL}">{SUPPORT_EMAIL}</a>. See also our <a href="/terms/">Terms of use</a>.')}
   </div>
 </section>
 """
     return page("/privacy/", "Privacy Policy | MirrorGo",
                 "How MirrorGo handles your data: no account, no tracking, your screen and photos go straight from "
-                "your iPhone to your TV.", body, [breadcrumbs_schema([("MirrorGo", "/"), ("Privacy", "/privacy/")])])
+                "your iPhone to your TV.", body, [breadcrumbs_schema([("MirrorGo", "/"), ("Privacy", "/privacy/")])],
+                translated=False)
 
 
 def build_terms():
     """Terms of use. The app's Settings shows the short version (SettingViewModel.content in MirrorGo)."""
     p = lambda text: f"<p>{text}</p>"
-    mail = f'<a href="mailto:{C.SUPPORT_EMAIL}">{C.SUPPORT_EMAIL}</a>'
+    mail = f'<a href="mailto:{SUPPORT_EMAIL}">{SUPPORT_EMAIL}</a>'
     body = f"""
 <section class="page-hero">
   <div class="wrap">
@@ -872,7 +1011,7 @@ def build_terms():
 """
     return page("/terms/", "Terms of Use | MirrorGo",
                 "The terms for using MirrorGo, the screen mirroring and casting app for iPhone, and its websites.",
-                body, [breadcrumbs_schema([("MirrorGo", "/"), ("Terms of use", "/terms/")])])
+                body, [breadcrumbs_schema([("MirrorGo", "/"), ("Terms of use", "/terms/")])], translated=False)
 
 
 # MARK: Fire TV app (islomov/mirrorgo-firetv: smrr.tv full screen in a WebView, announced as _mirrorgo._tcp)
@@ -895,12 +1034,13 @@ def legal_page(path, crumb, h1, title, description, sections_html):
   </div>
 </section>
 """
-    return page(path, title, description, body, [breadcrumbs_schema([("MirrorGo", "/"), (crumb, path)])])
+    return page(path, title, description, body, [breadcrumbs_schema([("MirrorGo", "/"), (crumb, path)])],
+                translated=False)
 
 
 def build_firetv_privacy():
     p = lambda text: f"<p>{text}</p>"
-    mail = f'<a href="mailto:{C.SUPPORT_EMAIL}">{C.SUPPORT_EMAIL}</a>'
+    mail = f'<a href="mailto:{SUPPORT_EMAIL}">{SUPPORT_EMAIL}</a>'
     html_ = f"""
     {p(f"This policy covers {FIRETV_APP}, the TV app that receives what you mirror or cast from MirrorGo on your iPhone. It runs on Amazon Fire TV and on Android TV / Google TV. For the iPhone app, see the <a href='/privacy/'>MirrorGo privacy policy</a>.")}
     <h2>In short</h2>
@@ -934,7 +1074,7 @@ def build_firetv_privacy():
 
 def build_firetv_terms():
     p = lambda text: f"<p>{text}</p>"
-    mail = f'<a href="mailto:{C.SUPPORT_EMAIL}">{C.SUPPORT_EMAIL}</a>'
+    mail = f'<a href="mailto:{SUPPORT_EMAIL}">{SUPPORT_EMAIL}</a>'
     html_ = f"""
     {p(f"These Terms of Use (“Terms”) govern your use of {FIRETV_APP} (the “App”), the TV app for Amazon Fire TV and Android TV / Google TV that receives what you mirror or cast from MirrorGo on your iPhone, operated by the makers of MirrorGo (“we”, “our”, “us”). By installing or using the App, you agree to these Terms. If you don't agree, don't use the App. MirrorGo on the iPhone has its own <a href='/terms/'>terms of use</a>.")}
     <h2>1. The App</h2>
@@ -967,43 +1107,47 @@ def build_firetv_terms():
                       f"The terms for using {FIRETV_APP}, the TV app that receives what you mirror and cast from "
                       "MirrorGo on your iPhone.", html_)
 
-
 def build_404():
-    body = """
+    body = f"""
 <section class="page-hero" style="text-align:center;padding:120px 0">
   <div class="wrap">
-    <h1>This page isn't on the TV</h1>
-    <p class="lead">The link may be old. Try the home page or the help.</p>
-    <div class="cta" style="margin-top:28px;display:flex;gap:12px;justify-content:center"><a class="btn" href="/">Home</a><a class="btn ghost" href="/help/">Help</a></div>
+    <h1>{esc(T("nf_h1"))}</h1>
+    <p class="lead">{esc(T("nf_lead"))}</p>
+    <div class="cta" style="margin-top:28px;display:flex;gap:12px;justify-content:center"><a class="btn" href="{h('/')}">{esc(T("nf_home"))}</a><a class="btn ghost" href="{h('/help/')}">{esc(T("nf_help"))}</a></div>
   </div>
 </section>"""
-    return page("/404", "Page not found | MirrorGo", "This page doesn't exist.", body, noindex=True)
+    return page("/404", T("nf_title"), T("nf_description"), body, noindex=True, translated=False)
 
 
-# MARK: Files for crawlers
+# MARK: Files for crawlers and AI answer engines
 
-def llms_txt():
-    tv_lines = "\n".join(f"- [{t['name']}]({url('/' + t['page'] + '/')})" for t in C.TVS if t["page"])
-    brand_lines = "\n".join(f"- [{b['name']} TV]({url('/' + b['slug'] + '/')}): {b['about']}" for b in C.BRANDS)
-    feats = "\n".join(f"- {f['name']}: {f['short']}" for f in C.FEATURES)
-    compat = []
-    for name, cells in C.COMPATIBILITY:
+def compat_lines():
+    lines = []
+    for _, name, cells in C.COMPATIBILITY:
         bits = []
         for t in C.TVS:
             status, detail = cells[t["id"]]
             bits.append(f"{t.get('short', t['name'])}: {'yes' if status == 'yes' else 'no'}{f' ({detail})' if detail else ''}")
-        compat.append(f"- {name} — " + "; ".join(bits))
-    compat = "\n".join(compat)
+        lines.append(f"- {name} — " + "; ".join(bits))
+    return "\n".join(lines)
+
+
+def llms_txt():
+    """llms.txt (English): what MirrorGo is, what works where, and where to read more."""
+    tv_lines = "\n".join(f"- [{t['name']}]({url('/' + t['page'] + '/')}): {guide_h1(t['id'])}" for t in C.TVS if t["page"])
+    brand_lines = "\n".join(f"- [{b['name']} TV]({url('/' + b['slug'] + '/')}): {b['about']}" for b in C.BRANDS)
+    feats = "\n".join(f"- {f['name']}: {f['short']}" for f in C.FEATURES)
+    facts = "\n".join(f"- {k}: {v}" for k, v in C.QUICK_FACTS)
+    airplay = "\n".join(f"- {name}: iPhone alone (AirPlay) {iphone}; with MirrorGo {mg}" for name, iphone, mg in C.AIRPLAY_COMPARE)
+    langs = "\n".join(f"- {lang[4]} ({lang[1]}): {url('/', lang[0])}" for lang in C.LANGUAGES)
     store = app_store_url() or "Coming soon to the App Store"
-    return f"""# {C.APP_NAME}
+    return f"""# {APP_NAME}
 
 > {C.ONE_LINER}
 
-- Platform: iPhone, iOS {C.MIN_IOS} or later
+{facts}
 - Download: {store}
-- No app needed on the TV; phone and TV on the same Wi-Fi
-- No account; mirrored and cast media goes directly from the iPhone to the TV over Wi-Fi
-- Support: {C.SUPPORT_EMAIL}
+- Support: {SUPPORT_EMAIL}
 
 ## Features
 
@@ -1011,13 +1155,18 @@ def llms_txt():
 
 ## What works on each TV
 
-{compat}
+{compat_lines()}
+
+## AirPlay or MirrorGo
+
+{airplay}
 
 ## Pages
 
 - [Home]({url('/')}): features, supported TVs, compatibility, FAQ
 - [Help & FAQ]({url('/help/')}): connecting, screen mirroring, casting, permissions, troubleshooting
 - [Guides]({url('/blog/')}): step-by-step guides per kind of TV (connect, photos & videos, web images, live TV, YouTube, web videos, camera)
+- [Full text]({url('/llms-full.txt')}): the help and every TV guide in one Markdown file
 
 ## Mirroring guides by kind of TV
 
@@ -1027,32 +1176,100 @@ def llms_txt():
 
 {brand_lines}
 
+## Languages
+
+The site is in {len(C.LANGUAGES)} languages, with the same pages under each:
+
+{langs}
+
+## Legal
+
 - [Privacy policy]({url('/privacy/')})
 - [Terms of use]({url('/terms/')})
 - [Fire TV app privacy policy]({url('/firetv/privacy/')}), [terms of use]({url('/firetv/terms/')})
 """
 
 
+def md_answer(item):
+    lines = []
+    if item.get("a"):
+        lines.append(item["a"])
+    lines += [f"{i}. {x}" for i, x in enumerate(item.get("ol", []), 1)]
+    lines += [f"- {x}" for x in item.get("ul", [])]
+    if item.get("note"):
+        lines.append(f"Note: {item['note']}")
+    return "\n".join(lines)
+
+
+def llms_full_txt():
+    """llms-full.txt (English): the help and the TV guides in full, for AI answer engines."""
+    out = [f"# {APP_NAME}: the full guide\n\n> {C.ONE_LINER}\n\nSource: {url('/')}\n"]
+    out.append("## At a glance\n\n" + "\n".join(f"- {k}: {v}" for k, v in C.QUICK_FACTS))
+    out.append("## What works on each TV\n\n" + compat_lines())
+    out.append("## Help & FAQ\n\nSource: " + url("/help/"))
+    for title, items in C.FAQ_SECTIONS:
+        out.append(f"### {title}\n\n" + "\n\n".join(f"#### {i['q']}\n\n{md_answer(i)}" for i in items))
+    out.append("## Mirroring guides by kind of TV")
+    for g in C.TV_GUIDES:
+        parts = [f"### {g['h1']}\n\nSource: {url('/' + g['slug'] + '/')}\n\n{g['lead']}",
+                 "Steps:\n\n" + "\n".join(f"{i}. {s}" for i, s in enumerate(g["steps"], 1)),
+                 "What works:\n\n" + "\n".join(f"- {n}: {T('status_' + st).lower()}{f' ({d})' if d else ''}"
+                                               for n, st, d in g["features"])]
+        parts += [f"#### {hd}\n\n" + "\n\n".join(ps) for hd, ps in g["sections"]]
+        parts += [f"#### {q}\n\n{a}" for q, a in g["faq"]]
+        out.append("\n\n".join(parts))
+    out.append("## TV brands\n\n" + "\n\n".join(
+        f"### {b['name']} TV\n\nSource: {url('/' + b['slug'] + '/')}\n\n{b['about']} {b['which']}" for b in C.BRANDS))
+    return "\n\n".join(out) + "\n"
+
+
+# Crawlers named so that a "block AI bots" setting further up (Cloudflare, a CDN) is easy to spot as
+# overriding the site's wish: search engines and AI answer engines are all welcome.
+AI_CRAWLERS = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User",
+               "PerplexityBot", "Perplexity-User", "Google-Extended", "Applebot", "Applebot-Extended", "Bingbot",
+               "DuckAssistBot", "Amazonbot", "meta-externalagent", "MistralAI-User", "CCBot"]
+
+
 def robots_txt():
-    # Search engines and AI answer engines are all welcome: the site exists to be found and quoted.
-    return f"""User-agent: *
+    named = "\n".join(f"User-agent: {bot}" for bot in AI_CRAWLERS)
+    return f"""# MirrorGo welcomes search engines and AI answer engines.
+User-agent: *
+Allow: /
+
+{named}
 Allow: /
 
 Sitemap: {url('/sitemap.xml')}
 """
 
 
-def sitemap(paths):
-    entries = "".join(f"<url><loc>{url(p)}</loc><lastmod>{TODAY}</lastmod></url>" for p in paths)
-    return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{entries}</urlset>\n'
+def sitemap_index(codes):
+    entries = "".join(f"<sitemap><loc>{url(f'/sitemap-{code}.xml')}</loc><lastmod>{LASTMOD}</lastmod></sitemap>"
+                      for code in codes)
+    return (f'<?xml version="1.0" encoding="UTF-8"?>\n'
+            f'<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{entries}</sitemapindex>\n')
+
+
+def sitemap(code, paths, translated):
+    """One language's pages, each with its versions in the other languages (hreflang)."""
+    entries = []
+    for p in paths:
+        alts = ""
+        if p in translated:
+            alts = "".join(f'<xhtml:link rel="alternate" hreflang="{lang[1]}" href="{url(p, lang[0])}"/>'
+                           for lang in C_EN.LANGUAGES)
+            alts += f'<xhtml:link rel="alternate" hreflang="x-default" href="{url(p)}"/>'
+        entries.append(f"<url><loc>{url(p, code)}</loc><lastmod>{LASTMOD}</lastmod>{alts}</url>")
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+            f'xmlns:xhtml="http://www.w3.org/1999/xhtml">{"".join(entries)}</urlset>\n')
 
 
 def manifest():
     return json.dumps({
-        "name": C.APP_NAME, "short_name": C.APP_NAME, "start_url": f"{C.BASE_PATH}/", "display": "browser",
+        "name": APP_NAME, "short_name": APP_NAME, "start_url": "/", "display": "browser",
         "background_color": "#0e0e12", "theme_color": "#0e0e12",
-        "icons": [{"src": f"{C.BASE_PATH}/img/icon-512.png", "sizes": "512x512", "type": "image/png"},
-                  {"src": f"{C.BASE_PATH}/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"}],
+        "icons": [{"src": "/img/icon-512.png", "sizes": "512x512", "type": "image/png"},
+                  {"src": "/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"}],
     }, indent=2)
 
 
@@ -1069,71 +1286,110 @@ HEADERS = """/*
   Cache-Control: public, max-age=3600
 /*.js
   Cache-Control: public, max-age=3600
+/*.txt
+  Content-Type: text/plain; charset=utf-8
 """
 
 
 # MARK: Build
 
-def write(rel, text, root=None):
-    if rel.endswith(".html"):
-        text = with_base(text)
-    path = (root or OUT) / rel
+def write(rel, text):
+    path = OUT / rel
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(text, encoding="utf-8")
 
 
+def build_language(code):
+    """Every translated page in one language; returns their paths."""
+    use(code)
+
+    def out(path, text):
+        rel = (prefix() + path).strip("/")
+        write(f"{rel}/index.html" if rel else "index.html", text)
+
+    out("/", build_home())
+    paths = ["/"]
+    for g in C.TV_GUIDES:
+        out(f"/{g['slug']}/", build_guide(g))
+        paths.append(f"/{g['slug']}/")
+    for b in C.BRANDS:
+        path, html_ = build_brand(b)
+        out(path, html_)
+        paths.append(path)
+    out("/blog/", build_blog_index())
+    paths.append("/blog/")
+    for tv_id, topic in B.posts():
+        path, html_ = build_post(tv_id, topic)
+        out(path, html_)
+        paths.append(path)
+    out("/help/", build_help())
+    paths.append("/help/")
+    write(f"{prefix().strip('/')}/404.html".lstrip("/"), build_404())
+    return paths
+
+
+def check():
+    """--check: what's missing, broken or still in English in each translation."""
+    bad = False
+    for lang in C_EN.LANGUAGES[1:]:
+        code = lang[0]
+        _, problems = i18n.load(code)
+        same = i18n.untranslated(code) if (i18n.LOCALES / f"{code}.json").exists() else []
+        status = "ok" if not problems else f"{len(problems)} problem(s)"
+        print(f"{code}: {status}, {len(same)} longer text(s) same as English")
+        for p in problems[:40]:
+            print(f"  ✗ {p}")
+        for s in same[:15]:
+            print(f"  · {s}")
+        bad = bad or bool(problems)
+    return 1 if bad else 0
+
+
 def main():
-    # Which TVs each showcased feature works on (for "Works on" under each section).
-    by_name = {"screen-mirroring": "Screen mirroring", "photos-videos": "Photos & videos", "camera": "Camera",
-               "web-videos": "Web videos", "iptv": "Live TV channels (IPTV)", "youtube": "YouTube",
-               "web-images": "Web images"}
-    rows = dict(C.COMPATIBILITY)
-    C.COMPATIBILITY_BY_FEATURE = {fid: rows[name] for fid, name in by_name.items()}
+    if "--check" in sys.argv:
+        sys.exit(check())
 
     if OUT.exists():
         shutil.rmtree(OUT)
     shutil.copytree(SRC, OUT)
+    i18n.write_source()
 
-    write("index.html", build_home())
-    paths = ["/"]
-    for g in C.TV_GUIDES:
-        write(f"{g['slug']}/index.html", build_guide(g))
-        paths.append(f"/{g['slug']}/")
-    for b in C.BRANDS:
-        path, html_ = build_brand(b)
-        write(path.strip("/") + "/index.html", html_)
-        paths.append(path)
-    write("blog/index.html", build_blog_index())
-    paths.append("/blog/")
-    for tv_id, topic in B.posts():
-        path, html_ = build_post(tv_id, topic)
-        write(path.strip("/") + "/index.html", html_)
-        paths.append(path)
-    write("help/index.html", build_help())
+    codes = [lang[0] for lang in C_EN.LANGUAGES]
+    sitemaps = {}
+    translated = set()
+    for code in codes:
+        paths = build_language(code)
+        translated.update(paths)
+        sitemaps[code] = paths
+
+    # English only: the legal pages, and the files for crawlers.
+    use("en")
     write("privacy/index.html", build_privacy())
     write("terms/index.html", build_terms())
     write("firetv/privacy/index.html", build_firetv_privacy())
     write("firetv/terms/index.html", build_firetv_terms())
-    paths += ["/help/", "/privacy/", "/terms/", "/firetv/privacy/", "/firetv/terms/"]
-    write("sitemap.xml", sitemap(paths))
+    sitemaps["en"] += ["/privacy/", "/terms/", "/firetv/privacy/", "/firetv/terms/"]
+    for code, paths in sitemaps.items():
+        write(f"sitemap-{code}.xml", sitemap(code, paths, translated))
+    write("sitemap.xml", sitemap_index(codes))
     write("site.webmanifest", manifest())
-    if C.BASE_PATH:
-        # robots.txt and llms.txt only count at the root: smrr.tv's robots.txt is web/robots.txt
-        # (it points at this sitemap); llms.txt is written there too. 404 and _headers stay smrr.tv's.
-        write("llms.txt", llms_txt(), root=WEB)
-    else:
-        write("404.html", build_404())
-        write("robots.txt", robots_txt())
-        write("llms.txt", llms_txt())
-        write("_headers", HEADERS)
-    print(f"Built {len(paths)} pages into {OUT}")
+    write("robots.txt", robots_txt())
+    write("llms.txt", llms_txt())
+    write("llms-full.txt", llms_full_txt())
+    write("_headers", HEADERS)
+
+    total = sum(len(p) for p in sitemaps.values())
+    print(f"Built {total} pages in {len(codes)} languages into {OUT}")
+    for code in codes[1:]:
+        if PROBLEMS.get(code):
+            print(f"  {code}: {len(PROBLEMS[code])} translation problem(s), English used there "
+                  f"(python3 site/build.py --check)")
 
     if "--serve" in sys.argv:
         import functools
         import http.server
-        served = WEB if C.BASE_PATH else OUT
-        handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(served))
-        print(f"Serving on http://localhost:8000{C.BASE_PATH}/")
+        handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(OUT))
+        print("Serving on http://localhost:8000/")
         http.server.ThreadingHTTPServer(("127.0.0.1", 8000), handler).serve_forever()
 
 
