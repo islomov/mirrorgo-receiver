@@ -84,6 +84,39 @@
     document.body.appendChild(bar);
   })();
 
+  // Counting (worker.js → Workers Analytics Engine; `python3 site/stats.py` shows it): each page view
+  // with where the visitor came from, and each link clicked, with where on the page it is. No cookies,
+  // no storage, no identifiers: the Worker only keeps the referrer's domain, the country and the kind of device.
+  (function count() {
+    if (!navigator.sendBeacon || navigator.webdriver) return;
+    function send(data) {
+      data.p = location.pathname;
+      data.l = root.lang;
+      try { navigator.sendBeacon("/e", JSON.stringify(data)); } catch (e) {}
+    }
+    var q = new URLSearchParams(location.search);
+    send({ t: "view", r: document.referrer, s: q.get("utm_source") || q.get("ref") || q.get("src") || "" });
+
+    // Where a link is: the header, the footer, or the section of the page it's in.
+    function where(a) {
+      if (a.closest(".lang-hint")) return "lang-hint";
+      if (a.closest("header")) return "header";
+      if (a.closest("footer")) return "footer";
+      if (a.closest(".hero, .page-hero")) return "hero";
+      var section = a.closest("main section");
+      if (!section) return "page";
+      if (section.id) return section.id;
+      var cls = (section.className || "").split(" ")[0];
+      if (cls) return cls;
+      var all = document.querySelectorAll("main > section");
+      return section === all[all.length - 1] ? "end" : "body";
+    }
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest("a[href]");
+      if (a) send({ t: "click", h: a.href, w: where(a) });
+    }, true);
+  })();
+
   var items = document.querySelectorAll(".reveal");
   if (!("IntersectionObserver" in window)) {
     items.forEach(function (el) { el.classList.add("in"); });

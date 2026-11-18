@@ -1,15 +1,23 @@
-// mirrorgo.app: www.mirrorgo.app → mirrorgo.app, everything else from the static files (./public).
+// mirrorgo.app: www.mirrorgo.app → mirrorgo.app, POST /e counts a page view or a click (see count()),
+// everything else from the static files (./public).
 
 // Roku articles for features a Roku doesn't have (MirrorGo only mirrors the screen to a Roku): they were
 // published on 2026-11-16, so send them to the Roku guide in the same language rather than to a 404.
 const GONE_ROKU_POSTS = /^(\/[a-z-]+)?\/blog\/(cast-photos-and-videos-from-iphone-to-roku|show-web-images-on-roku-from-iphone|watch-free-live-tv-on-roku-with-iphone|cast-youtube-from-iphone-to-roku|cast-web-videos-from-iphone-to-roku|show-iphone-camera-on-roku)\/?$/;
 
+const SITE = "mirrorgo.app";
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (url.hostname === "www.mirrorgo.app") {
-      url.hostname = "mirrorgo.app";
+    if (url.hostname === `www.${SITE}`) {
+      url.hostname = SITE;
       return Response.redirect(url.toString(), 301);
+    }
+    if (url.pathname === "/e") {
+      if (request.method !== "POST") return new Response(null, { status: 405, headers: { Allow: "POST" } });
+      await count(request, env);
+      return new Response(null, { status: 204 });
     }
     const gone = url.pathname.match(GONE_ROKU_POSTS);
     if (gone) {
@@ -18,3 +26,89 @@ export default {
     return env.ASSETS.fetch(request);
   },
 };
+
+// MARK: Counting
+
+// One data point in the Analytics Engine dataset `mirrorgo_site` per event that site.js sends. Nothing that
+// identifies a person is kept: no IP address, no cookie or id, only the referrer's domain. The columns
+// (stats.py reads them by these numbers):
+//   blob1 "view" | "click"      blob2 the page's path      blob3 the page's language
+//   blob4 view: where the visitor came from (?utm_source / ?ref / ?src, else the referrer's domain,
+//         "(direct)" or "(internal)"); click: the link ("/path/", "/path/#section", "app-store",
+//         "host/path" for another site, "mailto")
+//   blob5 click: where the link is on the page (header, footer, hero, a section's id…)
+//   blob6 country      blob7 device (mobile, tablet, desktop)      blob8 os (ios, android, mac, windows, other)
+async function count(request, env) {
+  if (!env.STATS) return;
+  let data;
+  try {
+    const text = await request.text();
+    if (text.length > 4096) return;
+    data = JSON.parse(text);
+  } catch {
+    return;
+  }
+  if (!data || (data.t !== "view" && data.t !== "click")) return;
+  const page = clip(String(data.p || "/"), 200);
+  const source = data.t === "view" ? viewSource(data) : linkTarget(data.h);
+  if (source === null) return;
+  const ua = request.headers.get("User-Agent") || "";
+  env.STATS.writeDataPoint({
+    indexes: [data.t],
+    blobs: [
+      data.t,
+      page,
+      clip(String(data.l || ""), 16),
+      source,
+      data.t === "click" ? clip(String(data.w || ""), 40) : "",
+      request.cf?.country || "",
+      device(ua),
+      os(ua),
+    ],
+  });
+}
+
+function clip(text, max) {
+  return text.length > max ? text.slice(0, max) : text;
+}
+
+function viewSource(data) {
+  const tag = String(data.s || "").trim().toLowerCase();
+  if (tag) return clip(tag, 60);
+  if (!data.r) return "(direct)";
+  try {
+    const host = new URL(String(data.r)).hostname.replace(/^www\./, "");
+    return host === SITE ? "(internal)" : clip(host, 100);
+  } catch {
+    return "(direct)";
+  }
+}
+
+function linkTarget(href) {
+  let url;
+  try {
+    url = new URL(String(href || ""));
+  } catch {
+    return null;
+  }
+  if (url.protocol === "mailto:") return "mailto";
+  if (url.protocol !== "http:" && url.protocol !== "https:") return null;
+  const host = url.hostname.replace(/^www\./, "");
+  if (host === SITE) return clip(url.pathname + url.hash, 200);
+  if (host === "apps.apple.com") return "app-store";
+  return clip(host + url.pathname.replace(/\/$/, ""), 200);
+}
+
+function device(ua) {
+  if (/iPad|Tablet|Android(?!.*Mobile)/i.test(ua)) return "tablet";
+  if (/Mobi|iPhone|Android/i.test(ua)) return "mobile";
+  return "desktop";
+}
+
+function os(ua) {
+  if (/iPhone|iPad|iPod/.test(ua)) return "ios";
+  if (/Android/.test(ua)) return "android";
+  if (/Macintosh|Mac OS X/.test(ua)) return "mac";
+  if (/Windows/.test(ua)) return "windows";
+  return "other";
+}
