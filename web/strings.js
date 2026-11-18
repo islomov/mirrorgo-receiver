@@ -62,7 +62,7 @@ const web = {
   joinHome: "Show a code on this device",
 };
 
-/** /firetv: the MirrorGo TV app's page (Fire TV, Google TV, Android TV). A TV, a remote, MirrorGo's name. */
+/** /firetv: the MirrorGo TV apps' page (Fire TV, Google TV, Android TV). A TV, a remote, MirrorGo's name. */
 const firetv = {
   pageTitle: "MirrorGo",
   brand: "MirrorGo",
@@ -85,8 +85,9 @@ const firetv = {
 };
 
 /**
- * /firetv in the same app on other Android TVs: the app's bridge says which (`MirrorGoTV.platform()`:
- * "firetv", "googletv", "androidtv"; the Vega app says "vega", a Fire TV too). Apps without it are Fire TVs.
+ * /firetv in the Google TV / Android TV app (islomov/mirrorgo-googletv): its bridge says which
+ * (`MirrorGoTV.platform()`: "googletv", "androidtv"). The Fire TV apps (mirrorgo-firetv, mirrorgo-vega)
+ * keep the Fire TV strings.
  */
 const androidtv = {
   surfaceBadge: "for Android TV",
