@@ -45,7 +45,7 @@ English only.
 | `/blog/`, `/blog/<slug>/` | Guides (`blog.py`): per kind of TV × connect, photos & videos, web images, live TV, YouTube, web videos, camera. Each article is the topic's steps plus that TV's own notes |
 | `/help/` | The app's whole FAQ (same text as the app's Help screen) |
 | `/<code>/…` | All of the above in each other language |
-| `/privacy/`, `/terms/`, `/firetv/…` | Privacy policy (App Store "Privacy Policy URL") and terms, English only |
+| `/privacy/`, `/terms/`, `/firetv/…` | Privacy policy (App Store "Privacy Policy URL") and terms, English only. The terms end with the iPhone app's open-source licences from `licenses.json` (update it when the app's frameworks change) |
 | `robots.txt`, `sitemap.xml`, `llms.txt`, `llms-full.txt` | For search engines and AI answer engines |
 
 ## Search and AI answer engines (SEO / GEO)
