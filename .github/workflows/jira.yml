@@ -1,0 +1,74 @@
+# Moves the MIRR Jira tickets a PR names (title, branch, or a "Jira: MIRR-1" line in its description):
+# PR opened / ready for review → In Review; PR merged into main → Done.
+# Needs repository secrets JIRA_EMAIL and JIRA_API_TOKEN (an Atlassian API token of an account
+# that can transition MIRR issues: https://id.atlassian.com/manage-profile/security/api-tokens).
+name: Jira
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, ready_for_review, edited, closed]
+
+permissions: {}
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    # Draft PRs stay In Progress; a PR closed without merging leaves its tickets alone.
+    if: >-
+      (github.event.action == 'closed' && github.event.pull_request.merged == true) ||
+      (github.event.action != 'closed' && github.event.pull_request.draft == false)
+    steps:
+      - name: Move tickets
+        env:
+          JIRA_BASE: https://viralappsstudio.atlassian.net
+          JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+          MERGED: ${{ github.event.pull_request.merged }}
+          # Untrusted text: only ever read from the environment, never interpolated into the script.
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BRANCH: ${{ github.event.pull_request.head.ref }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          set -euo pipefail
+          if [ -z "${JIRA_EMAIL}" ] || [ -z "${JIRA_API_TOKEN}" ]; then
+            echo "::warning::JIRA_EMAIL / JIRA_API_TOKEN secrets are not set; skipping."
+            exit 0
+          fi
+          if [ "${MERGED}" = "true" ]; then target="Done"; else target="In Review"; fi
+
+          # Only the title, the branch and an explicit "Jira: KEY-1, KEY-2" line in the description:
+          # a ticket merely mentioned in the description must not be closed by the merge.
+          jira_line=$(printf '%s\n' "${PR_BODY:-}" | grep -iE '^[[:space:]]*jira:' || true)
+          keys=$(printf '%s\n%s\n%s\n' "${PR_TITLE}" "${PR_BRANCH}" "${jira_line}" \
+            | grep -oE '\bMIRR-[0-9]+\b' | sort -u | head -n 10 || true)
+          if [ -z "${keys}" ]; then
+            echo "No MIRR-nn key in the PR title, branch or a Jira: line."
+            exit 0
+          fi
+
+          api() { curl -sS --fail-with-body -u "${JIRA_EMAIL}:${JIRA_API_TOKEN}" \
+                    -H 'Accept: application/json' -H 'Content-Type: application/json' "$@"; }
+
+          for key in ${keys}; do
+            status=$(api "${JIRA_BASE}/rest/api/3/issue/${key}?fields=status" | jq -r '.fields.status.name') || {
+              echo "::warning::${key}: not found or not readable"; continue; }
+            if [ "${status}" = "${target}" ] || [ "${status}" = "Done" ]; then
+              echo "${key}: already ${status}"; continue
+            fi
+            id=$(api "${JIRA_BASE}/rest/api/3/issue/${key}/transitions" \
+              | jq -r --arg t "${target}" '.transitions[] | select(.to.name == $t) | .id' | head -n 1 || true)
+            if [ -z "${id}" ]; then
+              echo "::warning::${key}: no transition to ${target} from ${status}"; continue
+            fi
+            if ! api -X POST "${JIRA_BASE}/rest/api/3/issue/${key}/transitions" \
+              -d "$(jq -n --arg id "${id}" '{transition: {id: $id}}')" > /dev/null; then
+              echo "::warning::${key}: moving to ${target} failed"; continue
+            fi
+            echo "${key}: ${status} → ${target}"
+            if [ "${target}" = "Done" ]; then
+              api -X POST "${JIRA_BASE}/rest/api/2/issue/${key}/comment" \
+                -d "$(jq -n --arg b "Merged: ${PR_URL}" '{body: $b}')" > /dev/null || true
+            fi
+          done
