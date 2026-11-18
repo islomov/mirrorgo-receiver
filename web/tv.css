@@ -1,14 +1,14 @@
-/* /firetv: the MirrorGo Fire TV app's page (firetv.html), on top of style.css. Always a 16:9 TV seen
-   from the sofa, driven by the remote: MirrorGo's icon and name instead of smrr.tv, the app icon's
+/* /firetv, /samsung, /lg, /roku, /googletv: the MirrorGo TV apps' page (tv.html), on top of style.css.
+   Always a 16:9 TV seen from the sofa, driven by the remote: MirrorGo's icon and name instead of smrr.tv, the app icon's
    glow behind the screens. */
 
-body[data-surface="firetv"] {
+body[data-surface="tv"] {
   background-color: #0e0e12;
   background-image:
     radial-gradient(ellipse 60% 80% at 100% 0%, rgba(96, 76, 196, 0.42), rgba(96, 76, 196, 0) 70%),
     radial-gradient(ellipse 50% 60% at 0% 100%, rgba(38, 72, 150, 0.32), rgba(38, 72, 150, 0) 70%);
 }
-body[data-surface="firetv"][data-screen="playing"] { background: #000; }
+body[data-surface="tv"][data-screen="playing"] { background: #000; }
 
 /* MARK: Header: MirrorGo (left), this TV's name (right) */
 
@@ -20,7 +20,7 @@ body[data-surface="firetv"][data-screen="playing"] { background: #000; }
   width: 1.7em; height: 1.7em; margin-right: 0.5em;
   border-radius: 24%;
 }
-/* "for Fire TV" after the name: which page this is (text, not Amazon's logo). */
+/* "for Fire TV", "for Samsung TV", … after the name: which app's page this is (text, not the TV maker's logo). */
 .surface-badge {
   margin-left: 0.6em;
   padding: 0.3em 0.75em;
@@ -38,7 +38,7 @@ body[data-surface="firetv"][data-screen="playing"] { background: #000; }
   border: 2px solid rgba(255, 255, 255, 0.06);
   border-radius: 999px;
 }
-.tv-name[hidden] { display: none; }
+.surface-badge[hidden], .tv-name[hidden] { display: none; }
 
 /* MARK: Connecting: the icon above the spinner */
 
@@ -53,4 +53,4 @@ body[data-surface="firetv"][data-screen="playing"] { background: #000; }
 .new-code { margin-top: 3vh; }
 
 /* The WebView is already full screen: no button for it. */
-body[data-surface="firetv"] #fullscreen { display: none; }
+body[data-surface="tv"] #fullscreen { display: none; }

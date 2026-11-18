@@ -9,12 +9,13 @@
   <title>MirrorGo</title>
   <link rel="preload" href="/fonts/Sora-Bold.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="/style.css">
-  <link rel="stylesheet" href="/firetv.css">
+  <link rel="stylesheet" href="/tv.css">
 </head>
-<!-- The MirrorGo app for Fire TV (islomov/mirrorgo-firetv) shows this page full screen in a WebView.
-     Same receiver as / (app.js), its own layout and wording (strings.js `firetv`): MirrorGo branding,
-     "this TV", no full-screen button. -->
-<body data-surface="firetv" data-screen="connecting">
+<!-- The MirrorGo TV apps show this page full screen in a WebView, each at its own URL: /firetv (Fire TV,
+     islomov/mirrorgo-firetv), /samsung, /lg, /roku, /googletv (the Worker serves this file for all of them).
+     Same receiver as / (app.js), its own layout and wording (strings.js `tv`, plus the TV's own from its
+     path): MirrorGo branding, "this TV", no full-screen button. -->
+<body data-surface="tv" data-screen="connecting">
   <video id="video" autoplay playsinline muted></video>
   <img id="image" alt="">
   <div id="youtube"></div>

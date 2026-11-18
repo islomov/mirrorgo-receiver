@@ -501,6 +501,18 @@ describe("site", () => {
     expect(await home.text()).toContain("app.js");
   });
 
+  it("serves the TV apps' page at /firetv, /samsung, /lg, /roku and /googletv", async () => {
+    for (const path of ["/firetv", "/samsung", "/lg", "/roku", "/googletv", "/samsung/"]) {
+      const res = await SELF.fetch(`${ORIGIN}${path}`, { redirect: "manual" });
+      expect(res.status, path).toBe(200);
+      const html = await res.text();
+      expect(html, path).toContain('data-surface="tv"');
+      expect(html, path).toContain("app.js");
+    }
+    const other = await SELF.fetch(`${ORIGIN}/sony`, { redirect: "manual" });
+    expect(await other.text()).not.toContain('data-surface="tv"');
+  });
+
   it("redirects the old /landing-page URLs to the same page on mirrorgo.app", async () => {
     for (const [from, to] of [
       ["/landing-page", "https://mirrorgo.app/"],

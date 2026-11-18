@@ -13,6 +13,8 @@ const RETRY_AFTER_S = "60";
 const CORS = { "access-control-allow-origin": "*" };
 /** MirrorGo's landing page (../site), first served here at /landing-page. */
 const LANDING_ORIGIN = "https://mirrorgo.app";
+/** Each MirrorGo TV app's page (smrr.tv/<tv>): the same tv.html, worded for that TV (web/strings.js `tvs`). */
+const TV_PAGE = /^\/(firetv|samsung|lg|roku|googletv)\/?$/;
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
@@ -39,6 +41,10 @@ export default {
     const lookup = url.pathname.match(/^\/api\/rooms\/([^/]*)$/);
     if (lookup) return handleLookup(request, url, lookup[1], env);
     if (url.pathname.startsWith("/api/")) return json({ error: "not_found" }, 404, CORS);
+
+    if (TV_PAGE.test(url.pathname)) {
+      return env.ASSETS.fetch(new Request(new URL("/tv", url), request));
+    }
 
     // The QR code's target: a page telling the user to type the code into the app.
     if (/^\/c\/[^/]*\/?$/.test(url.pathname)) {

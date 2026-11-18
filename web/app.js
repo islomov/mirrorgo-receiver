@@ -22,8 +22,9 @@ const GIVE_UP_AFTER_MS = 15000;
 // what the phone is doing instead of showing the code, QR code and steps.
 const launchedCode = adoptRoomFromURL();
 const launchedByApp = launchedCode !== null;
-// /firetv (firetv.html): the MirrorGo Fire TV app's page. Same receiver, its own layout and strings.
-const firetv = document.body.getAttribute("data-surface") === "firetv";
+// The MirrorGo TV apps' page (tv.html, at /firetv, /samsung, /lg, /roku, /googletv). Same receiver,
+// its own layout and strings.
+const tvApp = document.body.getAttribute("data-surface") === "tv";
 
 const app = {
   status: "connecting",   // signaling: connecting | open | reconnecting | offline | replaced | closed
@@ -370,9 +371,10 @@ function renderQR(text) {
     '<rect width="' + size + '" height="' + size + '" fill="#fff"/><path d="' + path + '" fill="#000"/></svg>';
 }
 
-/** /firetv: "for Fire TV" next to MirrorGo; the app's bridge (window.MirrorGoTV) names this TV. */
-function renderFireTV() {
+/** TV apps: "for Fire TV" (…) next to MirrorGo; the app's bridge (window.MirrorGoTV) names this TV. */
+function renderTVApp() {
   $("surface-badge").textContent = strings.surfaceBadge;
+  $("surface-badge").hidden = !strings.surfaceBadge;
   const bridge = window.MirrorGoTV;
   let name = "";
   try {
@@ -382,7 +384,7 @@ function renderFireTV() {
   $("tv-name").hidden = !name;
 }
 
-/** /firetv: "Get a new code", while no phone is in the room. */
+/** TV apps: "Get a new code", while no phone is in the room. */
 let newCodeAsked = false;
 
 function renderNewCode(variant) {
@@ -434,7 +436,7 @@ $("sound").addEventListener("click", function () {
   renderSound();
 });
 
-// Ended: this page becomes a normal smrr.tv page (a new room with a code). Not on /firetv.
+// Ended: this page becomes a normal smrr.tv page (a new room with a code). Not on the TV apps' page.
 if ($("app-use-code")) {
   $("app-use-code").addEventListener("click", function () {
     signaling.forgetRoom();
@@ -442,7 +444,7 @@ if ($("app-use-code")) {
   });
 }
 
-// /firetv: leave this room for a new one (a new code; the Fire TV app announces it). The page
+// TV apps: leave this room for a new one (a new code; the TV app announces it). The page
 // otherwise keeps its room across reloads (sessionStorage).
 if ($("new-code")) {
   $("new-code").addEventListener("click", function () {
@@ -599,7 +601,7 @@ strings.steps.forEach(function (step) {
 });
 renderFullscreen();
 if ($("new-code")) $("new-code").textContent = strings.newCode;
-if (firetv) renderFireTV();
+if (tvApp) renderTVApp();
 
 if (debug) {
   window.smrr = { app: app, player: player, media: media, signaling: signaling }; // for the console and tools/e2e.mjs
