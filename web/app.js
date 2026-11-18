@@ -590,6 +590,7 @@ $("brand").textContent = strings.brand;
 $("code-label").textContent = strings.codeLabel;
 $("qr-hint").textContent = strings.qrHint;
 $("code-wifi").textContent = strings.sameWifi;
+if ($("privacy-link")) $("privacy-link").textContent = strings.privacy;
 $("steps").innerHTML = "";
 strings.steps.forEach(function (step) {
   const li = document.createElement("li");

@@ -165,6 +165,14 @@ body[data-screen="app"] #screen-app { display: flex; }
   color: #8e8e99;
 }
 
+/* Privacy policy link (bottom right, quiet): smrr.tv's data is covered by mirrorgo.app/privacy. */
+.legal {
+  position: absolute; right: 5vw; bottom: 3vh;
+  font-size: 16px; font-size: clamp(12px, 1vw, 18px);
+  color: #5e5e6a; text-decoration: none;
+}
+.legal:hover, .legal:focus { color: #8e8e99; text-decoration: underline; }
+
 /* Starting / stopped: the title says it, the code and steps stay as a reminder. */
 body[data-variant="starting"] #code-title { color: #7ee2a8; }
 
