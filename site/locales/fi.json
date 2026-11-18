@@ -1,0 +1,1573 @@
+{
+ "ui": {
+  "skip": "Siirry sisältöön",
+  "home_aria": "MirrorGo-etusivu",
+  "menu": "Valikko",
+  "language": "Kieli",
+  "nav_features": "Ominaisuudet",
+  "nav_tvs": "Televisiot",
+  "nav_guides": "Oppaat",
+  "nav_help": "Ohje",
+  "download": "Lataa App Storesta",
+  "coming_soon": "Tulossa pian App Storeen",
+  "footer_blurb": "Näytön peilaus ja suoratoisto iPhonelle. Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV ja mikä tahansa verkkoselain.",
+  "footer_mirror_to": "Peilauskohteet",
+  "footer_brands": "TV-merkit",
+  "footer_support": "Tuki",
+  "footer_languages": "Kielet",
+  "brand_tv": "{brand}-televisio",
+  "guides": "Oppaat",
+  "help_faq": "Ohje ja UKK",
+  "tv_browser": "smrr.tv (television selain)",
+  "privacy": "Tietosuoja",
+  "terms": "Käyttöehdot",
+  "firetv_app_privacy": "Fire TV -sovellus: tietosuoja",
+  "firetv_app_terms": "käyttöehdot",
+  "english_only": "(englanniksi)",
+  "trademarks": "Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV, AirPlay ja mainitut TV-merkit ovat omistajiensa tavaramerkkejä. MirrorGo ei ole sidoksissa niihin.",
+  "home_title": "MirrorGo: iPhonen näytön peilaus ja suoratoisto televisioon",
+  "home_description": "Peilaa iPhone televisioon (Samsung, LG, Roku, Google TV, Chromecast, Fire TV, Apple TV) tai mihin tahansa verkkoselaimeen ja suoratoista kuvia, videoita, YouTubea ja yli 9 000 TV-kanavaa. Televisioon ei tarvita sovellusta.",
+  "eyebrow": "iPhonelle · Ei sovellusta televisioon",
+  "home_h1": "iPhonesi {big}",
+  "home_h1_big": "isolla ruudulla",
+  "check_tv": "Tarkista televisiosi",
+  "fine_wifi": "Sama Wi-Fi, ei kaapeleita",
+  "fine_sound": "Ääni mukana",
+  "fine_account": "Ei tiliä",
+  "hero_alt": "MirrorGon Koti-näkymä",
+  "live_pill": "Peilaus käynnissä",
+  "works_with_tv": "Toimii nykyisen televisiosi kanssa",
+  "supported_tvs": "Tuetut televisiot",
+  "facts_kicker": "Lyhyesti",
+  "facts_h2": "Mikä MirrorGo on?",
+  "features_kicker": "Kaikki yhdessä sovelluksessa",
+  "features_h2": "Peilaa tai suoratoista",
+  "features_p": "Näytä koko näyttösi tai lähetä vain se, mitä katsot, täydellä laadulla – ja puhelin jää vapaaksi.",
+  "works_on": "Toimii laitteissa:",
+  "how_kicker": "Näin se toimii",
+  "how_h2": "Televisioon kolmella napautuksella",
+  "how_p": "Ei kaapeleita, ei sovittimia, eikä televisioon asenneta mitään.",
+  "tvs_kicker": "Yhteensopivuus",
+  "tvs_h2": "Mikä toimii televisiossasi",
+  "tvs_p": "MirrorGo löytää televisiosi Wi-Fi-verkosta ja himmentää kaiken, mitä televisio ei pysty toistamaan.",
+  "tvs_foot": "Samsung-älytelevisiot vuodesta 2016 · LG:n webOS-televisiot · Roku-televisiot ja -soittimet · Google TV ja Android TV (Sony, TCL, Hisense, Philips, Xiaomi…) · Chromecast · Fire TV Stick, Cube ja Fire TV -älytelevisiot · Apple TV ja AirPlay-televisiot · mikä tahansa selain smrr.tv:n kautta",
+  "compat_caption": "Mitä MirrorGo voi näyttää kussakin televisiotyypissä",
+  "compat_feature": "Ominaisuus",
+  "yes": "Kyllä",
+  "no": "Ei",
+  "airplay_kicker": "AirPlay vai MirrorGo?",
+  "airplay_h2": "Useampaan televisioon kuin AirPlay",
+  "airplay_p": "Pelkkä iPhone peilaa vain Apple TV:hen tai AirPlay-televisioon. MirrorGo lisää lähes kaikki muut televisiot – ja katsottavaa niihin.",
+  "airplay_col_what": "Mihin iPhonen saa näkyviin",
+  "airplay_col_iphone": "Pelkkä iPhone (AirPlay)",
+  "airplay_col_mirrorgo": "MirrorGolla",
+  "privacy_kicker": "Yksityinen alusta asti",
+  "privacy_h2": "Sinun puhelimesi, televisiosi ja Wi-Fisi",
+  "privacy_p": "Peilaamasi ja suoratoistamasi sisältö kulkee suoraan iPhonesta televisioon. MirrorGossa ei ole tiliä, eikä kuviasi ja videoitasi viedä millekään palvelimelle.",
+  "privacy_link": "Lue tietosuojakäytäntö →",
+  "guides_kicker": "Oppaat",
+  "guides_h2": "Vaihe vaiheelta, omalle televisiollesi",
+  "guides_p": "Näin yhdistät, peilaat ja suoratoistat kuvia, videoita, YouTubea ja live-TV:tä kuhunkin televisiotyyppiin.",
+  "n_guides": "{n} opasta",
+  "all_guides": "Kaikki oppaat →",
+  "faq_kicker": "Kysymykset",
+  "faq_h2": "Usein kysytyt kysymykset",
+  "all_help": "Kaikki ohjeaiheet →",
+  "final_h2": "Tuo iPhonesi televisioon",
+  "final_p": "Näytön peilaus, kuvat, videot, YouTube, verkkovideot ja tuhansia suoria kanavia. Yksi sovellus, mikä tahansa televisio.",
+  "app_icon_alt": "MirrorGo-sovelluksen kuvake",
+  "how_to_do_it": "Näin se tehdään",
+  "guide_phone_alt": "MirrorGo valmiina peilaamaan iPhonen ({tv})",
+  "what_you_can_do": "{tv}: mitä voit tehdä",
+  "questions": "Kysymykset",
+  "more_guides_for": "Lisää oppaita: {tv}",
+  "other_tvs": "Muut televisiot",
+  "status_ok": "Toimii",
+  "status_part": "Osittain",
+  "status_not": "Ei tässä televisiossa",
+  "howto_tool": "MirrorGo iPhonelle",
+  "screen_mirroring": "Näytön peilaus",
+  "step_by_step": "Vaihe vaiheelta",
+  "updated": "Päivitetty {date}",
+  "on_tv": "{tv}: näin se toimii",
+  "good_to_know": "Hyvä tietää",
+  "more_for": "Lisää: {tv}",
+  "topic_on_other_tvs": "{topic}: muut televisiot",
+  "browser_code_alt": "smrr.tv-koodin kirjoittaminen MirrorGoon",
+  "page_title": "{title} | MirrorGo",
+  "blog_h1": "Oppaat",
+  "blog_lead": "Vaiheittaiset oppaat kaikille televisiotyypeille: iPhonen yhdistäminen, näytön peilaus sekä kuvien, videoiden, verkkokuvien, YouTuben, verkkovideoiden ja ilmaisen live-TV:n suoratoisto.",
+  "blog_title": "Oppaat: iPhonen peilaus ja suoratoisto televisioon | MirrorGo",
+  "blog_description": "Vaiheittaiset oppaat: yhdistä iPhone televisioon (Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV) tai verkkoselaimeen ja suoratoista kuvia, videoita, YouTubea ja live-TV:tä.",
+  "blog_collection": "MirrorGo-oppaat",
+  "by_brand": "TV-merkin mukaan",
+  "brand_h1": "Peilaa iPhone {brand}-televisioon",
+  "brand_title": "iPhonen peilaus {brand}-televisioon | MirrorGo",
+  "brand_description": "Peilaa iPhone {brand}-televisioon ja suoratoista kuvia, videoita, YouTubea ja live-TV:tä MirrorGolla. Tuetut järjestelmät: {systems}.",
+  "brand_step_1": "Tarkista, mitä järjestelmää {brand}-televisiosi käyttää ({systems}): sen logo näkyy aloitusnäytössä ja kaukosäätimessä.",
+  "brand_step_2": "Yhdistä iPhone samaan Wi-Fi-verkkoon kuin televisio.",
+  "brand_step_3": "Avaa MirrorGo, napauta Yhdistä televisio ja valitse televisiosi.",
+  "brand_step_4": "Avaa Näytön peilaus ja napauta Aloita peilaus, sitten {start}.",
+  "brand_phone_alt": "MirrorGo valmiina peilaamaan iPhonen {brand}-televisioon",
+  "brand_any_model": "Mikä tahansa malli smrr.tv:n kautta",
+  "brand_by_system": "{brand}-televisiot järjestelmittäin",
+  "help_crumb": "Ohje",
+  "help_h1": "Ohje ja UKK",
+  "help_lead": "Vastaukset yleisimpiin kysymyksiin. Etkö pääse eteenpäin? Lähetä sähköpostia osoitteeseen {email} ja kerro television malli.",
+  "help_title": "MirrorGo-ohje: näytön peilauksen ja suoratoiston UKK",
+  "help_description": "Näin yhdistät television, peilaat iPhonen näytön, korjaat ongelmat (televisiota ei löydy, ääni, viive, musta ruutu) ja suoratoistat kuvia, videoita, YouTubea ja IPTV:tä MirrorGolla.",
+  "nf_title": "Sivua ei löytynyt | MirrorGo",
+  "nf_description": "Tätä sivua ei ole olemassa.",
+  "nf_h1": "Tätä sivua ei näy ruudulla",
+  "nf_lead": "Linkki voi olla vanha. Kokeile etusivua tai ohjetta.",
+  "nf_home": "Etusivu",
+  "nf_help": "Ohje"
+ },
+ "site": {
+  "tagline": "Näytön peilaus ja suoratoisto iPhonelle",
+  "one_liner": "MirrorGo on iPhone-sovellus, joka peilaa näyttösi televisioon ja suoratoistaa siihen kuvia, videoita, kamerasi kuvaa, verkkovideoita, suoria TV-kanavia ja YouTubea. Se toimii Samsungin, LG:n, Rokun, Google TV:n, Android TV:n, Chromecastin, Fire TV:n, Apple TV:n ja minkä tahansa verkkoselaimen kanssa – siis myös Sonyn, TCL:n, Hisensen, Vizion, Philipsin ja useimpien muiden älytelevisioiden kanssa – eikä televisioon tarvitse asentaa mitään.",
+  "start_sharing": "Aloita jakaminen (ennen iOS 26:ta Aloita lähetys)"
+ },
+ "tvs": {
+  "samsung": {
+   "name": "Samsung-televisio",
+   "short": "Samsung"
+  },
+  "lg": {
+   "name": "LG-televisio",
+   "short": "LG"
+  },
+  "roku": {
+   "name": "Roku"
+  },
+  "googletv": {
+   "name": "Google TV"
+  },
+  "androidtv": {
+   "name": "Android TV"
+  },
+  "chromecast": {
+   "name": "Chromecast"
+  },
+  "firetv": {
+   "name": "Fire TV"
+  },
+  "airplay": {
+   "name": "Apple TV ja AirPlay",
+   "short": "AirPlay"
+  },
+  "browser": {
+   "name": "Mikä tahansa verkkoselain",
+   "short": "Selain"
+  }
+ },
+ "compat_rows": {
+  "screen-mirroring": "Näytön peilaus",
+  "photos-videos": "Kuvat ja videot",
+  "camera": "Kamera",
+  "web-videos": "Verkkovideot",
+  "iptv": "Suorat TV-kanavat (IPTV)",
+  "youtube": "YouTube",
+  "web-images": "Verkkokuvat"
+ },
+ "compat_notes": {
+  "From Control Center": "Ohjauskeskuksesta",
+  "No sound": "Ilman ääntä",
+  "With Screen Mirroring on": "Kun Näytön peilaus on päällä"
+ },
+ "features": {
+  "screen-mirroring": {
+   "name": "Näytön peilaus",
+   "short": "Koko iPhonen näyttö televisiossa äänen kanssa, missä tahansa sovelluksessa."
+  },
+  "photos-videos": {
+   "name": "Kuvat ja videot",
+   "short": "Kirjastosi isolla ruudulla, videot täydellä laadulla, diaesityksen kera."
+  },
+  "camera": {
+   "name": "Kamera",
+   "short": "Näytä huone, valkotaulu tai lemmikkisi suorana televisiossa etu- tai takakameralla."
+  },
+  "youtube": {
+   "name": "YouTube",
+   "short": "Televisio toistaa videon itse täydellä laadulla siitä, mihin jäit."
+  },
+  "web-videos": {
+   "name": "Verkkovideot",
+   "short": "Avaa sivusto, toista video ja napauta Suoratoista televisioon. Mainokset estetään."
+  },
+  "iptv": {
+   "name": "Live-TV (IPTV)",
+   "short": "Yli 9 000 ilmaista kanavaa yli 180 maasta sekä omat M3U-soittolistasi."
+  },
+  "web-images": {
+   "name": "Verkkokuvat",
+   "short": "Hae ilmaisia kuvia Wikimedia Commonsista ja näytä ne koko näytöllä."
+  },
+  "any-browser": {
+   "name": "Mikä tahansa verkkoselain",
+   "short": "Eikö televisiota löydy? Avaa smrr.tv millä tahansa televisiolla tai tietokoneella ja kirjoita koodi."
+  }
+ },
+ "showcase": {
+  "screen-mirroring": {
+   "title": "Peilaa iPhonen näyttö televisioon",
+   "text": "Kaikki puhelimesi sisältö näkyy televisiossa reaaliajassa: sovellukset, pelit, kuvat, verkkosivut ja esitykset. Käynnistä kerran ja jatka puhelimen käyttöä – televisio seuraa perässä.",
+   "points": [
+    "Toimii kaikissa sovelluksissa ja jatkuu, kun vaihdat sovellusta",
+    "Sovellusten ääni kuuluu televisiosta, mikrofoni ei koskaan",
+    "Korkea, keskitaso tai matala laatu: terävämpi kuva tai sujuvampi kuva ruuhkaisessa Wi-Fissä",
+    "Automaattinen kierto: käännä puhelin vaakaan, ja televisio seuraa",
+    "Lyhyt opas näyttää vaihe vaiheelta, miten iOS käynnistää peilauksen"
+   ],
+   "alts": [
+    "MirrorGon Näytön peilaus -näkymä, jossa Laatu-, Automaattinen kierto- ja Ääni-asetukset",
+    "MirrorGon opas: näin näytön peilaus käynnistyy neljässä vaiheessa"
+   ]
+  },
+  "photos-videos": {
+   "title": "Kuvasi ja videosi isolla ruudulla",
+   "text": "Valitse kuva tai video, ja se näkyy televisiossa. Pyyhkäise seuraavaan, ja televisio seuraa. Videot toistuvat täydellä laadulla ja äänen kanssa, ja ohjaat niitä puhelimesta.",
+   "points": [
+    "Kuvat television tarkkuudella, videot alkuperäisellä laadulla",
+    "Automaattinen toisto: diaesitys (5–30 s kuvaa kohden), videot loppuun asti ja sitten alusta",
+    "Toista, keskeytä ja kelaa puhelimella – televisio toistaa",
+    "4K- ja HEVC-videot muunnetaan vain televisioille, jotka eivät pysty toistamaan niitä",
+    "Suoraan puhelimesta televisioon Wi-Fi-verkkosi kautta, ei koskaan ladata minnekään"
+   ],
+   "alts": [
+    "Kuvan suoratoisto iPhonen galleriasta MirrorGolla"
+   ]
+  },
+  "iptv": {
+   "title": "Tuhansia ilmaisia suoria TV-kanavia",
+   "text": "Selaa ilmaisia, julkisia TV-kanavia maan tai kategorian mukaan – uutisista urheiluun, elokuviin, musiikkiin ja lastenohjelmiin – ja toista niitä televisiossa yhdellä napautuksella. Voit lisätä myös omia M3U-soittolistoja.",
+   "points": [
+    "Yli 9 000 kanavaa yli 180 maasta, 29 kategoriassa",
+    "Suosikit yhden napautuksen päässä",
+    "Lisää omia M3U-soittolistalinkkejä",
+    "Toisto jatkuu, kun lukitset puhelimen tai avaat toisen sovelluksen"
+   ],
+   "alts": [
+    "MirrorGon IPTV-näkymä: soittolistat, kategoriat ja maat",
+    "Yhdysvaltalaisia suoria TV-kanavia MirrorGossa"
+   ],
+   "footnote": "Kanavat tulevat julkisesta iptv-org-listasta. Kuten muutkin ilmaiset lähetykset, osa on ajoittain pois päältä tai toimii vain omassa maassaan."
+  },
+  "web-videos": {
+   "title": "Suoratoista videoita miltä tahansa verkkosivustolta",
+   "text": "Avaa verkkosivusto MirrorGon yksityisessä selaimessa ja toista video: MirrorGo löytää sen ja lähettää sen televisioon, joka toistaa sen täydellä laadulla, kun jatkat selaamista.",
+   "points": [
+    "Avaa mikä tahansa sivusto, toista video ja napauta Suoratoista televisioon",
+    "Valitsee oikean videon eikä mainosta, ja estää mainosverkot",
+    "Jatkaa siitä, mihin jäit sivulla",
+    "Yksityinen selaus: historiaa, evästeitä tai välimuistia ei tallenneta"
+   ],
+   "alts": [
+    "MirrorGon verkkovideoselain ja suositut sivustot"
+   ]
+  },
+  "youtube": {
+   "title": "YouTube televisiossa, television toistamana",
+   "text": "Etsi video MirrorGossa aiheen mukaan tai hakemalla ja napauta Suoratoista televisioon. Televisio toistaa videon itse täydellä laadulla siitä kohdasta, johon jäit.",
+   "points": [
+    "Selaa aiheittain (musiikki, uutiset, urheilu, live) tai hae",
+    "Avautuu television YouTube-sovelluksessa Samsungilla ja LG:llä",
+    "Toimii myös Rokussa, Google TV:ssä, Android TV:ssä, Chromecastissa ja verkkoselaimissa",
+    "Toisto jatkuu, kun poistut näkymästä"
+   ],
+   "alts": [
+    "YouTuben suoratoisto televisioon MirrorGolla"
+   ]
+  },
+  "web-images": {
+   "title": "Kauniita ilmaisia kuvia koko näytöllä",
+   "text": "Hae ilmaisia kuvia Wikimedia Commonsista (maisemia, avaruutta, kaupunkeja, taidetta) ja näytä ne televisiossa sen täydellä tarkkuudella tai diaesityksenä.",
+   "points": [
+    "Miljoonia ilmaisia, avoimesti lisensoituja kuvia",
+    "Diaesitys omalla ajastuksellasi",
+    "Tekijä ja lisenssi näkyvät jokaisen kuvan kanssa"
+   ],
+   "alts": [
+    "Wikimedia Commonsin maisemakuva valmiina suoratoistettavaksi MirrorGolla"
+   ]
+  },
+  "any-browser": {
+   "title": "Ei älytelevision sovellusta? Käytä mitä tahansa verkkoselainta",
+   "text": "Mikä tahansa televisio, tietokone tai tabletti, jossa on verkkoselain, voi näyttää iPhonesi – myös sellainen, jota MirrorGo ei löydä. Avaa siinä smrr.tv ja kirjoita sivun näyttämä 6-numeroinen koodi tai skannaa sen QR-koodi.",
+   "points": [
+    "Toimii älytelevisioissa, PC-tietokoneissa, Maceissa ja tableteissa",
+    "Video kulkee suoraan Wi-Fi-verkkosi kautta äänen kanssa",
+    "Lähellä olevissa LG- ja Samsung-televisioissa MirrorGo avaa television selaimen puolestasi"
+   ],
+   "alts": [
+    "smrr.tv-koodin syöttäminen MirrorGoon verkkoselaimeen peilaamista varten"
+   ]
+  }
+ },
+ "steps": [
+  [
+   "Liity samaan Wi-Fi-verkkoon",
+   "Yhdistä iPhone samaan Wi-Fi-verkkoon kuin televisio. Ei kaapeleita, ei TV-sovellusta."
+  ],
+  [
+   "Valitse televisio",
+   "MirrorGo löytää lähelläsi olevat televisiot. Napauta omaasi; LG- ja Samsung-televisiot pyytävät kerran valitsemaan Salli."
+  ],
+  [
+   "Peilaa tai suoratoista",
+   "Aloita näytön peilaus tai avaa kuvat, videot, YouTube, verkkosivusto tai TV-kanava."
+  ]
+ ],
+ "privacy_points": [
+  [
+   "Ei tiliä",
+   "Ei mitään rekisteröitävää. Avaa sovellus ja yhdistä."
+  ],
+  [
+   "Pysyy Wi-Fi-verkossasi",
+   "Kuvat, videot ja näyttösi kulkevat suoraan puhelimesta televisioon. Niitä ei ladata minnekään."
+  ],
+  [
+   "Vain sovellusten ääni",
+   "Peilaus lähettää sovellustesi toistaman äänen, ei koskaan mikrofonia."
+  ],
+  [
+   "Yksityinen selaus",
+   "Verkkovideot-osio ei tallenna historiaa, evästeitä eikä välimuistia."
+  ]
+ ],
+ "quick_facts": [
+  [
+   "Mikä se on",
+   "iPhone-sovellus, joka peilaa näytön ja suoratoistaa televisioon kuvia, videoita, kameran kuvaa, verkkovideoita, live-TV:tä ja YouTubea."
+  ],
+  [
+   "Yhteensopiva",
+   "Samsung (2016 ja uudemmat), LG webOS, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV ja AirPlay-televisiot sekä mikä tahansa verkkoselain smrr.tv:n kautta."
+  ],
+  [
+   "Televisiossa",
+   "Ei mitään asennettavaa. iPhonen ja television tarvitsee vain olla samassa Wi-Fi-verkossa."
+  ],
+  [
+   "iPhone",
+   "iOS 16.6 tai uudempi."
+  ],
+  [
+   "Ääni",
+   "Kyllä, sovellustesi toistama ääni (näytön peilaus Fire TV:hen ja joihinkin vanhempiin LG-televisioihin on pelkkää kuvaa)."
+  ],
+  [
+   "Tietosuoja",
+   "Ei tiliä. Näyttösi, kuvasi ja videosi kulkevat suoraan iPhonesta televisioon Wi-Fi-verkkosi kautta."
+  ]
+ ],
+ "airplay_compare": [
+  "Apple TV ja AirPlay-televisiot",
+  "Samsung-, LG- ja Roku-televisiot ilman AirPlay-tukea",
+  "Chromecast, Google TV ja Android TV",
+  "Amazon Fire TV",
+  "Mikä tahansa televisio tai tietokone, jossa on verkkoselain",
+  "Yli 9 000 ilmaista suoraa TV-kanavaa"
+ ],
+ "faq_sections": [
+  "Aloittaminen",
+  "Yhdistäminen",
+  "Näytön peilaus",
+  "Suoratoisto",
+  "Käyttöoikeudet",
+  "Muuta"
+ ],
+ "faq": {
+  "tvs": {
+   "q": "Minkä televisioiden kanssa MirrorGo toimii?",
+   "a": "Useimpien älytelevisioiden ja suoratoistotikkujen kanssa. Televisioon ei tarvitse asentaa mitään.",
+   "ul": [
+    "Samsung-älytelevisiot (2016 ja uudemmat)",
+    "LG-älytelevisiot (webOS)",
+    "Roku-televisiot ja Roku-suoratoistosoittimet",
+    "Google TV, Android TV ja Chromecast",
+    "Amazon Fire TV: tikut, Cube ja Fire TV -älytelevisiot",
+    "Apple TV ja AirPlay-televisiot",
+    "Mikä tahansa muu televisio, tietokone tai tabletti, jossa on verkkoselain, smrr.tv:n kautta"
+   ]
+  },
+  "connect": {
+   "q": "Miten yhdistän televisioon?",
+   "a": "Käynnistä televisio ja varmista, että se on samassa Wi-Fi-verkossa kuin puhelimesi. Sitten:",
+   "ol": [
+    "Napauta Koti-näkymässä Yhdistä televisio tai minkä tahansa näkymän yläreunassa olevaa TV-painiketta.",
+    "Valitse televisiosi listasta.",
+    "LG- ja Samsung-televisiot kysyvät ensimmäisellä kerralla: valitse televisiossa kaukosäätimellä Salli."
+   ],
+   "note": "MirrorGo muistaa televisiosi ja yhdistää siihen uudelleen seuraavalla kerralla."
+  },
+  "notFound": {
+   "q": "Televisioni ei näy listassa",
+   "a": "MirrorGo etsii televisioita Wi-Fi-verkostasi. Kun jokin puuttuu, syy on yleensä jokin näistä:",
+   "ul": [
+    "Puhelin ja televisio ovat eri verkoissa. Käytä samaa Wi-Fi-verkkoa, älä vierasverkkoa.",
+    "MirrorGon paikallisverkon käyttöoikeus on pois päältä. Silloin iOS piilottaa sovellukselta kaikki televisiot.",
+    "VPN on päällä. Laita se pois päältä suoratoiston ajaksi.",
+    "Televisio on lepotilassa tai jumissa. Käynnistä se kunnolla tai käynnistä se ja reititin uudelleen."
+   ],
+   "note": "Puuttuuko yhä? Mikä tahansa televisio, jossa on verkkoselain, toimii smrr.tv:n kautta: katso ”Miten peilaan verkkoselaimeen?”"
+  },
+  "allow": {
+   "q": "Televisioni ei päästä MirrorGoa yhdistämään",
+   "a": "LG- ja Samsung-televisiot kysyvät luvan, ennen kuin puhelin voi ohjata niitä. Kun MirrorGo yhdistää ensimmäisen kerran, televisioon tulee viesti: valitse kaukosäätimellä Salli. Sitä ei kysytä uudelleen.",
+   "ul": [
+    "LG: ohititko viestin tai valitsitko Kiellä? Yhdistä uudelleen, niin televisio kysyy uudelleen.",
+    "Samsung: valitsitko Kiellä? Televisio muistaa sen. Avaa televisiossa Asetukset › Yleiset › Ulkoisten laitteiden hallinta › Laiteyhteyksien hallinta › Laiteluettelo (Settings › General › External Device Manager › Device Connection Manager › Device List) ja salli MirrorGo tai poista se, jotta televisio kysyy uudelleen.",
+    "Vanhemmat LG-televisiot: ota LG Connect Apps käyttöön television verkkoasetuksista."
+   ]
+  },
+  "lost": {
+   "q": "Yhteys katkeilee",
+   "a": "iOS katkaisee MirrorGon yhteyden televisioon, kun sovellus on taustalla, ja myös Wi-Fi-katkos voi katkaista sen. MirrorGo yhdistää itse uudelleen muutamassa sekunnissa, ja näytön peilaus jatkuu sillä välin.",
+   "ul": [
+    "Näkyykö ”Yhteys katkesi”? Tarkista, että televisio on päällä ja samassa Wi-Fi-verkossa, ja napauta Yritä uudelleen.",
+    "Heikko signaali katkeilee useammin: pidä puhelin ja televisio lähellä reititintä."
+   ]
+  },
+  "browser": {
+   "q": "Miten peilaan verkkoselaimeen?",
+   "a": "Mikä tahansa televisio, tietokone tai tabletti, jossa on verkkoselain, voi näyttää näyttösi – myös sellainen, jota MirrorGo ei löydä televisiona.",
+   "ol": [
+    "Avaa laitteen verkkoselaimessa smrr.tv. Sivulla näkyy 6-numeroinen koodi.",
+    "Avaa MirrorGossa televisiolista ja napauta Selain (smrr.tv).",
+    "Kirjoita koodi tai skannaa sivun QR-koodi."
+   ],
+   "note": "Pidä sivu auki peilauksen ajan. Puhelimen ja selaimen täytyy olla samassa Wi-Fi-verkossa. Lähellä olevassa LG- tai Samsung-televisiossa ”Avaa laitteessa…” avaa selaimen puolestasi."
+  },
+  "mirror": {
+   "q": "Miten peilaan näyttöni?",
+   "ol": [
+    "Yhdistä televisio ja avaa Näytön peilaus.",
+    "Napauta Aloita peilaus. iOS pyytää vahvistuksen: napauta Aloita jakaminen (ennen iOS 26:ta Aloita lähetys).",
+    "Kun 3 sekunnin lähtölaskenta on ohi, sulje ikkuna napauttamalla sen ulkopuolelta.",
+    "Odota televisiota 5–10 sekuntia. Älä lopeta ja aloita uudelleen: silloin kaikki alkaa alusta."
+   ],
+   "note": "Lopeta napauttamalla Lopeta peilaus tai näytön yläreunan punaista ilmaisinta."
+  },
+  "airPlay": {
+   "q": "Miten peilaan Apple TV:hen tai AirPlay-televisioon?",
+   "a": "iOS peilaa AirPlay-laitteisiin itse, joten peilaus aloitetaan Ohjauskeskuksesta eikä sovelluksesta:",
+   "ol": [
+    "Avaa Ohjauskeskus pyyhkäisemällä alas oikeasta yläkulmasta.",
+    "Napauta Näytön peilaus.",
+    "Valitse Apple TV tai AirPlay-televisio."
+   ],
+   "note": "Lopeta napauttamalla uudelleen Näytön peilaus ja sitten Lopeta peilaus."
+  },
+  "nothingShows": {
+   "q": "Peilaus alkoi, mutta televisiossa ei näy mitään",
+   "ul": [
+    "Anna televisiolle enintään 10 sekuntia. Lopettaminen ja uudelleen aloittaminen vain aloittaa kaiken alusta.",
+    "Tarkista, että kyse on oikeasta televisiosta: sen nimi näkyy Näytön peilaus -näkymän yläreunassa.",
+    "Peilaatko verkkoselaimeen? Pidä smrr.tv auki siinä, samassa Wi-Fi-verkossa kuin puhelin.",
+    "Ei vieläkään mitään? Lopeta peilaus, käynnistä televisio uudelleen, yhdistä uudelleen ja aloita."
+   ]
+  },
+  "black": {
+   "q": "Jotkin sovellukset näkyvät mustana ruutuna",
+   "a": "Netflix, Prime Video, Disney+ ja muut suoratoistopalvelut suojaavat videonsa, joten iOS lähettää niiden sijaan mustan kuvan. Mikään peilaussovellus ei voi kiertää sitä.",
+   "note": "Käytä sovelluksen omaa suoratoistopainiketta, jos siinä on sellainen. YouTubea varten avaa YouTube MirrorGossa: televisio toistaa videon itse."
+  },
+  "sound": {
+   "q": "Televisiosta ei kuulu ääntä",
+   "ul": [
+    "Tarkista, että Ääni on päällä Näytön peilaus -näkymässä ja ettei televisio ole mykistetty.",
+    "MirrorGo lähettää sovellustesi toistaman äänen, ei koskaan mikrofonia.",
+    "Fire TV ja jotkin vanhemmat LG-televisiot näyttävät kuvan ilman ääntä.",
+    "Jotkin sovellukset eivät salli äänensä tallentamista, joten ääni jää puhelimeen."
+   ]
+  },
+  "lag": {
+   "q": "Peilaus viivästyy tai näyttää sumealta",
+   "a": "Peilaus on aina hieman puhelinta jäljessä. Viiveen määrä riippuu televisiosta ja Wi-Fi-verkostasi.",
+   "ul": [
+    "Valitse ennen aloittamista matalampi Laatu sujuvampaa kuvaa varten tai korkeampi terävämpää kuvaa varten.",
+    "Siirry lähemmäs reititintä tai käytä sen 5 GHz:n verkkoa.",
+    "Katsotko videota? Suoratoista se mieluummin (Kuvat ja videot, Verkkovideot, YouTube): televisio toistaa sen täydellä laadulla ja ääni pysyy tahdissa."
+   ]
+  },
+  "whatCast": {
+   "q": "Mitä muuta voin suoratoistaa kuin näyttöni?",
+   "a": "Kuvia ja videoita galleriastasi, kamerasi kuvaa, videoita ja kuvia verkosta, TV-kanavia (IPTV) ja YouTubea. Kaikki televisiot eivät toista kaikkea: Koti-näkymässä himmennetään se, mitä televisiosi ei pysty toistamaan.",
+   "ul": [
+    "YouTube ei toimi Fire TV:ssä eikä AirPlayn kautta.",
+    "AirPlayn kautta kamera vaatii, että Näytön peilaus on päällä Ohjauskeskuksessa.",
+    "Fire TV ja AirPlay näyttävät kameran kuvan ilman ääntä."
+   ]
+  },
+  "lgCheck": {
+   "q": "LG-televisioni kysyy ”Toistuuko se televisiossasi?”",
+   "a": "LG-televisioissa MirrorGo toistaa kuvat, videot ja kanavat ensin television verkkoselaimessa, joka toistaa eniten eri muotoja. Muutaman sekunnin kuluttua se kysyy, toimiiko toisto:",
+   "ul": [
+    "Kyllä: jatka katsomista, eikä sitä kysytä uudelleen siinä näkymässä.",
+    "Ei: MirrorGo sulkee selaimen, toistaa sisällön sen sijaan television omalla soittimella ja kysyy uudelleen.",
+    "Eikö vieläkään toimi? Napauta Sähköposti tukeen ja kerro television malli."
+   ]
+  },
+  "webVideo": {
+   "q": "Verkkovideo ei suoratoistu",
+   "ul": [
+    "Toista video ensin sivulla: Suoratoista televisioon tulee käyttöön, kun MirrorGo löytää sen.",
+    "Löytyikö useampi kuin yksi? Valitse oikea listasta (”1/3”).",
+    "Hyvin lyhyitä pätkiä ei suoratoisteta, jotta mainokset eivät päädy televisioon.",
+    "Jotkin sivustot suojaavat videonsa, kuten Netflix. Niitä ei voi suoratoistaa.",
+    "Pidä MirrorGo auki toiston ajan: video kulkee puhelimesi kautta."
+   ]
+  },
+  "iptv": {
+   "q": "TV-kanava ei toistu",
+   "a": "Kanavat ovat ilmaisia julkisia lähetyksiä. Osa niistä on milloin tahansa pois päältä tai toimii vain omassa maassaan. Jos jokin ei käynnisty, kokeile toista.",
+   "note": "Kanavat jatkavat toistoa, kun poistut listasta tai lukitset puhelimen. Lopeta toisto Koti-näkymän alareunan palkista."
+  },
+  "background": {
+   "q": "Voinko käyttää puhelinta suoratoiston aikana?",
+   "ul": [
+    "Näytön peilaus: kyllä. Kaikki näytölläsi näkyy televisiossa, missä tahansa sovelluksessa.",
+    "TV-kanavat ja YouTube jatkavat toistoa televisiossa, kun poistut niistä.",
+    "Galleria, kamera ja verkkovideot pysähtyvät, kun suljet niiden näkymän."
+   ]
+  },
+  "localNetwork": {
+   "q": "Miksi MirrorGo tarvitsee paikallisverkon käyttöoikeuden?",
+   "a": "MirrorGo keskustelee televisiosi kanssa Wi-Fi-verkon kautta, ja iOS sallii sen vain paikallisverkon käyttöoikeudella. Ilman sitä yhtään televisiota ei löydy eikä niihin voi suoratoistaa. Oikeutta käytetään vain oman verkkosi laitteisiin.",
+   "ol": [
+    "Napauta Avaa Asetukset",
+    "Laita Paikallisverkko päälle",
+    "Palaa MirrorGoon"
+   ]
+  },
+  "permissions": {
+   "q": "Mihin Kuvia, Kameraa ja Mikrofonia tarvitaan?",
+   "ul": [
+    "Kuvat: kuviesi ja videoidesi näyttämiseen ja suoratoistoon. Rajoitetulla käyttöoikeudella näkyvät vain valitsemasi.",
+    "Kamera: kamerasi kuvan suoratoistoon ja smrr.tv:n koodin skannaamiseen.",
+    "Mikrofoni: ääni, kun suoratoistat kameraa."
+   ],
+   "note": "Kuvasi ja videosi kulkevat suoraan puhelimesta televisioon Wi-Fi-verkkosi kautta. Niitä ei ladata minnekään."
+  },
+  "denied": {
+   "q": "Kielsin käyttöoikeuden. Miten otan sen käyttöön?",
+   "a": "iOS kysyy vain kerran. Jos haluat muuttaa vastaustasi, avaa Asetukset, napauta MirrorGo ja laita päälle Paikallisverkko, Kuvat, Kamera tai Mikrofoni."
+  },
+  "problem": {
+   "q": "Jokin muu ei toimi",
+   "a": "Päivitä MirrorGo uusimpaan versioon ja käynnistä televisio uudelleen. Jos se ei auta, napauta sovelluksen Ohje-osiossa Ota yhteyttä. Sähköpostissa on valmiiksi sovelluksen versio, iOS-versio, puhelimen malli ja television tyyppi; lisää vielä television malli."
+  }
+ },
+ "brands": {
+  "sony": {
+   "about": "Sony BRAVIA -televisioissa on ollut Android TV vuodesta 2015 ja Google TV vuodesta 2021, ja niissä on sisäänrakennettu Chromecast. Monissa uusissa BRAVIA-malleissa on myös AirPlay-tuki.",
+   "which": "Google TV- tai Android TV -käyttöisessä BRAVIAssa MirrorGo löytää television sen nimellä Wi-Fi-verkostasi ja voi käyttää kaikkea: näytön peilausta, kuvia ja videoita, YouTubea, live-TV:tä ja muuta."
+  },
+  "tcl": {
+   "about": "TCL valmistaa televisioita useilla järjestelmillä: Google TV (vanhemmissa malleissa Android TV), Roku TV ja joissakin malleissa Fire TV. Järjestelmän logo näkyy television aloitusnäytössä ja kaukosäätimessä.",
+   "which": "Käytti TCL-televisiosi mitä järjestelmää tahansa, MirrorGo yhdistää siihen samalla tavalla: sama Wi-Fi, napauta Yhdistä televisio ja valitse se listasta."
+  },
+  "hisense": {
+   "about": "Hisense-televisioissa on mallista ja maasta riippuen VIDAA, Google TV / Android TV, Roku TV tai Fire TV.",
+   "which": "Google TV-, Android TV-, Roku TV- ja Fire TV -mallit näkyvät MirrorGon televisiolistassa. VIDAA-mallissa avaa smrr.tv television verkkoselaimessa ja peilaa siihen sivun näyttämällä koodilla."
+  },
+  "vizio": {
+   "about": "VIZIO SmartCast -televisioissa on sisäänrakennettu Chromecast, ja monissa on myös AirPlay-tuki.",
+   "which": "MirrorGo löytää SmartCast-television sen sisäänrakennetun Chromecastin kautta, joten voit peilata näyttösi ja suoratoistaa siihen kuvia, videoita, YouTubea ja live-TV:tä."
+  },
+  "philips": {
+   "about": "Monissa Philips-televisioissa on Google TV tai Android TV ja sisäänrakennettu Chromecast; toisissa on Titan OS tai Saphi.",
+   "which": "Google TV- ja Android TV -mallit näkyvät MirrorGon televisiolistassa. Muissa malleissa avaa smrr.tv television verkkoselaimessa ja peilaa siihen sivun näyttämällä koodilla."
+  },
+  "xiaomi": {
+   "about": "Xiaomi-televisioissa, Mi Boxissa ja Xiaomi TV Stickissä on Google TV tai Android TV ja sisäänrakennettu Chromecast.",
+   "which": "MirrorGo löytää ne Wi-Fi-verkostasi ja voi käyttää kaikkea: näytön peilausta, kuvia ja videoita, YouTubea, live-TV:tä ja muuta."
+  },
+  "toshiba": {
+   "about": "Toshiban älytelevisioissa on Yhdysvalloissa Fire TV ja muualla muita järjestelmiä, kuten Android TV tai VIDAA.",
+   "which": "Fire TV- ja Android TV -mallit näkyvät MirrorGon televisiolistassa. Muissa malleissa avaa smrr.tv television verkkoselaimessa ja peilaa siihen sivun näyttämällä koodilla."
+  },
+  "panasonic": {
+   "about": "Uusissa Panasonic-televisioissa on Fire TV; aiemmissa on Panasonicin oma my Home Screen.",
+   "which": "Fire TV -mallit näkyvät MirrorGon televisiolistassa. My Home Screen -mallissa avaa smrr.tv television verkkoselaimessa ja peilaa siihen sivun näyttämällä koodilla."
+  }
+ },
+ "guides": {
+  "samsung": {
+   "title": "iPhonen peilaus Samsung-televisioon (ilman kaapeleita ja TV-sovellusta)",
+   "description": "Peilaa iPhonen näyttö Samsung-älytelevisioon Wi-Fin kautta MirrorGolla ja suoratoista kuvia, videoita, YouTubea ja live-TV:tä. Samsung-televisiot vuodesta 2016, ei asennuksia televisioon.",
+   "h1": "Peilaa iPhone Samsung-televisioon",
+   "lead": "MirrorGo näyttää iPhonesi näytön Samsung-älytelevisiossa (Tizen, 2016 ja uudemmat) Wi-Fi-verkkosi kautta. Televisioon ei asenneta mitään: kuva toistuu television omalla soittimella äänen kanssa.",
+   "steps": [
+    "Käynnistä Samsung-televisio ja yhdistä iPhone samaan Wi-Fi-verkkoon.",
+    "Avaa MirrorGo, napauta Yhdistä televisio ja valitse Samsung-televisiosi.",
+    "Valitse ensimmäisellä kerralla televisiossa kaukosäätimellä Salli.",
+    "Avaa Näytön peilaus, napauta Aloita peilaus ja sitten Aloita jakaminen (ennen iOS 26:ta Aloita lähetys). Näyttösi tulee televisioon 5–10 sekunnissa."
+   ],
+   "features": [
+    [
+     "Näytön peilaus",
+     "Äänen kanssa; Laatu-, Ääni- ja Automaattinen kierto -asetukset"
+    ],
+    [
+     "Kuvat ja videot",
+     "Television toistamana, myös 4K ja HEVC, jos televisio tukee niitä"
+    ],
+    [
+     "Kamera",
+     "Äänen kanssa"
+    ],
+    [
+     "YouTube",
+     "Avautuu television omassa YouTube-sovelluksessa"
+    ],
+    [
+     "Verkkovideot",
+     null
+    ],
+    [
+     "Suorat TV-kanavat",
+     null
+    ],
+    [
+     "Verkkokuvat",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Mitkä Samsung-televisiot toimivat?",
+     [
+      "Tizen-käyttöiset Samsung-älytelevisiot vuoden 2016 malleista alkaen, kuten Crystal UHD-, QLED-, Neo QLED-, OLED- ja The Frame -sarjat. MirrorGo löytää ne Wi-Fi-verkostasi itse, ilman sovellusta televisiossa.",
+      "Monet Samsung-televisiot vuodesta 2018 alkaen tukevat myös AirPlay-tekniikkaa. MirrorGo toimii sen kanssa tai ilman, ja lisää päälle suoratoiston verkkosivuilta, suorat TV-kanavat ja YouTuben."
+     ]
+    ],
+    [
+     "Jos televisio ei päästä MirrorGoa yhdistämään",
+     [
+      "Samsung-televisiot kysyvät luvan, ennen kuin puhelin voi ohjata niitä. Jos valitsit Kiellä, televisio muistaa sen: avaa televisiossa Asetukset › Yleiset › Ulkoisten laitteiden hallinta › Laiteyhteyksien hallinta › Laiteluettelo (Settings › General › External Device Manager › Device Connection Manager › Device List) ja salli MirrorGo tai poista se, jotta televisio kysyy uudelleen."
+     ]
+    ],
+    [
+     "Sujuvampi peilaus",
+     [
+      "Peilaus on aina hieman puhelinta jäljessä, ruuhkaisessa Wi-Fissä enemmän. Valitse matalampi Laatu sujuvampaa kuvaa varten, pidä puhelin lähellä reititintä tai suoratoista videot peilaamisen sijaan: silloin televisio toistaa ne täydellä laadulla ja ääni pysyy tahdissa."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Pitääkö Samsung-televisioon asentaa sovellus?",
+     "Ei. MirrorGo käyttää Samsung-älytelevisioiden sisäänrakennettuja ominaisuuksia: television mediasoitinta ja sen kaukosäädinyhteyttä. Asennat MirrorGon vain iPhoneen."
+    ],
+    [
+     "Kuuluuko ääni, kun peilaan iPhonen Samsung-televisioon?",
+     "Kyllä. Sovellustesi toistama ääni kulkee televisioon kuvan mukana; laita Ääni päälle Näytön peilaus -näkymässä. MirrorGo ei koskaan lähetä mikrofonin ääntä."
+    ],
+    [
+     "Voinko peilata Netflixiä tai Disney+:aa Samsung-televisioon?",
+     "Mikään peilaussovellus ei pysty siihen: suoratoistopalvelut suojaavat videonsa, ja iOS lähettää niiden sijaan mustan kuvan. Käytä sovelluksen omaa suoratoistopainiketta tai palvelun sovellusta televisiossa."
+    ]
+   ]
+  },
+  "lg": {
+   "title": "iPhonen peilaus LG-televisioon (webOS, ilman kaapeleita)",
+   "description": "Peilaa iPhone LG-älytelevisioon (webOS) Wi-Fin kautta MirrorGolla ja suoratoista kuvia, videoita, YouTubea ja suoria TV-kanavia. Televisioon ei asenneta sovellusta.",
+   "h1": "Peilaa iPhone LG-televisioon",
+   "lead": "MirrorGo näyttää iPhonesi näytön LG-älytelevisiossa (webOS) Wi-Fi-verkkosi kautta. Uusissa LG-televisioissa se käyttää LG:n omaa näytönjakoa; vanhemmissa näyttösi näkyy television verkkoselaimessa. Mitään ei tarvitse asentaa.",
+   "steps": [
+    "Käynnistä LG-televisio ja yhdistä iPhone samaan Wi-Fi-verkkoon.",
+    "Avaa MirrorGo, napauta Yhdistä televisio ja valitse LG-televisiosi.",
+    "Valitse ensimmäisellä kerralla televisiossa kaukosäätimellä Salli.",
+    "Avaa Näytön peilaus, napauta Aloita peilaus ja sitten Aloita jakaminen (ennen iOS 26:ta Aloita lähetys). Näyttösi tulee televisioon 5–10 sekunnissa."
+   ],
+   "features": [
+    [
+     "Näytön peilaus",
+     "Äänen kanssa useimmissa LG-televisioissa (osa vanhemmista näyttää vain kuvan)"
+    ],
+    [
+     "Kuvat ja videot",
+     null
+    ],
+    [
+     "Kamera",
+     null
+    ],
+    [
+     "YouTube",
+     "Avautuu television omassa YouTube-sovelluksessa"
+    ],
+    [
+     "Verkkovideot",
+     null
+    ],
+    [
+     "Suorat TV-kanavat",
+     null
+    ],
+    [
+     "Verkkokuvat",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Mitkä LG-televisiot toimivat?",
+     [
+      "webOS-käyttöiset LG-älytelevisiot. webOS 22:ssa ja uudemmissa MirrorGo käyttää LG:n omaa näytönjakoa (LG Cast). Vanhemmat LG-televisiot webOS 4:stä (2018) alkaen näyttävät näyttösi television verkkoselaimessa, jonka MirrorGo avaa puolestasi."
+     ]
+    ],
+    [
+     "Jos televisio ei päästä MirrorGoa yhdistämään",
+     [
+      "LG-televisiot kysyvät luvan, ennen kuin puhelin voi ohjata niitä. Ohititko viestin tai valitsitko Kiellä? Yhdistä uudelleen, niin televisio kysyy uudelleen. Vanhemmissa LG-televisioissa ota LG Connect Apps käyttöön television verkkoasetuksista."
+     ]
+    ],
+    [
+     "”Toistuuko se televisiossasi?”",
+     [
+      "LG-televisioissa MirrorGo toistaa kuvat, videot ja kanavat ensin television verkkoselaimessa, joka toistaa eniten eri muotoja. Muutaman sekunnin kuluttua se kysyy, toimiiko toisto. Napauta Ei, niin se vaihtaa television omaan soittimeen."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Pitääkö LG-televisioon asentaa sovellus?",
+     "Ei. MirrorGo käyttää LG:n webOS-televisioiden sisäänrakennettuja ominaisuuksia: LG:n näytönjakoa, television verkkoselainta ja sen mediasoitinta. Asennat MirrorGon vain iPhoneen."
+    ],
+    [
+     "Miksi LG-televisiostani ei kuulu ääntä peilatessa?",
+     "Useimmat LG-televisiot toistavat sovellustesi äänen. Jotkin vanhemmat mallit näyttävät kuvan ilman ääntä; jos haluat katsoa niissä videon äänen kanssa, suoratoista se (Kuvat ja videot, Verkkovideot tai YouTube) peilaamisen sijaan."
+    ],
+    [
+     "Toimiiko MirrorGo LG-televisioissa, jotka eivät tue AirPlay-tekniikkaa?",
+     "Kyllä. MirrorGo ei tarvitse AirPlayta: se toimii LG:n webOS-televisioissa vuodesta 2018 alkaen."
+    ]
+   ]
+  },
+  "roku": {
+   "title": "iPhonen peilaus Roku-televisioon tai Roku-soittimeen",
+   "description": "Peilaa iPhonen näyttö Roku-televisioon, Roku Streaming Stickiin tai Roku Ultraan MirrorGolla ja suoratoista kuvia, videoita, YouTubea ja live-TV:tä Wi-Fin kautta. Ei kaapeleita.",
+   "h1": "Peilaa iPhone Roku-laitteeseen",
+   "lead": "MirrorGo näyttää iPhonesi näytön Roku-televisioissa (TCL, Hisense, Sharp ja muut Roku TV -mallit) ja Roku-suoratoistosoittimissa Wi-Fi-verkkosi kautta.",
+   "steps": [
+    "Käynnistä Roku ja yhdistä iPhone samaan Wi-Fi-verkkoon.",
+    "Avaa MirrorGo, napauta Yhdistä televisio ja valitse Rokusi.",
+    "Avaa Näytön peilaus, napauta Aloita peilaus ja sitten Aloita jakaminen (ennen iOS 26:ta Aloita lähetys).",
+    "Näyttösi tulee televisioon muutamassa sekunnissa."
+   ],
+   "features": [
+    [
+     "Näytön peilaus",
+     "Äänen kanssa"
+    ],
+    [
+     "Kuvat ja videot",
+     null
+    ],
+    [
+     "Kamera",
+     null
+    ],
+    [
+     "YouTube",
+     null
+    ],
+    [
+     "Verkkovideot",
+     null
+    ],
+    [
+     "Suorat TV-kanavat",
+     null
+    ],
+    [
+     "Verkkokuvat",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Mitkä Roku-laitteet toimivat?",
+     [
+      "TCL:n, Hisensen, Sharpin, Philipsin, Westinghousen ja muiden Roku-televisiot sekä Roku-suoratoistosoittimet: Roku Express, Streaming Stick ja Ultra. MirrorGo löytää ne Wi-Fi-verkostasi."
+     ]
+    ],
+    [
+     "Jos Rokusi ei näy listassa",
+     [
+      "Varmista, että puhelin ja Roku ovat samassa Wi-Fi-verkossa (eivät vierasverkossa), että MirrorGolla on paikallisverkon käyttöoikeus Asetuksissa ja ettei VPN ole päällä. Tarkista Rokussa, että Asetukset › Järjestelmä › Järjestelmän lisäasetukset › Ohjaus mobiilisovelluksilla (Settings › System › Advanced system settings › Control by mobile apps) sallii pääsyn."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Pitääkö Rokuun asentaa jotain?",
+     "Ei. Asennat MirrorGon vain iPhoneen; Rokun tarvitsee vain olla päällä ja samassa Wi-Fi-verkossa."
+    ],
+    [
+     "Voinko peilata iPhonen Rokuun ilman AirPlayta?",
+     "Kyllä. MirrorGo ei käytä AirPlayta, joten se toimii myös Roku-laitteissa, jotka eivät tue sitä."
+    ]
+   ]
+  },
+  "googletv": {
+   "title": "iPhonen peilaus Google TV:hen",
+   "description": "Peilaa iPhone Google TV:hen (Sony, TCL, Hisense, Philips, Chromecast with Google TV, Google TV Streamer) MirrorGolla ja suoratoista kuvia, videoita, YouTubea ja live-TV:tä.",
+   "h1": "Peilaa iPhone Google TV:hen",
+   "lead": "MirrorGo näyttää iPhonesi näytön Google TV:ssä: Sonyn, TCL:n, Hisensen, Philipsin ja muiden televisioissa, Chromecast with Google TV:ssä ja Google TV Streamerissa. Televisioon ei asenneta mitään.",
+   "steps": [
+    "Käynnistä televisio ja yhdistä iPhone samaan Wi-Fi-verkkoon.",
+    "Avaa MirrorGo, napauta Yhdistä televisio ja valitse Google TV:si.",
+    "Avaa Näytön peilaus, napauta Aloita peilaus ja sitten Aloita jakaminen (ennen iOS 26:ta Aloita lähetys).",
+    "Näyttösi tulee televisioon muutamassa sekunnissa."
+   ],
+   "features": [
+    [
+     "Näytön peilaus",
+     "Äänen kanssa"
+    ],
+    [
+     "Kuvat ja videot",
+     null
+    ],
+    [
+     "Kamera",
+     "Äänen kanssa"
+    ],
+    [
+     "YouTube",
+     "Television toistamana siitä, mihin jäit"
+    ],
+    [
+     "Verkkovideot",
+     null
+    ],
+    [
+     "Suorat TV-kanavat",
+     "Toistuvat ilman puhelinta"
+    ],
+    [
+     "Verkkokuvat",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Missä televisioissa on Google TV?",
+     [
+      "Google TV on useimmissa uusissa Sony BRAVIA-, TCL-, Hisense- ja Philips-televisioissa sekä Googlen omissa Chromecast with Google TV- ja Google TV Streamer -laitteissa. Siinä on sisäänrakennettu Chromecast, jonka avulla MirrorGo löytää sen Wi-Fi-verkostasi."
+     ]
+    ],
+    [
+     "Jos televisiosi ei näy listassa",
+     [
+      "Varmista, että puhelin ja televisio ovat samassa Wi-Fi-verkossa (eivät vierasverkossa), että MirrorGolla on paikallisverkon käyttöoikeus Asetuksissa ja ettei VPN ole päällä. Puuttuuko yhä? Avaa smrr.tv television selaimessa ja peilaa siihen."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Voinko peilata koko iPhonen näytön Google TV:hen?",
+     "Kyllä. Useimmat Google TV -mallit eivät tue AirPlayta, mutta MirrorGo peilaa koko näyttösi äänen kanssa television sisäänrakennetun Chromecastin kautta."
+    ],
+    [
+     "Tarvitsenko Google Home -sovelluksen?",
+     "Et. Televisio tarvitsee vain olla otettu käyttöön ja Wi-Fi-verkossasi. MirrorGo yhdistää siihen suoraan."
+    ]
+   ]
+  },
+  "androidtv": {
+   "title": "iPhonen peilaus Android TV:hen",
+   "description": "Peilaa iPhone Android TV:hen (Sony, Philips, Xiaomi, TCL, Sharp ja muut) MirrorGolla Wi-Fin kautta ja suoratoista kuvia, videoita, YouTubea ja suoria TV-kanavia.",
+   "h1": "Peilaa iPhone Android TV:hen",
+   "lead": "MirrorGo näyttää iPhonesi näytön Sonyn, Philipsin, Xiaomin, TCL:n, Sharpin ja muiden Android TV -televisioissa sekä Android TV -bokseissa, kuten Mi Boxissa ja NVIDIA SHIELDissä. Televisioon ei asenneta mitään.",
+   "steps": [
+    "Käynnistä televisio ja yhdistä iPhone samaan Wi-Fi-verkkoon.",
+    "Avaa MirrorGo, napauta Yhdistä televisio ja valitse Android TV:si.",
+    "Avaa Näytön peilaus, napauta Aloita peilaus ja sitten Aloita jakaminen (ennen iOS 26:ta Aloita lähetys).",
+    "Näyttösi tulee televisioon muutamassa sekunnissa."
+   ],
+   "features": [
+    [
+     "Näytön peilaus",
+     "Äänen kanssa"
+    ],
+    [
+     "Kuvat ja videot",
+     null
+    ],
+    [
+     "Kamera",
+     "Äänen kanssa"
+    ],
+    [
+     "YouTube",
+     "Television toistamana siitä, mihin jäit"
+    ],
+    [
+     "Verkkovideot",
+     null
+    ],
+    [
+     "Suorat TV-kanavat",
+     "Toistuvat ilman puhelinta"
+    ],
+    [
+     "Verkkokuvat",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Mitkä Android TV -laitteet toimivat?",
+     [
+      "Android TV -televisiot ja -boksit, joissa on sisäänrakennettu Chromecast – lähes kaikissa on: Sony BRAVIA, Philips, Xiaomi Mi TV, TCL, Sharp, Mi Box, Xiaomi TV Stick ja NVIDIA SHIELD. MirrorGo löytää ne Wi-Fi-verkostasi sen kautta."
+     ]
+    ],
+    [
+     "Jos televisiosi ei näy listassa",
+     [
+      "Varmista, että puhelin ja televisio ovat samassa Wi-Fi-verkossa (eivät vierasverkossa), että MirrorGolla on paikallisverkon käyttöoikeus Asetuksissa ja ettei VPN ole päällä. Jotkin televisiot vastaavat vasta, kun ne ovat kokonaan päällä eivätkä valmiustilassa."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Pitääkö Android TV:hen asentaa sovellus?",
+     "Ei. MirrorGo käyttää Android TV:n sisäänrakennettua Chromecastia. Asennat MirrorGon vain iPhoneen."
+    ],
+    [
+     "Voiko iPhonen peilata Android TV:hen ilman AirPlayta?",
+     "Kyllä. MirrorGolla iPhonesi peilaa television sisäänrakennetun Chromecastin kautta, AirPlayta ei tarvita."
+    ]
+   ]
+  },
+  "chromecast": {
+   "title": "iPhonen peilaus Chromecastiin",
+   "description": "Peilaa iPhonen näyttö Chromecastiin MirrorGolla ja suoratoista kuvia, videoita, YouTubea ja suoria TV-kanavia Wi-Fin kautta. Google Home -sovellusta ei tarvita.",
+   "h1": "Peilaa iPhone Chromecastiin",
+   "lead": "MirrorGo näyttää iPhonesi näytön Chromecastin kautta sekä televisioissa, joissa on sisäänrakennettu Chromecast, kuten VIZIO SmartCastissa. Televisioon ei asenneta mitään.",
+   "steps": [
+    "Käynnistä televisio ja yhdistä iPhone samaan Wi-Fi-verkkoon kuin Chromecast.",
+    "Avaa MirrorGo, napauta Yhdistä televisio ja valitse Chromecastisi.",
+    "Avaa Näytön peilaus, napauta Aloita peilaus ja sitten Aloita jakaminen (ennen iOS 26:ta Aloita lähetys).",
+    "Näyttösi tulee televisioon muutamassa sekunnissa."
+   ],
+   "features": [
+    [
+     "Näytön peilaus",
+     "Äänen kanssa"
+    ],
+    [
+     "Kuvat ja videot",
+     null
+    ],
+    [
+     "Kamera",
+     "Äänen kanssa"
+    ],
+    [
+     "YouTube",
+     "Chromecastin toistamana siitä, mihin jäit"
+    ],
+    [
+     "Verkkovideot",
+     null
+    ],
+    [
+     "Suorat TV-kanavat",
+     "Toistuvat ilman puhelinta"
+    ],
+    [
+     "Verkkokuvat",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Mitkä laitteet toimivat?",
+     [
+      "Kaikki Chromecastit, Google TV:llä tai ilman, sekä televisiot ja näytölliset kaiuttimet, joissa on sisäänrakennettu Chromecast, kuten VIZIO SmartCast -televisiot. MirrorGo löytää ne Wi-Fi-verkostasi samalla tavalla kuin Googlen omat sovellukset."
+     ]
+    ],
+    [
+     "Jos Chromecastisi ei näy listassa",
+     [
+      "Varmista, että puhelin ja Chromecast ovat samassa Wi-Fi-verkossa (eivät vierasverkossa), että MirrorGolla on paikallisverkon käyttöoikeus Asetuksissa ja ettei VPN ole päällä. Puuttuuko yhä? Avaa smrr.tv minkä tahansa näytön selaimessa ja peilaa siihen."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Voinko peilata koko iPhonen näytön Chromecastiin?",
+     "Kyllä. iPhone ei pysty siihen yksinään, koska Chromecast ei tue AirPlayta, mutta MirrorGo peilaa koko näyttösi äänen kanssa Chromecastiin."
+    ],
+    [
+     "Tarvitsenko Google Home -sovelluksen?",
+     "Et. Chromecastin tarvitsee vain olla otettu käyttöön ja Wi-Fi-verkossasi. MirrorGo yhdistää siihen suoraan."
+    ]
+   ]
+  },
+  "firetv": {
+   "title": "iPhonen peilaus Fire TV Stickiin (ilman sovellusta Fire TV:ssä)",
+   "description": "Peilaa iPhone Amazon Fire TV Stickiin, Fire TV Cubeen tai Fire TV -älytelevisioon MirrorGolla, eikä Fire TV:hen asenneta mitään. Suoratoista myös kuvia, videoita ja live-TV:tä.",
+   "h1": "Peilaa iPhone Fire TV:hen",
+   "lead": "MirrorGo näyttää iPhonesi Fire TV Stickeissä, Fire TV Cubessa ja Fire TV -älytelevisioissa jokaiseen Fire TV:hen sisäänrakennetun soittimen avulla. Fire TV:hen ei asenneta mitään.",
+   "steps": [
+    "Käynnistä Fire TV ja yhdistä iPhone samaan Wi-Fi-verkkoon.",
+    "Avaa MirrorGo, napauta Yhdistä televisio ja valitse Fire TV:si.",
+    "Avaa Näytön peilaus, napauta Aloita peilaus ja sitten Aloita jakaminen (ennen iOS 26:ta Aloita lähetys).",
+    "Näyttösi tulee televisioon. Lopeta napauttamalla Lopeta peilaus tai painamalla Fire TV:n kaukosäätimen Koti-painiketta."
+   ],
+   "features": [
+    [
+     "Näytön peilaus",
+     "Pelkkä kuva, ei ääntä"
+    ],
+    [
+     "Kuvat ja videot",
+     "Videot äänen kanssa"
+    ],
+    [
+     "Kamera",
+     "Pelkkä kuva, ei ääntä"
+    ],
+    [
+     "YouTube",
+     "Käytä Fire TV:n YouTube-sovellusta"
+    ],
+    [
+     "Verkkovideot",
+     "Äänen kanssa"
+    ],
+    [
+     "Suorat TV-kanavat",
+     "Äänen kanssa; toistuvat ilman puhelinta"
+    ],
+    [
+     "Verkkokuvat",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Mitkä Fire TV -laitteet toimivat?",
+     [
+      "Fire TV Stickit (myös 4K ja 4K Max), Fire TV Cube ja älytelevisiot, joissa on sisäänrakennettu Fire TV (Amazon, Toshiba, Insignia ja muut). MirrorGo löytää ne Wi-Fi-verkostasi."
+     ]
+    ],
+    [
+     "Videoiden katselu äänen kanssa",
+     [
+      "Peilaus Fire TV:hen näyttää kuvan ilman ääntä. Jos haluat katsoa videon äänen kanssa, suoratoista se: galleriasi kuvat ja videot, verkkovideot ja suorat TV-kanavat toistuvat kaikki äänen kanssa."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Pitääkö Fire TV:hen asentaa sovellus?",
+     "Ei. Jokaisessa Fire TV:ssä on sisäänrakennettu mediasoitin, ja MirrorGo käyttää sitä. Asennat MirrorGon vain iPhoneen."
+    ],
+    [
+     "Voinko peilata iPhonen Fire TV Stickiin äänen kanssa?",
+     "Näytön peilaus näyttää vain kuvan. Suoratoistamasi videot (galleria, verkkovideot, suorat TV-kanavat) toistuvat äänen kanssa."
+    ]
+   ]
+  },
+  "airplay": {
+   "title": "iPhonen peilaus ja suoratoisto Apple TV:hen ja AirPlay-televisioihin",
+   "description": "Peilaa iPhone Apple TV:hen tai AirPlay-televisioon (Samsung, LG, Sony, VIZIO ja muut) ja suoratoista kuvia, videoita, verkkovideoita ja suoria TV-kanavia MirrorGolla.",
+   "h1": "Peilaa ja suoratoista iPhone Apple TV:hen ja AirPlay-televisioihin",
+   "lead": "iPhone peilaa Apple TV:hen tai AirPlay-televisioon itse, Ohjauskeskuksesta. MirrorGo lisää sen, mihin iOS ei pysty: suorat TV-kanavat, videot verkkosivuilta ja verkkokuvat, toistettuina AirPlayn kautta.",
+   "steps": [
+    "Yhdistä iPhone samaan Wi-Fi-verkkoon kuin Apple TV tai AirPlay-televisio.",
+    "Näytön peilaus: avaa Ohjauskeskus, napauta Näytön peilaus ja valitse televisio.",
+    "Suoratoisto: avaa MirrorGo, napauta Yhdistä televisio, sitten Valitse AirPlay-laite, ja valitse televisio.",
+    "Avaa MirrorGossa Kuvat ja videot, Verkkovideot tai IPTV ja aloita toisto: se näkyy televisiossa AirPlayn kautta."
+   ],
+   "features": [
+    [
+     "Näytön peilaus",
+     "Ohjauskeskuksesta (iOS:n omana toimintona)"
+    ],
+    [
+     "Kuvat ja videot",
+     "AirPlay-videona"
+    ],
+    [
+     "Kamera",
+     "Kun Näytön peilaus on päällä, ilman ääntä"
+    ],
+    [
+     "YouTube",
+     "Käytä YouTube-sovelluksen omaa AirPlay-painiketta"
+    ],
+    [
+     "Verkkovideot",
+     null
+    ],
+    [
+     "Suorat TV-kanavat",
+     null
+    ],
+    [
+     "Verkkokuvat",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Mitkä laitteet toimivat?",
+     [
+      "Apple TV HD ja Apple TV 4K, Macit sekä televisiot, joissa on sisäänrakennettu AirPlay: monet Samsungin, LG:n, Sonyn, VIZIOn, TCL:n, Philipsin ja Rokun mallit vuodesta 2018 alkaen."
+     ]
+    ],
+    [
+     "Miksi peilaus aloitetaan Ohjauskeskuksesta",
+     [
+      "Apple ei anna sovellusten käynnistää AirPlay-näytön peilausta; vain Ohjauskeskus voi tehdä sen. MirrorGo näyttää vaiheet, ja kun peilaus on päällä, sen kamera voi näkyä myös televisiossa koko näytöllä."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Voinko lopettaa AirPlayn MirrorGosta?",
+     "Avaa MirrorGon televisiolista, napauta AirPlay-korttia ja valitse valikosta iPhone: se lopettaa AirPlayn. Näytön peilauksen lopetat Ohjauskeskuksesta: Näytön peilaus › Lopeta peilaus."
+    ],
+    [
+     "Tarvitseeko MirrorGo Apple TV:n?",
+     "Ei. Apple TV on yksi vaihtoehto; MirrorGo toimii myös Samsungin, LG:n, Rokun, Google TV:n, Fire TV:n ja minkä tahansa verkkoselaimen kanssa ilman AirPlayta."
+    ]
+   ]
+  },
+  "browser": {
+   "title": "Peilaa iPhone mihin tahansa televisioon tai tietokoneeseen selaimella (smrr.tv)",
+   "description": "Peilaa iPhone mihin tahansa älytelevisioon, PC:hen, Maciin tai tablettiin, jossa on verkkoselain: avaa smrr.tv, kirjoita 6-numeroinen koodi MirrorGoon, valmista. Ei sovellusta.",
+   "h1": "Peilaa iPhone mille tahansa näytölle, jossa on verkkoselain",
+   "lead": "Mikä tahansa televisio, tietokone tai tabletti, jossa on verkkoselain, voi näyttää iPhonesi – myös televisio, jota MirrorGo ei löydä. Avaa siinä smrr.tv, kirjoita sen koodi MirrorGoon, ja näyttösi näkyy siinä äänen kanssa.",
+   "steps": [
+    "Avaa televisiossa tai tietokoneessa smrr.tv sen verkkoselaimessa. Sivulla näkyy 6-numeroinen koodi ja QR-koodi.",
+    "Avaa MirrorGossa televisiolista ja napauta Peilaa verkkoselaimeen.",
+    "Kirjoita koodi tai skannaa QR-koodi.",
+    "Avaa Näytön peilaus, napauta Aloita peilaus ja sitten Aloita jakaminen (ennen iOS 26:ta Aloita lähetys)."
+   ],
+   "features": [
+    [
+     "Näytön peilaus",
+     "Äänen kanssa"
+    ],
+    [
+     "Kuvat ja videot",
+     null
+    ],
+    [
+     "Kamera",
+     null
+    ],
+    [
+     "YouTube",
+     null
+    ],
+    [
+     "Verkkovideot",
+     null
+    ],
+    [
+     "Suorat TV-kanavat",
+     "Selain toistaa kanavan itse"
+    ],
+    [
+     "Verkkokuvat",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Mikä käy näytöksi",
+     [
+      "Älytelevisiot, joissa on moderni verkkoselain, Windows-tietokoneet, Macit, Chromebookit ja tabletit, joissa on uusi selain, kuten Chrome, Edge, Safari tai Firefox."
+     ]
+    ],
+    [
+     "Yksityinen ja suora",
+     [
+      "Video kulkee suoraan iPhonesta selaimeen Wi-Fi-verkkosi kautta. smrr.tv vain esittelee laitteet toisilleen; näyttöäsi ei lähetetä sen kautta. Siksi molempien täytyy olla samassa Wi-Fi-verkossa."
+     ]
+    ],
+    [
+     "Vinkkejä",
+     [
+      "Pidä smrr.tv-sivu auki peilauksen ajan. Jos lataat sen uudelleen, yhteys palautuu itsestään.",
+      "Lähellä olevassa LG- tai Samsung-televisiossa MirrorGon ”Avaa laitteessa…” -painike avaa television selaimen puolestasi."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Pitääkö televisioon tai tietokoneeseen asentaa jotain?",
+     "Ei, tarvitset vain verkkoselaimen. Avaa smrr.tv ja kirjoita sen näyttämä koodi MirrorGoon."
+    ],
+    [
+     "Voiko joku muu nähdä näyttöni koodillani?",
+     "Yhdistääkseen puhelin tarvitsee kyseisellä näytöllä näkyvän koodin, joten jonkun on katsottava sitä näyttöä. Itse video kulkee vain omassa Wi-Fi-verkossasi."
+    ]
+   ]
+  }
+ },
+ "topics": {
+  "connect": {
+   "label": "Yhdistäminen",
+   "title": "Näin yhdistät iPhonen {ill}",
+   "h1": "Näin yhdistät iPhonesi {ill}",
+   "lead": "iPhonen yhdistäminen {ill} MirrorGolla vie muutaman sekunnin: molemmat samaan Wi-Fi-verkkoon, valitse televisio, valmista. Televisioon ei asenneta mitään, ja MirrorGo muistaa sen seuraavaa kertaa varten.",
+   "shot_alt": "MirrorGon Koti-näkymä ja Yhdistä televisio -painike",
+   "tips": [
+    "Puhelimen ja television täytyy olla samassa Wi-Fi-verkossa, ei vierasverkossa.",
+    "MirrorGo tarvitsee paikallisverkon käyttöoikeuden (iOS kysyy ensimmäisellä kerralla). Jos kielsit sen: Asetukset › MirrorGo › Paikallisverkko.",
+    "Laita puhelimen VPN pois päältä suoratoiston ajaksi.",
+    "Eikö yhtään televisiota löydy? Mikä tahansa televisio, jossa on verkkoselain, toimii smrr.tv:n kautta."
+   ]
+  },
+  "photos": {
+   "label": "Kuvat ja videot",
+   "title": "Kuvien ja videoiden suoratoisto iPhonesta {ill}",
+   "h1": "Näin suoratoistat kuvia ja videoita iPhonesta {ill}",
+   "lead": "MirrorGolla näytät iPhonesi kirjaston kuvat ja videot {ine} täydellä laadulla ja selaat niitä puhelimella, kun televisio seuraa perässä.",
+   "shot_alt": "Kuvan suoratoisto iPhonen kirjastosta MirrorGolla",
+   "steps": [
+    "Yhdistä MirrorGo {ill}.",
+    "Napauta MirrorGon Koti-näkymässä Kuvat ja videot ja salli pääsy kuviisi.",
+    "Valitse yläreunasta Videot tai Kuvat ja napauta haluamaasi.",
+    "Napauta Aloita suoratoisto. Se näkyy televisiossa hetken kuluttua.",
+    "Pyyhkäise kuvan alla olevaa nauhaa: televisio seuraa. Videoita toistetaan, keskeytetään ja kelataan puhelimesta."
+   ],
+   "tips": [
+    "Automaattinen toisto (painike nauhan alussa) tekee siitä diaesityksen: 5–30 sekuntia kuvaa kohden, videot loppuun asti, ja Jatkuva toisto aloittaa alusta.",
+    "Rajoitetulla käyttöoikeudella näkyvät vain valitsemasi kuvat. Kaikki saat näkyviin: Asetukset › MirrorGo › Kuvat › Täysi käyttöoikeus.",
+    "Kuvasi ja videosi kulkevat iPhonesta televisioon Wi-Fi-verkkosi kautta. Niitä ei ladata minnekään.",
+    "Suoratoisto loppuu, kun suljet näkymän."
+   ]
+  },
+  "images": {
+   "label": "Verkkokuvat",
+   "title": "Näytä ilmaisia verkkokuvia {ine} iPhonella",
+   "h1": "Näin näytät kauniita ilmaisia kuvia {ine}",
+   "lead": "MirrorGo hakee miljoonista ilmaisista, avoimesti lisensoiduista Wikimedia Commonsin kuvista (maisemat, avaruus, kaupungit, eläimet, taide) ja näyttää ne koko näytöllä {ine} yksi kerrallaan tai diaesityksenä.",
+   "shot_alt": "Wikimedia Commonsin maisemakuva valmiina suoratoistettavaksi MirrorGolla",
+   "steps": [
+    "Yhdistä MirrorGo {ill}.",
+    "Napauta MirrorGon Koti-näkymässä Verkkokuvat.",
+    "Hae mitä tahansa tai napauta aihetta: Luonto, Avaruus, Kaupungit, Eläimet, Meri, Vuoret, Taide, Kukat.",
+    "Napauta kuvaa ja sitten Aloita suoratoisto.",
+    "Pyyhkäise seuraavaan kuvaan, niin televisio seuraa, tai laita diaesitys päälle."
+   ],
+   "tips": [
+    "Jokaisen kuvan kohdalla näkyvät sen nimi, tekijä ja lisenssi: napauta ↗, niin sen sivu avautuu Wikimedia Commonsissa.",
+    "Viimeisimmät haut säilyvät aloitusnäkymässä, joten suosikkiaiheesi ovat yhden napautuksen päässä.",
+    "Mahdollisesti aikuisille tarkoitetut kuvat suodatetaan pois."
+   ]
+  },
+  "iptv": {
+   "label": "Live-TV (IPTV)",
+   "title": "Katso ilmaisia TV-kanavia (IPTV) {ine} iPhonella",
+   "h1": "Näin katsot ilmaisia suoria TV-kanavia {ine}",
+   "lead": "MirrorGossa on yli 9 000 ilmaista, julkista suoraa TV-kanavaa yli 180 maasta (uutisia, urheilua, elokuvia, musiikkia, lastenohjelmia ja muuta), ja ne toistuvat {ine} yhdellä napautuksella. Voit lisätä myös omia M3U-soittolistoja.",
+   "shot_alt": "MirrorGon IPTV-näkymä: soittolistat, kategoriat ja maat",
+   "steps": [
+    "Yhdistä MirrorGo {ill}.",
+    "Napauta MirrorGon Koti-näkymässä IPTV.",
+    "Valitse maa tai kategoria tai hae kanavaa nimellä.",
+    "Napauta kanavaa: se alkaa televisiossa. Vaihda napauttamalla toista.",
+    "Napauta ☆, niin kanava tallentuu Suosikkeihin; napauta +, niin voit lisätä M3U-soittolistan linkin."
+   ],
+   "tips": [
+    "Kanava jatkaa toistoa, kun poistut listasta tai lukitset puhelimen. Lopeta toisto Koti-näkymän alareunan palkista.",
+    "Kanavat ovat ilmaisia julkisia lähetyksiä iptv-org-listasta: osa niistä on milloin tahansa pois päältä tai toimii vain omassa maassaan. Jos jokin ei käynnisty, kokeile toista.",
+    "Oman soittolistasi täytyy olla HTTPS-linkki M3U-tiedostoon (tai yksittäiseen HLS-lähetykseen)."
+   ]
+  },
+  "youtube": {
+   "label": "YouTube",
+   "title": "YouTuben suoratoisto iPhonesta {ill}",
+   "h1": "Näin suoratoistat YouTubea iPhonesta {ill}",
+   "lead": "Etsi YouTube-video MirrorGosta ja napauta Suoratoista televisioon: {nom} toistaa sen itse täydellä laadulla siitä kohdasta, johon jäit, ja puhelimesi jää vapaaksi.",
+   "shot_alt": "Suoratoistettavan YouTube-videon etsiminen MirrorGossa",
+   "steps": [
+    "Yhdistä MirrorGo {ill}.",
+    "Napauta MirrorGon Koti-näkymässä YouTube.",
+    "Valitse aihe (Musiikki, Uutiset, Urheilu, Live…) tai hae ja avaa video.",
+    "Napauta Suoratoista televisioon. Video alkaa televisiossa siitä kohdasta, johon jäit."
+   ],
+   "tips": [
+    "Video jatkuu, kun poistut näkymästä. Sulje se televisiosta napauttamalla Lopeta.",
+    "Videon suoratoisto on parempi kuin sen peilaus: televisio toistaa sen täydellä laadulla ja ääni pysyy tahdissa."
+   ]
+  },
+  "webvideos": {
+   "label": "Verkkovideot",
+   "title": "Suoratoista videoita verkkosivuilta {ill} iPhonella",
+   "h1": "Näin suoratoistat videoita verkkosivuilta {ill}",
+   "lead": "Avaa verkkosivusto MirrorGossa, toista sen video ja napauta Suoratoista televisioon: MirrorGo löytää videon (ei mainosta), ja {nom} toistaa sen täydellä laadulla, kun jatkat selaamista.",
+   "shot_alt": "MirrorGon verkkovideoselain ja suositut sivustot",
+   "steps": [
+    "Yhdistä MirrorGo {ill}.",
+    "Napauta MirrorGon Koti-näkymässä Verkkovideot.",
+    "Avaa sivusto pikavalinnoista tai kirjoita sen osoite.",
+    "Toista video sivulla. Suoratoista televisioon tulee käyttöön, kun MirrorGo löytää sen.",
+    "Napauta Suoratoista televisioon. Jos videoita löytyi useita, valitse oikea (”1/3”)."
+   ],
+   "tips": [
+    "MirrorGo estää mainosverkot eikä koskaan suoratoista hyvin lyhyitä pätkiä, joten mainokset eivät päädy televisioon.",
+    "Sivustoja, jotka suojaavat videonsa (Netflix, Prime Video, Disney+), ei voi suoratoistaa.",
+    "Pidä MirrorGo auki toiston ajan. Selaus on yksityistä: historiaa, evästeitä tai välimuistia ei tallenneta."
+   ]
+  },
+  "camera": {
+   "label": "Kamera",
+   "title": "Näytä iPhonen kamerakuva suorana {ine}",
+   "h1": "Näin näytät iPhonen kameran kuvan suorana {ine}",
+   "lead": "MirrorGolla iPhonestasi tulee live-kamera, jonka kuva näkyy {ine}: näytä huone, valkotaulu, asiakirja, lemmikkisi tai itsesi etu- tai takakameralla.",
+   "shot_alt": "MirrorGon Koti-näkymä ja Kamera-ruutu",
+   "steps": [
+    "Yhdistä MirrorGo {ill}.",
+    "Napauta MirrorGon Koti-näkymässä Kamera ja salli kameran käyttö.",
+    "Valitse etu- tai takakamera ja laita Ääni päälle, jos haluat myös mikrofonin äänen.",
+    "Napauta Aloita suoratoisto. Televisio näyttää kameran kuvan horisontin suuntaisena."
+   ],
+   "tips": [
+    "Etukameran kuva näkyy televisiossa peilikuvana, kuten esikatselussa.",
+    "Suoratoisto loppuu, kun suljet näkymän tai poistut sovelluksesta (iOS pysäyttää kameran)."
+   ]
+  }
+ },
+ "platforms": {
+  "samsung": {
+   "forms": {
+    "art": "Samsung-televisio",
+    "title_art": "Samsung-televisio",
+    "nom": "Samsung-televisio",
+    "ill": "Samsung-televisioon",
+    "ine": "Samsung-televisiossa"
+   },
+   "connect": [
+    "Käynnistä Samsung-televisio ja yhdistä iPhone samaan Wi-Fi-verkkoon.",
+    "Avaa MirrorGo ja napauta Yhdistä televisio. Samsung-televisiosi näkyy nimellään.",
+    "Napauta sitä. Ensimmäisellä kerralla televisio kysyy, sallitaanko MirrorGo: valitse kaukosäätimellä Salli.",
+    "Yhdistetty. MirrorGo muistaa television ja televisio MirrorGon, joten lupaa ei kysytä uudelleen."
+   ],
+   "connect_notes": [
+    "MirrorGo toimii Samsung-älytelevisioissa vuodesta 2016 alkaen (Tizen). Se käyttää television kaukosäädinyhteyttä ja sisäänrakennettua mediasoitinta, joten televisioon ei tarvitse asentaa mitään.",
+    "Valitsitko vahingossa Kiellä? Televisio muistaa sen. Avaa televisiossa Asetukset › Yleiset › Ulkoisten laitteiden hallinta › Laiteyhteyksien hallinta › Laiteluettelo (Settings › General › External Device Manager › Device Connection Manager › Device List) ja salli MirrorGo tai poista se, jotta televisio kysyy uudelleen."
+   ],
+   "photos": "Samsung-televisio toistaa ne omalla mediasoittimellaan: MirrorGo tarjoaa jokaisen kuvan tai videon iPhonesta Wi-Fi-verkkosi kautta ja televisio hakee sen, joten videot toistuvat täydellä laadulla television äänellä. HEVC-muotoiset iPhone-videot lähetetään sellaisinaan; jos televisiosi ei pysty toistamaan jotakin, MirrorGo lähettää sen H.264-muodossa ja muistaa sen seuraavalla kerralla.",
+   "images": "Kuvat näkyvät television omassa mediasoittimessa television näytön kokoon sovitettuina.",
+   "iptv": "Samsung-televisiollesi annetaan ensin kanavan lähetys toistettavaksi itse. Jos toisto ei ala muutamassa sekunnissa, MirrorGo välittää lähetyksen iPhonesi kautta ja muistaa, että televisiosi tarvitsee sitä; puhelimen voi lukita, mutta pidä se Wi-Fi-verkossa.",
+   "youtube": "Samsungissa video avautuu television omassa YouTube-sovelluksessa, jota MirrorGo ohjaa samaan tapaan kuin YouTuben puhelinsovellus, ja toisto alkaa kohdasta, johon jäit.",
+   "webvideos": "Samsungin soitin saa videon yhtenä yhtäjaksoisena lähetyksenä iPhonesi kautta niin, että sivuston mainoskatkot on liitetty mukaan, joten se toistuu alusta loppuun; kelaus puhelimesta aloittaa sen uudelleen siitä kohdasta.",
+   "camera": "Äänen kanssa: laita Ääni päälle ennen aloittamista, niin MirrorGo lisää mikrofonin äänen."
+  },
+  "lg": {
+   "forms": {
+    "art": "LG-televisio",
+    "title_art": "LG-televisio",
+    "nom": "LG-televisio",
+    "ill": "LG-televisioon",
+    "ine": "LG-televisiossa"
+   },
+   "connect": [
+    "Käynnistä LG-televisio ja yhdistä iPhone samaan Wi-Fi-verkkoon.",
+    "Avaa MirrorGo ja napauta Yhdistä televisio. LG-televisiosi näkyy nimellään.",
+    "Napauta sitä. Ensimmäisellä kerralla televisio kysyy, sallitaanko MirrorGo: valitse kaukosäätimellä Salli (tai Kyllä).",
+    "Yhdistetty. MirrorGo tallentaa television avaimen, joten yhteys syntyy seuraavalla kerralla heti."
+   ],
+   "connect_notes": [
+    "MirrorGo toimii webOS-käyttöisissä LG-älytelevisioissa. Televisioon ei asenneta mitään: MirrorGo keskustelee sen kanssa samalla tavalla kuin LG:n omat puhelinsovellukset.",
+    "Ohititko viestin tai valitsitko Kiellä? Yhdistä vain uudelleen, niin televisio kysyy uudelleen. Vanhemmissa LG-televisioissa ota ensin LG Connect Apps käyttöön television verkkoasetuksista."
+   ],
+   "photos": "LG:ssä MirrorGo toistaa ne ensin television verkkoselaimessa, jonka se avaa puolestasi ja joka toistaa eniten eri videomuotoja. Muutaman sekunnin kuluttua se kysyy ”Toistuuko se televisiossasi?”: napauta Ei, niin se sulkee selaimen ja käyttää television omaa soitinta. Kummassakin tapauksessa kuvat ja videot kulkevat Wi-Fi-verkkosi eivätkä internetin kautta.",
+   "images": "MirrorGo avaa television verkkoselaimen, joka lataa kuvan suoraan Wikimedia Commonsista täydellä tarkkuudella. Jos mitään ei näy, napauta Ei, kun MirrorGo kysyy ”Toistuuko se televisiossasi?”, niin se käyttää television omaa soitinta.",
+   "iptv": "Kanava toistuu LG-television verkkoselaimessa, joka hoitaa sen, mihin LG:n oma soitin ei pysty: ilmaisten kanavien mainoskatkot, erilliset ääniraidat ja salatut lähetykset. Jos se ei toistu, napauta Ei, kun MirrorGo kysyy ”Toistuuko se televisiossasi?”, niin se kokeilee television soitinta.",
+   "youtube": "LG:ssä video avautuu television omassa YouTube-sovelluksessa siitä kohdasta, johon jäit.",
+   "webvideos": "MirrorGo avaa television verkkoselaimen ja lähettää sille videon linkin. Jos sivusto toistaa videon vain puhelimesi evästeillä, iPhonesi suoratoistaa sen televisioon.",
+   "camera": "Kameran kuva näkyy ensin television verkkoselaimessa, samalla ”Toistuuko se televisiossasi?” -tarkistuksella; Ei vaihtaa television omaan soittimeen."
+  },
+  "roku": {
+   "forms": {
+    "art": "Roku-laite",
+    "title_art": "Roku-laite",
+    "nom": "Roku-laite",
+    "ill": "Roku-laitteeseen",
+    "ine": "Roku-laitteessa"
+   },
+   "connect": [
+    "Käynnistä Roku-televisio tai Roku-soitin ja yhdistä iPhone samaan Wi-Fi-verkkoon.",
+    "Avaa MirrorGo ja napauta Yhdistä televisio. Rokusi näkyy nimellään.",
+    "Yhdistä napauttamalla sitä. Koodia ei tarvitse kirjoittaa.",
+    "Yhdistetty. MirrorGo muistaa Rokusi seuraavaa kertaa varten."
+   ],
+   "connect_notes": [
+    "MirrorGo toimii Roku-televisioissa (TCL, Hisense, Sharp, Philips ja muut Roku TV -mallit) ja Roku-suoratoistosoittimissa: Roku Express, Streaming Stick ja Ultra.",
+    "Eikö Roku näy listassa? Avaa Rokussa Asetukset › Järjestelmä › Järjestelmän lisäasetukset › Ohjaus mobiilisovelluksilla (Settings › System › Advanced system settings › Control by mobile apps) ja varmista, ettei verkkoyhteyttä ole estetty."
+   ],
+   "photos": "Roku toistaa ne koko näytöllä ja täydellä laadulla; toista, keskeytä ja kelaa puhelimesta.",
+   "images": "Kuvat näkyvät Rokussa koko näytöllä television kokoon sovitettuina.",
+   "iptv": "Kanava toistuu Rokussa, kun käytät muita sovelluksia tai lukitset puhelimen.",
+   "youtube": "Video toistuu Rokussa siitä kohdasta, johon jäit.",
+   "webvideos": "Roku toistaa videon, jonka iPhonesi löysi sivulta; pidä MirrorGo auki toiston ajan.",
+   "camera": "Kameran kuva näkyy suorana Rokussa."
+  },
+  "googletv": {
+   "forms": {
+    "art": "Google TV",
+    "title_art": "Google TV",
+    "nom": "Google TV",
+    "ill": "Google TV:hen",
+    "ine": "Google TV:ssä"
+   },
+   "connect": [
+    "Käynnistä Google TV ja yhdistä iPhone samaan Wi-Fi-verkkoon.",
+    "Avaa MirrorGo ja napauta Yhdistä televisio. Televisiosi näkyy nimellä, joka sillä on Google Homessa (esimerkiksi Olohuoneen TV).",
+    "Yhdistä napauttamalla sitä. Ei koodia, ei viestiä televisiossa.",
+    "Yhdistetty. MirrorGo yhdistää siihen uudelleen seuraavalla kerralla."
+   ],
+   "connect_notes": [
+    "Google TV:ssä on sisäänrakennettu Chromecast, ja sen kautta MirrorGo keskustelee sen kanssa: Sonyn, TCL:n, Hisensen ja Philipsin Google TV -televisioissa, Chromecast with Google TV:ssä ja Google TV Streamerissa.",
+    "Eikö näy listassa? Herätä televisio kokonaan (ei valmiustilaa) ja tarkista, että se on samassa Wi-Fi-verkossa kuin puhelin ja että MirrorGolla on paikallisverkon käyttöoikeus."
+   ],
+   "photos": "Kuvat kulkevat televisioon Wi-Fi-verkkosi kautta koko näytön kuvina; videot toistuvat MirrorGon soittimessa televisiossa, ja toistat, keskeytät ja kelaat puhelimella.",
+   "images": "Kuvat näkyvät koko näytöllä television sisäänrakennetun Chromecastin kautta.",
+   "iptv": "Televisio hakee kanavan itse, joten toisto jatkuu, vaikka puhelimesi olisi lukittuna tai toisessa huoneessa.",
+   "youtube": "Video toistuu YouTuben soittimessa MirrorGon televisiosovelluksen sisällä siitä kohdasta, johon jäit.",
+   "webvideos": "Televisio toistaa videon MirrorGon kautta, joka välittää sivuston videon puhelimestasi; pidä MirrorGo auki toiston ajan.",
+   "camera": "Äänen kanssa: laita Ääni päälle ennen aloittamista, niin MirrorGo lisää mikrofonin äänen."
+  },
+  "androidtv": {
+   "forms": {
+    "art": "Android TV",
+    "title_art": "Android TV",
+    "nom": "Android TV",
+    "ill": "Android TV:hen",
+    "ine": "Android TV:ssä"
+   },
+   "connect": [
+    "Käynnistä Android TV ja yhdistä iPhone samaan Wi-Fi-verkkoon.",
+    "Avaa MirrorGo ja napauta Yhdistä televisio. Televisiosi näkyy Chromecast-nimellään.",
+    "Yhdistä napauttamalla sitä. Ei koodia, ei viestiä televisiossa.",
+    "Yhdistetty. MirrorGo yhdistää siihen uudelleen seuraavalla kerralla."
+   ],
+   "connect_notes": [
+    "Lähes jokaisessa Android TV:ssä on sisäänrakennettu Chromecast, ja MirrorGo keskustelee television kanssa sen kautta: Sony BRAVIA, Philips, Xiaomi, TCL, Sharp, Mi Box, Xiaomi TV Stick ja NVIDIA SHIELD.",
+    "Eikö näy listassa? Herätä televisio kokonaan (ei valmiustilaa) ja tarkista, että se on samassa Wi-Fi-verkossa kuin puhelin ja että MirrorGolla on paikallisverkon käyttöoikeus."
+   ],
+   "photos": "Kuvat kulkevat televisioon Wi-Fi-verkkosi kautta koko näytön kuvina; videot toistuvat MirrorGon soittimessa televisiossa, ja toistat, keskeytät ja kelaat puhelimella.",
+   "images": "Kuvat näkyvät koko näytöllä television sisäänrakennetun Chromecastin kautta.",
+   "iptv": "Televisio hakee kanavan itse, joten toisto jatkuu, vaikka puhelimesi olisi lukittuna tai toisessa huoneessa.",
+   "youtube": "Video toistuu YouTuben soittimessa MirrorGon televisiosovelluksen sisällä siitä kohdasta, johon jäit.",
+   "webvideos": "Televisio toistaa videon MirrorGon kautta, joka välittää sivuston videon puhelimestasi; pidä MirrorGo auki toiston ajan.",
+   "camera": "Äänen kanssa: laita Ääni päälle ennen aloittamista, niin MirrorGo lisää mikrofonin äänen."
+  },
+  "chromecast": {
+   "forms": {
+    "art": "Chromecast",
+    "title_art": "Chromecast",
+    "nom": "Chromecast",
+    "ill": "Chromecastiin",
+    "ine": "Chromecastissa"
+   },
+   "connect": [
+    "Käynnistä televisio, johon Chromecast on kytketty, ja yhdistä iPhone samaan Wi-Fi-verkkoon.",
+    "Avaa MirrorGo ja napauta Yhdistä televisio. Chromecast näkyy Google Home -nimellään.",
+    "Yhdistä napauttamalla sitä. Ei koodia, eikä Google Home -sovellusta tarvita.",
+    "Yhdistetty. MirrorGo yhdistää siihen uudelleen seuraavalla kerralla."
+   ],
+   "connect_notes": [
+    "Kaikki Chromecastit toimivat, Google TV:llä tai ilman, samoin televisiot, joissa on sisäänrakennettu Chromecast, kuten VIZIO SmartCast -televisiot.",
+    "Eikö näy listassa? Tarkista, että Chromecast on samassa Wi-Fi-verkossa kuin puhelin (ei vierasverkossa) ja että MirrorGolla on paikallisverkon käyttöoikeus Asetuksissa."
+   ],
+   "photos": "Kuvat kulkevat televisioon Wi-Fi-verkkosi kautta koko näytön kuvina; videot toistuvat MirrorGon soittimessa Chromecastissa, ja toistat, keskeytät ja kelaat puhelimella.",
+   "images": "Kuvat näkyvät koko näytöllä Chromecastin kautta.",
+   "iptv": "Chromecast hakee kanavan itse, joten toisto jatkuu, vaikka puhelimesi olisi lukittuna.",
+   "youtube": "Video toistuu YouTuben soittimessa MirrorGon Chromecast-sovelluksen sisällä siitä kohdasta, johon jäit.",
+   "webvideos": "Chromecast toistaa videon MirrorGon kautta, joka välittää sivuston videon puhelimestasi; pidä MirrorGo auki toiston ajan.",
+   "camera": "Äänen kanssa: laita Ääni päälle ennen aloittamista, niin MirrorGo lisää mikrofonin äänen."
+  },
+  "firetv": {
+   "forms": {
+    "art": "Fire TV",
+    "title_art": "Fire TV",
+    "nom": "Fire TV",
+    "ill": "Fire TV:hen",
+    "ine": "Fire TV:ssä"
+   },
+   "connect": [
+    "Käynnistä Fire TV ja yhdistä iPhone samaan Wi-Fi-verkkoon.",
+    "Avaa MirrorGo ja napauta Yhdistä televisio. Fire TV:si näkyy nimellään.",
+    "Yhdistä napauttamalla sitä. Ei sovellusta Fire TV:ssä, ei pariliitosta, ei koodia.",
+    "Yhdistetty. MirrorGo yhdistää siihen uudelleen seuraavalla kerralla."
+   ],
+   "connect_notes": [
+    "Jokaisessa Fire TV:ssä on sisäänrakennettu mediasoitin, ja MirrorGo käyttää sitä: Fire TV Stickit (myös 4K ja 4K Max), Fire TV Cube ja älytelevisiot, joissa on sisäänrakennettu Fire TV.",
+    "Eikö näy listassa? Herätä Fire TV painamalla sen kaukosäätimen Koti-painiketta ja tarkista, että se on samassa Wi-Fi-verkossa kuin puhelin."
+   ],
+   "photos": "Kuvat lähetetään kuvina ja videot MP4-tiedostoina, jotka tarjotaan iPhonesta Wi-Fi-verkkosi kautta. Fire TV ei pysty toistamaan HEVC:tä, iPhonen oletusvideomuotoa, joten MirrorGo muuntaa nämä videot ensin H.264-muotoon; pitkissä videoissa se vie hetken.",
+   "images": "Kuvat näkyvät koko näytöllä Fire TV:n sisäänrakennetussa soittimessa.",
+   "iptv": "Fire TV toistaa kanavan lähetyksen itse, joten toisto jatkuu ilman puhelinta.",
+   "webvideos": "Fire TV toistaa sivuston videon iPhonesi välittämänä; pidä MirrorGo auki toiston ajan.",
+   "camera": "Pelkkä kuva: Fire TV:n sisäänrakennettu soitin näyttää kameran kuvan ilman ääntä."
+  },
+  "airplay": {
+   "forms": {
+    "art": "Apple TV",
+    "title_art": "Apple TV",
+    "nom": "Apple TV",
+    "ill": "Apple TV:hen",
+    "ine": "Apple TV:ssä"
+   },
+   "connect": [
+    "Käynnistä Apple TV tai AirPlay-televisio ja yhdistä iPhone samaan Wi-Fi-verkkoon.",
+    "Avaa MirrorGo, napauta Yhdistä televisio ja sitten Valitse AirPlay-laite.",
+    "Valitse Apple TV tai AirPlay-televisio iOS:n AirPlay-valikosta. Ensimmäisellä kerralla televisiossa voi näkyä koodi, joka kirjoitetaan iPhoneen.",
+    "Yhdistetty: MirrorGo näyttää ”Yhdistetty AirPlayn kautta”. Katkaise yhteys avaamalla sama valikko ja valitsemalla iPhone."
+   ],
+   "connect_notes": [
+    "Tämä toimii Apple TV HD:ssä ja Apple TV 4K:ssa sekä televisioissa, joissa on sisäänrakennettu AirPlay: monissa Samsungin, LG:n, Sonyn, VIZIOn, TCL:n ja Rokun malleissa vuodesta 2018 alkaen.",
+    "Jos haluat peilata koko näyttösi AirPlay-laitteeseen, käytä Ohjauskeskus › Näytön peilaus: Apple ei anna sovellusten käynnistää sitä."
+   ],
+   "photos": "Videot toistuvat AirPlayn kautta, ja niin myös kuvat: MirrorGo muuttaa jokaisen kuvan lyhyeksi still-videoksi. Kun Näytön peilaus on päällä Ohjauskeskuksessa, kuvat näkyvät sen sijaan suoraan televisiossa.",
+   "images": "Kuvat kulkevat AirPlayn kautta still-videoina tai suoraan televisioon, kun Näytön peilaus on päällä Ohjauskeskuksessa.",
+   "iptv": "Kanava toistuu AirPlayn kautta: Apple TV hakee lähetyksen itse.",
+   "webvideos": "Video toistuu AirPlayn kautta; pidä MirrorGo auki toiston ajan.",
+   "camera": "Laita ensin Näytön peilaus päälle Ohjauskeskuksessa: sitten kameran kuva näkyy televisiossa koko näytöllä, ilman ääntä."
+  },
+  "browser": {
+   "forms": {
+    "art": "verkkoselain",
+    "title_art": "verkkoselain",
+    "nom": "verkkoselain",
+    "ill": "verkkoselaimeen",
+    "ine": "verkkoselaimessa"
+   },
+   "connect": [
+    "Avaa televisiossa, tietokoneessa tai tabletissa smrr.tv sen verkkoselaimessa. Sivulla näkyy 6-numeroinen koodi ja QR-koodi.",
+    "Napauta MirrorGossa Yhdistä televisio ja sitten Peilaa verkkoselaimeen.",
+    "Kirjoita koodi tai napauta Skannaa QR-koodi ja osoita sitä kameralla.",
+    "Yhdistetty. Sivulla näkyy koodin sijaan puhelimesi."
+   ],
+   "connect_notes": [
+    "Mikä tahansa näyttö, jossa on moderni verkkoselain, toimii: älytelevisiot, joita MirrorGo ei löydä televisioina, Windows-tietokoneet, Macit, Chromebookit ja tabletit. Lähellä olevassa LG- tai Samsung-televisiossa ”Avaa laitteessa…” avaa selaimen puolestasi.",
+    "Puhelin ja selain yhdistyvät suoraan, joten niiden täytyy olla samassa Wi-Fi-verkossa. Pidä sivu auki; jos lataat sen uudelleen, yhteys palautuu itsestään."
+   ],
+   "photos": "Kuvat ja videot kulkevat suoraan iPhonesta selaimeen Wi-Fi-verkkosi kautta suorana lähetyksenä, joka täyttää näytön 16:9-muodossa, videon äänen kanssa.",
+   "images": "Sivu lataa kuvan itse Wikimedia Commonsista täydellä tarkkuudella.",
+   "iptv": "Sivu toistaa kanavan itse, joten toisto jatkuu, kun lukitset puhelimen; sivun uudelleenlataus jatkaa toistoa.",
+   "youtube": "Video toistuu YouTuben soittimessa smrr.tv-sivulla siitä kohdasta, johon jäit.",
+   "webvideos": "Sivulle lähetetään videon linkki, ja se toistaa videon itse. Jos sivusto toistaa videon vain puhelimesi evästeillä, iPhonesi suoratoistaa sen sivulle.",
+   "camera": "Suorana lähetyksenä Wi-Fi-verkkosi kautta, äänen kanssa, kun Ääni on päällä."
+  }
+ }
+}

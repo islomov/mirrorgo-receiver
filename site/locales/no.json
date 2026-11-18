@@ -1,0 +1,1564 @@
+{
+ "ui": {
+  "skip": "Gå til innholdet",
+  "home_aria": "MirrorGo – startside",
+  "menu": "Meny",
+  "language": "Språk",
+  "nav_features": "Funksjoner",
+  "nav_tvs": "TV-er",
+  "nav_guides": "Guider",
+  "nav_help": "Hjelp",
+  "download": "Last ned fra App Store",
+  "coming_soon": "Kommer snart til App Store",
+  "footer_blurb": "Skjermspeiling og casting for iPhone. Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV og alle nettlesere.",
+  "footer_mirror_to": "Speil til",
+  "footer_brands": "TV-merker",
+  "footer_support": "Støtte",
+  "footer_languages": "Språk",
+  "brand_tv": "{brand}-TV",
+  "guides": "Guider",
+  "help_faq": "Hjelp og vanlige spørsmål",
+  "tv_browser": "smrr.tv (nettleser på TV-en)",
+  "privacy": "Personvern",
+  "terms": "Vilkår for bruk",
+  "firetv_app_privacy": "Fire TV-appen: personvern",
+  "firetv_app_terms": "vilkår",
+  "english_only": "(på engelsk)",
+  "trademarks": "Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV, AirPlay og TV-merkene som nevnes, er varemerker som tilhører sine eiere. MirrorGo er ikke tilknyttet dem.",
+  "home_title": "MirrorGo: Skjermspeiling og casting til TV for iPhone",
+  "home_description": "Speil iPhonen til Samsung, LG, Roku, Google TV, Chromecast, Fire TV, Apple TV eller en nettleser, og cast bilder, video, YouTube og 9 000+ TV-kanaler direkte. Ingen app på TV-en.",
+  "eyebrow": "For iPhone · Ingen app på TV-en",
+  "home_h1": "Din iPhone på {big}",
+  "home_h1_big": "storskjermen",
+  "check_tv": "Sjekk TV-en din",
+  "fine_wifi": "Samme Wi-Fi, ingen kabler",
+  "fine_sound": "Med lyd",
+  "fine_account": "Ingen konto",
+  "hero_alt": "Startskjermen i MirrorGo",
+  "live_pill": "Speiler",
+  "works_with_tv": "Fungerer med TV-en du allerede har",
+  "supported_tvs": "Støttede TV-er",
+  "facts_kicker": "Kort fortalt",
+  "facts_h2": "Hva er MirrorGo?",
+  "features_kicker": "Alt i én app",
+  "features_h2": "Speil det, eller cast det",
+  "features_p": "Vis hele skjermen, eller send bare det du ser på, i full kvalitet, mens telefonen er ledig.",
+  "works_on": "Fungerer på:",
+  "how_kicker": "Slik fungerer det",
+  "how_h2": "På TV-en med tre trykk",
+  "how_p": "Ingen kabler, ingen adaptere, ingenting å installere på TV-en.",
+  "tvs_kicker": "Kompatibilitet",
+  "tvs_h2": "Dette fungerer på TV-en din",
+  "tvs_p": "MirrorGo finner TV-en din på Wi-Fi-nettet og gråer ut det den ikke kan spille av.",
+  "tvs_foot": "Samsung smart-TV-er fra 2016 · LG webOS-TV-er · Roku-TV-er og -spillere · Google TV og Android TV (Sony, TCL, Hisense, Philips, Xiaomi …) · Chromecast · Fire TV Stick, Cube og smart-TV-er med Fire TV · Apple TV og AirPlay-TV-er · alle nettlesere via smrr.tv",
+  "compat_caption": "Dette kan MirrorGo vise på hver type TV",
+  "compat_feature": "Funksjon",
+  "yes": "Ja",
+  "no": "Nei",
+  "airplay_kicker": "AirPlay eller MirrorGo?",
+  "airplay_h2": "Flere TV-er enn AirPlay",
+  "airplay_p": "Alene kan en iPhone bare speile til en Apple TV eller en TV med AirPlay. MirrorGo legger til nesten alle andre TV-er, og noe å se på dem.",
+  "airplay_col_what": "Vis iPhonen din på",
+  "airplay_col_iphone": "Bare iPhone (AirPlay)",
+  "airplay_col_mirrorgo": "Med MirrorGo",
+  "privacy_kicker": "Innebygd personvern",
+  "privacy_h2": "Din telefon, din TV, ditt Wi-Fi",
+  "privacy_p": "Det du speiler og caster, går rett fra iPhonen til TV-en. MirrorGo har ingen konto, og bildene og videoene dine havner aldri på noen server.",
+  "privacy_link": "Les personvernerklæringen →",
+  "guides_kicker": "Guider",
+  "guides_h2": "Steg for steg, for din TV",
+  "guides_p": "Slik kobler du til, speiler og caster bilder, videoer, YouTube og direkte-TV til hver type TV.",
+  "n_guides": "{n} guider",
+  "all_guides": "Alle guider →",
+  "faq_kicker": "Spørsmål",
+  "faq_h2": "Vanlige spørsmål",
+  "all_help": "Alle hjelpeemner →",
+  "final_h2": "Få iPhonen din opp på TV-en",
+  "final_p": "Skjermspeiling, bilder, videoer, YouTube, nettvideoer og tusenvis av direktesendte kanaler. Én app, alle TV-er.",
+  "app_icon_alt": "Appikonet til MirrorGo",
+  "how_to_do_it": "Slik gjør du det",
+  "guide_phone_alt": "MirrorGo klar til å speile en iPhone – {tv}",
+  "what_you_can_do": "{tv}: dette kan du gjøre",
+  "questions": "Spørsmål",
+  "more_guides_for": "{tv}: flere guider",
+  "other_tvs": "Andre TV-er",
+  "status_ok": "Fungerer",
+  "status_part": "Delvis",
+  "status_not": "Ikke på denne TV-en",
+  "howto_tool": "MirrorGo for iPhone",
+  "screen_mirroring": "Skjermspeiling",
+  "step_by_step": "Steg for steg",
+  "updated": "Oppdatert {date}",
+  "on_tv": "{tv}: slik fungerer det",
+  "good_to_know": "Greit å vite",
+  "more_for": "{tv}: flere guider",
+  "topic_on_other_tvs": "{topic} – andre TV-er",
+  "browser_code_alt": "Skriver inn smrr.tv-koden i MirrorGo",
+  "page_title": "{title} | MirrorGo",
+  "blog_h1": "Guider",
+  "blog_lead": "Steg-for-steg-guider for alle typer TV-er: koble til iPhonen, speile skjermen og caste bilder, videoer, nettbilder, YouTube, nettvideoer og gratis direkte-TV.",
+  "blog_title": "Guider: Speil og cast iPhone til alle TV-er | MirrorGo",
+  "blog_description": "Guider steg for steg: koble iPhone til Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV eller en nettleser, og cast bilder, video, YouTube og direkte-TV.",
+  "blog_collection": "MirrorGo-guider",
+  "by_brand": "Etter TV-merke",
+  "brand_h1": "Speil iPhonen din til en {brand}-TV",
+  "brand_title": "Slik speiler du iPhone til {brand}-TV | MirrorGo",
+  "brand_description": "Speil iPhonen til en {brand}-TV, og cast bilder, videoer, YouTube og direkte-TV med MirrorGo. Fungerer med {systems}.",
+  "brand_step_1": "Finn ut hvilket system {brand}-TV-en din bruker ({systems}): logoen står på startskjermen og på fjernkontrollen.",
+  "brand_step_2": "Koble iPhonen til samme Wi-Fi som TV-en.",
+  "brand_step_3": "Åpne MirrorGo, trykk på Koble til TV-en og velg TV-en din.",
+  "brand_step_4": "Åpne Skjermspeiling og trykk på Start speiling, deretter på {start}.",
+  "brand_phone_alt": "MirrorGo klar til å speile en iPhone til en {brand}-TV",
+  "brand_any_model": "Alle modeller, via smrr.tv",
+  "brand_by_system": "{brand}-TV-er etter system",
+  "help_crumb": "Hjelp",
+  "help_h1": "Hjelp og vanlige spørsmål",
+  "help_lead": "Svar på det folk spør mest om. Står du fast? Send en e-post til {email} med modellen på TV-en din.",
+  "help_title": "MirrorGo hjelp: Spørsmål om skjermspeiling og casting",
+  "help_description": "Koble til TV-en, speil iPhone-skjermen, løs problemer med TV som ikke blir funnet, lyd, forsinkelse og svart skjerm, og cast bilder, video, YouTube og IPTV.",
+  "nf_title": "Fant ikke siden | MirrorGo",
+  "nf_description": "Denne siden finnes ikke.",
+  "nf_h1": "Denne siden er ikke på lufta",
+  "nf_lead": "Lenken kan være gammel. Prøv forsiden eller hjelpesidene.",
+  "nf_home": "Forside",
+  "nf_help": "Hjelp"
+ },
+ "site": {
+  "tagline": "Skjermspeiling og casting for iPhone",
+  "one_liner": "MirrorGo er en iPhone-app som speiler skjermen til TV-en og caster bilder, videoer, kameraet, nettvideoer, direktesendte TV-kanaler og YouTube til den. Den fungerer med Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV og alle nettlesere, og dermed også med Sony, TCL, Hisense, Vizio, Philips og de fleste andre smart-TV-er, uten at du må installere noe på TV-en.",
+  "start_sharing": "Start deling (Start kringkasting før iOS 26)"
+ },
+ "tvs": {
+  "samsung": {
+   "name": "Samsung-TV",
+   "short": "Samsung"
+  },
+  "lg": {
+   "name": "LG-TV",
+   "short": "LG"
+  },
+  "roku": {
+   "name": "Roku"
+  },
+  "googletv": {
+   "name": "Google TV"
+  },
+  "androidtv": {
+   "name": "Android TV"
+  },
+  "chromecast": {
+   "name": "Chromecast"
+  },
+  "firetv": {
+   "name": "Fire TV"
+  },
+  "airplay": {
+   "name": "Apple TV og AirPlay",
+   "short": "AirPlay"
+  },
+  "browser": {
+   "name": "Alle nettlesere",
+   "short": "Nettleser"
+  }
+ },
+ "compat_rows": {
+  "screen-mirroring": "Skjermspeiling",
+  "photos-videos": "Bilder og videoer",
+  "camera": "Kamera",
+  "web-videos": "Nettvideoer",
+  "iptv": "Direktesendte TV-kanaler (IPTV)",
+  "youtube": "YouTube",
+  "web-images": "Nettbilder"
+ },
+ "compat_notes": {
+  "From Control Center": "Fra Kontrollsenter",
+  "No sound": "Uten lyd",
+  "With Screen Mirroring on": "Med Skjermspeiling på"
+ },
+ "features": {
+  "screen-mirroring": {
+   "name": "Skjermspeiling",
+   "short": "Hele iPhone-skjermen på TV-en, med lyd, i alle apper."
+  },
+  "photos-videos": {
+   "name": "Bilder og videoer",
+   "short": "Biblioteket ditt på storskjermen, videoer i full kvalitet, med lysbildefremvisning."
+  },
+  "camera": {
+   "name": "Kamera",
+   "short": "Vis rommet, en tavle eller kjæledyret ditt direkte på TV-en, med front- eller bakkameraet."
+  },
+  "youtube": {
+   "name": "YouTube",
+   "short": "TV-en spiller av videoen selv, i full kvalitet, fra der du var."
+  },
+  "web-videos": {
+   "name": "Nettvideoer",
+   "short": "Åpne et nettsted, spill av videoen, trykk på Cast til TV. Reklame blokkeres."
+  },
+  "iptv": {
+   "name": "Direkte-TV (IPTV)",
+   "short": "9 000+ gratis kanaler fra 180+ land, pluss dine egne M3U-spillelister."
+  },
+  "web-images": {
+   "name": "Nettbilder",
+   "short": "Søk etter gratis bilder fra Wikimedia Commons og vis dem i fullskjerm."
+  },
+  "any-browser": {
+   "name": "Alle nettlesere",
+   "short": "Fant ingen TV? Åpne smrr.tv på en hvilken som helst TV eller datamaskin, og skriv inn koden."
+  }
+ },
+ "showcase": {
+  "screen-mirroring": {
+   "title": "Speil iPhone-skjermen til TV-en",
+   "text": "Alt på telefonen vises på TV-en i sanntid: apper, spill, bilder, nettsteder, presentasjoner. Start det én gang og bruk telefonen som vanlig; TV-en følger med.",
+   "points": [
+    "Fungerer i alle apper, og fortsetter når du bytter app",
+    "Lyden fra appene går til TV-en, aldri mikrofonen",
+    "Høy, middels eller lav kvalitet: skarpere bilde, eller jevnere på et travelt Wi-Fi",
+    "Autoroter: snu telefonen på siden, så følger TV-en med",
+    "En kort guide viser steg for steg hvordan iOS starter det"
+   ],
+   "alts": [
+    "Skjermspeiling i MirrorGo med innstillingene Kvalitet, Autoroter og Lyd",
+    "MirrorGos guide: slik starter skjermspeiling, i fire steg"
+   ]
+  },
+  "photos-videos": {
+   "title": "Bildene og videoene dine på storskjermen",
+   "text": "Velg et bilde eller en video, så er det på TV-en. Sveip til neste, så følger TV-en med. Videoer spilles av i full kvalitet, med lyd, og styres fra telefonen.",
+   "points": [
+    "Bilder i TV-ens oppløsning, videoer i originalkvalitet",
+    "Autoavspilling: lysbildefremvisning (5 til 30 s per bilde), videoer til slutten, og deretter Gjenta",
+    "Spill av, pause og spol på telefonen; TV-en spiller av",
+    "4K- og HEVC-videoer: konverteres bare for TV-er som ikke kan spille dem av",
+    "Rett fra telefonen til TV-en over Wi-Fi, aldri lastet opp"
+   ],
+   "alts": [
+    "Caster et bilde fra iPhone-galleriet med MirrorGo"
+   ]
+  },
+  "iptv": {
+   "title": "Tusenvis av gratis direktesendte TV-kanaler",
+   "text": "Bla gjennom gratis, offentlige TV-kanaler etter land eller kategori, fra nyheter til sport, film, musikk og barn, og spill dem av på TV-en med ett trykk. Du kan også legge til dine egne M3U-spillelister.",
+   "points": [
+    "9 000+ kanaler fra 180+ land, i 29 kategorier",
+    "Favoritter ett trykk unna",
+    "Legg til lenker til dine egne M3U-spillelister",
+    "Fortsetter å spille når du låser telefonen eller åpner en annen app"
+   ],
+   "alts": [
+    "IPTV-skjermen i MirrorGo: spillelister, kategorier og land",
+    "Direktesendte TV-kanaler fra USA i MirrorGo"
+   ],
+   "footnote": "Kanalene kommer fra den offentlige iptv-org-listen. Som alle gratis strømmer er noen av og til nede eller kan bare ses i sitt eget land."
+  },
+  "web-videos": {
+   "title": "Cast videoer fra alle nettsteder",
+   "text": "Åpne et nettsted i MirrorGos private nettleser og spill av videoen: MirrorGo finner den og sender den til TV-en, som spiller den av i full kvalitet mens du surfer videre.",
+   "points": [
+    "Åpne et hvilket som helst nettsted, spill av videoen, trykk på Cast til TV",
+    "Velger den ekte videoen, ikke reklamen, og blokkerer reklamenettverk",
+    "Fortsetter der du var på siden",
+    "Privat surfing: ingen historikk, informasjonskapsler eller buffer lagres"
+   ],
+   "alts": [
+    "Nettleseren for nettvideoer i MirrorGo med populære nettsteder"
+   ]
+  },
+  "youtube": {
+   "title": "YouTube på TV-en, spilt av TV-en selv",
+   "text": "Finn en video i MirrorGo, etter emne eller med søk, og trykk på Cast til TV. TV-en spiller av videoen selv, i full kvalitet, fra der du var.",
+   "points": [
+    "Bla etter emne (musikk, nyheter, sport, direkte) eller søk",
+    "Åpnes i TV-ens egen YouTube-app på Samsung og LG",
+    "Spilles også av på Roku, Google TV, Android TV, Chromecast og i nettlesere",
+    "Fortsetter å spille når du forlater skjermen"
+   ],
+   "alts": [
+    "Caster YouTube til en TV med MirrorGo"
+   ]
+  },
+  "web-images": {
+   "title": "Vakre gratis bilder i fullskjerm",
+   "text": "Søk etter gratis bilder fra Wikimedia Commons (landskap, verdensrommet, byer, kunst) og vis dem på TV-en i full oppløsning, eller som lysbildefremvisning.",
+   "points": [
+    "Millioner av gratis bilder med åpen lisens",
+    "Lysbildefremvisning i ditt eget tempo",
+    "Opphavsperson og lisens vises med hvert bilde"
+   ],
+   "alts": [
+    "Et landskap fra Wikimedia Commons klart til å castes med MirrorGo"
+   ]
+  },
+  "any-browser": {
+   "title": "Ingen smart-TV-app? Bruk en hvilken som helst nettleser",
+   "text": "Alle TV-er, datamaskiner og nettbrett med nettleser kan vise iPhonen din, også en som MirrorGo ikke finner. Åpne smrr.tv der, og skriv inn den sekssifrede koden som vises, eller skann QR-koden.",
+   "points": [
+    "Fungerer på smart-TV-er, PC-er, Mac-er og nettbrett",
+    "Videoen går rett over Wi-Fi-nettet ditt, med lyd",
+    "For LG- og Samsung-TV-er i nærheten åpner MirrorGo TV-ens nettleser for deg"
+   ],
+   "alts": [
+    "Skriver inn smrr.tv-koden i MirrorGo for å speile til en nettleser"
+   ]
+  }
+ },
+ "steps": [
+  [
+   "Bruk samme Wi-Fi",
+   "Koble iPhonen til samme Wi-Fi som TV-en. Ingen kabler, ingen TV-app."
+  ],
+  [
+   "Velg TV-en din",
+   "MirrorGo finner TV-ene rundt deg. Trykk på din; LG- og Samsung-TV-er ber deg velge Tillat én gang."
+  ],
+  [
+   "Speil eller cast",
+   "Start skjermspeiling, eller åpne bilder, videoer, YouTube, et nettsted eller en TV-kanal."
+  ]
+ ],
+ "privacy_points": [
+  [
+   "Ingen konto",
+   "Ingenting å registrere seg for. Åpne appen og koble til."
+  ],
+  [
+   "Blir på Wi-Fi-nettet ditt",
+   "Bilder, videoer og skjermen går rett fra telefonen til TV-en. De lastes ikke opp noe sted."
+  ],
+  [
+   "Bare lyd fra apper",
+   "Speiling sender lyden appene spiller av, aldri mikrofonen."
+  ],
+  [
+   "Privat surfing",
+   "Nettvideoer lagrer ingen historikk, informasjonskapsler eller buffer."
+  ]
+ ],
+ "quick_facts": [
+  [
+   "Hva det er",
+   "En iPhone-app som speiler skjermen og caster bilder, videoer, kameraet, nettvideoer, direkte-TV og YouTube til en TV."
+  ],
+  [
+   "Fungerer med",
+   "Samsung (2016 og nyere), LG webOS, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV og AirPlay-TV-er, og alle nettlesere via smrr.tv."
+  ],
+  [
+   "På TV-en",
+   "Ingenting å installere. iPhonen og TV-en må bare være på samme Wi-Fi."
+  ],
+  [
+   "iPhone",
+   "iOS 16.6 eller nyere."
+  ],
+  [
+   "Lyd",
+   "Ja, lyden appene spiller av (skjermspeiling til Fire TV og enkelte eldre LG-TV-er gir bare bilde)."
+  ],
+  [
+   "Personvern",
+   "Ingen konto. Skjermen, bildene og videoene går rett fra iPhonen til TV-en over Wi-Fi."
+  ]
+ ],
+ "airplay_compare": [
+  "Apple TV og AirPlay-TV-er",
+  "Samsung-, LG- og Roku-TV-er uten AirPlay",
+  "Chromecast, Google TV og Android TV",
+  "Amazon Fire TV",
+  "Alle TV-er og datamaskiner med nettleser",
+  "9 000+ gratis direktesendte TV-kanaler"
+ ],
+ "faq_sections": [
+  "Kom i gang",
+  "Tilkobling",
+  "Skjermspeiling",
+  "Casting",
+  "Tillatelser",
+  "Annet"
+ ],
+ "faq": {
+  "tvs": {
+   "q": "Hvilke TV-er fungerer MirrorGo med?",
+   "a": "De fleste smart-TV-er og strømmepinner. Du trenger ikke å installere noe på TV-en.",
+   "ul": [
+    "Samsung smart-TV-er (2016 og nyere)",
+    "LG smart-TV-er (webOS)",
+    "Roku-TV-er og Roku-strømmespillere",
+    "Google TV, Android TV og Chromecast",
+    "Amazon Fire TV: strømmepinner, Cube og smart-TV-er med Fire TV",
+    "Apple TV og AirPlay-TV-er",
+    "Alle andre TV-er, datamaskiner og nettbrett med nettleser, via smrr.tv"
+   ]
+  },
+  "connect": {
+   "q": "Hvordan kobler jeg til TV-en?",
+   "a": "Slå på TV-en og sjekk at den er på samme Wi-Fi som telefonen. Deretter:",
+   "ol": [
+    "Trykk på Koble til TV-en på startskjermen, eller på TV-knappen øverst på en hvilken som helst skjerm.",
+    "Velg TV-en din i listen.",
+    "LG- og Samsung-TV-er spør første gang: velg Tillat på TV-en med fjernkontrollen."
+   ],
+   "note": "MirrorGo husker TV-en og kobler til den igjen neste gang."
+  },
+  "notFound": {
+   "q": "TV-en min står ikke i listen",
+   "a": "MirrorGo finner TV-er på Wi-Fi-nettet ditt. Når en mangler, skyldes det som regel ett av disse:",
+   "ul": [
+    "Telefonen og TV-en er på forskjellige nettverk. Bruk samme Wi-Fi, ikke et gjestenettverk.",
+    "MirrorGo har ikke tilgang til Lokalt nettverk. Da skjuler iOS alle TV-er for appen.",
+    "En VPN er slått på. Slå den av mens du caster.",
+    "TV-en er i hvilemodus eller har hengt seg opp. Slå den helt på, eller start den og ruteren på nytt."
+   ],
+   "note": "Mangler den fortsatt? Alle TV-er med nettleser fungerer via smrr.tv: se «Hvordan speiler jeg til en nettleser?»"
+  },
+  "allow": {
+   "q": "TV-en min slipper ikke MirrorGo til",
+   "a": "LG- og Samsung-TV-er spør før en telefon kan styre dem. Første gang MirrorGo kobler til, vises en melding på TV-en: velg Tillat med fjernkontrollen. Du blir ikke spurt igjen.",
+   "ul": [
+    "LG: gikk du glipp av meldingen eller valgte Avvis? Koble til igjen, så spør TV-en på nytt.",
+    "Samsung: valgte du Avvis? TV-en husker det. Åpne Innstillinger › Generelt › Behandling av eksterne enheter › Behandling av enhetstilkobling › Enhetsliste (Settings › General › External Device Manager › Device Connection Manager › Device List) på TV-en, og tillat MirrorGo, eller slett den så TV-en spør på nytt.",
+    "Eldre LG-TV-er: slå på LG Connect Apps i nettverksinnstillingene på TV-en."
+   ]
+  },
+  "lost": {
+   "q": "Forbindelsen brytes hele tiden",
+   "a": "iOS stenger MirrorGos forbindelse til TV-en mens appen er i bakgrunnen, og et brudd i Wi-Fi-en kan også stenge den. MirrorGo kobler til igjen av seg selv i løpet av noen sekunder, og skjermspeilingen fortsetter i mellomtiden.",
+   "ul": [
+    "Ser du «Mistet forbindelsen»? Sjekk at TV-en er på og på samme Wi-Fi, og trykk på Prøv igjen.",
+    "Et svakt signal faller oftere ut: hold telefonen og TV-en nær ruteren."
+   ]
+  },
+  "browser": {
+   "q": "Hvordan speiler jeg til en nettleser?",
+   "a": "Alle TV-er, datamaskiner og nettbrett med nettleser kan vise skjermen din, også en som MirrorGo ikke finner som TV.",
+   "ol": [
+    "Åpne smrr.tv i nettleseren på den. Siden viser en sekssifret kode.",
+    "Åpne TV-listen i MirrorGo og trykk på Nettleser (smrr.tv).",
+    "Skriv inn koden, eller skann QR-koden på siden."
+   ],
+   "note": "La siden være åpen mens du speiler. Telefonen og nettleseren må være på samme Wi-Fi. For en LG- eller Samsung-TV i nærheten åpner «Åpne på …» nettleseren på den for deg."
+  },
+  "mirror": {
+   "q": "Hvordan speiler jeg skjermen?",
+   "ol": [
+    "Koble til TV-en, og åpne Skjermspeiling.",
+    "Trykk på Start speiling. iOS ber deg bekrefte: trykk på Start deling (Start kringkasting før iOS 26).",
+    "Etter nedtellingen på 3 sekunder trykker du utenfor boksen for å lukke den.",
+    "Vent 5–10 sekunder på TV-en. Ikke stopp og start på nytt: da begynner det fra start igjen."
+   ],
+   "note": "For å stoppe trykker du på Stopp speiling, eller på den røde indikatoren øverst på skjermen."
+  },
+  "airPlay": {
+   "q": "Hvordan speiler jeg til en Apple TV eller AirPlay-TV?",
+   "a": "iOS speiler til AirPlay-enheter selv, så det startes fra Kontrollsenter, ikke fra en app:",
+   "ol": [
+    "Sveip ned fra øvre høyre hjørne for å åpne Kontrollsenter.",
+    "Trykk på Skjermspeiling.",
+    "Velg Apple TV-en eller AirPlay-TV-en din."
+   ],
+   "note": "For å stoppe trykker du på Skjermspeiling igjen og deretter på Stopp speiling."
+  },
+  "nothingShows": {
+   "q": "Speilingen startet, men TV-en viser ingenting",
+   "ul": [
+    "Gi TV-en opptil 10 sekunder. Å stoppe og starte på nytt begynner bare fra start igjen.",
+    "Sjekk at det er riktig TV: navnet står øverst i Skjermspeiling.",
+    "Speiler du til en nettleser? La smrr.tv være åpen der, på samme Wi-Fi som telefonen.",
+    "Fortsatt ingenting? Stopp speilingen, start TV-en på nytt, koble til igjen og start."
+   ]
+  },
+  "black": {
+   "q": "Noen apper vises som svart skjerm",
+   "a": "Netflix, Prime Video, Disney+ og andre strømmeapper beskytter videoene sine, så iOS sender et svart bilde i stedet. Ingen speilingsapp kan omgå det.",
+   "note": "Bruk appens egen cast-knapp hvis den har en. For YouTube åpner du YouTube i MirrorGo: TV-en spiller av videoen selv."
+  },
+  "sound": {
+   "q": "Det er ingen lyd på TV-en",
+   "ul": [
+    "Sjekk at Lyd er på i Skjermspeiling, og at lyden på TV-en ikke er dempet.",
+    "MirrorGo sender lyden appene spiller av, aldri mikrofonen.",
+    "Fire TV og enkelte eldre LG-TV-er viser bildet uten lyd.",
+    "Noen apper tillater ikke at lyden tas opp, så den blir værende på telefonen."
+   ]
+  },
+  "lag": {
+   "q": "Speilingen henger etter eller ser uskarp ut",
+   "a": "Speilingen ligger alltid litt etter telefonen. Hvor mye avhenger av TV-en og Wi-Fi-nettet.",
+   "ul": [
+    "Velg lavere Kvalitet før du starter for et jevnere bilde, eller høyere for et skarpere.",
+    "Flytt deg nærmere ruteren, eller bruk 5 GHz-nettet.",
+    "Ser du på en video? Cast den i stedet (Galleri, Nettvideoer, YouTube): TV-en spiller den av i full kvalitet, med lyden synkronisert."
+   ]
+  },
+  "whatCast": {
+   "q": "Hva kan jeg caste i tillegg til skjermen?",
+   "a": "Bilder og videoer fra galleriet, kameraet, videoer og bilder fra nettet, TV-kanaler (IPTV) og YouTube. Ikke alle TV-er spiller av alt: på startskjermen er det TV-en ikke kan spille av, gråtonet.",
+   "ul": [
+    "YouTube spilles ikke av på Fire TV eller via AirPlay.",
+    "Via AirPlay krever kameraet at Skjermspeiling er på i Kontrollsenter.",
+    "Fire TV og AirPlay viser kameraet uten lyd."
+   ]
+  },
+  "lgCheck": {
+   "q": "LG-TV-en min spør «Spilles det av på TV-en?»",
+   "a": "På LG-TV-er spiller MirrorGo først av bilder, videoer og kanaler i TV-ens nettleser, som spiller av mest. Etter noen sekunder spør den om det fungerer:",
+   "ul": [
+    "Ja: fortsett, du blir ikke spurt igjen på den skjermen.",
+    "Nei: MirrorGo lukker nettleseren, spiller av med TV-ens egen avspiller i stedet og spør igjen.",
+    "Fungerer det fortsatt ikke? Trykk på E-post til support og fortell oss hvilken TV-modell du har."
+   ]
+  },
+  "webVideo": {
+   "q": "En nettvideo vil ikke castes",
+   "ul": [
+    "Spill av videoen på siden først: Cast til TV blir aktiv når MirrorGo finner den.",
+    "Fant den flere? Velg riktig video i listen («1 av 3»).",
+    "Svært korte klipp castes ikke, slik at reklame ikke havner på TV-en.",
+    "Noen nettsteder beskytter videoene sine, slik Netflix gjør. De kan ikke castes.",
+    "La MirrorGo være åpen mens videoen spilles: den går via telefonen."
+   ]
+  },
+  "iptv": {
+   "q": "En TV-kanal spilles ikke av",
+   "a": "Kanalene er gratis, offentlige strømmer. Til enhver tid er noen nede, eller kan bare ses i sitt eget land. Hvis en ikke starter, prøv en annen.",
+   "note": "Kanaler fortsetter å spille når du forlater listen eller låser telefonen. Stopp dem fra linjen nederst på startskjermen."
+  },
+  "background": {
+   "q": "Kan jeg bruke telefonen mens jeg caster?",
+   "ul": [
+    "Skjermspeiling: ja. Alt på skjermen vises på TV-en, i alle apper.",
+    "TV-kanaler og YouTube fortsetter å spille på TV-en når du forlater dem.",
+    "Galleri, kamera og nettvideoer stopper når du lukker skjermen deres."
+   ]
+  },
+  "localNetwork": {
+   "q": "Hvorfor trenger MirrorGo tilgang til Lokalt nettverk?",
+   "a": "MirrorGo snakker med TV-en over Wi-Fi-nettet ditt, og iOS tillater det bare med tilgang til Lokalt nettverk. Uten den kan ingen TV bli funnet eller castet til. Den brukes bare for enheter på ditt eget nettverk.",
+   "ol": [
+    "Trykk på Åpne Innstillinger",
+    "Slå på Lokalt nettverk",
+    "Gå tilbake til MirrorGo"
+   ]
+  },
+  "permissions": {
+   "q": "Hva brukes Bilder, Kamera og Mikrofon til?",
+   "ul": [
+    "Bilder: for å vise og caste bildene og videoene dine. Med begrenset tilgang vises bare de du har valgt.",
+    "Kamera: for å caste kameraet, og for å skanne koden på smrr.tv.",
+    "Mikrofon: lyd når du caster kameraet."
+   ],
+   "note": "Bildene og videoene dine går rett fra telefonen til TV-en over Wi-Fi. De lastes ikke opp noe sted."
+  },
+  "denied": {
+   "q": "Jeg sa nei til en tillatelse. Hvordan slår jeg den på?",
+   "a": "iOS spør bare én gang. For å endre svaret åpner du Innstillinger, trykker på MirrorGo og slår på Lokalt nettverk, Bilder, Kamera eller Mikrofon."
+  },
+  "problem": {
+   "q": "Noe annet fungerer ikke",
+   "a": "Oppdater MirrorGo til nyeste versjon og start TV-en på nytt. Hvis det ikke hjelper, trykker du på Kontakt oss under Hjelp i appen. E-posten inneholder allerede appversjon, iOS-versjon, telefonmodell og TV-type; legg gjerne til modellen på TV-en din."
+  }
+ },
+ "brands": {
+  "sony": {
+   "about": "Sony BRAVIA-TV-er har kjørt Android TV siden 2015 og Google TV siden 2021, med innebygd Chromecast, og mange nyere BRAVIA-modeller støtter også AirPlay.",
+   "which": "På en BRAVIA med Google TV eller Android TV finner MirrorGo TV-en ved navnet på Wi-Fi-nettet ditt og kan bruke alt: skjermspeiling, bilder og videoer, YouTube, direkte-TV og mer."
+  },
+  "tcl": {
+   "about": "TCL lager TV-er med flere systemer: Google TV (og Android TV på eldre modeller), Roku TV, og Fire TV på enkelte modeller. Logoen til systemet står på TV-ens startskjerm og på fjernkontrollen.",
+   "which": "Uansett hvilket system TCL-TV-en din kjører, kobler MirrorGo til den på samme måte: samme Wi-Fi, trykk på Koble til TV-en, velg den i listen."
+  },
+  "hisense": {
+   "about": "Hisense-TV-er kjører VIDAA, Google TV / Android TV, Roku TV eller Fire TV, avhengig av modell og land.",
+   "which": "Modeller med Google TV, Android TV, Roku TV og Fire TV vises i TV-listen i MirrorGo. På en VIDAA-modell åpner du smrr.tv i TV-ens nettleser og speiler der med koden som vises."
+  },
+  "vizio": {
+   "about": "VIZIO SmartCast-TV-er har innebygd Chromecast, og mange støtter også AirPlay.",
+   "which": "MirrorGo finner en SmartCast-TV via den innebygde Chromecasten, så du kan speile skjermen og caste bilder, videoer, YouTube og direkte-TV til den."
+  },
+  "philips": {
+   "about": "Mange Philips-TV-er kjører Google TV eller Android TV, med innebygd Chromecast; andre kjører Titan OS eller Saphi.",
+   "which": "Modeller med Google TV og Android TV vises i TV-listen i MirrorGo. På andre modeller åpner du smrr.tv i TV-ens nettleser og speiler der med koden som vises."
+  },
+  "xiaomi": {
+   "about": "Xiaomi-TV-er, Mi Box og Xiaomi TV Stick kjører Google TV eller Android TV, med innebygd Chromecast.",
+   "which": "MirrorGo finner dem på Wi-Fi-nettet ditt og kan bruke alt: skjermspeiling, bilder og videoer, YouTube, direkte-TV og mer."
+  },
+  "toshiba": {
+   "about": "Toshiba smart-TV-er kjører Fire TV i USA og andre systemer ellers, som Android TV eller VIDAA.",
+   "which": "Modeller med Fire TV og Android TV vises i TV-listen i MirrorGo. På andre modeller åpner du smrr.tv i TV-ens nettleser og speiler der med koden som vises."
+  },
+  "panasonic": {
+   "about": "Nyere Panasonic-TV-er kjører Fire TV; eldre kjører Panasonics egen my Home Screen.",
+   "which": "Modeller med Fire TV vises i TV-listen i MirrorGo. På en modell med my Home Screen åpner du smrr.tv i TV-ens nettleser og speiler der med koden som vises."
+  }
+ },
+ "guides": {
+  "samsung": {
+   "title": "Slik speiler du iPhone til Samsung-TV (uten kabler og TV-app)",
+   "description": "Speil iPhone-skjermen til en Samsung smart-TV over Wi-Fi med MirrorGo, og cast bilder, video, YouTube og direkte-TV. For Samsung-TV-er fra 2016, ingen app på TV-en.",
+   "h1": "Speil iPhonen din til en Samsung-TV",
+   "lead": "MirrorGo viser iPhone-skjermen på Samsung smart-TV-er (Tizen, 2016 og nyere) over Wi-Fi-nettet ditt. Ingenting å installere på TV-en: det spilles av i TV-ens egen avspiller, med lyd.",
+   "steps": [
+    "Slå på Samsung-TV-en og koble iPhonen til samme Wi-Fi.",
+    "Åpne MirrorGo, trykk på Koble til TV-en og velg Samsung-TV-en din.",
+    "Første gang velger du Tillat på TV-en med fjernkontrollen.",
+    "Åpne Skjermspeiling, trykk på Start speiling og deretter på Start deling (Start kringkasting før iOS 26). Skjermen vises på TV-en etter 5–10 sekunder."
+   ],
+   "features": [
+    [
+     "Skjermspeiling",
+     "Med lyd; innstillinger for Kvalitet, Lyd og Autoroter"
+    ],
+    [
+     "Bilder og videoer",
+     "Spilles av av TV-en, også 4K og HEVC der TV-en støtter det"
+    ],
+    [
+     "Kamera",
+     "Med lyd"
+    ],
+    [
+     "YouTube",
+     "Åpnes i TV-ens egen YouTube-app"
+    ],
+    [
+     "Nettvideoer",
+     null
+    ],
+    [
+     "Direktesendte TV-kanaler",
+     null
+    ],
+    [
+     "Nettbilder",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Hvilke Samsung-TV-er fungerer?",
+     [
+      "Samsung smart-TV-er med Tizen, fra 2016-modellene og fremover, for eksempel seriene Crystal UHD, QLED, Neo QLED, OLED og The Frame. MirrorGo finner dem selv på Wi-Fi-nettet ditt, uten app på TV-en.",
+      "Mange Samsung-TV-er fra 2018 og nyere støtter også AirPlay. MirrorGo fungerer med eller uten, og legger i tillegg til casting fra nettsteder, direktesendte TV-kanaler og YouTube."
+     ]
+    ],
+    [
+     "Hvis TV-en ikke slipper MirrorGo til",
+     [
+      "Samsung-TV-er spør før en telefon kan styre dem. Hvis du valgte Avvis, husker TV-en det: åpne Innstillinger › Generelt › Behandling av eksterne enheter › Behandling av enhetstilkobling › Enhetsliste (Settings › General › External Device Manager › Device Connection Manager › Device List) på TV-en, og tillat MirrorGo, eller slett den så TV-en spør på nytt."
+     ]
+    ],
+    [
+     "Jevnere speiling",
+     [
+      "Speilingen ligger alltid litt etter telefonen, mer på et travelt Wi-Fi. Velg lavere Kvalitet for et jevnere bilde, hold telefonen nær ruteren, eller cast videoer i stedet for å speile dem: da spiller TV-en dem av i full kvalitet, med lyden synkronisert."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Må jeg installere en app på Samsung-TV-en?",
+     "Nei. MirrorGo bruker det som er innebygd i Samsung smart-TV-er: TV-ens mediespiller og fjernstyringsforbindelsen. Du installerer bare MirrorGo på iPhonen."
+    ],
+    [
+     "Er det lyd når jeg speiler iPhonen til en Samsung-TV?",
+     "Ja. Lyden appene spiller av, går til TV-en sammen med bildet; slå på Lyd i Skjermspeiling. MirrorGo sender aldri mikrofonen."
+    ],
+    [
+     "Kan jeg speile Netflix eller Disney+ til Samsung-TV-en?",
+     "Ingen speilingsapp kan det: strømmeapper beskytter videoene sine, og iOS sender et svart bilde i stedet. Bruk appens egen cast-knapp, eller appen på TV-en."
+    ]
+   ]
+  },
+  "lg": {
+   "title": "Slik speiler du iPhone til LG-TV (webOS, uten kabler)",
+   "description": "Speil iPhonen til en LG smart-TV (webOS) over Wi-Fi med MirrorGo, og cast bilder, videoer, YouTube og direktesendte TV-kanaler. Ingen app å installere på TV-en.",
+   "h1": "Speil iPhonen din til en LG-TV",
+   "lead": "MirrorGo viser iPhone-skjermen på LG smart-TV-er (webOS) over Wi-Fi-nettet ditt. På nyere LG-TV-er brukes LGs egen skjermdeling; eldre viser skjermen i TV-ens nettleser. Ingenting å installere.",
+   "steps": [
+    "Slå på LG-TV-en og koble iPhonen til samme Wi-Fi.",
+    "Åpne MirrorGo, trykk på Koble til TV-en og velg LG-TV-en din.",
+    "Første gang velger du Tillat på TV-en med fjernkontrollen.",
+    "Åpne Skjermspeiling, trykk på Start speiling og deretter på Start deling (Start kringkasting før iOS 26). Skjermen vises på TV-en etter 5–10 sekunder."
+   ],
+   "features": [
+    [
+     "Skjermspeiling",
+     "Med lyd på de fleste LG-TV-er (noen eldre viser bare bildet)"
+    ],
+    [
+     "Bilder og videoer",
+     null
+    ],
+    [
+     "Kamera",
+     null
+    ],
+    [
+     "YouTube",
+     "Åpnes i TV-ens egen YouTube-app"
+    ],
+    [
+     "Nettvideoer",
+     null
+    ],
+    [
+     "Direktesendte TV-kanaler",
+     null
+    ],
+    [
+     "Nettbilder",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Hvilke LG-TV-er fungerer?",
+     [
+      "LG smart-TV-er med webOS. På webOS 22 og nyere bruker MirrorGo LGs egen skjermdeling (LG Cast). Eldre LG-TV-er, fra webOS 4 (2018) og fremover, viser skjermen i TV-ens nettleser, som MirrorGo åpner for deg."
+     ]
+    ],
+    [
+     "Hvis TV-en ikke slipper MirrorGo til",
+     [
+      "LG-TV-er spør før en telefon kan styre dem. Gikk du glipp av meldingen eller valgte Avvis? Koble til igjen, så spør TV-en på nytt. På eldre LG-TV-er slår du på LG Connect Apps i nettverksinnstillingene på TV-en."
+     ]
+    ],
+    [
+     "«Spilles det av på TV-en?»",
+     [
+      "På LG-TV-er spiller MirrorGo først av bilder, videoer og kanaler i TV-ens nettleser, som spiller av mest. Etter noen sekunder spør den om det fungerer. Trykk på Nei, så bytter den til TV-ens egen avspiller i stedet."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Må jeg installere en app på LG-TV-en?",
+     "Nei. MirrorGo bruker det som er innebygd i LG webOS-TV-er: LGs skjermdeling, TV-ens nettleser og mediespilleren. Du installerer bare MirrorGo på iPhonen."
+    ],
+    [
+     "Hvorfor er det ingen lyd fra LG-TV-en når jeg speiler?",
+     "De fleste LG-TV-er spiller av lyden fra appene. Noen eldre modeller viser bildet uten lyd; vil du se en video med lyd der, caster du den (Bilder og videoer, Nettvideoer eller YouTube) i stedet for å speile den."
+    ],
+    [
+     "Fungerer MirrorGo med LG-TV-er uten AirPlay?",
+     "Ja. MirrorGo trenger ikke AirPlay: den fungerer med LG webOS-TV-er fra 2018 og nyere."
+    ]
+   ]
+  },
+  "roku": {
+   "title": "Slik speiler du iPhone til Roku-TV eller Roku-spiller",
+   "description": "Speil iPhone-skjermen til en Roku-TV, Roku Streaming Stick eller Roku Ultra med MirrorGo, og cast bilder, video, YouTube og direkte-TV over Wi-Fi. Ingen kabler.",
+   "h1": "Speil iPhonen din til en Roku",
+   "lead": "MirrorGo viser iPhone-skjermen på Roku-TV-er (TCL, Hisense, Sharp og andre Roku TV-modeller) og Roku-strømmespillere, over Wi-Fi-nettet ditt.",
+   "steps": [
+    "Slå på Rokuen og koble iPhonen til samme Wi-Fi.",
+    "Åpne MirrorGo, trykk på Koble til TV-en og velg Rokuen din.",
+    "Åpne Skjermspeiling, trykk på Start speiling og deretter på Start deling (Start kringkasting før iOS 26).",
+    "Skjermen vises på TV-en etter noen sekunder."
+   ],
+   "features": [
+    [
+     "Skjermspeiling",
+     "Med lyd"
+    ],
+    [
+     "Bilder og videoer",
+     null
+    ],
+    [
+     "Kamera",
+     null
+    ],
+    [
+     "YouTube",
+     null
+    ],
+    [
+     "Nettvideoer",
+     null
+    ],
+    [
+     "Direktesendte TV-kanaler",
+     null
+    ],
+    [
+     "Nettbilder",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Hvilke Roku-enheter fungerer?",
+     [
+      "Roku-TV-er fra TCL, Hisense, Sharp, Philips, Westinghouse og andre, og Roku-strømmespillere: Roku Express, Streaming Stick og Ultra. MirrorGo finner dem på Wi-Fi-nettet ditt."
+     ]
+    ],
+    [
+     "Hvis Rokuen ikke står i listen",
+     [
+      "Sjekk at telefonen og Rokuen er på samme Wi-Fi (ikke et gjestenettverk), at MirrorGo har tilgang til Lokalt nettverk i Innstillinger, og at ingen VPN er på. På Rokuen sjekker du at Innstillinger › System › Avanserte systeminnstillinger › Kontroll via mobilapper (Settings › System › Advanced system settings › Control by mobile apps) er satt til å tillate tilgang."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Må jeg installere noe på Rokuen?",
+     "Nei. Du installerer bare MirrorGo på iPhonen; Rokuen må bare være på og på samme Wi-Fi."
+    ],
+    [
+     "Kan jeg speile iPhonen til en Roku uten AirPlay?",
+     "Ja. MirrorGo bruker ikke AirPlay, så den fungerer med Roku-enheter som ikke støtter det."
+    ]
+   ]
+  },
+  "googletv": {
+   "title": "Slik speiler du iPhone til Google TV",
+   "description": "Speil iPhonen til Google TV (Sony, TCL, Hisense, Philips, Chromecast med Google TV, Google TV Streamer) med MirrorGo, og cast bilder, video, YouTube og direkte-TV.",
+   "h1": "Speil iPhonen din til Google TV",
+   "lead": "MirrorGo viser iPhone-skjermen på Google TV: TV-er fra Sony, TCL, Hisense, Philips og andre, Chromecast med Google TV og Google TV Streamer. Ingenting å installere på TV-en.",
+   "steps": [
+    "Slå på TV-en og koble iPhonen til samme Wi-Fi.",
+    "Åpne MirrorGo, trykk på Koble til TV-en og velg Google TV-en din.",
+    "Åpne Skjermspeiling, trykk på Start speiling og deretter på Start deling (Start kringkasting før iOS 26).",
+    "Skjermen vises på TV-en etter noen sekunder."
+   ],
+   "features": [
+    [
+     "Skjermspeiling",
+     "Med lyd"
+    ],
+    [
+     "Bilder og videoer",
+     null
+    ],
+    [
+     "Kamera",
+     "Med lyd"
+    ],
+    [
+     "YouTube",
+     "Spilles av av TV-en, fra der du var"
+    ],
+    [
+     "Nettvideoer",
+     null
+    ],
+    [
+     "Direktesendte TV-kanaler",
+     "Fortsetter uten telefonen"
+    ],
+    [
+     "Nettbilder",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Hvilke TV-er har Google TV?",
+     [
+      "Google TV finnes på de fleste nyere TV-er fra Sony BRAVIA, TCL, Hisense og Philips, og på Googles egne Chromecast med Google TV og Google TV Streamer. Den har innebygd Chromecast, og det er slik MirrorGo finner den på Wi-Fi-nettet ditt."
+     ]
+    ],
+    [
+     "Hvis TV-en ikke står i listen",
+     [
+      "Sjekk at telefonen og TV-en er på samme Wi-Fi (ikke et gjestenettverk), at MirrorGo har tilgang til Lokalt nettverk i Innstillinger, og at ingen VPN er på. Mangler den fortsatt? Åpne smrr.tv i TV-ens nettleser og speil der."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Kan jeg speile hele iPhone-skjermen til Google TV?",
+     "Ja. De fleste Google TV-modeller støtter ikke AirPlay, men MirrorGo speiler hele skjermen, med lyd, via den innebygde Chromecasten."
+    ],
+    [
+     "Trenger jeg Google Home-appen?",
+     "Nei. TV-en må bare være satt opp og koblet til Wi-Fi-nettet ditt. MirrorGo kobler seg direkte til den."
+    ]
+   ]
+  },
+  "androidtv": {
+   "title": "Slik speiler du iPhone til Android TV",
+   "description": "Speil iPhonen til en Android TV (Sony, Philips, Xiaomi, TCL, Sharp med flere) med MirrorGo over Wi-Fi, og cast bilder, videoer, YouTube og direktesendte TV-kanaler.",
+   "h1": "Speil iPhonen din til en Android TV",
+   "lead": "MirrorGo viser iPhone-skjermen på Android TV-er fra Sony, Philips, Xiaomi, TCL, Sharp og andre, og på Android TV-bokser som Mi Box og NVIDIA SHIELD. Ingenting å installere på TV-en.",
+   "steps": [
+    "Slå på TV-en og koble iPhonen til samme Wi-Fi.",
+    "Åpne MirrorGo, trykk på Koble til TV-en og velg Android TV-en din.",
+    "Åpne Skjermspeiling, trykk på Start speiling og deretter på Start deling (Start kringkasting før iOS 26).",
+    "Skjermen vises på TV-en etter noen sekunder."
+   ],
+   "features": [
+    [
+     "Skjermspeiling",
+     "Med lyd"
+    ],
+    [
+     "Bilder og videoer",
+     null
+    ],
+    [
+     "Kamera",
+     "Med lyd"
+    ],
+    [
+     "YouTube",
+     "Spilles av av TV-en, fra der du var"
+    ],
+    [
+     "Nettvideoer",
+     null
+    ],
+    [
+     "Direktesendte TV-kanaler",
+     "Fortsetter uten telefonen"
+    ],
+    [
+     "Nettbilder",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Hvilke Android TV-er fungerer?",
+     [
+      "Android TV-er og -bokser med innebygd Chromecast, noe nesten alle har: Sony BRAVIA, Philips, Xiaomi Mi TV, TCL, Sharp, Mi Box, Xiaomi TV Stick og NVIDIA SHIELD. MirrorGo finner dem på Wi-Fi-nettet ditt via Chromecast."
+     ]
+    ],
+    [
+     "Hvis TV-en ikke står i listen",
+     [
+      "Sjekk at telefonen og TV-en er på samme Wi-Fi (ikke et gjestenettverk), at MirrorGo har tilgang til Lokalt nettverk i Innstillinger, og at ingen VPN er på. Noen TV-er svarer bare når de er helt på, ikke i hvilemodus."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Må jeg installere en app på Android TV-en?",
+     "Nei. MirrorGo bruker Chromecasten som er innebygd i Android TV. Du installerer bare MirrorGo på iPhonen."
+    ],
+    [
+     "Kan en iPhone speile til en Android TV uten AirPlay?",
+     "Ja. Med MirrorGo speiler iPhonen via TV-ens innebygde Chromecast, uten behov for AirPlay."
+    ]
+   ]
+  },
+  "chromecast": {
+   "title": "Slik speiler du iPhone til Chromecast",
+   "description": "Speil iPhone-skjermen til en Chromecast med MirrorGo, og cast bilder, videoer, YouTube og direktesendte TV-kanaler over Wi-Fi. Du trenger ikke Google Home-appen.",
+   "h1": "Speil iPhonen din til en Chromecast",
+   "lead": "MirrorGo viser iPhone-skjermen via en Chromecast, og på TV-er med innebygd Chromecast, som VIZIO SmartCast. Ingenting å installere på TV-en.",
+   "steps": [
+    "Slå på TV-en og koble iPhonen til samme Wi-Fi som Chromecasten.",
+    "Åpne MirrorGo, trykk på Koble til TV-en og velg Chromecasten din.",
+    "Åpne Skjermspeiling, trykk på Start speiling og deretter på Start deling (Start kringkasting før iOS 26).",
+    "Skjermen vises på TV-en etter noen sekunder."
+   ],
+   "features": [
+    [
+     "Skjermspeiling",
+     "Med lyd"
+    ],
+    [
+     "Bilder og videoer",
+     null
+    ],
+    [
+     "Kamera",
+     "Med lyd"
+    ],
+    [
+     "YouTube",
+     "Spilles av av Chromecasten, fra der du var"
+    ],
+    [
+     "Nettvideoer",
+     null
+    ],
+    [
+     "Direktesendte TV-kanaler",
+     "Fortsetter uten telefonen"
+    ],
+    [
+     "Nettbilder",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Hvilke enheter fungerer?",
+     [
+      "Alle Chromecast-enheter, med eller uten Google TV, og TV-er og høyttalere med skjerm som har innebygd Chromecast, som VIZIO SmartCast-TV-er. MirrorGo finner dem på Wi-Fi-nettet ditt på samme måte som Googles egne apper."
+     ]
+    ],
+    [
+     "Hvis Chromecasten ikke står i listen",
+     [
+      "Sjekk at telefonen og Chromecasten er på samme Wi-Fi (ikke et gjestenettverk), at MirrorGo har tilgang til Lokalt nettverk i Innstillinger, og at ingen VPN er på. Mangler den fortsatt? Åpne smrr.tv i en nettleser på en hvilken som helst skjerm og speil der."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Kan jeg speile hele iPhone-skjermen til en Chromecast?",
+     "Ja. iPhonen klarer det ikke alene, siden Chromecast ikke støtter AirPlay, men MirrorGo speiler hele skjermen, med lyd, til en Chromecast."
+    ],
+    [
+     "Trenger jeg Google Home-appen?",
+     "Nei. Chromecasten må bare være satt opp og koblet til Wi-Fi-nettet ditt. MirrorGo kobler seg direkte til den."
+    ]
+   ]
+  },
+  "firetv": {
+   "title": "Slik speiler du iPhone til Fire TV Stick (uten app på Fire TV)",
+   "description": "Speil iPhonen til en Amazon Fire TV Stick, Fire TV Cube eller smart-TV med Fire TV med MirrorGo, uten å installere noe på Fire TV. Cast også bilder, video og direkte-TV.",
+   "h1": "Speil iPhonen din til en Fire TV",
+   "lead": "MirrorGo viser iPhonen på Fire TV Stick, Fire TV Cube og smart-TV-er med Fire TV, med avspilleren som er innebygd i alle Fire TV-enheter. Ingenting å installere på Fire TV.",
+   "steps": [
+    "Slå på Fire TV-en og koble iPhonen til samme Wi-Fi.",
+    "Åpne MirrorGo, trykk på Koble til TV-en og velg Fire TV-en din.",
+    "Åpne Skjermspeiling, trykk på Start speiling og deretter på Start deling (Start kringkasting før iOS 26).",
+    "Skjermen vises på TV-en. For å stoppe trykker du på Stopp speiling, eller på Hjem-knappen på Fire TV-fjernkontrollen."
+   ],
+   "features": [
+    [
+     "Skjermspeiling",
+     "Bare bilde, uten lyd"
+    ],
+    [
+     "Bilder og videoer",
+     "Videoer med lyd"
+    ],
+    [
+     "Kamera",
+     "Bare bilde, uten lyd"
+    ],
+    [
+     "YouTube",
+     "Bruk YouTube-appen på Fire TV"
+    ],
+    [
+     "Nettvideoer",
+     "Med lyd"
+    ],
+    [
+     "Direktesendte TV-kanaler",
+     "Med lyd; fortsetter uten telefonen"
+    ],
+    [
+     "Nettbilder",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Hvilke Fire TV-enheter fungerer?",
+     [
+      "Fire TV Stick (også 4K og 4K Max), Fire TV Cube og smart-TV-er med innebygd Fire TV (Amazon, Toshiba, Insignia og andre). MirrorGo finner dem på Wi-Fi-nettet ditt."
+     ]
+    ],
+    [
+     "Se videoer med lyd",
+     [
+      "Speiling til en Fire TV viser bildet uten lyd. Vil du se en video med lyd, caster du den i stedet: bilder og videoer fra galleriet, nettvideoer og direktesendte TV-kanaler spilles alle av med lyd."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Må jeg installere en app på Fire TV-en?",
+     "Nei. Alle Fire TV-enheter har en innebygd mediespiller, og MirrorGo bruker den. Du installerer bare MirrorGo på iPhonen."
+    ],
+    [
+     "Kan jeg speile en iPhone til en Fire TV Stick med lyd?",
+     "Skjermspeiling viser bare bildet. Videoer du caster (galleri, nettvideoer, direktesendte TV-kanaler), spilles av med lyd."
+    ]
+   ]
+  },
+  "airplay": {
+   "title": "Slik speiler og caster du iPhone til Apple TV og AirPlay-TV",
+   "description": "Speil iPhonen til en Apple TV eller AirPlay-TV (Samsung, LG, Sony, VIZIO med flere), og cast bilder, videoer, nettvideoer og direktesendte TV-kanaler med MirrorGo.",
+   "h1": "Speil og cast iPhonen din til Apple TV og AirPlay-TV-er",
+   "lead": "iPhonen speiler til en Apple TV eller AirPlay-TV av seg selv, fra Kontrollsenter. MirrorGo legger til det iOS ikke kan: direktesendte TV-kanaler, videoer fra nettsteder og nettbilder, spilt av via AirPlay.",
+   "steps": [
+    "Koble iPhonen til samme Wi-Fi som Apple TV-en eller AirPlay-TV-en.",
+    "For å speile skjermen: åpne Kontrollsenter, trykk på Skjermspeiling og velg TV-en.",
+    "For å caste: åpne MirrorGo, trykk på Koble til TV-en, deretter på Velg en AirPlay-enhet, og velg TV-en.",
+    "Åpne Bilder og videoer, Nettvideoer eller IPTV i MirrorGo og spill av: det går til TV-en via AirPlay."
+   ],
+   "features": [
+    [
+     "Skjermspeiling",
+     "Fra Kontrollsenter (iOS selv)"
+    ],
+    [
+     "Bilder og videoer",
+     "Som AirPlay-video"
+    ],
+    [
+     "Kamera",
+     "Med Skjermspeiling på, uten lyd"
+    ],
+    [
+     "YouTube",
+     "Bruk AirPlay-knappen i YouTube-appen"
+    ],
+    [
+     "Nettvideoer",
+     null
+    ],
+    [
+     "Direktesendte TV-kanaler",
+     null
+    ],
+    [
+     "Nettbilder",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Hvilke enheter fungerer?",
+     [
+      "Apple TV HD og Apple TV 4K, Mac-er, og TV-er med innebygd AirPlay: mange modeller fra Samsung, LG, Sony, VIZIO, TCL, Philips og Roku fra 2018 og nyere."
+     ]
+    ],
+    [
+     "Hvorfor speiling startes fra Kontrollsenter",
+     [
+      "Apple lar ikke apper starte skjermspeiling via AirPlay; bare Kontrollsenter kan det. MirrorGo viser stegene, og når speilingen er på, kan kameraet også vises i fullskjerm på TV-en."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Kan jeg stoppe AirPlay fra MirrorGo?",
+     "Åpne TV-listen i MirrorGo og trykk på AirPlay-kortet, og velg iPhone i menyen: da avsluttes AirPlay. For å stoppe skjermspeiling bruker du Kontrollsenter › Skjermspeiling › Stopp speiling."
+    ],
+    [
+     "Trenger MirrorGo en Apple TV?",
+     "Nei. En Apple TV er ett alternativ; MirrorGo fungerer også med Samsung, LG, Roku, Google TV, Fire TV og alle nettlesere, uten AirPlay."
+    ]
+   ]
+  },
+  "browser": {
+   "title": "Speil iPhone til alle TV-er og PC-er via nettleseren (smrr.tv)",
+   "description": "Speil iPhonen til en hvilken som helst smart-TV, PC, Mac eller nettbrett med nettleser: åpne smrr.tv, skriv den sekssifrede koden i MirrorGo, ferdig. Ingen app nødvendig.",
+   "h1": "Speil iPhonen din til alle skjermer med nettleser",
+   "lead": "Alle TV-er, datamaskiner og nettbrett med nettleser kan vise iPhonen din, også en TV som MirrorGo ikke finner. Åpne smrr.tv der, skriv inn koden i MirrorGo, og skjermen din vises, med lyd.",
+   "steps": [
+    "Åpne smrr.tv i nettleseren på TV-en eller datamaskinen. Siden viser en sekssifret kode og en QR-kode.",
+    "Åpne TV-listen i MirrorGo og trykk på Speil til en nettleser.",
+    "Skriv inn koden, eller skann QR-koden.",
+    "Åpne Skjermspeiling, trykk på Start speiling og deretter på Start deling (Start kringkasting før iOS 26)."
+   ],
+   "features": [
+    [
+     "Skjermspeiling",
+     "Med lyd"
+    ],
+    [
+     "Bilder og videoer",
+     null
+    ],
+    [
+     "Kamera",
+     null
+    ],
+    [
+     "YouTube",
+     null
+    ],
+    [
+     "Nettvideoer",
+     null
+    ],
+    [
+     "Direktesendte TV-kanaler",
+     "Nettleseren spiller av kanalen selv"
+    ],
+    [
+     "Nettbilder",
+     null
+    ]
+   ],
+   "sections": [
+    [
+     "Dette fungerer som skjerm",
+     [
+      "Smart-TV-er med en moderne nettleser, Windows-PC-er, Mac-er, Chromebooks og nettbrett, med en nyere nettleser som Chrome, Edge, Safari eller Firefox."
+     ]
+    ],
+    [
+     "Privat og direkte",
+     [
+      "Videoen går rett fra iPhonen til nettleseren over Wi-Fi-nettet ditt. smrr.tv kobler bare de to sammen; skjermen din sendes ikke gjennom den. Derfor må begge være på samme Wi-Fi."
+     ]
+    ],
+    [
+     "Tips",
+     [
+      "La smrr.tv-siden være åpen mens du speiler. Laster du den inn på nytt, kobler den til igjen av seg selv.",
+      "For en LG- eller Samsung-TV i nærheten åpner «Åpne på …»-knappen i MirrorGo TV-ens nettleser for deg."
+     ]
+    ]
+   ],
+   "faq": [
+    [
+     "Må jeg installere noe på TV-en eller datamaskinen?",
+     "Nei, bare en nettleser. Åpne smrr.tv og skriv inn koden som vises, i MirrorGo."
+    ],
+    [
+     "Kan noen andre se skjermen min med koden min?",
+     "For å koble til trenger en telefon koden som vises på den skjermen, så noen må se på den. Selve videoen går bare over ditt eget Wi-Fi."
+    ]
+   ]
+  }
+ },
+ "topics": {
+  "connect": {
+   "label": "Koble til",
+   "title": "Slik kobler du iPhone til {title_art}",
+   "h1": "Slik kobler du iPhonen til {art}",
+   "lead": "Det tar bare noen sekunder å koble iPhonen til {art} med MirrorGo: begge på samme Wi-Fi, velg TV-en, ferdig. Ingenting å installere på TV-en, og MirrorGo husker den til neste gang.",
+   "shot_alt": "Startskjermen i MirrorGo med knappen Koble til TV-en",
+   "tips": [
+    "Telefonen og TV-en må være på samme Wi-Fi-nettverk, ikke et gjestenettverk.",
+    "MirrorGo trenger tilgang til Lokalt nettverk (iOS spør første gang). Sa du nei: Innstillinger › MirrorGo › Lokalt nettverk.",
+    "Slå av eventuell VPN på telefonen mens du caster.",
+    "Finner du ingen TV i det hele tatt? Alle TV-er med nettleser fungerer via smrr.tv."
+   ]
+  },
+  "photos": {
+   "label": "Bilder og videoer",
+   "title": "Slik caster du bilder og videoer fra iPhone til {title_art}",
+   "h1": "Slik caster du bilder og videoer fra iPhonen til {art}",
+   "lead": "Med MirrorGo kan du vise bildene og videoene fra iPhone-biblioteket {pa}, i full kvalitet, og sveipe gjennom dem på telefonen mens TV-en følger med.",
+   "shot_alt": "Caster et bilde fra iPhone-biblioteket med MirrorGo",
+   "steps": [
+    "Koble MirrorGo til {art}.",
+    "Trykk på Bilder og videoer på startskjermen i MirrorGo, og gi tilgang til bildene dine.",
+    "Velg Videoer eller Bilder øverst, og trykk på den du vil vise.",
+    "Trykk på Start casting. Den vises på TV-en etter et øyeblikk.",
+    "Sveip gjennom stripen under bildet: TV-en følger med. Videoer spilles av, pauses og spoles fra telefonen."
+   ],
+   "tips": [
+    "Autoavspilling (knappen først i stripen) gjør det til en lysbildefremvisning: 5 til 30 sekunder per bilde, videoer til slutten, og Gjenta for å starte på nytt.",
+    "Med begrenset tilgang til bilder vises bare bildene du har valgt. For å vise alle: Innstillinger › MirrorGo › Bilder › Full tilgang.",
+    "Bildene og videoene dine går fra iPhonen til TV-en over Wi-Fi-nettet ditt. De lastes ikke opp noe sted.",
+    "Castingen stopper når du lukker skjermen."
+   ]
+  },
+  "images": {
+   "label": "Nettbilder",
+   "title": "Slik viser du gratis nettbilder {title_pa} fra iPhone",
+   "h1": "Slik viser du vakre gratis bilder {pa}",
+   "lead": "MirrorGo søker i millioner av gratis bilder med åpen lisens fra Wikimedia Commons (landskap, verdensrommet, byer, dyr, kunst) og viser dem i fullskjerm {pa}, ett og ett eller som lysbildefremvisning.",
+   "shot_alt": "Et landskap fra Wikimedia Commons klart til å castes med MirrorGo",
+   "steps": [
+    "Koble MirrorGo til {art}.",
+    "Trykk på Nettbilder på startskjermen i MirrorGo.",
+    "Søk etter hva som helst, eller trykk på et emne: Natur, Verdensrommet, Byer, Dyr, Hav, Fjell, Kunst, Blomster.",
+    "Trykk på et bilde, og trykk deretter på Start casting.",
+    "Sveip til neste bilde, så følger TV-en med, eller slå på lysbildefremvisningen."
+   ],
+   "tips": [
+    "Hvert bilde viser tittel, opphavsperson og lisens: trykk på ↗ for å åpne siden på Wikimedia Commons.",
+    "Nylige søk lagres på startskjermen, så favorittemnene dine er ett trykk unna.",
+    "Bilder som kan være upassende for barn, filtreres bort."
+   ]
+  },
+  "iptv": {
+   "label": "Direkte-TV (IPTV)",
+   "title": "Slik ser du gratis TV-kanaler (IPTV) {title_pa} med iPhone",
+   "h1": "Slik ser du gratis direktesendte TV-kanaler {pa}",
+   "lead": "MirrorGo har over 9 000 gratis, offentlige TV-kanaler fra mer enn 180 land (nyheter, sport, film, musikk, barn og mer) og spiller dem av {pa} med ett trykk. Du kan også legge til dine egne M3U-spillelister.",
+   "shot_alt": "IPTV-skjermen i MirrorGo: spillelister, kategorier og land",
+   "steps": [
+    "Koble MirrorGo til {art}.",
+    "Trykk på IPTV på startskjermen i MirrorGo.",
+    "Velg et land eller en kategori, eller søk etter en kanal ved navn.",
+    "Trykk på en kanal: den starter på TV-en. Trykk på en annen for å bytte.",
+    "Trykk på ☆ for å legge en kanal i Favoritter; trykk på + for å legge til en lenke til en M3U-spilleliste."
+   ],
+   "tips": [
+    "Kanalen fortsetter å spille når du forlater listen eller låser telefonen. Stopp den fra linjen nederst på startskjermen.",
+    "Kanalene er gratis, offentlige strømmer fra iptv-org-listen: til enhver tid er noen nede eller kan bare ses i sitt eget land. Hvis en ikke starter, prøv en annen.",
+    "Din egen spilleliste må være en HTTPS-lenke til en M3U-fil (eller til én enkelt HLS-strøm)."
+   ]
+  },
+  "youtube": {
+   "label": "YouTube",
+   "title": "Slik caster du YouTube fra iPhone til {title_art}",
+   "h1": "Slik caster du YouTube fra iPhonen til {art}",
+   "lead": "Finn en YouTube-video i MirrorGo og trykk på Cast til TV: videoen spilles av direkte {pa}, i full kvalitet, fra der du var, mens telefonen er ledig.",
+   "shot_alt": "Finner en YouTube-video å caste i MirrorGo",
+   "steps": [
+    "Koble MirrorGo til {art}.",
+    "Trykk på YouTube på startskjermen i MirrorGo.",
+    "Velg et emne (Musikk, Nyheter, Sport, Direkte …) eller søk, og åpne en video.",
+    "Trykk på Cast til TV. Videoen starter på TV-en fra der du var."
+   ],
+   "tips": [
+    "Videoen fortsetter å spille når du forlater skjermen. Trykk på Stopp for å lukke den på TV-en.",
+    "Det er bedre å caste videoen enn å speile den: TV-en spiller den av i full kvalitet med lyden synkronisert."
+   ]
+  },
+  "webvideos": {
+   "label": "Nettvideoer",
+   "title": "Slik caster du videoer fra nettsteder til {title_art} med iPhone",
+   "h1": "Slik caster du videoer fra nettsteder til {art}",
+   "lead": "Åpne et nettsted i MirrorGo, spill av videoen og trykk på Cast til TV: MirrorGo finner videoen (ikke reklamen), og den spilles av i full kvalitet {pa} mens du surfer videre.",
+   "shot_alt": "Nettleseren for nettvideoer i MirrorGo med populære nettsteder",
+   "steps": [
+    "Koble MirrorGo til {art}.",
+    "Trykk på Nettvideoer på startskjermen i MirrorGo.",
+    "Åpne et nettsted fra snarveiene, eller skriv inn adressen.",
+    "Spill av videoen på siden. Cast til TV blir aktiv når MirrorGo finner den.",
+    "Trykk på Cast til TV. Fant den flere videoer, velger du riktig («1 av 3»)."
+   ],
+   "tips": [
+    "MirrorGo blokkerer reklamenettverk og caster aldri svært korte klipp, så reklame holdes unna TV-en.",
+    "Nettsteder som beskytter videoene sine (Netflix, Prime Video, Disney+), kan ikke castes.",
+    "La MirrorGo være åpen mens videoen spilles. Surfingen er privat: ingen historikk, informasjonskapsler eller buffer lagres."
+   ]
+  },
+  "camera": {
+   "label": "Kamera",
+   "title": "Slik viser du iPhone-kameraet direkte {title_pa}",
+   "h1": "Slik viser du iPhone-kameraet direkte {pa}",
+   "lead": "MirrorGo gjør iPhonen til et direkte kamera for {art}: vis rommet, en tavle, et dokument, kjæledyret ditt eller deg selv, med front- eller bakkameraet.",
+   "shot_alt": "Startskjermen i MirrorGo med Kamera-flisen",
+   "steps": [
+    "Koble MirrorGo til {art}.",
+    "Trykk på Kamera på startskjermen i MirrorGo, og gi tilgang til kameraet.",
+    "Velg front- eller bakkameraet, og slå på Lyd hvis du også vil ha med mikrofonen.",
+    "Trykk på Start casting. TV-en viser det kameraet ser, rett i forhold til horisonten."
+   ],
+   "tips": [
+    "Frontkameraet vises speilvendt på TV-en, som i forhåndsvisningen.",
+    "Castingen stopper når du lukker skjermen eller forlater appen (iOS stopper kameraet)."
+   ]
+  }
+ },
+ "platforms": {
+  "samsung": {
+   "forms": {
+    "art": "en Samsung-TV",
+    "title_art": "Samsung-TV",
+    "pa": "på en Samsung-TV",
+    "title_pa": "på Samsung-TV"
+   },
+   "connect": [
+    "Slå på Samsung-TV-en og koble iPhonen til samme Wi-Fi.",
+    "Åpne MirrorGo og trykk på Koble til TV-en. Samsung-TV-en din vises med navnet sitt.",
+    "Trykk på den. Første gang spør TV-en om MirrorGo skal tillates: velg Tillat med fjernkontrollen.",
+    "Tilkoblet. MirrorGo husker TV-en, og TV-en husker MirrorGo, så du blir ikke spurt igjen."
+   ],
+   "connect_notes": [
+    "MirrorGo fungerer med Samsung smart-TV-er fra 2016 og nyere (Tizen). Den kobler seg til TV-ens fjernstyringsforbindelse og den innebygde mediespilleren, så ingenting må installeres på TV-en.",
+    "Valgte du Avvis ved en feil? TV-en husker det. Åpne Innstillinger › Generelt › Behandling av eksterne enheter › Behandling av enhetstilkobling › Enhetsliste (Settings › General › External Device Manager › Device Connection Manager › Device List) på TV-en, og tillat MirrorGo, eller slett den så TV-en spør på nytt."
+   ],
+   "photos": "Samsung-TV-en spiller dem av i sin egen mediespiller: MirrorGo leverer hvert bilde og hver video fra iPhonen over Wi-Fi-nettet ditt, og TV-en henter dem, så videoer spilles av i full kvalitet med TV-ens lyd. iPhone-videoer i HEVC sendes som de er; hvis TV-en ikke kan spille av en, sender MirrorGo den som H.264 i stedet og husker det til neste gang.",
+   "images": "Bildene vises i TV-ens egen mediespiller, tilpasset TV-skjermen.",
+   "iptv": "Samsung-TV-en får først kanalens strøm for å spille den av selv. Hvis den ikke spilles av innen noen sekunder, sender MirrorGo strømmen via iPhonen i stedet og husker at TV-en trenger det; telefonen kan låses, men må være på Wi-Fi.",
+   "youtube": "På Samsung åpnes videoen i TV-ens egen YouTube-app, som MirrorGo styrer slik YouTubes mobilapp gjør, fra der du var i videoen.",
+   "webvideos": "Samsungs avspiller får videoen som én sammenhengende strøm via iPhonen, med nettstedets reklamepauser skjøtet inn, så den spilles fra start til slutt; spoler du fra telefonen, starter den på nytt fra det punktet.",
+   "camera": "Med lyd: slå på Lyd før du starter, så legger MirrorGo til mikrofonen."
+  },
+  "lg": {
+   "forms": {
+    "art": "en LG-TV",
+    "title_art": "LG-TV",
+    "pa": "på en LG-TV",
+    "title_pa": "på LG-TV"
+   },
+   "connect": [
+    "Slå på LG-TV-en og koble iPhonen til samme Wi-Fi.",
+    "Åpne MirrorGo og trykk på Koble til TV-en. LG-TV-en din vises med navnet sitt.",
+    "Trykk på den. Første gang spør TV-en om MirrorGo skal tillates: velg Tillat (eller Ja) med fjernkontrollen.",
+    "Tilkoblet. MirrorGo tar vare på TV-ens nøkkel, så den kobler til med en gang neste gang."
+   ],
+   "connect_notes": [
+    "MirrorGo fungerer med LG smart-TV-er med webOS. Ingenting installeres på TV-en: MirrorGo snakker med den slik LGs egne mobilapper gjør.",
+    "Gikk du glipp av meldingen eller valgte Avvis? Bare koble til igjen, så spør TV-en på nytt. På eldre LG-TV-er slår du først på LG Connect Apps i nettverksinnstillingene på TV-en."
+   ],
+   "photos": "På LG spiller MirrorGo dem først av i TV-ens nettleser, som den åpner for deg, og som spiller av flest videotyper. Etter noen sekunder spør den «Spilles det av på TV-en?»: trykk på Nei, så lukker den nettleseren og bruker TV-ens egen avspiller i stedet. Uansett går bildene og videoene over Wi-Fi-nettet ditt, ikke internett.",
+   "images": "MirrorGo åpner TV-ens nettleser, som laster bildet rett fra Wikimedia Commons i full oppløsning. Vises ingenting, trykker du på Nei når MirrorGo spør «Spilles det av på TV-en?», så bruker den TV-ens egen avspiller.",
+   "iptv": "Kanalen spilles av i LG-TV-ens nettleser, som takler det LGs egen avspiller ikke gjør: reklamepauser i gratiskanaler, separat lyd og krypterte strømmer. Spilles den ikke av, trykker du på Nei når MirrorGo spør «Spilles det av på TV-en?», så prøver den TV-ens avspiller.",
+   "youtube": "På LG åpnes videoen i TV-ens egen YouTube-app, fra der du var i videoen.",
+   "webvideos": "MirrorGo åpner TV-ens nettleser og sender den lenken til videoen. Hvis nettstedet bare spiller den av med telefonens informasjonskapsler, strømmer iPhonen den til TV-en i stedet.",
+   "camera": "Kameraet vises først i TV-ens nettleser, med den samme sjekken «Spilles det av på TV-en?»; Nei bytter til TV-ens egen avspiller."
+  },
+  "roku": {
+   "forms": {
+    "art": "en Roku",
+    "title_art": "Roku",
+    "pa": "på en Roku",
+    "title_pa": "på Roku"
+   },
+   "connect": [
+    "Slå på Roku-TV-en eller Roku-spilleren og koble iPhonen til samme Wi-Fi.",
+    "Åpne MirrorGo og trykk på Koble til TV-en. Rokuen din vises med navnet sitt.",
+    "Trykk på den for å koble til. Ingen kode å skrive inn.",
+    "Tilkoblet. MirrorGo husker Rokuen din til neste gang."
+   ],
+   "connect_notes": [
+    "MirrorGo fungerer med Roku-TV-er (TCL, Hisense, Sharp, Philips og andre Roku TV-modeller) og Roku-strømmespillere: Roku Express, Streaming Stick og Ultra.",
+    "Står ikke Rokuen i listen? Åpne Innstillinger › System › Avanserte systeminnstillinger › Kontroll via mobilapper (Settings › System › Advanced system settings › Control by mobile apps) på Rokuen, og sjekk at nettverkstilgang ikke er deaktivert."
+   ],
+   "photos": "Rokuen spiller dem av i fullskjerm og full kvalitet; spill av, pause og spol fra telefonen.",
+   "images": "Bildene vises i fullskjerm på Rokuen, tilpasset TV-en.",
+   "iptv": "Kanalen spilles av på Rokuen mens du bruker andre apper eller låser telefonen.",
+   "youtube": "Videoen spilles av på Rokuen fra der du var i videoen.",
+   "webvideos": "Rokuen spiller av videoen iPhonen fant på siden; la MirrorGo være åpen mens den spilles.",
+   "camera": "Kameraet vises direkte på Rokuen."
+  },
+  "googletv": {
+   "forms": {
+    "art": "en Google TV",
+    "title_art": "Google TV",
+    "pa": "på en Google TV",
+    "title_pa": "på Google TV"
+   },
+   "connect": [
+    "Slå på Google TV-en og koble iPhonen til samme Wi-Fi.",
+    "Åpne MirrorGo og trykk på Koble til TV-en. TV-en vises med navnet den har i Google Home (for eksempel Stue-TV).",
+    "Trykk på den for å koble til. Ingen kode, ingen melding på TV-en.",
+    "Tilkoblet. MirrorGo kobler til den igjen neste gang."
+   ],
+   "connect_notes": [
+    "Google TV har innebygd Chromecast, og det er slik MirrorGo snakker med den: på Google TV-er fra Sony, TCL, Hisense og Philips, Chromecast med Google TV og Google TV Streamer.",
+    "Står den ikke i listen? Vekk TV-en helt (ikke hvilemodus), sjekk at den er på samme Wi-Fi som telefonen, og at MirrorGo har tilgang til Lokalt nettverk."
+   ],
+   "photos": "Bilder går til TV-en over Wi-Fi-nettet ditt som fullskjermsbilder; videoer spilles av i MirrorGos avspiller på TV-en, med avspilling, pause og spoling på telefonen.",
+   "images": "Bildene vises i fullskjerm via TV-ens innebygde Chromecast.",
+   "iptv": "TV-en henter kanalen selv, så den fortsetter å spille selv når telefonen er låst eller i et annet rom.",
+   "youtube": "Videoen spilles av i YouTubes avspiller inne i MirrorGos app på TV-en, fra der du var i videoen.",
+   "webvideos": "TV-en spiller av videoen via MirrorGo, som videresender nettstedets video fra telefonen; la MirrorGo være åpen mens den spilles.",
+   "camera": "Med lyd: slå på Lyd før du starter, så legger MirrorGo til mikrofonen."
+  },
+  "androidtv": {
+   "forms": {
+    "art": "en Android TV",
+    "title_art": "Android TV",
+    "pa": "på en Android TV",
+    "title_pa": "på Android TV"
+   },
+   "connect": [
+    "Slå på Android TV-en og koble iPhonen til samme Wi-Fi.",
+    "Åpne MirrorGo og trykk på Koble til TV-en. TV-en vises med Chromecast-navnet sitt.",
+    "Trykk på den for å koble til. Ingen kode, ingen melding på TV-en.",
+    "Tilkoblet. MirrorGo kobler til den igjen neste gang."
+   ],
+   "connect_notes": [
+    "Nesten alle Android TV-er har innebygd Chromecast, og MirrorGo snakker med TV-en gjennom den: Sony BRAVIA, Philips, Xiaomi, TCL, Sharp, Mi Box, Xiaomi TV Stick og NVIDIA SHIELD.",
+    "Står den ikke i listen? Vekk TV-en helt (ikke hvilemodus), sjekk at den er på samme Wi-Fi som telefonen, og at MirrorGo har tilgang til Lokalt nettverk."
+   ],
+   "photos": "Bilder går til TV-en over Wi-Fi-nettet ditt som fullskjermsbilder; videoer spilles av i MirrorGos avspiller på TV-en, med avspilling, pause og spoling på telefonen.",
+   "images": "Bildene vises i fullskjerm via TV-ens innebygde Chromecast.",
+   "iptv": "TV-en henter kanalen selv, så den fortsetter å spille selv når telefonen er låst eller i et annet rom.",
+   "youtube": "Videoen spilles av i YouTubes avspiller inne i MirrorGos app på TV-en, fra der du var i videoen.",
+   "webvideos": "TV-en spiller av videoen via MirrorGo, som videresender nettstedets video fra telefonen; la MirrorGo være åpen mens den spilles.",
+   "camera": "Med lyd: slå på Lyd før du starter, så legger MirrorGo til mikrofonen."
+  },
+  "chromecast": {
+   "forms": {
+    "art": "en Chromecast",
+    "title_art": "Chromecast",
+    "pa": "på en Chromecast",
+    "title_pa": "på Chromecast"
+   },
+   "connect": [
+    "Slå på TV-en som Chromecasten er koblet til, og koble iPhonen til samme Wi-Fi.",
+    "Åpne MirrorGo og trykk på Koble til TV-en. Chromecasten vises med Google Home-navnet sitt.",
+    "Trykk på den for å koble til. Ingen kode, og du trenger ikke Google Home-appen.",
+    "Tilkoblet. MirrorGo kobler til den igjen neste gang."
+   ],
+   "connect_notes": [
+    "Alle Chromecast-enheter fungerer, med eller uten Google TV, og det gjør også TV-er med innebygd Chromecast, som VIZIO SmartCast-TV-er.",
+    "Står den ikke i listen? Sjekk at Chromecasten er på samme Wi-Fi som telefonen (ikke et gjestenettverk), og at MirrorGo har tilgang til Lokalt nettverk i Innstillinger."
+   ],
+   "photos": "Bilder går til TV-en over Wi-Fi-nettet ditt som fullskjermsbilder; videoer spilles av i MirrorGos avspiller på Chromecasten, med avspilling, pause og spoling på telefonen.",
+   "images": "Bildene vises i fullskjerm via Chromecasten.",
+   "iptv": "Chromecasten henter kanalen selv, så den fortsetter å spille selv når telefonen er låst.",
+   "youtube": "Videoen spilles av i YouTubes avspiller inne i MirrorGos app på Chromecasten, fra der du var i videoen.",
+   "webvideos": "Chromecasten spiller av videoen via MirrorGo, som videresender nettstedets video fra telefonen; la MirrorGo være åpen mens den spilles.",
+   "camera": "Med lyd: slå på Lyd før du starter, så legger MirrorGo til mikrofonen."
+  },
+  "firetv": {
+   "forms": {
+    "art": "en Fire TV",
+    "title_art": "Fire TV",
+    "pa": "på en Fire TV",
+    "title_pa": "på Fire TV"
+   },
+   "connect": [
+    "Slå på Fire TV-en og koble iPhonen til samme Wi-Fi.",
+    "Åpne MirrorGo og trykk på Koble til TV-en. Fire TV-en din vises med navnet sitt.",
+    "Trykk på den for å koble til. Ingen app på Fire TV-en, ingen paring, ingen kode.",
+    "Tilkoblet. MirrorGo kobler til den igjen neste gang."
+   ],
+   "connect_notes": [
+    "Alle Fire TV-enheter har en innebygd mediespiller, og MirrorGo bruker den: Fire TV Stick (også 4K og 4K Max), Fire TV Cube og smart-TV-er med innebygd Fire TV.",
+    "Står den ikke i listen? Trykk på Hjem-knappen på Fire TV-fjernkontrollen for å vekke den, og sjekk at den er på samme Wi-Fi som telefonen."
+   ],
+   "photos": "Bilder sendes som bilder og videoer som MP4-filer, levert fra iPhonen over Wi-Fi-nettet ditt. Fire TV kan ikke spille av HEVC, iPhonens standard videoformat, så MirrorGo konverterer slike videoer til H.264 først; lange videoer tar litt tid.",
+   "images": "Bildene vises i fullskjerm i Fire TV-ens innebygde avspiller.",
+   "iptv": "Fire TV-en spiller av kanalens strøm selv, så den fortsetter å spille uten telefonen.",
+   "webvideos": "Fire TV-en spiller av nettstedets video slik iPhonen videresender den; la MirrorGo være åpen mens den spilles.",
+   "camera": "Bare bilde: Fire TV-ens innebygde avspiller viser kameraet uten lyd."
+  },
+  "airplay": {
+   "forms": {
+    "art": "en Apple TV",
+    "title_art": "Apple TV",
+    "pa": "på en Apple TV",
+    "title_pa": "på Apple TV"
+   },
+   "connect": [
+    "Slå på Apple TV-en eller AirPlay-TV-en og koble iPhonen til samme Wi-Fi.",
+    "Åpne MirrorGo, trykk på Koble til TV-en og deretter på Velg en AirPlay-enhet.",
+    "Velg Apple TV-en eller AirPlay-TV-en i AirPlay-menyen i iOS. Første gang kan TV-en vise en kode du skriver inn på iPhonen.",
+    "Tilkoblet: MirrorGo viser «Tilkoblet via AirPlay». For å koble fra åpner du den samme menyen og velger iPhone."
+   ],
+   "connect_notes": [
+    "Dette fungerer med Apple TV HD og Apple TV 4K, og med TV-er som har innebygd AirPlay: mange modeller fra Samsung, LG, Sony, VIZIO, TCL og Roku fra 2018 og nyere.",
+    "For å speile hele skjermen til en AirPlay-enhet bruker du Kontrollsenter › Skjermspeiling: Apple lar ikke apper starte det."
+   ],
+   "photos": "Videoer spilles av via AirPlay, og det gjør bilder også: MirrorGo gjør hvert bilde om til en kort stillbildevideo. Med Skjermspeiling på i Kontrollsenter vises bildene direkte på TV-en i stedet.",
+   "images": "Bildene sendes via AirPlay som stillbildevideoer, eller rett til TV-en når Skjermspeiling er på i Kontrollsenter.",
+   "iptv": "Kanalen spilles av via AirPlay: Apple TV-en henter strømmen selv.",
+   "webvideos": "Videoen spilles av via AirPlay; la MirrorGo være åpen mens den spilles.",
+   "camera": "Slå på Skjermspeiling i Kontrollsenter først: da vises kameraet i fullskjerm på TV-en, uten lyd."
+  },
+  "browser": {
+   "forms": {
+    "art": "en nettleser",
+    "title_art": "en nettleser",
+    "pa": "i en nettleser",
+    "title_pa": "i en nettleser"
+   },
+   "connect": [
+    "Åpne smrr.tv i nettleseren på TV-en, datamaskinen eller nettbrettet. Siden viser en sekssifret kode og en QR-kode.",
+    "Trykk på Koble til TV-en i MirrorGo, og deretter på Speil til en nettleser.",
+    "Skriv inn koden, eller trykk på Skann QR-kode og rett kameraet mot den.",
+    "Tilkoblet. Siden viser telefonen din i stedet for koden."
+   ],
+   "connect_notes": [
+    "Alle skjermer med en moderne nettleser fungerer: smart-TV-er som MirrorGo ikke finner som TV, Windows-PC-er, Mac-er, Chromebooks og nettbrett. For en LG- eller Samsung-TV i nærheten åpner «Åpne på …» nettleseren på den for deg.",
+    "Telefonen og nettleseren kobles direkte sammen, så de må være på samme Wi-Fi. La siden være åpen; laster du den inn på nytt, kobler den til igjen av seg selv."
+   ],
+   "photos": "Bilder og videoer går rett fra iPhonen til nettleseren over Wi-Fi-nettet ditt som en direkte strøm som fyller skjermen i 16:9, med videoens lyd.",
+   "images": "Siden laster bildet selv fra Wikimedia Commons, i full oppløsning.",
+   "iptv": "Siden spiller av kanalen selv, så den fortsetter å spille etter at du har låst telefonen; laster du siden inn på nytt, fortsetter den igjen.",
+   "youtube": "Videoen spilles av i YouTubes avspiller på smrr.tv-siden, fra der du var i videoen.",
+   "webvideos": "Siden får lenken til videoen og spiller den av selv. Hvis nettstedet bare spiller den av med telefonens informasjonskapsler, strømmer iPhonen den til siden i stedet.",
+   "camera": "Strømmes direkte over Wi-Fi-nettet ditt, med lyd når Lyd er på."
+  }
+ }
+}

@@ -12,7 +12,7 @@ PUBLISHED = "2026-11-16"
 TOPICS = [
     {
         "id": "connect", "slug": "how-to-connect-iphone-to-{x}", "label": "Connect",
-        "title": "How to Connect an iPhone to {art}",
+        "title": "How to Connect an iPhone to {title_art}",
         "h1": "How to connect your iPhone to {art}",
         "lead": "Connecting your iPhone to {art} with MirrorGo takes a few seconds: both on the same Wi-Fi, pick "
                 "the TV, done. Nothing to install on the TV, and MirrorGo remembers it for next time.",
@@ -27,7 +27,7 @@ TOPICS = [
     },
     {
         "id": "photos", "slug": "cast-photos-and-videos-from-iphone-to-{x}", "label": "Photos & videos",
-        "title": "How to Cast Photos and Videos from iPhone to {art}",
+        "title": "How to Cast Photos and Videos from iPhone to {title_art}",
         "h1": "How to cast photos and videos from your iPhone to {art}",
         "lead": "With MirrorGo you can show the photos and videos from your iPhone's library on {art}, in full "
                 "quality, and swipe through them on the phone while the TV follows.",
@@ -49,7 +49,7 @@ TOPICS = [
     },
     {
         "id": "images", "slug": "show-web-images-on-{x}-from-iphone", "label": "Web images",
-        "title": "How to Show Free Web Images on {art} from an iPhone",
+        "title": "How to Show Free Web Images on {title_art} from an iPhone",
         "h1": "How to show beautiful free images on {art}",
         "lead": "MirrorGo searches millions of free, openly licensed images from Wikimedia Commons (landscapes, "
                 "space, cities, animals, art) and shows them full screen on {art}, one by one or as a slideshow.",
@@ -69,7 +69,7 @@ TOPICS = [
     },
     {
         "id": "iptv", "slug": "watch-free-live-tv-on-{x}-with-iphone", "label": "Live TV (IPTV)",
-        "title": "How to Watch Free Live TV Channels (IPTV) on {art} with an iPhone",
+        "title": "How to Watch Free Live TV Channels (IPTV) on {title_art} with an iPhone",
         "h1": "How to watch free live TV channels on {art}",
         "lead": "MirrorGo lists more than 9,000 free, public live TV channels from over 180 countries (news, "
                 "sports, movies, music, kids and more) and plays them on {art} with one tap. You can add your own "
@@ -91,7 +91,7 @@ TOPICS = [
     },
     {
         "id": "youtube", "slug": "cast-youtube-from-iphone-to-{x}", "label": "YouTube",
-        "title": "How to Cast YouTube from iPhone to {art}",
+        "title": "How to Cast YouTube from iPhone to {title_art}",
         "h1": "How to cast YouTube from your iPhone to {art}",
         "lead": "Find a YouTube video in MirrorGo and tap Cast to TV: {art} plays it itself, in full quality, "
                 "starting from where you were, while your phone stays free.",
@@ -109,7 +109,7 @@ TOPICS = [
     },
     {
         "id": "webvideos", "slug": "cast-web-videos-from-iphone-to-{x}", "label": "Web videos",
-        "title": "How to Cast Videos from Any Website to {art} with an iPhone",
+        "title": "How to Cast Videos from Any Website to {title_art} with an iPhone",
         "h1": "How to cast videos from websites to {art}",
         "lead": "Open a website in MirrorGo, play its video, and tap Cast to TV: MirrorGo finds the video (not the "
                 "ad) and {art} plays it in full quality while you keep browsing.",
@@ -129,7 +129,7 @@ TOPICS = [
     },
     {
         "id": "camera", "slug": "show-iphone-camera-on-{x}", "label": "Camera",
-        "title": "How to Show Your iPhone Camera Live on {art}",
+        "title": "How to Show Your iPhone Camera Live on {title_art}",
         "h1": "How to show your iPhone's camera live on {art}",
         "lead": "MirrorGo turns your iPhone into a live camera for {art}: show the room, a whiteboard, a document, "
                 "your pet or yourself, with the front or back camera.",
@@ -149,8 +149,9 @@ TOPICS = [
 
 # MARK: TVs
 
-# For each content.TVS id: how to say it in a sentence, its slug in URLs, how connecting goes, and what
-# it does differently per topic (None: the topic isn't available there).
+# For each content.TVS id: how to say it in a sentence ({art} in the topics; {title_art} in their titles,
+# when it's capitalised differently), its slug in URLs, how connecting goes, and what it does differently
+# per topic (None: the topic isn't available there).
 PLATFORMS = {
     "samsung": {
         "art": "a Samsung TV", "x": "samsung-tv",

@@ -1,4 +1,5 @@
-"""What mirrorgo.app says: the app's features, the TVs, and the help text.
+"""What mirrorgo.app says: the app's features, the TVs, and the help text (in English; the other
+languages are in locales/<code>.json, see i18n.py).
 
 Keep it in step with the app (MirrorGo repo): the help answers are the app's own FAQ
 (`Localizable.strings`, keys `faq.<id>.q` / `.a` / `.1`… / `.note`), the features follow what each TV
@@ -7,10 +8,7 @@ can play (`MediaCastCoordinator.canCast`, `CameraCastCoordinator.canCast`, `YouT
 
 # MARK: Site
 
-# Where the site is served: its own domain, at the root. (BASE_PATH = "/landing-page" with
-# SITE_URL = "https://smrr.tv" builds it into ../web/landing-page instead, as it was first served.)
 SITE_URL = "https://mirrorgo.app"
-BASE_PATH = ""
 APP_NAME = "MirrorGo"
 # The App Store id (the digits in apps.apple.com/app/…/id<digits>). Empty until the app is live:
 # the download buttons then say "Coming soon to the App Store" and link nowhere.
@@ -57,15 +55,15 @@ def every(**exceptions):
     return {t["id"]: exceptions.get(t["id"], YES) for t in TVS}
 
 
-# Rows: feature → what each TV in TVS does.
+# Rows: (FEATURES id, row name, what each TV in TVS does).
 COMPATIBILITY = [
-    ("Screen mirroring", every(firetv=note("No sound"), airplay=note("From Control Center"))),
-    ("Photos & videos", every()),
-    ("Camera", every(firetv=note("No sound"), airplay=note("With Screen Mirroring on"))),
-    ("Web videos", every()),
-    ("Live TV channels (IPTV)", every()),
-    ("YouTube", every(firetv=NO, airplay=NO)),
-    ("Web images", every()),
+    ("screen-mirroring", "Screen mirroring", every(firetv=note("No sound"), airplay=note("From Control Center"))),
+    ("photos-videos", "Photos & videos", every()),
+    ("camera", "Camera", every(firetv=note("No sound"), airplay=note("With Screen Mirroring on"))),
+    ("web-videos", "Web videos", every()),
+    ("iptv", "Live TV channels (IPTV)", every()),
+    ("youtube", "YouTube", every(firetv=NO, airplay=NO)),
+    ("web-images", "Web images", every()),
 ]
 
 # TV makers: which kinds of TV (TVS ids) their sets run, for the brand pages.
@@ -269,6 +267,48 @@ PRIVACY_POINTS = [
     ("Stays on your Wi-Fi", "Photos, videos and your screen go straight from your phone to your TV. They aren't uploaded anywhere."),
     ("App sound only", "Mirroring sends the sound your apps play, never your microphone."),
     ("Private browsing", "Web Videos keeps no history, cookies or cache."),
+]
+
+# "At a glance" on the home page: short facts that search engines and AI answers can quote as they are.
+QUICK_FACTS = [
+    ("What it is", "An iPhone app that mirrors the screen and casts photos, videos, the camera, web videos, "
+                   "live TV and YouTube to a TV."),
+    ("Works with", "Samsung (2016 and newer), LG webOS, Roku, Google TV, Android TV, Chromecast, Fire TV, "
+                   "Apple TV and AirPlay TVs, and any web browser through smrr.tv."),
+    ("On the TV", "Nothing to install. The iPhone and the TV only need to be on the same Wi-Fi."),
+    ("iPhone", f"iOS {MIN_IOS} or later."),
+    ("Sound", "Yes, the sound your apps play (screen mirroring to Fire TV and some older LG TVs is picture only)."),
+    ("Privacy", "No account. Your screen, photos and videos go straight from the iPhone to the TV over your Wi-Fi."),
+]
+
+# "AirPlay or MirrorGo?" on the home page: what an iPhone does on its own (AirPlay) and with MirrorGo.
+AIRPLAY_COMPARE = [
+    ("Apple TV and AirPlay TVs", "yes", "yes"),
+    ("Samsung, LG and Roku TVs without AirPlay", "no", "yes"),
+    ("Chromecast, Google TV and Android TV", "no", "yes"),
+    ("Amazon Fire TV", "no", "yes"),
+    ("Any TV or computer with a web browser", "no", "yes"),
+    ("9,000+ free live TV channels", "no", "yes"),
+]
+
+# The site's languages: English at the root, the others under /<code>/ (texts in locales/<code>.json).
+# (code, hreflang, <html lang>, og:locale, name in that language)
+LANGUAGES = [
+    ("en", "en", "en", "en_US", "English"),
+    ("de", "de", "de", "de_DE", "Deutsch"),
+    ("fr", "fr", "fr", "fr_FR", "Français"),
+    ("es", "es", "es", "es_ES", "Español"),
+    ("it", "it", "it", "it_IT", "Italiano"),
+    ("pt", "pt", "pt-PT", "pt_PT", "Português"),
+    ("nl", "nl", "nl", "nl_NL", "Nederlands"),
+    ("sv", "sv", "sv", "sv_SE", "Svenska"),
+    ("da", "da", "da", "da_DK", "Dansk"),
+    ("no", "no", "nb", "nb_NO", "Norsk"),
+    ("fi", "fi", "fi", "fi_FI", "Suomi"),
+    ("pl", "pl", "pl", "pl_PL", "Polski"),
+    ("ja", "ja", "ja", "ja_JP", "日本語"),
+    ("ko", "ko", "ko", "ko_KR", "한국어"),
+    ("zh-hant", "zh-Hant", "zh-Hant", "zh_TW", "繁體中文"),
 ]
 
 # MARK: Help (the app's FAQ, Localizable.strings)
