@@ -62,7 +62,7 @@ const web = {
   joinHome: "Show a code on this device",
 };
 
-/** /firetv: the MirrorGo Fire TV app's page. A TV, a remote, MirrorGo's name. */
+/** /firetv: the MirrorGo TV app's page (Fire TV, Google TV, Android TV). A TV, a remote, MirrorGo's name. */
 const firetv = {
   pageTitle: "MirrorGo",
   brand: "MirrorGo",
@@ -84,9 +84,35 @@ const firetv = {
   useThisWindow: "Show it here",
 };
 
+/**
+ * /firetv in the same app on other Android TVs: the app's bridge says which (`MirrorGoTV.platform()`:
+ * "firetv", "googletv", "androidtv"; the Vega app says "vega", a Fire TV too). Apps without it are Fire TVs.
+ */
+const androidtv = {
+  surfaceBadge: "for Android TV",
+  offline: "Can't connect. Check your TV's internet connection.",
+  unsupported: "This TV can't play the mirrored screen. Update Android System WebView in Google Play.",
+};
+
+const tvPlatforms = {
+  androidtv,
+  googletv: Object.assign({}, androidtv, {surfaceBadge: "for Google TV"}),
+};
+
+function tvPlatform() {
+  try {
+    const bridge = window.MirrorGoTV;
+    return bridge && typeof bridge.platform === "function" ? String(bridge.platform()) : "firetv";
+  } catch (e) {
+    return "firetv";
+  }
+}
+
 const surface = document.body ? document.body.getAttribute("data-surface") : null;
 
-export const strings = Object.assign({}, web, surface === "firetv" ? firetv : {});
+export const strings = surface === "firetv"
+  ? Object.assign({}, web, firetv, tvPlatforms[tvPlatform()] || {})
+  : Object.assign({}, web);
 
 /** "123456" → "123 456" */
 export function spacedCode(code) {
