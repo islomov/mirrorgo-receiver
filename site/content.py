@@ -10,9 +10,9 @@ can play (`MediaCastCoordinator.canCast`, `CameraCastCoordinator.canCast`, `YouT
 
 SITE_URL = "https://mirrorgo.app"
 APP_NAME = "MirrorGo"
-# The App Store id (the digits in apps.apple.com/app/…/id<digits>). Empty until the app is live:
-# the download buttons then say "Coming soon to the App Store" and link nowhere.
-APP_STORE_ID = ""
+# The App Store id (the digits in apps.apple.com/app/…/id<digits>; App Store Connect's "Apple ID" of
+# "Screen Mirroring - MirrorGo"). Empty, the download buttons say "Coming soon to the App Store" and link nowhere.
+APP_STORE_ID = "6835835303"
 SUPPORT_EMAIL = "support@viralapps.studio"
 MIN_IOS = "16.6"
 
