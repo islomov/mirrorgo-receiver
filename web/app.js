@@ -25,21 +25,12 @@ const launchedByApp = launchedCode !== null;
 // The MirrorGo TV apps' page (tv.html, at /firetv, /samsung, /lg, /roku, /googletv). Same receiver,
 // its own layout and strings.
 const tvApp = document.body.getAttribute("data-surface") === "tv";
-// The Fire OS app (islomov/mirrorgo-firetv) announces itself on the Wi-Fi, and the iPhone joins it when
-// its Fire TV is tapped (MIRR-165): "tap this TV" first, the code only as a fallback, the QR gets the
-// iPhone app. Its bridge has no platform(); Vega's says "vega" (no discovery there: the code stays).
-const autoJoin = tvApp && isFireOSApp(window.MirrorGoTV);
+// /firetv (the Fire TV apps, or a browser): the iPhone joins our Fire OS app by itself when its Fire TV
+// is tapped (MIRR-165), so "tap this TV" first, the code only as a small fallback (Vega, browsers), the QR
+// gets the iPhone app (MIRR-166, MIRR-167).
+const autoJoin = tvApp && /^\/firetv\/?$/i.test(location.pathname);
 const APP_STORE_URL = "https://apps.apple.com/app/id6835835303";
 if (autoJoin) Object.assign(strings, autoJoinStrings);
-
-function isFireOSApp(bridge) {
-  if (!bridge) return false;
-  try {
-    return typeof bridge.platform !== "function" || bridge.platform() === "fireos";
-  } catch (e) {
-    return false;
-  }
-}
 
 const app = {
   status: "connecting",   // signaling: connecting | open | reconnecting | offline | replaced | closed
@@ -404,7 +395,7 @@ function renderTVApp() {
   if (autoJoin) renderAutoJoin(name);
 }
 
-/** Fire OS app: 1 Open All TV Kit, 2 Tap <this TV's name, as the iPhone lists it>; the code small. */
+/** /firetv: 1 Open All TV Kit, 2 Tap <this TV's name, as the iPhone lists it>; the code small. */
 function renderAutoJoin(name) {
   document.body.setAttribute("data-join", "auto");
   $("steps").innerHTML = "";
