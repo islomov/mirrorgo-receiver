@@ -12,32 +12,32 @@ const web = {
 
   codeTitle: "Mirror your iPhone to this screen",
   codeLabel: "Your code",
-  steps: ["Open MirrorGo on your iPhone", "Tap TV Browser", "Enter this code"],
+  steps: ["Open All\u00a0TV\u00a0Kit on your iPhone", "Tap TV Browser", "Enter this code"],
   qrHint: "Or scan with your iPhone camera",
   sameWifi: "Your iPhone and this screen need the same Wi-Fi.",
   privacy: "Privacy",
 
   starting: "iPhone connected. Starting…",
-  startingHint: "Start Screen Mirroring or play a channel in MirrorGo.",
+  startingHint: "Start Screen Mirroring or play a channel in All\u00a0TV\u00a0Kit.",
 
   // The page the app opened itself on the TV (no code): what the phone is doing.
-  appPageTitle: "MirrorGo",
-  appBrand: "MirrorGo · smrr.tv",
+  appPageTitle: "All\u00a0TV\u00a0Kit",
+  appBrand: "All\u00a0TV\u00a0Kit · smrr.tv",
   appWaitingTitle: "Connecting to your iPhone…",
-  appWaitingHint: "Keep MirrorGo open on your iPhone.",
-  appStartingTitle: "Connected to MirrorGo",
+  appWaitingHint: "Keep All\u00a0TV\u00a0Kit open on your iPhone.",
+  appStartingTitle: "Connected to All\u00a0TV\u00a0Kit",
   appStartingHint: "Starting on this TV…",
   appStoppedTitle: "Nothing playing",
-  appStoppedHint: "Pick a channel, photo or video in MirrorGo on your iPhone.",
-  appEndedTitle: "MirrorGo has disconnected",
-  appEndedHint: "Cast again from MirrorGo on your iPhone: it opens this page by itself.",
+  appStoppedHint: "Pick a channel, photo or video in All\u00a0TV\u00a0Kit on your iPhone.",
+  appEndedTitle: "All\u00a0TV\u00a0Kit has disconnected",
+  appEndedHint: "Cast again from All\u00a0TV\u00a0Kit on your iPhone: it opens this page by itself.",
   appUseCode: "Connect with a code instead",
-  appMediaFailedHint: "Try something else from MirrorGo on your iPhone.",
+  appMediaFailedHint: "Try something else from All\u00a0TV\u00a0Kit on your iPhone.",
 
   stoppedTitle: "Mirroring stopped",
   stoppedHint: "Start again from your iPhone. The code stays the same.",
   mediaStoppedTitle: "Playback stopped",
-  mediaStoppedHint: "Pick something to play in MirrorGo. The code stays the same.",
+  mediaStoppedHint: "Pick something to play in All\u00a0TV\u00a0Kit. The code stays the same.",
   mediaFailedTitle: "This browser couldn't play it",
   mediaFailedHint: "Try another channel from your iPhone. The code stays the same.",
   loading: "Loading…",
@@ -58,15 +58,15 @@ const web = {
   exitFullscreen: "Exit full screen",
 
   joinTitle: "Almost there",
-  joinBody: (code) => `Open MirrorGo on your iPhone, tap TV Browser and enter ${code}.`,
+  joinBody: (code) => `Open All\u00a0TV\u00a0Kit on your iPhone, tap TV Browser and enter ${code}.`,
   joinNoCode: "Open smrr.tv on your TV or computer to get a code.",
   joinHome: "Show a code on this device",
 };
 
-/** The TV apps' page (tv.html): a TV, a remote, MirrorGo's name. */
+/** The TV apps' page (tv.html): a TV, a remote, All TV Kit's name. */
 const tv = {
-  pageTitle: "MirrorGo",
-  brand: "MirrorGo",
+  pageTitle: "All\u00a0TV\u00a0Kit",
+  brand: "All\u00a0TV\u00a0Kit",
   surfaceBadge: "",
   offline: "Can't connect. Check this TV's internet connection.",
 
@@ -85,7 +85,7 @@ const tv = {
   useThisWindow: "Show it here",
 };
 
-/** Each TV app's URL (smrr.tv/<key>): its name next to MirrorGo, and where its settings are. */
+/** Each TV app's URL (smrr.tv/<key>): its name next to All TV Kit, and where its settings are. */
 const tvs = {
   firetv: {
     surfaceBadge: "for Fire TV",
@@ -120,18 +120,18 @@ const tvs = {
  * Applied over the rest by app.js (`autoJoin`).
  */
 export const autoJoinStrings = {
-  pageTitle: "All TV Kit",
-  brand: "All TV Kit",
+  pageTitle: "All\u00a0TV\u00a0Kit",
+  brand: "All\u00a0TV\u00a0Kit",
   codeTitle: "Mirror your iPhone to this Fire TV",
-  openApp: "Open All TV Kit on your iPhone",
+  openApp: "Open All\u00a0TV\u00a0Kit on your iPhone",
   tap: "Tap",
   thisTV: "this Fire TV",
   sameWifi: "Same Wi-Fi as this Fire TV.",
   codeFallback: "Not in the list? Tap Browser (smrr.tv) and enter",
   qrHint: "No app? Scan to get it",
-  startingHint: "Start Screen Mirroring or play a channel in All TV Kit.",
-  stoppedHint: "Start again from All TV Kit on your iPhone.",
-  mediaStoppedHint: "Pick something to play in All TV Kit.",
+  startingHint: "Start Screen Mirroring or play a channel in All\u00a0TV\u00a0Kit.",
+  stoppedHint: "Start again from All\u00a0TV\u00a0Kit on your iPhone.",
+  mediaStoppedHint: "Pick something to play in All\u00a0TV\u00a0Kit.",
   mediaFailedHint: "Try another channel from your iPhone.",
 };
 
