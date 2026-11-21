@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""mirrorgo.app's (and alltvkit.app's) page views and clicks, from the Analytics Engine dataset `mirrorgo_site` (worker.js writes
+"""alltvkit.app's (and mirrorgo.app's) page views and clicks, from the Analytics Engine dataset `mirrorgo_site` (worker.js writes
 it; its columns are listed there). Prints Markdown tables.
 
     CLOUDFLARE_ACCOUNT_ID=… CLOUDFLARE_API_TOKEN=… python3 site/stats.py [--days 7] [--top 20]
@@ -67,7 +67,7 @@ def main():
         return query(f"SELECT {cols}, {n} FROM {DATASET} WHERE blob1 = '{event}' AND {since} {extra} "
                      f"GROUP BY {aliases} ORDER BY n DESC LIMIT {top}")
 
-    print(f"## mirrorgo.app and alltvkit.app, the last {args.days} days")
+    print(f"## alltvkit.app and mirrorgo.app, the last {args.days} days")
     totals = {r["event"]: r["n"] for r in query(
         f"SELECT blob1 AS event, {n} FROM {DATASET} WHERE {since} GROUP BY event")}
     store = query(f"SELECT {n} FROM {DATASET} WHERE blob1 = 'click' AND blob4 = 'app-store' AND {since}")

@@ -1,7 +1,7 @@
 {
  "ui": {
   "skip": "Naar de inhoud",
-  "home_aria": "MirrorGo-startpagina",
+  "home_aria": "All TV Kit-startpagina",
   "menu": "Menu",
   "language": "Taal",
   "nav_features": "Functies",
@@ -10,7 +10,7 @@
   "nav_help": "Help",
   "download": "Download in de App Store",
   "coming_soon": "Binnenkort in de App Store",
-  "footer_blurb": "Scherm spiegelen en casten voor iPhone. Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV en elke webbrowser.",
+  "footer_blurb": "Tv-afstandsbediening, scherm spiegelen en casten voor iPhone. Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV en elke webbrowser.",
   "footer_mirror_to": "Spiegelen naar",
   "footer_brands": "Tv-merken",
   "footer_support": "Support",
@@ -24,9 +24,9 @@
   "firetv_app_privacy": "Fire TV-app: privacy",
   "firetv_app_terms": "voorwaarden",
   "english_only": "(Engels)",
-  "trademarks": "Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV, AirPlay en de genoemde tv-merken zijn handelsmerken van hun eigenaren. MirrorGo is niet aan hen verbonden.",
-  "home_title": "MirrorGo: iPhone-scherm spiegelen en casten naar je tv",
-  "home_description": "Spiegel je iPhone naar Samsung, LG, Roku, Google TV, Chromecast, Fire TV, Apple TV of een webbrowser, en cast foto's, video's, YouTube en 9.000+ live tv-zenders. Geen app op de tv.",
+  "trademarks": "Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV, AirPlay en de genoemde tv-merken zijn handelsmerken van hun eigenaren. All TV Kit is niet aan hen verbonden.",
+  "home_title": "All TV Kit: tv-afstandsbediening, scherm spiegelen en casten voor iPhone",
+  "home_description": "Gebruik je iPhone als afstandsbediening voor je Samsung- of LG-tv, spiegel hem naar Samsung, LG, Roku, Google TV, Fire TV, Apple TV of elke browser en cast foto's, video's, YouTube en live tv.",
   "eyebrow": "Voor iPhone · Geen app op de tv",
   "home_h1": "Je iPhone op het {big}",
   "home_h1_big": "grote scherm",
@@ -34,36 +34,36 @@
   "fine_wifi": "Zelfde Wi-Fi, geen kabels",
   "fine_sound": "Met geluid",
   "fine_account": "Geen account",
-  "hero_alt": "Het beginscherm van MirrorGo",
+  "hero_alt": "Het beginscherm van All TV Kit",
   "live_pill": "Spiegelen",
   "works_with_tv": "Werkt met de tv die je al hebt",
   "supported_tvs": "Ondersteunde tv's",
   "facts_kicker": "In het kort",
-  "facts_h2": "Wat is MirrorGo?",
+  "facts_h2": "Wat is All TV Kit?",
   "features_kicker": "Alles in één app",
-  "features_h2": "Spiegel het, of cast het",
-  "features_p": "Laat je hele scherm zien, of stuur alleen wat je kijkt, in volle kwaliteit, terwijl je je telefoon gewoon blijft gebruiken.",
+  "features_h2": "Bedien het, spiegel het, cast het",
+  "features_p": "Gebruik je telefoon als afstandsbediening, laat je hele scherm zien, of stuur alleen wat je kijkt, in volle kwaliteit.",
   "works_on": "Werkt op:",
   "how_kicker": "Zo werkt het",
   "how_h2": "In drie tikken op de tv",
   "how_p": "Geen kabels, geen adapters, niets te installeren op de tv.",
   "tvs_kicker": "Compatibiliteit",
   "tvs_h2": "Wat werkt er op jouw tv",
-  "tvs_p": "MirrorGo vindt je tv op het Wi-Fi-netwerk en dimt wat die niet kan afspelen.",
+  "tvs_p": "All TV Kit vindt je tv op het Wi-Fi-netwerk en dimt wat die niet kan afspelen.",
   "tvs_foot": "Samsung-smart-tv's vanaf 2016 · LG webOS-tv's · Roku-tv's en -spelers · Google TV en Android TV (Sony, TCL, Hisense, Philips, Xiaomi…) · Chromecast · Fire TV Stick, Cube en Fire TV-smart-tv's · Apple TV en AirPlay-tv's · elke browser via smrr.tv",
-  "compat_caption": "Wat MirrorGo op elk soort tv kan laten zien",
+  "compat_caption": "Wat All TV Kit op elk soort tv kan laten zien",
   "compat_feature": "Functie",
   "yes": "Ja",
   "no": "Nee",
-  "airplay_kicker": "AirPlay of MirrorGo?",
+  "airplay_kicker": "AirPlay of All TV Kit?",
   "airplay_h2": "Meer tv's dan AirPlay",
-  "airplay_p": "Een iPhone spiegelt uit zichzelf alleen naar een Apple TV of een tv met AirPlay. MirrorGo voegt bijna elke andere tv toe, en dingen om erop te kijken.",
+  "airplay_p": "Een iPhone spiegelt uit zichzelf alleen naar een Apple TV of een tv met AirPlay. All TV Kit voegt bijna elke andere tv toe, en dingen om erop te kijken.",
   "airplay_col_what": "Je iPhone laten zien op",
   "airplay_col_iphone": "Alleen iPhone (AirPlay)",
-  "airplay_col_mirrorgo": "Met MirrorGo",
+  "airplay_col_mirrorgo": "Met All TV Kit",
   "privacy_kicker": "Privé vanaf het begin",
   "privacy_h2": "Jouw telefoon, jouw tv, jouw Wi-Fi",
-  "privacy_p": "Wat je spiegelt en cast, gaat rechtstreeks van je iPhone naar je tv. MirrorGo heeft geen account en houdt je foto's en video's van elke server af.",
+  "privacy_p": "Wat je spiegelt en cast, gaat rechtstreeks van je iPhone naar je tv. All TV Kit heeft geen account en houdt je foto's en video's van elke server af.",
   "privacy_link": "Lees het privacybeleid →",
   "guides_kicker": "Handleidingen",
   "guides_h2": "Stap voor stap, voor jouw tv",
@@ -75,9 +75,9 @@
   "all_help": "Alle helponderwerpen →",
   "final_h2": "Zet je iPhone op de tv",
   "final_p": "Scherm spiegelen, foto's, video's, YouTube, webvideo's en duizenden live zenders. Eén app, elke tv.",
-  "app_icon_alt": "App-icoon van MirrorGo",
+  "app_icon_alt": "App-icoon van All TV Kit",
   "how_to_do_it": "Zo doe je het",
-  "guide_phone_alt": "MirrorGo klaar om een iPhone te spiegelen naar {tv}",
+  "guide_phone_alt": "All TV Kit klaar om een iPhone te spiegelen naar {tv}",
   "what_you_can_do": "Wat je kunt doen op {tv}",
   "questions": "Vragen",
   "more_guides_for": "Meer handleidingen voor {tv}",
@@ -85,7 +85,7 @@
   "status_ok": "Werkt",
   "status_part": "Deels",
   "status_not": "Niet op deze tv",
-  "howto_tool": "MirrorGo voor iPhone",
+  "howto_tool": "All TV Kit voor iPhone",
   "screen_mirroring": "Scherm spiegelen",
   "step_by_step": "Stap voor stap",
   "updated": "Bijgewerkt op {date}",
@@ -93,30 +93,30 @@
   "good_to_know": "Goed om te weten",
   "more_for": "Meer voor {tv}",
   "topic_on_other_tvs": "{topic} op andere tv's",
-  "browser_code_alt": "De smrr.tv-code invoeren in MirrorGo",
-  "page_title": "{title} | MirrorGo",
+  "browser_code_alt": "De smrr.tv-code invoeren in All TV Kit",
+  "page_title": "{title} | All TV Kit",
   "blog_h1": "Handleidingen",
   "blog_lead": "Stap-voor-stap-handleidingen voor elk soort tv: je iPhone verbinden, het scherm spiegelen en foto's, video's, webafbeeldingen, YouTube, webvideo's en gratis live tv casten.",
-  "blog_title": "Handleidingen: iPhone spiegelen en casten naar elke tv | MirrorGo",
+  "blog_title": "Handleidingen: iPhone spiegelen en casten naar elke tv | All TV Kit",
   "blog_description": "Stap voor stap je iPhone verbinden met Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV of een webbrowser, en foto's, video's, YouTube en live tv casten.",
-  "blog_collection": "MirrorGo-handleidingen",
+  "blog_collection": "All TV Kit-handleidingen",
   "by_brand": "Per tv-merk",
   "brand_h1": "Spiegel je iPhone naar een {brand}-tv",
-  "brand_title": "iPhone spiegelen naar een {brand}-tv | MirrorGo",
-  "brand_description": "Spiegel je iPhone naar een {brand}-tv en cast foto's, video's, YouTube en live tv met MirrorGo. Werkt met {systems}.",
+  "brand_title": "iPhone spiegelen naar een {brand}-tv | All TV Kit",
+  "brand_description": "Spiegel je iPhone naar een {brand}-tv en cast foto's, video's, YouTube en live tv met All TV Kit. Werkt met {systems}.",
   "brand_step_1": "Kijk welk systeem je {brand}-tv heeft ({systems}): het logo staat op het startscherm en op de afstandsbediening.",
   "brand_step_2": "Zet je iPhone op hetzelfde Wi-Fi-netwerk als de tv.",
-  "brand_step_3": "Open MirrorGo, tik op Verbind je tv en kies je tv.",
+  "brand_step_3": "Open All TV Kit, tik op Verbind je tv en kies je tv.",
   "brand_step_4": "Open Scherm spiegelen en tik op Start spiegelen, daarna op {start}.",
-  "brand_phone_alt": "MirrorGo klaar om een iPhone te spiegelen naar een {brand}-tv",
+  "brand_phone_alt": "All TV Kit klaar om een iPhone te spiegelen naar een {brand}-tv",
   "brand_any_model": "Elk model, via smrr.tv",
   "brand_by_system": "{brand}-tv's, per systeem",
   "help_crumb": "Help",
   "help_h1": "Help & veelgestelde vragen",
   "help_lead": "Antwoorden op de vragen die het vaakst gesteld worden. Kom je er niet uit? Mail {email} met het model van je tv.",
-  "help_title": "MirrorGo help: vragen over scherm spiegelen en casten",
-  "help_description": "Je tv verbinden, je iPhone-scherm spiegelen, een onvindbare tv, geluid, vertraging en zwart beeld oplossen, en foto's, video's, YouTube en IPTV casten met MirrorGo.",
-  "nf_title": "Pagina niet gevonden | MirrorGo",
+  "help_title": "All TV Kit help: vragen over scherm spiegelen en casten",
+  "help_description": "Je tv verbinden, je iPhone-scherm spiegelen, een onvindbare tv, geluid, vertraging en zwart beeld oplossen, en foto's, video's, YouTube en IPTV casten met All TV Kit.",
+  "nf_title": "Pagina niet gevonden | All TV Kit",
   "nf_description": "Deze pagina bestaat niet.",
   "nf_h1": "Deze pagina staat niet op de tv",
   "nf_lead": "De link is misschien oud. Probeer de startpagina of de help.",
@@ -124,8 +124,8 @@
   "nf_help": "Help"
  },
  "site": {
-  "tagline": "Scherm spiegelen en casten voor iPhone",
-  "one_liner": "MirrorGo is een iPhone-app die je scherm naar je tv spiegelt en er foto's, video's, je camera, webvideo's, live tv-zenders en YouTube naartoe cast. Het werkt met Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV en elke webbrowser, dus ook met Sony, TCL, Hisense, Vizio, Philips en de meeste andere smart-tv's, zonder iets op de tv te installeren.",
+  "tagline": "Tv-afstandsbediening, scherm spiegelen en casten voor iPhone",
+  "one_liner": "All TV Kit is een iPhone-app die werkt als afstandsbediening voor Samsung- en LG-tv's, je scherm naar je tv spiegelt en er foto's, video's, je camera, webvideo's, live tv-zenders en YouTube naartoe cast. Het werkt met Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV en elke webbrowser, dus ook met Sony, TCL, Hisense, Vizio, Philips en de meeste andere smart-tv's, zonder iets op de tv te installeren.",
   "start_sharing": "Start delen (Start uitzending vóór iOS 26)"
  },
  "tvs": {
@@ -176,6 +176,10 @@
   "With Screen Mirroring on": "Met Synchrone weergave aan"
  },
  "features": {
+  "remote": {
+   "name": "Tv-afstandsbediening",
+   "short": "Je iPhone als afstandsbediening voor je Samsung- of LG-tv: knoppen, touchpad, toetsenbord, apps."
+  },
   "screen-mirroring": {
    "name": "Scherm spiegelen",
    "short": "Je hele iPhone-scherm op de tv, met geluid, in elke app."
@@ -210,6 +214,21 @@
   }
  },
  "showcase": {
+  "remote": {
+   "title": "Je iPhone is de afstandsbediening",
+   "text": "Afstandsbediening kwijt, of geen zin om met pijltjes te typen? Bedien je Samsung- of LG-tv met je iPhone, via hetzelfde Wi-Fi-netwerk. Niets te installeren op de tv.",
+   "points": [
+    "Pijltjes en OK, Terug, Home, volume, zenders, afspelen/pauze en aan/uit",
+    "Touchpad: veeg om de cursor van de tv te bewegen, tik om te klikken",
+    "Typ zoekopdrachten en wachtwoorden met het toetsenbord van je iPhone",
+    "Open de apps van de tv en schakel met één tik naar HDMI en andere ingangen"
+   ],
+   "alts": [
+    "Het afstandsbedieningsscherm van All TV Kit: aan/uit, apps en ingangen, pijltjes en OK, volume en zenders",
+    "De afstandsbediening van All TV Kit in touchpadmodus: veeg om de cursor van de tv te bewegen"
+   ],
+   "footnote": "De afstandsbediening werkt met Samsung smart-tv's (2016 en nieuwer) en LG-tv's met webOS. Andere tv's volgen."
+  },
   "screen-mirroring": {
    "title": "Spiegel je iPhone-scherm naar de tv",
    "text": "Alles op je telefoon verschijnt direct op de tv: apps, games, foto's, websites, presentaties. Start het één keer en gebruik je telefoon gewoon verder; de tv volgt.",
@@ -221,8 +240,8 @@
     "Een korte uitleg laat stap voor stap zien hoe iOS het start"
    ],
    "alts": [
-    "Het scherm Scherm spiegelen van MirrorGo met de instellingen Kwaliteit, Automatisch draaien en Geluid",
-    "Uitleg in MirrorGo: zo start scherm spiegelen, in vier stappen"
+    "Het scherm Scherm spiegelen van All TV Kit met de instellingen Kwaliteit, Automatisch draaien en Geluid",
+    "Uitleg in All TV Kit: zo start scherm spiegelen, in vier stappen"
    ]
   },
   "photos-videos": {
@@ -236,7 +255,7 @@
     "Rechtstreeks van je telefoon naar de tv via je Wi-Fi, nooit geüpload"
    ],
    "alts": [
-    "Een foto uit de iPhone-galerij casten met MirrorGo"
+    "Een foto uit de iPhone-galerij casten met All TV Kit"
    ]
   },
   "iptv": {
@@ -249,14 +268,14 @@
     "Speelt door als je je telefoon vergrendelt of een andere app opent"
    ],
    "alts": [
-    "Het IPTV-scherm van MirrorGo: afspeellijsten, categorieën en landen",
-    "Live tv-zenders uit de Verenigde Staten in MirrorGo"
+    "Het IPTV-scherm van All TV Kit: afspeellijsten, categorieën en landen",
+    "Live tv-zenders uit de Verenigde Staten in All TV Kit"
    ],
    "footnote": "De zenders komen uit de openbare iptv-org-lijst. Zoals bij alle gratis streams zijn sommige soms offline of alleen in hun eigen land te bekijken."
   },
   "web-videos": {
    "title": "Cast video's van elke website",
-   "text": "Open een website in de privébrowser van MirrorGo en speel de video af: MirrorGo vindt hem en stuurt hem naar de tv, die hem in volle kwaliteit afspeelt terwijl jij verder surft.",
+   "text": "Open een website in de privébrowser van All TV Kit en speel de video af: All TV Kit vindt hem en stuurt hem naar de tv, die hem in volle kwaliteit afspeelt terwijl jij verder surft.",
    "points": [
     "Open een site, speel de video af, tik op Cast naar tv",
     "Pakt de echte video, niet de advertentie, en blokkeert advertentienetwerken",
@@ -264,12 +283,12 @@
     "Privé surfen: geen geschiedenis, cookies of cache bewaard"
    ],
    "alts": [
-    "De webvideobrowser van MirrorGo met populaire sites"
+    "De webvideobrowser van All TV Kit met populaire sites"
    ]
   },
   "youtube": {
    "title": "YouTube op je tv, afgespeeld door de tv",
-   "text": "Zoek een video in MirrorGo, per onderwerp of via zoeken, en tik op Cast naar tv. De tv speelt de video zelf af, in volle kwaliteit, vanaf waar je was.",
+   "text": "Zoek een video in All TV Kit, per onderwerp of via zoeken, en tik op Cast naar tv. De tv speelt de video zelf af, in volle kwaliteit, vanaf waar je was.",
    "points": [
     "Blader per onderwerp (muziek, nieuws, sport, live) of zoek",
     "Opent in de YouTube-app van de tv op Samsung en LG",
@@ -277,7 +296,7 @@
     "Speelt door als je het scherm verlaat"
    ],
    "alts": [
-    "YouTube naar een tv casten met MirrorGo"
+    "YouTube naar een tv casten met All TV Kit"
    ]
   },
   "web-images": {
@@ -289,19 +308,19 @@
     "Bij elke afbeelding staan de maker en de licentie"
    ],
    "alts": [
-    "Een landschap van Wikimedia Commons, klaar om te casten met MirrorGo"
+    "Een landschap van Wikimedia Commons, klaar om te casten met All TV Kit"
    ]
   },
   "any-browser": {
    "title": "Geen smart-tv-app? Gebruik een webbrowser",
-   "text": "Elke tv, computer of tablet met een webbrowser kan je iPhone laten zien, ook een die MirrorGo niet vindt. Open er smrr.tv op en typ de 6-cijferige code die verschijnt, of scan de QR-code.",
+   "text": "Elke tv, computer of tablet met een webbrowser kan je iPhone laten zien, ook een die All TV Kit niet vindt. Open er smrr.tv op en typ de 6-cijferige code die verschijnt, of scan de QR-code.",
    "points": [
     "Werkt op smart-tv's, pc's, Macs en tablets",
     "Het beeld gaat rechtstreeks via je Wi-Fi, met geluid",
-    "Voor LG- en Samsung-tv's in de buurt opent MirrorGo de browser van de tv voor je"
+    "Voor LG- en Samsung-tv's in de buurt opent All TV Kit de browser van de tv voor je"
    ],
    "alts": [
-    "De smrr.tv-code invoeren in MirrorGo om naar een webbrowser te spiegelen"
+    "De smrr.tv-code invoeren in All TV Kit om naar een webbrowser te spiegelen"
    ]
   }
  },
@@ -312,7 +331,7 @@
   ],
   [
    "Kies je tv",
-   "MirrorGo vindt de tv's om je heen. Tik op de jouwe; LG- en Samsung-tv's vragen je één keer om Toestaan."
+   "All TV Kit vindt de tv's om je heen. Tik op de jouwe; LG- en Samsung-tv's vragen je één keer om Toestaan."
   ],
   [
    "Spiegel of cast",
@@ -340,7 +359,7 @@
  "quick_facts": [
   [
    "Wat het is",
-   "Een iPhone-app die het scherm spiegelt en foto's, video's, de camera, webvideo's, live tv en YouTube naar een tv cast."
+   "Een iPhone-app die werkt als afstandsbediening voor Samsung- en LG-tv's, het scherm spiegelt en foto's, video's, de camera, webvideo's, live tv en YouTube naar een tv cast."
   ],
   [
    "Werkt met",
@@ -365,6 +384,7 @@
  ],
  "airplay_compare": [
   "Apple TV en AirPlay-tv's",
+  "Een afstandsbediening voor Samsung- en LG-tv's",
   "Samsung-, LG- en Roku-tv's zonder AirPlay",
   "Chromecast, Google TV en Android TV",
   "Amazon Fire TV",
@@ -381,7 +401,7 @@
  ],
  "faq": {
   "tvs": {
-   "q": "Met welke tv's werkt MirrorGo?",
+   "q": "Met welke tv's werkt All TV Kit?",
    "a": "Met de meeste smart-tv's en streamingsticks. Er hoeft niets op de tv geïnstalleerd te worden.",
    "ul": [
     "Samsung-smart-tv's (2016 en nieuwer)",
@@ -401,31 +421,31 @@
     "Kies je tv uit de lijst.",
     "LG- en Samsung-tv's vragen het de eerste keer: kies Toestaan op de tv met de afstandsbediening."
    ],
-   "note": "MirrorGo onthoudt je tv en verbindt de volgende keer weer vanzelf."
+   "note": "All TV Kit onthoudt je tv en verbindt de volgende keer weer vanzelf."
   },
   "notFound": {
    "q": "Mijn tv staat niet in de lijst",
-   "a": "MirrorGo zoekt tv's op je Wi-Fi-netwerk. Ontbreekt er een, dan is het meestal een van deze oorzaken:",
+   "a": "All TV Kit zoekt tv's op je Wi-Fi-netwerk. Ontbreekt er een, dan is het meestal een van deze oorzaken:",
    "ul": [
     "De telefoon en de tv zitten op verschillende netwerken. Gebruik hetzelfde Wi-Fi-netwerk, geen gastnetwerk.",
-    "Toegang tot het lokale netwerk staat uit voor MirrorGo. iOS verbergt dan elke tv voor de app.",
+    "Toegang tot het lokale netwerk staat uit voor All TV Kit. iOS verbergt dan elke tv voor de app.",
     "Er staat een vpn aan. Zet die uit terwijl je cast.",
     "De tv slaapt of hangt. Zet hem helemaal aan, of herstart hem en je router."
    ],
    "note": "Nog steeds niet te zien? Elke tv met een webbrowser werkt via smrr.tv: zie “Hoe spiegel ik naar een webbrowser?”"
   },
   "allow": {
-   "q": "Mijn tv laat MirrorGo niet verbinden",
-   "a": "LG- en Samsung-tv's vragen het eerst voordat een telefoon ze mag bedienen. De eerste keer dat MirrorGo verbindt, verschijnt er een melding op de tv: kies Toestaan met de afstandsbediening. Daarna wordt het niet meer gevraagd.",
+   "q": "Mijn tv laat All TV Kit niet verbinden",
+   "a": "LG- en Samsung-tv's vragen het eerst voordat een telefoon ze mag bedienen. De eerste keer dat All TV Kit verbindt, verschijnt er een melding op de tv: kies Toestaan met de afstandsbediening. Daarna wordt het niet meer gevraagd.",
    "ul": [
     "LG: melding gemist of Weigeren gekozen? Verbind opnieuw en de tv vraagt het nog een keer.",
-    "Samsung: Weigeren gekozen? De tv onthoudt dat. Open op de tv Instellingen › Algemeen › Beheer externe apparaten › Beheer apparaatverbindingen › Apparatenlijst (External Device Manager › Device Connection Manager › Device List) en sta MirrorGo toe, of verwijder het zodat de tv het opnieuw vraagt.",
+    "Samsung: Weigeren gekozen? De tv onthoudt dat. Open op de tv Instellingen › Algemeen › Beheer externe apparaten › Beheer apparaatverbindingen › Apparatenlijst (External Device Manager › Device Connection Manager › Device List) en sta All TV Kit toe, of verwijder het zodat de tv het opnieuw vraagt.",
     "Oudere LG-tv's: zet LG Connect Apps aan in de netwerkinstellingen van de tv."
    ]
   },
   "lost": {
    "q": "De verbinding valt steeds weg",
-   "a": "iOS sluit de verbinding van MirrorGo met de tv zodra de app op de achtergrond staat, en ook een hapering in het Wi-Fi-netwerk kan haar verbreken. MirrorGo maakt binnen een paar seconden zelf weer verbinding, en scherm spiegelen loopt intussen gewoon door.",
+   "a": "iOS sluit de verbinding van All TV Kit met de tv zodra de app op de achtergrond staat, en ook een hapering in het Wi-Fi-netwerk kan haar verbreken. All TV Kit maakt binnen een paar seconden zelf weer verbinding, en scherm spiegelen loopt intussen gewoon door.",
    "ul": [
     "Zie je “Verbinding verbroken”? Controleer of de tv aanstaat en op hetzelfde Wi-Fi-netwerk zit, en tik dan op Opnieuw.",
     "Bij een zwak signaal valt de verbinding vaker weg: houd de telefoon en de tv dicht bij de router."
@@ -433,10 +453,10 @@
   },
   "browser": {
    "q": "Hoe spiegel ik naar een webbrowser?",
-   "a": "Elke tv, computer of tablet met een webbrowser kan je scherm laten zien, ook een die MirrorGo niet als tv vindt.",
+   "a": "Elke tv, computer of tablet met een webbrowser kan je scherm laten zien, ook een die All TV Kit niet als tv vindt.",
    "ol": [
     "Open smrr.tv in de webbrowser van dat apparaat. De pagina toont een 6-cijferige code.",
-    "Open in MirrorGo de tv-lijst en tik op Browser (smrr.tv).",
+    "Open in All TV Kit de tv-lijst en tik op Browser (smrr.tv).",
     "Typ de code, of scan de QR-code op de pagina."
    ],
    "note": "Houd de pagina open zolang je spiegelt. De telefoon en de browser moeten op hetzelfde Wi-Fi-netwerk zitten. Voor een LG- of Samsung-tv in de buurt opent “Open op…” de browser van de tv voor je."
@@ -473,13 +493,13 @@
   "black": {
    "q": "Sommige apps geven een zwart scherm",
    "a": "Netflix, Prime Video, Disney+ en andere streamingapps beschermen hun video's, dus iOS stuurt in plaats daarvan een zwart beeld. Geen enkele spiegelapp kan daar omheen.",
-   "note": "Gebruik de eigen castknop van de app als die er is. Voor YouTube open je YouTube in MirrorGo: de tv speelt de video dan zelf af."
+   "note": "Gebruik de eigen castknop van de app als die er is. Voor YouTube open je YouTube in All TV Kit: de tv speelt de video dan zelf af."
   },
   "sound": {
    "q": "Er is geen geluid op de tv",
    "ul": [
     "Controleer of Geluid aanstaat in Scherm spiegelen, en of de tv niet gedempt is.",
-    "MirrorGo stuurt het geluid dat je apps afspelen, nooit de microfoon.",
+    "All TV Kit stuurt het geluid dat je apps afspelen, nooit de microfoon.",
     "Fire TV en sommige oudere LG-tv's tonen het beeld zonder geluid.",
     "Sommige apps laten hun geluid niet opnemen, dus dat blijft op de telefoon."
    ]
@@ -505,21 +525,21 @@
   },
   "lgCheck": {
    "q": "Mijn LG-tv vraagt “Speelt het af op je tv?”",
-   "a": "Op LG-tv's speelt MirrorGo foto's, video's en zenders eerst af in de webbrowser van de tv, die het meeste aankan. Na een paar seconden vraagt de app of het werkt:",
+   "a": "Op LG-tv's speelt All TV Kit foto's, video's en zenders eerst af in de webbrowser van de tv, die het meeste aankan. Na een paar seconden vraagt de app of het werkt:",
    "ul": [
     "Ja: ga gewoon door, het wordt op dat scherm niet meer gevraagd.",
-    "Nee: MirrorGo sluit de browser, speelt het af met de eigen speler van de tv en vraagt het opnieuw.",
+    "Nee: All TV Kit sluit de browser, speelt het af met de eigen speler van de tv en vraagt het opnieuw.",
     "Werkt het nog steeds niet? Tik op Mail support en laat ons het model van je tv weten."
    ]
   },
   "webVideo": {
    "q": "Een webvideo wil niet casten",
    "ul": [
-    "Speel de video eerst af op de pagina: Cast naar tv wordt actief zodra MirrorGo hem vindt.",
+    "Speel de video eerst af op de pagina: Cast naar tv wordt actief zodra All TV Kit hem vindt.",
     "Meer dan één gevonden? Kies de juiste uit de lijst (“1 van 3”).",
     "Heel korte clips worden niet gecast, zodat advertenties niet op de tv belanden.",
     "Sommige sites beschermen hun video's, zoals Netflix. Die kunnen niet gecast worden.",
-    "Houd MirrorGo open zolang de video speelt: hij gaat via je telefoon."
+    "Houd All TV Kit open zolang de video speelt: hij gaat via je telefoon."
    ]
   },
   "iptv": {
@@ -536,12 +556,12 @@
    ]
   },
   "localNetwork": {
-   "q": "Waarom heeft MirrorGo toegang tot het lokale netwerk nodig?",
-   "a": "MirrorGo praat via je Wi-Fi met je tv, en iOS staat dat alleen toe met toegang tot het lokale netwerk. Zonder die toegang kan er geen tv gevonden worden en kun je nergens naartoe casten. Het wordt alleen gebruikt voor apparaten op je eigen netwerk.",
+   "q": "Waarom heeft All TV Kit toegang tot het lokale netwerk nodig?",
+   "a": "All TV Kit praat via je Wi-Fi met je tv, en iOS staat dat alleen toe met toegang tot het lokale netwerk. Zonder die toegang kan er geen tv gevonden worden en kun je nergens naartoe casten. Het wordt alleen gebruikt voor apparaten op je eigen netwerk.",
    "ol": [
     "Tik op Open Instellingen",
     "Zet Lokaal netwerk aan",
-    "Ga terug naar MirrorGo"
+    "Ga terug naar All TV Kit"
    ]
   },
   "permissions": {
@@ -555,56 +575,56 @@
   },
   "denied": {
    "q": "Ik heb een toestemming geweigerd. Hoe zet ik die aan?",
-   "a": "iOS vraagt het maar één keer. Om je antwoord te wijzigen, open je Instellingen, tik je op MirrorGo en zet je Lokaal netwerk, Foto's, Camera of Microfoon aan."
+   "a": "iOS vraagt het maar één keer. Om je antwoord te wijzigen, open je Instellingen, tik je op All TV Kit en zet je Lokaal netwerk, Foto's, Camera of Microfoon aan."
   },
   "problem": {
    "q": "Er werkt iets anders niet",
-   "a": "Werk MirrorGo bij naar de nieuwste versie en herstart de tv. Helpt dat niet, tik dan op Neem contact op in de Help van de app. De e-mail bevat al je appversie, iOS-versie, telefoonmodel en soort tv; vul nog het model van je tv aan."
+   "a": "Werk All TV Kit bij naar de nieuwste versie en herstart de tv. Helpt dat niet, tik dan op Neem contact op in de Help van de app. De e-mail bevat al je appversie, iOS-versie, telefoonmodel en soort tv; vul nog het model van je tv aan."
   }
  },
  "brands": {
   "sony": {
    "about": "Sony BRAVIA-tv's draaien sinds 2015 op Android TV en sinds 2021 op Google TV, met ingebouwde Chromecast, en veel recente BRAVIA-modellen ondersteunen ook AirPlay.",
-   "which": "Op een BRAVIA met Google TV of Android TV vindt MirrorGo de tv aan de naam op je Wi-Fi-netwerk en kun je alles gebruiken: scherm spiegelen, foto's en video's, YouTube, live tv en meer."
+   "which": "Op een BRAVIA met Google TV of Android TV vindt All TV Kit de tv aan de naam op je Wi-Fi-netwerk en kun je alles gebruiken: scherm spiegelen, foto's en video's, YouTube, live tv en meer."
   },
   "tcl": {
    "about": "TCL maakt tv's met verschillende systemen: Google TV (en Android TV op oudere modellen), Roku TV, en op sommige modellen Fire TV. Het logo van het systeem staat op het startscherm van de tv en op de afstandsbediening.",
-   "which": "Welk systeem je TCL ook heeft, MirrorGo verbindt er op dezelfde manier mee: hetzelfde Wi-Fi-netwerk, tik op Verbind je tv, kies hem uit de lijst."
+   "which": "Welk systeem je TCL ook heeft, All TV Kit verbindt er op dezelfde manier mee: hetzelfde Wi-Fi-netwerk, tik op Verbind je tv, kies hem uit de lijst."
   },
   "hisense": {
    "about": "Hisense-tv's draaien op VIDAA, Google TV / Android TV, Roku TV of Fire TV, afhankelijk van het model en het land.",
-   "which": "Modellen met Google TV, Android TV, Roku TV en Fire TV verschijnen in de tv-lijst van MirrorGo. Op een VIDAA-model open je smrr.tv in de webbrowser van de tv en spiegel je daar met de code die verschijnt."
+   "which": "Modellen met Google TV, Android TV, Roku TV en Fire TV verschijnen in de tv-lijst van All TV Kit. Op een VIDAA-model open je smrr.tv in de webbrowser van de tv en spiegel je daar met de code die verschijnt."
   },
   "vizio": {
    "about": "VIZIO SmartCast-tv's hebben ingebouwde Chromecast, en veel ervan ondersteunen ook AirPlay.",
-   "which": "MirrorGo vindt een SmartCast-tv via de ingebouwde Chromecast, zodat je je scherm kunt spiegelen en er foto's, video's, YouTube en live tv naartoe kunt casten."
+   "which": "All TV Kit vindt een SmartCast-tv via de ingebouwde Chromecast, zodat je je scherm kunt spiegelen en er foto's, video's, YouTube en live tv naartoe kunt casten."
   },
   "philips": {
    "about": "Veel Philips-tv's draaien op Google TV of Android TV, met ingebouwde Chromecast; andere draaien op Titan OS of Saphi.",
-   "which": "Modellen met Google TV en Android TV verschijnen in de tv-lijst van MirrorGo. Op andere modellen open je smrr.tv in de webbrowser van de tv en spiegel je daar met de code die verschijnt."
+   "which": "Modellen met Google TV en Android TV verschijnen in de tv-lijst van All TV Kit. Op andere modellen open je smrr.tv in de webbrowser van de tv en spiegel je daar met de code die verschijnt."
   },
   "xiaomi": {
    "about": "Xiaomi-tv's, de Mi Box en de Xiaomi TV Stick draaien op Google TV of Android TV, met ingebouwde Chromecast.",
-   "which": "MirrorGo vindt ze op je Wi-Fi-netwerk en je kunt alles gebruiken: scherm spiegelen, foto's en video's, YouTube, live tv en meer."
+   "which": "All TV Kit vindt ze op je Wi-Fi-netwerk en je kunt alles gebruiken: scherm spiegelen, foto's en video's, YouTube, live tv en meer."
   },
   "toshiba": {
    "about": "Toshiba-smart-tv's draaien in de VS op Fire TV en elders op andere systemen, zoals Android TV of VIDAA.",
-   "which": "Modellen met Fire TV en Android TV verschijnen in de tv-lijst van MirrorGo. Op andere modellen open je smrr.tv in de webbrowser van de tv en spiegel je daar met de code die verschijnt."
+   "which": "Modellen met Fire TV en Android TV verschijnen in de tv-lijst van All TV Kit. Op andere modellen open je smrr.tv in de webbrowser van de tv en spiegel je daar met de code die verschijnt."
   },
   "panasonic": {
    "about": "Recente Panasonic-tv's draaien op Fire TV; eerdere op Panasonics eigen my Home Screen.",
-   "which": "Modellen met Fire TV verschijnen in de tv-lijst van MirrorGo. Op een model met my Home Screen open je smrr.tv in de webbrowser van de tv en spiegel je daar met de code die verschijnt."
+   "which": "Modellen met Fire TV verschijnen in de tv-lijst van All TV Kit. Op een model met my Home Screen open je smrr.tv in de webbrowser van de tv en spiegel je daar met de code die verschijnt."
   }
  },
  "guides": {
   "samsung": {
    "title": "iPhone spiegelen naar een Samsung-tv (zonder kabels of tv-app)",
-   "description": "Spiegel je iPhone via Wi-Fi naar een Samsung-smart-tv met MirrorGo en cast foto's, video's, YouTube en live tv. Voor Samsung-tv's vanaf 2016, zonder app op de tv.",
+   "description": "Spiegel je iPhone via Wi-Fi naar een Samsung-smart-tv met All TV Kit en cast foto's, video's, YouTube en live tv. Voor Samsung-tv's vanaf 2016, zonder app op de tv.",
    "h1": "Spiegel je iPhone naar een Samsung-tv",
-   "lead": "MirrorGo toont je iPhone-scherm via je Wi-Fi op Samsung-smart-tv's (Tizen, 2016 en nieuwer). Niets te installeren op de tv: het speelt af in de eigen speler van de tv, met geluid.",
+   "lead": "All TV Kit toont je iPhone-scherm via je Wi-Fi op Samsung-smart-tv's (Tizen, 2016 en nieuwer). Niets te installeren op de tv: het speelt af in de eigen speler van de tv, met geluid.",
    "steps": [
     "Zet je Samsung-tv aan en zet je iPhone op hetzelfde Wi-Fi-netwerk.",
-    "Open MirrorGo, tik op Verbind je tv en kies je Samsung-tv.",
+    "Open All TV Kit, tik op Verbind je tv en kies je Samsung-tv.",
     "Kies de eerste keer Toestaan op de tv met de afstandsbediening.",
     "Open Scherm spiegelen, tik op Start spiegelen en dan op Start delen (Start uitzending vóór iOS 26). Binnen 5–10 seconden staat je scherm op de tv."
    ],
@@ -642,14 +662,14 @@
     [
      "Welke Samsung-tv's werken?",
      [
-      "Samsung-smart-tv's met Tizen, vanaf de modellen van 2016, zoals de series Crystal UHD, QLED, Neo QLED, OLED en The Frame. MirrorGo vindt ze vanzelf op je Wi-Fi-netwerk, zonder app op de tv.",
-      "Veel Samsung-tv's vanaf 2018 ondersteunen ook AirPlay. MirrorGo werkt met of zonder, en voegt daar casten vanaf websites, live tv-zenders en YouTube aan toe."
+      "Samsung-smart-tv's met Tizen, vanaf de modellen van 2016, zoals de series Crystal UHD, QLED, Neo QLED, OLED en The Frame. All TV Kit vindt ze vanzelf op je Wi-Fi-netwerk, zonder app op de tv.",
+      "Veel Samsung-tv's vanaf 2018 ondersteunen ook AirPlay. All TV Kit werkt met of zonder, en voegt daar casten vanaf websites, live tv-zenders en YouTube aan toe."
      ]
     ],
     [
-     "Als de tv MirrorGo niet laat verbinden",
+     "Als de tv All TV Kit niet laat verbinden",
      [
-      "Samsung-tv's vragen het eerst voordat een telefoon ze mag bedienen. Heb je Weigeren gekozen, dan onthoudt de tv dat: open op de tv Instellingen › Algemeen › Beheer externe apparaten › Beheer apparaatverbindingen › Apparatenlijst (External Device Manager › Device Connection Manager › Device List) en sta MirrorGo toe, of verwijder het zodat de tv het opnieuw vraagt."
+      "Samsung-tv's vragen het eerst voordat een telefoon ze mag bedienen. Heb je Weigeren gekozen, dan onthoudt de tv dat: open op de tv Instellingen › Algemeen › Beheer externe apparaten › Beheer apparaatverbindingen › Apparatenlijst (External Device Manager › Device Connection Manager › Device List) en sta All TV Kit toe, of verwijder het zodat de tv het opnieuw vraagt."
      ]
     ],
     [
@@ -662,11 +682,11 @@
    "faq": [
     [
      "Moet ik een app op mijn Samsung-tv installeren?",
-     "Nee. MirrorGo gebruikt wat al in Samsung-smart-tv's zit: de mediaspeler van de tv en de verbinding voor bediening op afstand. Je installeert MirrorGo alleen op je iPhone."
+     "Nee. All TV Kit gebruikt wat al in Samsung-smart-tv's zit: de mediaspeler van de tv en de verbinding voor bediening op afstand. Je installeert All TV Kit alleen op je iPhone."
     ],
     [
      "Is er geluid als ik mijn iPhone naar een Samsung-tv spiegel?",
-     "Ja. Het geluid van je apps gaat samen met het beeld naar de tv; zet Geluid aan in Scherm spiegelen. MirrorGo stuurt nooit je microfoon mee."
+     "Ja. Het geluid van je apps gaat samen met het beeld naar de tv; zet Geluid aan in Scherm spiegelen. All TV Kit stuurt nooit je microfoon mee."
     ],
     [
      "Kan ik Netflix of Disney+ naar mijn Samsung-tv spiegelen?",
@@ -676,12 +696,12 @@
   },
   "lg": {
    "title": "iPhone spiegelen naar een LG-tv (webOS, zonder kabels)",
-   "description": "Spiegel je iPhone via Wi-Fi naar een LG-smart-tv (webOS) met MirrorGo, en cast foto's, video's, YouTube en live tv-zenders. Geen app op de tv nodig.",
+   "description": "Spiegel je iPhone via Wi-Fi naar een LG-smart-tv (webOS) met All TV Kit, en cast foto's, video's, YouTube en live tv-zenders. Geen app op de tv nodig.",
    "h1": "Spiegel je iPhone naar een LG-tv",
-   "lead": "MirrorGo toont je iPhone-scherm via je Wi-Fi op LG-smart-tv's (webOS). Op nieuwere LG-tv's gebruikt het de eigen schermdeling van LG; oudere tonen je scherm in de webbrowser van de tv. Niets te installeren.",
+   "lead": "All TV Kit toont je iPhone-scherm via je Wi-Fi op LG-smart-tv's (webOS). Op nieuwere LG-tv's gebruikt het de eigen schermdeling van LG; oudere tonen je scherm in de webbrowser van de tv. Niets te installeren.",
    "steps": [
     "Zet je LG-tv aan en zet je iPhone op hetzelfde Wi-Fi-netwerk.",
-    "Open MirrorGo, tik op Verbind je tv en kies je LG-tv.",
+    "Open All TV Kit, tik op Verbind je tv en kies je LG-tv.",
     "Kies de eerste keer Toestaan op de tv met de afstandsbediening.",
     "Open Scherm spiegelen, tik op Start spiegelen en dan op Start delen (Start uitzending vóór iOS 26). Binnen 5–10 seconden staat je scherm op de tv."
    ],
@@ -719,11 +739,11 @@
     [
      "Welke LG-tv's werken?",
      [
-      "LG-smart-tv's met webOS. Op webOS 22 en nieuwer gebruikt MirrorGo de eigen schermdeling van LG (LG Cast). Oudere LG-tv's, vanaf webOS 4 (2018), tonen je scherm in de webbrowser van de tv, die MirrorGo voor je opent."
+      "LG-smart-tv's met webOS. Op webOS 22 en nieuwer gebruikt All TV Kit de eigen schermdeling van LG (LG Cast). Oudere LG-tv's, vanaf webOS 4 (2018), tonen je scherm in de webbrowser van de tv, die All TV Kit voor je opent."
      ]
     ],
     [
-     "Als de tv MirrorGo niet laat verbinden",
+     "Als de tv All TV Kit niet laat verbinden",
      [
       "LG-tv's vragen het eerst voordat een telefoon ze mag bedienen. Melding gemist of Weigeren gekozen? Verbind opnieuw en de tv vraagt het nog een keer. Op oudere LG-tv's zet je LG Connect Apps aan in de netwerkinstellingen van de tv."
      ]
@@ -731,33 +751,33 @@
     [
      "“Speelt het af op je tv?”",
      [
-      "Op LG-tv's speelt MirrorGo foto's, video's en zenders eerst af in de webbrowser van de tv, die het meeste aankan. Na een paar seconden vraagt de app of het werkt. Tik op Nee en hij schakelt over naar de eigen speler van de tv."
+      "Op LG-tv's speelt All TV Kit foto's, video's en zenders eerst af in de webbrowser van de tv, die het meeste aankan. Na een paar seconden vraagt de app of het werkt. Tik op Nee en hij schakelt over naar de eigen speler van de tv."
      ]
     ]
    ],
    "faq": [
     [
      "Moet ik een app op mijn LG-tv installeren?",
-     "Nee. MirrorGo gebruikt wat al in LG webOS-tv's zit: de schermdeling van LG, de webbrowser van de tv en de mediaspeler. Je installeert MirrorGo alleen op je iPhone."
+     "Nee. All TV Kit gebruikt wat al in LG webOS-tv's zit: de schermdeling van LG, de webbrowser van de tv en de mediaspeler. Je installeert All TV Kit alleen op je iPhone."
     ],
     [
      "Waarom speelt mijn LG-tv geen geluid af bij het spiegelen?",
      "De meeste LG-tv's spelen het geluid van je apps af. Sommige oudere modellen tonen het beeld zonder geluid; wil je daar een video met geluid kijken, cast hem dan (Foto's en video's, Webvideo's of YouTube) in plaats van hem te spiegelen."
     ],
     [
-     "Werkt MirrorGo met LG-tv's zonder AirPlay?",
-     "Ja. MirrorGo heeft geen AirPlay nodig: het werkt met LG webOS-tv's vanaf 2018."
+     "Werkt All TV Kit met LG-tv's zonder AirPlay?",
+     "Ja. All TV Kit heeft geen AirPlay nodig: het werkt met LG webOS-tv's vanaf 2018."
     ]
    ]
   },
   "roku": {
    "title": "iPhone spiegelen naar een Roku-tv of Roku-speler",
-   "description": "Spiegel je iPhone-scherm met geluid naar een Roku-tv, Roku Streaming Stick of Roku Ultra met MirrorGo, via Wi-Fi. Zonder kabels, zonder AirPlay en zonder iets op de Roku te installeren.",
+   "description": "Spiegel je iPhone-scherm met geluid naar een Roku-tv, Roku Streaming Stick of Roku Ultra met All TV Kit, via Wi-Fi. Zonder kabels, zonder AirPlay en zonder iets op de Roku te installeren.",
    "h1": "Spiegel je iPhone naar een Roku",
-   "lead": "MirrorGo toont je iPhone-scherm met geluid via je Wi-Fi op Roku-tv's (TCL, Hisense, Sharp en andere Roku TV-modellen) en Roku-streamingspelers. Het speelt af in de eigen speler van de Roku: je hoeft niets op de Roku te installeren.",
+   "lead": "All TV Kit toont je iPhone-scherm met geluid via je Wi-Fi op Roku-tv's (TCL, Hisense, Sharp en andere Roku TV-modellen) en Roku-streamingspelers. Het speelt af in de eigen speler van de Roku: je hoeft niets op de Roku te installeren.",
    "steps": [
     "Zet de Roku aan en zet je iPhone op hetzelfde Wi-Fi-netwerk.",
-    "Open MirrorGo, tik op Verbind je tv en kies je Roku.",
+    "Open All TV Kit, tik op Verbind je tv en kies je Roku.",
     "Open Scherm spiegelen, tik op Start spiegelen en dan op Start delen (Start uitzending vóór iOS 26).",
     "Binnen een paar seconden staat je scherm op de tv. Om te stoppen tik je op Stop spiegelen, of druk je op Home op de afstandsbediening van de Roku."
    ],
@@ -795,49 +815,49 @@
     [
      "Welke Rokus werken?",
      [
-      "Roku-tv's van TCL, Hisense, Sharp, Philips, Westinghouse en andere merken, en Roku-streamingspelers: de Roku Express, Streaming Stick en Ultra. MirrorGo vindt ze op je Wi-Fi-netwerk."
+      "Roku-tv's van TCL, Hisense, Sharp, Philips, Westinghouse en andere merken, en Roku-streamingspelers: de Roku Express, Streaming Stick en Ultra. All TV Kit vindt ze op je Wi-Fi-netwerk."
      ]
     ],
     [
      "Als je Roku niet in de lijst staat",
      [
-      "Zorg dat de telefoon en de Roku op hetzelfde Wi-Fi-netwerk zitten (geen gastnetwerk), dat MirrorGo in Instellingen toegang heeft tot het lokale netwerk, en dat er geen vpn aanstaat. Open op de Roku Instellingen › Systeem › Geavanceerde systeeminstellingen › Bediening via mobiele apps (Control by mobile apps) en zet Netwerktoegang op Standaard (Network access: Default)."
+      "Zorg dat de telefoon en de Roku op hetzelfde Wi-Fi-netwerk zitten (geen gastnetwerk), dat All TV Kit in Instellingen toegang heeft tot het lokale netwerk, en dat er geen vpn aanstaat. Open op de Roku Instellingen › Systeem › Geavanceerde systeeminstellingen › Bediening via mobiele apps (Control by mobile apps) en zet Netwerktoegang op Standaard (Network access: Default)."
      ]
     ],
     [
      "Hoe het werkt",
      [
-      "MirrorGo praat via je Wi-Fi met de Roku zoals de eigen mobiele app van Roku dat doet, en je scherm speelt af in de ingebouwde speler van de Roku als livevideostream vanaf je iPhone. Er is geen Roku-kanaal om te installeren en geen code om in te typen. Het beeld loopt een paar seconden achter op je telefoon."
+      "All TV Kit praat via je Wi-Fi met de Roku zoals de eigen mobiele app van Roku dat doet, en je scherm speelt af in de ingebouwde speler van de Roku als livevideostream vanaf je iPhone. Er is geen Roku-kanaal om te installeren en geen code om in te typen. Het beeld loopt een paar seconden achter op je telefoon."
      ]
     ]
    ],
    "faq": [
     [
      "Moet ik iets op mijn Roku installeren?",
-     "Nee. Je installeert MirrorGo alleen op je iPhone; de Roku hoeft alleen aan te staan en op hetzelfde Wi-Fi-netwerk te zitten."
+     "Nee. Je installeert All TV Kit alleen op je iPhone; de Roku hoeft alleen aan te staan en op hetzelfde Wi-Fi-netwerk te zitten."
     ],
     [
      "Kan ik mijn iPhone naar een Roku spiegelen zonder AirPlay?",
-     "Ja. MirrorGo gebruikt geen AirPlay, dus het werkt met Rokus die het niet ondersteunen."
+     "Ja. All TV Kit gebruikt geen AirPlay, dus het werkt met Rokus die het niet ondersteunen."
     ],
     [
      "Is er geluid als ik mijn iPhone naar een Roku spiegel?",
-     "Ja. Het geluid dat je apps afspelen gaat samen met het beeld naar de Roku. MirrorGo stuurt nooit de microfoon mee."
+     "Ja. Het geluid dat je apps afspelen gaat samen met het beeld naar de Roku. All TV Kit stuurt nooit de microfoon mee."
     ],
     [
      "Kan ik foto's, YouTube of live tv naar een Roku casten?",
-     "Nog niet: op een Roku spiegelt MirrorGo je scherm. Wil je je foto's en video's laten zien, start dan scherm spiegelen en open ze op je iPhone."
+     "Nog niet: op een Roku spiegelt All TV Kit je scherm. Wil je je foto's en video's laten zien, start dan scherm spiegelen en open ze op je iPhone."
     ]
    ]
   },
   "googletv": {
    "title": "iPhone spiegelen naar Google TV",
-   "description": "Spiegel je iPhone naar een Google TV (Sony, TCL, Hisense, Philips, Chromecast met Google TV, Google TV Streamer) met MirrorGo, en cast foto's, video's, YouTube en live tv.",
+   "description": "Spiegel je iPhone naar een Google TV (Sony, TCL, Hisense, Philips, Chromecast met Google TV, Google TV Streamer) met All TV Kit, en cast foto's, video's, YouTube en live tv.",
    "h1": "Spiegel je iPhone naar Google TV",
-   "lead": "MirrorGo toont je iPhone-scherm op Google TV: tv's van Sony, TCL, Hisense, Philips en anderen, de Chromecast met Google TV en de Google TV Streamer. Niets te installeren op de tv.",
+   "lead": "All TV Kit toont je iPhone-scherm op Google TV: tv's van Sony, TCL, Hisense, Philips en anderen, de Chromecast met Google TV en de Google TV Streamer. Niets te installeren op de tv.",
    "steps": [
     "Zet de tv aan en zet je iPhone op hetzelfde Wi-Fi-netwerk.",
-    "Open MirrorGo, tik op Verbind je tv en kies je Google TV.",
+    "Open All TV Kit, tik op Verbind je tv en kies je Google TV.",
     "Open Scherm spiegelen, tik op Start spiegelen en dan op Start delen (Start uitzending vóór iOS 26).",
     "Binnen een paar seconden staat je scherm op de tv."
    ],
@@ -875,35 +895,35 @@
     [
      "Welke tv's draaien op Google TV?",
      [
-      "Google TV zit op de meeste recente tv's van Sony BRAVIA, TCL, Hisense en Philips, en op Googles eigen Chromecast met Google TV en Google TV Streamer. Het heeft ingebouwde Chromecast, en zo vindt MirrorGo het op je Wi-Fi-netwerk."
+      "Google TV zit op de meeste recente tv's van Sony BRAVIA, TCL, Hisense en Philips, en op Googles eigen Chromecast met Google TV en Google TV Streamer. Het heeft ingebouwde Chromecast, en zo vindt All TV Kit het op je Wi-Fi-netwerk."
      ]
     ],
     [
      "Als je tv niet in de lijst staat",
      [
-      "Zorg dat de telefoon en de tv op hetzelfde Wi-Fi-netwerk zitten (geen gastnetwerk), dat MirrorGo in Instellingen toegang heeft tot het lokale netwerk, en dat er geen vpn aanstaat. Nog steeds niet te zien? Open smrr.tv in de browser van de tv en spiegel daar."
+      "Zorg dat de telefoon en de tv op hetzelfde Wi-Fi-netwerk zitten (geen gastnetwerk), dat All TV Kit in Instellingen toegang heeft tot het lokale netwerk, en dat er geen vpn aanstaat. Nog steeds niet te zien? Open smrr.tv in de browser van de tv en spiegel daar."
      ]
     ]
    ],
    "faq": [
     [
      "Kan ik mijn hele iPhone-scherm naar Google TV spiegelen?",
-     "Ja. Google TV ondersteunt op de meeste modellen geen AirPlay, maar MirrorGo spiegelt je hele scherm, met geluid, via de ingebouwde Chromecast."
+     "Ja. Google TV ondersteunt op de meeste modellen geen AirPlay, maar All TV Kit spiegelt je hele scherm, met geluid, via de ingebouwde Chromecast."
     ],
     [
      "Heb ik de Google Home-app nodig?",
-     "Nee. De tv moet alleen ingesteld zijn en op je Wi-Fi-netwerk zitten. MirrorGo verbindt er rechtstreeks mee."
+     "Nee. De tv moet alleen ingesteld zijn en op je Wi-Fi-netwerk zitten. All TV Kit verbindt er rechtstreeks mee."
     ]
    ]
   },
   "androidtv": {
    "title": "iPhone spiegelen naar een Android TV",
-   "description": "Spiegel je iPhone via Wi-Fi naar een Android TV (Sony, Philips, Xiaomi, TCL, Sharp en meer) met MirrorGo, en cast foto's, video's, YouTube en live tv-zenders.",
+   "description": "Spiegel je iPhone via Wi-Fi naar een Android TV (Sony, Philips, Xiaomi, TCL, Sharp en meer) met All TV Kit, en cast foto's, video's, YouTube en live tv-zenders.",
    "h1": "Spiegel je iPhone naar een Android TV",
-   "lead": "MirrorGo toont je iPhone-scherm op Android TV's van Sony, Philips, Xiaomi, TCL, Sharp en anderen, en op Android TV-boxen zoals de Mi Box en NVIDIA SHIELD. Niets te installeren op de tv.",
+   "lead": "All TV Kit toont je iPhone-scherm op Android TV's van Sony, Philips, Xiaomi, TCL, Sharp en anderen, en op Android TV-boxen zoals de Mi Box en NVIDIA SHIELD. Niets te installeren op de tv.",
    "steps": [
     "Zet de tv aan en zet je iPhone op hetzelfde Wi-Fi-netwerk.",
-    "Open MirrorGo, tik op Verbind je tv en kies je Android TV.",
+    "Open All TV Kit, tik op Verbind je tv en kies je Android TV.",
     "Open Scherm spiegelen, tik op Start spiegelen en dan op Start delen (Start uitzending vóór iOS 26).",
     "Binnen een paar seconden staat je scherm op de tv."
    ],
@@ -941,35 +961,35 @@
     [
      "Welke Android TV's werken?",
      [
-      "Android TV's en -boxen met ingebouwde Chromecast, en die hebben bijna allemaal: Sony BRAVIA, Philips, Xiaomi Mi TV, TCL, Sharp, de Mi Box, de Xiaomi TV Stick en NVIDIA SHIELD. MirrorGo vindt ze daarmee op je Wi-Fi-netwerk."
+      "Android TV's en -boxen met ingebouwde Chromecast, en die hebben bijna allemaal: Sony BRAVIA, Philips, Xiaomi Mi TV, TCL, Sharp, de Mi Box, de Xiaomi TV Stick en NVIDIA SHIELD. All TV Kit vindt ze daarmee op je Wi-Fi-netwerk."
      ]
     ],
     [
      "Als je tv niet in de lijst staat",
      [
-      "Zorg dat de telefoon en de tv op hetzelfde Wi-Fi-netwerk zitten (geen gastnetwerk), dat MirrorGo in Instellingen toegang heeft tot het lokale netwerk, en dat er geen vpn aanstaat. Sommige tv's reageren pas als ze helemaal aanstaan, niet in stand-by."
+      "Zorg dat de telefoon en de tv op hetzelfde Wi-Fi-netwerk zitten (geen gastnetwerk), dat All TV Kit in Instellingen toegang heeft tot het lokale netwerk, en dat er geen vpn aanstaat. Sommige tv's reageren pas als ze helemaal aanstaan, niet in stand-by."
      ]
     ]
    ],
    "faq": [
     [
      "Moet ik een app op mijn Android TV installeren?",
-     "Nee. MirrorGo gebruikt de Chromecast die in Android TV is ingebouwd. Je installeert MirrorGo alleen op je iPhone."
+     "Nee. All TV Kit gebruikt de Chromecast die in Android TV is ingebouwd. Je installeert All TV Kit alleen op je iPhone."
     ],
     [
      "Kan een iPhone zonder AirPlay naar een Android TV spiegelen?",
-     "Ja. Met MirrorGo spiegelt je iPhone via de ingebouwde Chromecast van de tv, zonder AirPlay."
+     "Ja. Met All TV Kit spiegelt je iPhone via de ingebouwde Chromecast van de tv, zonder AirPlay."
     ]
    ]
   },
   "chromecast": {
    "title": "iPhone spiegelen naar een Chromecast",
-   "description": "Spiegel je iPhone-scherm naar een Chromecast met MirrorGo, en cast foto's, video's, YouTube en live tv-zenders via Wi-Fi. Geen Google Home-app nodig.",
+   "description": "Spiegel je iPhone-scherm naar een Chromecast met All TV Kit, en cast foto's, video's, YouTube en live tv-zenders via Wi-Fi. Geen Google Home-app nodig.",
    "h1": "Spiegel je iPhone naar een Chromecast",
-   "lead": "MirrorGo toont je iPhone-scherm via een Chromecast, en op tv's met ingebouwde Chromecast zoals VIZIO SmartCast. Niets te installeren op de tv.",
+   "lead": "All TV Kit toont je iPhone-scherm via een Chromecast, en op tv's met ingebouwde Chromecast zoals VIZIO SmartCast. Niets te installeren op de tv.",
    "steps": [
     "Zet de tv aan en zet je iPhone op hetzelfde Wi-Fi-netwerk als de Chromecast.",
-    "Open MirrorGo, tik op Verbind je tv en kies je Chromecast.",
+    "Open All TV Kit, tik op Verbind je tv en kies je Chromecast.",
     "Open Scherm spiegelen, tik op Start spiegelen en dan op Start delen (Start uitzending vóór iOS 26).",
     "Binnen een paar seconden staat je scherm op de tv."
    ],
@@ -1007,35 +1027,35 @@
     [
      "Welke apparaten werken?",
      [
-      "Elke Chromecast, met of zonder Google TV, en tv's en speakers met scherm die Chromecast ingebouwd hebben, zoals VIZIO SmartCast-tv's. MirrorGo vindt ze op je Wi-Fi-netwerk zoals de eigen apps van Google dat doen."
+      "Elke Chromecast, met of zonder Google TV, en tv's en speakers met scherm die Chromecast ingebouwd hebben, zoals VIZIO SmartCast-tv's. All TV Kit vindt ze op je Wi-Fi-netwerk zoals de eigen apps van Google dat doen."
      ]
     ],
     [
      "Als je Chromecast niet in de lijst staat",
      [
-      "Zorg dat de telefoon en de Chromecast op hetzelfde Wi-Fi-netwerk zitten (geen gastnetwerk), dat MirrorGo in Instellingen toegang heeft tot het lokale netwerk, en dat er geen vpn aanstaat. Nog steeds niet te zien? Open smrr.tv in een browser op een willekeurig scherm en spiegel daar."
+      "Zorg dat de telefoon en de Chromecast op hetzelfde Wi-Fi-netwerk zitten (geen gastnetwerk), dat All TV Kit in Instellingen toegang heeft tot het lokale netwerk, en dat er geen vpn aanstaat. Nog steeds niet te zien? Open smrr.tv in een browser op een willekeurig scherm en spiegel daar."
      ]
     ]
    ],
    "faq": [
     [
      "Kan ik mijn hele iPhone-scherm naar een Chromecast spiegelen?",
-     "Ja. Een iPhone kan dat niet uit zichzelf, omdat Chromecast geen AirPlay ondersteunt, maar MirrorGo spiegelt je hele scherm, met geluid, naar een Chromecast."
+     "Ja. Een iPhone kan dat niet uit zichzelf, omdat Chromecast geen AirPlay ondersteunt, maar All TV Kit spiegelt je hele scherm, met geluid, naar een Chromecast."
     ],
     [
      "Heb ik de Google Home-app nodig?",
-     "Nee. Je Chromecast moet alleen ingesteld zijn en op je Wi-Fi-netwerk zitten. MirrorGo verbindt er rechtstreeks mee."
+     "Nee. Je Chromecast moet alleen ingesteld zijn en op je Wi-Fi-netwerk zitten. All TV Kit verbindt er rechtstreeks mee."
     ]
    ]
   },
   "firetv": {
    "title": "iPhone spiegelen naar een Fire TV Stick (zonder app op de Fire TV)",
-   "description": "Spiegel je iPhone naar een Amazon Fire TV Stick, Fire TV Cube of Fire TV-smart-tv met MirrorGo, zonder app op de Fire TV. Cast ook foto's, video's en live tv.",
+   "description": "Spiegel je iPhone naar een Amazon Fire TV Stick, Fire TV Cube of Fire TV-smart-tv met All TV Kit, zonder app op de Fire TV. Cast ook foto's, video's en live tv.",
    "h1": "Spiegel je iPhone naar een Fire TV",
-   "lead": "MirrorGo toont je iPhone op Fire TV Sticks, de Fire TV Cube en Fire TV-smart-tv's, via de speler die in elke Fire TV zit. Niets te installeren op de Fire TV.",
+   "lead": "All TV Kit toont je iPhone op Fire TV Sticks, de Fire TV Cube en Fire TV-smart-tv's, via de speler die in elke Fire TV zit. Niets te installeren op de Fire TV.",
    "steps": [
     "Zet de Fire TV aan en zet je iPhone op hetzelfde Wi-Fi-netwerk.",
-    "Open MirrorGo, tik op Verbind je tv en kies je Fire TV.",
+    "Open All TV Kit, tik op Verbind je tv en kies je Fire TV.",
     "Open Scherm spiegelen, tik op Start spiegelen en dan op Start delen (Start uitzending vóór iOS 26).",
     "Je scherm staat op de tv. Om te stoppen tik je op Stop spiegelen, of druk je op Home op de afstandsbediening van de Fire TV."
    ],
@@ -1073,7 +1093,7 @@
     [
      "Welke Fire TV's werken?",
      [
-      "Fire TV Sticks (ook de 4K en 4K Max), de Fire TV Cube en smart-tv's met ingebouwde Fire TV (Amazon, Toshiba, Insignia en andere). MirrorGo vindt ze op je Wi-Fi-netwerk."
+      "Fire TV Sticks (ook de 4K en 4K Max), de Fire TV Cube en smart-tv's met ingebouwde Fire TV (Amazon, Toshiba, Insignia en andere). All TV Kit vindt ze op je Wi-Fi-netwerk."
      ]
     ],
     [
@@ -1086,7 +1106,7 @@
    "faq": [
     [
      "Moet ik een app op mijn Fire TV installeren?",
-     "Nee. Elke Fire TV heeft een ingebouwde mediaspeler, en die gebruikt MirrorGo. Je installeert MirrorGo alleen op je iPhone."
+     "Nee. Elke Fire TV heeft een ingebouwde mediaspeler, en die gebruikt All TV Kit. Je installeert All TV Kit alleen op je iPhone."
     ],
     [
      "Kan ik een iPhone met geluid naar een Fire TV Stick spiegelen?",
@@ -1096,14 +1116,14 @@
   },
   "airplay": {
    "title": "iPhone spiegelen en casten naar Apple TV en AirPlay-tv's",
-   "description": "Spiegel je iPhone naar een Apple TV of een AirPlay-tv (Samsung, LG, Sony, VIZIO en meer), en cast foto's, video's, webvideo's en live tv-zenders met MirrorGo.",
+   "description": "Spiegel je iPhone naar een Apple TV of een AirPlay-tv (Samsung, LG, Sony, VIZIO en meer), en cast foto's, video's, webvideo's en live tv-zenders met All TV Kit.",
    "h1": "Spiegel en cast je iPhone naar Apple TV en AirPlay-tv's",
-   "lead": "Een iPhone spiegelt uit zichzelf naar een Apple TV of een AirPlay-tv, via het bedieningspaneel. MirrorGo voegt toe wat iOS niet kan: live tv-zenders, video's van websites en webafbeeldingen, afgespeeld via AirPlay.",
+   "lead": "Een iPhone spiegelt uit zichzelf naar een Apple TV of een AirPlay-tv, via het bedieningspaneel. All TV Kit voegt toe wat iOS niet kan: live tv-zenders, video's van websites en webafbeeldingen, afgespeeld via AirPlay.",
    "steps": [
     "Zet je iPhone op hetzelfde Wi-Fi-netwerk als de Apple TV of AirPlay-tv.",
     "Om je scherm te spiegelen: open het bedieningspaneel, tik op Synchrone weergave en kies de tv.",
-    "Om te casten: open MirrorGo, tik op Verbind je tv, dan op Kies een AirPlay-apparaat, en kies de tv.",
-    "Open Foto's en video's, Webvideo's of IPTV in MirrorGo en speel af: het gaat via AirPlay naar de tv."
+    "Om te casten: open All TV Kit, tik op Verbind je tv, dan op Kies een AirPlay-apparaat, en kies de tv.",
+    "Open Foto's en video's, Webvideo's of IPTV in All TV Kit en speel af: het gaat via AirPlay naar de tv."
    ],
    "features": [
     [
@@ -1145,29 +1165,29 @@
     [
      "Waarom spiegelen start vanuit het bedieningspaneel",
      [
-      "Apple laat apps geen AirPlay-schermspiegeling starten; dat kan alleen het bedieningspaneel. MirrorGo laat de stappen zien, en zodra Synchrone weergave aanstaat, kan de camera van MirrorGo ook op volledig scherm op de tv verschijnen."
+      "Apple laat apps geen AirPlay-schermspiegeling starten; dat kan alleen het bedieningspaneel. All TV Kit laat de stappen zien, en zodra Synchrone weergave aanstaat, kan de camera van All TV Kit ook op volledig scherm op de tv verschijnen."
      ]
     ]
    ],
    "faq": [
     [
-     "Kan ik AirPlay stoppen vanuit MirrorGo?",
-     "Open de tv-lijst van MirrorGo en tik op de AirPlay-kaart, kies dan iPhone in het menu: daarmee stopt AirPlay. Om scherm spiegelen te stoppen gebruik je het bedieningspaneel › Synchrone weergave › Stop synchrone weergave."
+     "Kan ik AirPlay stoppen vanuit All TV Kit?",
+     "Open de tv-lijst van All TV Kit en tik op de AirPlay-kaart, kies dan iPhone in het menu: daarmee stopt AirPlay. Om scherm spiegelen te stoppen gebruik je het bedieningspaneel › Synchrone weergave › Stop synchrone weergave."
     ],
     [
-     "Heeft MirrorGo een Apple TV nodig?",
-     "Nee. Een Apple TV is één optie; MirrorGo werkt ook met Samsung, LG, Roku, Google TV, Fire TV en elke webbrowser, zonder AirPlay."
+     "Heeft All TV Kit een Apple TV nodig?",
+     "Nee. Een Apple TV is één optie; All TV Kit werkt ook met Samsung, LG, Roku, Google TV, Fire TV en elke webbrowser, zonder AirPlay."
     ]
    ]
   },
   "browser": {
    "title": "iPhone spiegelen naar elke tv of computer via een browser (smrr.tv)",
-   "description": "Spiegel je iPhone naar elke smart-tv, pc, Mac of tablet met een webbrowser: open smrr.tv, typ de 6-cijferige code in MirrorGo, klaar. Geen app op de tv of computer.",
+   "description": "Spiegel je iPhone naar elke smart-tv, pc, Mac of tablet met een webbrowser: open smrr.tv, typ de 6-cijferige code in All TV Kit, klaar. Geen app op de tv of computer.",
    "h1": "Spiegel je iPhone naar elk scherm met een webbrowser",
-   "lead": "Elke tv, computer of tablet met een webbrowser kan je iPhone laten zien, ook een tv die MirrorGo niet vindt. Open daar smrr.tv, typ de code in MirrorGo, en je scherm staat erop, met geluid.",
+   "lead": "Elke tv, computer of tablet met een webbrowser kan je iPhone laten zien, ook een tv die All TV Kit niet vindt. Open daar smrr.tv, typ de code in All TV Kit, en je scherm staat erop, met geluid.",
    "steps": [
     "Open op de tv of computer smrr.tv in de webbrowser. De pagina toont een 6-cijferige code en een QR-code.",
-    "Open in MirrorGo de tv-lijst en tik op Spiegel naar een webbrowser.",
+    "Open in All TV Kit de tv-lijst en tik op Spiegel naar een webbrowser.",
     "Typ de code, of scan de QR-code.",
     "Open Scherm spiegelen, tik op Start spiegelen en dan op Start delen (Start uitzending vóór iOS 26)."
    ],
@@ -1218,14 +1238,14 @@
      "Tips",
      [
       "Houd de smrr.tv-pagina open zolang je spiegelt. Laad je hem opnieuw, dan verbindt hij vanzelf weer.",
-      "Voor een LG- of Samsung-tv in de buurt opent de knop “Open op…” van MirrorGo de browser van de tv voor je."
+      "Voor een LG- of Samsung-tv in de buurt opent de knop “Open op…” van All TV Kit de browser van de tv voor je."
      ]
     ]
    ],
    "faq": [
     [
      "Moet ik iets op de tv of computer installeren?",
-     "Nee, alleen een webbrowser. Open smrr.tv en typ de code die verschijnt in MirrorGo."
+     "Nee, alleen een webbrowser. Open smrr.tv en typ de code die verschijnt in All TV Kit."
     ],
     [
      "Kan iemand anders met mijn code mijn scherm zien?",
@@ -1239,11 +1259,11 @@
    "label": "Verbinden",
    "title": "iPhone verbinden met {title_art}",
    "h1": "Zo verbind je je iPhone met {art}",
-   "lead": "Je iPhone verbinden met {art} duurt met MirrorGo maar een paar seconden: allebei op hetzelfde Wi-Fi-netwerk, de tv kiezen, klaar. Niets te installeren op de tv, en MirrorGo onthoudt hem voor de volgende keer.",
-   "shot_alt": "Het beginscherm van MirrorGo met de knop Verbind je tv",
+   "lead": "Je iPhone verbinden met {art} duurt met All TV Kit maar een paar seconden: allebei op hetzelfde Wi-Fi-netwerk, de tv kiezen, klaar. Niets te installeren op de tv, en All TV Kit onthoudt hem voor de volgende keer.",
+   "shot_alt": "Het beginscherm van All TV Kit met de knop Verbind je tv",
    "tips": [
     "De telefoon en de tv moeten op hetzelfde Wi-Fi-netwerk zitten, geen gastnetwerk.",
-    "MirrorGo heeft toegang tot het lokale netwerk nodig (iOS vraagt het de eerste keer). Heb je nee gezegd: Instellingen › MirrorGo › Lokaal netwerk.",
+    "All TV Kit heeft toegang tot het lokale netwerk nodig (iOS vraagt het de eerste keer). Heb je nee gezegd: Instellingen › All TV Kit › Lokaal netwerk.",
     "Zet een eventuele vpn op de telefoon uit terwijl je cast.",
     "Helemaal geen tv gevonden? Elke tv met een webbrowser werkt via smrr.tv."
    ]
@@ -1252,18 +1272,18 @@
    "label": "Foto's en video's",
    "title": "Foto's en video's van iPhone casten naar {title_art}",
    "h1": "Zo cast je foto's en video's van je iPhone naar {art}",
-   "lead": "Met MirrorGo laat je de foto's en video's uit de bibliotheek van je iPhone in volle kwaliteit zien op {art}, en veeg je er op de telefoon doorheen terwijl de tv volgt.",
-   "shot_alt": "Een foto uit de iPhone-bibliotheek casten met MirrorGo",
+   "lead": "Met All TV Kit laat je de foto's en video's uit de bibliotheek van je iPhone in volle kwaliteit zien op {art}, en veeg je er op de telefoon doorheen terwijl de tv volgt.",
+   "shot_alt": "Een foto uit de iPhone-bibliotheek casten met All TV Kit",
    "steps": [
-    "Verbind MirrorGo met {art}.",
-    "Tik op het beginscherm van MirrorGo op Foto's en video's en geef toegang tot je foto's.",
+    "Verbind All TV Kit met {art}.",
+    "Tik op het beginscherm van All TV Kit op Foto's en video's en geef toegang tot je foto's.",
     "Kies bovenaan Video's of Foto's en tik op degene die je wilt.",
     "Tik op Start casten. Even later staat hij op de tv.",
     "Veeg door de strook onder de afbeelding: de tv volgt. Video's afspelen, pauzeren en spoelen doe je op de telefoon."
    ],
    "tips": [
     "Automatisch afspelen (de knop aan het begin van de strook) maakt er een diavoorstelling van: 5 tot 30 seconden per foto, video's tot het einde, en Herhaal om opnieuw te beginnen.",
-    "Met beperkte toegang tot foto's verschijnen alleen de foto's die je hebt gekozen. Om ze allemaal te tonen: Instellingen › MirrorGo › Foto's › Volledige toegang.",
+    "Met beperkte toegang tot foto's verschijnen alleen de foto's die je hebt gekozen. Om ze allemaal te tonen: Instellingen › All TV Kit › Foto's › Volledige toegang.",
     "Je foto's en video's gaan via je Wi-Fi van je iPhone naar de tv. Ze worden nergens geüpload.",
     "Casten stopt als je het scherm sluit."
    ]
@@ -1272,11 +1292,11 @@
    "label": "Webafbeeldingen",
    "title": "Gratis webafbeeldingen tonen op {title_art} met je iPhone",
    "h1": "Zo toon je prachtige gratis afbeeldingen op {art}",
-   "lead": "MirrorGo doorzoekt miljoenen gratis afbeeldingen met een open licentie van Wikimedia Commons (landschappen, het heelal, steden, dieren, kunst) en toont ze op volledig scherm op {art}, een voor een of als diavoorstelling.",
-   "shot_alt": "Een landschap van Wikimedia Commons, klaar om te casten met MirrorGo",
+   "lead": "All TV Kit doorzoekt miljoenen gratis afbeeldingen met een open licentie van Wikimedia Commons (landschappen, het heelal, steden, dieren, kunst) en toont ze op volledig scherm op {art}, een voor een of als diavoorstelling.",
+   "shot_alt": "Een landschap van Wikimedia Commons, klaar om te casten met All TV Kit",
    "steps": [
-    "Verbind MirrorGo met {art}.",
-    "Tik op het beginscherm van MirrorGo op Webafbeeldingen.",
+    "Verbind All TV Kit met {art}.",
+    "Tik op het beginscherm van All TV Kit op Webafbeeldingen.",
     "Zoek naar wat je maar wilt, of tik op een onderwerp: Natuur, Ruimte, Steden, Dieren, Oceaan, Bergen, Kunst, Bloemen.",
     "Tik op een afbeelding en dan op Start casten.",
     "Veeg naar de volgende afbeelding en de tv volgt, of zet de diavoorstelling aan."
@@ -1291,11 +1311,11 @@
    "label": "Live tv (IPTV)",
    "title": "Gratis live tv (IPTV) kijken op {title_art} met je iPhone",
    "h1": "Zo kijk je gratis live tv-zenders op {art}",
-   "lead": "MirrorGo heeft meer dan 9.000 gratis, openbare live tv-zenders uit meer dan 180 landen (nieuws, sport, films, muziek, kinderen en meer) en speelt ze met één tik af op {art}. Je kunt ook je eigen M3U-afspeellijsten toevoegen.",
-   "shot_alt": "Het IPTV-scherm van MirrorGo: afspeellijsten, categorieën en landen",
+   "lead": "All TV Kit heeft meer dan 9.000 gratis, openbare live tv-zenders uit meer dan 180 landen (nieuws, sport, films, muziek, kinderen en meer) en speelt ze met één tik af op {art}. Je kunt ook je eigen M3U-afspeellijsten toevoegen.",
+   "shot_alt": "Het IPTV-scherm van All TV Kit: afspeellijsten, categorieën en landen",
    "steps": [
-    "Verbind MirrorGo met {art}.",
-    "Tik op het beginscherm van MirrorGo op IPTV.",
+    "Verbind All TV Kit met {art}.",
+    "Tik op het beginscherm van All TV Kit op IPTV.",
     "Kies een land of een categorie, of zoek een zender op naam.",
     "Tik op een zender: hij start op de tv. Tik op een andere om te wisselen.",
     "Tik op ☆ om een zender bij Favorieten te bewaren; tik op + om een link naar een M3U-afspeellijst toe te voegen."
@@ -1310,11 +1330,11 @@
    "label": "YouTube",
    "title": "YouTube van iPhone casten naar {title_art}",
    "h1": "Zo cast je YouTube van je iPhone naar {art}",
-   "lead": "Zoek een YouTube-video in MirrorGo en tik op Cast naar tv: de video speelt dan zelfstandig af op {art}, in volle kwaliteit, vanaf waar je was, terwijl je je telefoon gewoon blijft gebruiken.",
-   "shot_alt": "Een YouTube-video zoeken om te casten in MirrorGo",
+   "lead": "Zoek een YouTube-video in All TV Kit en tik op Cast naar tv: de video speelt dan zelfstandig af op {art}, in volle kwaliteit, vanaf waar je was, terwijl je je telefoon gewoon blijft gebruiken.",
+   "shot_alt": "Een YouTube-video zoeken om te casten in All TV Kit",
    "steps": [
-    "Verbind MirrorGo met {art}.",
-    "Tik op het beginscherm van MirrorGo op YouTube.",
+    "Verbind All TV Kit met {art}.",
+    "Tik op het beginscherm van All TV Kit op YouTube.",
     "Kies een onderwerp (Muziek, Nieuws, Sport, Live…) of zoek, en open een video.",
     "Tik op Cast naar tv. De video start op de tv vanaf het punt waar je was."
    ],
@@ -1327,30 +1347,30 @@
    "label": "Webvideo's",
    "title": "Video's van elke website casten naar {title_art} met je iPhone",
    "h1": "Zo cast je video's van websites naar {art}",
-   "lead": "Open een website in MirrorGo, speel de video af en tik op Cast naar tv: MirrorGo vindt de video (niet de advertentie), die dan in volle kwaliteit afspeelt op {art} terwijl jij verder surft.",
-   "shot_alt": "De webvideobrowser van MirrorGo met populaire sites",
+   "lead": "Open een website in All TV Kit, speel de video af en tik op Cast naar tv: All TV Kit vindt de video (niet de advertentie), die dan in volle kwaliteit afspeelt op {art} terwijl jij verder surft.",
+   "shot_alt": "De webvideobrowser van All TV Kit met populaire sites",
    "steps": [
-    "Verbind MirrorGo met {art}.",
-    "Tik op het beginscherm van MirrorGo op Webvideo's.",
+    "Verbind All TV Kit met {art}.",
+    "Tik op het beginscherm van All TV Kit op Webvideo's.",
     "Open een site via de snelkoppelingen, of typ het adres.",
-    "Speel de video af op de pagina. Cast naar tv wordt actief zodra MirrorGo hem vindt.",
-    "Tik op Cast naar tv. Heeft MirrorGo meerdere video's gevonden, kies dan de juiste (“1 van 3”)."
+    "Speel de video af op de pagina. Cast naar tv wordt actief zodra All TV Kit hem vindt.",
+    "Tik op Cast naar tv. Heeft All TV Kit meerdere video's gevonden, kies dan de juiste (“1 van 3”)."
    ],
    "tips": [
-    "MirrorGo blokkeert advertentienetwerken en cast nooit heel korte clips, zodat advertenties niet op de tv komen.",
+    "All TV Kit blokkeert advertentienetwerken en cast nooit heel korte clips, zodat advertenties niet op de tv komen.",
     "Sites die hun video's beschermen (Netflix, Prime Video, Disney+) kunnen niet gecast worden.",
-    "Houd MirrorGo open zolang de video speelt. Surfen is privé: er worden geen geschiedenis, cookies of cache bewaard."
+    "Houd All TV Kit open zolang de video speelt. Surfen is privé: er worden geen geschiedenis, cookies of cache bewaard."
    ]
   },
   "camera": {
    "label": "Camera",
    "title": "Je iPhone-camera live tonen op {title_art}",
    "h1": "Zo toon je de camera van je iPhone live op {art}",
-   "lead": "MirrorGo maakt van je iPhone een livecamera voor {art}: laat de kamer, een whiteboard, een document, je huisdier of jezelf zien, met de voor- of achtercamera.",
-   "shot_alt": "Het beginscherm van MirrorGo met de tegel Camera",
+   "lead": "All TV Kit maakt van je iPhone een livecamera voor {art}: laat de kamer, een whiteboard, een document, je huisdier of jezelf zien, met de voor- of achtercamera.",
+   "shot_alt": "Het beginscherm van All TV Kit met de tegel Camera",
    "steps": [
-    "Verbind MirrorGo met {art}.",
-    "Tik op het beginscherm van MirrorGo op Camera en geef toegang tot de camera.",
+    "Verbind All TV Kit met {art}.",
+    "Tik op het beginscherm van All TV Kit op Camera en geef toegang tot de camera.",
     "Kies de voor- of achtercamera, en zet Geluid aan als je de microfoon ook wilt gebruiken.",
     "Tik op Start casten. De tv toont wat de camera ziet, recht met de horizon."
    ],
@@ -1368,20 +1388,20 @@
    },
    "connect": [
     "Zet je Samsung-tv aan en zet je iPhone op hetzelfde Wi-Fi-netwerk.",
-    "Open MirrorGo en tik op Verbind je tv. Je Samsung-tv verschijnt met zijn naam.",
-    "Tik erop. De eerste keer vraagt de tv of MirrorGo toegestaan wordt: kies Toestaan met de afstandsbediening.",
-    "Verbonden. MirrorGo onthoudt de tv en de tv onthoudt MirrorGo, dus het wordt niet meer gevraagd."
+    "Open All TV Kit en tik op Verbind je tv. Je Samsung-tv verschijnt met zijn naam.",
+    "Tik erop. De eerste keer vraagt de tv of All TV Kit toegestaan wordt: kies Toestaan met de afstandsbediening.",
+    "Verbonden. All TV Kit onthoudt de tv en de tv onthoudt All TV Kit, dus het wordt niet meer gevraagd."
    ],
    "connect_notes": [
-    "MirrorGo werkt met Samsung-smart-tv's vanaf 2016 (Tizen). Het verbindt met de afstandsbedieningsverbinding en de ingebouwde mediaspeler van de tv, dus er hoeft niets op de tv geïnstalleerd te worden.",
-    "Per ongeluk Weigeren gekozen? De tv onthoudt dat. Open op de tv Instellingen › Algemeen › Beheer externe apparaten › Beheer apparaatverbindingen › Apparatenlijst (External Device Manager › Device Connection Manager › Device List) en sta MirrorGo toe, of verwijder het zodat de tv het opnieuw vraagt."
+    "All TV Kit werkt met Samsung-smart-tv's vanaf 2016 (Tizen). Het verbindt met de afstandsbedieningsverbinding en de ingebouwde mediaspeler van de tv, dus er hoeft niets op de tv geïnstalleerd te worden.",
+    "Per ongeluk Weigeren gekozen? De tv onthoudt dat. Open op de tv Instellingen › Algemeen › Beheer externe apparaten › Beheer apparaatverbindingen › Apparatenlijst (External Device Manager › Device Connection Manager › Device List) en sta All TV Kit toe, of verwijder het zodat de tv het opnieuw vraagt."
    ],
-   "photos": "De Samsung-tv speelt ze af in zijn eigen mediaspeler: MirrorGo biedt elke foto of video via je Wi-Fi aan vanaf je iPhone en de tv haalt hem op, dus video's spelen in volle kwaliteit af met het geluid van de tv. iPhone-video's in HEVC gaan zoals ze zijn; kan je tv er een niet afspelen, dan stuurt MirrorGo hem als H.264 en onthoudt dat voor de volgende keer.",
+   "photos": "De Samsung-tv speelt ze af in zijn eigen mediaspeler: All TV Kit biedt elke foto of video via je Wi-Fi aan vanaf je iPhone en de tv haalt hem op, dus video's spelen in volle kwaliteit af met het geluid van de tv. iPhone-video's in HEVC gaan zoals ze zijn; kan je tv er een niet afspelen, dan stuurt All TV Kit hem als H.264 en onthoudt dat voor de volgende keer.",
    "images": "Afbeeldingen verschijnen in de eigen mediaspeler van de tv, op maat van het tv-scherm.",
-   "iptv": "Je Samsung-tv krijgt eerst de stream van de zender om zelf af te spelen. Speelt hij na een paar seconden nog niet, dan stuurt MirrorGo de stream via je iPhone door en onthoudt dat je tv dat nodig heeft; de telefoon mag vergrendeld zijn, maar houd hem op het Wi-Fi-netwerk.",
-   "youtube": "Op Samsung opent de video in de eigen YouTube-app van de tv, die MirrorGo bedient zoals de YouTube-app op je telefoon dat doet, vanaf het punt waar je was.",
+   "iptv": "Je Samsung-tv krijgt eerst de stream van de zender om zelf af te spelen. Speelt hij na een paar seconden nog niet, dan stuurt All TV Kit de stream via je iPhone door en onthoudt dat je tv dat nodig heeft; de telefoon mag vergrendeld zijn, maar houd hem op het Wi-Fi-netwerk.",
+   "youtube": "Op Samsung opent de video in de eigen YouTube-app van de tv, die All TV Kit bedient zoals de YouTube-app op je telefoon dat doet, vanaf het punt waar je was.",
    "webvideos": "De speler van Samsung krijgt de video als één doorlopende stream via je iPhone, met de reclameblokken van de site erin, dus hij speelt van begin tot eind af; spoelen vanaf de telefoon start hem opnieuw vanaf dat punt.",
-   "camera": "Met geluid: zet Geluid aan voordat je start en MirrorGo voegt de microfoon toe."
+   "camera": "Met geluid: zet Geluid aan voordat je start en All TV Kit voegt de microfoon toe."
   },
   "lg": {
    "forms": {
@@ -1390,19 +1410,19 @@
    },
    "connect": [
     "Zet je LG-tv aan en zet je iPhone op hetzelfde Wi-Fi-netwerk.",
-    "Open MirrorGo en tik op Verbind je tv. Je LG-tv verschijnt met zijn naam.",
-    "Tik erop. De eerste keer vraagt de tv of MirrorGo toegestaan wordt: kies Toestaan (of Ja) met de afstandsbediening.",
-    "Verbonden. MirrorGo bewaart de sleutel van de tv, dus de volgende keer verbindt het meteen."
+    "Open All TV Kit en tik op Verbind je tv. Je LG-tv verschijnt met zijn naam.",
+    "Tik erop. De eerste keer vraagt de tv of All TV Kit toegestaan wordt: kies Toestaan (of Ja) met de afstandsbediening.",
+    "Verbonden. All TV Kit bewaart de sleutel van de tv, dus de volgende keer verbindt het meteen."
    ],
    "connect_notes": [
-    "MirrorGo werkt met LG-smart-tv's met webOS. Er wordt niets op de tv geïnstalleerd: MirrorGo praat met de tv zoals de eigen telefoonapps van LG dat doen.",
+    "All TV Kit werkt met LG-smart-tv's met webOS. Er wordt niets op de tv geïnstalleerd: All TV Kit praat met de tv zoals de eigen telefoonapps van LG dat doen.",
     "Melding gemist of Weigeren gekozen? Verbind gewoon opnieuw en de tv vraagt het nog een keer. Op oudere LG-tv's zet je eerst LG Connect Apps aan in de netwerkinstellingen van de tv."
    ],
-   "photos": "Op LG speelt MirrorGo ze eerst af in de webbrowser van de tv, die het voor je opent en die de meeste soorten video aankan. Na een paar seconden vraagt het “Speelt het af op je tv?”: tik op Nee en het sluit de browser en gebruikt de eigen speler van de tv. Hoe dan ook gaan de foto's en video's via je Wi-Fi, niet via internet.",
-   "images": "MirrorGo opent de webbrowser van de tv, die de afbeelding rechtstreeks van Wikimedia Commons laadt, in volle resolutie. Verschijnt er niets, tik dan op Nee als MirrorGo vraagt “Speelt het af op je tv?” en het gebruikt de eigen speler van de tv.",
-   "iptv": "De zender speelt af in de webbrowser van de LG-tv, die aankan wat de eigen speler van LG niet aankan: reclameblokken in gratis zenders, losse audio en versleutelde streams. Speelt hij niet af, tik dan op Nee als MirrorGo vraagt “Speelt het af op je tv?” en het probeert de speler van de tv.",
+   "photos": "Op LG speelt All TV Kit ze eerst af in de webbrowser van de tv, die het voor je opent en die de meeste soorten video aankan. Na een paar seconden vraagt het “Speelt het af op je tv?”: tik op Nee en het sluit de browser en gebruikt de eigen speler van de tv. Hoe dan ook gaan de foto's en video's via je Wi-Fi, niet via internet.",
+   "images": "All TV Kit opent de webbrowser van de tv, die de afbeelding rechtstreeks van Wikimedia Commons laadt, in volle resolutie. Verschijnt er niets, tik dan op Nee als All TV Kit vraagt “Speelt het af op je tv?” en het gebruikt de eigen speler van de tv.",
+   "iptv": "De zender speelt af in de webbrowser van de LG-tv, die aankan wat de eigen speler van LG niet aankan: reclameblokken in gratis zenders, losse audio en versleutelde streams. Speelt hij niet af, tik dan op Nee als All TV Kit vraagt “Speelt het af op je tv?” en het probeert de speler van de tv.",
    "youtube": "Op LG opent de video in de eigen YouTube-app van de tv, vanaf het punt waar je was.",
-   "webvideos": "MirrorGo opent de webbrowser van de tv en stuurt hem de link naar de video. Speelt de site de video alleen af met de cookies van je telefoon, dan streamt je iPhone hem naar de tv.",
+   "webvideos": "All TV Kit opent de webbrowser van de tv en stuurt hem de link naar de video. Speelt de site de video alleen af met de cookies van je telefoon, dan streamt je iPhone hem naar de tv.",
    "camera": "De camera verschijnt eerst in de webbrowser van de tv, met dezelfde vraag “Speelt het af op je tv?”; Nee schakelt over naar de eigen speler van de tv."
   },
   "roku": {
@@ -1412,14 +1432,14 @@
    },
    "connect": [
     "Zet je Roku-tv of Roku-speler aan en zet je iPhone op hetzelfde Wi-Fi-netwerk.",
-    "Open MirrorGo en tik op Verbind je tv. Je Roku verschijnt met zijn naam.",
+    "Open All TV Kit en tik op Verbind je tv. Je Roku verschijnt met zijn naam.",
     "Tik erop om te verbinden. Geen code nodig.",
-    "Verbonden. MirrorGo onthoudt je Roku voor de volgende keer."
+    "Verbonden. All TV Kit onthoudt je Roku voor de volgende keer."
    ],
    "connect_notes": [
-    "MirrorGo werkt met Roku-tv's (TCL, Hisense, Sharp, Philips en andere Roku TV-modellen) en Roku-streamingspelers: de Roku Express, Streaming Stick en Ultra.",
+    "All TV Kit werkt met Roku-tv's (TCL, Hisense, Sharp, Philips en andere Roku TV-modellen) en Roku-streamingspelers: de Roku Express, Streaming Stick en Ultra.",
     "Roku niet in de lijst? Open op de Roku Instellingen › Systeem › Geavanceerde systeeminstellingen › Bediening via mobiele apps (Control by mobile apps) en zet Netwerktoegang op Standaard (Network access: Default).",
-    "Op een Roku spiegelt MirrorGo je scherm, met geluid, in de eigen speler van de Roku. Foto's, video's, de camera, YouTube en live tv kun je nog niet naar een Roku casten."
+    "Op een Roku spiegelt All TV Kit je scherm, met geluid, in de eigen speler van de Roku. Foto's, video's, de camera, YouTube en live tv kun je nog niet naar een Roku casten."
    ]
   },
   "googletv": {
@@ -1429,20 +1449,20 @@
    },
    "connect": [
     "Zet je Google TV aan en zet je iPhone op hetzelfde Wi-Fi-netwerk.",
-    "Open MirrorGo en tik op Verbind je tv. Je tv verschijnt met de naam die hij in Google Home heeft (bijvoorbeeld Tv woonkamer).",
+    "Open All TV Kit en tik op Verbind je tv. Je tv verschijnt met de naam die hij in Google Home heeft (bijvoorbeeld Tv woonkamer).",
     "Tik erop om te verbinden. Geen code, geen melding op de tv.",
-    "Verbonden. MirrorGo verbindt de volgende keer weer vanzelf."
+    "Verbonden. All TV Kit verbindt de volgende keer weer vanzelf."
    ],
    "connect_notes": [
-    "Google TV heeft ingebouwde Chromecast, en zo praat MirrorGo ermee: op Google TV's van Sony, TCL, Hisense en Philips, de Chromecast met Google TV en de Google TV Streamer.",
-    "Niet in de lijst? Zet de tv helemaal aan (niet in stand-by), controleer of hij op hetzelfde Wi-Fi-netwerk zit als de telefoon en of MirrorGo toegang heeft tot het lokale netwerk."
+    "Google TV heeft ingebouwde Chromecast, en zo praat All TV Kit ermee: op Google TV's van Sony, TCL, Hisense en Philips, de Chromecast met Google TV en de Google TV Streamer.",
+    "Niet in de lijst? Zet de tv helemaal aan (niet in stand-by), controleer of hij op hetzelfde Wi-Fi-netwerk zit als de telefoon en of All TV Kit toegang heeft tot het lokale netwerk."
    ],
-   "photos": "Foto's gaan via je Wi-Fi als afbeeldingen op volledig scherm naar de tv; video's spelen af in de speler van MirrorGo op de tv, met afspelen, pauzeren en spoelen op de telefoon.",
+   "photos": "Foto's gaan via je Wi-Fi als afbeeldingen op volledig scherm naar de tv; video's spelen af in de speler van All TV Kit op de tv, met afspelen, pauzeren en spoelen op de telefoon.",
    "images": "Afbeeldingen verschijnen op volledig scherm via de ingebouwde Chromecast van de tv.",
    "iptv": "De tv haalt de zender zelf op, dus hij speelt door, ook als je telefoon vergrendeld is of niet in de kamer.",
-   "youtube": "De video speelt af in de speler van YouTube in de app van MirrorGo op de tv, vanaf het punt waar je was.",
-   "webvideos": "De tv speelt de video af via MirrorGo, dat de video van de site vanaf je telefoon doorgeeft; houd MirrorGo open zolang hij speelt.",
-   "camera": "Met geluid: zet Geluid aan voordat je start en MirrorGo voegt de microfoon toe."
+   "youtube": "De video speelt af in de speler van YouTube in de app van All TV Kit op de tv, vanaf het punt waar je was.",
+   "webvideos": "De tv speelt de video af via All TV Kit, dat de video van de site vanaf je telefoon doorgeeft; houd All TV Kit open zolang hij speelt.",
+   "camera": "Met geluid: zet Geluid aan voordat je start en All TV Kit voegt de microfoon toe."
   },
   "androidtv": {
    "forms": {
@@ -1451,20 +1471,20 @@
    },
    "connect": [
     "Zet je Android TV aan en zet je iPhone op hetzelfde Wi-Fi-netwerk.",
-    "Open MirrorGo en tik op Verbind je tv. Je tv verschijnt met zijn Chromecast-naam.",
+    "Open All TV Kit en tik op Verbind je tv. Je tv verschijnt met zijn Chromecast-naam.",
     "Tik erop om te verbinden. Geen code, geen melding op de tv.",
-    "Verbonden. MirrorGo verbindt de volgende keer weer vanzelf."
+    "Verbonden. All TV Kit verbindt de volgende keer weer vanzelf."
    ],
    "connect_notes": [
-    "Bijna elke Android TV heeft ingebouwde Chromecast, en daarmee praat MirrorGo met de tv: Sony BRAVIA, Philips, Xiaomi, TCL, Sharp, de Mi Box, de Xiaomi TV Stick en NVIDIA SHIELD.",
-    "Niet in de lijst? Zet de tv helemaal aan (niet in stand-by), controleer of hij op hetzelfde Wi-Fi-netwerk zit als de telefoon en of MirrorGo toegang heeft tot het lokale netwerk."
+    "Bijna elke Android TV heeft ingebouwde Chromecast, en daarmee praat All TV Kit met de tv: Sony BRAVIA, Philips, Xiaomi, TCL, Sharp, de Mi Box, de Xiaomi TV Stick en NVIDIA SHIELD.",
+    "Niet in de lijst? Zet de tv helemaal aan (niet in stand-by), controleer of hij op hetzelfde Wi-Fi-netwerk zit als de telefoon en of All TV Kit toegang heeft tot het lokale netwerk."
    ],
-   "photos": "Foto's gaan via je Wi-Fi als afbeeldingen op volledig scherm naar de tv; video's spelen af in de speler van MirrorGo op de tv, met afspelen, pauzeren en spoelen op de telefoon.",
+   "photos": "Foto's gaan via je Wi-Fi als afbeeldingen op volledig scherm naar de tv; video's spelen af in de speler van All TV Kit op de tv, met afspelen, pauzeren en spoelen op de telefoon.",
    "images": "Afbeeldingen verschijnen op volledig scherm via de ingebouwde Chromecast van de tv.",
    "iptv": "De tv haalt de zender zelf op, dus hij speelt door, ook als je telefoon vergrendeld is of niet in de kamer.",
-   "youtube": "De video speelt af in de speler van YouTube in de app van MirrorGo op de tv, vanaf het punt waar je was.",
-   "webvideos": "De tv speelt de video af via MirrorGo, dat de video van de site vanaf je telefoon doorgeeft; houd MirrorGo open zolang hij speelt.",
-   "camera": "Met geluid: zet Geluid aan voordat je start en MirrorGo voegt de microfoon toe."
+   "youtube": "De video speelt af in de speler van YouTube in de app van All TV Kit op de tv, vanaf het punt waar je was.",
+   "webvideos": "De tv speelt de video af via All TV Kit, dat de video van de site vanaf je telefoon doorgeeft; houd All TV Kit open zolang hij speelt.",
+   "camera": "Met geluid: zet Geluid aan voordat je start en All TV Kit voegt de microfoon toe."
   },
   "chromecast": {
    "forms": {
@@ -1473,20 +1493,20 @@
    },
    "connect": [
     "Zet de tv aan waar je Chromecast in zit, en zet je iPhone op hetzelfde Wi-Fi-netwerk.",
-    "Open MirrorGo en tik op Verbind je tv. De Chromecast verschijnt met zijn naam uit Google Home.",
+    "Open All TV Kit en tik op Verbind je tv. De Chromecast verschijnt met zijn naam uit Google Home.",
     "Tik erop om te verbinden. Geen code, geen Google Home-app nodig.",
-    "Verbonden. MirrorGo verbindt de volgende keer weer vanzelf."
+    "Verbonden. All TV Kit verbindt de volgende keer weer vanzelf."
    ],
    "connect_notes": [
     "Elke Chromecast werkt, met of zonder Google TV, en ook tv's met ingebouwde Chromecast zoals VIZIO SmartCast-tv's.",
-    "Niet in de lijst? Controleer of de Chromecast op hetzelfde Wi-Fi-netwerk zit als de telefoon (geen gastnetwerk), en of MirrorGo in Instellingen toegang heeft tot het lokale netwerk."
+    "Niet in de lijst? Controleer of de Chromecast op hetzelfde Wi-Fi-netwerk zit als de telefoon (geen gastnetwerk), en of All TV Kit in Instellingen toegang heeft tot het lokale netwerk."
    ],
-   "photos": "Foto's gaan via je Wi-Fi als afbeeldingen op volledig scherm naar de tv; video's spelen af in de speler van MirrorGo op de Chromecast, met afspelen, pauzeren en spoelen op de telefoon.",
+   "photos": "Foto's gaan via je Wi-Fi als afbeeldingen op volledig scherm naar de tv; video's spelen af in de speler van All TV Kit op de Chromecast, met afspelen, pauzeren en spoelen op de telefoon.",
    "images": "Afbeeldingen verschijnen op volledig scherm via de Chromecast.",
    "iptv": "De Chromecast haalt de zender zelf op, dus hij speelt door, ook als je telefoon vergrendeld is.",
-   "youtube": "De video speelt af in de speler van YouTube in de app van MirrorGo op de Chromecast, vanaf het punt waar je was.",
-   "webvideos": "De Chromecast speelt de video af via MirrorGo, dat de video van de site vanaf je telefoon doorgeeft; houd MirrorGo open zolang hij speelt.",
-   "camera": "Met geluid: zet Geluid aan voordat je start en MirrorGo voegt de microfoon toe."
+   "youtube": "De video speelt af in de speler van YouTube in de app van All TV Kit op de Chromecast, vanaf het punt waar je was.",
+   "webvideos": "De Chromecast speelt de video af via All TV Kit, dat de video van de site vanaf je telefoon doorgeeft; houd All TV Kit open zolang hij speelt.",
+   "camera": "Met geluid: zet Geluid aan voordat je start en All TV Kit voegt de microfoon toe."
   },
   "firetv": {
    "forms": {
@@ -1495,18 +1515,18 @@
    },
    "connect": [
     "Zet je Fire TV aan en zet je iPhone op hetzelfde Wi-Fi-netwerk.",
-    "Open MirrorGo en tik op Verbind je tv. Je Fire TV verschijnt met zijn naam.",
+    "Open All TV Kit en tik op Verbind je tv. Je Fire TV verschijnt met zijn naam.",
     "Tik erop om te verbinden. Geen app op de Fire TV, geen koppelen, geen code.",
-    "Verbonden. MirrorGo verbindt de volgende keer weer vanzelf."
+    "Verbonden. All TV Kit verbindt de volgende keer weer vanzelf."
    ],
    "connect_notes": [
-    "Elke Fire TV heeft een ingebouwde mediaspeler, en die gebruikt MirrorGo: Fire TV Sticks (ook de 4K en 4K Max), de Fire TV Cube en smart-tv's met ingebouwde Fire TV.",
+    "Elke Fire TV heeft een ingebouwde mediaspeler, en die gebruikt All TV Kit: Fire TV Sticks (ook de 4K en 4K Max), de Fire TV Cube en smart-tv's met ingebouwde Fire TV.",
     "Niet in de lijst? Druk op Home op de afstandsbediening van de Fire TV om hem te wekken, en controleer of hij op hetzelfde Wi-Fi-netwerk zit als de telefoon."
    ],
-   "photos": "Foto's gaan als afbeeldingen en video's als MP4-bestanden, via je Wi-Fi aangeboden vanaf je iPhone. Fire TV kan geen HEVC afspelen, het standaard videoformaat van de iPhone, dus MirrorGo zet die video's eerst om naar H.264; lange video's duren even.",
+   "photos": "Foto's gaan als afbeeldingen en video's als MP4-bestanden, via je Wi-Fi aangeboden vanaf je iPhone. Fire TV kan geen HEVC afspelen, het standaard videoformaat van de iPhone, dus All TV Kit zet die video's eerst om naar H.264; lange video's duren even.",
    "images": "Afbeeldingen verschijnen op volledig scherm in de ingebouwde speler van de Fire TV.",
    "iptv": "De Fire TV speelt de stream van de zender zelf af, dus hij speelt door zonder je telefoon.",
-   "webvideos": "De Fire TV speelt de video van de site af zoals je iPhone die doorgeeft; houd MirrorGo open zolang hij speelt.",
+   "webvideos": "De Fire TV speelt de video van de site af zoals je iPhone die doorgeeft; houd All TV Kit open zolang hij speelt.",
    "camera": "Alleen beeld: de ingebouwde speler van de Fire TV toont de camera zonder geluid."
   },
   "airplay": {
@@ -1516,18 +1536,18 @@
    },
    "connect": [
     "Zet je Apple TV of AirPlay-tv aan en zet je iPhone op hetzelfde Wi-Fi-netwerk.",
-    "Open MirrorGo, tik op Verbind je tv en dan op Kies een AirPlay-apparaat.",
+    "Open All TV Kit, tik op Verbind je tv en dan op Kies een AirPlay-apparaat.",
     "Kies je Apple TV of AirPlay-tv in het AirPlay-menu van iOS. De eerste keer kan de tv een code tonen die je op de iPhone typt.",
-    "Verbonden: MirrorGo toont “Verbonden via AirPlay”. Om de verbinding te verbreken, open je hetzelfde menu en kies je iPhone."
+    "Verbonden: All TV Kit toont “Verbonden via AirPlay”. Om de verbinding te verbreken, open je hetzelfde menu en kies je iPhone."
    ],
    "connect_notes": [
     "Dit werkt met de Apple TV HD en Apple TV 4K, en met tv's met ingebouwde AirPlay: veel modellen van Samsung, LG, Sony, VIZIO, TCL en Roku vanaf 2018.",
     "Om je hele scherm naar een AirPlay-apparaat te spiegelen, gebruik je het bedieningspaneel › Synchrone weergave: Apple laat apps dat niet starten."
    ],
-   "photos": "Video's spelen af via AirPlay, en foto's ook: MirrorGo maakt van elke foto een korte stilstaande video. Met Synchrone weergave aan in het bedieningspaneel verschijnen foto's direct op de tv.",
+   "photos": "Video's spelen af via AirPlay, en foto's ook: All TV Kit maakt van elke foto een korte stilstaande video. Met Synchrone weergave aan in het bedieningspaneel verschijnen foto's direct op de tv.",
    "images": "Afbeeldingen gaan via AirPlay als stilstaande video's, of direct naar de tv als Synchrone weergave aanstaat in het bedieningspaneel.",
    "iptv": "De zender speelt af via AirPlay: de Apple TV haalt de stream zelf op.",
-   "webvideos": "De video speelt af via AirPlay; houd MirrorGo open zolang hij speelt.",
+   "webvideos": "De video speelt af via AirPlay; houd All TV Kit open zolang hij speelt.",
    "camera": "Zet eerst Synchrone weergave aan in het bedieningspaneel: de camera verschijnt dan op volledig scherm op de tv, zonder geluid."
   },
   "browser": {
@@ -1537,12 +1557,12 @@
    },
    "connect": [
     "Open op de tv, computer of tablet smrr.tv in de webbrowser. Die toont een 6-cijferige code en een QR-code.",
-    "Tik in MirrorGo op Verbind je tv en dan op Spiegel naar een webbrowser.",
+    "Tik in All TV Kit op Verbind je tv en dan op Spiegel naar een webbrowser.",
     "Typ de code, of tik op Scan QR-code en richt de camera erop.",
     "Verbonden. De pagina toont je telefoon in plaats van de code."
    ],
    "connect_notes": [
-    "Elk scherm met een moderne webbrowser werkt: smart-tv's die MirrorGo niet als tv vindt, Windows-pc's, Macs, Chromebooks en tablets. Voor een LG- of Samsung-tv in de buurt opent “Open op…” de browser van de tv voor je.",
+    "Elk scherm met een moderne webbrowser werkt: smart-tv's die All TV Kit niet als tv vindt, Windows-pc's, Macs, Chromebooks en tablets. Voor een LG- of Samsung-tv in de buurt opent “Open op…” de browser van de tv voor je.",
     "De telefoon en de browser verbinden rechtstreeks met elkaar, dus ze moeten op hetzelfde Wi-Fi-netwerk zitten. Houd de pagina open; laad je hem opnieuw, dan verbindt hij vanzelf weer."
    ],
    "photos": "Foto's en video's gaan via je Wi-Fi als livestream rechtstreeks van je iPhone naar de browser, schermvullend in 16:9, met het geluid van de video.",

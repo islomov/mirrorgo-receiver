@@ -1,7 +1,7 @@
 {
   "$schema": "https://unpkg.com/wrangler/config-schema.json",
-  // mirrorgo.app: MirrorGo's landing page, also served as is on alltvkit.app (same pages; their canonical
-  // URLs stay on mirrorgo.app). Static files built by build.py into ./public; worker.js sends www.<domain>
+  // alltvkit.app: All TV Kit's landing page (the app was called MirrorGo), also served as is on mirrorgo.app
+  // (same pages; their canonical URLs are on alltvkit.app). Static files built by build.py into ./public; worker.js sends www.<domain>
   // to <domain> and the removed Roku articles to the Roku guide, and counts page views and link clicks
   // (POST /e from site.js) in the Analytics Engine dataset below.
   "name": "mirrorgo-site",

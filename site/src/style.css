@@ -1,4 +1,4 @@
-/* mirrorgo.app: the MirrorGo app's look (near-black page, dark cards with a hairline border, Sora,
+/* alltvkit.app: the All TV Kit app's look (near-black page, dark cards with a hairline border, Sora,
    the purple gradient). Colours from the app's asset catalog: appBackground #0e0e12, surfacePrimary
    #1b1b22, fill #24242d, fillStrong #2e2e38, textSecondary #8e8e99, cardBorder white 6%,
    primaryPurpleStart #755cff → primaryPurpleEnd #5c44e2. */
@@ -173,7 +173,7 @@ section { padding: 90px 0; }
 .kicker { display: block; margin-bottom: 14px; color: var(--lilac); font: 600 14px var(--head); letter-spacing: .04em; text-transform: uppercase; }
 
 /* Feature grid (Home's tiles) */
-.tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .tile {
   position: relative; overflow: hidden;
   padding: 24px; border-radius: var(--radius);

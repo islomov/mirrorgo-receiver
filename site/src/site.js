@@ -1,4 +1,4 @@
-// mirrorgo.app: header border on scroll, the mobile menu, the language menu and hint, and sections
+// alltvkit.app (All TV Kit): header border on scroll, the mobile menu, the language menu and hint, and sections
 // easing in once.
 // Everything is readable without it (crawlers, no JS): `.reveal` only hides content under `.js`.
 (function () {

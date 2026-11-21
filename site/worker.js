@@ -1,4 +1,4 @@
-// mirrorgo.app, and the same site on alltvkit.app: www.<domain> → <domain>, POST /e counts a page view or a
+// alltvkit.app, and the same site on mirrorgo.app (its first domain): www.<domain> → <domain>, POST /e counts a page view or a
 // click (see count()), everything else from the static files (./public).
 
 // Roku articles for features a Roku doesn't have (MirrorGo only mirrors the screen to a Roku): they were
@@ -7,7 +7,7 @@ const GONE_ROKU_POSTS = /^(\/[a-z-]+)?\/blog\/(cast-photos-and-videos-from-iphon
 
 // The domains the site opens on (wrangler.jsonc's routes). The first is the main one: canonical URLs, the
 // sitemap and structured data point to it, so search engines don't see two copies of the site.
-const SITES = ["mirrorgo.app", "alltvkit.app"];
+const SITES = ["alltvkit.app", "mirrorgo.app"];
 
 export default {
   async fetch(request, env) {

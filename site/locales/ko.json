@@ -1,7 +1,7 @@
 {
  "ui": {
   "skip": "본문으로 건너뛰기",
-  "home_aria": "MirrorGo 홈",
+  "home_aria": "All TV Kit 홈",
   "menu": "메뉴",
   "language": "언어",
   "nav_features": "기능",
@@ -10,7 +10,7 @@
   "nav_help": "도움말",
   "download": "App Store에서 다운로드",
   "coming_soon": "App Store 출시 예정",
-  "footer_blurb": "iPhone 화면 미러링 및 TV 전송 앱. 삼성, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV 및 모든 웹 브라우저 지원.",
+  "footer_blurb": "iPhone용 TV 리모컨, 화면 미러링 및 TV 전송 앱. 삼성, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV 및 모든 웹 브라우저 지원.",
   "footer_mirror_to": "미러링 대상",
   "footer_brands": "TV 브랜드",
   "footer_support": "지원",
@@ -24,9 +24,9 @@
   "firetv_app_privacy": "Fire TV 앱: 개인정보 처리방침",
   "firetv_app_terms": "이용약관",
   "english_only": "(영어)",
-  "trademarks": "Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV, AirPlay 및 언급된 TV 브랜드는 각 소유자의 상표입니다. MirrorGo는 이들과 제휴 관계가 없습니다.",
-  "home_title": "MirrorGo: iPhone 화면 미러링 및 TV 전송 앱",
-  "home_description": "iPhone을 삼성, LG, Roku, Google TV, Chromecast, Fire TV, Apple TV 또는 웹 브라우저에 미러링하고 사진, 비디오, YouTube, 9,000개 이상의 실시간 TV 채널을 전송하세요. TV에 앱 설치 불필요.",
+  "trademarks": "Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV, AirPlay 및 언급된 TV 브랜드는 각 소유자의 상표입니다. All TV Kit은 이들과 제휴 관계가 없습니다.",
+  "home_title": "All TV Kit: iPhone TV 리모컨, 화면 미러링 및 TV 전송 앱",
+  "home_description": "iPhone을 삼성·LG TV 리모컨으로 쓰고, 삼성, LG, Roku, Google TV, Fire TV, Apple TV 또는 웹 브라우저로 화면을 미러링하며 사진, 비디오, YouTube, 실시간 TV를 전송하세요.",
   "eyebrow": "iPhone 전용 · TV에 앱 설치 불필요",
   "home_h1": "iPhone을 {big}으로",
   "home_h1_big": "큰 화면",
@@ -34,36 +34,36 @@
   "fine_wifi": "같은 Wi-Fi, 케이블 없이",
   "fine_sound": "사운드 포함",
   "fine_account": "계정 불필요",
-  "hero_alt": "MirrorGo 홈 화면",
+  "hero_alt": "All TV Kit 홈 화면",
   "live_pill": "미러링 중",
   "works_with_tv": "지금 가진 TV에서 바로 사용",
   "supported_tvs": "지원 TV",
   "facts_kicker": "한눈에 보기",
-  "facts_h2": "MirrorGo란?",
+  "facts_h2": "All TV Kit이란?",
   "features_kicker": "하나의 앱으로 모두",
-  "features_h2": "미러링하거나, 전송하거나",
-  "features_p": "화면 전체를 보여 주거나, 보고 있는 것만 원본 화질로 보내세요. 그동안 iPhone은 자유롭게 쓸 수 있습니다.",
+  "features_h2": "조작하고, 미러링하고, 전송하고",
+  "features_p": "휴대폰을 TV 리모컨으로 쓰거나, 화면 전체를 보여 주거나, 보고 있는 것만 원본 화질로 보내세요.",
   "works_on": "지원 기기:",
   "how_kicker": "사용 방법",
   "how_h2": "세 번 탭하면 TV에",
   "how_p": "케이블도, 어댑터도, TV에 설치할 것도 없습니다.",
   "tvs_kicker": "호환성",
   "tvs_h2": "TV별 지원 기능",
-  "tvs_p": "MirrorGo는 Wi-Fi에서 TV를 찾고, 해당 TV에서 재생할 수 없는 기능은 흐리게 표시합니다.",
+  "tvs_p": "All TV Kit은 Wi-Fi에서 TV를 찾고, 해당 TV에서 재생할 수 없는 기능은 흐리게 표시합니다.",
   "tvs_foot": "2016년 이후 삼성 스마트 TV · LG webOS TV · Roku TV 및 플레이어 · Google TV 및 Android TV(Sony, TCL, Hisense, Philips, Xiaomi 등) · Chromecast · Fire TV Stick, Cube 및 Fire TV 스마트 TV · Apple TV 및 AirPlay TV · smrr.tv를 통한 모든 브라우저",
-  "compat_caption": "TV 종류별로 MirrorGo가 표시할 수 있는 항목",
+  "compat_caption": "TV 종류별로 All TV Kit이 표시할 수 있는 항목",
   "compat_feature": "기능",
   "yes": "예",
   "no": "아니요",
-  "airplay_kicker": "AirPlay와 MirrorGo 비교",
+  "airplay_kicker": "AirPlay와 All TV Kit 비교",
   "airplay_h2": "AirPlay보다 더 많은 TV에서",
-  "airplay_p": "iPhone은 기본적으로 Apple TV나 AirPlay 지원 TV에만 미러링할 수 있습니다. MirrorGo는 거의 모든 TV를 지원하고, 볼거리도 더해 줍니다.",
+  "airplay_p": "iPhone은 기본적으로 Apple TV나 AirPlay 지원 TV에만 미러링할 수 있습니다. All TV Kit은 거의 모든 TV를 지원하고, 볼거리도 더해 줍니다.",
   "airplay_col_what": "iPhone 화면을 표시할 곳",
   "airplay_col_iphone": "iPhone만 사용(AirPlay)",
-  "airplay_col_mirrorgo": "MirrorGo 사용",
+  "airplay_col_mirrorgo": "All TV Kit 사용",
   "privacy_kicker": "설계부터 개인정보 보호",
   "privacy_h2": "내 iPhone, 내 TV, 내 Wi-Fi",
-  "privacy_p": "미러링하고 전송하는 모든 것은 iPhone에서 TV로 바로 전달됩니다. MirrorGo는 계정이 없고, 사진과 비디오를 어떤 서버에도 올리지 않습니다.",
+  "privacy_p": "미러링하고 전송하는 모든 것은 iPhone에서 TV로 바로 전달됩니다. All TV Kit은 계정이 없고, 사진과 비디오를 어떤 서버에도 올리지 않습니다.",
   "privacy_link": "개인정보 처리방침 보기 →",
   "guides_kicker": "가이드",
   "guides_h2": "내 TV에 맞춘 단계별 안내",
@@ -75,9 +75,9 @@
   "all_help": "모든 도움말 →",
   "final_h2": "iPhone을 TV 화면으로",
   "final_p": "화면 미러링, 사진, 비디오, YouTube, 웹 비디오, 수천 개의 실시간 채널까지. 하나의 앱으로 어떤 TV에서든.",
-  "app_icon_alt": "MirrorGo 앱 아이콘",
+  "app_icon_alt": "All TV Kit 앱 아이콘",
   "how_to_do_it": "사용 방법",
-  "guide_phone_alt": "iPhone을 {tv}에 미러링할 준비가 된 MirrorGo",
+  "guide_phone_alt": "iPhone을 {tv}에 미러링할 준비가 된 All TV Kit",
   "what_you_can_do": "{tv}에서 할 수 있는 것",
   "questions": "질문",
   "more_guides_for": "{tv} 가이드 더 보기",
@@ -85,7 +85,7 @@
   "status_ok": "지원",
   "status_part": "일부 지원",
   "status_not": "이 TV에서는 미지원",
-  "howto_tool": "iPhone용 MirrorGo",
+  "howto_tool": "iPhone용 All TV Kit",
   "screen_mirroring": "화면 미러링",
   "step_by_step": "단계별 안내",
   "updated": "업데이트: {date}",
@@ -93,30 +93,30 @@
   "good_to_know": "알아 두면 좋은 점",
   "more_for": "{tv} 관련 가이드 더 보기",
   "topic_on_other_tvs": "다른 TV의 {topic} 가이드",
-  "browser_code_alt": "MirrorGo에 smrr.tv 코드 입력하기",
-  "page_title": "{title} | MirrorGo",
+  "browser_code_alt": "All TV Kit에 smrr.tv 코드 입력하기",
+  "page_title": "{title} | All TV Kit",
   "blog_h1": "가이드",
   "blog_lead": "모든 종류의 TV를 위한 단계별 가이드: iPhone 연결, 화면 미러링, 그리고 사진, 비디오, 웹 이미지, YouTube, 웹 비디오, 무료 실시간 TV 전송까지.",
-  "blog_title": "가이드: iPhone을 모든 TV에 미러링 및 전송하기 | MirrorGo",
+  "blog_title": "가이드: iPhone을 모든 TV에 미러링 및 전송하기 | All TV Kit",
   "blog_description": "iPhone을 삼성, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV 또는 웹 브라우저에 연결하고 사진, 비디오, YouTube, 실시간 TV를 전송하는 단계별 가이드.",
-  "blog_collection": "MirrorGo 가이드",
+  "blog_collection": "All TV Kit 가이드",
   "by_brand": "TV 브랜드별",
   "brand_h1": "iPhone을 {brand} TV에 미러링하기",
-  "brand_title": "iPhone {brand} TV 미러링 방법 | MirrorGo",
-  "brand_description": "MirrorGo로 iPhone을 {brand} TV에 미러링하고 사진, 비디오, YouTube, 실시간 TV를 전송하세요. {systems} 지원.",
+  "brand_title": "iPhone {brand} TV 미러링 방법 | All TV Kit",
+  "brand_description": "All TV Kit으로 iPhone을 {brand} TV에 미러링하고 사진, 비디오, YouTube, 실시간 TV를 전송하세요. {systems} 지원.",
   "brand_step_1": "{brand} TV의 운영체제({systems})를 확인하세요. 시작 화면과 리모컨에 로고가 있습니다.",
   "brand_step_2": "iPhone을 TV와 같은 Wi-Fi에 연결하세요.",
-  "brand_step_3": "MirrorGo를 열고 TV 연결을 탭한 다음 TV를 선택하세요.",
+  "brand_step_3": "All TV Kit을 열고 TV 연결을 탭한 다음 TV를 선택하세요.",
   "brand_step_4": "화면 미러링을 열고 미러링 시작을 탭한 다음 {start}을 탭하세요.",
-  "brand_phone_alt": "iPhone을 {brand} TV에 미러링할 준비가 된 MirrorGo",
+  "brand_phone_alt": "iPhone을 {brand} TV에 미러링할 준비가 된 All TV Kit",
   "brand_any_model": "smrr.tv로 모든 모델 지원",
   "brand_by_system": "운영체제별 {brand} TV",
   "help_crumb": "도움말",
   "help_h1": "도움말 및 FAQ",
   "help_lead": "가장 많이 묻는 질문에 대한 답변입니다. 그래도 해결되지 않으면 TV 모델명을 적어 {email}로 이메일을 보내 주세요.",
-  "help_title": "MirrorGo 도움말: 화면 미러링 및 TV 전송 FAQ",
-  "help_description": "TV 연결, iPhone 화면 미러링, TV가 검색되지 않을 때, 사운드·지연·검은 화면 해결, MirrorGo로 사진, 비디오, YouTube, IPTV 전송하기.",
-  "nf_title": "페이지를 찾을 수 없음 | MirrorGo",
+  "help_title": "All TV Kit 도움말: 화면 미러링 및 TV 전송 FAQ",
+  "help_description": "TV 연결, iPhone 화면 미러링, TV가 검색되지 않을 때, 사운드·지연·검은 화면 해결, All TV Kit으로 사진, 비디오, YouTube, IPTV 전송하기.",
+  "nf_title": "페이지를 찾을 수 없음 | All TV Kit",
   "nf_description": "존재하지 않는 페이지입니다.",
   "nf_h1": "이 페이지는 TV에 없습니다",
   "nf_lead": "오래된 링크일 수 있습니다. 홈 페이지나 도움말을 확인해 보세요.",
@@ -124,8 +124,8 @@
   "nf_help": "도움말"
  },
  "site": {
-  "tagline": "iPhone 화면 미러링 및 TV 전송",
-  "one_liner": "MirrorGo는 iPhone 화면을 TV에 미러링하고 사진, 비디오, 카메라, 웹 비디오, 실시간 TV 채널, YouTube를 TV로 전송하는 iPhone 앱입니다. 삼성, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV 및 모든 웹 브라우저를 지원하므로 Sony, TCL, Hisense, Vizio, Philips 등 대부분의 스마트 TV에서도 TV에 아무것도 설치하지 않고 사용할 수 있습니다.",
+  "tagline": "iPhone용 TV 리모컨, 화면 미러링 및 TV 전송",
+  "one_liner": "All TV Kit은 삼성·LG TV의 리모컨으로 쓸 수 있고, iPhone 화면을 TV에 미러링하며 사진, 비디오, 카메라, 웹 비디오, 실시간 TV 채널, YouTube를 TV로 전송하는 iPhone 앱입니다. 삼성, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV 및 모든 웹 브라우저를 지원하므로 Sony, TCL, Hisense, Vizio, Philips 등 대부분의 스마트 TV에서도 TV에 아무것도 설치하지 않고 사용할 수 있습니다.",
   "start_sharing": "공유 시작(iOS 26 이전 버전에서는 방송 시작)"
  },
  "tvs": {
@@ -176,6 +176,10 @@
   "With Screen Mirroring on": "화면 미러링을 켠 상태에서"
  },
  "features": {
+  "remote": {
+   "name": "TV 리모컨",
+   "short": "iPhone을 삼성·LG TV 리모컨으로. 버튼, 터치패드, 키보드, 앱까지."
+  },
   "screen-mirroring": {
    "name": "화면 미러링",
    "short": "iPhone 화면 전체를 사운드와 함께 TV에. 어떤 앱에서든."
@@ -210,6 +214,21 @@
   }
  },
  "showcase": {
+  "remote": {
+   "title": "iPhone이 TV 리모컨이 됩니다",
+   "text": "리모컨을 잃어버렸거나 화살표로 글자를 입력하기 번거로우신가요? 같은 Wi-Fi에서 iPhone으로 삼성 또는 LG TV를 조작하세요. TV에는 아무것도 설치하지 않아도 됩니다.",
+   "points": [
+    "방향키와 확인, 뒤로, 홈, 볼륨, 채널, 재생/일시정지, 전원",
+    "터치패드: 쓸어서 TV 커서를 움직이고, 탭해서 클릭",
+    "검색어와 비밀번호를 iPhone 키보드로 입력",
+    "TV 앱을 열고 HDMI 등 다른 입력으로 한 번에 전환"
+   ],
+   "alts": [
+    "All TV Kit의 리모컨 화면: 전원, 앱과 입력, 방향키와 확인, 볼륨과 채널",
+    "터치패드 모드의 All TV Kit 리모컨: 쓸어서 TV 커서를 움직입니다"
+   ],
+   "footnote": "리모컨은 삼성 스마트 TV(2016년 이후 모델)와 LG webOS TV에서 사용할 수 있습니다. 다른 TV도 곧 지원합니다."
+  },
   "screen-mirroring": {
    "title": "iPhone 화면을 TV에 미러링",
    "text": "앱, 게임, 사진, 웹사이트, 프레젠테이션 등 iPhone의 모든 것이 실시간으로 TV에 표시됩니다. 한 번 시작하면 iPhone을 계속 사용해도 TV가 그대로 따라옵니다.",
@@ -221,8 +240,8 @@
     "iOS에서 미러링을 시작하는 방법을 짧은 가이드로 단계별 안내합니다"
    ],
    "alts": [
-    "화질, 자동 회전, 사운드 설정이 있는 MirrorGo의 화면 미러링 화면",
-    "MirrorGo 가이드: 화면 미러링을 시작하는 4단계"
+    "화질, 자동 회전, 사운드 설정이 있는 All TV Kit의 화면 미러링 화면",
+    "All TV Kit 가이드: 화면 미러링을 시작하는 4단계"
    ]
   },
   "photos-videos": {
@@ -236,7 +255,7 @@
     "Wi-Fi를 통해 iPhone에서 TV로 바로 전달되며, 업로드되지 않습니다"
    ],
    "alts": [
-    "MirrorGo로 iPhone 갤러리의 사진 전송하기"
+    "All TV Kit으로 iPhone 갤러리의 사진 전송하기"
    ]
   },
   "iptv": {
@@ -249,14 +268,14 @@
     "iPhone을 잠그거나 다른 앱을 열어도 계속 재생"
    ],
    "alts": [
-    "MirrorGo의 IPTV 화면: 재생목록, 카테고리, 국가",
-    "MirrorGo의 미국 실시간 TV 채널"
+    "All TV Kit의 IPTV 화면: 재생목록, 카테고리, 국가",
+    "All TV Kit의 미국 실시간 TV 채널"
    ],
    "footnote": "채널은 공개된 iptv-org 목록에서 제공됩니다. 다른 무료 스트림과 마찬가지로 일부 채널은 때때로 오프라인이거나 해당 국가에서만 재생됩니다."
   },
   "web-videos": {
    "title": "모든 웹사이트의 비디오를 전송",
-   "text": "MirrorGo의 개인 정보 보호 브라우저에서 웹사이트를 열고 비디오를 재생하세요. MirrorGo가 비디오를 찾아 TV로 보내면, 계속 웹을 둘러보는 동안 TV가 원본 화질로 재생합니다.",
+   "text": "All TV Kit의 개인 정보 보호 브라우저에서 웹사이트를 열고 비디오를 재생하세요. All TV Kit이 비디오를 찾아 TV로 보내면, 계속 웹을 둘러보는 동안 TV가 원본 화질로 재생합니다.",
    "points": [
     "사이트를 열고 비디오를 재생한 다음 TV로 전송을 탭하세요",
     "광고가 아닌 실제 비디오를 골라내고 광고 네트워크를 차단합니다",
@@ -264,12 +283,12 @@
     "개인 정보 보호 브라우징: 방문 기록, 쿠키, 캐시를 남기지 않습니다"
    ],
    "alts": [
-    "인기 사이트가 표시된 MirrorGo의 웹 비디오 브라우저"
+    "인기 사이트가 표시된 All TV Kit의 웹 비디오 브라우저"
    ]
   },
   "youtube": {
    "title": "TV가 직접 재생하는 YouTube",
-   "text": "MirrorGo에서 주제별로 둘러보거나 검색해 비디오를 찾은 다음 TV로 전송을 탭하세요. TV가 비디오를 직접 원본 화질로, 보던 지점부터 재생합니다.",
+   "text": "All TV Kit에서 주제별로 둘러보거나 검색해 비디오를 찾은 다음 TV로 전송을 탭하세요. TV가 비디오를 직접 원본 화질로, 보던 지점부터 재생합니다.",
    "points": [
     "주제별(음악, 뉴스, 스포츠, 라이브)로 둘러보거나 검색",
     "삼성과 LG에서는 TV의 YouTube 앱에서 열립니다",
@@ -277,7 +296,7 @@
     "화면을 나가도 계속 재생"
    ],
    "alts": [
-    "MirrorGo로 TV에 YouTube 전송하기"
+    "All TV Kit으로 TV에 YouTube 전송하기"
    ]
   },
   "web-images": {
@@ -289,19 +308,19 @@
     "모든 이미지에 작성자와 라이선스 표시"
    ],
    "alts": [
-    "MirrorGo로 전송할 준비가 된 Wikimedia Commons 풍경 사진"
+    "All TV Kit으로 전송할 준비가 된 Wikimedia Commons 풍경 사진"
    ]
   },
   "any-browser": {
    "title": "스마트 TV 앱이 없나요? 웹 브라우저를 사용하세요",
-   "text": "웹 브라우저가 있는 TV, 컴퓨터, 태블릿이라면 MirrorGo가 찾지 못하는 기기라도 iPhone 화면을 표시할 수 있습니다. 해당 기기에서 smrr.tv를 열고 표시되는 6자리 코드를 입력하거나 QR 코드를 스캔하세요.",
+   "text": "웹 브라우저가 있는 TV, 컴퓨터, 태블릿이라면 All TV Kit이 찾지 못하는 기기라도 iPhone 화면을 표시할 수 있습니다. 해당 기기에서 smrr.tv를 열고 표시되는 6자리 코드를 입력하거나 QR 코드를 스캔하세요.",
    "points": [
     "스마트 TV, PC, Mac, 태블릿에서 작동",
     "비디오가 사운드와 함께 Wi-Fi로 바로 전달됩니다",
-    "가까이 있는 LG 및 삼성 TV는 MirrorGo가 TV의 브라우저를 대신 열어 줍니다"
+    "가까이 있는 LG 및 삼성 TV는 All TV Kit이 TV의 브라우저를 대신 열어 줍니다"
    ],
    "alts": [
-    "웹 브라우저로 미러링하기 위해 MirrorGo에 smrr.tv 코드 입력하기"
+    "웹 브라우저로 미러링하기 위해 All TV Kit에 smrr.tv 코드 입력하기"
    ]
   }
  },
@@ -312,7 +331,7 @@
   ],
   [
    "TV 선택",
-   "MirrorGo가 주변의 TV를 찾습니다. 내 TV를 탭하세요. LG와 삼성 TV는 처음 한 번 허용을 요청합니다."
+   "All TV Kit이 주변의 TV를 찾습니다. 내 TV를 탭하세요. LG와 삼성 TV는 처음 한 번 허용을 요청합니다."
   ],
   [
    "미러링 또는 전송",
@@ -340,7 +359,7 @@
  "quick_facts": [
   [
    "무엇인가요",
-   "화면을 미러링하고 사진, 비디오, 카메라, 웹 비디오, 실시간 TV, YouTube를 TV로 전송하는 iPhone 앱입니다."
+   "삼성·LG TV 리모컨으로 쓸 수 있고, 화면을 미러링하며 사진, 비디오, 카메라, 웹 비디오, 실시간 TV, YouTube를 TV로 전송하는 iPhone 앱입니다."
   ],
   [
    "지원 기기",
@@ -365,6 +384,7 @@
  ],
  "airplay_compare": [
   "Apple TV 및 AirPlay TV",
+  "삼성·LG TV용 리모컨",
   "AirPlay를 지원하지 않는 삼성, LG, Roku TV",
   "Chromecast, Google TV, Android TV",
   "Amazon Fire TV",
@@ -381,7 +401,7 @@
  ],
  "faq": {
   "tvs": {
-   "q": "MirrorGo는 어떤 TV를 지원하나요?",
+   "q": "All TV Kit은 어떤 TV를 지원하나요?",
    "a": "대부분의 스마트 TV와 스트리밍 스틱을 지원합니다. TV에는 아무것도 설치할 필요가 없습니다.",
    "ul": [
     "삼성 스마트 TV(2016년 이후 모델)",
@@ -401,31 +421,31 @@
     "목록에서 TV를 선택하세요.",
     "LG와 삼성 TV는 처음 연결할 때 확인을 요청합니다. 리모컨으로 TV에서 허용을 선택하세요."
    ],
-   "note": "MirrorGo는 TV를 기억해 두었다가 다음에 다시 연결합니다."
+   "note": "All TV Kit은 TV를 기억해 두었다가 다음에 다시 연결합니다."
   },
   "notFound": {
    "q": "TV가 목록에 없어요",
-   "a": "MirrorGo는 Wi-Fi에 연결된 TV를 찾습니다. TV가 보이지 않는 경우 대개 다음 중 하나가 원인입니다.",
+   "a": "All TV Kit은 Wi-Fi에 연결된 TV를 찾습니다. TV가 보이지 않는 경우 대개 다음 중 하나가 원인입니다.",
    "ul": [
     "iPhone과 TV가 서로 다른 네트워크에 있습니다. 게스트 네트워크가 아닌 같은 Wi-Fi를 사용하세요.",
-    "MirrorGo의 로컬 네트워크 접근이 꺼져 있습니다. 이 경우 iOS가 앱에서 모든 TV를 숨깁니다.",
+    "All TV Kit의 로컬 네트워크 접근이 꺼져 있습니다. 이 경우 iOS가 앱에서 모든 TV를 숨깁니다.",
     "VPN이 켜져 있습니다. 전송하는 동안에는 꺼 두세요.",
     "TV가 절전 상태이거나 응답하지 않습니다. TV를 완전히 켜거나, TV와 공유기를 재시작하세요."
    ],
    "note": "그래도 보이지 않나요? 웹 브라우저가 있는 TV라면 smrr.tv로 연결할 수 있습니다. “웹 브라우저로 미러링하려면 어떻게 하나요?”를 참고하세요."
   },
   "allow": {
-   "q": "TV가 MirrorGo 연결을 허용하지 않아요",
-   "a": "LG와 삼성 TV는 휴대폰이 TV를 제어하기 전에 확인을 요청합니다. MirrorGo가 처음 연결되면 TV에 메시지가 표시되니 리모컨으로 허용을 선택하세요. 이후에는 다시 묻지 않습니다.",
+   "q": "TV가 All TV Kit 연결을 허용하지 않아요",
+   "a": "LG와 삼성 TV는 휴대폰이 TV를 제어하기 전에 확인을 요청합니다. All TV Kit이 처음 연결되면 TV에 메시지가 표시되니 리모컨으로 허용을 선택하세요. 이후에는 다시 묻지 않습니다.",
    "ul": [
     "LG: 메시지를 놓쳤거나 거부를 선택했나요? 다시 연결하면 TV가 다시 묻습니다.",
-    "삼성: 거부를 선택했나요? TV가 이를 기억합니다. TV에서 설정 › 일반 › 외부 기기 관리자 › 기기 연결 관리자 › 기기 목록을 열고 MirrorGo를 허용하거나, 삭제해서 TV가 다시 묻도록 하세요.",
+    "삼성: 거부를 선택했나요? TV가 이를 기억합니다. TV에서 설정 › 일반 › 외부 기기 관리자 › 기기 연결 관리자 › 기기 목록을 열고 All TV Kit을 허용하거나, 삭제해서 TV가 다시 묻도록 하세요.",
     "구형 LG TV: TV의 네트워크 설정에서 LG Connect Apps를 켜세요."
    ]
   },
   "lost": {
    "q": "연결이 계속 끊겨요",
-   "a": "앱이 백그라운드에 있으면 iOS가 MirrorGo와 TV의 연결을 닫으며, Wi-Fi가 잠시 불안정해도 연결이 끊길 수 있습니다. MirrorGo는 몇 초 안에 자동으로 다시 연결하며, 그동안에도 화면 미러링은 계속됩니다.",
+   "a": "앱이 백그라운드에 있으면 iOS가 All TV Kit과 TV의 연결을 닫으며, Wi-Fi가 잠시 불안정해도 연결이 끊길 수 있습니다. All TV Kit은 몇 초 안에 자동으로 다시 연결하며, 그동안에도 화면 미러링은 계속됩니다.",
    "ul": [
     "“연결 끊김”이 표시되나요? TV가 켜져 있고 같은 Wi-Fi에 있는지 확인한 다음 다시 시도를 탭하세요.",
     "신호가 약하면 더 자주 끊깁니다. iPhone과 TV를 공유기 가까이에 두세요."
@@ -433,10 +453,10 @@
   },
   "browser": {
    "q": "웹 브라우저로 미러링하려면 어떻게 하나요?",
-   "a": "웹 브라우저가 있는 TV, 컴퓨터, 태블릿이라면 MirrorGo가 TV로 찾지 못하는 기기라도 화면을 표시할 수 있습니다.",
+   "a": "웹 브라우저가 있는 TV, 컴퓨터, 태블릿이라면 All TV Kit이 TV로 찾지 못하는 기기라도 화면을 표시할 수 있습니다.",
    "ol": [
     "해당 기기의 웹 브라우저에서 smrr.tv를 여세요. 페이지에 6자리 코드가 표시됩니다.",
-    "MirrorGo에서 TV 목록을 열고 브라우저(smrr.tv)를 탭하세요.",
+    "All TV Kit에서 TV 목록을 열고 브라우저(smrr.tv)를 탭하세요.",
     "코드를 입력하거나 페이지의 QR 코드를 스캔하세요."
    ],
    "note": "미러링하는 동안 페이지를 열어 두세요. iPhone과 브라우저는 같은 Wi-Fi에 있어야 합니다. 가까이 있는 LG 또는 삼성 TV라면 “…에서 열기”로 TV의 브라우저를 바로 열 수 있습니다."
@@ -473,13 +493,13 @@
   "black": {
    "q": "일부 앱이 검은 화면으로 표시돼요",
    "a": "Netflix, Prime Video, Disney+ 등 스트리밍 앱은 비디오를 보호하므로 iOS가 대신 검은 화면을 보냅니다. 어떤 미러링 앱도 이를 우회할 수 없습니다.",
-   "note": "앱에 자체 전송 버튼이 있다면 그것을 사용하세요. YouTube는 MirrorGo에서 YouTube를 열면 TV가 직접 비디오를 재생합니다."
+   "note": "앱에 자체 전송 버튼이 있다면 그것을 사용하세요. YouTube는 All TV Kit에서 YouTube를 열면 TV가 직접 비디오를 재생합니다."
   },
   "sound": {
    "q": "TV에서 소리가 나지 않아요",
    "ul": [
     "화면 미러링에서 사운드가 켜져 있는지, TV가 음소거 상태가 아닌지 확인하세요.",
-    "MirrorGo는 앱에서 재생되는 사운드를 보내며, 마이크는 절대 전송하지 않습니다.",
+    "All TV Kit은 앱에서 재생되는 사운드를 보내며, 마이크는 절대 전송하지 않습니다.",
     "Fire TV와 일부 구형 LG TV는 사운드 없이 화면만 표시합니다.",
     "일부 앱은 사운드 녹음을 허용하지 않으므로 소리가 iPhone에서만 나옵니다."
    ]
@@ -505,21 +525,21 @@
   },
   "lgCheck": {
    "q": "LG TV에서 “TV에서 재생되고 있나요?”라고 물어요",
-   "a": "LG TV에서 MirrorGo는 사진, 비디오, 채널을 먼저 가장 많은 형식을 재생할 수 있는 TV의 웹 브라우저에서 재생합니다. 몇 초 후 제대로 재생되는지 묻습니다.",
+   "a": "LG TV에서 All TV Kit은 사진, 비디오, 채널을 먼저 가장 많은 형식을 재생할 수 있는 TV의 웹 브라우저에서 재생합니다. 몇 초 후 제대로 재생되는지 묻습니다.",
    "ul": [
     "예: 그대로 계속됩니다. 해당 화면에서는 다시 묻지 않습니다.",
-    "아니요: MirrorGo가 브라우저를 닫고 TV 자체 플레이어로 재생한 다음 다시 묻습니다.",
+    "아니요: All TV Kit이 브라우저를 닫고 TV 자체 플레이어로 재생한 다음 다시 묻습니다.",
     "그래도 안 되나요? 이메일 문의를 탭하고 TV 모델명을 알려 주세요."
    ]
   },
   "webVideo": {
    "q": "웹 비디오가 전송되지 않아요",
    "ul": [
-    "먼저 페이지에서 비디오를 재생하세요. MirrorGo가 비디오를 찾으면 TV로 전송이 활성화됩니다.",
+    "먼저 페이지에서 비디오를 재생하세요. All TV Kit이 비디오를 찾으면 TV로 전송이 활성화됩니다.",
     "여러 개가 검색되었나요? 목록(“1/3”)에서 원하는 비디오를 선택하세요.",
     "광고가 TV에 나오지 않도록 아주 짧은 클립은 전송하지 않습니다.",
     "Netflix처럼 비디오를 보호하는 사이트도 있습니다. 이런 비디오는 전송할 수 없습니다.",
-    "재생하는 동안 MirrorGo를 열어 두세요. 비디오가 iPhone을 거쳐 전달됩니다."
+    "재생하는 동안 All TV Kit을 열어 두세요. 비디오가 iPhone을 거쳐 전달됩니다."
    ]
   },
   "iptv": {
@@ -536,12 +556,12 @@
    ]
   },
   "localNetwork": {
-   "q": "MirrorGo에 로컬 네트워크 접근이 왜 필요한가요?",
-   "a": "MirrorGo는 Wi-Fi를 통해 TV와 통신하며, iOS는 로컬 네트워크 접근이 허용된 경우에만 이를 허용합니다. 접근 권한이 없으면 TV를 찾거나 전송할 수 없습니다. 이 권한은 내 네트워크에 있는 기기에만 사용됩니다.",
+   "q": "All TV Kit에 로컬 네트워크 접근이 왜 필요한가요?",
+   "a": "All TV Kit은 Wi-Fi를 통해 TV와 통신하며, iOS는 로컬 네트워크 접근이 허용된 경우에만 이를 허용합니다. 접근 권한이 없으면 TV를 찾거나 전송할 수 없습니다. 이 권한은 내 네트워크에 있는 기기에만 사용됩니다.",
    "ol": [
     "설정 열기를 탭하세요",
     "로컬 네트워크를 켜세요",
-    "MirrorGo로 돌아오세요"
+    "All TV Kit으로 돌아오세요"
    ]
   },
   "permissions": {
@@ -555,56 +575,56 @@
   },
   "denied": {
    "q": "권한을 거부했어요. 어떻게 다시 켜나요?",
-   "a": "iOS는 한 번만 묻습니다. 설정을 변경하려면 설정을 열고 MirrorGo를 탭한 다음 로컬 네트워크, 사진, 카메라 또는 마이크를 켜세요."
+   "a": "iOS는 한 번만 묻습니다. 설정을 변경하려면 설정을 열고 All TV Kit을 탭한 다음 로컬 네트워크, 사진, 카메라 또는 마이크를 켜세요."
   },
   "problem": {
    "q": "다른 문제가 있어요",
-   "a": "MirrorGo를 최신 버전으로 업데이트하고 TV를 재시작하세요. 그래도 해결되지 않으면 앱의 도움말에서 문의하기를 탭하세요. 이메일에는 앱 버전, iOS 버전, iPhone 모델, TV 종류가 이미 포함되어 있으니 TV 모델명을 추가해 주세요."
+   "a": "All TV Kit을 최신 버전으로 업데이트하고 TV를 재시작하세요. 그래도 해결되지 않으면 앱의 도움말에서 문의하기를 탭하세요. 이메일에는 앱 버전, iOS 버전, iPhone 모델, TV 종류가 이미 포함되어 있으니 TV 모델명을 추가해 주세요."
   }
  },
  "brands": {
   "sony": {
    "about": "Sony BRAVIA TV는 2015년부터 Android TV, 2021년부터 Google TV를 탑재하고 있으며 Chromecast가 내장되어 있습니다. 최근 BRAVIA 모델 중 다수는 AirPlay도 지원합니다.",
-   "which": "Google TV 또는 Android TV를 탑재한 BRAVIA라면 MirrorGo가 Wi-Fi에서 TV 이름으로 찾아내며, 화면 미러링, 사진 및 비디오, YouTube, 실시간 TV 등 모든 기능을 사용할 수 있습니다."
+   "which": "Google TV 또는 Android TV를 탑재한 BRAVIA라면 All TV Kit이 Wi-Fi에서 TV 이름으로 찾아내며, 화면 미러링, 사진 및 비디오, YouTube, 실시간 TV 등 모든 기능을 사용할 수 있습니다."
   },
   "tcl": {
    "about": "TCL은 여러 운영체제의 TV를 만듭니다. Google TV(구형 모델은 Android TV), Roku TV, 그리고 일부 모델은 Fire TV입니다. 운영체제의 로고는 TV의 시작 화면과 리모컨에 있습니다.",
-   "which": "TCL TV의 운영체제가 무엇이든 MirrorGo는 같은 방법으로 연결합니다. 같은 Wi-Fi에 연결하고, TV 연결을 탭한 다음 목록에서 선택하세요."
+   "which": "TCL TV의 운영체제가 무엇이든 All TV Kit은 같은 방법으로 연결합니다. 같은 Wi-Fi에 연결하고, TV 연결을 탭한 다음 목록에서 선택하세요."
   },
   "hisense": {
    "about": "Hisense TV는 모델과 국가에 따라 VIDAA, Google TV / Android TV, Roku TV 또는 Fire TV를 탑재합니다.",
-   "which": "Google TV, Android TV, Roku TV, Fire TV 모델은 MirrorGo의 TV 목록에 표시됩니다. VIDAA 모델은 TV의 웹 브라우저에서 smrr.tv를 열고, 표시되는 코드로 미러링하세요."
+   "which": "Google TV, Android TV, Roku TV, Fire TV 모델은 All TV Kit의 TV 목록에 표시됩니다. VIDAA 모델은 TV의 웹 브라우저에서 smrr.tv를 열고, 표시되는 코드로 미러링하세요."
   },
   "vizio": {
    "about": "VIZIO SmartCast TV에는 Chromecast가 내장되어 있으며, 다수의 모델이 AirPlay도 지원합니다.",
-   "which": "MirrorGo는 내장된 Chromecast를 통해 SmartCast TV를 찾으므로, 화면을 미러링하고 사진, 비디오, YouTube, 실시간 TV를 전송할 수 있습니다."
+   "which": "All TV Kit은 내장된 Chromecast를 통해 SmartCast TV를 찾으므로, 화면을 미러링하고 사진, 비디오, YouTube, 실시간 TV를 전송할 수 있습니다."
   },
   "philips": {
    "about": "다수의 Philips TV는 Chromecast가 내장된 Google TV 또는 Android TV를 탑재하고 있으며, 그 밖의 모델은 Titan OS나 Saphi를 탑재합니다.",
-   "which": "Google TV 및 Android TV 모델은 MirrorGo의 TV 목록에 표시됩니다. 그 밖의 모델은 TV의 웹 브라우저에서 smrr.tv를 열고, 표시되는 코드로 미러링하세요."
+   "which": "Google TV 및 Android TV 모델은 All TV Kit의 TV 목록에 표시됩니다. 그 밖의 모델은 TV의 웹 브라우저에서 smrr.tv를 열고, 표시되는 코드로 미러링하세요."
   },
   "xiaomi": {
    "about": "Xiaomi TV, Mi Box, Xiaomi TV Stick은 Chromecast가 내장된 Google TV 또는 Android TV를 탑재합니다.",
-   "which": "MirrorGo가 Wi-Fi에서 이 기기들을 찾으며, 화면 미러링, 사진 및 비디오, YouTube, 실시간 TV 등 모든 기능을 사용할 수 있습니다."
+   "which": "All TV Kit이 Wi-Fi에서 이 기기들을 찾으며, 화면 미러링, 사진 및 비디오, YouTube, 실시간 TV 등 모든 기능을 사용할 수 있습니다."
   },
   "toshiba": {
    "about": "Toshiba 스마트 TV는 미국에서는 Fire TV를, 그 밖의 지역에서는 Android TV나 VIDAA 등 다른 운영체제를 탑재합니다.",
-   "which": "Fire TV 및 Android TV 모델은 MirrorGo의 TV 목록에 표시됩니다. 그 밖의 모델은 TV의 웹 브라우저에서 smrr.tv를 열고, 표시되는 코드로 미러링하세요."
+   "which": "Fire TV 및 Android TV 모델은 All TV Kit의 TV 목록에 표시됩니다. 그 밖의 모델은 TV의 웹 브라우저에서 smrr.tv를 열고, 표시되는 코드로 미러링하세요."
   },
   "panasonic": {
    "about": "최근 Panasonic TV는 Fire TV를 탑재하고 있으며, 이전 모델은 Panasonic 자체 운영체제인 my Home Screen을 탑재합니다.",
-   "which": "Fire TV 모델은 MirrorGo의 TV 목록에 표시됩니다. my Home Screen 모델은 TV의 웹 브라우저에서 smrr.tv를 열고, 표시되는 코드로 미러링하세요."
+   "which": "Fire TV 모델은 All TV Kit의 TV 목록에 표시됩니다. my Home Screen 모델은 TV의 웹 브라우저에서 smrr.tv를 열고, 표시되는 코드로 미러링하세요."
   }
  },
  "guides": {
   "samsung": {
    "title": "iPhone 삼성 TV 미러링 방법(케이블·TV 앱 없이)",
-   "description": "MirrorGo로 Wi-Fi를 통해 iPhone 화면을 삼성 스마트 TV에 미러링하고 사진, 비디오, YouTube, 실시간 TV를 전송하세요. 2016년 이후 삼성 TV 지원, TV에 설치 불필요.",
+   "description": "All TV Kit으로 Wi-Fi를 통해 iPhone 화면을 삼성 스마트 TV에 미러링하고 사진, 비디오, YouTube, 실시간 TV를 전송하세요. 2016년 이후 삼성 TV 지원, TV에 설치 불필요.",
    "h1": "iPhone을 삼성 TV에 미러링하기",
-   "lead": "MirrorGo는 Wi-Fi를 통해 iPhone 화면을 삼성 스마트 TV(Tizen, 2016년 이후 모델)에 표시합니다. TV에 설치할 것이 없으며, TV 자체 플레이어에서 사운드와 함께 재생됩니다.",
+   "lead": "All TV Kit은 Wi-Fi를 통해 iPhone 화면을 삼성 스마트 TV(Tizen, 2016년 이후 모델)에 표시합니다. TV에 설치할 것이 없으며, TV 자체 플레이어에서 사운드와 함께 재생됩니다.",
    "steps": [
     "삼성 TV를 켜고 iPhone을 같은 Wi-Fi에 연결하세요.",
-    "MirrorGo를 열고 TV 연결을 탭한 다음 삼성 TV를 선택하세요.",
+    "All TV Kit을 열고 TV 연결을 탭한 다음 삼성 TV를 선택하세요.",
     "처음 연결할 때는 리모컨으로 TV에서 허용을 선택하세요.",
     "화면 미러링을 열고 미러링 시작을 탭한 다음 공유 시작(iOS 26 이전 버전에서는 방송 시작)을 탭하세요. 5~10초 후 TV에 화면이 표시됩니다."
    ],
@@ -642,14 +662,14 @@
     [
      "어떤 삼성 TV를 지원하나요?",
      [
-      "Tizen을 탑재한 2016년 이후 삼성 스마트 TV로, Crystal UHD, QLED, Neo QLED, OLED, The Frame 시리즈 등이 해당됩니다. MirrorGo가 Wi-Fi에서 자동으로 찾으며, TV에 앱이 필요 없습니다.",
-      "2018년 이후 삼성 TV 중 다수는 AirPlay도 지원합니다. MirrorGo는 AirPlay 지원 여부와 관계없이 작동하며, 웹사이트 비디오, 실시간 TV 채널, YouTube 전송까지 더해 줍니다."
+      "Tizen을 탑재한 2016년 이후 삼성 스마트 TV로, Crystal UHD, QLED, Neo QLED, OLED, The Frame 시리즈 등이 해당됩니다. All TV Kit이 Wi-Fi에서 자동으로 찾으며, TV에 앱이 필요 없습니다.",
+      "2018년 이후 삼성 TV 중 다수는 AirPlay도 지원합니다. All TV Kit은 AirPlay 지원 여부와 관계없이 작동하며, 웹사이트 비디오, 실시간 TV 채널, YouTube 전송까지 더해 줍니다."
      ]
     ],
     [
-     "TV가 MirrorGo 연결을 허용하지 않는 경우",
+     "TV가 All TV Kit 연결을 허용하지 않는 경우",
      [
-      "삼성 TV는 휴대폰이 TV를 제어하기 전에 확인을 요청합니다. 거부를 선택했다면 TV가 이를 기억합니다. TV에서 설정 › 일반 › 외부 기기 관리자 › 기기 연결 관리자 › 기기 목록을 열고 MirrorGo를 허용하거나, 삭제해서 TV가 다시 묻도록 하세요."
+      "삼성 TV는 휴대폰이 TV를 제어하기 전에 확인을 요청합니다. 거부를 선택했다면 TV가 이를 기억합니다. TV에서 설정 › 일반 › 외부 기기 관리자 › 기기 연결 관리자 › 기기 목록을 열고 All TV Kit을 허용하거나, 삭제해서 TV가 다시 묻도록 하세요."
      ]
     ],
     [
@@ -662,11 +682,11 @@
    "faq": [
     [
      "삼성 TV에 앱을 설치해야 하나요?",
-     "아니요. MirrorGo는 삼성 스마트 TV에 내장된 미디어 플레이어와 리모컨 연결 기능을 사용합니다. iPhone에 MirrorGo만 설치하면 됩니다."
+     "아니요. All TV Kit은 삼성 스마트 TV에 내장된 미디어 플레이어와 리모컨 연결 기능을 사용합니다. iPhone에 All TV Kit만 설치하면 됩니다."
     ],
     [
      "iPhone을 삼성 TV에 미러링할 때 소리가 나나요?",
-     "예. 앱에서 재생되는 사운드가 화면과 함께 TV로 전달됩니다. 화면 미러링에서 사운드를 켜세요. MirrorGo는 마이크를 절대 전송하지 않습니다."
+     "예. 앱에서 재생되는 사운드가 화면과 함께 TV로 전달됩니다. 화면 미러링에서 사운드를 켜세요. All TV Kit은 마이크를 절대 전송하지 않습니다."
     ],
     [
      "Netflix나 Disney+를 삼성 TV에 미러링할 수 있나요?",
@@ -676,12 +696,12 @@
   },
   "lg": {
    "title": "iPhone LG TV 미러링 방법(webOS, 케이블 없이)",
-   "description": "MirrorGo로 Wi-Fi를 통해 iPhone을 LG 스마트 TV(webOS)에 미러링하고 사진, 비디오, YouTube, 실시간 TV 채널을 전송하세요. TV에 앱 설치 불필요.",
+   "description": "All TV Kit으로 Wi-Fi를 통해 iPhone을 LG 스마트 TV(webOS)에 미러링하고 사진, 비디오, YouTube, 실시간 TV 채널을 전송하세요. TV에 앱 설치 불필요.",
    "h1": "iPhone을 LG TV에 미러링하기",
-   "lead": "MirrorGo는 Wi-Fi를 통해 iPhone 화면을 LG 스마트 TV(webOS)에 표시합니다. 최신 LG TV에서는 LG 자체 화면 공유 기능을 사용하고, 구형 TV에서는 TV의 웹 브라우저에 화면을 표시합니다. 설치할 것이 없습니다.",
+   "lead": "All TV Kit은 Wi-Fi를 통해 iPhone 화면을 LG 스마트 TV(webOS)에 표시합니다. 최신 LG TV에서는 LG 자체 화면 공유 기능을 사용하고, 구형 TV에서는 TV의 웹 브라우저에 화면을 표시합니다. 설치할 것이 없습니다.",
    "steps": [
     "LG TV를 켜고 iPhone을 같은 Wi-Fi에 연결하세요.",
-    "MirrorGo를 열고 TV 연결을 탭한 다음 LG TV를 선택하세요.",
+    "All TV Kit을 열고 TV 연결을 탭한 다음 LG TV를 선택하세요.",
     "처음 연결할 때는 리모컨으로 TV에서 허용을 선택하세요.",
     "화면 미러링을 열고 미러링 시작을 탭한 다음 공유 시작(iOS 26 이전 버전에서는 방송 시작)을 탭하세요. 5~10초 후 TV에 화면이 표시됩니다."
    ],
@@ -719,11 +739,11 @@
     [
      "어떤 LG TV를 지원하나요?",
      [
-      "webOS를 탑재한 LG 스마트 TV를 지원합니다. webOS 22 이상에서는 MirrorGo가 LG 자체 화면 공유 기능(LG Cast)을 사용합니다. webOS 4(2018년) 이후의 구형 LG TV에서는 MirrorGo가 TV의 웹 브라우저를 열어 그곳에 화면을 표시합니다."
+      "webOS를 탑재한 LG 스마트 TV를 지원합니다. webOS 22 이상에서는 All TV Kit이 LG 자체 화면 공유 기능(LG Cast)을 사용합니다. webOS 4(2018년) 이후의 구형 LG TV에서는 All TV Kit이 TV의 웹 브라우저를 열어 그곳에 화면을 표시합니다."
      ]
     ],
     [
-     "TV가 MirrorGo 연결을 허용하지 않는 경우",
+     "TV가 All TV Kit 연결을 허용하지 않는 경우",
      [
       "LG TV는 휴대폰이 TV를 제어하기 전에 확인을 요청합니다. 메시지를 놓쳤거나 거부를 선택했나요? 다시 연결하면 TV가 다시 묻습니다. 구형 LG TV에서는 TV의 네트워크 설정에서 LG Connect Apps를 켜세요."
      ]
@@ -731,33 +751,33 @@
     [
      "“TV에서 재생되고 있나요?”",
      [
-      "LG TV에서 MirrorGo는 사진, 비디오, 채널을 먼저 가장 많은 형식을 재생할 수 있는 TV의 웹 브라우저에서 재생합니다. 몇 초 후 제대로 재생되는지 묻습니다. 아니요를 탭하면 TV 자체 플레이어로 전환합니다."
+      "LG TV에서 All TV Kit은 사진, 비디오, 채널을 먼저 가장 많은 형식을 재생할 수 있는 TV의 웹 브라우저에서 재생합니다. 몇 초 후 제대로 재생되는지 묻습니다. 아니요를 탭하면 TV 자체 플레이어로 전환합니다."
      ]
     ]
    ],
    "faq": [
     [
      "LG TV에 앱을 설치해야 하나요?",
-     "아니요. MirrorGo는 LG webOS TV에 내장된 LG 화면 공유, TV의 웹 브라우저, 미디어 플레이어를 사용합니다. iPhone에 MirrorGo만 설치하면 됩니다."
+     "아니요. All TV Kit은 LG webOS TV에 내장된 LG 화면 공유, TV의 웹 브라우저, 미디어 플레이어를 사용합니다. iPhone에 All TV Kit만 설치하면 됩니다."
     ],
     [
      "미러링할 때 LG TV에서 소리가 나지 않는 이유는 무엇인가요?",
      "대부분의 LG TV는 앱의 사운드를 재생합니다. 일부 구형 모델은 사운드 없이 화면만 표시합니다. 이런 TV에서 비디오를 사운드와 함께 보려면 미러링 대신 전송하세요(사진 및 비디오, 웹 비디오 또는 YouTube)."
     ],
     [
-     "AirPlay를 지원하지 않는 LG TV에서도 MirrorGo를 사용할 수 있나요?",
-     "예. MirrorGo는 AirPlay가 필요 없으며, 2018년 이후 LG webOS TV에서 작동합니다."
+     "AirPlay를 지원하지 않는 LG TV에서도 All TV Kit을 사용할 수 있나요?",
+     "예. All TV Kit은 AirPlay가 필요 없으며, 2018년 이후 LG webOS TV에서 작동합니다."
     ]
    ]
   },
   "roku": {
    "title": "iPhone을 Roku TV 또는 Roku 플레이어에 미러링하는 방법",
-   "description": "MirrorGo로 iPhone 화면을 Roku TV, Roku Streaming Stick, Roku Ultra에 Wi-Fi로 사운드와 함께 미러링하세요. 케이블도 AirPlay도 필요 없고, Roku에 아무것도 설치하지 않습니다.",
+   "description": "All TV Kit으로 iPhone 화면을 Roku TV, Roku Streaming Stick, Roku Ultra에 Wi-Fi로 사운드와 함께 미러링하세요. 케이블도 AirPlay도 필요 없고, Roku에 아무것도 설치하지 않습니다.",
    "h1": "iPhone을 Roku에 미러링하기",
-   "lead": "MirrorGo는 Wi-Fi를 통해 iPhone 화면을 사운드와 함께 Roku TV(TCL, Hisense, Sharp 및 기타 Roku TV 모델)와 Roku 스트리밍 플레이어에 표시합니다. Roku 자체 플레이어에서 재생되므로 Roku에 아무것도 설치할 필요가 없습니다.",
+   "lead": "All TV Kit은 Wi-Fi를 통해 iPhone 화면을 사운드와 함께 Roku TV(TCL, Hisense, Sharp 및 기타 Roku TV 모델)와 Roku 스트리밍 플레이어에 표시합니다. Roku 자체 플레이어에서 재생되므로 Roku에 아무것도 설치할 필요가 없습니다.",
    "steps": [
     "Roku를 켜고 iPhone을 같은 Wi-Fi에 연결하세요.",
-    "MirrorGo를 열고 TV 연결을 탭한 다음 Roku를 선택하세요.",
+    "All TV Kit을 열고 TV 연결을 탭한 다음 Roku를 선택하세요.",
     "화면 미러링을 열고 미러링 시작을 탭한 다음 공유 시작(iOS 26 이전 버전에서는 방송 시작)을 탭하세요.",
     "몇 초 후 TV에 화면이 표시됩니다. 중지하려면 미러링 중지를 탭하거나 Roku 리모컨의 홈 버튼을 누르세요."
    ],
@@ -795,49 +815,49 @@
     [
      "어떤 Roku를 지원하나요?",
      [
-      "TCL, Hisense, Sharp, Philips, Westinghouse 등의 Roku TV와 Roku 스트리밍 플레이어(Roku Express, Streaming Stick, Ultra)를 지원합니다. MirrorGo가 Wi-Fi에서 찾습니다."
+      "TCL, Hisense, Sharp, Philips, Westinghouse 등의 Roku TV와 Roku 스트리밍 플레이어(Roku Express, Streaming Stick, Ultra)를 지원합니다. All TV Kit이 Wi-Fi에서 찾습니다."
      ]
     ],
     [
      "Roku가 목록에 없는 경우",
      [
-      "iPhone과 Roku가 같은 Wi-Fi(게스트 네트워크 제외)에 있는지, 설정에서 MirrorGo의 로컬 네트워크 접근이 켜져 있는지, VPN이 꺼져 있는지 확인하세요. Roku에서 설정 › 시스템 › 고급 시스템 설정 › 모바일 앱으로 제어(Settings › System › Advanced system settings › Control by mobile apps)를 열고 네트워크 접근(Network access)을 기본값(Default)으로 설정하세요."
+      "iPhone과 Roku가 같은 Wi-Fi(게스트 네트워크 제외)에 있는지, 설정에서 All TV Kit의 로컬 네트워크 접근이 켜져 있는지, VPN이 꺼져 있는지 확인하세요. Roku에서 설정 › 시스템 › 고급 시스템 설정 › 모바일 앱으로 제어(Settings › System › Advanced system settings › Control by mobile apps)를 열고 네트워크 접근(Network access)을 기본값(Default)으로 설정하세요."
      ]
     ],
     [
      "작동 방식",
      [
-      "MirrorGo는 Roku 공식 모바일 앱과 같은 방식으로 Wi-Fi를 통해 Roku와 통신하며, iPhone 화면은 iPhone에서 보내는 실시간 비디오 스트림으로 Roku 내장 플레이어에서 재생됩니다. Roku 채널을 설치하거나 코드를 입력할 필요가 없습니다. 화면은 iPhone보다 몇 초 늦게 표시됩니다."
+      "All TV Kit은 Roku 공식 모바일 앱과 같은 방식으로 Wi-Fi를 통해 Roku와 통신하며, iPhone 화면은 iPhone에서 보내는 실시간 비디오 스트림으로 Roku 내장 플레이어에서 재생됩니다. Roku 채널을 설치하거나 코드를 입력할 필요가 없습니다. 화면은 iPhone보다 몇 초 늦게 표시됩니다."
      ]
     ]
    ],
    "faq": [
     [
      "Roku에 무언가를 설치해야 하나요?",
-     "아니요. iPhone에 MirrorGo만 설치하면 됩니다. Roku는 켜져 있고 같은 Wi-Fi에 연결되어 있기만 하면 됩니다."
+     "아니요. iPhone에 All TV Kit만 설치하면 됩니다. Roku는 켜져 있고 같은 Wi-Fi에 연결되어 있기만 하면 됩니다."
     ],
     [
      "AirPlay 없이 iPhone을 Roku에 미러링할 수 있나요?",
-     "예. MirrorGo는 AirPlay를 사용하지 않으므로 AirPlay를 지원하지 않는 Roku에서도 작동합니다."
+     "예. All TV Kit은 AirPlay를 사용하지 않으므로 AirPlay를 지원하지 않는 Roku에서도 작동합니다."
     ],
     [
      "iPhone을 Roku에 미러링할 때 소리가 나나요?",
-     "예. 앱에서 재생되는 사운드가 화면과 함께 Roku로 전달됩니다. MirrorGo는 마이크를 절대 전송하지 않습니다."
+     "예. 앱에서 재생되는 사운드가 화면과 함께 Roku로 전달됩니다. All TV Kit은 마이크를 절대 전송하지 않습니다."
     ],
     [
      "Roku로 사진, YouTube, 실시간 TV를 전송할 수 있나요?",
-     "아직은 안 됩니다. Roku에서는 MirrorGo가 화면을 미러링합니다. 사진과 비디오를 보여 주려면 화면 미러링을 시작하고 iPhone에서 여세요."
+     "아직은 안 됩니다. Roku에서는 All TV Kit이 화면을 미러링합니다. 사진과 비디오를 보여 주려면 화면 미러링을 시작하고 iPhone에서 여세요."
     ]
    ]
   },
   "googletv": {
    "title": "iPhone을 Google TV에 미러링하는 방법",
-   "description": "MirrorGo로 iPhone을 Google TV(Sony, TCL, Hisense, Philips, Chromecast with Google TV, Google TV Streamer)에 미러링하고 사진, 비디오, YouTube, 실시간 TV를 전송하세요.",
+   "description": "All TV Kit으로 iPhone을 Google TV(Sony, TCL, Hisense, Philips, Chromecast with Google TV, Google TV Streamer)에 미러링하고 사진, 비디오, YouTube, 실시간 TV를 전송하세요.",
    "h1": "iPhone을 Google TV에 미러링하기",
-   "lead": "MirrorGo는 iPhone 화면을 Google TV에 표시합니다. Sony, TCL, Hisense, Philips 등의 TV와 Chromecast with Google TV, Google TV Streamer를 지원합니다. TV에 설치할 것이 없습니다.",
+   "lead": "All TV Kit은 iPhone 화면을 Google TV에 표시합니다. Sony, TCL, Hisense, Philips 등의 TV와 Chromecast with Google TV, Google TV Streamer를 지원합니다. TV에 설치할 것이 없습니다.",
    "steps": [
     "TV를 켜고 iPhone을 같은 Wi-Fi에 연결하세요.",
-    "MirrorGo를 열고 TV 연결을 탭한 다음 Google TV를 선택하세요.",
+    "All TV Kit을 열고 TV 연결을 탭한 다음 Google TV를 선택하세요.",
     "화면 미러링을 열고 미러링 시작을 탭한 다음 공유 시작(iOS 26 이전 버전에서는 방송 시작)을 탭하세요.",
     "몇 초 후 TV에 화면이 표시됩니다."
    ],
@@ -875,35 +895,35 @@
     [
      "어떤 TV에 Google TV가 탑재되어 있나요?",
      [
-      "Google TV는 대부분의 최신 Sony BRAVIA, TCL, Hisense, Philips TV와 Google의 Chromecast with Google TV, Google TV Streamer에 탑재되어 있습니다. Google TV에는 Chromecast가 내장되어 있어, MirrorGo는 이를 통해 Wi-Fi에서 TV를 찾습니다."
+      "Google TV는 대부분의 최신 Sony BRAVIA, TCL, Hisense, Philips TV와 Google의 Chromecast with Google TV, Google TV Streamer에 탑재되어 있습니다. Google TV에는 Chromecast가 내장되어 있어, All TV Kit은 이를 통해 Wi-Fi에서 TV를 찾습니다."
      ]
     ],
     [
      "TV가 목록에 없는 경우",
      [
-      "iPhone과 TV가 같은 Wi-Fi(게스트 네트워크 제외)에 있는지, 설정에서 MirrorGo의 로컬 네트워크 접근이 켜져 있는지, VPN이 꺼져 있는지 확인하세요. 그래도 보이지 않나요? TV의 브라우저에서 smrr.tv를 열고 그곳으로 미러링하세요."
+      "iPhone과 TV가 같은 Wi-Fi(게스트 네트워크 제외)에 있는지, 설정에서 All TV Kit의 로컬 네트워크 접근이 켜져 있는지, VPN이 꺼져 있는지 확인하세요. 그래도 보이지 않나요? TV의 브라우저에서 smrr.tv를 열고 그곳으로 미러링하세요."
      ]
     ]
    ],
    "faq": [
     [
      "iPhone 화면 전체를 Google TV에 미러링할 수 있나요?",
-     "예. 대부분의 Google TV 모델은 AirPlay를 지원하지 않지만, MirrorGo는 내장된 Chromecast를 통해 화면 전체를 사운드와 함께 미러링합니다."
+     "예. 대부분의 Google TV 모델은 AirPlay를 지원하지 않지만, All TV Kit은 내장된 Chromecast를 통해 화면 전체를 사운드와 함께 미러링합니다."
     ],
     [
      "Google Home 앱이 필요한가요?",
-     "아니요. TV가 설정을 마치고 Wi-Fi에 연결되어 있기만 하면 됩니다. MirrorGo가 TV에 직접 연결합니다."
+     "아니요. TV가 설정을 마치고 Wi-Fi에 연결되어 있기만 하면 됩니다. All TV Kit이 TV에 직접 연결합니다."
     ]
    ]
   },
   "androidtv": {
    "title": "iPhone을 Android TV에 미러링하는 방법",
-   "description": "MirrorGo로 Wi-Fi를 통해 iPhone을 Android TV(Sony, Philips, Xiaomi, TCL, Sharp 등)에 미러링하고 사진, 비디오, YouTube, 실시간 TV 채널을 전송하세요.",
+   "description": "All TV Kit으로 Wi-Fi를 통해 iPhone을 Android TV(Sony, Philips, Xiaomi, TCL, Sharp 등)에 미러링하고 사진, 비디오, YouTube, 실시간 TV 채널을 전송하세요.",
    "h1": "iPhone을 Android TV에 미러링하기",
-   "lead": "MirrorGo는 iPhone 화면을 Sony, Philips, Xiaomi, TCL, Sharp 등의 Android TV와 Mi Box, NVIDIA SHIELD 같은 Android TV 박스에 표시합니다. TV에 설치할 것이 없습니다.",
+   "lead": "All TV Kit은 iPhone 화면을 Sony, Philips, Xiaomi, TCL, Sharp 등의 Android TV와 Mi Box, NVIDIA SHIELD 같은 Android TV 박스에 표시합니다. TV에 설치할 것이 없습니다.",
    "steps": [
     "TV를 켜고 iPhone을 같은 Wi-Fi에 연결하세요.",
-    "MirrorGo를 열고 TV 연결을 탭한 다음 Android TV를 선택하세요.",
+    "All TV Kit을 열고 TV 연결을 탭한 다음 Android TV를 선택하세요.",
     "화면 미러링을 열고 미러링 시작을 탭한 다음 공유 시작(iOS 26 이전 버전에서는 방송 시작)을 탭하세요.",
     "몇 초 후 TV에 화면이 표시됩니다."
    ],
@@ -941,35 +961,35 @@
     [
      "어떤 Android TV를 지원하나요?",
      [
-      "Chromecast가 내장된 Android TV와 박스를 지원하며, 거의 모든 기기에 내장되어 있습니다. Sony BRAVIA, Philips, Xiaomi Mi TV, TCL, Sharp, Mi Box, Xiaomi TV Stick, NVIDIA SHIELD 등이 해당됩니다. MirrorGo는 이를 통해 Wi-Fi에서 TV를 찾습니다."
+      "Chromecast가 내장된 Android TV와 박스를 지원하며, 거의 모든 기기에 내장되어 있습니다. Sony BRAVIA, Philips, Xiaomi Mi TV, TCL, Sharp, Mi Box, Xiaomi TV Stick, NVIDIA SHIELD 등이 해당됩니다. All TV Kit은 이를 통해 Wi-Fi에서 TV를 찾습니다."
      ]
     ],
     [
      "TV가 목록에 없는 경우",
      [
-      "iPhone과 TV가 같은 Wi-Fi(게스트 네트워크 제외)에 있는지, 설정에서 MirrorGo의 로컬 네트워크 접근이 켜져 있는지, VPN이 꺼져 있는지 확인하세요. 일부 TV는 대기 모드가 아니라 완전히 켜져 있어야 응답합니다."
+      "iPhone과 TV가 같은 Wi-Fi(게스트 네트워크 제외)에 있는지, 설정에서 All TV Kit의 로컬 네트워크 접근이 켜져 있는지, VPN이 꺼져 있는지 확인하세요. 일부 TV는 대기 모드가 아니라 완전히 켜져 있어야 응답합니다."
      ]
     ]
    ],
    "faq": [
     [
      "Android TV에 앱을 설치해야 하나요?",
-     "아니요. MirrorGo는 Android TV에 내장된 Chromecast를 사용합니다. iPhone에 MirrorGo만 설치하면 됩니다."
+     "아니요. All TV Kit은 Android TV에 내장된 Chromecast를 사용합니다. iPhone에 All TV Kit만 설치하면 됩니다."
     ],
     [
      "AirPlay 없이 iPhone을 Android TV에 미러링할 수 있나요?",
-     "예. MirrorGo를 사용하면 AirPlay 없이 TV에 내장된 Chromecast를 통해 iPhone을 미러링할 수 있습니다."
+     "예. All TV Kit을 사용하면 AirPlay 없이 TV에 내장된 Chromecast를 통해 iPhone을 미러링할 수 있습니다."
     ]
    ]
   },
   "chromecast": {
    "title": "iPhone을 Chromecast에 미러링하는 방법",
-   "description": "MirrorGo로 iPhone 화면을 Chromecast에 미러링하고 Wi-Fi로 사진, 비디오, YouTube, 실시간 TV 채널을 전송하세요. Google Home 앱 불필요.",
+   "description": "All TV Kit으로 iPhone 화면을 Chromecast에 미러링하고 Wi-Fi로 사진, 비디오, YouTube, 실시간 TV 채널을 전송하세요. Google Home 앱 불필요.",
    "h1": "iPhone을 Chromecast에 미러링하기",
-   "lead": "MirrorGo는 Chromecast를 통해, 그리고 VIZIO SmartCast처럼 Chromecast가 내장된 TV에 iPhone 화면을 표시합니다. TV에 설치할 것이 없습니다.",
+   "lead": "All TV Kit은 Chromecast를 통해, 그리고 VIZIO SmartCast처럼 Chromecast가 내장된 TV에 iPhone 화면을 표시합니다. TV에 설치할 것이 없습니다.",
    "steps": [
     "TV를 켜고 iPhone을 Chromecast와 같은 Wi-Fi에 연결하세요.",
-    "MirrorGo를 열고 TV 연결을 탭한 다음 Chromecast를 선택하세요.",
+    "All TV Kit을 열고 TV 연결을 탭한 다음 Chromecast를 선택하세요.",
     "화면 미러링을 열고 미러링 시작을 탭한 다음 공유 시작(iOS 26 이전 버전에서는 방송 시작)을 탭하세요.",
     "몇 초 후 TV에 화면이 표시됩니다."
    ],
@@ -1007,35 +1027,35 @@
     [
      "어떤 기기를 지원하나요?",
      [
-      "Google TV 탑재 여부와 관계없이 모든 Chromecast, 그리고 VIZIO SmartCast TV처럼 Chromecast가 내장된 TV와 디스플레이 스피커를 지원합니다. MirrorGo는 Google 앱과 같은 방식으로 Wi-Fi에서 기기를 찾습니다."
+      "Google TV 탑재 여부와 관계없이 모든 Chromecast, 그리고 VIZIO SmartCast TV처럼 Chromecast가 내장된 TV와 디스플레이 스피커를 지원합니다. All TV Kit은 Google 앱과 같은 방식으로 Wi-Fi에서 기기를 찾습니다."
      ]
     ],
     [
      "Chromecast가 목록에 없는 경우",
      [
-      "iPhone과 Chromecast가 같은 Wi-Fi(게스트 네트워크 제외)에 있는지, 설정에서 MirrorGo의 로컬 네트워크 접근이 켜져 있는지, VPN이 꺼져 있는지 확인하세요. 그래도 보이지 않나요? 아무 화면의 브라우저에서 smrr.tv를 열고 그곳으로 미러링하세요."
+      "iPhone과 Chromecast가 같은 Wi-Fi(게스트 네트워크 제외)에 있는지, 설정에서 All TV Kit의 로컬 네트워크 접근이 켜져 있는지, VPN이 꺼져 있는지 확인하세요. 그래도 보이지 않나요? 아무 화면의 브라우저에서 smrr.tv를 열고 그곳으로 미러링하세요."
      ]
     ]
    ],
    "faq": [
     [
      "iPhone 화면 전체를 Chromecast에 미러링할 수 있나요?",
-     "예. Chromecast는 AirPlay를 지원하지 않아 iPhone만으로는 할 수 없지만, MirrorGo는 화면 전체를 사운드와 함께 Chromecast에 미러링합니다."
+     "예. Chromecast는 AirPlay를 지원하지 않아 iPhone만으로는 할 수 없지만, All TV Kit은 화면 전체를 사운드와 함께 Chromecast에 미러링합니다."
     ],
     [
      "Google Home 앱이 필요한가요?",
-     "아니요. Chromecast가 설정을 마치고 Wi-Fi에 연결되어 있기만 하면 됩니다. MirrorGo가 Chromecast에 직접 연결합니다."
+     "아니요. Chromecast가 설정을 마치고 Wi-Fi에 연결되어 있기만 하면 됩니다. All TV Kit이 Chromecast에 직접 연결합니다."
     ]
    ]
   },
   "firetv": {
    "title": "iPhone을 Fire TV Stick에 미러링하는 방법(Fire TV 앱 불필요)",
-   "description": "MirrorGo로 iPhone을 Amazon Fire TV Stick, Fire TV Cube, Fire TV 스마트 TV에 미러링하세요. Fire TV에 설치할 것이 없습니다. 사진, 비디오, 실시간 TV 전송도 지원.",
+   "description": "All TV Kit으로 iPhone을 Amazon Fire TV Stick, Fire TV Cube, Fire TV 스마트 TV에 미러링하세요. Fire TV에 설치할 것이 없습니다. 사진, 비디오, 실시간 TV 전송도 지원.",
    "h1": "iPhone을 Fire TV에 미러링하기",
-   "lead": "MirrorGo는 모든 Fire TV에 내장된 플레이어를 사용해 iPhone 화면을 Fire TV Stick, Fire TV Cube, Fire TV 스마트 TV에 표시합니다. Fire TV에 설치할 것이 없습니다.",
+   "lead": "All TV Kit은 모든 Fire TV에 내장된 플레이어를 사용해 iPhone 화면을 Fire TV Stick, Fire TV Cube, Fire TV 스마트 TV에 표시합니다. Fire TV에 설치할 것이 없습니다.",
    "steps": [
     "Fire TV를 켜고 iPhone을 같은 Wi-Fi에 연결하세요.",
-    "MirrorGo를 열고 TV 연결을 탭한 다음 Fire TV를 선택하세요.",
+    "All TV Kit을 열고 TV 연결을 탭한 다음 Fire TV를 선택하세요.",
     "화면 미러링을 열고 미러링 시작을 탭한 다음 공유 시작(iOS 26 이전 버전에서는 방송 시작)을 탭하세요.",
     "TV에 화면이 표시됩니다. 중지하려면 미러링 중지를 탭하거나 Fire TV 리모컨의 홈 버튼을 누르세요."
    ],
@@ -1073,7 +1093,7 @@
     [
      "어떤 Fire TV를 지원하나요?",
      [
-      "Fire TV Stick(4K 및 4K Max 포함), Fire TV Cube, 그리고 Fire TV가 내장된 스마트 TV(Amazon, Toshiba, Insignia 등)를 지원합니다. MirrorGo가 Wi-Fi에서 찾습니다."
+      "Fire TV Stick(4K 및 4K Max 포함), Fire TV Cube, 그리고 Fire TV가 내장된 스마트 TV(Amazon, Toshiba, Insignia 등)를 지원합니다. All TV Kit이 Wi-Fi에서 찾습니다."
      ]
     ],
     [
@@ -1086,7 +1106,7 @@
    "faq": [
     [
      "Fire TV에 앱을 설치해야 하나요?",
-     "아니요. 모든 Fire TV에는 미디어 플레이어가 내장되어 있으며, MirrorGo는 이를 사용합니다. iPhone에 MirrorGo만 설치하면 됩니다."
+     "아니요. 모든 Fire TV에는 미디어 플레이어가 내장되어 있으며, All TV Kit은 이를 사용합니다. iPhone에 All TV Kit만 설치하면 됩니다."
     ],
     [
      "iPhone을 Fire TV Stick에 사운드와 함께 미러링할 수 있나요?",
@@ -1096,14 +1116,14 @@
   },
   "airplay": {
    "title": "iPhone을 Apple TV 및 AirPlay TV에 미러링·전송하는 방법",
-   "description": "iPhone을 Apple TV나 AirPlay TV(삼성, LG, Sony, VIZIO 등)에 미러링하고, MirrorGo로 사진, 비디오, 웹 비디오, 실시간 TV 채널을 전송하세요.",
+   "description": "iPhone을 Apple TV나 AirPlay TV(삼성, LG, Sony, VIZIO 등)에 미러링하고, All TV Kit으로 사진, 비디오, 웹 비디오, 실시간 TV 채널을 전송하세요.",
    "h1": "iPhone을 Apple TV 및 AirPlay TV에 미러링·전송하기",
-   "lead": "iPhone은 제어 센터에서 Apple TV나 AirPlay TV로 직접 미러링할 수 있습니다. MirrorGo는 iOS가 못하는 기능을 더해 줍니다. 실시간 TV 채널, 웹사이트의 비디오, 웹 이미지를 AirPlay로 재생합니다.",
+   "lead": "iPhone은 제어 센터에서 Apple TV나 AirPlay TV로 직접 미러링할 수 있습니다. All TV Kit은 iOS가 못하는 기능을 더해 줍니다. 실시간 TV 채널, 웹사이트의 비디오, 웹 이미지를 AirPlay로 재생합니다.",
    "steps": [
     "iPhone을 Apple TV 또는 AirPlay TV와 같은 Wi-Fi에 연결하세요.",
     "화면을 미러링하려면: 제어 센터를 열고 화면 미러링을 탭한 다음 TV를 선택하세요.",
-    "전송하려면: MirrorGo를 열고 TV 연결을 탭한 다음 AirPlay 기기 선택을 탭하고 TV를 선택하세요.",
-    "MirrorGo에서 사진 및 비디오, 웹 비디오 또는 IPTV를 열고 재생하세요. AirPlay를 통해 TV로 전달됩니다."
+    "전송하려면: All TV Kit을 열고 TV 연결을 탭한 다음 AirPlay 기기 선택을 탭하고 TV를 선택하세요.",
+    "All TV Kit에서 사진 및 비디오, 웹 비디오 또는 IPTV를 열고 재생하세요. AirPlay를 통해 TV로 전달됩니다."
    ],
    "features": [
     [
@@ -1145,29 +1165,29 @@
     [
      "미러링을 제어 센터에서 시작하는 이유",
      [
-      "Apple은 앱이 AirPlay 화면 미러링을 시작하는 것을 허용하지 않으며, 제어 센터에서만 시작할 수 있습니다. MirrorGo가 방법을 안내하며, 미러링이 켜지면 카메라도 TV에 전체 화면으로 표시할 수 있습니다."
+      "Apple은 앱이 AirPlay 화면 미러링을 시작하는 것을 허용하지 않으며, 제어 센터에서만 시작할 수 있습니다. All TV Kit이 방법을 안내하며, 미러링이 켜지면 카메라도 TV에 전체 화면으로 표시할 수 있습니다."
      ]
     ]
    ],
    "faq": [
     [
-     "MirrorGo에서 AirPlay를 중지할 수 있나요?",
-     "MirrorGo의 TV 목록을 열고 AirPlay 카드를 탭한 다음 메뉴에서 iPhone을 선택하면 AirPlay가 종료됩니다. 화면 미러링을 중단하려면 제어 센터 › 화면 미러링 › 미러링 중단을 사용하세요."
+     "All TV Kit에서 AirPlay를 중지할 수 있나요?",
+     "All TV Kit의 TV 목록을 열고 AirPlay 카드를 탭한 다음 메뉴에서 iPhone을 선택하면 AirPlay가 종료됩니다. 화면 미러링을 중단하려면 제어 센터 › 화면 미러링 › 미러링 중단을 사용하세요."
     ],
     [
-     "MirrorGo를 쓰려면 Apple TV가 필요한가요?",
-     "아니요. Apple TV는 선택지 중 하나일 뿐이며, MirrorGo는 AirPlay 없이도 삼성, LG, Roku, Google TV, Fire TV 및 모든 웹 브라우저에서 작동합니다."
+     "All TV Kit을 쓰려면 Apple TV가 필요한가요?",
+     "아니요. Apple TV는 선택지 중 하나일 뿐이며, All TV Kit은 AirPlay 없이도 삼성, LG, Roku, Google TV, Fire TV 및 모든 웹 브라우저에서 작동합니다."
     ]
    ]
   },
   "browser": {
    "title": "웹 브라우저로 iPhone을 모든 TV·컴퓨터에 미러링(smrr.tv)",
-   "description": "웹 브라우저가 있는 스마트 TV, PC, Mac, 태블릿에 iPhone을 미러링하세요. smrr.tv를 열고 MirrorGo에 6자리 코드를 입력하면 끝. TV나 컴퓨터에 앱 불필요.",
+   "description": "웹 브라우저가 있는 스마트 TV, PC, Mac, 태블릿에 iPhone을 미러링하세요. smrr.tv를 열고 All TV Kit에 6자리 코드를 입력하면 끝. TV나 컴퓨터에 앱 불필요.",
    "h1": "웹 브라우저가 있는 모든 화면에 iPhone 미러링하기",
-   "lead": "웹 브라우저가 있는 TV, 컴퓨터, 태블릿이라면 MirrorGo가 찾지 못하는 TV라도 iPhone 화면을 표시할 수 있습니다. 해당 기기에서 smrr.tv를 열고 MirrorGo에 코드를 입력하면 화면이 사운드와 함께 표시됩니다.",
+   "lead": "웹 브라우저가 있는 TV, 컴퓨터, 태블릿이라면 All TV Kit이 찾지 못하는 TV라도 iPhone 화면을 표시할 수 있습니다. 해당 기기에서 smrr.tv를 열고 All TV Kit에 코드를 입력하면 화면이 사운드와 함께 표시됩니다.",
    "steps": [
     "TV나 컴퓨터의 웹 브라우저에서 smrr.tv를 여세요. 페이지에 6자리 코드와 QR 코드가 표시됩니다.",
-    "MirrorGo에서 TV 목록을 열고 웹 브라우저로 미러링을 탭하세요.",
+    "All TV Kit에서 TV 목록을 열고 웹 브라우저로 미러링을 탭하세요.",
     "코드를 입력하거나 QR 코드를 스캔하세요.",
     "화면 미러링을 열고 미러링 시작을 탭한 다음 공유 시작(iOS 26 이전 버전에서는 방송 시작)을 탭하세요."
    ],
@@ -1218,14 +1238,14 @@
      "팁",
      [
       "미러링하는 동안 smrr.tv 페이지를 열어 두세요. 페이지를 새로 고치면 자동으로 다시 연결됩니다.",
-      "가까이 있는 LG 또는 삼성 TV라면 MirrorGo의 “…에서 열기” 버튼으로 TV의 브라우저를 바로 열 수 있습니다."
+      "가까이 있는 LG 또는 삼성 TV라면 All TV Kit의 “…에서 열기” 버튼으로 TV의 브라우저를 바로 열 수 있습니다."
      ]
     ]
    ],
    "faq": [
     [
      "TV나 컴퓨터에 무언가를 설치해야 하나요?",
-     "아니요, 웹 브라우저만 있으면 됩니다. smrr.tv를 열고 표시되는 코드를 MirrorGo에 입력하세요."
+     "아니요, 웹 브라우저만 있으면 됩니다. smrr.tv를 열고 표시되는 코드를 All TV Kit에 입력하세요."
     ],
     [
      "다른 사람이 내 코드로 화면을 볼 수 있나요?",
@@ -1239,11 +1259,11 @@
    "label": "연결",
    "title": "iPhone을 {title_art}에 연결하는 방법",
    "h1": "iPhone을 {art}에 연결하는 방법",
-   "lead": "MirrorGo로 iPhone을 {art}에 연결하는 데는 몇 초면 충분합니다. 두 기기를 같은 Wi-Fi에 연결하고 TV를 선택하면 끝입니다. TV에 설치할 것이 없으며, MirrorGo가 다음 연결을 위해 기억해 둡니다.",
-   "shot_alt": "TV 연결 버튼이 있는 MirrorGo 홈 화면",
+   "lead": "All TV Kit으로 iPhone을 {art}에 연결하는 데는 몇 초면 충분합니다. 두 기기를 같은 Wi-Fi에 연결하고 TV를 선택하면 끝입니다. TV에 설치할 것이 없으며, All TV Kit이 다음 연결을 위해 기억해 둡니다.",
+   "shot_alt": "TV 연결 버튼이 있는 All TV Kit 홈 화면",
    "tips": [
     "iPhone과 TV는 게스트 네트워크가 아닌 같은 Wi-Fi 네트워크에 있어야 합니다.",
-    "MirrorGo에는 로컬 네트워크 접근이 필요합니다(처음에 iOS가 묻습니다). 허용하지 않았다면: 설정 › MirrorGo › 로컬 네트워크.",
+    "All TV Kit에는 로컬 네트워크 접근이 필요합니다(처음에 iOS가 묻습니다). 허용하지 않았다면: 설정 › All TV Kit › 로컬 네트워크.",
     "전송하는 동안에는 iPhone의 VPN을 꺼 두세요.",
     "TV가 전혀 검색되지 않나요? 웹 브라우저가 있는 TV라면 smrr.tv로 연결할 수 있습니다."
    ]
@@ -1252,18 +1272,18 @@
    "label": "사진 및 비디오",
    "title": "iPhone 사진과 비디오를 {title_art}에 전송하는 방법",
    "h1": "iPhone의 사진과 비디오를 {art}에 전송하는 방법",
-   "lead": "MirrorGo를 사용하면 iPhone 보관함의 사진과 비디오를 {art}에 원본 화질로 표시할 수 있습니다. iPhone에서 쓸어넘기면 TV도 따라옵니다.",
-   "shot_alt": "MirrorGo로 iPhone 보관함의 사진 전송하기",
+   "lead": "All TV Kit을 사용하면 iPhone 보관함의 사진과 비디오를 {art}에 원본 화질로 표시할 수 있습니다. iPhone에서 쓸어넘기면 TV도 따라옵니다.",
+   "shot_alt": "All TV Kit으로 iPhone 보관함의 사진 전송하기",
    "steps": [
-    "MirrorGo를 {art}에 연결하세요.",
-    "MirrorGo 홈에서 사진 및 비디오를 탭하고 사진 접근을 허용하세요.",
+    "All TV Kit을 {art}에 연결하세요.",
+    "All TV Kit 홈에서 사진 및 비디오를 탭하고 사진 접근을 허용하세요.",
     "상단에서 비디오 또는 사진을 선택한 다음 원하는 항목을 탭하세요.",
     "전송 시작을 탭하세요. 잠시 후 TV에 표시됩니다.",
     "사진 아래의 스트립을 쓸어넘기면 TV도 따라옵니다. 비디오의 재생, 일시 정지, 탐색은 iPhone에서 합니다."
    ],
    "tips": [
     "자동 재생(스트립 맨 앞의 버튼)을 켜면 슬라이드쇼가 됩니다. 사진당 5~30초, 비디오는 끝까지 재생되며, 반복을 켜면 처음부터 다시 시작합니다.",
-    "사진 접근을 제한한 경우 선택한 사진만 표시됩니다. 모두 표시하려면: 설정 › MirrorGo › 사진 › 전체 접근.",
+    "사진 접근을 제한한 경우 선택한 사진만 표시됩니다. 모두 표시하려면: 설정 › All TV Kit › 사진 › 전체 접근.",
     "사진과 비디오는 Wi-Fi를 통해 iPhone에서 TV로 전달되며, 어디에도 업로드되지 않습니다.",
     "화면을 닫으면 전송이 중지됩니다."
    ]
@@ -1272,11 +1292,11 @@
    "label": "웹 이미지",
    "title": "iPhone으로 {title_art}에 무료 웹 이미지를 표시하는 방법",
    "h1": "{art}에 아름다운 무료 이미지를 표시하는 방법",
-   "lead": "MirrorGo는 Wikimedia Commons에서 수백만 장의 무료 오픈 라이선스 이미지(풍경, 우주, 도시, 동물, 예술)를 검색해 {art}에 전체 화면으로 표시합니다. 한 장씩 또는 슬라이드쇼로 볼 수 있습니다.",
-   "shot_alt": "MirrorGo로 전송할 준비가 된 Wikimedia Commons 풍경 사진",
+   "lead": "All TV Kit은 Wikimedia Commons에서 수백만 장의 무료 오픈 라이선스 이미지(풍경, 우주, 도시, 동물, 예술)를 검색해 {art}에 전체 화면으로 표시합니다. 한 장씩 또는 슬라이드쇼로 볼 수 있습니다.",
+   "shot_alt": "All TV Kit으로 전송할 준비가 된 Wikimedia Commons 풍경 사진",
    "steps": [
-    "MirrorGo를 {art}에 연결하세요.",
-    "MirrorGo 홈에서 웹 이미지를 탭하세요.",
+    "All TV Kit을 {art}에 연결하세요.",
+    "All TV Kit 홈에서 웹 이미지를 탭하세요.",
     "원하는 것을 검색하거나 주제를 탭하세요: 자연, 우주, 도시, 동물, 바다, 산, 예술, 꽃.",
     "이미지를 탭한 다음 전송 시작을 탭하세요.",
     "다음 이미지로 쓸어넘기면 TV도 따라오며, 슬라이드쇼를 켤 수도 있습니다."
@@ -1291,11 +1311,11 @@
    "label": "실시간 TV(IPTV)",
    "title": "iPhone으로 {title_art}에서 무료 실시간 TV 채널(IPTV) 보는 방법",
    "h1": "{art}에서 무료 실시간 TV 채널을 보는 방법",
-   "lead": "MirrorGo는 180개국 이상의 무료 공개 실시간 TV 채널 9,000개 이상(뉴스, 스포츠, 영화, 음악, 키즈 등)을 제공하며, 탭 한 번으로 {art}에서 재생합니다. 직접 가진 M3U 재생목록도 추가할 수 있습니다.",
-   "shot_alt": "MirrorGo의 IPTV 화면: 재생목록, 카테고리, 국가",
+   "lead": "All TV Kit은 180개국 이상의 무료 공개 실시간 TV 채널 9,000개 이상(뉴스, 스포츠, 영화, 음악, 키즈 등)을 제공하며, 탭 한 번으로 {art}에서 재생합니다. 직접 가진 M3U 재생목록도 추가할 수 있습니다.",
+   "shot_alt": "All TV Kit의 IPTV 화면: 재생목록, 카테고리, 국가",
    "steps": [
-    "MirrorGo를 {art}에 연결하세요.",
-    "MirrorGo 홈에서 IPTV를 탭하세요.",
+    "All TV Kit을 {art}에 연결하세요.",
+    "All TV Kit 홈에서 IPTV를 탭하세요.",
     "국가나 카테고리를 선택하거나, 채널 이름으로 검색하세요.",
     "채널을 탭하면 TV에서 시작됩니다. 다른 채널을 탭하면 전환됩니다.",
     "☆를 탭하면 채널이 즐겨찾기에 추가되고, +를 탭하면 M3U 재생목록 링크를 추가할 수 있습니다."
@@ -1310,11 +1330,11 @@
    "label": "YouTube",
    "title": "iPhone YouTube를 {title_art}에 전송하는 방법",
    "h1": "iPhone에서 {art}에 YouTube를 전송하는 방법",
-   "lead": "MirrorGo에서 YouTube 비디오를 찾아 TV로 전송을 탭하세요. {art}에서 비디오를 원본 화질로, 보던 지점부터 직접 재생하며, 그동안 iPhone은 자유롭게 쓸 수 있습니다.",
-   "shot_alt": "MirrorGo에서 전송할 YouTube 비디오 찾기",
+   "lead": "All TV Kit에서 YouTube 비디오를 찾아 TV로 전송을 탭하세요. {art}에서 비디오를 원본 화질로, 보던 지점부터 직접 재생하며, 그동안 iPhone은 자유롭게 쓸 수 있습니다.",
+   "shot_alt": "All TV Kit에서 전송할 YouTube 비디오 찾기",
    "steps": [
-    "MirrorGo를 {art}에 연결하세요.",
-    "MirrorGo 홈에서 YouTube를 탭하세요.",
+    "All TV Kit을 {art}에 연결하세요.",
+    "All TV Kit 홈에서 YouTube를 탭하세요.",
     "주제(음악, 뉴스, 스포츠, 라이브 등)를 선택하거나 검색한 다음 비디오를 여세요.",
     "TV로 전송을 탭하세요. TV에서 보던 지점부터 비디오가 시작됩니다."
    ],
@@ -1327,30 +1347,30 @@
    "label": "웹 비디오",
    "title": "iPhone으로 웹사이트 비디오를 {title_art}에 전송하는 방법",
    "h1": "웹사이트의 비디오를 {art}에 전송하는 방법",
-   "lead": "MirrorGo에서 웹사이트를 열고 비디오를 재생한 다음 TV로 전송을 탭하세요. MirrorGo가 광고가 아닌 실제 비디오를 찾아내며, 계속 웹을 둘러보는 동안 {art}에서 원본 화질로 재생합니다.",
-   "shot_alt": "인기 사이트가 표시된 MirrorGo의 웹 비디오 브라우저",
+   "lead": "All TV Kit에서 웹사이트를 열고 비디오를 재생한 다음 TV로 전송을 탭하세요. All TV Kit이 광고가 아닌 실제 비디오를 찾아내며, 계속 웹을 둘러보는 동안 {art}에서 원본 화질로 재생합니다.",
+   "shot_alt": "인기 사이트가 표시된 All TV Kit의 웹 비디오 브라우저",
    "steps": [
-    "MirrorGo를 {art}에 연결하세요.",
-    "MirrorGo 홈에서 웹 비디오를 탭하세요.",
+    "All TV Kit을 {art}에 연결하세요.",
+    "All TV Kit 홈에서 웹 비디오를 탭하세요.",
     "바로가기에서 사이트를 열거나 주소를 입력하세요.",
-    "페이지에서 비디오를 재생하세요. MirrorGo가 비디오를 찾으면 TV로 전송이 활성화됩니다.",
+    "페이지에서 비디오를 재생하세요. All TV Kit이 비디오를 찾으면 TV로 전송이 활성화됩니다.",
     "TV로 전송을 탭하세요. 비디오가 여러 개 검색되었다면 원하는 비디오(“1/3”)를 선택하세요."
    ],
    "tips": [
-    "MirrorGo는 광고 네트워크를 차단하고 아주 짧은 클립은 전송하지 않으므로, 광고가 TV에 나오지 않습니다.",
+    "All TV Kit은 광고 네트워크를 차단하고 아주 짧은 클립은 전송하지 않으므로, 광고가 TV에 나오지 않습니다.",
     "비디오를 보호하는 사이트(Netflix, Prime Video, Disney+)는 전송할 수 없습니다.",
-    "재생하는 동안 MirrorGo를 열어 두세요. 브라우징은 비공개로, 방문 기록, 쿠키, 캐시를 남기지 않습니다."
+    "재생하는 동안 All TV Kit을 열어 두세요. 브라우징은 비공개로, 방문 기록, 쿠키, 캐시를 남기지 않습니다."
    ]
   },
   "camera": {
    "label": "카메라",
    "title": "iPhone 카메라를 {title_art}에 실시간으로 표시하는 방법",
    "h1": "iPhone 카메라를 {art}에 실시간으로 표시하는 방법",
-   "lead": "MirrorGo는 iPhone을 {art}용 실시간 카메라로 만들어 줍니다. 방 안, 화이트보드, 문서, 반려동물이나 내 모습을 전면 또는 후면 카메라로 보여 주세요.",
-   "shot_alt": "카메라 타일이 있는 MirrorGo 홈 화면",
+   "lead": "All TV Kit은 iPhone을 {art}용 실시간 카메라로 만들어 줍니다. 방 안, 화이트보드, 문서, 반려동물이나 내 모습을 전면 또는 후면 카메라로 보여 주세요.",
+   "shot_alt": "카메라 타일이 있는 All TV Kit 홈 화면",
    "steps": [
-    "MirrorGo를 {art}에 연결하세요.",
-    "MirrorGo 홈에서 카메라를 탭하고 카메라 접근을 허용하세요.",
+    "All TV Kit을 {art}에 연결하세요.",
+    "All TV Kit 홈에서 카메라를 탭하고 카메라 접근을 허용하세요.",
     "전면 또는 후면 카메라를 선택하고, 마이크도 사용하려면 사운드를 켜세요.",
     "전송 시작을 탭하세요. 카메라가 보는 장면이 수평에 맞춰 TV에 표시됩니다."
    ],
@@ -1368,20 +1388,20 @@
    },
    "connect": [
     "삼성 TV를 켜고 iPhone을 같은 Wi-Fi에 연결하세요.",
-    "MirrorGo를 열고 TV 연결을 탭하세요. 삼성 TV가 이름으로 표시됩니다.",
-    "TV를 탭하세요. 처음 연결할 때 TV가 MirrorGo를 허용할지 묻습니다. 리모컨으로 허용을 선택하세요.",
-    "연결되었습니다. MirrorGo는 TV를, TV는 MirrorGo를 기억하므로 다시 묻지 않습니다."
+    "All TV Kit을 열고 TV 연결을 탭하세요. 삼성 TV가 이름으로 표시됩니다.",
+    "TV를 탭하세요. 처음 연결할 때 TV가 All TV Kit을 허용할지 묻습니다. 리모컨으로 허용을 선택하세요.",
+    "연결되었습니다. All TV Kit은 TV를, TV는 All TV Kit을 기억하므로 다시 묻지 않습니다."
    ],
    "connect_notes": [
-    "MirrorGo는 2016년 이후 삼성 스마트 TV(Tizen)를 지원합니다. TV의 리모컨 연결 기능과 내장 미디어 플레이어에 연결하므로 TV에 아무것도 설치할 필요가 없습니다.",
-    "실수로 거부를 선택했나요? TV가 이를 기억합니다. TV에서 설정 › 일반 › 외부 기기 관리자 › 기기 연결 관리자 › 기기 목록을 열고 MirrorGo를 허용하거나, 삭제해서 TV가 다시 묻도록 하세요."
+    "All TV Kit은 2016년 이후 삼성 스마트 TV(Tizen)를 지원합니다. TV의 리모컨 연결 기능과 내장 미디어 플레이어에 연결하므로 TV에 아무것도 설치할 필요가 없습니다.",
+    "실수로 거부를 선택했나요? TV가 이를 기억합니다. TV에서 설정 › 일반 › 외부 기기 관리자 › 기기 연결 관리자 › 기기 목록을 열고 All TV Kit을 허용하거나, 삭제해서 TV가 다시 묻도록 하세요."
    ],
-   "photos": "삼성 TV는 자체 미디어 플레이어로 사진과 비디오를 재생합니다. MirrorGo가 Wi-Fi를 통해 iPhone에서 각 사진이나 비디오를 제공하면 TV가 이를 가져오므로, 비디오가 원본 화질과 TV 사운드로 재생됩니다. HEVC 형식의 iPhone 비디오는 그대로 전송되며, TV가 재생하지 못하면 MirrorGo가 대신 H.264로 보내고 다음을 위해 이를 기억합니다.",
+   "photos": "삼성 TV는 자체 미디어 플레이어로 사진과 비디오를 재생합니다. All TV Kit이 Wi-Fi를 통해 iPhone에서 각 사진이나 비디오를 제공하면 TV가 이를 가져오므로, 비디오가 원본 화질과 TV 사운드로 재생됩니다. HEVC 형식의 iPhone 비디오는 그대로 전송되며, TV가 재생하지 못하면 All TV Kit이 대신 H.264로 보내고 다음을 위해 이를 기억합니다.",
    "images": "이미지는 TV 화면에 맞는 크기로 TV 자체 미디어 플레이어에 표시됩니다.",
-   "iptv": "먼저 삼성 TV가 채널 스트림을 직접 재생하도록 전달합니다. 몇 초 안에 재생되지 않으면 MirrorGo가 iPhone을 거쳐 스트림을 전달하고, 이 TV에 그 방식이 필요하다는 것을 기억합니다. iPhone은 잠가도 되지만 Wi-Fi에는 연결된 상태로 두세요.",
-   "youtube": "삼성 TV에서는 비디오가 TV의 YouTube 앱에서 열리며, MirrorGo가 YouTube 모바일 앱과 같은 방식으로 이를 제어해 보던 지점부터 재생합니다.",
+   "iptv": "먼저 삼성 TV가 채널 스트림을 직접 재생하도록 전달합니다. 몇 초 안에 재생되지 않으면 All TV Kit이 iPhone을 거쳐 스트림을 전달하고, 이 TV에 그 방식이 필요하다는 것을 기억합니다. iPhone은 잠가도 되지만 Wi-Fi에는 연결된 상태로 두세요.",
+   "youtube": "삼성 TV에서는 비디오가 TV의 YouTube 앱에서 열리며, All TV Kit이 YouTube 모바일 앱과 같은 방식으로 이를 제어해 보던 지점부터 재생합니다.",
    "webvideos": "삼성 플레이어는 사이트의 광고 시간까지 이어 붙인 하나의 연속 스트림으로 iPhone을 거쳐 비디오를 받으므로, 처음부터 끝까지 재생됩니다. iPhone에서 탐색하면 해당 지점부터 다시 시작됩니다.",
-   "camera": "사운드 지원: 시작하기 전에 사운드를 켜면 MirrorGo가 마이크 소리를 추가합니다."
+   "camera": "사운드 지원: 시작하기 전에 사운드를 켜면 All TV Kit이 마이크 소리를 추가합니다."
   },
   "lg": {
    "forms": {
@@ -1390,19 +1410,19 @@
    },
    "connect": [
     "LG TV를 켜고 iPhone을 같은 Wi-Fi에 연결하세요.",
-    "MirrorGo를 열고 TV 연결을 탭하세요. LG TV가 이름으로 표시됩니다.",
-    "TV를 탭하세요. 처음 연결할 때 TV가 MirrorGo를 허용할지 묻습니다. 리모컨으로 허용(또는 예)을 선택하세요.",
-    "연결되었습니다. MirrorGo가 TV의 키를 저장하므로 다음에는 바로 연결됩니다."
+    "All TV Kit을 열고 TV 연결을 탭하세요. LG TV가 이름으로 표시됩니다.",
+    "TV를 탭하세요. 처음 연결할 때 TV가 All TV Kit을 허용할지 묻습니다. 리모컨으로 허용(또는 예)을 선택하세요.",
+    "연결되었습니다. All TV Kit이 TV의 키를 저장하므로 다음에는 바로 연결됩니다."
    ],
    "connect_notes": [
-    "MirrorGo는 webOS를 탑재한 LG 스마트 TV를 지원합니다. TV에 아무것도 설치하지 않으며, LG의 자체 모바일 앱과 같은 방식으로 TV와 통신합니다.",
+    "All TV Kit은 webOS를 탑재한 LG 스마트 TV를 지원합니다. TV에 아무것도 설치하지 않으며, LG의 자체 모바일 앱과 같은 방식으로 TV와 통신합니다.",
     "메시지를 놓쳤거나 거부를 선택했나요? 다시 연결하면 TV가 다시 묻습니다. 구형 LG TV에서는 먼저 TV의 네트워크 설정에서 LG Connect Apps를 켜세요."
    ],
-   "photos": "LG TV에서 MirrorGo는 먼저 TV의 웹 브라우저를 열어 재생합니다. 웹 브라우저가 가장 많은 종류의 비디오를 재생할 수 있기 때문입니다. 몇 초 후 “TV에서 재생되고 있나요?”라고 묻는데, 아니요를 탭하면 브라우저를 닫고 TV 자체 플레이어를 사용합니다. 어느 쪽이든 사진과 비디오는 인터넷이 아닌 Wi-Fi를 통해 전달됩니다.",
-   "images": "MirrorGo가 TV의 웹 브라우저를 열면, 브라우저가 Wikimedia Commons에서 이미지를 최대 해상도로 바로 불러옵니다. 아무것도 표시되지 않으면 MirrorGo가 “TV에서 재생되고 있나요?”라고 물을 때 아니요를 탭하세요. TV 자체 플레이어를 사용합니다.",
-   "iptv": "채널은 LG TV의 웹 브라우저에서 재생됩니다. 웹 브라우저는 무료 채널의 광고 시간, 분리된 오디오, 암호화된 스트림처럼 LG 자체 플레이어가 처리하지 못하는 것도 재생합니다. 재생되지 않으면 MirrorGo가 “TV에서 재생되고 있나요?”라고 물을 때 아니요를 탭하세요. TV 플레이어로 다시 시도합니다.",
+   "photos": "LG TV에서 All TV Kit은 먼저 TV의 웹 브라우저를 열어 재생합니다. 웹 브라우저가 가장 많은 종류의 비디오를 재생할 수 있기 때문입니다. 몇 초 후 “TV에서 재생되고 있나요?”라고 묻는데, 아니요를 탭하면 브라우저를 닫고 TV 자체 플레이어를 사용합니다. 어느 쪽이든 사진과 비디오는 인터넷이 아닌 Wi-Fi를 통해 전달됩니다.",
+   "images": "All TV Kit이 TV의 웹 브라우저를 열면, 브라우저가 Wikimedia Commons에서 이미지를 최대 해상도로 바로 불러옵니다. 아무것도 표시되지 않으면 All TV Kit이 “TV에서 재생되고 있나요?”라고 물을 때 아니요를 탭하세요. TV 자체 플레이어를 사용합니다.",
+   "iptv": "채널은 LG TV의 웹 브라우저에서 재생됩니다. 웹 브라우저는 무료 채널의 광고 시간, 분리된 오디오, 암호화된 스트림처럼 LG 자체 플레이어가 처리하지 못하는 것도 재생합니다. 재생되지 않으면 All TV Kit이 “TV에서 재생되고 있나요?”라고 물을 때 아니요를 탭하세요. TV 플레이어로 다시 시도합니다.",
    "youtube": "LG TV에서는 비디오가 TV의 YouTube 앱에서 보던 지점부터 열립니다.",
-   "webvideos": "MirrorGo가 TV의 웹 브라우저를 열고 비디오 링크를 보냅니다. 사이트가 iPhone의 쿠키가 있어야만 재생을 허용하는 경우에는 iPhone이 대신 TV로 스트리밍합니다.",
+   "webvideos": "All TV Kit이 TV의 웹 브라우저를 열고 비디오 링크를 보냅니다. 사이트가 iPhone의 쿠키가 있어야만 재생을 허용하는 경우에는 iPhone이 대신 TV로 스트리밍합니다.",
    "camera": "카메라는 먼저 TV의 웹 브라우저에 표시되며, 같은 “TV에서 재생되고 있나요?” 확인을 거칩니다. 아니요를 탭하면 TV 자체 플레이어로 전환합니다."
   },
   "roku": {
@@ -1412,14 +1432,14 @@
    },
    "connect": [
     "Roku TV 또는 Roku 플레이어를 켜고 iPhone을 같은 Wi-Fi에 연결하세요.",
-    "MirrorGo를 열고 TV 연결을 탭하세요. Roku가 이름으로 표시됩니다.",
+    "All TV Kit을 열고 TV 연결을 탭하세요. Roku가 이름으로 표시됩니다.",
     "탭하면 연결됩니다. 코드를 입력할 필요가 없습니다.",
-    "연결되었습니다. MirrorGo가 다음을 위해 Roku를 기억합니다."
+    "연결되었습니다. All TV Kit이 다음을 위해 Roku를 기억합니다."
    ],
    "connect_notes": [
-    "MirrorGo는 Roku TV(TCL, Hisense, Sharp, Philips 및 기타 Roku TV 모델)와 Roku 스트리밍 플레이어(Roku Express, Streaming Stick, Ultra)를 지원합니다.",
+    "All TV Kit은 Roku TV(TCL, Hisense, Sharp, Philips 및 기타 Roku TV 모델)와 Roku 스트리밍 플레이어(Roku Express, Streaming Stick, Ultra)를 지원합니다.",
     "Roku가 목록에 없나요? Roku에서 설정 › 시스템 › 고급 시스템 설정 › 모바일 앱으로 제어(Settings › System › Advanced system settings › Control by mobile apps)를 열고 네트워크 접근(Network access)을 기본값(Default)으로 설정하세요.",
-    "Roku에서는 MirrorGo가 화면을 사운드와 함께 Roku 자체 플레이어로 미러링합니다. 사진, 비디오, 카메라, YouTube, 실시간 TV는 아직 Roku로 전송할 수 없습니다."
+    "Roku에서는 All TV Kit이 화면을 사운드와 함께 Roku 자체 플레이어로 미러링합니다. 사진, 비디오, 카메라, YouTube, 실시간 TV는 아직 Roku로 전송할 수 없습니다."
    ]
   },
   "googletv": {
@@ -1429,20 +1449,20 @@
    },
    "connect": [
     "Google TV를 켜고 iPhone을 같은 Wi-Fi에 연결하세요.",
-    "MirrorGo를 열고 TV 연결을 탭하세요. TV가 Google Home에 등록된 이름(예: 거실 TV)으로 표시됩니다.",
+    "All TV Kit을 열고 TV 연결을 탭하세요. TV가 Google Home에 등록된 이름(예: 거실 TV)으로 표시됩니다.",
     "탭하면 연결됩니다. 코드 입력도, TV의 메시지도 없습니다.",
-    "연결되었습니다. 다음에도 MirrorGo가 다시 연결합니다."
+    "연결되었습니다. 다음에도 All TV Kit이 다시 연결합니다."
    ],
    "connect_notes": [
-    "Google TV에는 Chromecast가 내장되어 있으며, MirrorGo는 이를 통해 TV와 통신합니다. Sony, TCL, Hisense, Philips의 Google TV, Chromecast with Google TV, Google TV Streamer에서 작동합니다.",
-    "목록에 없나요? TV를 대기 모드가 아닌 완전히 켜진 상태로 깨우고, iPhone과 같은 Wi-Fi에 있는지, MirrorGo의 로컬 네트워크 접근이 켜져 있는지 확인하세요."
+    "Google TV에는 Chromecast가 내장되어 있으며, All TV Kit은 이를 통해 TV와 통신합니다. Sony, TCL, Hisense, Philips의 Google TV, Chromecast with Google TV, Google TV Streamer에서 작동합니다.",
+    "목록에 없나요? TV를 대기 모드가 아닌 완전히 켜진 상태로 깨우고, iPhone과 같은 Wi-Fi에 있는지, All TV Kit의 로컬 네트워크 접근이 켜져 있는지 확인하세요."
    ],
-   "photos": "사진은 Wi-Fi를 통해 전체 화면 이미지로 TV에 전달되고, 비디오는 TV의 MirrorGo 플레이어에서 재생되며 재생, 일시 정지, 탐색은 iPhone에서 합니다.",
+   "photos": "사진은 Wi-Fi를 통해 전체 화면 이미지로 TV에 전달되고, 비디오는 TV의 All TV Kit 플레이어에서 재생되며 재생, 일시 정지, 탐색은 iPhone에서 합니다.",
    "images": "이미지는 TV에 내장된 Chromecast를 통해 전체 화면으로 표시됩니다.",
    "iptv": "TV가 채널을 직접 가져오므로, iPhone을 잠그거나 iPhone을 들고 방을 나가도 계속 재생됩니다.",
-   "youtube": "TV의 MirrorGo 앱 안에 있는 YouTube 플레이어에서 보던 지점부터 비디오가 재생됩니다.",
-   "webvideos": "TV가 MirrorGo를 통해 비디오를 재생하며, MirrorGo가 iPhone에서 사이트의 비디오를 전달합니다. 재생하는 동안 MirrorGo를 열어 두세요.",
-   "camera": "사운드 지원: 시작하기 전에 사운드를 켜면 MirrorGo가 마이크 소리를 추가합니다."
+   "youtube": "TV의 All TV Kit 앱 안에 있는 YouTube 플레이어에서 보던 지점부터 비디오가 재생됩니다.",
+   "webvideos": "TV가 All TV Kit을 통해 비디오를 재생하며, All TV Kit이 iPhone에서 사이트의 비디오를 전달합니다. 재생하는 동안 All TV Kit을 열어 두세요.",
+   "camera": "사운드 지원: 시작하기 전에 사운드를 켜면 All TV Kit이 마이크 소리를 추가합니다."
   },
   "androidtv": {
    "forms": {
@@ -1451,20 +1471,20 @@
    },
    "connect": [
     "Android TV를 켜고 iPhone을 같은 Wi-Fi에 연결하세요.",
-    "MirrorGo를 열고 TV 연결을 탭하세요. TV가 Chromecast 이름으로 표시됩니다.",
+    "All TV Kit을 열고 TV 연결을 탭하세요. TV가 Chromecast 이름으로 표시됩니다.",
     "탭하면 연결됩니다. 코드 입력도, TV의 메시지도 없습니다.",
-    "연결되었습니다. 다음에도 MirrorGo가 다시 연결합니다."
+    "연결되었습니다. 다음에도 All TV Kit이 다시 연결합니다."
    ],
    "connect_notes": [
-    "거의 모든 Android TV에는 Chromecast가 내장되어 있으며, MirrorGo는 이를 통해 TV와 통신합니다. Sony BRAVIA, Philips, Xiaomi, TCL, Sharp, Mi Box, Xiaomi TV Stick, NVIDIA SHIELD에서 작동합니다.",
-    "목록에 없나요? TV를 대기 모드가 아닌 완전히 켜진 상태로 깨우고, iPhone과 같은 Wi-Fi에 있는지, MirrorGo의 로컬 네트워크 접근이 켜져 있는지 확인하세요."
+    "거의 모든 Android TV에는 Chromecast가 내장되어 있으며, All TV Kit은 이를 통해 TV와 통신합니다. Sony BRAVIA, Philips, Xiaomi, TCL, Sharp, Mi Box, Xiaomi TV Stick, NVIDIA SHIELD에서 작동합니다.",
+    "목록에 없나요? TV를 대기 모드가 아닌 완전히 켜진 상태로 깨우고, iPhone과 같은 Wi-Fi에 있는지, All TV Kit의 로컬 네트워크 접근이 켜져 있는지 확인하세요."
    ],
-   "photos": "사진은 Wi-Fi를 통해 전체 화면 이미지로 TV에 전달되고, 비디오는 TV의 MirrorGo 플레이어에서 재생되며 재생, 일시 정지, 탐색은 iPhone에서 합니다.",
+   "photos": "사진은 Wi-Fi를 통해 전체 화면 이미지로 TV에 전달되고, 비디오는 TV의 All TV Kit 플레이어에서 재생되며 재생, 일시 정지, 탐색은 iPhone에서 합니다.",
    "images": "이미지는 TV에 내장된 Chromecast를 통해 전체 화면으로 표시됩니다.",
    "iptv": "TV가 채널을 직접 가져오므로, iPhone을 잠그거나 iPhone을 들고 방을 나가도 계속 재생됩니다.",
-   "youtube": "TV의 MirrorGo 앱 안에 있는 YouTube 플레이어에서 보던 지점부터 비디오가 재생됩니다.",
-   "webvideos": "TV가 MirrorGo를 통해 비디오를 재생하며, MirrorGo가 iPhone에서 사이트의 비디오를 전달합니다. 재생하는 동안 MirrorGo를 열어 두세요.",
-   "camera": "사운드 지원: 시작하기 전에 사운드를 켜면 MirrorGo가 마이크 소리를 추가합니다."
+   "youtube": "TV의 All TV Kit 앱 안에 있는 YouTube 플레이어에서 보던 지점부터 비디오가 재생됩니다.",
+   "webvideos": "TV가 All TV Kit을 통해 비디오를 재생하며, All TV Kit이 iPhone에서 사이트의 비디오를 전달합니다. 재생하는 동안 All TV Kit을 열어 두세요.",
+   "camera": "사운드 지원: 시작하기 전에 사운드를 켜면 All TV Kit이 마이크 소리를 추가합니다."
   },
   "chromecast": {
    "forms": {
@@ -1473,20 +1493,20 @@
    },
    "connect": [
     "Chromecast가 연결된 TV를 켜고 iPhone을 같은 Wi-Fi에 연결하세요.",
-    "MirrorGo를 열고 TV 연결을 탭하세요. Chromecast가 Google Home에 등록된 이름으로 표시됩니다.",
+    "All TV Kit을 열고 TV 연결을 탭하세요. Chromecast가 Google Home에 등록된 이름으로 표시됩니다.",
     "탭하면 연결됩니다. 코드 입력도, Google Home 앱도 필요 없습니다.",
-    "연결되었습니다. 다음에도 MirrorGo가 다시 연결합니다."
+    "연결되었습니다. 다음에도 All TV Kit이 다시 연결합니다."
    ],
    "connect_notes": [
     "Google TV 탑재 여부와 관계없이 모든 Chromecast를 지원하며, VIZIO SmartCast TV처럼 Chromecast가 내장된 TV에서도 작동합니다.",
-    "목록에 없나요? Chromecast가 iPhone과 같은 Wi-Fi(게스트 네트워크 제외)에 있는지, 설정에서 MirrorGo의 로컬 네트워크 접근이 켜져 있는지 확인하세요."
+    "목록에 없나요? Chromecast가 iPhone과 같은 Wi-Fi(게스트 네트워크 제외)에 있는지, 설정에서 All TV Kit의 로컬 네트워크 접근이 켜져 있는지 확인하세요."
    ],
-   "photos": "사진은 Wi-Fi를 통해 전체 화면 이미지로 TV에 전달되고, 비디오는 Chromecast의 MirrorGo 플레이어에서 재생되며 재생, 일시 정지, 탐색은 iPhone에서 합니다.",
+   "photos": "사진은 Wi-Fi를 통해 전체 화면 이미지로 TV에 전달되고, 비디오는 Chromecast의 All TV Kit 플레이어에서 재생되며 재생, 일시 정지, 탐색은 iPhone에서 합니다.",
    "images": "이미지는 Chromecast를 통해 전체 화면으로 표시됩니다.",
    "iptv": "Chromecast가 채널을 직접 가져오므로, iPhone을 잠가도 계속 재생됩니다.",
-   "youtube": "Chromecast의 MirrorGo 앱 안에 있는 YouTube 플레이어에서 보던 지점부터 비디오가 재생됩니다.",
-   "webvideos": "Chromecast가 MirrorGo를 통해 비디오를 재생하며, MirrorGo가 iPhone에서 사이트의 비디오를 전달합니다. 재생하는 동안 MirrorGo를 열어 두세요.",
-   "camera": "사운드 지원: 시작하기 전에 사운드를 켜면 MirrorGo가 마이크 소리를 추가합니다."
+   "youtube": "Chromecast의 All TV Kit 앱 안에 있는 YouTube 플레이어에서 보던 지점부터 비디오가 재생됩니다.",
+   "webvideos": "Chromecast가 All TV Kit을 통해 비디오를 재생하며, All TV Kit이 iPhone에서 사이트의 비디오를 전달합니다. 재생하는 동안 All TV Kit을 열어 두세요.",
+   "camera": "사운드 지원: 시작하기 전에 사운드를 켜면 All TV Kit이 마이크 소리를 추가합니다."
   },
   "firetv": {
    "forms": {
@@ -1495,18 +1515,18 @@
    },
    "connect": [
     "Fire TV를 켜고 iPhone을 같은 Wi-Fi에 연결하세요.",
-    "MirrorGo를 열고 TV 연결을 탭하세요. Fire TV가 이름으로 표시됩니다.",
+    "All TV Kit을 열고 TV 연결을 탭하세요. Fire TV가 이름으로 표시됩니다.",
     "탭하면 연결됩니다. Fire TV 앱도, 페어링도, 코드도 필요 없습니다.",
-    "연결되었습니다. 다음에도 MirrorGo가 다시 연결합니다."
+    "연결되었습니다. 다음에도 All TV Kit이 다시 연결합니다."
    ],
    "connect_notes": [
-    "모든 Fire TV에는 미디어 플레이어가 내장되어 있으며, MirrorGo는 이를 사용합니다. Fire TV Stick(4K 및 4K Max 포함), Fire TV Cube, Fire TV가 내장된 스마트 TV에서 작동합니다.",
+    "모든 Fire TV에는 미디어 플레이어가 내장되어 있으며, All TV Kit은 이를 사용합니다. Fire TV Stick(4K 및 4K Max 포함), Fire TV Cube, Fire TV가 내장된 스마트 TV에서 작동합니다.",
     "목록에 없나요? Fire TV 리모컨의 홈 버튼을 눌러 깨우고, iPhone과 같은 Wi-Fi에 있는지 확인하세요."
    ],
-   "photos": "사진은 이미지로, 비디오는 MP4 파일로 Wi-Fi를 통해 iPhone에서 제공됩니다. Fire TV는 iPhone의 기본 비디오 형식인 HEVC를 재생할 수 없으므로, MirrorGo가 먼저 H.264로 변환합니다. 긴 비디오는 잠시 시간이 걸립니다.",
+   "photos": "사진은 이미지로, 비디오는 MP4 파일로 Wi-Fi를 통해 iPhone에서 제공됩니다. Fire TV는 iPhone의 기본 비디오 형식인 HEVC를 재생할 수 없으므로, All TV Kit이 먼저 H.264로 변환합니다. 긴 비디오는 잠시 시간이 걸립니다.",
    "images": "이미지는 Fire TV의 내장 플레이어에 전체 화면으로 표시됩니다.",
    "iptv": "Fire TV가 채널 스트림을 직접 재생하므로, iPhone 없이도 계속 재생됩니다.",
-   "webvideos": "iPhone이 전달하는 사이트의 비디오를 Fire TV가 재생합니다. 재생하는 동안 MirrorGo를 열어 두세요.",
+   "webvideos": "iPhone이 전달하는 사이트의 비디오를 Fire TV가 재생합니다. 재생하는 동안 All TV Kit을 열어 두세요.",
    "camera": "화면만 표시: Fire TV의 내장 플레이어는 카메라를 사운드 없이 표시합니다."
   },
   "airplay": {
@@ -1516,18 +1536,18 @@
    },
    "connect": [
     "Apple TV 또는 AirPlay TV를 켜고 iPhone을 같은 Wi-Fi에 연결하세요.",
-    "MirrorGo를 열고 TV 연결을 탭한 다음 AirPlay 기기 선택을 탭하세요.",
+    "All TV Kit을 열고 TV 연결을 탭한 다음 AirPlay 기기 선택을 탭하세요.",
     "iOS의 AirPlay 메뉴에서 Apple TV 또는 AirPlay TV를 선택하세요. 처음 연결할 때는 TV에 표시되는 코드를 iPhone에 입력해야 할 수 있습니다.",
-    "연결되었습니다. MirrorGo에 “AirPlay로 연결됨”이 표시됩니다. 연결을 해제하려면 같은 메뉴를 열고 iPhone을 선택하세요."
+    "연결되었습니다. All TV Kit에 “AirPlay로 연결됨”이 표시됩니다. 연결을 해제하려면 같은 메뉴를 열고 iPhone을 선택하세요."
    ],
    "connect_notes": [
     "Apple TV HD, Apple TV 4K, 그리고 AirPlay가 내장된 TV에서 작동합니다. 2018년 이후 삼성, LG, Sony, VIZIO, TCL, Roku 모델 중 다수가 해당됩니다.",
     "AirPlay 기기에 화면 전체를 미러링하려면 제어 센터 › 화면 미러링을 사용하세요. Apple은 앱이 이를 시작하는 것을 허용하지 않습니다."
    ],
-   "photos": "비디오는 AirPlay로 재생되며, 사진도 마찬가지입니다. MirrorGo가 사진을 하나하나 짧은 정지 비디오로 만듭니다. 제어 센터에서 화면 미러링을 켜면 사진이 TV에 바로 표시됩니다.",
+   "photos": "비디오는 AirPlay로 재생되며, 사진도 마찬가지입니다. All TV Kit이 사진을 하나하나 짧은 정지 비디오로 만듭니다. 제어 센터에서 화면 미러링을 켜면 사진이 TV에 바로 표시됩니다.",
    "images": "이미지는 AirPlay를 통해 정지 비디오로 전달되며, 제어 센터에서 화면 미러링을 켜면 TV에 바로 표시됩니다.",
    "iptv": "채널은 AirPlay로 재생되며, Apple TV가 스트림을 직접 가져옵니다.",
-   "webvideos": "비디오는 AirPlay로 재생됩니다. 재생하는 동안 MirrorGo를 열어 두세요.",
+   "webvideos": "비디오는 AirPlay로 재생됩니다. 재생하는 동안 All TV Kit을 열어 두세요.",
    "camera": "먼저 제어 센터에서 화면 미러링을 켜세요. 그러면 카메라가 사운드 없이 TV에 전체 화면으로 표시됩니다."
   },
   "browser": {
@@ -1537,12 +1557,12 @@
    },
    "connect": [
     "TV, 컴퓨터 또는 태블릿의 웹 브라우저에서 smrr.tv를 여세요. 6자리 코드와 QR 코드가 표시됩니다.",
-    "MirrorGo에서 TV 연결을 탭한 다음 웹 브라우저로 미러링을 탭하세요.",
+    "All TV Kit에서 TV 연결을 탭한 다음 웹 브라우저로 미러링을 탭하세요.",
     "코드를 입력하거나, QR 코드 스캔을 탭하고 카메라를 QR 코드에 맞추세요.",
     "연결되었습니다. 페이지에 코드 대신 iPhone 화면이 표시됩니다."
    ],
    "connect_notes": [
-    "최신 웹 브라우저가 있는 화면이라면 모두 사용할 수 있습니다. MirrorGo가 TV로 찾지 못하는 스마트 TV, Windows PC, Mac, Chromebook, 태블릿 등이 해당됩니다. 가까이 있는 LG 또는 삼성 TV라면 “…에서 열기”로 TV의 브라우저를 바로 열 수 있습니다.",
+    "최신 웹 브라우저가 있는 화면이라면 모두 사용할 수 있습니다. All TV Kit이 TV로 찾지 못하는 스마트 TV, Windows PC, Mac, Chromebook, 태블릿 등이 해당됩니다. 가까이 있는 LG 또는 삼성 TV라면 “…에서 열기”로 TV의 브라우저를 바로 열 수 있습니다.",
     "iPhone과 브라우저는 직접 연결되므로 같은 Wi-Fi에 있어야 합니다. 페이지를 열어 두세요. 페이지를 새로 고치면 자동으로 다시 연결됩니다."
    ],
    "photos": "사진과 비디오는 Wi-Fi를 통해 iPhone에서 브라우저로 실시간 스트림으로 바로 전달되며, 16:9 화면을 가득 채우고 비디오의 사운드도 함께 재생됩니다.",
