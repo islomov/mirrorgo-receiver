@@ -37,8 +37,8 @@ To tell your own links apart (a post, a profile, an ad), add `?ref=<name>` to th
 ### In Telegram: every morning, and on demand
 
 At 09:00 UTC+5 (the cron in `wrangler.jsonc`) the Worker sends yesterday's numbers to a Telegram chat
-(`report.js`): views, App Store taps and link clicks against the day before, the 7-day totals, and the top
-sources, pages, countries and devices. The bot also answers, in that chat only:
+(`report.js`): views, App Store taps and link clicks against the day before, the 7-day totals, views and App Store
+taps per domain (alltvkit.app, mirrorgo.app), and the top sources, pages, countries and devices. The bot also answers, in that chat only:
 
 - `/stats`: today so far, against yesterday at the same time
 - `/yesterday`: the morning report

@@ -24,6 +24,11 @@ const OFFSET = UTC_OFFSET_HOURS * 60 * 60 * 1000;
 const DAY = 24 * 60 * 60 * 1000;
 const TOP = 5;
 
+// The site's domains (SITES in worker.js), each with its own line in the reports. Views counted before the domain was
+// recorded (blob9 empty, before 2026-11-21) were all on mirrorgo.app.
+const DOMAINS = ["alltvkit.app", "mirrorgo.app"];
+const domainOf = (blob9) => blob9 || "mirrorgo.app";
+
 export const COMMANDS = {
   "/stats": ["today", "Today so far"],
   "/yesterday": ["yesterday", "Yesterday, as in the morning report"],
@@ -113,16 +118,26 @@ export async function buildReport(env, kind = "yesterday", now = Date.now()) {
   const top = (column, extra = "", limit = TOP) =>
     q(`SELECT ${column} AS k, ${n} FROM ${DATASET} WHERE blob1 = 'view' AND ${current} ${extra} ` +
       `GROUP BY k ORDER BY n DESC LIMIT ${limit}`).then((rows) => rows.map((r) => [r.k, num(r.n)]));
+  // Per domain: { "alltvkit.app": { view, tap }, … }
+  const byDomain = () => q(`SELECT blob9 AS d, blob1 AS event, ${n} FROM ${DATASET} WHERE ${current} AND ` +
+    `(blob1 = 'view' OR (blob1 = 'click' AND blob4 = 'app-store')) GROUP BY d, event`).then((rows) => {
+    const out = Object.fromEntries(DOMAINS.map((d) => [d, { view: 0, tap: 0 }]));
+    for (const r of rows) {
+      const d = (out[domainOf(r.d)] ??= { view: 0, tap: 0 });
+      d[r.event === "view" ? "view" : "tap"] += num(r.n);
+    }
+    return out;
+  });
 
-  const [y, p, w, storeY, storeP, storeW, sources, pages, countries, devices] = await Promise.all([
+  const [y, p, w, storeY, storeP, storeW, domains, sources, pages, countries, devices] = await Promise.all([
     totals(current), totals(before), withWeek ? totals(week) : {}, store(current), store(before),
-    withWeek ? store(week) : 0,
+    withWeek ? store(week) : 0, byDomain(),
     top("blob4", "AND blob4 != '(internal)'"), top("blob2"), top("blob6"), top("blob7", "", 10),
   ]);
 
   const views = y.view ?? 0;
   const lines = [
-    `📊 <b>alltvkit.app · ${title}</b>`,
+    `📊 <b>Landing page · ${title}</b>`,
     "",
     `👀 <b>${fmt(views)}</b> ${plural(views, "view")}${change(views, p.view ?? 0, vs)}`,
     `🍎 <b>${fmt(storeY)}</b> App Store ${plural(storeY, "tap")}${change(storeY, storeP, vs)}`,
@@ -131,6 +146,8 @@ export async function buildReport(env, kind = "yesterday", now = Date.now()) {
   if (withWeek) {
     lines.push(`<i>7 days: ${fmt(w.view ?? 0)} ${plural(w.view ?? 0, "view")} · ${fmt(storeW)} App Store ${plural(storeW, "tap")}</i>`);
   }
+  lines.push("", "<b>Domains</b>", ...Object.entries(domains).map(([d, { view, tap }]) =>
+    `<code>${esc(d)}</code>  ${fmt(view)} ${plural(view, "view")} · ${fmt(tap)} App Store ${plural(tap, "tap")}`));
   if (views === 0) return lines.join("\n");
 
   // <code>: Telegram would otherwise link the domains and turn "/zh" into a bot command.
