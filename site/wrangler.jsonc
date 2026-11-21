@@ -1,8 +1,9 @@
 {
   "$schema": "https://unpkg.com/wrangler/config-schema.json",
-  // mirrorgo.app: MirrorGo's landing page. Static files built by build.py into ./public; worker.js
-  // sends www.mirrorgo.app to mirrorgo.app and the removed Roku articles to the Roku guide, and counts
-  // page views and link clicks (POST /e from site.js) in the Analytics Engine dataset below.
+  // mirrorgo.app: MirrorGo's landing page, also served as is on alltvkit.app (same pages; their canonical
+  // URLs stay on mirrorgo.app). Static files built by build.py into ./public; worker.js sends www.<domain>
+  // to <domain> and the removed Roku articles to the Roku guide, and counts page views and link clicks
+  // (POST /e from site.js) in the Analytics Engine dataset below.
   "name": "mirrorgo-site",
   "main": "worker.js",
   "compatibility_date": "2026-11-01",
@@ -15,7 +16,9 @@
   },
   "routes": [
     { "pattern": "mirrorgo.app", "custom_domain": true },
-    { "pattern": "www.mirrorgo.app", "custom_domain": true }
+    { "pattern": "www.mirrorgo.app", "custom_domain": true },
+    { "pattern": "alltvkit.app", "custom_domain": true },
+    { "pattern": "www.alltvkit.app", "custom_domain": true }
   ],
   // Page views and clicks; `python3 stats.py` reads them.
   "analytics_engine_datasets": [{ "binding": "STATS", "dataset": "mirrorgo_site" }],
