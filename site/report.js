@@ -1,19 +1,34 @@
-// The morning report: yesterday's page views and clicks (the Analytics Engine dataset `mirrorgo_site`, see count() in
-// worker.js for its columns), sent to a Telegram chat by the Worker's cron (wrangler.jsonc's triggers).
+// Landing page stats in Telegram (the Analytics Engine dataset `mirrorgo_site`, see count() in worker.js for its
+// columns): every morning, yesterday's numbers (the cron in wrangler.jsonc), and on demand, the bot's commands
+// (/stats today so far, /yesterday, /week), which Telegram posts to POST /telegram (the webhook).
 //
 // Secrets (`npx wrangler secret put <NAME>` in site/; nothing is sent while one is missing):
-//   TELEGRAM_BOT_TOKEN  the bot's token, from @BotFather
-//   TELEGRAM_CHAT_ID    the chat to post in (send the bot a message, then open
-//                       https://api.telegram.org/bot<TOKEN>/getUpdates and take message.chat.id)
-//   STATS_ACCOUNT_ID    the Cloudflare account id
-//   STATS_API_TOKEN     a Cloudflare API token with "Account Analytics: Read" (the same kind stats.py uses)
+//   TELEGRAM_BOT_TOKEN       the bot's token, from @BotFather
+//   TELEGRAM_CHAT_ID         the chat to post in, and the only one whose commands are answered (send the bot a
+//                            message, then open https://api.telegram.org/bot<TOKEN>/getUpdates: message.chat.id)
+//   TELEGRAM_WEBHOOK_SECRET  any random string; Telegram sends it with each update (setWebhook's secret_token)
+//   STATS_ACCOUNT_ID         the Cloudflare account id
+//   STATS_API_TOKEN          a Cloudflare API token with "Account Analytics: Read" (the same kind stats.py uses)
+//
+// The webhook, once (and the commands in the bot's menu):
+//   curl "https://api.telegram.org/bot<TOKEN>/setWebhook" -d url=https://alltvkit.app/telegram -d secret_token=<SECRET> \
+//        -d 'allowed_updates=["message"]'
+//   curl "https://api.telegram.org/bot<TOKEN>/setMyCommands" -H 'Content-Type: application/json' \
+//        -d '{"commands":[{"command":"stats","description":"Today so far"},…]}'   (COMMANDS below)
 
 const DATASET = "mirrorgo_site";
 
-// "Yesterday" is the calendar day in this time zone (UTC+5); the cron sends the report at 09:00 there.
+// Days are calendar days in this time zone (UTC+5); the cron sends the morning report at 09:00 there.
 const UTC_OFFSET_HOURS = 5;
+const OFFSET = UTC_OFFSET_HOURS * 60 * 60 * 1000;
 const DAY = 24 * 60 * 60 * 1000;
 const TOP = 5;
+
+export const COMMANDS = {
+  "/stats": ["today", "Today so far"],
+  "/yesterday": ["yesterday", "Yesterday, as in the morning report"],
+  "/week": ["week", "The last 7 days"],
+};
 
 export async function sendDailyReport(env, now = Date.now()) {
   const missing = ["TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID", "STATS_ACCOUNT_ID", "STATS_API_TOKEN"].filter((k) => !env[k]);
@@ -21,7 +36,42 @@ export async function sendDailyReport(env, now = Date.now()) {
     console.log(`Daily report not sent: set the secret(s) ${missing.join(", ")}.`);
     return;
   }
-  const text = await buildReport(env, now);
+  await send(env, await buildReport(env, "yesterday", now));
+}
+
+// POST /telegram: an update from Telegram. Answered only when it carries the webhook secret and comes from
+// TELEGRAM_CHAT_ID; always 200 otherwise, so that Telegram doesn't send it again.
+export async function handleTelegram(request, env, ctx) {
+  if (request.method !== "POST") return new Response(null, { status: 405, headers: { Allow: "POST" } });
+  const secret = request.headers.get("X-Telegram-Bot-Api-Secret-Token");
+  if (!env.TELEGRAM_WEBHOOK_SECRET || secret !== env.TELEGRAM_WEBHOOK_SECRET) return new Response(null, { status: 401 });
+  let message;
+  try {
+    message = (await request.json()).message;
+  } catch {
+    return new Response(null);
+  }
+  if (!message?.text || String(message.chat?.id) !== String(env.TELEGRAM_CHAT_ID)) return new Response(null);
+  const command = message.text.trim().split(/\s+/)[0].replace(/@.*$/, "").toLowerCase();
+  ctx.waitUntil(answer(env, COMMANDS[command]?.[0]));
+  return new Response(null);
+}
+
+async function answer(env, kind) {
+  let text;
+  if (!kind) {
+    text = Object.entries(COMMANDS).map(([command, [, about]]) => `${command} — ${about}`).join("\n");
+  } else {
+    try {
+      text = await buildReport(env, kind);
+    } catch (e) {
+      text = `Couldn't get the stats: ${esc(e.message)}`;
+    }
+  }
+  await send(env, text);
+}
+
+async function send(env, text) {
   const res = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -30,12 +80,29 @@ export async function sendDailyReport(env, now = Date.now()) {
   if (!res.ok) throw new Error(`Telegram answered ${res.status}: ${(await res.text()).slice(0, 300)}`);
 }
 
-export async function buildReport(env, now = Date.now()) {
-  const offset = UTC_OFFSET_HOURS * 60 * 60 * 1000;
-  const today = Math.floor((now + offset) / DAY) * DAY - offset; // local midnight, as a UTC time
-  const yesterday = between(today - DAY, today);
-  const dayBefore = between(today - 2 * DAY, today - DAY);
-  const week = between(today - 7 * DAY, today);
+// The time spans of a report: what it counts, what it's compared with, and its title.
+function period(kind, now) {
+  const today = Math.floor((now + OFFSET) / DAY) * DAY - OFFSET; // local midnight, as a UTC time
+  const date = (t, opts) => new Date(t + OFFSET).toLocaleDateString("en-GB", { timeZone: "UTC", ...opts });
+  const time = new Date(now + OFFSET).toISOString().slice(11, 16);
+  if (kind === "today") {
+    return { from: today, to: now, title: `Today until ${time}`, vs: "same time yesterday", week: true };
+  }
+  if (kind === "week") {
+    return { from: now - 7 * DAY, to: now, title: "The last 7 days", vs: "the 7 days before", week: false };
+  }
+  return {
+    from: today - DAY, to: today, title: date(today - DAY, { weekday: "short", day: "numeric", month: "short" }),
+    vs: date(today - 2 * DAY, { weekday: "short" }), week: true,
+  };
+}
+
+export async function buildReport(env, kind = "yesterday", now = Date.now()) {
+  const { from, to, title, vs, week: withWeek } = period(kind, now);
+  const span = to - from;
+  const current = between(from, to);
+  const before = between(from - (kind === "week" ? span : DAY), to - (kind === "week" ? span : DAY));
+  const week = between(to - 7 * DAY, to);
   const q = (query) => sql(env, query);
   const n = "SUM(_sample_interval) AS n";
 
@@ -44,36 +111,38 @@ export async function buildReport(env, now = Date.now()) {
   const store = (w) => q(`SELECT ${n} FROM ${DATASET} WHERE blob1 = 'click' AND blob4 = 'app-store' AND ${w}`)
     .then((rows) => num(rows[0]?.n));
   const top = (column, extra = "", limit = TOP) =>
-    q(`SELECT ${column} AS k, ${n} FROM ${DATASET} WHERE blob1 = 'view' AND ${yesterday} ${extra} ` +
+    q(`SELECT ${column} AS k, ${n} FROM ${DATASET} WHERE blob1 = 'view' AND ${current} ${extra} ` +
       `GROUP BY k ORDER BY n DESC LIMIT ${limit}`).then((rows) => rows.map((r) => [r.k, num(r.n)]));
 
   const [y, p, w, storeY, storeP, storeW, sources, pages, countries, devices] = await Promise.all([
-    totals(yesterday), totals(dayBefore), totals(week), store(yesterday), store(dayBefore), store(week),
+    totals(current), totals(before), withWeek ? totals(week) : {}, store(current), store(before),
+    withWeek ? store(week) : 0,
     top("blob4", "AND blob4 != '(internal)'"), top("blob2"), top("blob6"), top("blob7", "", 10),
   ]);
 
-  const label = (t, opts) => new Date(t + offset).toLocaleDateString("en-GB", { timeZone: "UTC", ...opts });
-  const prevDay = label(today - 2 * DAY, { weekday: "short" });
   const views = y.view ?? 0;
   const lines = [
-    `📊 <b>alltvkit.app · ${label(today - DAY, { weekday: "short", day: "numeric", month: "short" })}</b>`,
+    `📊 <b>alltvkit.app · ${title}</b>`,
     "",
-    `👀 <b>${fmt(views)}</b> views${change(views, p.view ?? 0, prevDay)}`,
-    `🍎 <b>${fmt(storeY)}</b> App Store taps${change(storeY, storeP, prevDay)}`,
-    `🖱 <b>${fmt(y.click ?? 0)}</b> link clicks${change(y.click ?? 0, p.click ?? 0, prevDay)}`,
-    `<i>7 days: ${fmt(w.view ?? 0)} views · ${fmt(storeW)} App Store taps</i>`,
+    `👀 <b>${fmt(views)}</b> ${plural(views, "view")}${change(views, p.view ?? 0, vs)}`,
+    `🍎 <b>${fmt(storeY)}</b> App Store ${plural(storeY, "tap")}${change(storeY, storeP, vs)}`,
+    `🖱 <b>${fmt(y.click ?? 0)}</b> link ${plural(y.click ?? 0, "click")}${change(y.click ?? 0, p.click ?? 0, vs)}`,
   ];
+  if (withWeek) {
+    lines.push(`<i>7 days: ${fmt(w.view ?? 0)} ${plural(w.view ?? 0, "view")} · ${fmt(storeW)} App Store ${plural(storeW, "tap")}</i>`);
+  }
   if (views === 0) return lines.join("\n");
 
-  const list = (title, rows, name = (k) => k) => {
+  // <code>: Telegram would otherwise link the domains and turn "/zh" into a bot command.
+  const list = (heading, rows, name = (k) => k) => {
     if (!rows.length) return;
-    lines.push("", `<b>${title}</b>`, ...rows.map(([k, v]) => `${esc(name(k))}  ${fmt(v)}`));
+    lines.push("", `<b>${heading}</b>`, ...rows.map(([k, v]) => `<code>${esc(name(k))}</code>  ${fmt(v)}`));
   };
   list("From", sources, (k) => k.replace(/^\((.*)\)$/, "$1") || "?");
   list("Pages", pages, (k) => k || "/");
   lines.push("", "<b>Countries</b>", countries.map(([k, v]) => `${flag(k)}${esc(k || "?")} ${fmt(v)}`).join(" · "));
   const all = devices.reduce((s, [, v]) => s + v, 0) || 1;
-  const icon = { mobile: "📱", desktop: "💻", tablet: "📟" };
+  const icon = { mobile: "📱", desktop: "💻" };
   lines.push("", devices.map(([k, v]) => `${icon[k] ? `${icon[k]} ` : ""}${esc(k)} ${Math.round((100 * v) / all)}%`).join(" · "));
   return lines.join("\n");
 }
@@ -97,15 +166,19 @@ function num(value) {
   return Math.round(Number(value) || 0);
 }
 
+function plural(n, word) {
+  return n === 1 ? word : `${word}s`;
+}
+
 function fmt(value) {
   return value.toLocaleString("en-US");
 }
 
-function change(now, before, day) {
-  if (now === before) return before ? ` (= ${day})` : "";
-  if (!before) return ` (${day}: 0)`;
+function change(now, before, vs) {
+  if (now === before) return before ? ` (= ${vs})` : "";
+  if (!before) return ` (${vs}: 0)`;
   const pct = Math.round((100 * (now - before)) / before);
-  return ` (${pct > 0 ? "+" : ""}${pct}% vs ${day})`;
+  return ` (${pct > 0 ? "+" : ""}${pct}% vs ${vs})`;
 }
 
 function flag(code) {
