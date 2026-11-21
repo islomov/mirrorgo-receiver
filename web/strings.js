@@ -114,6 +114,27 @@ const tvs = {
   },
 };
 
+/**
+ * Inside the Fire OS app (islomov/mirrorgo-firetv): the iPhone finds that app on the Wi-Fi and joins it
+ * by itself (MIRR-165), so the page says "tap this TV in All TV Kit"; the code is only the fallback.
+ * Applied over the rest by app.js (`autoJoin`), not on Vega or in a browser opened on /firetv.
+ */
+export const autoJoinStrings = {
+  pageTitle: "All TV Kit",
+  brand: "All TV Kit",
+  codeTitle: "Mirror your iPhone to this Fire TV",
+  openApp: "Open All TV Kit on your iPhone",
+  tap: "Tap",
+  thisTV: "this Fire TV",
+  sameWifi: "Same Wi-Fi as this Fire TV.",
+  codeFallback: "Not in the list? Tap Browser (smrr.tv) and enter",
+  qrHint: "No app? Scan to get it",
+  startingHint: "Start Screen Mirroring or play a channel in All TV Kit.",
+  stoppedHint: "Start again from All TV Kit on your iPhone.",
+  mediaStoppedHint: "Pick something to play in All TV Kit.",
+  mediaFailedHint: "Try another channel from your iPhone.",
+};
+
 const surface = document.body ? document.body.getAttribute("data-surface") : null;
 /** "/samsung" or "/samsung/" → "samsung" (only on tv.html). */
 const tvKey = surface === "tv" ? location.pathname.replace(/^\/+|\/+$/g, "").toLowerCase() : "";
