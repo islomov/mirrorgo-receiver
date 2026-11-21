@@ -58,22 +58,23 @@ export async function buildReport(env, now = Date.now()) {
   const lines = [
     `📊 <b>alltvkit.app · ${label(today - DAY, { weekday: "short", day: "numeric", month: "short" })}</b>`,
     "",
-    `👀 <b>${fmt(views)}</b> views${change(views, p.view ?? 0, prevDay)}`,
-    `🍎 <b>${fmt(storeY)}</b> App Store taps${change(storeY, storeP, prevDay)}`,
-    `🖱 <b>${fmt(y.click ?? 0)}</b> link clicks${change(y.click ?? 0, p.click ?? 0, prevDay)}`,
-    `<i>7 days: ${fmt(w.view ?? 0)} views · ${fmt(storeW)} App Store taps</i>`,
+    `👀 <b>${fmt(views)}</b> ${plural(views, "view")}${change(views, p.view ?? 0, prevDay)}`,
+    `🍎 <b>${fmt(storeY)}</b> App Store ${plural(storeY, "tap")}${change(storeY, storeP, prevDay)}`,
+    `🖱 <b>${fmt(y.click ?? 0)}</b> link ${plural(y.click ?? 0, "click")}${change(y.click ?? 0, p.click ?? 0, prevDay)}`,
+    `<i>7 days: ${fmt(w.view ?? 0)} ${plural(w.view ?? 0, "view")} · ${fmt(storeW)} App Store ${plural(storeW, "tap")}</i>`,
   ];
   if (views === 0) return lines.join("\n");
 
+  // <code>: Telegram would otherwise link the domains and turn "/zh" into a bot command.
   const list = (title, rows, name = (k) => k) => {
     if (!rows.length) return;
-    lines.push("", `<b>${title}</b>`, ...rows.map(([k, v]) => `${esc(name(k))}  ${fmt(v)}`));
+    lines.push("", `<b>${title}</b>`, ...rows.map(([k, v]) => `<code>${esc(name(k))}</code>  ${fmt(v)}`));
   };
   list("From", sources, (k) => k.replace(/^\((.*)\)$/, "$1") || "?");
   list("Pages", pages, (k) => k || "/");
   lines.push("", "<b>Countries</b>", countries.map(([k, v]) => `${flag(k)}${esc(k || "?")} ${fmt(v)}`).join(" · "));
   const all = devices.reduce((s, [, v]) => s + v, 0) || 1;
-  const icon = { mobile: "📱", desktop: "💻", tablet: "📟" };
+  const icon = { mobile: "📱", desktop: "💻" };
   lines.push("", devices.map(([k, v]) => `${icon[k] ? `${icon[k]} ` : ""}${esc(k)} ${Math.round((100 * v) / all)}%`).join(" · "));
   return lines.join("\n");
 }
@@ -95,6 +96,10 @@ function between(from, to) {
 
 function num(value) {
   return Math.round(Number(value) || 0);
+}
+
+function plural(n, word) {
+  return n === 1 ? word : `${word}s`;
 }
 
 function fmt(value) {
