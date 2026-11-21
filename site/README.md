@@ -3,8 +3,9 @@
 Static site, no framework: `build.py` (Python 3.9+, standard library only) builds `content.py` and
 `blog.py` (the English text), `i18n.py` (the layout's text, and the translations in `locales/`) and `src/`
 (CSS, JS, fonts, images) into `public/` (gitignored), in 15 languages. `wrangler.jsonc` deploys it to
-Cloudflare as its own Worker, `mirrorgo-site`, on `mirrorgo.app` (`worker.js` only redirects
-`www.mirrorgo.app`, and the removed Roku casting articles: a Roku only gets screen mirroring). `.github/workflows/deploy-site.yml` builds and deploys on every push to `main` that
+Cloudflare as its own Worker, `mirrorgo-site`, on `mirrorgo.app` and, the same site, `alltvkit.app`
+(`worker.js` only redirects `www.mirrorgo.app` and `www.alltvkit.app`, and the removed Roku casting
+articles: a Roku only gets screen mirroring). `.github/workflows/deploy-site.yml` builds and deploys on every push to `main` that
 touches `site/`, with the same `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID` secrets as smrr.tv.
 
 ```bash
@@ -101,5 +102,10 @@ English only.
 `mirrorgo.app` is registered at Namecheap; its DNS is on Cloudflare (Namecheap › Domain List › Manage ›
 Nameservers › Custom DNS: the two Cloudflare nameservers), in the same account as smrr.tv. The
 `custom_domain` routes create the DNS records and certificates on deploy; the API token needs
-**Workers Routes: Edit** and **DNS: Edit** on the `mirrorgo.app` zone. The registration itself can move
+**Workers Routes: Edit** and **DNS: Edit** on the `mirrorgo.app` and `alltvkit.app` zones. The registration itself can move
 to Cloudflare Registrar after 60 days (ICANN lock), if wanted.
+
+`alltvkit.app` is registered at Cloudflare Registrar (2026-11-21), in the same account. It serves the same
+pages as `mirrorgo.app`; their canonical URLs, the sitemap and the structured data stay on `mirrorgo.app`
+(`SITE_URL` in `content.py`), so search engines index one copy. Links inside the site are relative, so a
+visitor on `alltvkit.app` stays on it. `stats.py` shows the views per domain.

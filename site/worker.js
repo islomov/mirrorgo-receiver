@@ -1,17 +1,20 @@
-// mirrorgo.app: www.mirrorgo.app → mirrorgo.app, POST /e counts a page view or a click (see count()),
-// everything else from the static files (./public).
+// mirrorgo.app, and the same site on alltvkit.app: www.<domain> → <domain>, POST /e counts a page view or a
+// click (see count()), everything else from the static files (./public).
 
 // Roku articles for features a Roku doesn't have (MirrorGo only mirrors the screen to a Roku): they were
 // published on 2026-11-16, so send them to the Roku guide in the same language rather than to a 404.
 const GONE_ROKU_POSTS = /^(\/[a-z-]+)?\/blog\/(cast-photos-and-videos-from-iphone-to-roku|show-web-images-on-roku-from-iphone|watch-free-live-tv-on-roku-with-iphone|cast-youtube-from-iphone-to-roku|cast-web-videos-from-iphone-to-roku|show-iphone-camera-on-roku)\/?$/;
 
-const SITE = "mirrorgo.app";
+// The domains the site opens on (wrangler.jsonc's routes). The first is the main one: canonical URLs, the
+// sitemap and structured data point to it, so search engines don't see two copies of the site.
+const SITES = ["mirrorgo.app", "alltvkit.app"];
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (url.hostname === `www.${SITE}`) {
-      url.hostname = SITE;
+    const bare = url.hostname.replace(/^www\./, "");
+    if (bare !== url.hostname && SITES.includes(bare)) {
+      url.hostname = bare;
       return Response.redirect(url.toString(), 301);
     }
     if (url.pathname === "/e") {
@@ -38,6 +41,7 @@ export default {
 //         "host/path" for another site, "mailto")
 //   blob5 click: where the link is on the page (header, footer, hero, a section's id…)
 //   blob6 country      blob7 device (mobile, tablet, desktop)      blob8 os (ios, android, mac, windows, other)
+//   blob9 the domain the page was opened on (one of SITES; empty before alltvkit.app was added, 2026-11-21)
 async function count(request, env) {
   if (!env.STATS) return;
   let data;
@@ -53,6 +57,7 @@ async function count(request, env) {
   const source = data.t === "view" ? viewSource(data) : linkTarget(data.h);
   if (source === null) return;
   const ua = request.headers.get("User-Agent") || "";
+  const host = new URL(request.url).hostname;
   env.STATS.writeDataPoint({
     indexes: [data.t],
     blobs: [
@@ -64,6 +69,7 @@ async function count(request, env) {
       request.cf?.country || "",
       device(ua),
       os(ua),
+      SITES.includes(host) ? host : "",
     ],
   });
 }
@@ -78,7 +84,7 @@ function viewSource(data) {
   if (!data.r) return "(direct)";
   try {
     const host = new URL(String(data.r)).hostname.replace(/^www\./, "");
-    return host === SITE ? "(internal)" : clip(host, 100);
+    return SITES.includes(host) ? "(internal)" : clip(host, 100);
   } catch {
     return "(direct)";
   }
@@ -94,7 +100,7 @@ function linkTarget(href) {
   if (url.protocol === "mailto:") return "mailto";
   if (url.protocol !== "http:" && url.protocol !== "https:") return null;
   const host = url.hostname.replace(/^www\./, "");
-  if (host === SITE) return clip(url.pathname + url.hash, 200);
+  if (SITES.includes(host)) return clip(url.pathname + url.hash, 200);
   if (host === "apps.apple.com") return "app-store";
   return clip(host + url.pathname.replace(/\/$/, ""), 200);
 }

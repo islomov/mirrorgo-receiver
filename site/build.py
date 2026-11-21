@@ -923,7 +923,7 @@ def build_privacy():
 </section>
 <section style="padding-top:10px">
   <div class="wrap prose">
-    {p("MirrorGo is built so that what you show on your TV stays between your iPhone and your TV. This policy explains what the app and our websites mirrorgo.app and smrr.tv handle, and why. The MirrorGo TV app for Fire TV and Android TV has <a href='/firetv/privacy/'>its own privacy policy</a>. Nothing is installed on a Roku: how MirrorGo works with it is described below.")}
+    {p("MirrorGo is built so that what you show on your TV stays between your iPhone and your TV. This policy explains what the app and our websites mirrorgo.app (also at alltvkit.app) and smrr.tv handle, and why. The MirrorGo TV app for Fire TV and Android TV has <a href='/firetv/privacy/'>its own privacy policy</a>. Nothing is installed on a Roku: how MirrorGo works with it is described below.")}
     <h2>No account, no tracking</h2>
     {p("MirrorGo has no account and no sign-up. The app contains no advertising and no third-party analytics or tracking.")}
     <h2>Your screen, photos and videos</h2>
@@ -946,7 +946,7 @@ def build_privacy():
     <h2>Content from other services</h2>
     {p("Some features show content from other services, which receive your request like any website you visit: YouTube (Google) in the YouTube screen; the websites you open in Web Videos (a private browser that keeps no history, cookies or cache); Wikimedia Commons for web images; the public iptv-org channel list and the channels' own streaming servers for live TV; Google Cast for Chromecast and Google TV devices; and the built-in player of Roku devices. Their own privacy policies apply.")}
     <h2>Our website mirrorgo.app</h2>
-    {p("To know which pages help people find MirrorGo, mirrorgo.app counts its page views and the links clicked on it: for each, the page and its language, the link and where it is on the page, the website that sent you there (its domain only, or the name in a link's <code>ref</code> or <code>utm_source</code>), your country and the kind of device (phone, tablet or computer, and its operating system). It sets no cookies, stores nothing on your device, and doesn't keep your IP address or anything else that identifies you. The counts are kept for three months, on Cloudflare, which hosts the site.")}
+    {p("To know which pages help people find MirrorGo, mirrorgo.app (also at alltvkit.app) counts its page views and the links clicked on it: for each, the page, its language and which of the two addresses it was opened on, the link and where it is on the page, the website that sent you there (its domain only, or the name in a link's <code>ref</code> or <code>utm_source</code>), your country and the kind of device (phone, tablet or computer, and its operating system). It sets no cookies, stores nothing on your device, and doesn't keep your IP address or anything else that identifies you. The counts are kept for three months, on Cloudflare, which hosts the site.")}
     <h2>Purchases</h2>
     {p("Purchases are handled by Apple through the App Store. We don't receive your payment details.")}
     <h2>Support emails</h2>
@@ -986,7 +986,7 @@ def build_terms():
 </section>
 <section style="padding-top:10px">
   <div class="wrap prose">
-    {p("These Terms of Use (“Terms”) govern your use of the MirrorGo app for iPhone, the website mirrorgo.app and the TV web page smrr.tv (together, the “Service”), operated by the makers of MirrorGo (“we”, “our”, “us”). By downloading, accessing or using the Service, you agree to these Terms. If you don't agree, don't use the Service.")}
+    {p("These Terms of Use (“Terms”) govern your use of the MirrorGo app for iPhone, the website mirrorgo.app (also at alltvkit.app) and the TV web page smrr.tv (together, the “Service”), operated by the makers of MirrorGo (“we”, “our”, “us”). By downloading, accessing or using the Service, you agree to these Terms. If you don't agree, don't use the Service.")}
     <h2>1. The Service</h2>
     {p("MirrorGo mirrors your iPhone's screen and casts photos, videos, your camera, web videos, web images, live TV channels and YouTube to TVs, streaming devices and web browsers on your own network. Which features work depends on your TV, your network and the content; they may change as TVs and services change, and we don't guarantee that every TV, model or piece of content is supported. On Roku TVs and Roku players, MirrorGo currently offers screen mirroring only, played by the Roku's built-in player; nothing is installed on the Roku.")}
     <h2>2. Using the Service</h2>

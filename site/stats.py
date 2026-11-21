@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""mirrorgo.app's page views and clicks, from the Analytics Engine dataset `mirrorgo_site` (worker.js writes
+"""mirrorgo.app's (and alltvkit.app's) page views and clicks, from the Analytics Engine dataset `mirrorgo_site` (worker.js writes
 it; its columns are listed there). Prints Markdown tables.
 
     CLOUDFLARE_ACCOUNT_ID=… CLOUDFLARE_API_TOKEN=… python3 site/stats.py [--days 7] [--top 20]
@@ -67,7 +67,7 @@ def main():
         return query(f"SELECT {cols}, {n} FROM {DATASET} WHERE blob1 = '{event}' AND {since} {extra} "
                      f"GROUP BY {aliases} ORDER BY n DESC LIMIT {top}")
 
-    print(f"## mirrorgo.app, the last {args.days} days")
+    print(f"## mirrorgo.app and alltvkit.app, the last {args.days} days")
     totals = {r["event"]: r["n"] for r in query(
         f"SELECT blob1 AS event, {n} FROM {DATASET} WHERE {since} GROUP BY event")}
     store = query(f"SELECT {n} FROM {DATASET} WHERE blob1 = 'click' AND blob4 = 'app-store' AND {since}")
@@ -75,6 +75,13 @@ def main():
           f"**{int(float(totals.get('click', 0))):,}** · App Store button: "
           f"**{int(float(store[0]['n'] if store else 0)):,}**")
 
+    # blob9 is empty for views counted before alltvkit.app was added: those were all on mirrorgo.app.
+    domains = {}
+    for r in grouped("view", [("blob9", "domain")]):
+        domain = r["domain"] or "mirrorgo.app"
+        domains[domain] = domains.get(domain, 0) + float(r["n"])
+    table("Domains", [("Domain", "domain"), ("Views", "n")],
+          [{"domain": d, "n": v} for d, v in sorted(domains.items(), key=lambda kv: -kv[1])])
     table("Where visitors come from", [("Source", "source"), ("Views", "n")],
           grouped("view", [("blob4", "source")], "AND blob4 != '(internal)'"))
     table("Pages viewed", [("Page", "page"), ("Views", "n")], grouped("view", [("blob2", "page")]))
