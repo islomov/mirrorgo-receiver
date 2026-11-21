@@ -22,6 +22,8 @@
   ],
   // Page views and clicks; `python3 stats.py` reads them.
   "analytics_engine_datasets": [{ "binding": "STATS", "dataset": "mirrorgo_site" }],
+  // Yesterday's numbers to Telegram at 09:00 UTC+5 (04:00 UTC): report.js, which lists the secrets it needs.
+  "triggers": { "crons": ["0 4 * * *"] },
   "workers_dev": false,
   "preview_urls": false
 }

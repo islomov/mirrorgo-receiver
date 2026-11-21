@@ -1,5 +1,8 @@
 // alltvkit.app, and the same site on mirrorgo.app (its first domain): www.<domain> → <domain>, POST /e counts a page view or a
-// click (see count()), everything else from the static files (./public).
+// click (see count()), everything else from the static files (./public). Every morning, a cron sends yesterday's
+// numbers to Telegram (report.js).
+
+import { sendDailyReport } from "./report.js";
 
 // Roku articles for features a Roku doesn't have (MirrorGo only mirrors the screen to a Roku): they were
 // published on 2026-11-16, so send them to the Roku guide in the same language rather than to a 404.
@@ -27,6 +30,11 @@ export default {
       return Response.redirect(`${url.origin}${gone[1] ?? ""}/mirror-iphone-to-roku/`, 301);
     }
     return env.ASSETS.fetch(request);
+  },
+
+  // The cron in wrangler.jsonc: yesterday's numbers to Telegram (report.js).
+  async scheduled(controller, env, ctx) {
+    ctx.waitUntil(sendDailyReport(env, controller.scheduledTime));
   },
 };
 
