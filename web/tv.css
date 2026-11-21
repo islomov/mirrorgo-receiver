@@ -55,7 +55,7 @@ body[data-surface="tv"][data-screen="playing"] { background: #000; }
 /* The WebView is already full screen: no button for it. */
 body[data-surface="tv"] #fullscreen { display: none; }
 
-/* MARK: Fire OS app (data-join="auto"): the iPhone joins by itself, so "Open All TV Kit, tap this TV" is the screen.
+/* MARK: /firetv (data-join="auto"): the iPhone joins by itself, so "Open All TV Kit, tap this TV" is the screen.
    The steps are big, this TV's name is a chip like the app's TV row, the code is one quiet line at the bottom and the
    QR code (the App Store) is smaller. */
 

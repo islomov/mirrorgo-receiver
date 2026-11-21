@@ -115,9 +115,9 @@ const tvs = {
 };
 
 /**
- * Inside the Fire OS app (islomov/mirrorgo-firetv): the iPhone finds that app on the Wi-Fi and joins it
- * by itself (MIRR-165), so the page says "tap this TV in All TV Kit"; the code is only the fallback.
- * Applied over the rest by app.js (`autoJoin`), not on Vega or in a browser opened on /firetv.
+ * /firetv: the iPhone finds our Fire OS app (islomov/mirrorgo-firetv) on the Wi-Fi and joins it by itself
+ * (MIRR-165), so the page says "tap this TV in All TV Kit"; the code is only the fallback (Vega, browsers).
+ * Applied over the rest by app.js (`autoJoin`).
  */
 export const autoJoinStrings = {
   pageTitle: "All TV Kit",
