@@ -397,8 +397,11 @@
         // MARK: Mirroring over WebRTC (smrr.tv's page, in the room the app made)
 
         // Can this browser receive H.264 over WebRTC? The same steps smrr.tv's page
-        // takes with the phone's offer: a local H.264-only offer, answered by a
-        // second peer connection. False if anything fails or it takes too long.
+        // takes with the phone's offer: a local H.264-only offer that announces a
+        // stream (a=ssrc), answered and applied by a second peer connection. On some
+        // TVs ("Smart TV", Cast 3.72) setting up the H.264 decoder for an announced
+        // stream never finishes, though an offer without one is answered at once:
+        // so the stream matters. False if anything fails or it takes too long.
         function testH264WebRTC() {
             if (!HAS_RTC_PEER_CONNECTION) return Promise.resolve(false);
             const isH264 = function(codec) { return codec.mimeType.toLowerCase() === 'video/h264'; };
@@ -417,7 +420,9 @@
                 await answerer.setRemoteDescription({ type: 'offer', sdp: h264OnlyOffer(offer.sdp) });
                 const answer = await answerer.createAnswer();
                 // A rejected m-line has port 0; an accepted one keeps H.264.
-                return !/m=video 0 /.test(answer.sdp) && /a=rtpmap:\d+ H264\//i.test(answer.sdp);
+                if (/m=video 0 /.test(answer.sdp) || !/a=rtpmap:\d+ H264\//i.test(answer.sdp)) return false;
+                await answerer.setLocalDescription(answer);
+                return true;
             })().catch(function(error) {
                 console.warn('MirrorGo: H.264 over WebRTC test failed:', error);
                 return false;
@@ -432,19 +437,23 @@
             });
         }
 
-        // The offer with its codecs replaced by H.264 alone, as the phone offers it:
-        // whether this browser could send H.264 itself doesn't matter.
+        // The offer with its codecs replaced by H.264 alone and a stream announced,
+        // as the phone offers it: whether this browser could send H.264 itself
+        // doesn't matter.
         function h264OnlyOffer(sdp) {
             const lines = [];
             sdp.split('\r\n').forEach(function(line) {
-                if (!line || /^a=(rtpmap|fmtp|rtcp-fb):/.test(line)) return;
+                if (!line || /^a=(rtpmap|fmtp|rtcp-fb|ssrc|ssrc-group|msid):/.test(line)) return;
                 lines.push(/^m=video /.test(line) ? line.split(' ').slice(0, 3).join(' ') + ' 102' : line);
             });
             lines.push(
                 'a=rtpmap:102 H264/90000',
                 'a=rtcp-fb:102 nack',
                 'a=rtcp-fb:102 nack pli',
-                'a=fmtp:102 level-asymmetry-allowed=1;packetization-mode=1;profile-level-id=42e01f'
+                'a=fmtp:102 level-asymmetry-allowed=1;packetization-mode=1;profile-level-id=42e01f',
+                'a=msid:mirrorgo-test video0',
+                'a=ssrc:1234567890 cname:mirrorgotest',
+                'a=ssrc:1234567890 msid:mirrorgo-test video0'
             );
             return lines.join('\r\n') + '\r\n';
         }
