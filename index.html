@@ -143,11 +143,17 @@
     <script>
         const NAMESPACE = 'urn:x-cast:com.mirrorgo.stream';
 
-        // HELLO → READY {version, webrtc}. From version 2 the receiver reports
+        // HELLO → READY {version, webrtc, h264}. From version 2 the receiver reports
         // STREAM_STARTED / STREAM_ERROR for START_STREAM (see GoogleCastService.swift);
-        // version 3 adds START_WEBRTC / STOP_WEBRTC.
-        const PROTOCOL_VERSION = 3;
-        const SUPPORTS_WEBRTC = typeof window.RTCPeerConnection === 'function';
+        // version 3 adds START_WEBRTC / STOP_WEBRTC; version 4 adds `h264`: whether
+        // this TV's browser can receive the phone's H.264 over WebRTC (MIRR-174).
+        // Some can't (no H.264 in their WebRTC): smrr.tv's page then never answers
+        // the phone's offer, so `webrtc` is false there too, and the app mirrors
+        // through Google's Chrome Mirroring receiver instead (older apps: JPEG).
+        const PROTOCOL_VERSION = 4;
+        const HAS_RTC_PEER_CONNECTION = typeof window.RTCPeerConnection === 'function';
+        let SUPPORTS_WEBRTC = HAS_RTC_PEER_CONNECTION;
+        const H264_TEST_TIMEOUT_MS = 2000;
         // No frame on screen this long after START_STREAM → STREAM_ERROR.
         const STREAM_START_TIMEOUT_MS = 6000;
         // START_WEBRTC only loads our own page (any sender on the network can message us).
@@ -390,6 +396,66 @@
 
         // MARK: Mirroring over WebRTC (smrr.tv's page, in the room the app made)
 
+        // Can this browser receive H.264 over WebRTC? The same steps smrr.tv's page
+        // takes with the phone's offer: a local H.264-only offer, answered by a
+        // second peer connection. False if anything fails or it takes too long.
+        function testH264WebRTC() {
+            if (!HAS_RTC_PEER_CONNECTION) return Promise.resolve(false);
+            const isH264 = function(codec) { return codec.mimeType.toLowerCase() === 'video/h264'; };
+            try {
+                const receiving = window.RTCRtpReceiver && RTCRtpReceiver.getCapabilities && RTCRtpReceiver.getCapabilities('video');
+                if (receiving && !receiving.codecs.some(isH264)) return Promise.resolve(false);
+            } catch (e) { /* no capabilities API: try it */ }
+
+            let offerer = null;
+            let answerer = null;
+            const test = (async function() {
+                offerer = new RTCPeerConnection();
+                answerer = new RTCPeerConnection();
+                offerer.addTransceiver('video', { direction: 'sendonly' });
+                const offer = await offerer.createOffer();
+                await answerer.setRemoteDescription({ type: 'offer', sdp: h264OnlyOffer(offer.sdp) });
+                const answer = await answerer.createAnswer();
+                // A rejected m-line has port 0; an accepted one keeps H.264.
+                return !/m=video 0 /.test(answer.sdp) && /a=rtpmap:\d+ H264\//i.test(answer.sdp);
+            })().catch(function(error) {
+                console.warn('MirrorGo: H.264 over WebRTC test failed:', error);
+                return false;
+            });
+            const timeout = new Promise(function(resolve) {
+                setTimeout(function() { resolve(false); }, H264_TEST_TIMEOUT_MS);
+            });
+            return Promise.race([test, timeout]).then(function(result) {
+                if (offerer) offerer.close();
+                if (answerer) answerer.close();
+                return result;
+            });
+        }
+
+        // The offer with its codecs replaced by H.264 alone, as the phone offers it:
+        // whether this browser could send H.264 itself doesn't matter.
+        function h264OnlyOffer(sdp) {
+            const lines = [];
+            sdp.split('\r\n').forEach(function(line) {
+                if (!line || /^a=(rtpmap|fmtp|rtcp-fb):/.test(line)) return;
+                lines.push(/^m=video /.test(line) ? line.split(' ').slice(0, 3).join(' ') + ' 102' : line);
+            });
+            lines.push(
+                'a=rtpmap:102 H264/90000',
+                'a=rtcp-fb:102 nack',
+                'a=rtcp-fb:102 nack pli',
+                'a=fmtp:102 level-asymmetry-allowed=1;packetization-mode=1;profile-level-id=42e01f'
+            );
+            return lines.join('\r\n') + '\r\n';
+        }
+
+        // Started at once, so it's done before the app's HELLO (it takes milliseconds).
+        const h264Test = testH264WebRTC().then(function(result) {
+            console.log('MirrorGo: H.264 over WebRTC ' + (result ? 'works' : "doesn't work") + ' here');
+            if (!result) SUPPORTS_WEBRTC = false;
+            return result;
+        });
+
         let webrtcUrl = null;
 
         function isAllowedWebRTCUrl(text) {
@@ -600,7 +666,10 @@
                     const data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
 
                     if (data.type === 'HELLO') {
-                        sendToSender(event.senderId, { type: 'READY', version: PROTOCOL_VERSION, webrtc: SUPPORTS_WEBRTC });
+                        const senderId = event.senderId;
+                        h264Test.then(function(h264) {
+                            sendToSender(senderId, { type: 'READY', version: PROTOCOL_VERSION, webrtc: SUPPORTS_WEBRTC, h264: h264 });
+                        });
                     } else if (data.type === 'START_STREAM' && data.url) {
                         console.log('MirrorGo: Starting stream from:', data.url);
                         startJPEGStream(data.url, data.audioUrl, event.senderId);
