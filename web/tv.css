@@ -54,3 +54,59 @@ body[data-surface="tv"][data-screen="playing"] { background: #000; }
 
 /* The WebView is already full screen: no button for it. */
 body[data-surface="tv"] #fullscreen { display: none; }
+
+/* MARK: Fire OS app (data-join="auto"): the iPhone joins by itself, so "Open All TV Kit, tap this TV" is the screen.
+   The steps are big, this TV's name is a chip like the app's TV row, the code is one quiet line at the bottom and the
+   QR code (the App Store) is smaller. */
+
+.code-fallback { display: none; }
+
+body[data-join="auto"] #code-label,
+body[data-join="auto"] #code { display: none; }
+
+body[data-join="auto"] #code-title {
+  font-size: 56px; font-size: clamp(30px, 3.6vw, 72px);
+  max-width: 11em;
+}
+body[data-join="auto"] .steps { margin-top: 6vh; }
+body[data-join="auto"] .steps li { font-size: 34px; font-size: clamp(20px, 2.2vw, 44px); font-weight: 600; }
+body[data-join="auto"] .steps li + li { margin-top: 2.6vh; }
+body[data-join="auto"] .wifi { margin-top: 3.4vh; }
+
+.tv-chip {
+  display: inline-block;
+  margin-left: 0.4em;
+  padding: 0.22em 0.7em;
+  max-width: 14em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  vertical-align: middle;
+  font-weight: 700; color: #ffffff;
+  background: rgba(117, 92, 255, 0.22);
+  border: 2px solid rgba(117, 92, 255, 0.6);
+  border-radius: 0.5em;
+}
+.tv-chip.generic { font-weight: 600; color: #d9d2ff; }
+
+body[data-join="auto"] .code-fallback {
+  display: flex; align-items: center; flex-wrap: wrap;
+  margin-top: 6vh; padding-top: 3vh;
+  max-width: 36em;
+  border-top: 2px solid rgba(255, 255, 255, 0.06);
+  font-size: 18px; font-size: clamp(13px, 1.2vw, 24px);
+  color: #8e8e99;
+}
+.code-small {
+  margin-left: 0.6em;
+  padding: 0.15em 0.6em;
+  font-weight: 700; letter-spacing: 0.08em; color: #c9c9d4;
+  font-variant-numeric: tabular-nums;
+  background: #24242d;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.4em;
+}
+
+body[data-join="auto"] .qr-image {
+  width: 260px; height: 260px;
+  width: clamp(150px, 28vh, 340px); height: clamp(150px, 28vh, 340px);
+}
+/* The code is only the fallback here: no "Get a new code" (the iPhone reads the current code from the app anyway). */
+body[data-join="auto"] #new-code { display: none; }

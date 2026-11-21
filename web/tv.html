@@ -14,7 +14,8 @@
 <!-- The MirrorGo TV apps show this page full screen in a WebView, each at its own URL: /firetv (Fire TV,
      islomov/mirrorgo-firetv), /samsung, /lg, /roku, /googletv (the Worker serves this file for all of them).
      Same receiver as / (app.js), its own layout and wording (strings.js `tv`, plus the TV's own from its
-     path): MirrorGo branding, "this TV", no full-screen button. -->
+     path): MirrorGo branding, "this TV", no full-screen button. In the Fire OS app (data-join="auto"), "tap this
+     TV in All TV Kit" first and the code as a small fallback (app.js `autoJoin`). -->
 <body data-surface="tv" data-screen="connecting">
   <video id="video" autoplay playsinline muted></video>
   <img id="image" alt="">
@@ -45,6 +46,11 @@
         <div class="code-digits" id="code" aria-live="polite"></div>
         <ol class="steps" id="steps"></ol>
         <p class="wifi" id="code-wifi"></p>
+        <!-- Fire OS app only (body data-join="auto"): the code, small, for when the iPhone doesn't list this TV. -->
+        <p class="code-fallback" id="code-fallback">
+          <span id="code-fallback-text"></span>
+          <span class="code-small" id="code-small"></span>
+        </p>
         <button type="button" class="button new-code" id="new-code" hidden></button>
         <p class="status" id="code-status" role="status"></p>
       </div>

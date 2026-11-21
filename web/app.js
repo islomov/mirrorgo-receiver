@@ -3,7 +3,7 @@
 // States: connecting → code → starting (phone connected) → playing → stopped (same code) / error.
 // Signaling: signaling.js, WebRTC: player.js, links: media.js, strings: strings.js, protocol: PROTOCOL.md.
 
-import { strings, spacedCode } from "./strings.js";
+import { strings, spacedCode, autoJoinStrings } from "./strings.js";
 import { SignalingClient, adoptRoomFromURL } from "./signaling.js";
 import { WebRTCPlayer, PlayerState } from "./player.js";
 import { MediaPlayer, MediaState, capabilities } from "./media.js";
@@ -25,6 +25,21 @@ const launchedByApp = launchedCode !== null;
 // The MirrorGo TV apps' page (tv.html, at /firetv, /samsung, /lg, /roku, /googletv). Same receiver,
 // its own layout and strings.
 const tvApp = document.body.getAttribute("data-surface") === "tv";
+// The Fire OS app (islomov/mirrorgo-firetv) announces itself on the Wi-Fi, and the iPhone joins it when
+// its Fire TV is tapped (MIRR-165): "tap this TV" first, the code only as a fallback, the QR gets the
+// iPhone app. Its bridge has no platform(); Vega's says "vega" (no discovery there: the code stays).
+const autoJoin = tvApp && isFireOSApp(window.MirrorGoTV);
+const APP_STORE_URL = "https://apps.apple.com/app/id6835835303";
+if (autoJoin) Object.assign(strings, autoJoinStrings);
+
+function isFireOSApp(bridge) {
+  if (!bridge) return false;
+  try {
+    return typeof bridge.platform !== "function" || bridge.platform() === "fireos";
+  } catch (e) {
+    return false;
+  }
+}
 
 const app = {
   status: "connecting",   // signaling: connecting | open | reconnecting | offline | replaced | closed
@@ -160,7 +175,11 @@ function onRoom(room) {
     app.stopped = false;
     player.close();
     renderCode(room.code);
-    renderQR(location.origin + "/c/" + room.code);
+    if (autoJoin) {
+      $("code-small").textContent = spacedCode(room.code);
+    } else {
+      renderQR(location.origin + "/c/" + room.code);
+    }
   } else {
     log("rejoined room");
   }
@@ -381,7 +400,26 @@ function renderTVApp() {
     name = bridge && typeof bridge.deviceName === "function" ? String(bridge.deviceName() || "") : "";
   } catch (e) {}
   $("tv-name").textContent = name ? strings.tvName(name) : "";
-  $("tv-name").hidden = !name;
+  $("tv-name").hidden = !name || autoJoin;
+  if (autoJoin) renderAutoJoin(name);
+}
+
+/** Fire OS app: 1 Open All TV Kit, 2 Tap <this TV's name, as the iPhone lists it>; the code small. */
+function renderAutoJoin(name) {
+  document.body.setAttribute("data-join", "auto");
+  $("steps").innerHTML = "";
+  const open = document.createElement("li");
+  open.textContent = strings.openApp;
+  const tap = document.createElement("li");
+  tap.appendChild(document.createTextNode(strings.tap + " "));
+  const chip = document.createElement("span");
+  chip.className = name ? "tv-chip" : "tv-chip generic";
+  chip.textContent = name || strings.thisTV;
+  tap.appendChild(chip);
+  $("steps").appendChild(open);
+  $("steps").appendChild(tap);
+  $("code-fallback-text").textContent = strings.codeFallback;
+  renderQR(APP_STORE_URL);
 }
 
 /** TV apps: "Get a new code", while no phone is in the room. */
