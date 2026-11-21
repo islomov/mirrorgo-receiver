@@ -1,8 +1,8 @@
 // alltvkit.app, and the same site on mirrorgo.app (its first domain): www.<domain> → <domain>, POST /e counts a page view or a
 // click (see count()), everything else from the static files (./public). Every morning, a cron sends yesterday's
-// numbers to Telegram (report.js).
+// numbers to Telegram, and POST /telegram answers the bot's commands (report.js).
 
-import { sendDailyReport } from "./report.js";
+import { handleTelegram, sendDailyReport } from "./report.js";
 
 // Roku articles for features a Roku doesn't have (MirrorGo only mirrors the screen to a Roku): they were
 // published on 2026-11-16, so send them to the Roku guide in the same language rather than to a 404.
@@ -13,7 +13,7 @@ const GONE_ROKU_POSTS = /^(\/[a-z-]+)?\/blog\/(cast-photos-and-videos-from-iphon
 const SITES = ["alltvkit.app", "mirrorgo.app"];
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
     const bare = url.hostname.replace(/^www\./, "");
     if (bare !== url.hostname && SITES.includes(bare)) {
@@ -25,6 +25,7 @@ export default {
       await count(request, env);
       return new Response(null, { status: 204 });
     }
+    if (url.pathname === "/telegram") return handleTelegram(request, env, ctx);
     const gone = url.pathname.match(GONE_ROKU_POSTS);
     if (gone) {
       return Response.redirect(`${url.origin}${gone[1] ?? ""}/mirror-iphone-to-roku/`, 301);
