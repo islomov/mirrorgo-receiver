@@ -1,6 +1,7 @@
 // One room = one Durable Object, addressed by idFromName(code). It holds at most one viewer
-// (the web page) and one sender (the iOS app or its broadcast extension) WebSocket, relays the
-// signaling between them, and deletes itself when the room ends, which frees the code again.
+// (the web page's WebSocket, or an HTTP viewer: a TV app without WebSockets that polls, e.g. Roku)
+// and one sender (the iOS app or its broadcast extension) WebSocket, relays the signaling between
+// them, and deletes itself when the room ends, which frees the code again.
 // Protocol: ../../PROTOCOL.md.
 
 import { DurableObject } from "cloudflare:workers";
@@ -9,6 +10,10 @@ import {
   MAX_MESSAGE_BYTES,
   PROTOCOL_VERSION,
   LAUNCH_GRACE_MS,
+  OUTBOX_MAX,
+  POLL_ACTIVE_MS,
+  POLL_GONE_MS,
+  POLL_IDLE_MS,
   ROOM_TTL_MS,
   VIEWER_GRACE_MS,
   type Role,
@@ -32,10 +37,32 @@ interface RoomRecord {
    * rooms created by a viewer; absent in records stored before this field existed).
    */
   viewerDueBy?: number | null;
-  /** Ids of the current sockets (older replaced sockets may still be closing). */
+  /**
+   * Ids of the current sockets (older replaced sockets may still be closing). An HTTP viewer's is
+   * `http:<session>`.
+   */
   viewerSocket: string | null;
   senderSocket: string | null;
+  /** HTTP viewer: when it last polled (it's gone POLL_GONE_MS later). */
+  viewerPolledAt?: number | null;
 }
+
+/** What the sender sent an HTTP viewer since its last poll (`seq` keeps counting across sessions). */
+interface Outbox {
+  seq: number;
+  items: { seq: number; data: string }[];
+}
+
+/** An HTTP viewer request's answer (`body`: JSON text), turned into a Response by the Worker. */
+export interface HttpResult {
+  status: number;
+  body: string;
+}
+
+const result = (status: number, body: Record<string, unknown>): HttpResult => ({ status, body: JSON.stringify(body) });
+
+const HTTP_PREFIX = "http:";
+const isHttpViewer = (room: RoomRecord) => room.viewerSocket?.startsWith(HTTP_PREFIX) === true;
 
 interface SocketAttachment {
   role: Role;
@@ -137,6 +164,77 @@ export class Room extends DurableObject<Env> {
     return room ? room.senderToken : null;
   }
 
+  // MARK: HTTP viewers (POST /api/viewer, GET /api/viewer/poll, POST /api/viewer/send)
+
+  /** `POST /api/viewer` without a room: a new room with this HTTP viewer. Null if the code is taken. */
+  async httpViewerNew(code: string): Promise<Record<string, unknown> | null> {
+    const now = Date.now();
+    if (this.liveRoom(now)) return null;
+    const room: RoomRecord = {
+      code,
+      viewerToken: randomToken(),
+      senderToken: randomToken(),
+      createdAt: now,
+      senderEverJoined: false,
+      viewerLeftAt: null,
+      viewerSocket: null,
+      senderSocket: null,
+    };
+    log("room-created", { code, viewer: "http" });
+    return this.joinHttpViewer(room, now);
+  }
+
+  /** `POST /api/viewer` with its room (app restarted, network back): null if it's gone or the token is wrong. */
+  async httpViewerRejoin(token: string): Promise<Record<string, unknown> | null> {
+    const now = Date.now();
+    const room = this.liveRoom(now);
+    if (!room || !tokensEqual(token, room.viewerToken)) return null;
+    log("viewer-rejoined", { code: room.code, viewer: "http" });
+    return this.joinHttpViewer(room, now);
+  }
+
+  /** `GET /api/viewer/poll`: the messages after `after` (older ones are dropped: acknowledged). */
+  async httpViewerPoll(token: string, session: string, after: number): Promise<HttpResult> {
+    const now = Date.now();
+    const checked = this.httpSession(token, session, now);
+    if (!("room" in checked)) return checked;
+    const { room } = checked;
+    room.viewerPolledAt = now;
+    this.save(room);
+
+    const outbox = this.outbox();
+    const items = outbox.items.filter((item) => item.seq > after);
+    if (items.length !== outbox.items.length) this.ctx.storage.kv.put("outbox", { seq: outbox.seq, items } satisfies Outbox);
+    return result(200, { seq: outbox.seq, messages: items.map((item) => JSON.parse(item.data)), ...this.pollState(room) });
+  }
+
+  /** `POST /api/viewer/send`: one message to the sender (the types a page may send, plus `hello`). */
+  async httpViewerSend(token: string, session: string, message: string): Promise<HttpResult> {
+    const now = Date.now();
+    const checked = this.httpSession(token, session, now);
+    if (!("room" in checked)) return checked;
+    const { room } = checked;
+    room.viewerPolledAt = now;
+    this.save(room);
+
+    if (message.length > MAX_MESSAGE_BYTES) return result(413, { error: "too_large" });
+    let parsed: Record<string, unknown>;
+    try {
+      parsed = JSON.parse(message);
+    } catch {
+      return result(400, { error: "bad_json" });
+    }
+    const type = parsed && typeof parsed === "object" ? parsed.type : undefined;
+    if (type === "hello") {
+      log("hello", { role: "viewer", v: parsed.v, viewer: "http" });
+      return result(200, { delivered: false });
+    }
+    if (typeof type !== "string" || !RELAYED.viewer.has(type)) return result(400, { error: "bad_type" });
+    const sender = this.socket("sender", room);
+    if (sender) this.trySend(sender, message);
+    return result(200, { delivered: sender !== undefined });
+  }
+
   // MARK: WebSocket events (hibernation API)
 
   async webSocketMessage(ws: WebSocket, message: string | ArrayBuffer): Promise<void> {
@@ -171,8 +269,7 @@ export class Room extends DurableObject<Env> {
 
     const room = this.room();
     if (!room || room[`${attachment.role}Socket`] !== attachment.id) return; // replaced socket
-    const peer = this.socket(other(attachment.role), room);
-    if (peer) this.trySend(peer, message);
+    this.deliver(other(attachment.role), room, message, type);
   }
 
   async webSocketClose(ws: WebSocket, code: number, reason: string): Promise<void> {
@@ -208,6 +305,16 @@ export class Room extends DurableObject<Env> {
   private liveRoom(now: number): RoomRecord | undefined {
     const room = this.room();
     if (!room) return undefined;
+    if (isHttpViewer(room) && room.viewerPolledAt != null && now >= room.viewerPolledAt + POLL_GONE_MS) {
+      // The HTTP viewer stopped polling: it left when it should have polled last.
+      room.viewerLeftAt = room.viewerPolledAt + POLL_GONE_MS;
+      room.viewerSocket = null;
+      room.viewerPolledAt = null;
+      this.save(room);
+      log("peer-left", { code: room.code, role: "viewer", viewer: "http" });
+      const sender = this.socket("sender", room);
+      if (sender) this.trySend(sender, JSON.stringify({ type: "peer-left", role: "viewer" }));
+    }
     if (!room.senderEverJoined && now >= room.createdAt + ROOM_TTL_MS) {
       this.end(room, CloseCode.expired, "expired", "room-expired");
       return undefined;
@@ -228,6 +335,7 @@ export class Room extends DurableObject<Env> {
     if (!room.senderEverJoined) deadlines.push(room.createdAt + ROOM_TTL_MS);
     if (room.viewerLeftAt !== null) deadlines.push(room.viewerLeftAt + VIEWER_GRACE_MS);
     if (room.viewerDueBy != null) deadlines.push(room.viewerDueBy);
+    if (isHttpViewer(room) && room.viewerPolledAt != null) deadlines.push(room.viewerPolledAt + POLL_GONE_MS);
     if (deadlines.length) void this.ctx.storage.setAlarm(Math.min(...deadlines));
     else void this.ctx.storage.deleteAlarm();
   }
@@ -265,23 +373,24 @@ export class Room extends DurableObject<Env> {
     if (role === "viewer") {
       room.viewerLeftAt = null;
       room.viewerDueBy = null;
+      room.viewerPolledAt = null; // replaces an HTTP viewer too
     }
     else room.senderEverJoined = true;
     this.save(room);
 
-    const peer = this.socket(other(role), room);
+    const peerConnected = this.connected(other(role), room);
     const iceServers = this.env.ICE_SERVERS;
     if (role === "viewer") {
       this.trySend(server, JSON.stringify({
         type: "room", v: PROTOCOL_VERSION, code: room.code, viewerToken: room.viewerToken, iceServers,
-        senderConnected: peer !== undefined,
+        senderConnected: peerConnected,
       }));
     } else {
       this.trySend(server, JSON.stringify({
-        type: "ready", v: PROTOCOL_VERSION, code: room.code, iceServers, viewerConnected: peer !== undefined,
+        type: "ready", v: PROTOCOL_VERSION, code: room.code, iceServers, viewerConnected: peerConnected,
       }));
     }
-    if (peer) this.trySend(peer, JSON.stringify({ type: "peer-joined", role }));
+    if (peerConnected) this.deliver(other(role), room, JSON.stringify({ type: "peer-joined", role }), "peer-joined");
 
     return new Response(null, { status: 101, webSocket: client });
   }
@@ -305,8 +414,82 @@ export class Room extends DurableObject<Env> {
     if (attachment.role === "viewer") room.viewerLeftAt = Date.now();
     this.save(room);
     log("peer-left", { code: room.code, role: attachment.role });
-    const peer = this.socket(other(attachment.role), room);
-    if (peer) this.trySend(peer, JSON.stringify({ type: "peer-left", role: attachment.role }));
+    this.deliver(other(attachment.role), room, JSON.stringify({ type: "peer-left", role: attachment.role }), "peer-left");
+  }
+
+  /** Whether `role` is in the room: its socket is open, or the HTTP viewer is polling. */
+  private connected(role: Role, room: RoomRecord): boolean {
+    if (role === "viewer" && isHttpViewer(room)) return true;
+    return this.socket(role, room) !== undefined;
+  }
+
+  /**
+   * To `role`'s current connection: its socket, or the HTTP viewer's outbox. HTTP viewers can't do
+   * WebRTC, so they don't get ICE candidates (they answer an offer with `bye`).
+   */
+  private deliver(role: Role, room: RoomRecord, message: string, type: string): void {
+    if (role === "viewer" && isHttpViewer(room)) {
+      if (type !== "candidate") this.enqueue(room, message);
+      return;
+    }
+    const ws = this.socket(role, room);
+    if (ws) this.trySend(ws, message);
+  }
+
+  // MARK: HTTP viewer
+
+  private joinHttpViewer(room: RoomRecord, now: number): Record<string, unknown> {
+    const previous = this.socket("viewer", room);
+    if (previous) {
+      try {
+        previous.close(CloseCode.replaced, "replaced");
+      } catch {}
+    }
+    const session = randomToken();
+    room.viewerSocket = HTTP_PREFIX + session;
+    room.viewerLeftAt = null;
+    room.viewerDueBy = null;
+    room.viewerPolledAt = now;
+    this.save(room);
+    const outbox = this.outbox();
+    this.ctx.storage.kv.put("outbox", { seq: outbox.seq, items: [] } satisfies Outbox);
+
+    const sender = this.socket("sender", room);
+    if (sender) this.trySend(sender, JSON.stringify({ type: "peer-joined", role: "viewer" }));
+    return {
+      type: "room", v: PROTOCOL_VERSION, code: room.code, viewerToken: room.viewerToken, session,
+      seq: outbox.seq, ...this.pollState(room),
+    };
+  }
+
+  /** The room, if `token` and `session` are this room's current HTTP viewer's; else the error to answer. */
+  private httpSession(token: string, session: string, now: number): { room: RoomRecord } | HttpResult {
+    const room = this.liveRoom(now);
+    // Same answer for "no room" and "wrong token": it doesn't tell live codes apart.
+    if (!room || !tokensEqual(token, room.viewerToken)) return result(404, { error: "not_found" });
+    if (room.viewerSocket === HTTP_PREFIX + session) return { room };
+    // Timed out (rejoin with POST /api/viewer), or another viewer took the room over.
+    return room.viewerSocket === null ? result(410, { error: "gone" }) : result(409, { error: "replaced" });
+  }
+
+  private pollState(room: RoomRecord): Record<string, unknown> {
+    const senderConnected = this.socket("sender", room) !== undefined;
+    return { senderConnected, pollIntervalMs: senderConnected ? POLL_ACTIVE_MS : POLL_IDLE_MS };
+  }
+
+  private outbox(): Outbox {
+    return this.ctx.storage.kv.get<Outbox>("outbox") ?? { seq: 0, items: [] };
+  }
+
+  private enqueue(room: RoomRecord, data: string): void {
+    const outbox = this.outbox();
+    outbox.seq += 1;
+    outbox.items.push({ seq: outbox.seq, data });
+    if (outbox.items.length > OUTBOX_MAX) {
+      outbox.items.shift();
+      log("outbox-full", { code: room.code });
+    }
+    this.ctx.storage.kv.put("outbox", outbox);
   }
 
   private trySend(ws: WebSocket, message: string): void {

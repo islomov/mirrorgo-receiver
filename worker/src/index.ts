@@ -38,6 +38,9 @@ export default {
     if (url.pathname === "/ws") return handleWebSocket(request, url, env);
 
     if (url.pathname === "/api/rooms") return handleCreate(request, url, env);
+    if (url.pathname === "/api/viewer") return handleHttpViewer(request, env);
+    if (url.pathname === "/api/viewer/poll") return handlePoll(request, url, env);
+    if (url.pathname === "/api/viewer/send") return handleSend(request, url, env);
     const lookup = url.pathname.match(/^\/api\/rooms\/([^/]*)$/);
     if (lookup) return handleLookup(request, url, lookup[1], env);
     if (url.pathname.startsWith("/api/")) return json({ error: "not_found" }, 404, CORS);
@@ -145,6 +148,76 @@ async function handleWebSocket(request: Request, url: URL, env: Env): Promise<Re
   }
 
   return json({ error: "bad_role" }, 400);
+}
+
+// MARK: HTTP viewers (TVs without WebSockets, e.g. Roku)
+
+/**
+ * `POST /api/viewer`, body `{}` (a new room) or `{"code","token"}` (rejoin its room; a room that's gone
+ * or a wrong token gets a new one, like a page's rejoin). Answers the `room` message plus a `session`
+ * for /poll and /send.
+ */
+async function handleHttpViewer(request: Request, env: Env): Promise<Response> {
+  if (request.method !== "POST") return json({ error: "method_not_allowed" }, 405, { allow: "POST" });
+  let body: Record<string, unknown> = {};
+  try {
+    const text = await request.text();
+    if (text) body = JSON.parse(text);
+  } catch {
+    return json({ error: "bad_json" }, 400);
+  }
+  const code = typeof body.code === "string" ? body.code : null;
+  const token = typeof body.token === "string" ? body.token : null;
+  if (isCode(code) && isToken(token)) {
+    const rejoined = await roomStub(env, code).httpViewerRejoin(token);
+    if (rejoined) return json(rejoined, 200);
+  }
+
+  const { success } = await env.CREATE_LIMITER.limit({ key: clientIP(request) });
+  if (!success) {
+    log("viewer-rate-limited");
+    return json({ error: "rate_limited" }, 429, { "retry-after": RETRY_AFTER_S });
+  }
+  for (let attempt = 0; attempt < MAX_CODE_ATTEMPTS; attempt++) {
+    const fresh = randomCode();
+    const created = await roomStub(env, fresh).httpViewerNew(fresh);
+    if (created) return json(created, 201);
+  }
+  log("no-free-code");
+  return json({ error: "busy" }, 503);
+}
+
+/** `GET /api/viewer/poll?code=&token=&session=&after=<seq>`: what the sender sent since `after`. */
+async function handlePoll(request: Request, url: URL, env: Env): Promise<Response> {
+  if (request.method !== "GET") return json({ error: "method_not_allowed" }, 405, { allow: "GET" });
+  const session = httpSessionParams(url);
+  if (!session) return json({ error: "not_found" }, 404);
+  const after = Number(url.searchParams.get("after") ?? "0");
+  if (!Number.isSafeInteger(after) || after < 0) return json({ error: "bad_after" }, 400);
+  const result = await roomStub(env, session.code).httpViewerPoll(session.token, session.session, after);
+  return jsonText(result.body, result.status);
+}
+
+/** `POST /api/viewer/send?code=&token=&session=`, body: one message for the sender. */
+async function handleSend(request: Request, url: URL, env: Env): Promise<Response> {
+  if (request.method !== "POST") return json({ error: "method_not_allowed" }, 405, { allow: "POST" });
+  const session = httpSessionParams(url);
+  if (!session) return json({ error: "not_found" }, 404);
+  const message = await request.text();
+  const result = await roomStub(env, session.code).httpViewerSend(session.token, session.session, message);
+  return jsonText(result.body, result.status);
+}
+
+/** A Room's JSON answer (already serialized). */
+function jsonText(body: string, status: number): Response {
+  return new Response(body, { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" } });
+}
+
+function httpSessionParams(url: URL): { code: string; token: string; session: string } | null {
+  const code = url.searchParams.get("code");
+  const token = url.searchParams.get("token");
+  const session = url.searchParams.get("session");
+  return isCode(code) && isToken(token) && isToken(session) ? { code, token, session } : null;
 }
 
 // MARK: Helpers
