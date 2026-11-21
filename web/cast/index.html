@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All TV Kit</title>
+    <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
+    <link rel="preload" href="../fonts/Sora-Bold.ttf" as="font" type="font/ttf" crossorigin>
+    <style>
+        /* MirrorGo's Cast receiver, in smrr.tv's look (web/style.css: the app screen, toast and
+           colours): near-black page, Sora, the purple gradient, the app icon's TV. The fonts come
+           from web/fonts, one level up (smrr.tv serves web/; the receiver is web/cast/). */
+
+        @font-face { font-family: "Sora"; font-weight: 500; src: url("../fonts/Sora-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Sora"; font-weight: 600; src: url("../fonts/Sora-SemiBold.ttf") format("truetype"); }
+        @font-face { font-family: "Sora"; font-weight: 700; src: url("../fonts/Sora-Bold.ttf") format("truetype"); }
+
+        html, body { width: 100%; height: 100%; margin: 0; padding: 0; }
+        body {
+            background: #0e0e12;
+            color: #ffffff;
+            font: 500 18px/1.4 "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow: hidden;
+        }
+        * { box-sizing: border-box; }
+        h1 { margin: 0; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+        p { margin: 0; }
+
+        /* What's on screen: body[data-screen] = app (our own screen) | mirror (JPEG frames) |
+           media (the Cast player's <video>) | youtube | webrtc (smrr.tv's page). */
+        body:not([data-screen="app"]) { background: #000; }
+
+        /* MARK: Our screen: ready / starting / stopped / failed (body[data-variant]) */
+
+        #screen-app {
+            display: none;
+            position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+            padding: 5vh 5vw;
+            flex-direction: column; align-items: center; justify-content: center; text-align: center;
+        }
+        body[data-screen="app"] #screen-app { display: flex; }
+        #screen-app > * + * { margin-top: 3vh; }
+
+        .app-brand {
+            position: absolute; top: 5vh; left: 5vw;
+            display: flex; align-items: center;
+            font-size: 32px; font-size: clamp(18px, 1.7vw, 32px);
+            font-weight: 700; letter-spacing: -0.01em;
+        }
+        .brand-mark {
+            display: block; flex: none;
+            width: 1.6em; height: 1.6em; margin-right: 0.5em;
+            border-radius: 28%;
+            background: #755cff;
+            background: linear-gradient(180deg, #755cff 0%, #5c44e2 100%);
+        }
+        .brand-mark svg, .app-mark svg { display: block; width: 100%; height: 100%; }
+        .app-mark {
+            width: 150px; height: 150px;
+            width: clamp(96px, 14vh, 200px); height: clamp(96px, 14vh, 200px);
+            border-radius: 28%;
+            background: #755cff;
+            background: linear-gradient(180deg, #755cff 0%, #5c44e2 100%);
+            box-shadow: 0 0 0 0 rgba(117, 92, 255, 0.45);
+        }
+        #title { font-size: 68px; font-size: clamp(28px, 3.6vw, 68px); max-width: 20em; }
+        .hint { font-size: 32px; font-size: clamp(16px, 1.7vw, 32px); color: #8e8e99; max-width: 32em; }
+        .hint:empty { display: none; }
+
+        /* Ready / starting: the mark breathes (starting: dots run too). Stopped / failed: still. */
+        body[data-variant="ready"] .app-mark,
+        body[data-variant="starting"] .app-mark { animation: breathe 2.4s ease-out infinite; }
+        @keyframes breathe {
+            0% { box-shadow: 0 0 0 0 rgba(117, 92, 255, 0.45); }
+            70% { box-shadow: 0 0 0 4vh rgba(117, 92, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(117, 92, 255, 0); }
+        }
+        body[data-variant="starting"] #title { color: #7ee2a8; }
+        body[data-variant="stopped"] .app-mark,
+        body[data-variant="failed"] .app-mark { background: #2e2e38; }
+
+        .dots { display: none; }
+        body[data-variant="starting"] .dots { display: block; }
+        .dots span {
+            display: inline-block;
+            width: 14px; height: 14px; margin: 0 8px;
+            border-radius: 50%; background: #755cff;
+            animation: dot 1.2s ease-in-out infinite;
+        }
+        .dots span:nth-child(2) { animation-delay: 0.2s; }
+        .dots span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes dot { 0%, 80%, 100% { opacity: 0.25; } 40% { opacity: 1; } }
+
+        /* MARK: Playing: the mirrored frames, a video, YouTube or smrr.tv's page, full screen */
+
+        #mirror, #media, #youtube, #webrtc {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: 0;
+            background: #000;
+            visibility: hidden;
+        }
+        #mirror, #media { object-fit: contain; }
+        body[data-screen="mirror"] #mirror,
+        body[data-screen="media"] #media,
+        body[data-screen="youtube"] #youtube,
+        body[data-screen="webrtc"] #webrtc { visibility: visible; }
+        #youtube iframe { display: block; width: 100%; height: 100%; border: 0; }
+
+        /* "Paused", over a video. */
+        .toast {
+            display: none;
+            position: fixed; top: 6vh; left: 50%; transform: translateX(-50%);
+            padding: 14px 32px; border-radius: 999px;
+            background: rgba(0, 0, 0, 0.75); color: #fff;
+            font-size: 30px; font-size: clamp(16px, 1.6vw, 30px);
+        }
+        .toast.visible { display: block; }
+    </style>
+</head>
+<body data-screen="app" data-variant="ready">
+    <img id="mirror" alt="">
+    <video id="media"></video>
+    <div id="youtube"><div id="youtubePlayer"></div></div>
+    <iframe id="webrtc" allow="autoplay; fullscreen" title="All TV Kit"></iframe>
+
+    <section id="screen-app">
+        <header class="app-brand">
+            <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="7" y="9" width="18" height="12" rx="2" fill="none" stroke="white" stroke-width="2.5"/><path d="M12 25h8" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+            <span>All TV Kit</span>
+        </header>
+        <div class="app-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32"><rect x="7" y="9" width="18" height="12" rx="2" fill="none" stroke="white" stroke-width="2.5"/><path d="M12 25h8" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+        <h1 id="title"></h1>
+        <p class="hint" id="hint"></p>
+        <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+    </section>
+
+    <div class="toast" id="toast" role="status"></div>
+
+    <script>
+        const NAMESPACE = 'urn:x-cast:com.mirrorgo.stream';
+
+        // HELLO → READY {version, webrtc, h264}. From version 2 the receiver reports
+        // STREAM_STARTED / STREAM_ERROR for START_STREAM (see GoogleCastService.swift);
+        // version 3 adds START_WEBRTC / STOP_WEBRTC; version 4 adds `h264`: whether
+        // this TV's browser can receive the phone's H.264 over WebRTC (MIRR-174).
+        // Some can't (no H.264 in their WebRTC): smrr.tv's page then never answers
+        // the phone's offer, so `webrtc` is false there too, and the app mirrors
+        // through Google's Chrome Mirroring receiver instead (older apps: JPEG).
+        const PROTOCOL_VERSION = 4;
+        const HAS_RTC_PEER_CONNECTION = typeof window.RTCPeerConnection === 'function';
+        let SUPPORTS_WEBRTC = HAS_RTC_PEER_CONNECTION;
+        const H264_TEST_TIMEOUT_MS = 2000;
+        // No frame on screen this long after START_STREAM → STREAM_ERROR.
+        const STREAM_START_TIMEOUT_MS = 6000;
+        // START_WEBRTC only loads our own page (any sender on the network can message us).
+        const WEBRTC_HOSTS = ['smrr.tv', 'www.smrr.tv'];
+
+        // Every string on screen (smrr.tv's wording where it says the same thing).
+        const strings = {
+            readyTitle: 'Connected to All\u00a0TV\u00a0Kit',
+            readyHint: 'Start Screen Mirroring, or pick a photo, video or channel in All\u00a0TV\u00a0Kit on your iPhone.',
+            startingTitle: 'Connected to All\u00a0TV\u00a0Kit',
+            startingHint: 'Starting on this TV…',
+            stoppedTitle: 'Nothing playing',
+            stoppedHint: 'Pick a channel, photo or video in All\u00a0TV\u00a0Kit on your iPhone.',
+            failedTitle: "Your TV couldn't play it",
+            failedHint: 'Try something else from All\u00a0TV\u00a0Kit on your iPhone.',
+            streamFailedTitle: "Couldn't show your iPhone",
+            streamFailedHint: 'Make sure the TV and iPhone are on the same Wi-Fi network, then try again.',
+            paused: 'Paused'
+        };
+
+        // Preview without a Cast device: index.html?preview=ready|starting|stopped|failed|paused
+        const preview = new URLSearchParams(location.search).get('preview');
+        const context = preview ? null : cast.framework.CastReceiverContext.getInstance();
+
+        const mirrorImage = document.getElementById('mirror');
+        const mediaElement = document.getElementById('media');
+        const webrtcFrame = document.getElementById('webrtc');
+        const titleText = document.getElementById('title');
+        const hintText = document.getElementById('hint');
+        const toast = document.getElementById('toast');
+
+        // MARK: Screens
+
+        // What the receiver shows: null (our screen), 'mirror', 'media', 'youtube' or 'webrtc'.
+        let activity = null;
+
+        function showScreen(screen) {
+            document.body.setAttribute('data-screen', screen);
+            if (screen !== 'media') hideToast();
+        }
+
+        // Our own screen. `title` / `hint` override the variant's text.
+        function showApp(variant, title, hint) {
+            const texts = {
+                ready: [strings.readyTitle, strings.readyHint],
+                starting: [strings.startingTitle, strings.startingHint],
+                stopped: [strings.stoppedTitle, strings.stoppedHint],
+                failed: [strings.failedTitle, strings.failedHint]
+            }[variant];
+            titleText.textContent = title || texts[0];
+            hintText.textContent = hint === undefined ? texts[1] : hint;
+            document.body.setAttribute('data-variant', variant);
+            showScreen('app');
+            console.log('MirrorGo: ' + variant + ': ' + titleText.textContent);
+        }
+
+        function showToast(text) {
+            toast.textContent = text;
+            toast.classList.add('visible');
+        }
+
+        function hideToast() {
+            toast.classList.remove('visible');
+        }
+
+        function sendToSender(senderId, message) {
+            if (!senderId || !context) return;
+            try {
+                context.sendCustomMessage(NAMESPACE, senderId, message);
+            } catch (e) {
+                console.warn('MirrorGo: could not answer the sender', e);
+            }
+        }
+
+        // No sender ID: every connected sender gets it.
+        function sendToApp(message) {
+            if (!context) return;
+            try {
+                context.sendCustomMessage(NAMESPACE, undefined, message);
+            } catch (e) {
+                console.warn('MirrorGo: could not message the app', e);
+            }
+        }
+
+        // Whatever plays now, stopped for something else. `except`: what's about to start.
+        function stopEverything(except) {
+            if (except !== 'mirror') stopJPEGStream();
+            if (except !== 'webrtc') hideWebRTC();
+            if (except !== 'youtube') stopYouTube(true);
+            if (except !== 'media') stopMedia();
+        }
+
+        // ---- App audio ----
+        // The phone serves 16-bit interleaved PCM. Each request returns whatever
+        // arrived after `after` (empty while Sound is off), and the chunks are
+        // scheduled back to back with a small jitter buffer.
+        const AUDIO_TARGET_LATENCY = 0.15; // seconds of audio buffered ahead
+        const AUDIO_MAX_LATENCY = 0.5;     // drift past this resets the buffer
+
+        let audioContext = null;
+        let audioUrl = null;
+        let audioSeq = -1;
+        let audioGeneration = 0;
+        let audioNextTime = 0;
+
+        function startAudio(url) {
+            stopAudio();
+            audioUrl = url;
+            audioSeq = -1;
+            audioNextTime = 0;
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)({ latencyHint: 'interactive' });
+            }
+            audioContext.resume();
+            pollAudio(++audioGeneration);
+        }
+
+        function stopAudio() {
+            audioGeneration++;
+            audioUrl = null;
+        }
+
+        async function pollAudio(generation) {
+            while (generation === audioGeneration) {
+                try {
+                    const response = await fetch(audioUrl + '?after=' + audioSeq, { cache: 'no-store' });
+                    if (!response.ok) throw new Error('HTTP ' + response.status);
+                    const seq = parseInt(response.headers.get('X-Audio-Seq'), 10);
+                    const rate = parseInt(response.headers.get('X-Audio-Rate'), 10) || 48000;
+                    const channels = parseInt(response.headers.get('X-Audio-Channels'), 10) || 2;
+                    const data = await response.arrayBuffer();
+                    if (generation !== audioGeneration) return;
+                    if (!isNaN(seq)) audioSeq = seq;
+                    if (data.byteLength > 0) playPCM(data, rate, channels);
+                } catch (e) {
+                    if (generation !== audioGeneration) return;
+                    console.warn('MirrorGo: audio request failed', e);
+                    await new Promise(function(resolve) { setTimeout(resolve, 250); });
+                }
+            }
+        }
+
+        function playPCM(data, rate, channels) {
+            const samples = new Int16Array(data, 0, Math.floor(data.byteLength / 2));
+            const frames = Math.floor(samples.length / channels);
+            if (frames === 0) return;
+
+            const buffer = audioContext.createBuffer(channels, frames, rate);
+            for (let c = 0; c < channels; c++) {
+                const output = buffer.getChannelData(c);
+                for (let i = 0; i < frames; i++) {
+                    output[i] = samples[i * channels + c] / 32768;
+                }
+            }
+
+            const now = audioContext.currentTime;
+            if (audioNextTime < now || audioNextTime > now + AUDIO_MAX_LATENCY) {
+                audioNextTime = now + AUDIO_TARGET_LATENCY;
+            }
+            const source = audioContext.createBufferSource();
+            source.buffer = buffer;
+            source.connect(audioContext.destination);
+            source.start(audioNextTime);
+            audioNextTime += buffer.duration;
+        }
+
+        // MARK: Mirroring (JPEG frames pulled from the phone)
+
+        let streamUrl = null;
+        let frameCount = 0;
+        let isStreaming = false;
+        // Who sent START_STREAM: told when the first frame shows, or that none did.
+        let streamSenderId = null;
+        let streamStartTimer = null;
+
+        function clearStreamStartTimer() {
+            if (streamStartTimer) {
+                clearTimeout(streamStartTimer);
+                streamStartTimer = null;
+            }
+        }
+
+        function startJPEGStream(url, audioUrl, senderId) {
+            stopEverything('mirror');
+            clearStreamStartTimer();
+            streamUrl = url;
+            streamSenderId = senderId;
+            isStreaming = true;
+            frameCount = 0;
+            activity = 'mirror';
+            showApp('starting');
+            setImgSrc();
+            if (audioUrl) {
+                startAudio(audioUrl);
+            } else {
+                stopAudio();
+            }
+            streamStartTimer = setTimeout(function() {
+                streamStartTimer = null;
+                if (!isStreaming || frameCount > 0) return;
+                showApp('failed', strings.streamFailedTitle, strings.streamFailedHint);
+                sendToSender(senderId, {
+                    type: 'STREAM_ERROR',
+                    reason: "Your TV couldn't load the stream from your iPhone. Make sure the TV and iPhone are on the same Wi-Fi network, then try again."
+                });
+            }, STREAM_START_TIMEOUT_MS);
+        }
+
+        function stopJPEGStream() {
+            clearStreamStartTimer();
+            if (!isStreaming && !streamUrl) return;
+            stopAudio();
+            isStreaming = false;
+            streamUrl = null;
+            streamSenderId = null;
+            mirrorImage.removeAttribute('src');
+            if (activity === 'mirror') activity = null;
+        }
+
+        function setImgSrc() {
+            if (!streamUrl || !isStreaming) return;
+            mirrorImage.src = streamUrl + '?time=' + new Date().getTime();
+        }
+
+        mirrorImage.onload = function() {
+            if (!isStreaming) return;
+            frameCount++;
+            if (frameCount === 1) {
+                clearStreamStartTimer();
+                showScreen('mirror');
+                sendToSender(streamSenderId, { type: 'STREAM_STARTED' });
+            }
+            setImgSrc();
+        };
+
+        mirrorImage.onerror = function() {
+            if (!isStreaming) return;
+            setTimeout(setImgSrc, 100);
+        };
+
+        // MARK: Mirroring over WebRTC (smrr.tv's page, in the room the app made)
+
+        // Can this browser receive H.264 over WebRTC? The same steps smrr.tv's page
+        // takes with the phone's offer: a local H.264-only offer that announces a
+        // stream (a=ssrc), answered and applied by a second peer connection. On some
+        // TVs ("Smart TV", Cast 3.72) setting up the H.264 decoder for an announced
+        // stream never finishes, though an offer without one is answered at once:
+        // so the stream matters. False if anything fails or it takes too long.
+        function testH264WebRTC() {
+            if (!HAS_RTC_PEER_CONNECTION) return Promise.resolve(false);
+            const isH264 = function(codec) { return codec.mimeType.toLowerCase() === 'video/h264'; };
+            try {
+                const receiving = window.RTCRtpReceiver && RTCRtpReceiver.getCapabilities && RTCRtpReceiver.getCapabilities('video');
+                if (receiving && !receiving.codecs.some(isH264)) return Promise.resolve(false);
+            } catch (e) { /* no capabilities API: try it */ }
+
+            let offerer = null;
+            let answerer = null;
+            const test = (async function() {
+                offerer = new RTCPeerConnection();
+                answerer = new RTCPeerConnection();
+                offerer.addTransceiver('video', { direction: 'sendonly' });
+                const offer = await offerer.createOffer();
+                await answerer.setRemoteDescription({ type: 'offer', sdp: h264OnlyOffer(offer.sdp) });
+                const answer = await answerer.createAnswer();
+                // A rejected m-line has port 0; an accepted one keeps H.264.
+                if (/m=video 0 /.test(answer.sdp) || !/a=rtpmap:\d+ H264\//i.test(answer.sdp)) return false;
+                await answerer.setLocalDescription(answer);
+                return true;
+            })().catch(function(error) {
+                console.warn('MirrorGo: H.264 over WebRTC test failed:', error);
+                return false;
+            });
+            const timeout = new Promise(function(resolve) {
+                setTimeout(function() { resolve(false); }, H264_TEST_TIMEOUT_MS);
+            });
+            return Promise.race([test, timeout]).then(function(result) {
+                if (offerer) offerer.close();
+                if (answerer) answerer.close();
+                return result;
+            });
+        }
+
+        // The offer with its codecs replaced by H.264 alone and a stream announced,
+        // as the phone offers it: whether this browser could send H.264 itself
+        // doesn't matter.
+        function h264OnlyOffer(sdp) {
+            const lines = [];
+            sdp.split('\r\n').forEach(function(line) {
+                if (!line || /^a=(rtpmap|fmtp|rtcp-fb|ssrc|ssrc-group|msid):/.test(line)) return;
+                lines.push(/^m=video /.test(line) ? line.split(' ').slice(0, 3).join(' ') + ' 102' : line);
+            });
+            lines.push(
+                'a=rtpmap:102 H264/90000',
+                'a=rtcp-fb:102 nack',
+                'a=rtcp-fb:102 nack pli',
+                'a=fmtp:102 level-asymmetry-allowed=1;packetization-mode=1;profile-level-id=42e01f',
+                'a=msid:mirrorgo-test video0',
+                'a=ssrc:1234567890 cname:mirrorgotest',
+                'a=ssrc:1234567890 msid:mirrorgo-test video0'
+            );
+            return lines.join('\r\n') + '\r\n';
+        }
+
+        // Started at once, so it's done before the app's HELLO (it takes milliseconds).
+        const h264Test = testH264WebRTC().then(function(result) {
+            console.log('MirrorGo: H.264 over WebRTC ' + (result ? 'works' : "doesn't work") + ' here');
+            if (!result) SUPPORTS_WEBRTC = false;
+            return result;
+        });
+
+        let webrtcUrl = null;
+
+        function isAllowedWebRTCUrl(text) {
+            try {
+                const url = new URL(text);
+                return url.protocol === 'https:' && WEBRTC_HOSTS.indexOf(url.hostname) !== -1;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        // The page plays the stream itself, and says what it's doing.
+        function showWebRTC(url) {
+            stopEverything('webrtc');
+            activity = 'webrtc';
+            showScreen('webrtc');
+            if (webrtcUrl === url) return;  // Already in that room.
+            webrtcUrl = url;
+            webrtcFrame.src = url;
+        }
+
+        function hideWebRTC() {
+            if (!webrtcUrl) return;
+            webrtcUrl = null;
+            webrtcFrame.src = 'about:blank';
+            if (activity === 'webrtc') activity = null;
+        }
+
+        // MARK: YouTube
+        // PLAY_YOUTUBE {videoId, start} plays a video in YouTube's embedded player.
+        // The app hears back YOUTUBE_STARTED once it plays, YOUTUBE_ERROR {reason}
+        // if it can't, and YOUTUBE_ENDED when it finished or something replaced it
+        // (mirroring, a gallery item). All carry the videoId.
+
+        let youtubeApi = null;
+        let youtubePlayer = null;
+        let youtubeVideoId = null;
+        let youtubeStarted = false;
+
+        function loadYouTubeApi() {
+            if (youtubeApi) return youtubeApi;
+            youtubeApi = new Promise(function(resolve, reject) {
+                if (window.YT && window.YT.Player) { resolve(); return; }
+                window.onYouTubeIframeAPIReady = resolve;
+                const script = document.createElement('script');
+                script.src = 'https://www.youtube.com/iframe_api';
+                script.onerror = function() {
+                    youtubeApi = null;
+                    reject(new Error('Could not load YouTube.'));
+                };
+                document.head.appendChild(script);
+            });
+            return youtubeApi;
+        }
+
+        async function playYouTube(videoId, start) {
+            if (youtubeVideoId && youtubeVideoId !== videoId) {
+                sendToApp({ type: 'YOUTUBE_ENDED', videoId: youtubeVideoId });
+                youtubeVideoId = null;
+            }
+            stopEverything('youtube');
+            youtubeVideoId = videoId;
+            youtubeStarted = false;
+            activity = 'youtube';
+            showApp('starting');
+            try {
+                await loadYouTubeApi();
+            } catch (e) {
+                youtubeFailed(videoId, "Your TV couldn't load YouTube. Check its internet connection.");
+                return;
+            }
+            if (youtubeVideoId !== videoId) return;  // Replaced meanwhile.
+
+            if (youtubePlayer) {
+                youtubePlayer.loadVideoById({ videoId: videoId, startSeconds: start });
+                return;
+            }
+            youtubePlayer = new YT.Player('youtubePlayer', {
+                width: '100%',
+                height: '100%',
+                videoId: videoId,
+                playerVars: { autoplay: 1, start: start, controls: 0, rel: 0, playsinline: 1 },
+                events: {
+                    onReady: function(event) { event.target.playVideo(); },
+                    onStateChange: onYouTubeStateChange,
+                    onError: onYouTubeError
+                }
+            });
+        }
+
+        function onYouTubeStateChange(event) {
+            const videoId = youtubeVideoId;
+            if (!videoId) return;
+            if (event.data === YT.PlayerState.PLAYING) {
+                showScreen('youtube');
+                if (!youtubeStarted) {
+                    youtubeStarted = true;
+                    sendToApp({ type: 'YOUTUBE_STARTED', videoId: videoId });
+                }
+            } else if (event.data === YT.PlayerState.ENDED) {
+                stopYouTube(true);
+                showApp('stopped');
+            }
+        }
+
+        function onYouTubeError(event) {
+            const videoId = youtubeVideoId;
+            if (!videoId) return;
+            let reason;
+            switch (event.data) {
+                case 101:
+                case 150:
+                    reason = "This video can't be played outside YouTube. Try another one.";
+                    break;
+                case 100:
+                    reason = 'This video is private or was removed.';
+                    break;
+                default:
+                    reason = "Your TV couldn't play this video (YouTube error " + event.data + ').';
+            }
+            youtubeFailed(videoId, reason);
+        }
+
+        function youtubeFailed(videoId, reason) {
+            if (youtubeVideoId !== videoId) return;
+            console.warn('MirrorGo: YouTube failed: ' + reason);
+            hideYouTube();
+            sendToApp({ type: 'YOUTUBE_ERROR', videoId: videoId, reason: reason });
+            showApp('failed', undefined, reason);
+        }
+
+        // `notify`: tell the app, when something else replaces the video.
+        function stopYouTube(notify) {
+            const videoId = youtubeVideoId;
+            if (!videoId) return;
+            hideYouTube();
+            if (notify) sendToApp({ type: 'YOUTUBE_ENDED', videoId: videoId });
+        }
+
+        function hideYouTube() {
+            youtubeVideoId = null;
+            youtubeStarted = false;
+            if (youtubePlayer && youtubePlayer.stopVideo) youtubePlayer.stopVideo();
+            if (activity === 'youtube') activity = null;
+        }
+
+        // MARK: Videos (gallery, web videos, IPTV channels): the standard media LOAD,
+        // played by the Cast framework in our <video>.
+
+        const playerManager = context ? context.getPlayerManager() : null;
+
+        function stopMedia() {
+            if (activity !== 'media') return;
+            activity = null;  // Before stop(): its MEDIA_FINISHED isn't about what comes next.
+            try {
+                playerManager.stop();
+            } catch (e) {
+                console.warn('MirrorGo: could not stop the video', e);
+            }
+        }
+
+        if (playerManager) {
+            const events = cast.framework.events.EventType;
+            playerManager.setMediaElement(mediaElement);
+
+            playerManager.setMessageInterceptor(
+                cast.framework.messages.MessageType.LOAD,
+                function(request) {
+                    stopEverything('media');
+                    activity = 'media';
+                    showApp('starting');
+                    return request;
+                }
+            );
+
+            playerManager.addEventListener(events.PLAYING, function() {
+                if (activity !== 'media') return;
+                hideToast();
+                showScreen('media');
+            });
+            playerManager.addEventListener(events.PAUSE, function() {
+                if (activity !== 'media') return;
+                showScreen('media');
+                showToast(strings.paused);
+            });
+            playerManager.addEventListener(events.ERROR, function(event) {
+                console.warn('MirrorGo: video error', event && event.detailedErrorCode);
+                if (activity !== 'media') return;
+                activity = null;
+                showApp('failed');
+            });
+            playerManager.addEventListener(events.MEDIA_FINISHED, function(event) {
+                const reason = event && event.endedReason;
+                // Replaced by the next LOAD: that one plays on.
+                if (activity !== 'media' || reason === cast.framework.events.EndedReason.INTERRUPTED) return;
+                activity = null;
+                showApp(reason === cast.framework.events.EndedReason.ERROR ? 'failed' : 'stopped');
+            });
+        }
+
+        // MARK: Messages from the app
+
+        if (context) {
+            context.addCustomMessageListener(NAMESPACE, function(event) {
+                console.log('MirrorGo: Received message:', event.data);
+
+                try {
+                    const data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
+
+                    if (data.type === 'HELLO') {
+                        const senderId = event.senderId;
+                        h264Test.then(function(h264) {
+                            sendToSender(senderId, { type: 'READY', version: PROTOCOL_VERSION, webrtc: SUPPORTS_WEBRTC, h264: h264 });
+                        });
+                    } else if (data.type === 'START_STREAM' && data.url) {
+                        console.log('MirrorGo: Starting stream from:', data.url);
+                        startJPEGStream(data.url, data.audioUrl, event.senderId);
+                    } else if (data.type === 'STOP_STREAM') {
+                        if (activity === 'mirror' || isStreaming) {
+                            stopJPEGStream();
+                            showApp('stopped');
+                        }
+                    } else if (data.type === 'START_WEBRTC' && data.url) {
+                        if (!SUPPORTS_WEBRTC || !isAllowedWebRTCUrl(data.url)) {
+                            console.warn('MirrorGo: refusing WebRTC page', data.url);
+                            return;
+                        }
+                        console.log('MirrorGo: WebRTC page');
+                        showWebRTC(data.url);
+                    } else if (data.type === 'STOP_WEBRTC') {
+                        if (activity === 'webrtc') {
+                            hideWebRTC();
+                            showApp('stopped');
+                        }
+                    } else if (data.type === 'PLAY_YOUTUBE' && data.videoId) {
+                        playYouTube(String(data.videoId), Math.max(0, parseInt(data.start, 10) || 0));
+                    } else if (data.type === 'STOP_YOUTUBE') {
+                        if (youtubeVideoId) {
+                            stopYouTube(false);
+                            showApp('stopped');
+                        }
+                    }
+                } catch (e) {
+                    console.error('MirrorGo: Error parsing message:', e);
+                }
+            });
+
+            const options = new cast.framework.CastReceiverOptions();
+            options.disableIdleTimeout = true;
+            options.maxInactivity = 3600;
+            options.customNamespaces = {};
+            options.customNamespaces[NAMESPACE] = cast.framework.system.MessageType.JSON;
+
+            showApp('ready');
+            context.start(options);
+        } else {
+            // Preview in a desktop browser.
+            if (preview === 'paused') {
+                showApp('starting');
+                showToast(strings.paused);
+                document.body.setAttribute('data-screen', 'media');
+            } else {
+                showApp(['ready', 'starting', 'stopped', 'failed'].indexOf(preview) !== -1 ? preview : 'ready');
+            }
+        }
+    </script>
+</body>
+</html>

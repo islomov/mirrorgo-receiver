@@ -10,9 +10,10 @@ the app while the page plays a link it sent). Protocol:
 - `/landing-page/*` → `https://mirrorgo.app/*` (301): the landing page (`../site/`) moved to its own domain.
 - `wrangler.jsonc`: DO binding + `new_sqlite_classes` migration, rate limits, `ICE_SERVERS` var.
 
-The Cast receiver (`../index.html`) is separate: GitHub Pages serves it at
-https://islomov.github.io/mirrorgo-receiver/ and the Cast console (App ID `9B4F2DCA`) points there.
-Don't move it.
+The Cast receiver (App ID `9B4F2DCA`) is `../web/cast/index.html`, served with the rest of the site at
+https://smrr.tv/cast/ (MIRR-176). Until the Cast console points there, GitHub Pages still serves the old
+copy (`../index.html`) at https://islomov.github.io/mirrorgo-receiver/: keep the two the same until that
+copy is removed. Don't move or rename `web/cast/` once the console uses it.
 
 ```bash
 cd worker
