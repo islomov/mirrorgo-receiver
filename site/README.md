@@ -34,6 +34,23 @@ link clicked, countries, devices, languages and a per-day count. The token needs
 To tell your own links apart (a post, a profile, an ad), add `?ref=<name>` to them, e.g.
 `https://alltvkit.app/?ref=tiktok`: it shows as that source.
 
+### Every morning in Telegram
+
+At 09:00 UTC+5 (the cron in `wrangler.jsonc`) the Worker sends yesterday's numbers to a Telegram chat
+(`report.js`): views, App Store taps and link clicks against the day before, the 7-day totals, and the top
+sources, pages, countries and devices. It needs four secrets, set once (nothing is sent until they are):
+
+```bash
+cd site
+npx wrangler secret put TELEGRAM_BOT_TOKEN   # from @BotFather
+npx wrangler secret put TELEGRAM_CHAT_ID     # message the bot, then https://api.telegram.org/bot<TOKEN>/getUpdates → message.chat.id
+npx wrangler secret put STATS_ACCOUNT_ID     # the Cloudflare account id
+npx wrangler secret put STATS_API_TOKEN      # a token with Account Analytics: Read
+```
+
+To try it now: put the same four in `site/.dev.vars` (gitignored), run `npx wrangler dev --test-scheduled`
+and open `http://localhost:8787/__scheduled`.
+
 It was first served at `smrr.tv/landing-page/`; the smrr.tv Worker now sends those URLs to the same page
 here (301).
 
