@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Builds mirrorgo.app into site/public: static HTML (no framework, no JS needed to read it) in every
+"""Builds alltvkit.app (also served on mirrorgo.app) into site/public: static HTML (no framework, no JS needed to read it) in every
 language of content.LANGUAGES, structured data for search engines and AI answer engines, sitemaps,
 robots.txt, llms.txt and llms-full.txt.
 
@@ -236,7 +236,7 @@ def app_schema():
         "@type": "MobileApplication",
         "@id": url("/#app"),
         "name": APP_NAME,
-        "alternateName": "MirrorGo: Screen Mirroring & Cast to TV",
+        "alternateName": "All TV Kit: Screen Mirroring & Cast to TV",
         "description": C.ONE_LINER,
         "url": url("/", LANG[0]),
         "operatingSystem": f"iOS {C.MIN_IOS} or later",
@@ -916,25 +916,25 @@ def build_privacy():
     body = f"""
 <section class="page-hero">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">MirrorGo</a> › Privacy</nav>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">All TV Kit</a> › Privacy</nav>
     <h1>Privacy policy</h1>
     <p class="lead">Last updated {TODAY}</p>
   </div>
 </section>
 <section style="padding-top:10px">
   <div class="wrap prose">
-    {p("MirrorGo is built so that what you show on your TV stays between your iPhone and your TV. This policy explains what the app and our websites mirrorgo.app (also at alltvkit.app) and smrr.tv handle, and why. The MirrorGo TV app for Fire TV and Android TV has <a href='/firetv/privacy/'>its own privacy policy</a>. Nothing is installed on a Roku: how MirrorGo works with it is described below.")}
+    {p("All TV Kit is built so that what you show on your TV stays between your iPhone and your TV. This policy explains what the app and our websites alltvkit.app (also at mirrorgo.app) and smrr.tv handle, and why. Our TV app for Fire TV and Android TV, MirrorGo for Fire TV, has <a href='/firetv/privacy/'>its own privacy policy</a>. Nothing is installed on a Roku: how All TV Kit works with it is described below.")}
     <h2>No account, no tracking</h2>
-    {p("MirrorGo has no account and no sign-up. The app contains no advertising and no third-party analytics or tracking.")}
+    {p("All TV Kit has no account and no sign-up. The app contains no advertising and no third-party analytics or tracking.")}
     <h2>Your screen, photos and videos</h2>
     {p("When you mirror your screen or cast photos, videos or your camera, they go directly from your iPhone to your TV over your own Wi-Fi network. They are not uploaded to us or to anyone else, and we cannot see them.")}
-    {p("Screen mirroring sends the sound your apps play. MirrorGo uses the microphone only to add sound when you cast your camera, and only while it is casting.")}
+    {p("Screen mirroring sends the sound your apps play. All TV Kit uses the microphone only to add sound when you cast your camera, and only while it is casting.")}
     <h2>Mirroring to a Roku</h2>
-    {p("MirrorGo talks to a Roku over your own network with Roku's External Control Protocol, the way Roku's own mobile app does. To find and recognise it, MirrorGo asks the Roku for its name, model, serial number and network address; to show your screen, it asks the Roku's built-in player to play a live video stream that your iPhone serves over your Wi-Fi. The picture and sound go directly from your iPhone to the Roku: they don't pass through our servers, and we can't see them. While you mirror, MirrorGo checks what the Roku's player and screen are showing, only to know when mirroring has ended. None of this leaves your network or is sent to us, and MirrorGo installs nothing on the Roku. The Roku itself is covered by Roku's own privacy policy.")}
+    {p("All TV Kit talks to a Roku over your own network with Roku's External Control Protocol, the way Roku's own mobile app does. To find and recognise it, All TV Kit asks the Roku for its name, model, serial number and network address; to show your screen, it asks the Roku's built-in player to play a live video stream that your iPhone serves over your Wi-Fi. The picture and sound go directly from your iPhone to the Roku: they don't pass through our servers, and we can't see them. While you mirror, All TV Kit checks what the Roku's player and screen are showing, only to know when mirroring has ended. None of this leaves your network or is sent to us, and All TV Kit installs nothing on the Roku. The Roku itself is covered by Roku's own privacy policy.")}
     <h2>Mirroring to a web browser (smrr.tv)</h2>
     {p("When you connect to a web browser through smrr.tv, our server helps your iPhone and the browser find each other. It sees their IP addresses, the code of the session and when it was used, and keeps them only as long as needed to run and protect the service, for example to limit attempts to guess codes. The picture and sound then go directly between your iPhone and the browser over your Wi-Fi; they do not pass through our server.")}
     <h2>Stored on your iPhone</h2>
-    {p("MirrorGo keeps a few things on your iPhone so it works the next time: the TVs you connected to and the pairing keys they gave it, your settings, your favourite channels, your playlists and your recent image searches. They stay on your device and are deleted with the app.")}
+    {p("All TV Kit keeps a few things on your iPhone so it works the next time: the TVs you connected to and the pairing keys they gave it, your settings, your favourite channels, your playlists and your recent image searches. They stay on your device and are deleted with the app.")}
     <h2>Permissions</h2>
     <ul>
       <li><b>Local Network</b>: to find your TVs and send them what you cast. Only used for devices on your own network.</li>
@@ -942,25 +942,25 @@ def build_privacy():
       <li><b>Camera</b>: to cast your camera and to scan the QR code on smrr.tv.</li>
       <li><b>Microphone</b>: sound when you cast your camera.</li>
     </ul>
-    {p("You can change any of them at any time in the iPhone's Settings › MirrorGo.")}
+    {p("You can change any of them at any time in the iPhone's Settings › All TV Kit.")}
     <h2>Content from other services</h2>
     {p("Some features show content from other services, which receive your request like any website you visit: YouTube (Google) in the YouTube screen; the websites you open in Web Videos (a private browser that keeps no history, cookies or cache); Wikimedia Commons for web images; the public iptv-org channel list and the channels' own streaming servers for live TV; Google Cast for Chromecast and Google TV devices; and the built-in player of Roku devices. Their own privacy policies apply.")}
-    <h2>Our website mirrorgo.app</h2>
-    {p("To know which pages help people find MirrorGo, mirrorgo.app (also at alltvkit.app) counts its page views and the links clicked on it: for each, the page, its language and which of the two addresses it was opened on, the link and where it is on the page, the website that sent you there (its domain only, or the name in a link's <code>ref</code> or <code>utm_source</code>), your country and the kind of device (phone, tablet or computer, and its operating system). It sets no cookies, stores nothing on your device, and doesn't keep your IP address or anything else that identifies you. The counts are kept for three months, on Cloudflare, which hosts the site.")}
+    <h2>Our website alltvkit.app</h2>
+    {p("To know which pages help people find All TV Kit, alltvkit.app (also at mirrorgo.app) counts its page views and the links clicked on it: for each, the page, its language and which of the two addresses it was opened on, the link and where it is on the page, the website that sent you there (its domain only, or the name in a link's <code>ref</code> or <code>utm_source</code>), your country and the kind of device (phone, tablet or computer, and its operating system). It sets no cookies, stores nothing on your device, and doesn't keep your IP address or anything else that identifies you. The counts are kept for three months, on Cloudflare, which hosts the site.")}
     <h2>Purchases</h2>
     {p("Purchases are handled by Apple through the App Store. We don't receive your payment details.")}
     <h2>Support emails</h2>
     {p("If you email us, the message includes what you write and, to help us fix problems, your app version, iOS version, iPhone model and the kind of TV you use. We use it only to answer you.")}
     <h2>Children</h2>
-    {p("MirrorGo doesn't knowingly collect personal information from anyone, including children.")}
+    {p("All TV Kit doesn't knowingly collect personal information from anyone, including children.")}
     <h2>Changes and contact</h2>
     {p(f'If this policy changes, we will update this page and its date. Questions: <a href="mailto:{SUPPORT_EMAIL}">{SUPPORT_EMAIL}</a>. See also our <a href="/terms/">Terms of use</a>.')}
   </div>
 </section>
 """
-    return page("/privacy/", "Privacy Policy | MirrorGo",
-                "How MirrorGo handles your data: no account, no tracking, your screen and photos go straight from "
-                "your iPhone to your TV.", body, [breadcrumbs_schema([("MirrorGo", "/"), ("Privacy", "/privacy/")])],
+    return page("/privacy/", "Privacy Policy | All TV Kit",
+                "How All TV Kit handles your data: no account, no tracking, your screen and photos go straight from "
+                "your iPhone to your TV.", body, [breadcrumbs_schema([("All TV Kit", "/"), ("Privacy", "/privacy/")])],
                 translated=False)
 
 
@@ -979,16 +979,16 @@ def build_terms():
     body = f"""
 <section class="page-hero">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">MirrorGo</a> › Terms of use</nav>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">All TV Kit</a> › Terms of use</nav>
     <h1>Terms of use</h1>
     <p class="lead">Last updated {TODAY}</p>
   </div>
 </section>
 <section style="padding-top:10px">
   <div class="wrap prose">
-    {p("These Terms of Use (“Terms”) govern your use of the MirrorGo app for iPhone, the website mirrorgo.app (also at alltvkit.app) and the TV web page smrr.tv (together, the “Service”), operated by the makers of MirrorGo (“we”, “our”, “us”). By downloading, accessing or using the Service, you agree to these Terms. If you don't agree, don't use the Service.")}
+    {p("These Terms of Use (“Terms”) govern your use of the All TV Kit app for iPhone, the website alltvkit.app (also at mirrorgo.app) and the TV web page smrr.tv (together, the “Service”), operated by the makers of All TV Kit (“we”, “our”, “us”). By downloading, accessing or using the Service, you agree to these Terms. If you don't agree, don't use the Service.")}
     <h2>1. The Service</h2>
-    {p("MirrorGo mirrors your iPhone's screen and casts photos, videos, your camera, web videos, web images, live TV channels and YouTube to TVs, streaming devices and web browsers on your own network. Which features work depends on your TV, your network and the content; they may change as TVs and services change, and we don't guarantee that every TV, model or piece of content is supported. On Roku TVs and Roku players, MirrorGo currently offers screen mirroring only, played by the Roku's built-in player; nothing is installed on the Roku.")}
+    {p("All TV Kit mirrors your iPhone's screen and casts photos, videos, your camera, web videos, web images, live TV channels and YouTube to TVs, streaming devices and web browsers on your own network. Which features work depends on your TV, your network and the content; they may change as TVs and services change, and we don't guarantee that every TV, model or piece of content is supported. On Roku TVs and Roku players, All TV Kit currently offers screen mirroring only, played by the Roku's built-in player; nothing is installed on the Roku.")}
     <h2>2. Using the Service</h2>
     <ul>
       <li>Use the Service only for lawful purposes and in line with applicable laws and regulations.</li>
@@ -996,14 +996,14 @@ def build_terms():
       <li>Only connect to and cast to TVs and devices you are allowed to use.</li>
     </ul>
     <h2>3. Your content and other people's content</h2>
-    {p("You are responsible for what you mirror or cast, and for having the right to show it. MirrorGo doesn't host, upload or store your photos, videos or screen: they go from your iPhone to your TV over your network.")}
-    {p("Web videos, web images, YouTube and live TV channels come from third parties that MirrorGo doesn't own or control. Live TV channels are free, publicly available streams listed by the community-run iptv-org project; we don't operate, host or endorse them, and their availability, content and legality where you live are outside our control. YouTube content is subject to YouTube's own terms. Web images come from Wikimedia Commons under their own licences, shown with each image. Respect the rights and terms of the services whose content you watch, and don't use MirrorGo to get around copy protection: protected content (for example from paid streaming apps) can't be mirrored or cast.")}
+    {p("You are responsible for what you mirror or cast, and for having the right to show it. All TV Kit doesn't host, upload or store your photos, videos or screen: they go from your iPhone to your TV over your network.")}
+    {p("Web videos, web images, YouTube and live TV channels come from third parties that All TV Kit doesn't own or control. Live TV channels are free, publicly available streams listed by the community-run iptv-org project; we don't operate, host or endorse them, and their availability, content and legality where you live are outside our control. YouTube content is subject to YouTube's own terms. Web images come from Wikimedia Commons under their own licences, shown with each image. Respect the rights and terms of the services whose content you watch, and don't use All TV Kit to get around copy protection: protected content (for example from paid streaming apps) can't be mirrored or cast.")}
     <h2>4. Price</h2>
-    {p("MirrorGo is free to download and use. If paid features are added later, they will be charged to your Apple ID by Apple under its terms, and these Terms will be updated first.")}
+    {p("All TV Kit is free to download and use. If paid features are added later, they will be charged to your Apple ID by Apple under its terms, and these Terms will be updated first.")}
     <h2>5. Intellectual property</h2>
-    {p("The Service, including its software, text, graphics and logos, belongs to us or our licensors. You may not copy, reproduce, distribute or create derivative works from it without our prior written permission. Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV, AirPlay, YouTube and other names are trademarks of their owners; MirrorGo isn't affiliated with or endorsed by them.")}
+    {p("The Service, including its software, text, graphics and logos, belongs to us or our licensors. You may not copy, reproduce, distribute or create derivative works from it without our prior written permission. Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV, AirPlay, YouTube and other names are trademarks of their owners; All TV Kit isn't affiliated with or endorsed by them.")}
     <h2>6. Third-party services and links</h2>
-    {p("The Service works with, and may link to, third-party devices, websites and services, such as Samsung, LG, Roku, Google Cast, Fire TV and AirPlay devices. We aren't responsible for their content, policies or practices, or for changes they make that affect the Service, for example a TV update that changes or turns off the features MirrorGo relies on (on a Roku, “Control by mobile apps”).")}
+    {p("The Service works with, and may link to, third-party devices, websites and services, such as Samsung, LG, Roku, Google Cast, Fire TV and AirPlay devices. We aren't responsible for their content, policies or practices, or for changes they make that affect the Service, for example a TV update that changes or turns off the features All TV Kit relies on (on a Roku, “Control by mobile apps”).")}
     <h2>7. Privacy</h2>
     {p('How we handle data is described in our <a href="/privacy/">Privacy policy</a>.')}
     <h2>8. No warranty</h2>
@@ -1019,14 +1019,14 @@ def build_terms():
     <h2>13. Contact</h2>
     {p(f"Questions about these Terms: {mail}.")}
     <h2>14. Open-source software</h2>
-    {p("The MirrorGo app includes the following software, used under their licences:")}
+    {p("The All TV Kit app includes the following software, used under their licences:")}
     {licence_items}
   </div>
 </section>
 """
-    return page("/terms/", "Terms of Use | MirrorGo",
-                "The terms for using MirrorGo, the screen mirroring and casting app for iPhone, and its websites.",
-                body, [breadcrumbs_schema([("MirrorGo", "/"), ("Terms of use", "/terms/")])], translated=False)
+    return page("/terms/", "Terms of Use | All TV Kit",
+                "The terms for using All TV Kit, the screen mirroring and casting app for iPhone, and its websites.",
+                body, [breadcrumbs_schema([("All TV Kit", "/"), ("Terms of use", "/terms/")])], translated=False)
 
 
 # MARK: Fire TV app (islomov/mirrorgo-firetv: smrr.tv full screen in a WebView, announced as _mirrorgo._tcp)
@@ -1038,7 +1038,7 @@ def legal_page(path, crumb, h1, title, description, sections_html):
     body = f"""
 <section class="page-hero">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">MirrorGo</a> › {esc(crumb)}</nav>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">All TV Kit</a> › {esc(crumb)}</nav>
     <h1>{esc(h1)}</h1>
     <p class="lead">Last updated {TODAY}</p>
   </div>
@@ -1049,7 +1049,7 @@ def legal_page(path, crumb, h1, title, description, sections_html):
   </div>
 </section>
 """
-    return page(path, title, description, body, [breadcrumbs_schema([("MirrorGo", "/"), (crumb, path)])],
+    return page(path, title, description, body, [breadcrumbs_schema([("All TV Kit", "/"), (crumb, path)])],
                 translated=False)
 
 
@@ -1057,7 +1057,7 @@ def build_firetv_privacy():
     p = lambda text: f"<p>{text}</p>"
     mail = f'<a href="mailto:{SUPPORT_EMAIL}">{SUPPORT_EMAIL}</a>'
     html_ = f"""
-    {p(f"This policy covers {FIRETV_APP}, the TV app that receives what you mirror or cast from MirrorGo on your iPhone. It runs on Amazon Fire TV and on Android TV / Google TV. For the iPhone app, see the <a href='/privacy/'>MirrorGo privacy policy</a>.")}
+    {p(f"This policy covers {FIRETV_APP}, the TV app that receives what you mirror or cast from All TV Kit on your iPhone. It runs on Amazon Fire TV and on Android TV / Google TV. For the iPhone app, see the <a href='/privacy/'>All TV Kit privacy policy</a>.")}
     <h2>In short</h2>
     <ul>
       <li>No account, no sign-up, no advertising, no analytics or tracking.</li>
@@ -1065,11 +1065,11 @@ def build_firetv_privacy():
       <li>What you mirror from your iPhone goes straight to the TV over your Wi-Fi; we don't see or store it.</li>
     </ul>
     <h2>How the app works</h2>
-    {p("The app shows our web page smrr.tv full screen. The page shows a 6-digit code, and MirrorGo on your iPhone connects to it, either with that code or by finding the TV on your network. Your iPhone then sends the picture and sound straight to the TV over your Wi-Fi, or sends it a link (a live TV channel, a web video, a YouTube video) that the TV plays itself.")}
+    {p("The app shows our web page smrr.tv full screen. The page shows a 6-digit code, and All TV Kit on your iPhone connects to it, either with that code or by finding the TV on your network. Your iPhone then sends the picture and sound straight to the TV over your Wi-Fi, or sends it a link (a live TV channel, a web video, a YouTube video) that the TV plays itself.")}
     <h2>What our server sees</h2>
     {p("To connect your iPhone and the TV, the smrr.tv server sees both devices' IP addresses, the session's code and when it was used. It keeps them only as long as needed to run and protect the service, for example to limit attempts to guess codes. The picture and sound don't pass through our server. To help the two devices reach each other on your network, they also contact a standard connection (STUN) server run by Cloudflare, which sees their IP addresses.")}
     <h2>What other devices on your network can see</h2>
-    {p("While the app is open, it announces the TV on your local network so MirrorGo on your iPhone can list it: the TV's name (as set in its settings, else its model), its model, the app's version and the current 6-digit code. Any device on the same network can see this, just as anyone in the room can see the code on screen. The announcement stops when you leave the app.")}
+    {p("While the app is open, it announces the TV on your local network so All TV Kit on your iPhone can list it: the TV's name (as set in its settings, else its model), its model, the app's version and the current 6-digit code. Any device on the same network can see this, just as anyone in the room can see the code on screen. The announcement stops when you leave the app.")}
     <h2>What the TV fetches from others</h2>
     {p("When you cast a link, the TV fetches it directly from where it lives, which sees the TV's IP address like any website you visit: live TV channels from their own streaming servers, web videos from the site they come from, and YouTube videos through YouTube's embedded player, under Google's privacy policy. If you use none of these, the TV only talks to your iPhone and smrr.tv.")}
     <h2>Stored on the TV</h2>
@@ -1082,7 +1082,7 @@ def build_firetv_privacy():
     {p(f"If this policy changes, we'll update this page and its date. Questions: {mail}. See also the <a href='/firetv/terms/'>terms of use for {FIRETV_APP}</a>.")}
 """
     return legal_page("/firetv/privacy/", "Fire TV app privacy", f"{FIRETV_APP}: privacy policy",
-                      f"Privacy Policy: {FIRETV_APP} | MirrorGo",
+                      f"Privacy Policy: {FIRETV_APP} | All TV Kit",
                       f"How {FIRETV_APP} handles data: no account, no tracking, internet access only; what you mirror "
                       "goes straight from your iPhone to the TV.", html_)
 
@@ -1091,9 +1091,9 @@ def build_firetv_terms():
     p = lambda text: f"<p>{text}</p>"
     mail = f'<a href="mailto:{SUPPORT_EMAIL}">{SUPPORT_EMAIL}</a>'
     html_ = f"""
-    {p(f"These Terms of Use (“Terms”) govern your use of {FIRETV_APP} (the “App”), the TV app for Amazon Fire TV and Android TV / Google TV that receives what you mirror or cast from MirrorGo on your iPhone, operated by the makers of MirrorGo (“we”, “our”, “us”). By installing or using the App, you agree to these Terms. If you don't agree, don't use the App. MirrorGo on the iPhone has its own <a href='/terms/'>terms of use</a>.")}
+    {p(f"These Terms of Use (“Terms”) govern your use of {FIRETV_APP} (the “App”), the TV app for Amazon Fire TV and Android TV / Google TV that receives what you mirror or cast from All TV Kit on your iPhone, operated by the makers of All TV Kit (“we”, “our”, “us”). By installing or using the App, you agree to these Terms. If you don't agree, don't use the App. All TV Kit on the iPhone has its own <a href='/terms/'>terms of use</a>.")}
     <h2>1. The App</h2>
-    {p("The App shows our web page smrr.tv full screen so MirrorGo on your iPhone can mirror its screen and cast photos, videos, web videos, live TV channels and YouTube to your TV. It needs an internet connection, and your iPhone and TV on the same network. Features depend on your TV, network and content, may change, and aren't guaranteed to work with every device.")}
+    {p("The App shows our web page smrr.tv full screen so All TV Kit on your iPhone can mirror its screen and cast photos, videos, web videos, live TV channels and YouTube to your TV. It needs an internet connection, and your iPhone and TV on the same network. Features depend on your TV, network and content, may change, and aren't guaranteed to work with every device.")}
     <h2>2. Using the App</h2>
     <ul>
       <li>Use the App only for lawful purposes and in line with applicable laws and regulations.</li>
@@ -1103,7 +1103,7 @@ def build_firetv_terms():
     <h2>3. Content</h2>
     {p("You are responsible for what you mirror or cast to the App and for having the right to show it. Live TV channels, web videos and YouTube videos come from third parties we don't own or control; live TV channels are free, public streams listed by the community-run iptv-org project, and their availability, content and legality where you live are outside our control. YouTube content is subject to YouTube's terms. Respect the rights and terms of the services whose content you watch.")}
     <h2>4. Price</h2>
-    {p("The App is free. MirrorGo on the iPhone may offer paid features under its own terms.")}
+    {p("The App is free. All TV Kit on the iPhone may offer paid features under its own terms.")}
     <h2>5. Intellectual property</h2>
     {p("The App and smrr.tv, including their software, text, graphics and logos, belong to us or our licensors. You may not copy, reproduce, distribute or create derivative works from them without our prior written permission. Amazon, Fire TV, Android TV, Google TV and YouTube are trademarks of their owners; the App isn't affiliated with or endorsed by them.")}
     <h2>6. No warranty</h2>
@@ -1118,9 +1118,9 @@ def build_firetv_terms():
     {p(f"Questions about these Terms: {mail}.")}
 """
     return legal_page("/firetv/terms/", "Fire TV app terms", f"{FIRETV_APP}: terms of use",
-                      f"Terms of Use: {FIRETV_APP} | MirrorGo",
+                      f"Terms of Use: {FIRETV_APP} | All TV Kit",
                       f"The terms for using {FIRETV_APP}, the TV app that receives what you mirror and cast from "
-                      "MirrorGo on your iPhone.", html_)
+                      "All TV Kit on your iPhone.", html_)
 
 def build_404():
     body = f"""
@@ -1148,12 +1148,12 @@ def compat_lines():
 
 
 def llms_txt():
-    """llms.txt (English): what MirrorGo is, what works where, and where to read more."""
+    """llms.txt (English): what All TV Kit is, what works where, and where to read more."""
     tv_lines = "\n".join(f"- [{t['name']}]({url('/' + t['page'] + '/')}): {guide_h1(t['id'])}" for t in C.TVS if t["page"])
     brand_lines = "\n".join(f"- [{b['name']} TV]({url('/' + b['slug'] + '/')}): {b['about']}" for b in C.BRANDS)
     feats = "\n".join(f"- {f['name']}: {f['short']}" for f in C.FEATURES)
     facts = "\n".join(f"- {k}: {v}" for k, v in C.QUICK_FACTS)
-    airplay = "\n".join(f"- {name}: iPhone alone (AirPlay) {iphone}; with MirrorGo {mg}" for name, iphone, mg in C.AIRPLAY_COMPARE)
+    airplay = "\n".join(f"- {name}: iPhone alone (AirPlay) {iphone}; with All TV Kit {mg}" for name, iphone, mg in C.AIRPLAY_COMPARE)
     langs = "\n".join(f"- {lang[4]} ({lang[1]}): {url('/', lang[0])}" for lang in C.LANGUAGES)
     store = app_store_url() or "Coming soon to the App Store"
     return f"""# {APP_NAME}
@@ -1172,7 +1172,7 @@ def llms_txt():
 
 {compat_lines()}
 
-## AirPlay or MirrorGo
+## AirPlay or All TV Kit
 
 {airplay}
 
@@ -1247,7 +1247,7 @@ AI_CRAWLERS = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-S
 
 def robots_txt():
     named = "\n".join(f"User-agent: {bot}" for bot in AI_CRAWLERS)
-    return f"""# MirrorGo welcomes search engines and AI answer engines.
+    return f"""# All TV Kit welcomes search engines and AI answer engines.
 User-agent: *
 Allow: /
 

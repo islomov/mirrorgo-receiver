@@ -1,10 +1,13 @@
-# MirrorGo landing page — https://mirrorgo.app
+# All TV Kit landing page — https://alltvkit.app
+
+The iPhone app was called MirrorGo until 2026-11-21 (MIRR-164); MirrorGo stays its code name (the Worker,
+the stats dataset, the TV apps' store names such as MirrorGo for Fire TV).
 
 Static site, no framework: `build.py` (Python 3.9+, standard library only) builds `content.py` and
 `blog.py` (the English text), `i18n.py` (the layout's text, and the translations in `locales/`) and `src/`
 (CSS, JS, fonts, images) into `public/` (gitignored), in 15 languages. `wrangler.jsonc` deploys it to
-Cloudflare as its own Worker, `mirrorgo-site`, on `mirrorgo.app` and, the same site, `alltvkit.app`
-(`worker.js` only redirects `www.mirrorgo.app` and `www.alltvkit.app`, and the removed Roku casting
+Cloudflare as its own Worker, `mirrorgo-site`, on `alltvkit.app` and, the same site, `mirrorgo.app`
+(`worker.js` only redirects `www.alltvkit.app` and `www.mirrorgo.app`, and the removed Roku casting
 articles: a Roku only gets screen mirroring). `.github/workflows/deploy-site.yml` builds and deploys on every push to `main` that
 touches `site/`, with the same `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID` secrets as smrr.tv.
 
@@ -29,7 +32,7 @@ CLOUDFLARE_ACCOUNT_ID=… CLOUDFLARE_API_TOKEN=… python3 site/stats.py --days 
 prints where visitors come from, the pages viewed, the App Store button's clicks by page and place, every
 link clicked, countries, devices, languages and a per-day count. The token needs **Account Analytics: Read**.
 To tell your own links apart (a post, a profile, an ad), add `?ref=<name>` to them, e.g.
-`https://mirrorgo.app/?ref=tiktok`: it shows as that source.
+`https://alltvkit.app/?ref=tiktok`: it shows as that source.
 
 It was first served at `smrr.tv/landing-page/`; the smrr.tv Worker now sends those URLs to the same page
 here (301).
@@ -73,22 +76,22 @@ English only.
 - Structured data (JSON-LD), with `inLanguage`: `Organization` + `MobileApplication` + `WebSite` +
   `FAQPage` on `/`, `HowTo` + `FAQPage` + `BreadcrumbList` on each TV guide, `BlogPosting` + `HowTo` on
   each article, `FAQPage` on `/help/`.
-- The home page has quotable facts: "What is MirrorGo?" (a short definition list) and "AirPlay or
-  MirrorGo?" (what an iPhone does alone vs. with MirrorGo), the questions AI answers get asked.
+- The home page has quotable facts: "What is All TV Kit?" (a short definition list) and "AirPlay or
+  All TV Kit?" (what an iPhone does alone vs. with All TV Kit), the questions AI answers get asked.
 - Answer-first copy: each TV guide opens with a one-paragraph answer and the numbered steps, and states
   facts plainly (which TVs, what works, what doesn't), which is what AI answers quote.
 - `llms.txt` sums up the app, the compatibility table, the pages and the languages for AI crawlers;
   `llms-full.txt` is the help and every TV guide in one Markdown file.
 - `robots.txt` allows every crawler, and names the AI ones (GPTBot, ClaudeBot, PerplexityBot…). **In Cloudflare, keep "Block AI bots", "AI Labyrinth" and
   "Managed robots.txt" off for the zone** (Security › Bots), or AI answer engines can't read the site.
-- Submit `https://mirrorgo.app/sitemap.xml` in Google Search Console and Bing Webmaster Tools
+- Submit `https://alltvkit.app/sitemap.xml` in Google Search Console and Bing Webmaster Tools
   (Bing also feeds ChatGPT search).
 - Sitemaps' `lastmod` is the date of the last commit to `site/`, so it only moves when the site does.
 
 ## Keeping it in step with the app
 
 - Text: `content.py`. The help answers are the app's own FAQ (`Localizable.strings`, `faq.*` keys in the
-  MirrorGo repo); the compatibility table follows `MediaCastCoordinator.canCast`,
+  mirror-go repo); the compatibility table follows `MediaCastCoordinator.canCast`,
   `CameraCastCoordinator.canCast` and `YouTubeCasting`.
 - Screenshots: `src/img/screens/*.webp`, 640 × 1392, taken in the simulator with the app's
   `-debug_route` launch arguments (see `DebugLaunch` in the app), then `cwebp -q 82 -resize 640 0`.
@@ -105,7 +108,7 @@ Nameservers › Custom DNS: the two Cloudflare nameservers), in the same account
 **Workers Routes: Edit** and **DNS: Edit** on the `mirrorgo.app` and `alltvkit.app` zones. The registration itself can move
 to Cloudflare Registrar after 60 days (ICANN lock), if wanted.
 
-`alltvkit.app` is registered at Cloudflare Registrar (2026-11-21), in the same account. It serves the same
-pages as `mirrorgo.app`; their canonical URLs, the sitemap and the structured data stay on `mirrorgo.app`
-(`SITE_URL` in `content.py`), so search engines index one copy. Links inside the site are relative, so a
+`alltvkit.app` is registered at Cloudflare Registrar (2026-11-21), in the same account, and is the main
+domain: canonical URLs, the sitemap and the structured data point to it (`SITE_URL` in `content.py`), so
+search engines index one copy. `mirrorgo.app` serves the same pages. Links inside the site are relative, so a
 visitor on `alltvkit.app` stays on it. `stats.py` shows the views per domain.

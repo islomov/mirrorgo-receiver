@@ -32,7 +32,7 @@ LOCALES = Path(__file__).resolve().parent / "locales"
 UI = {
     # Header, footer
     "skip": "Skip to content",
-    "home_aria": "MirrorGo home",
+    "home_aria": "All TV Kit home",
     "menu": "Menu",
     "language": "Language",
     "nav_features": "Features",
@@ -41,7 +41,7 @@ UI = {
     "nav_help": "Help",
     "download": "Download on the App Store",
     "coming_soon": "Coming soon to the App Store",
-    "footer_blurb": "Screen mirroring and casting for iPhone. Samsung, LG, Roku, Google TV, Android TV, Chromecast, "
+    "footer_blurb": "TV remote, screen mirroring and casting for iPhone. Samsung, LG, Roku, Google TV, Android TV, Chromecast, "
                     "Fire TV, Apple TV and any web browser.",
     "footer_mirror_to": "Mirror to",
     "footer_brands": "TV brands",
@@ -57,12 +57,12 @@ UI = {
     "firetv_app_terms": "terms",
     "english_only": "(English)",
     "trademarks": "Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV, AirPlay and the TV brands "
-                  "named are trademarks of their owners. MirrorGo isn't affiliated with them.",
+                  "named are trademarks of their owners. All TV Kit isn't affiliated with them.",
 
     # Home
-    "home_title": "MirrorGo: Screen Mirroring & Cast to TV for iPhone",
-    "home_description": "Mirror your iPhone to Samsung, LG, Roku, Google TV, Chromecast, Fire TV, Apple TV or any web "
-                        "browser, and cast photos, videos, YouTube and 9,000+ live TV channels. No app on the TV.",
+    "home_title": "All TV Kit: TV Remote, Screen Mirroring & Cast for iPhone",
+    "home_description": "Use your iPhone as a Samsung or LG TV remote, mirror it to Samsung, LG, Roku, Google TV, "
+                        "Fire TV, Apple TV or any browser, and cast photos, videos, YouTube and live TV.",
     "eyebrow": "For iPhone · No app on the TV",
     "home_h1": "Your iPhone on the {big}",
     "home_h1_big": "big screen",
@@ -70,39 +70,39 @@ UI = {
     "fine_wifi": "Same Wi-Fi, no cables",
     "fine_sound": "Sound included",
     "fine_account": "No account",
-    "hero_alt": "MirrorGo's Home screen",
+    "hero_alt": "All TV Kit's Home screen",
     "live_pill": "Mirroring",
     "works_with_tv": "Works with the TV you already have",
     "supported_tvs": "Supported TVs",
     "facts_kicker": "At a glance",
-    "facts_h2": "What is MirrorGo?",
+    "facts_h2": "What is All TV Kit?",
     "features_kicker": "Everything in one app",
-    "features_h2": "Mirror it, or cast it",
-    "features_p": "Show your whole screen, or send just what you're watching, in full quality, while your phone stays free.",
+    "features_h2": "Control it, mirror it, cast it",
+    "features_p": "Use your phone as the TV remote, show your whole screen, or send just what you're watching, in full quality.",
     "works_on": "Works on:",
     "how_kicker": "How it works",
     "how_h2": "On the TV in three taps",
     "how_p": "No cables, no adapters, nothing to install on the TV.",
     "tvs_kicker": "Compatibility",
     "tvs_h2": "What works on your TV",
-    "tvs_p": "MirrorGo finds your TV on the Wi-Fi and dims anything it can't play.",
+    "tvs_p": "All TV Kit finds your TV on the Wi-Fi and dims anything it can't play.",
     "tvs_foot": "Samsung smart TVs from 2016 · LG webOS TVs · Roku TVs and players · Google TV and Android TV (Sony, "
                 "TCL, Hisense, Philips, Xiaomi…) · Chromecast · Fire TV Stick, Cube and Fire TV smart TVs · Apple TV "
                 "and AirPlay TVs · any browser through smrr.tv",
-    "compat_caption": "What MirrorGo can show on each kind of TV",
+    "compat_caption": "What All TV Kit can show on each kind of TV",
     "compat_feature": "Feature",
     "yes": "Yes",
     "no": "No",
-    "airplay_kicker": "AirPlay or MirrorGo?",
+    "airplay_kicker": "AirPlay or All TV Kit?",
     "airplay_h2": "More TVs than AirPlay",
-    "airplay_p": "On its own, an iPhone only mirrors to an Apple TV or a TV with AirPlay. MirrorGo adds almost every "
+    "airplay_p": "On its own, an iPhone only mirrors to an Apple TV or a TV with AirPlay. All TV Kit adds almost every "
                  "other TV, and things to watch on it.",
     "airplay_col_what": "Show your iPhone on",
     "airplay_col_iphone": "iPhone alone (AirPlay)",
-    "airplay_col_mirrorgo": "With MirrorGo",
+    "airplay_col_mirrorgo": "With All TV Kit",
     "privacy_kicker": "Private by design",
     "privacy_h2": "Your phone, your TV, your Wi-Fi",
-    "privacy_p": "What you mirror and cast goes straight from your iPhone to your TV. MirrorGo has no account, and "
+    "privacy_p": "What you mirror and cast goes straight from your iPhone to your TV. All TV Kit has no account, and "
                  "keeps your photos and videos off any server.",
     "privacy_link": "Read the privacy policy →",
     "guides_kicker": "Guides",
@@ -115,11 +115,11 @@ UI = {
     "all_help": "All help topics →",
     "final_h2": "Put your iPhone on the TV",
     "final_p": "Screen mirroring, photos, videos, YouTube, web videos and thousands of live channels. One app, any TV.",
-    "app_icon_alt": "MirrorGo app icon",
+    "app_icon_alt": "All TV Kit app icon",
 
     # TV guides (/mirror-iphone-to-<tv>/)
     "how_to_do_it": "How to do it",
-    "guide_phone_alt": "MirrorGo ready to mirror an iPhone to {tv}",
+    "guide_phone_alt": "All TV Kit ready to mirror an iPhone to {tv}",
     "what_you_can_do": "What you can do on {tv}",
     "questions": "Questions",
     "more_guides_for": "More guides for {tv}",
@@ -127,7 +127,7 @@ UI = {
     "status_ok": "Works",
     "status_part": "Partly",
     "status_not": "Not on this TV",
-    "howto_tool": "MirrorGo for iPhone",
+    "howto_tool": "All TV Kit for iPhone",
 
     # Blog
     "screen_mirroring": "Screen mirroring",
@@ -137,27 +137,27 @@ UI = {
     "good_to_know": "Good to know",
     "more_for": "More for {tv}",
     "topic_on_other_tvs": "{topic} on other TVs",
-    "browser_code_alt": "Typing the smrr.tv code in MirrorGo",
-    "page_title": "{title} | MirrorGo",
+    "browser_code_alt": "Typing the smrr.tv code in All TV Kit",
+    "page_title": "{title} | All TV Kit",
     "blog_h1": "Guides",
     "blog_lead": "Step-by-step guides for every kind of TV: connecting your iPhone, mirroring the screen, and casting "
                  "photos, videos, web images, YouTube, web videos and free live TV.",
-    "blog_title": "Guides: Mirror and Cast an iPhone to Any TV | MirrorGo",
+    "blog_title": "Guides: Mirror and Cast an iPhone to Any TV | All TV Kit",
     "blog_description": "Step-by-step guides to connect an iPhone to Samsung, LG, Roku, Google TV, Android TV, "
                         "Chromecast, Fire TV, Apple TV or a web browser, and cast photos, videos, YouTube and live TV.",
-    "blog_collection": "MirrorGo guides",
+    "blog_collection": "All TV Kit guides",
     "by_brand": "By TV brand",
 
     # TV brands (/mirror-iphone-to-<brand>-tv/)
     "brand_h1": "Mirror your iPhone to a {brand} TV",
-    "brand_title": "How to Mirror an iPhone to a {brand} TV | MirrorGo",
+    "brand_title": "How to Mirror an iPhone to a {brand} TV | All TV Kit",
     "brand_description": "Mirror your iPhone to a {brand} TV and cast photos, videos, YouTube and live TV with "
-                         "MirrorGo. Works with {systems}.",
+                         "All TV Kit. Works with {systems}.",
     "brand_step_1": "Find out which system your {brand} TV runs ({systems}): its logo is on the start screen and the remote.",
     "brand_step_2": "Put your iPhone on the same Wi-Fi as the TV.",
-    "brand_step_3": "Open MirrorGo, tap Connect your TV and pick your TV.",
+    "brand_step_3": "Open All TV Kit, tap Connect your TV and pick your TV.",
     "brand_step_4": "Open Screen Mirroring and tap Start mirroring, then {start}.",
-    "brand_phone_alt": "MirrorGo ready to mirror an iPhone to a {brand} TV",
+    "brand_phone_alt": "All TV Kit ready to mirror an iPhone to a {brand} TV",
     "brand_any_model": "Any model, through smrr.tv",
     "brand_by_system": "{brand} TVs, by system",
 
@@ -165,12 +165,12 @@ UI = {
     "help_crumb": "Help",
     "help_h1": "Help & FAQ",
     "help_lead": "Answers to the questions people ask most. Still stuck? Email {email} with your TV's model.",
-    "help_title": "MirrorGo Help: Screen Mirroring & Casting FAQ",
+    "help_title": "All TV Kit Help: Screen Mirroring & Casting FAQ",
     "help_description": "How to connect your TV, mirror your iPhone screen, fix a TV that isn't found, sound, lag and "
-                        "black screens, and cast photos, videos, YouTube and IPTV with MirrorGo.",
+                        "black screens, and cast photos, videos, YouTube and IPTV with All TV Kit.",
 
     # 404
-    "nf_title": "Page not found | MirrorGo",
+    "nf_title": "Page not found | All TV Kit",
     "nf_description": "This page doesn't exist.",
     "nf_h1": "This page isn't on the TV",
     "nf_lead": "The link may be old. Try the home page or the help.",

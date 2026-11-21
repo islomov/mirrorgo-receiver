@@ -1,7 +1,7 @@
 {
  "ui": {
   "skip": "Przejdź do treści",
-  "home_aria": "MirrorGo – strona główna",
+  "home_aria": "All TV Kit – strona główna",
   "menu": "Menu",
   "language": "Język",
   "nav_features": "Funkcje",
@@ -10,7 +10,7 @@
   "nav_help": "Pomoc",
   "download": "Pobierz z App Store",
   "coming_soon": "Wkrótce w App Store",
-  "footer_blurb": "Dublowanie ekranu i przesyłanie na telewizor dla iPhone’a. Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV i każda przeglądarka internetowa.",
+  "footer_blurb": "Pilot do telewizora, dublowanie ekranu i przesyłanie na telewizor dla iPhone’a. Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV i każda przeglądarka internetowa.",
   "footer_mirror_to": "Dublowanie na",
   "footer_brands": "Marki telewizorów",
   "footer_support": "Wsparcie",
@@ -24,9 +24,9 @@
   "firetv_app_privacy": "Aplikacja na Fire TV: prywatność",
   "firetv_app_terms": "warunki",
   "english_only": "(po angielsku)",
-  "trademarks": "Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV, AirPlay i wymienione marki telewizorów są znakami towarowymi ich właścicieli. MirrorGo nie jest z nimi powiązany.",
-  "home_title": "MirrorGo: dublowanie ekranu iPhone’a na telewizorze",
-  "home_description": "Dubluj ekran iPhone’a na telewizorze Samsung, LG, Roku, Google TV, Chromecast, Fire TV, Apple TV lub w przeglądarce. Zdjęcia, filmy, YouTube i 9000+ kanałów TV.",
+  "trademarks": "Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV, AirPlay i wymienione marki telewizorów są znakami towarowymi ich właścicieli. All TV Kit nie jest z nimi powiązany.",
+  "home_title": "All TV Kit: pilot do telewizora, dublowanie ekranu i przesyłanie dla iPhone’a",
+  "home_description": "Używaj iPhone’a jako pilota do telewizora Samsung lub LG, dubluj ekran na Samsung, LG, Roku, Google TV, Fire TV, Apple TV lub w przeglądarce i przesyłaj zdjęcia, filmy, YouTube i telewizję na żywo.",
   "eyebrow": "Dla iPhone’a · Bez aplikacji na telewizorze",
   "home_h1": "Twój iPhone na {big}",
   "home_h1_big": "dużym ekranie",
@@ -34,36 +34,36 @@
   "fine_wifi": "Ta sama sieć Wi-Fi, bez kabli",
   "fine_sound": "Z dźwiękiem",
   "fine_account": "Bez konta",
-  "hero_alt": "Ekran główny MirrorGo",
+  "hero_alt": "Ekran główny All TV Kit",
   "live_pill": "Dublowanie",
   "works_with_tv": "Działa z telewizorem, który już masz",
   "supported_tvs": "Obsługiwane telewizory",
   "facts_kicker": "W skrócie",
-  "facts_h2": "Czym jest MirrorGo?",
+  "facts_h2": "Czym jest All TV Kit?",
   "features_kicker": "Wszystko w jednej aplikacji",
-  "features_h2": "Dubluj ekran albo przesyłaj",
-  "features_p": "Pokaż cały ekran albo wyślij tylko to, co oglądasz – w pełnej jakości, a telefon pozostaje wolny.",
+  "features_h2": "Steruj, dubluj, przesyłaj",
+  "features_p": "Używaj telefonu jako pilota, pokaż cały ekran albo wyślij tylko to, co oglądasz – w pełnej jakości.",
   "works_on": "Działa na:",
   "how_kicker": "Jak to działa",
   "how_h2": "Na telewizorze w trzech stuknięciach",
   "how_p": "Bez kabli, bez przejściówek, bez instalowania czegokolwiek na telewizorze.",
   "tvs_kicker": "Zgodność",
   "tvs_h2": "Co działa na Twoim telewizorze",
-  "tvs_p": "MirrorGo znajduje telewizor w sieci Wi-Fi i wyszarza to, czego nie da się na nim odtworzyć.",
+  "tvs_p": "All TV Kit znajduje telewizor w sieci Wi-Fi i wyszarza to, czego nie da się na nim odtworzyć.",
   "tvs_foot": "Telewizory Smart TV Samsung od 2016 roku · Telewizory LG z webOS · Telewizory i odtwarzacze Roku · Google TV i Android TV (Sony, TCL, Hisense, Philips, Xiaomi…) · Chromecast · Fire TV Stick, Cube i telewizory z Fire TV · Apple TV i telewizory z AirPlay · każda przeglądarka przez smrr.tv",
-  "compat_caption": "Co MirrorGo może wyświetlić na poszczególnych telewizorach",
+  "compat_caption": "Co All TV Kit może wyświetlić na poszczególnych telewizorach",
   "compat_feature": "Funkcja",
   "yes": "Tak",
   "no": "Nie",
-  "airplay_kicker": "AirPlay czy MirrorGo?",
+  "airplay_kicker": "AirPlay czy All TV Kit?",
   "airplay_h2": "Więcej telewizorów niż z AirPlay",
-  "airplay_p": "Sam iPhone dubluje ekran tylko na Apple TV lub telewizorze z AirPlay. MirrorGo dodaje prawie każdy inny telewizor – i to, co można na nim oglądać.",
+  "airplay_p": "Sam iPhone dubluje ekran tylko na Apple TV lub telewizorze z AirPlay. All TV Kit dodaje prawie każdy inny telewizor – i to, co można na nim oglądać.",
   "airplay_col_what": "Pokaż ekran iPhone’a na",
   "airplay_col_iphone": "Sam iPhone (AirPlay)",
-  "airplay_col_mirrorgo": "Z MirrorGo",
+  "airplay_col_mirrorgo": "Z All TV Kit",
   "privacy_kicker": "Prywatność w standardzie",
   "privacy_h2": "Twój telefon, Twój telewizor, Twoja sieć Wi-Fi",
-  "privacy_p": "To, co dublujesz i przesyłasz, trafia prosto z iPhone’a na telewizor. MirrorGo nie wymaga konta i nie wysyła Twoich zdjęć ani filmów na żaden serwer.",
+  "privacy_p": "To, co dublujesz i przesyłasz, trafia prosto z iPhone’a na telewizor. All TV Kit nie wymaga konta i nie wysyła Twoich zdjęć ani filmów na żaden serwer.",
   "privacy_link": "Przeczytaj politykę prywatności →",
   "guides_kicker": "Poradniki",
   "guides_h2": "Krok po kroku, dla Twojego telewizora",
@@ -75,9 +75,9 @@
   "all_help": "Wszystkie tematy pomocy →",
   "final_h2": "Przenieś iPhone’a na telewizor",
   "final_p": "Dublowanie ekranu, zdjęcia, filmy, YouTube, filmy z sieci i tysiące kanałów na żywo. Jedna aplikacja, każdy telewizor.",
-  "app_icon_alt": "Ikona aplikacji MirrorGo",
+  "app_icon_alt": "Ikona aplikacji All TV Kit",
   "how_to_do_it": "Jak to zrobić",
-  "guide_phone_alt": "MirrorGo gotowy do dublowania ekranu iPhone’a – {tv}",
+  "guide_phone_alt": "All TV Kit gotowy do dublowania ekranu iPhone’a – {tv}",
   "what_you_can_do": "{tv}: co możesz zrobić",
   "questions": "Pytania",
   "more_guides_for": "Więcej poradników: {tv}",
@@ -85,7 +85,7 @@
   "status_ok": "Działa",
   "status_part": "Częściowo",
   "status_not": "Nie na tym telewizorze",
-  "howto_tool": "MirrorGo na iPhone’a",
+  "howto_tool": "All TV Kit na iPhone’a",
   "screen_mirroring": "Dublowanie ekranu",
   "step_by_step": "Krok po kroku",
   "updated": "Zaktualizowano {date}",
@@ -93,30 +93,30 @@
   "good_to_know": "Warto wiedzieć",
   "more_for": "Więcej: {tv}",
   "topic_on_other_tvs": "{topic} na innych telewizorach",
-  "browser_code_alt": "Wpisywanie kodu smrr.tv w MirrorGo",
-  "page_title": "{title} | MirrorGo",
+  "browser_code_alt": "Wpisywanie kodu smrr.tv w All TV Kit",
+  "page_title": "{title} | All TV Kit",
   "blog_h1": "Poradniki",
   "blog_lead": "Poradniki krok po kroku dla każdego rodzaju telewizora: łączenie iPhone’a, dublowanie ekranu i przesyłanie zdjęć, filmów, obrazów z sieci, YouTube, filmów ze stron i darmowej telewizji na żywo.",
-  "blog_title": "Poradniki: iPhone na dowolnym telewizorze | MirrorGo",
+  "blog_title": "Poradniki: iPhone na dowolnym telewizorze | All TV Kit",
   "blog_description": "Jak połączyć iPhone’a z telewizorem Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV lub przeglądarką i przesyłać zdjęcia, filmy, YouTube i TV.",
-  "blog_collection": "Poradniki MirrorGo",
+  "blog_collection": "Poradniki All TV Kit",
   "by_brand": "Według marki telewizora",
   "brand_h1": "Dubluj ekran iPhone’a na telewizorze {brand}",
-  "brand_title": "Jak wyświetlić ekran iPhone’a na telewizorze {brand} | MirrorGo",
-  "brand_description": "Dubluj ekran iPhone’a na telewizorze {brand} i przesyłaj zdjęcia, filmy, YouTube i telewizję na żywo z MirrorGo. Działa z: {systems}.",
+  "brand_title": "Jak wyświetlić ekran iPhone’a na telewizorze {brand} | All TV Kit",
+  "brand_description": "Dubluj ekran iPhone’a na telewizorze {brand} i przesyłaj zdjęcia, filmy, YouTube i telewizję na żywo z All TV Kit. Działa z: {systems}.",
   "brand_step_1": "Sprawdź, na jakim systemie działa Twój telewizor {brand} ({systems}): jego logo widać na ekranie startowym i na pilocie.",
   "brand_step_2": "Połącz iPhone’a z tą samą siecią Wi-Fi, w której jest telewizor.",
-  "brand_step_3": "Otwórz MirrorGo, stuknij Połącz z telewizorem i wybierz swój telewizor.",
+  "brand_step_3": "Otwórz All TV Kit, stuknij Połącz z telewizorem i wybierz swój telewizor.",
   "brand_step_4": "Otwórz Dublowanie ekranu i stuknij Rozpocznij dublowanie, a potem {start}.",
-  "brand_phone_alt": "MirrorGo gotowy do dublowania ekranu iPhone’a na telewizorze {brand}",
+  "brand_phone_alt": "All TV Kit gotowy do dublowania ekranu iPhone’a na telewizorze {brand}",
   "brand_any_model": "Każdy model – przez smrr.tv",
   "brand_by_system": "Telewizory {brand} według systemu",
   "help_crumb": "Pomoc",
   "help_h1": "Pomoc i FAQ",
   "help_lead": "Odpowiedzi na najczęstsze pytania. Nadal masz problem? Napisz na {email} i podaj model telewizora.",
-  "help_title": "Pomoc MirrorGo: dublowanie ekranu i przesyłanie – FAQ",
+  "help_title": "Pomoc All TV Kit: dublowanie ekranu i przesyłanie – FAQ",
   "help_description": "Jak połączyć telewizor i dublować ekran iPhone’a, co zrobić, gdy brak telewizora na liście, dźwięku lub obrazu albo obraz się opóźnia, oraz jak przesyłać zdjęcia, filmy, YouTube i IPTV.",
-  "nf_title": "Nie znaleziono strony | MirrorGo",
+  "nf_title": "Nie znaleziono strony | All TV Kit",
   "nf_description": "Ta strona nie istnieje.",
   "nf_h1": "Tej strony nie ma na ekranie",
   "nf_lead": "Link mógł się zdezaktualizować. Przejdź na stronę główną lub do pomocy.",
@@ -124,8 +124,8 @@
   "nf_help": "Pomoc"
  },
  "site": {
-  "tagline": "Dublowanie ekranu i przesyłanie na telewizor dla iPhone’a",
-  "one_liner": "MirrorGo to aplikacja na iPhone’a, która dubluje ekran na telewizorze i przesyła na niego zdjęcia, filmy, obraz z kamery, filmy ze stron internetowych, kanały telewizyjne na żywo i YouTube. Działa z Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV i każdą przeglądarką internetową, a więc także z telewizorami Sony, TCL, Hisense, Vizio, Philips i większością innych Smart TV – bez instalowania czegokolwiek na telewizorze.",
+  "tagline": "Pilot do telewizora, dublowanie ekranu i przesyłanie na telewizor dla iPhone’a",
+  "one_liner": "All TV Kit to aplikacja na iPhone’a, która działa jak pilot do telewizorów Samsung i LG, dubluje ekran na telewizorze i przesyła na niego zdjęcia, filmy, obraz z kamery, filmy ze stron internetowych, kanały telewizyjne na żywo i YouTube. Działa z Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV i każdą przeglądarką internetową, a więc także z telewizorami Sony, TCL, Hisense, Vizio, Philips i większością innych Smart TV – bez instalowania czegokolwiek na telewizorze.",
   "start_sharing": "Rozpocznij udostępnianie (przed iOS 26: Rozpocznij transmisję)"
  },
  "tvs": {
@@ -176,6 +176,10 @@
   "With Screen Mirroring on": "Przy włączonej Synchronizacji ekranu"
  },
  "features": {
+  "remote": {
+   "name": "Pilot do telewizora",
+   "short": "iPhone jako pilot do telewizora Samsung lub LG: przyciski, gładzik, klawiatura, aplikacje."
+  },
   "screen-mirroring": {
    "name": "Dublowanie ekranu",
    "short": "Cały ekran iPhone’a na telewizorze, z dźwiękiem, w każdej aplikacji."
@@ -210,6 +214,21 @@
   }
  },
  "showcase": {
+  "remote": {
+   "title": "Twój iPhone to pilot do telewizora",
+   "text": "Zgubiony pilot albo masz dość wpisywania tekstu strzałkami? Steruj telewizorem Samsung lub LG z iPhone’a, w tej samej sieci Wi-Fi. Niczego nie trzeba instalować na telewizorze.",
+   "points": [
+    "Strzałki i OK, Wstecz, Home, głośność, kanały, odtwarzanie/pauza i zasilanie",
+    "Gładzik: przesuń palcem, aby poruszać kursorem telewizora, stuknij, aby kliknąć",
+    "Wpisuj wyszukiwane hasła i hasła do kont klawiaturą iPhone’a",
+    "Otwieraj aplikacje telewizora i przełączaj na HDMI i inne wejścia jednym stuknięciem"
+   ],
+   "alts": [
+    "Ekran pilota w All TV Kit: zasilanie, aplikacje i wejścia, strzałki i OK, głośność i kanały",
+    "Pilot w All TV Kit w trybie gładzika: przesuń palcem, aby poruszać kursorem telewizora"
+   ],
+   "footnote": "Pilot działa z telewizorami Samsung Smart TV (z 2016 roku i nowszymi) oraz telewizorami LG z webOS. Kolejne telewizory wkrótce."
+  },
   "screen-mirroring": {
    "title": "Dubluj ekran iPhone’a na telewizorze",
    "text": "Wszystko, co jest na ekranie telefonu, widać na telewizorze w czasie rzeczywistym: aplikacje, gry, zdjęcia, strony internetowe, prezentacje. Włącz raz i dalej korzystaj z telefonu – telewizor podąża za nim.",
@@ -221,8 +240,8 @@
     "Krótki przewodnik pokazuje krok po kroku, jak iOS to uruchamia"
    ],
    "alts": [
-    "Ekran Dublowanie ekranu w MirrorGo z ustawieniami Jakość, Autoobracanie i Dźwięk",
-    "Przewodnik MirrorGo: jak uruchomić dublowanie ekranu w czterech krokach"
+    "Ekran Dublowanie ekranu w All TV Kit z ustawieniami Jakość, Autoobracanie i Dźwięk",
+    "Przewodnik All TV Kit: jak uruchomić dublowanie ekranu w czterech krokach"
    ]
   },
   "photos-videos": {
@@ -236,7 +255,7 @@
     "Prosto z telefonu na telewizor przez Twoją sieć Wi-Fi, bez wysyłania do internetu"
    ],
    "alts": [
-    "Przesyłanie zdjęcia z galerii iPhone’a za pomocą MirrorGo"
+    "Przesyłanie zdjęcia z galerii iPhone’a za pomocą All TV Kit"
    ]
   },
   "iptv": {
@@ -249,14 +268,14 @@
     "Gra dalej, gdy zablokujesz telefon lub otworzysz inną aplikację"
    ],
    "alts": [
-    "Ekran IPTV w MirrorGo: playlisty, kategorie i kraje",
-    "Kanały TV na żywo ze Stanów Zjednoczonych w MirrorGo"
+    "Ekran IPTV w All TV Kit: playlisty, kategorie i kraje",
+    "Kanały TV na żywo ze Stanów Zjednoczonych w All TV Kit"
    ],
    "footnote": "Kanały pochodzą z publicznej listy iptv-org. Jak wszystkie darmowe transmisje, niektóre bywają niedostępne lub działają czasem tylko we własnym kraju."
   },
   "web-videos": {
    "title": "Przesyłaj filmy z dowolnej strony",
-   "text": "Otwórz stronę w prywatnej przeglądarce MirrorGo i włącz film: MirrorGo go znajdzie i wyśle na telewizor, który odtworzy go w pełnej jakości, a Ty możesz dalej przeglądać.",
+   "text": "Otwórz stronę w prywatnej przeglądarce All TV Kit i włącz film: All TV Kit go znajdzie i wyśle na telewizor, który odtworzy go w pełnej jakości, a Ty możesz dalej przeglądać.",
    "points": [
     "Otwórz dowolną stronę, włącz film, stuknij Prześlij na TV",
     "Wybiera właściwy film, a nie reklamę, i blokuje sieci reklamowe",
@@ -264,12 +283,12 @@
     "Przeglądanie prywatne: bez historii, plików cookie i pamięci podręcznej"
    ],
    "alts": [
-    "Przeglądarka filmów z sieci w MirrorGo z popularnymi stronami"
+    "Przeglądarka filmów z sieci w All TV Kit z popularnymi stronami"
    ]
   },
   "youtube": {
    "title": "YouTube na telewizorze, odtwarzany przez telewizor",
-   "text": "Znajdź film w MirrorGo – według tematu lub wyszukując – i stuknij Prześlij na TV. Telewizor sam odtworzy film w pełnej jakości, od tego samego momentu.",
+   "text": "Znajdź film w All TV Kit – według tematu lub wyszukując – i stuknij Prześlij na TV. Telewizor sam odtworzy film w pełnej jakości, od tego samego momentu.",
    "points": [
     "Przeglądaj według tematu (muzyka, wiadomości, sport, na żywo) lub wyszukuj",
     "Na telewizorach Samsung i LG otwiera się w aplikacji YouTube na telewizorze",
@@ -277,7 +296,7 @@
     "Gra dalej, gdy opuścisz ekran"
    ],
    "alts": [
-    "Przesyłanie YouTube na telewizor za pomocą MirrorGo"
+    "Przesyłanie YouTube na telewizor za pomocą All TV Kit"
    ]
   },
   "web-images": {
@@ -289,19 +308,19 @@
     "Autor i licencja przy każdym obrazie"
    ],
    "alts": [
-    "Krajobraz z Wikimedia Commons gotowy do przesłania z MirrorGo"
+    "Krajobraz z Wikimedia Commons gotowy do przesłania z All TV Kit"
    ]
   },
   "any-browser": {
    "title": "Brak aplikacji Smart TV? Użyj dowolnej przeglądarki",
-   "text": "Każdy telewizor, komputer lub tablet z przeglądarką internetową może wyświetlić ekran iPhone’a – nawet taki, którego MirrorGo nie znajduje. Otwórz na nim smrr.tv, a potem wpisz wyświetlony 6-cyfrowy kod lub zeskanuj kod QR.",
+   "text": "Każdy telewizor, komputer lub tablet z przeglądarką internetową może wyświetlić ekran iPhone’a – nawet taki, którego All TV Kit nie znajduje. Otwórz na nim smrr.tv, a potem wpisz wyświetlony 6-cyfrowy kod lub zeskanuj kod QR.",
    "points": [
     "Działa na telewizorach Smart TV, komputerach PC, Macach i tabletach",
     "Obraz idzie prosto przez Twoją sieć Wi-Fi, z dźwiękiem",
-    "Dla telewizorów LG i Samsung w pobliżu MirrorGo sam otworzy przeglądarkę w telewizorze"
+    "Dla telewizorów LG i Samsung w pobliżu All TV Kit sam otworzy przeglądarkę w telewizorze"
    ],
    "alts": [
-    "Wpisywanie kodu smrr.tv w MirrorGo, aby dublować ekran w przeglądarce"
+    "Wpisywanie kodu smrr.tv w All TV Kit, aby dublować ekran w przeglądarce"
    ]
   }
  },
@@ -312,7 +331,7 @@
   ],
   [
    "Wybierz telewizor",
-   "MirrorGo znajduje telewizory w pobliżu. Stuknij swój – telewizory LG i Samsung raz poproszą o zgodę (Zezwól)."
+   "All TV Kit znajduje telewizory w pobliżu. Stuknij swój – telewizory LG i Samsung raz poproszą o zgodę (Zezwól)."
   ],
   [
    "Dubluj lub przesyłaj",
@@ -340,7 +359,7 @@
  "quick_facts": [
   [
    "Co to jest",
-   "Aplikacja na iPhone’a, która dubluje ekran i przesyła na telewizor zdjęcia, filmy, obraz z kamery, filmy z sieci, telewizję na żywo i YouTube."
+   "Aplikacja na iPhone’a, która działa jak pilot do telewizorów Samsung i LG, dubluje ekran i przesyła na telewizor zdjęcia, filmy, obraz z kamery, filmy z sieci, telewizję na żywo i YouTube."
   ],
   [
    "Działa z",
@@ -365,6 +384,7 @@
  ],
  "airplay_compare": [
   "Apple TV i telewizory z AirPlay",
+  "Pilot do telewizorów Samsung i LG",
   "Telewizory Samsung, LG i Roku bez AirPlay",
   "Chromecast, Google TV i Android TV",
   "Amazon Fire TV",
@@ -381,7 +401,7 @@
  ],
  "faq": {
   "tvs": {
-   "q": "Z jakimi telewizorami działa MirrorGo?",
+   "q": "Z jakimi telewizorami działa All TV Kit?",
    "a": "Z większością telewizorów Smart TV i przystawek do streamingu. Na telewizorze nie trzeba niczego instalować.",
    "ul": [
     "Telewizory Smart TV Samsung (od 2016 roku)",
@@ -401,31 +421,31 @@
     "Wybierz telewizor z listy.",
     "Telewizory LG i Samsung za pierwszym razem pytają o zgodę: wybierz pilotem Zezwól na telewizorze."
    ],
-   "note": "MirrorGo zapamiętuje telewizor i następnym razem połączy się z nim ponownie."
+   "note": "All TV Kit zapamiętuje telewizor i następnym razem połączy się z nim ponownie."
   },
   "notFound": {
    "q": "Mojego telewizora nie ma na liście",
-   "a": "MirrorGo szuka telewizorów w Twojej sieci Wi-Fi. Jeśli któregoś brakuje, zwykle przyczyną jest jedno z poniższych:",
+   "a": "All TV Kit szuka telewizorów w Twojej sieci Wi-Fi. Jeśli któregoś brakuje, zwykle przyczyną jest jedno z poniższych:",
    "ul": [
     "Telefon i telewizor są w różnych sieciach. Użyj tej samej sieci Wi-Fi, nie sieci dla gości.",
-    "MirrorGo nie ma dostępu do sieci lokalnej. Wtedy iOS ukrywa przed aplikacją wszystkie telewizory.",
+    "All TV Kit nie ma dostępu do sieci lokalnej. Wtedy iOS ukrywa przed aplikacją wszystkie telewizory.",
     "Włączony jest VPN. Wyłącz go na czas przesyłania.",
     "Telewizor jest uśpiony lub się zawiesił. Włącz go całkowicie albo uruchom ponownie telewizor i router."
    ],
    "note": "Nadal go nie ma? Każdy telewizor z przeglądarką działa przez smrr.tv: zobacz „Jak dublować ekran w przeglądarce?”"
   },
   "allow": {
-   "q": "Telewizor nie pozwala MirrorGo się połączyć",
-   "a": "Telewizory LG i Samsung pytają o zgodę, zanim telefon będzie mógł nimi sterować. Gdy MirrorGo łączy się po raz pierwszy, na telewizorze pojawia się komunikat: wybierz pilotem Zezwól. Pytanie nie pojawi się ponownie.",
+   "q": "Telewizor nie pozwala All TV Kit się połączyć",
+   "a": "Telewizory LG i Samsung pytają o zgodę, zanim telefon będzie mógł nimi sterować. Gdy All TV Kit łączy się po raz pierwszy, na telewizorze pojawia się komunikat: wybierz pilotem Zezwól. Pytanie nie pojawi się ponownie.",
    "ul": [
     "LG: komunikat zniknął albo wybrano Odmów? Połącz się jeszcze raz, a telewizor zapyta ponownie.",
-    "Samsung: wybrano Odmów? Telewizor to zapamiętuje. Na telewizorze otwórz Ustawienia › Ogólne › Menedżer urządzeń zewnętrznych › Menedżer połączeń urządzeń › Lista urządzeń (Settings › General › External Device Manager › Device Connection Manager › Device List), a następnie zezwól MirrorGo albo usuń go z listy, aby telewizor zapytał ponownie.",
+    "Samsung: wybrano Odmów? Telewizor to zapamiętuje. Na telewizorze otwórz Ustawienia › Ogólne › Menedżer urządzeń zewnętrznych › Menedżer połączeń urządzeń › Lista urządzeń (Settings › General › External Device Manager › Device Connection Manager › Device List), a następnie zezwól All TV Kit albo usuń go z listy, aby telewizor zapytał ponownie.",
     "Starsze telewizory LG: włącz LG Connect Apps w ustawieniach sieci telewizora."
    ]
   },
   "lost": {
    "q": "Połączenie ciągle się zrywa",
-   "a": "iOS zamyka połączenie MirrorGo z telewizorem, gdy aplikacja działa w tle, a może je też przerwać chwilowy problem z Wi-Fi. MirrorGo łączy się ponownie samo w ciągu kilku sekund, a dublowanie ekranu w tym czasie trwa dalej.",
+   "a": "iOS zamyka połączenie All TV Kit z telewizorem, gdy aplikacja działa w tle, a może je też przerwać chwilowy problem z Wi-Fi. All TV Kit łączy się ponownie samo w ciągu kilku sekund, a dublowanie ekranu w tym czasie trwa dalej.",
    "ul": [
     "Widzisz „Utracono połączenie”? Sprawdź, czy telewizor jest włączony i w tej samej sieci Wi-Fi, a potem stuknij Ponów.",
     "Przy słabym sygnale połączenie zrywa się częściej: trzymaj telefon i telewizor blisko routera."
@@ -433,10 +453,10 @@
   },
   "browser": {
    "q": "Jak dublować ekran w przeglądarce?",
-   "a": "Każdy telewizor, komputer lub tablet z przeglądarką internetową może wyświetlić Twój ekran – nawet jeśli MirrorGo nie znajduje go jako telewizora.",
+   "a": "Każdy telewizor, komputer lub tablet z przeglądarką internetową może wyświetlić Twój ekran – nawet jeśli All TV Kit nie znajduje go jako telewizora.",
    "ol": [
     "W jego przeglądarce otwórz smrr.tv. Strona wyświetli 6-cyfrowy kod.",
-    "W MirrorGo otwórz listę telewizorów i stuknij Przeglądarka (smrr.tv).",
+    "W All TV Kit otwórz listę telewizorów i stuknij Przeglądarka (smrr.tv).",
     "Wpisz kod lub zeskanuj kod QR ze strony."
    ],
    "note": "Nie zamykaj strony podczas dublowania. Telefon i przeglądarka muszą być w tej samej sieci Wi-Fi. Dla telewizora LG lub Samsung w pobliżu przycisk „Otwórz na…” sam otworzy jego przeglądarkę."
@@ -473,13 +493,13 @@
   "black": {
    "q": "Niektóre aplikacje wyświetlają się jako czarny ekran",
    "a": "Netflix, Prime Video, Disney+ i inne aplikacje streamingowe chronią swoje filmy, więc iOS wysyła zamiast nich czarny obraz. Żadna aplikacja do dublowania ekranu tego nie obejdzie.",
-   "note": "Użyj przycisku przesyłania w samej aplikacji, jeśli go ma. YouTube otwórz w MirrorGo: wtedy telewizor sam odtwarza film."
+   "note": "Użyj przycisku przesyłania w samej aplikacji, jeśli go ma. YouTube otwórz w All TV Kit: wtedy telewizor sam odtwarza film."
   },
   "sound": {
    "q": "Na telewizorze nie ma dźwięku",
    "ul": [
     "Sprawdź, czy w Dublowaniu ekranu włączony jest Dźwięk i czy telewizor nie jest wyciszony.",
-    "MirrorGo przesyła dźwięk odtwarzany przez aplikacje, nigdy z mikrofonu.",
+    "All TV Kit przesyła dźwięk odtwarzany przez aplikacje, nigdy z mikrofonu.",
     "Fire TV i niektóre starsze telewizory LG wyświetlają obraz bez dźwięku.",
     "Niektóre aplikacje nie pozwalają nagrywać swojego dźwięku, więc zostaje on na telefonie."
    ]
@@ -505,21 +525,21 @@
   },
   "lgCheck": {
    "q": "Mój telewizor LG pyta „Czy odtwarza się na telewizorze?”",
-   "a": "Na telewizorach LG MirrorGo najpierw odtwarza zdjęcia, filmy i kanały w przeglądarce telewizora, która obsługuje najwięcej formatów. Po kilku sekundach pyta, czy to działa:",
+   "a": "Na telewizorach LG All TV Kit najpierw odtwarza zdjęcia, filmy i kanały w przeglądarce telewizora, która obsługuje najwięcej formatów. Po kilku sekundach pyta, czy to działa:",
    "ul": [
     "Tak: wszystko gra, na tym ekranie pytanie już się nie pojawi.",
-    "Nie: MirrorGo zamyka przeglądarkę, odtwarza zamiast tego we wbudowanym odtwarzaczu telewizora i pyta ponownie.",
+    "Nie: All TV Kit zamyka przeglądarkę, odtwarza zamiast tego we wbudowanym odtwarzaczu telewizora i pyta ponownie.",
     "Nadal nie działa? Stuknij Napisz do wsparcia i podaj nam model telewizora."
    ]
   },
   "webVideo": {
    "q": "Nie da się przesłać filmu ze strony",
    "ul": [
-    "Najpierw włącz film na stronie: przycisk Prześlij na TV uaktywni się, gdy MirrorGo go znajdzie.",
+    "Najpierw włącz film na stronie: przycisk Prześlij na TV uaktywni się, gdy All TV Kit go znajdzie.",
     "Znaleziono kilka? Wybierz właściwy z listy („1 z 3”).",
     "Bardzo krótkie klipy nie są przesyłane, dzięki czemu reklamy nie trafiają na telewizor.",
     "Niektóre strony chronią swoje filmy, tak jak Netflix. Takich nie da się przesłać.",
-    "Nie zamykaj MirrorGo podczas odtwarzania: film płynie przez Twój telefon."
+    "Nie zamykaj All TV Kit podczas odtwarzania: film płynie przez Twój telefon."
    ]
   },
   "iptv": {
@@ -536,12 +556,12 @@
    ]
   },
   "localNetwork": {
-   "q": "Dlaczego MirrorGo potrzebuje dostępu do sieci lokalnej?",
-   "a": "MirrorGo komunikuje się z telewizorem przez Twoją sieć Wi-Fi, a iOS pozwala na to tylko z dostępem do sieci lokalnej. Bez niego nie da się znaleźć żadnego telewizora ani nic na niego przesłać. Dostęp służy wyłącznie do urządzeń w Twojej własnej sieci.",
+   "q": "Dlaczego All TV Kit potrzebuje dostępu do sieci lokalnej?",
+   "a": "All TV Kit komunikuje się z telewizorem przez Twoją sieć Wi-Fi, a iOS pozwala na to tylko z dostępem do sieci lokalnej. Bez niego nie da się znaleźć żadnego telewizora ani nic na niego przesłać. Dostęp służy wyłącznie do urządzeń w Twojej własnej sieci.",
    "ol": [
     "Stuknij Otwórz Ustawienia",
     "Włącz Sieć lokalna",
-    "Wróć do MirrorGo"
+    "Wróć do All TV Kit"
    ]
   },
   "permissions": {
@@ -555,56 +575,56 @@
   },
   "denied": {
    "q": "Odmówiono uprawnienia. Jak je włączyć?",
-   "a": "iOS pyta tylko raz. Aby zmienić odpowiedź, otwórz Ustawienia, stuknij MirrorGo i włącz Sieć lokalna, Zdjęcia, Aparat lub Mikrofon."
+   "a": "iOS pyta tylko raz. Aby zmienić odpowiedź, otwórz Ustawienia, stuknij All TV Kit i włącz Sieć lokalna, Zdjęcia, Aparat lub Mikrofon."
   },
   "problem": {
    "q": "Coś innego nie działa",
-   "a": "Zaktualizuj MirrorGo do najnowszej wersji i uruchom ponownie telewizor. Jeśli to nie pomoże, stuknij Skontaktuj się z nami w Pomocy w aplikacji. E-mail zawiera już wersję aplikacji, wersję iOS, model telefonu i rodzaj telewizora – dopisz tylko model telewizora."
+   "a": "Zaktualizuj All TV Kit do najnowszej wersji i uruchom ponownie telewizor. Jeśli to nie pomoże, stuknij Skontaktuj się z nami w Pomocy w aplikacji. E-mail zawiera już wersję aplikacji, wersję iOS, model telefonu i rodzaj telewizora – dopisz tylko model telewizora."
   }
  },
  "brands": {
   "sony": {
    "about": "Telewizory Sony BRAVIA działają na Android TV od 2015 roku i na Google TV od 2021 roku, z wbudowanym Chromecastem, a wiele nowszych modeli BRAVIA obsługuje też AirPlay.",
-   "which": "Na telewizorze BRAVIA z Google TV lub Android TV MirrorGo znajduje telewizor po nazwie w Twojej sieci Wi-Fi i może korzystać ze wszystkiego: dublowania ekranu, zdjęć i filmów, YouTube, telewizji na żywo i nie tylko."
+   "which": "Na telewizorze BRAVIA z Google TV lub Android TV All TV Kit znajduje telewizor po nazwie w Twojej sieci Wi-Fi i może korzystać ze wszystkiego: dublowania ekranu, zdjęć i filmów, YouTube, telewizji na żywo i nie tylko."
   },
   "tcl": {
    "about": "TCL produkuje telewizory z kilkoma systemami: Google TV (a w starszych modelach Android TV), Roku TV, a w niektórych modelach Fire TV. Logo systemu widać na ekranie startowym telewizora i na pilocie.",
-   "which": "Bez względu na system Twojego TCL MirrorGo łączy się z nim tak samo: ta sama sieć Wi-Fi, stuknij Połącz z telewizorem i wybierz go z listy."
+   "which": "Bez względu na system Twojego TCL All TV Kit łączy się z nim tak samo: ta sama sieć Wi-Fi, stuknij Połącz z telewizorem i wybierz go z listy."
   },
   "hisense": {
    "about": "Telewizory Hisense działają na VIDAA, Google TV / Android TV, Roku TV lub Fire TV – zależnie od modelu i kraju.",
-   "which": "Modele z Google TV, Android TV, Roku TV i Fire TV pojawiają się na liście telewizorów w MirrorGo. Na modelu z VIDAA otwórz smrr.tv w przeglądarce telewizora i dubluj ekran tam, wpisując wyświetlony kod."
+   "which": "Modele z Google TV, Android TV, Roku TV i Fire TV pojawiają się na liście telewizorów w All TV Kit. Na modelu z VIDAA otwórz smrr.tv w przeglądarce telewizora i dubluj ekran tam, wpisując wyświetlony kod."
   },
   "vizio": {
    "about": "Telewizory VIZIO SmartCast mają wbudowany Chromecast, a wiele z nich obsługuje też AirPlay.",
-   "which": "MirrorGo znajduje telewizor SmartCast przez wbudowany Chromecast, więc możesz dublować na nim ekran i przesyłać zdjęcia, filmy, YouTube i telewizję na żywo."
+   "which": "All TV Kit znajduje telewizor SmartCast przez wbudowany Chromecast, więc możesz dublować na nim ekran i przesyłać zdjęcia, filmy, YouTube i telewizję na żywo."
   },
   "philips": {
    "about": "Wiele telewizorów Philips działa na Google TV lub Android TV, z wbudowanym Chromecastem; inne mają Titan OS lub Saphi.",
-   "which": "Modele z Google TV i Android TV pojawiają się na liście telewizorów w MirrorGo. Na innych modelach otwórz smrr.tv w przeglądarce telewizora i dubluj ekran tam, wpisując wyświetlony kod."
+   "which": "Modele z Google TV i Android TV pojawiają się na liście telewizorów w All TV Kit. Na innych modelach otwórz smrr.tv w przeglądarce telewizora i dubluj ekran tam, wpisując wyświetlony kod."
   },
   "xiaomi": {
    "about": "Telewizory Xiaomi, Mi Box i Xiaomi TV Stick działają na Google TV lub Android TV, z wbudowanym Chromecastem.",
-   "which": "MirrorGo znajduje je w Twojej sieci Wi-Fi i może korzystać ze wszystkiego: dublowania ekranu, zdjęć i filmów, YouTube, telewizji na żywo i nie tylko."
+   "which": "All TV Kit znajduje je w Twojej sieci Wi-Fi i może korzystać ze wszystkiego: dublowania ekranu, zdjęć i filmów, YouTube, telewizji na żywo i nie tylko."
   },
   "toshiba": {
    "about": "Telewizory Smart TV Toshiba działają w USA na Fire TV, a w innych krajach na innych systemach, np. Android TV lub VIDAA.",
-   "which": "Modele z Fire TV i Android TV pojawiają się na liście telewizorów w MirrorGo. Na innych modelach otwórz smrr.tv w przeglądarce telewizora i dubluj ekran tam, wpisując wyświetlony kod."
+   "which": "Modele z Fire TV i Android TV pojawiają się na liście telewizorów w All TV Kit. Na innych modelach otwórz smrr.tv w przeglądarce telewizora i dubluj ekran tam, wpisując wyświetlony kod."
   },
   "panasonic": {
    "about": "Nowsze telewizory Panasonic działają na Fire TV, starsze na własnym systemie Panasonic my Home Screen.",
-   "which": "Modele z Fire TV pojawiają się na liście telewizorów w MirrorGo. Na modelu z my Home Screen otwórz smrr.tv w przeglądarce telewizora i dubluj ekran tam, wpisując wyświetlony kod."
+   "which": "Modele z Fire TV pojawiają się na liście telewizorów w All TV Kit. Na modelu z my Home Screen otwórz smrr.tv w przeglądarce telewizora i dubluj ekran tam, wpisując wyświetlony kod."
   }
  },
  "guides": {
   "samsung": {
    "title": "Jak wyświetlić ekran iPhone’a na telewizorze Samsung (bez kabli)",
-   "description": "Dubluj ekran iPhone’a na telewizorze Samsung Smart TV przez Wi-Fi z MirrorGo i przesyłaj zdjęcia, filmy, YouTube i TV. Samsung od 2016 roku, bez aplikacji na TV.",
+   "description": "Dubluj ekran iPhone’a na telewizorze Samsung Smart TV przez Wi-Fi z All TV Kit i przesyłaj zdjęcia, filmy, YouTube i TV. Samsung od 2016 roku, bez aplikacji na TV.",
    "h1": "Dubluj ekran iPhone’a na telewizorze Samsung",
-   "lead": "MirrorGo wyświetla ekran iPhone’a na telewizorach Samsung Smart TV (Tizen, od 2016 roku) przez Twoją sieć Wi-Fi. Na telewizorze nic nie trzeba instalować: obraz odtwarza wbudowany odtwarzacz telewizora, z dźwiękiem.",
+   "lead": "All TV Kit wyświetla ekran iPhone’a na telewizorach Samsung Smart TV (Tizen, od 2016 roku) przez Twoją sieć Wi-Fi. Na telewizorze nic nie trzeba instalować: obraz odtwarza wbudowany odtwarzacz telewizora, z dźwiękiem.",
    "steps": [
     "Włącz telewizor Samsung i połącz iPhone’a z tą samą siecią Wi-Fi.",
-    "Otwórz MirrorGo, stuknij Połącz z telewizorem i wybierz swój telewizor Samsung.",
+    "Otwórz All TV Kit, stuknij Połącz z telewizorem i wybierz swój telewizor Samsung.",
     "Za pierwszym razem wybierz pilotem Zezwól na telewizorze.",
     "Otwórz Dublowanie ekranu, stuknij Rozpocznij dublowanie, a potem Rozpocznij udostępnianie (przed iOS 26: Rozpocznij transmisję). Ekran pojawi się na telewizorze w ciągu 5–10 sekund."
    ],
@@ -642,14 +662,14 @@
     [
      "Które telewizory Samsung działają?",
      [
-      "Telewizory Samsung Smart TV z systemem Tizen, od modeli z 2016 roku, np. serie Crystal UHD, QLED, Neo QLED, OLED i The Frame. MirrorGo sam znajduje je w Twojej sieci Wi-Fi, bez aplikacji na telewizorze.",
-      "Wiele telewizorów Samsung od 2018 roku obsługuje też AirPlay. MirrorGo działa z AirPlay lub bez niego, a do tego dodaje przesyłanie filmów ze stron, kanałów TV na żywo i YouTube."
+      "Telewizory Samsung Smart TV z systemem Tizen, od modeli z 2016 roku, np. serie Crystal UHD, QLED, Neo QLED, OLED i The Frame. All TV Kit sam znajduje je w Twojej sieci Wi-Fi, bez aplikacji na telewizorze.",
+      "Wiele telewizorów Samsung od 2018 roku obsługuje też AirPlay. All TV Kit działa z AirPlay lub bez niego, a do tego dodaje przesyłanie filmów ze stron, kanałów TV na żywo i YouTube."
      ]
     ],
     [
-     "Jeśli telewizor nie pozwala MirrorGo się połączyć",
+     "Jeśli telewizor nie pozwala All TV Kit się połączyć",
      [
-      "Telewizory Samsung pytają o zgodę, zanim telefon będzie mógł nimi sterować. Jeśli wybrano Odmów, telewizor to zapamiętuje: na telewizorze otwórz Ustawienia › Ogólne › Menedżer urządzeń zewnętrznych › Menedżer połączeń urządzeń › Lista urządzeń (Settings › General › External Device Manager › Device Connection Manager › Device List), a następnie zezwól MirrorGo albo usuń go z listy, aby telewizor zapytał ponownie."
+      "Telewizory Samsung pytają o zgodę, zanim telefon będzie mógł nimi sterować. Jeśli wybrano Odmów, telewizor to zapamiętuje: na telewizorze otwórz Ustawienia › Ogólne › Menedżer urządzeń zewnętrznych › Menedżer połączeń urządzeń › Lista urządzeń (Settings › General › External Device Manager › Device Connection Manager › Device List), a następnie zezwól All TV Kit albo usuń go z listy, aby telewizor zapytał ponownie."
      ]
     ],
     [
@@ -662,11 +682,11 @@
    "faq": [
     [
      "Czy muszę instalować aplikację na telewizorze Samsung?",
-     "Nie. MirrorGo korzysta z tego, co jest wbudowane w telewizory Samsung Smart TV: odtwarzacza multimediów i połączenia do zdalnego sterowania. MirrorGo instalujesz tylko na iPhonie."
+     "Nie. All TV Kit korzysta z tego, co jest wbudowane w telewizory Samsung Smart TV: odtwarzacza multimediów i połączenia do zdalnego sterowania. All TV Kit instalujesz tylko na iPhonie."
     ],
     [
      "Czy jest dźwięk, gdy dubluję ekran iPhone’a na telewizorze Samsung?",
-     "Tak. Dźwięk odtwarzany przez aplikacje trafia na telewizor razem z obrazem; włącz Dźwięk w Dublowaniu ekranu. MirrorGo nigdy nie przesyła dźwięku z mikrofonu."
+     "Tak. Dźwięk odtwarzany przez aplikacje trafia na telewizor razem z obrazem; włącz Dźwięk w Dublowaniu ekranu. All TV Kit nigdy nie przesyła dźwięku z mikrofonu."
     ],
     [
      "Czy mogę dublować Netflix lub Disney+ na telewizorze Samsung?",
@@ -676,12 +696,12 @@
   },
   "lg": {
    "title": "Jak wyświetlić ekran iPhone’a na telewizorze LG (webOS, bez kabli)",
-   "description": "Dubluj ekran iPhone’a na telewizorze LG (webOS) przez Wi-Fi z MirrorGo i przesyłaj zdjęcia, filmy, YouTube i kanały TV na żywo. Bez aplikacji na telewizorze.",
+   "description": "Dubluj ekran iPhone’a na telewizorze LG (webOS) przez Wi-Fi z All TV Kit i przesyłaj zdjęcia, filmy, YouTube i kanały TV na żywo. Bez aplikacji na telewizorze.",
    "h1": "Dubluj ekran iPhone’a na telewizorze LG",
-   "lead": "MirrorGo wyświetla ekran iPhone’a na telewizorach LG Smart TV (webOS) przez Twoją sieć Wi-Fi. Na nowszych telewizorach LG korzysta z udostępniania ekranu LG, a starsze pokazują ekran w przeglądarce telewizora. Nic nie trzeba instalować.",
+   "lead": "All TV Kit wyświetla ekran iPhone’a na telewizorach LG Smart TV (webOS) przez Twoją sieć Wi-Fi. Na nowszych telewizorach LG korzysta z udostępniania ekranu LG, a starsze pokazują ekran w przeglądarce telewizora. Nic nie trzeba instalować.",
    "steps": [
     "Włącz telewizor LG i połącz iPhone’a z tą samą siecią Wi-Fi.",
-    "Otwórz MirrorGo, stuknij Połącz z telewizorem i wybierz swój telewizor LG.",
+    "Otwórz All TV Kit, stuknij Połącz z telewizorem i wybierz swój telewizor LG.",
     "Za pierwszym razem wybierz pilotem Zezwól na telewizorze.",
     "Otwórz Dublowanie ekranu, stuknij Rozpocznij dublowanie, a potem Rozpocznij udostępnianie (przed iOS 26: Rozpocznij transmisję). Ekran pojawi się na telewizorze w ciągu 5–10 sekund."
    ],
@@ -719,11 +739,11 @@
     [
      "Które telewizory LG działają?",
      [
-      "Telewizory LG Smart TV z systemem webOS. Na webOS 22 i nowszych MirrorGo korzysta z udostępniania ekranu LG (LG Cast). Starsze telewizory LG, od webOS 4 (2018), pokazują ekran w przeglądarce telewizora, którą MirrorGo otwiera za Ciebie."
+      "Telewizory LG Smart TV z systemem webOS. Na webOS 22 i nowszych All TV Kit korzysta z udostępniania ekranu LG (LG Cast). Starsze telewizory LG, od webOS 4 (2018), pokazują ekran w przeglądarce telewizora, którą All TV Kit otwiera za Ciebie."
      ]
     ],
     [
-     "Jeśli telewizor nie pozwala MirrorGo się połączyć",
+     "Jeśli telewizor nie pozwala All TV Kit się połączyć",
      [
       "Telewizory LG pytają o zgodę, zanim telefon będzie mógł nimi sterować. Komunikat zniknął albo wybrano Odmów? Połącz się jeszcze raz, a telewizor zapyta ponownie. Na starszych telewizorach LG włącz LG Connect Apps w ustawieniach sieci telewizora."
      ]
@@ -731,33 +751,33 @@
     [
      "„Czy odtwarza się na telewizorze?”",
      [
-      "Na telewizorach LG MirrorGo najpierw odtwarza zdjęcia, filmy i kanały w przeglądarce telewizora, która obsługuje najwięcej formatów. Po kilku sekundach pyta, czy to działa. Stuknij Nie, a przełączy się na wbudowany odtwarzacz telewizora."
+      "Na telewizorach LG All TV Kit najpierw odtwarza zdjęcia, filmy i kanały w przeglądarce telewizora, która obsługuje najwięcej formatów. Po kilku sekundach pyta, czy to działa. Stuknij Nie, a przełączy się na wbudowany odtwarzacz telewizora."
      ]
     ]
    ],
    "faq": [
     [
      "Czy muszę instalować aplikację na telewizorze LG?",
-     "Nie. MirrorGo korzysta z tego, co jest wbudowane w telewizory LG z webOS: udostępniania ekranu LG, przeglądarki i odtwarzacza multimediów. MirrorGo instalujesz tylko na iPhonie."
+     "Nie. All TV Kit korzysta z tego, co jest wbudowane w telewizory LG z webOS: udostępniania ekranu LG, przeglądarki i odtwarzacza multimediów. All TV Kit instalujesz tylko na iPhonie."
     ],
     [
      "Dlaczego mój telewizor LG nie odtwarza dźwięku podczas dublowania?",
      "Większość telewizorów LG odtwarza dźwięk z aplikacji. Niektóre starsze modele pokazują obraz bez dźwięku; aby obejrzeć na nich film z dźwiękiem, prześlij go (Zdjęcia i filmy, Filmy z sieci lub YouTube) zamiast dublować."
     ],
     [
-     "Czy MirrorGo działa z telewizorami LG bez AirPlay?",
-     "Tak. MirrorGo nie potrzebuje AirPlay: działa z telewizorami LG z webOS od 2018 roku."
+     "Czy All TV Kit działa z telewizorami LG bez AirPlay?",
+     "Tak. All TV Kit nie potrzebuje AirPlay: działa z telewizorami LG z webOS od 2018 roku."
     ]
    ]
   },
   "roku": {
    "title": "Jak wyświetlić ekran iPhone’a na Roku TV lub odtwarzaczu Roku",
-   "description": "Dubluj ekran iPhone’a na Roku TV, Roku Streaming Stick lub Roku Ultra z MirrorGo, z dźwiękiem, przez Wi-Fi. Bez kabli, bez AirPlay i bez instalowania czegokolwiek na Roku.",
+   "description": "Dubluj ekran iPhone’a na Roku TV, Roku Streaming Stick lub Roku Ultra z All TV Kit, z dźwiękiem, przez Wi-Fi. Bez kabli, bez AirPlay i bez instalowania czegokolwiek na Roku.",
    "h1": "Dubluj ekran iPhone’a na Roku",
-   "lead": "MirrorGo wyświetla ekran iPhone’a z dźwiękiem na telewizorach Roku TV (TCL, Hisense, Sharp i innych modelach z Roku TV) oraz odtwarzaczach Roku, przez Twoją sieć Wi-Fi. Obraz gra we wbudowanym odtwarzaczu Roku: na Roku nie trzeba niczego instalować.",
+   "lead": "All TV Kit wyświetla ekran iPhone’a z dźwiękiem na telewizorach Roku TV (TCL, Hisense, Sharp i innych modelach z Roku TV) oraz odtwarzaczach Roku, przez Twoją sieć Wi-Fi. Obraz gra we wbudowanym odtwarzaczu Roku: na Roku nie trzeba niczego instalować.",
    "steps": [
     "Włącz Roku i połącz iPhone’a z tą samą siecią Wi-Fi.",
-    "Otwórz MirrorGo, stuknij Połącz z telewizorem i wybierz swoje Roku.",
+    "Otwórz All TV Kit, stuknij Połącz z telewizorem i wybierz swoje Roku.",
     "Otwórz Dublowanie ekranu, stuknij Rozpocznij dublowanie, a potem Rozpocznij udostępnianie (przed iOS 26: Rozpocznij transmisję).",
     "Ekran pojawi się na telewizorze w ciągu kilku sekund. Aby zakończyć, stuknij Zatrzymaj dublowanie albo naciśnij Home na pilocie Roku."
    ],
@@ -795,49 +815,49 @@
     [
      "Które urządzenia Roku działają?",
      [
-      "Telewizory Roku TV marek TCL, Hisense, Sharp, Philips, Westinghouse i innych oraz odtwarzacze Roku: Roku Express, Streaming Stick i Ultra. MirrorGo znajduje je w Twojej sieci Wi-Fi."
+      "Telewizory Roku TV marek TCL, Hisense, Sharp, Philips, Westinghouse i innych oraz odtwarzacze Roku: Roku Express, Streaming Stick i Ultra. All TV Kit znajduje je w Twojej sieci Wi-Fi."
      ]
     ],
     [
      "Jeśli Roku nie ma na liście",
      [
-      "Upewnij się, że telefon i Roku są w tej samej sieci Wi-Fi (nie w sieci dla gości), że MirrorGo ma dostęp do sieci lokalnej w Ustawieniach i że VPN jest wyłączony. Na Roku otwórz Ustawienia › System › Zaawansowane ustawienia systemu › Sterowanie przez aplikacje mobilne (Settings › System › Advanced system settings › Control by mobile apps) i ustaw Dostęp do sieci (Network access) na Domyślny (Default)."
+      "Upewnij się, że telefon i Roku są w tej samej sieci Wi-Fi (nie w sieci dla gości), że All TV Kit ma dostęp do sieci lokalnej w Ustawieniach i że VPN jest wyłączony. Na Roku otwórz Ustawienia › System › Zaawansowane ustawienia systemu › Sterowanie przez aplikacje mobilne (Settings › System › Advanced system settings › Control by mobile apps) i ustaw Dostęp do sieci (Network access) na Domyślny (Default)."
      ]
     ],
     [
      "Jak to działa",
      [
-      "MirrorGo komunikuje się z Roku przez Twoją sieć Wi-Fi tak samo jak oficjalna aplikacja mobilna Roku, a ekran gra we wbudowanym odtwarzaczu Roku jako strumień wideo na żywo z iPhone’a. Nie trzeba instalować żadnego kanału Roku ani wpisywać kodu. Obraz jest kilka sekund opóźniony względem telefonu."
+      "All TV Kit komunikuje się z Roku przez Twoją sieć Wi-Fi tak samo jak oficjalna aplikacja mobilna Roku, a ekran gra we wbudowanym odtwarzaczu Roku jako strumień wideo na żywo z iPhone’a. Nie trzeba instalować żadnego kanału Roku ani wpisywać kodu. Obraz jest kilka sekund opóźniony względem telefonu."
      ]
     ]
    ],
    "faq": [
     [
      "Czy muszę coś instalować na Roku?",
-     "Nie. MirrorGo instalujesz tylko na iPhonie; Roku musi być jedynie włączone i w tej samej sieci Wi-Fi."
+     "Nie. All TV Kit instalujesz tylko na iPhonie; Roku musi być jedynie włączone i w tej samej sieci Wi-Fi."
     ],
     [
      "Czy mogę dublować ekran iPhone’a na Roku bez AirPlay?",
-     "Tak. MirrorGo nie korzysta z AirPlay, więc działa z urządzeniami Roku, które go nie obsługują."
+     "Tak. All TV Kit nie korzysta z AirPlay, więc działa z urządzeniami Roku, które go nie obsługują."
     ],
     [
      "Czy jest dźwięk, gdy dubluję ekran iPhone’a na Roku?",
-     "Tak. Dźwięk odtwarzany przez aplikacje trafia na Roku razem z obrazem. MirrorGo nigdy nie przesyła dźwięku z mikrofonu."
+     "Tak. Dźwięk odtwarzany przez aplikacje trafia na Roku razem z obrazem. All TV Kit nigdy nie przesyła dźwięku z mikrofonu."
     ],
     [
      "Czy mogę przesyłać na Roku zdjęcia, YouTube lub telewizję na żywo?",
-     "Jeszcze nie: na Roku MirrorGo dubluje ekran. Aby pokazać zdjęcia i filmy, włącz dublowanie ekranu i otwórz je na iPhonie."
+     "Jeszcze nie: na Roku All TV Kit dubluje ekran. Aby pokazać zdjęcia i filmy, włącz dublowanie ekranu i otwórz je na iPhonie."
     ]
    ]
   },
   "googletv": {
    "title": "Jak wyświetlić ekran iPhone’a na Google TV",
-   "description": "Dubluj ekran iPhone’a na Google TV (Sony, TCL, Hisense, Philips, Chromecast z Google TV, Google TV Streamer) z MirrorGo i przesyłaj zdjęcia, filmy, YouTube i TV.",
+   "description": "Dubluj ekran iPhone’a na Google TV (Sony, TCL, Hisense, Philips, Chromecast z Google TV, Google TV Streamer) z All TV Kit i przesyłaj zdjęcia, filmy, YouTube i TV.",
    "h1": "Dubluj ekran iPhone’a na Google TV",
-   "lead": "MirrorGo wyświetla ekran iPhone’a na Google TV: telewizorach Sony, TCL, Hisense, Philips i innych, Chromecaście z Google TV oraz Google TV Streamer. Na telewizorze nic nie trzeba instalować.",
+   "lead": "All TV Kit wyświetla ekran iPhone’a na Google TV: telewizorach Sony, TCL, Hisense, Philips i innych, Chromecaście z Google TV oraz Google TV Streamer. Na telewizorze nic nie trzeba instalować.",
    "steps": [
     "Włącz telewizor i połącz iPhone’a z tą samą siecią Wi-Fi.",
-    "Otwórz MirrorGo, stuknij Połącz z telewizorem i wybierz swoje Google TV.",
+    "Otwórz All TV Kit, stuknij Połącz z telewizorem i wybierz swoje Google TV.",
     "Otwórz Dublowanie ekranu, stuknij Rozpocznij dublowanie, a potem Rozpocznij udostępnianie (przed iOS 26: Rozpocznij transmisję).",
     "Ekran pojawi się na telewizorze w ciągu kilku sekund."
    ],
@@ -875,35 +895,35 @@
     [
      "Które telewizory mają Google TV?",
      [
-      "Google TV jest na większości nowszych telewizorów Sony BRAVIA, TCL, Hisense i Philips oraz na urządzeniach Google: Chromecaście z Google TV i Google TV Streamer. Ma wbudowany Chromecast i właśnie dzięki niemu MirrorGo znajduje je w Twojej sieci Wi-Fi."
+      "Google TV jest na większości nowszych telewizorów Sony BRAVIA, TCL, Hisense i Philips oraz na urządzeniach Google: Chromecaście z Google TV i Google TV Streamer. Ma wbudowany Chromecast i właśnie dzięki niemu All TV Kit znajduje je w Twojej sieci Wi-Fi."
      ]
     ],
     [
      "Jeśli telewizora nie ma na liście",
      [
-      "Upewnij się, że telefon i telewizor są w tej samej sieci Wi-Fi (nie w sieci dla gości), że MirrorGo ma dostęp do sieci lokalnej w Ustawieniach i że VPN jest wyłączony. Nadal go nie ma? Otwórz smrr.tv w przeglądarce telewizora i dubluj ekran tam."
+      "Upewnij się, że telefon i telewizor są w tej samej sieci Wi-Fi (nie w sieci dla gości), że All TV Kit ma dostęp do sieci lokalnej w Ustawieniach i że VPN jest wyłączony. Nadal go nie ma? Otwórz smrr.tv w przeglądarce telewizora i dubluj ekran tam."
      ]
     ]
    ],
    "faq": [
     [
      "Czy mogę dublować cały ekran iPhone’a na Google TV?",
-     "Tak. Większość modeli z Google TV nie obsługuje AirPlay, ale MirrorGo dubluje cały ekran, z dźwiękiem, przez wbudowany Chromecast."
+     "Tak. Większość modeli z Google TV nie obsługuje AirPlay, ale All TV Kit dubluje cały ekran, z dźwiękiem, przez wbudowany Chromecast."
     ],
     [
      "Czy potrzebuję aplikacji Google Home?",
-     "Nie. Telewizor musi być tylko skonfigurowany i w Twojej sieci Wi-Fi. MirrorGo łączy się z nim bezpośrednio."
+     "Nie. Telewizor musi być tylko skonfigurowany i w Twojej sieci Wi-Fi. All TV Kit łączy się z nim bezpośrednio."
     ]
    ]
   },
   "androidtv": {
    "title": "Jak wyświetlić ekran iPhone’a na Android TV",
-   "description": "Dubluj ekran iPhone’a na Android TV (Sony, Philips, Xiaomi, TCL, Sharp i inne) z MirrorGo przez Wi-Fi i przesyłaj zdjęcia, filmy, YouTube i kanały TV na żywo.",
+   "description": "Dubluj ekran iPhone’a na Android TV (Sony, Philips, Xiaomi, TCL, Sharp i inne) z All TV Kit przez Wi-Fi i przesyłaj zdjęcia, filmy, YouTube i kanały TV na żywo.",
    "h1": "Dubluj ekran iPhone’a na Android TV",
-   "lead": "MirrorGo wyświetla ekran iPhone’a na telewizorach z Android TV marek Sony, Philips, Xiaomi, TCL, Sharp i innych oraz na przystawkach z Android TV, takich jak Mi Box i NVIDIA SHIELD. Na telewizorze nic nie trzeba instalować.",
+   "lead": "All TV Kit wyświetla ekran iPhone’a na telewizorach z Android TV marek Sony, Philips, Xiaomi, TCL, Sharp i innych oraz na przystawkach z Android TV, takich jak Mi Box i NVIDIA SHIELD. Na telewizorze nic nie trzeba instalować.",
    "steps": [
     "Włącz telewizor i połącz iPhone’a z tą samą siecią Wi-Fi.",
-    "Otwórz MirrorGo, stuknij Połącz z telewizorem i wybierz swoje Android TV.",
+    "Otwórz All TV Kit, stuknij Połącz z telewizorem i wybierz swoje Android TV.",
     "Otwórz Dublowanie ekranu, stuknij Rozpocznij dublowanie, a potem Rozpocznij udostępnianie (przed iOS 26: Rozpocznij transmisję).",
     "Ekran pojawi się na telewizorze w ciągu kilku sekund."
    ],
@@ -941,35 +961,35 @@
     [
      "Które urządzenia z Android TV działają?",
      [
-      "Telewizory i przystawki z Android TV z wbudowanym Chromecastem, a ma go prawie każde: Sony BRAVIA, Philips, Xiaomi Mi TV, TCL, Sharp, Mi Box, Xiaomi TV Stick i NVIDIA SHIELD. MirrorGo znajduje je dzięki niemu w Twojej sieci Wi-Fi."
+      "Telewizory i przystawki z Android TV z wbudowanym Chromecastem, a ma go prawie każde: Sony BRAVIA, Philips, Xiaomi Mi TV, TCL, Sharp, Mi Box, Xiaomi TV Stick i NVIDIA SHIELD. All TV Kit znajduje je dzięki niemu w Twojej sieci Wi-Fi."
      ]
     ],
     [
      "Jeśli telewizora nie ma na liście",
      [
-      "Upewnij się, że telefon i telewizor są w tej samej sieci Wi-Fi (nie w sieci dla gości), że MirrorGo ma dostęp do sieci lokalnej w Ustawieniach i że VPN jest wyłączony. Niektóre telewizory odpowiadają dopiero po pełnym włączeniu, nie w trybie czuwania."
+      "Upewnij się, że telefon i telewizor są w tej samej sieci Wi-Fi (nie w sieci dla gości), że All TV Kit ma dostęp do sieci lokalnej w Ustawieniach i że VPN jest wyłączony. Niektóre telewizory odpowiadają dopiero po pełnym włączeniu, nie w trybie czuwania."
      ]
     ]
    ],
    "faq": [
     [
      "Czy muszę instalować aplikację na Android TV?",
-     "Nie. MirrorGo korzysta z Chromecasta wbudowanego w Android TV. MirrorGo instalujesz tylko na iPhonie."
+     "Nie. All TV Kit korzysta z Chromecasta wbudowanego w Android TV. All TV Kit instalujesz tylko na iPhonie."
     ],
     [
      "Czy iPhone może dublować ekran na Android TV bez AirPlay?",
-     "Tak. Z MirrorGo iPhone dubluje ekran przez wbudowany w telewizor Chromecast – AirPlay nie jest potrzebny."
+     "Tak. Z All TV Kit iPhone dubluje ekran przez wbudowany w telewizor Chromecast – AirPlay nie jest potrzebny."
     ]
    ]
   },
   "chromecast": {
    "title": "Jak wyświetlić ekran iPhone’a na Chromecaście",
-   "description": "Dubluj ekran iPhone’a na Chromecaście z MirrorGo i przesyłaj zdjęcia, filmy, YouTube i kanały TV na żywo przez Wi-Fi. Aplikacja Google Home nie jest potrzebna.",
+   "description": "Dubluj ekran iPhone’a na Chromecaście z All TV Kit i przesyłaj zdjęcia, filmy, YouTube i kanały TV na żywo przez Wi-Fi. Aplikacja Google Home nie jest potrzebna.",
    "h1": "Dubluj ekran iPhone’a na Chromecaście",
-   "lead": "MirrorGo wyświetla ekran iPhone’a przez Chromecast oraz na telewizorach z wbudowanym Chromecastem, takich jak VIZIO SmartCast. Na telewizorze nic nie trzeba instalować.",
+   "lead": "All TV Kit wyświetla ekran iPhone’a przez Chromecast oraz na telewizorach z wbudowanym Chromecastem, takich jak VIZIO SmartCast. Na telewizorze nic nie trzeba instalować.",
    "steps": [
     "Włącz telewizor i połącz iPhone’a z tą samą siecią Wi-Fi, w której jest Chromecast.",
-    "Otwórz MirrorGo, stuknij Połącz z telewizorem i wybierz swój Chromecast.",
+    "Otwórz All TV Kit, stuknij Połącz z telewizorem i wybierz swój Chromecast.",
     "Otwórz Dublowanie ekranu, stuknij Rozpocznij dublowanie, a potem Rozpocznij udostępnianie (przed iOS 26: Rozpocznij transmisję).",
     "Ekran pojawi się na telewizorze w ciągu kilku sekund."
    ],
@@ -1007,35 +1027,35 @@
     [
      "Które urządzenia działają?",
      [
-      "Każdy Chromecast, z Google TV lub bez, a także telewizory i głośniki z ekranem z wbudowanym Chromecastem, np. telewizory VIZIO SmartCast. MirrorGo znajduje je w Twojej sieci Wi-Fi tak samo jak aplikacje Google."
+      "Każdy Chromecast, z Google TV lub bez, a także telewizory i głośniki z ekranem z wbudowanym Chromecastem, np. telewizory VIZIO SmartCast. All TV Kit znajduje je w Twojej sieci Wi-Fi tak samo jak aplikacje Google."
      ]
     ],
     [
      "Jeśli Chromecasta nie ma na liście",
      [
-      "Upewnij się, że telefon i Chromecast są w tej samej sieci Wi-Fi (nie w sieci dla gości), że MirrorGo ma dostęp do sieci lokalnej w Ustawieniach i że VPN jest wyłączony. Nadal go nie ma? Otwórz smrr.tv w przeglądarce na dowolnym ekranie i dubluj ekran tam."
+      "Upewnij się, że telefon i Chromecast są w tej samej sieci Wi-Fi (nie w sieci dla gości), że All TV Kit ma dostęp do sieci lokalnej w Ustawieniach i że VPN jest wyłączony. Nadal go nie ma? Otwórz smrr.tv w przeglądarce na dowolnym ekranie i dubluj ekran tam."
      ]
     ]
    ],
    "faq": [
     [
      "Czy mogę dublować cały ekran iPhone’a na Chromecaście?",
-     "Tak. Sam iPhone tego nie potrafi, bo Chromecast nie obsługuje AirPlay, ale MirrorGo dubluje na Chromecaście cały ekran, z dźwiękiem."
+     "Tak. Sam iPhone tego nie potrafi, bo Chromecast nie obsługuje AirPlay, ale All TV Kit dubluje na Chromecaście cały ekran, z dźwiękiem."
     ],
     [
      "Czy potrzebuję aplikacji Google Home?",
-     "Nie. Chromecast musi być tylko skonfigurowany i w Twojej sieci Wi-Fi. MirrorGo łączy się z nim bezpośrednio."
+     "Nie. Chromecast musi być tylko skonfigurowany i w Twojej sieci Wi-Fi. All TV Kit łączy się z nim bezpośrednio."
     ]
    ]
   },
   "firetv": {
    "title": "Jak wyświetlić ekran iPhone’a na Fire TV Stick (bez aplikacji)",
-   "description": "Dubluj ekran iPhone’a na Fire TV Stick, Fire TV Cube lub telewizorze z Fire TV z MirrorGo – bez instalowania niczego na Fire TV. Przesyłaj też zdjęcia, filmy i TV.",
+   "description": "Dubluj ekran iPhone’a na Fire TV Stick, Fire TV Cube lub telewizorze z Fire TV z All TV Kit – bez instalowania niczego na Fire TV. Przesyłaj też zdjęcia, filmy i TV.",
    "h1": "Dubluj ekran iPhone’a na Fire TV",
-   "lead": "MirrorGo wyświetla ekran iPhone’a na Fire TV Stick, Fire TV Cube i telewizorach z Fire TV, korzystając z odtwarzacza wbudowanego w każde Fire TV. Na Fire TV nic nie trzeba instalować.",
+   "lead": "All TV Kit wyświetla ekran iPhone’a na Fire TV Stick, Fire TV Cube i telewizorach z Fire TV, korzystając z odtwarzacza wbudowanego w każde Fire TV. Na Fire TV nic nie trzeba instalować.",
    "steps": [
     "Włącz Fire TV i połącz iPhone’a z tą samą siecią Wi-Fi.",
-    "Otwórz MirrorGo, stuknij Połącz z telewizorem i wybierz swoje Fire TV.",
+    "Otwórz All TV Kit, stuknij Połącz z telewizorem i wybierz swoje Fire TV.",
     "Otwórz Dublowanie ekranu, stuknij Rozpocznij dublowanie, a potem Rozpocznij udostępnianie (przed iOS 26: Rozpocznij transmisję).",
     "Ekran pojawi się na telewizorze. Aby zakończyć, stuknij Zatrzymaj dublowanie albo naciśnij Home na pilocie Fire TV."
    ],
@@ -1073,7 +1093,7 @@
     [
      "Które urządzenia Fire TV działają?",
      [
-      "Fire TV Stick (także 4K i 4K Max), Fire TV Cube oraz telewizory z wbudowanym Fire TV (Amazon, Toshiba, Insignia i inne). MirrorGo znajduje je w Twojej sieci Wi-Fi."
+      "Fire TV Stick (także 4K i 4K Max), Fire TV Cube oraz telewizory z wbudowanym Fire TV (Amazon, Toshiba, Insignia i inne). All TV Kit znajduje je w Twojej sieci Wi-Fi."
      ]
     ],
     [
@@ -1086,7 +1106,7 @@
    "faq": [
     [
      "Czy muszę instalować aplikację na Fire TV?",
-     "Nie. Każde Fire TV ma wbudowany odtwarzacz multimediów i MirrorGo z niego korzysta. MirrorGo instalujesz tylko na iPhonie."
+     "Nie. Każde Fire TV ma wbudowany odtwarzacz multimediów i All TV Kit z niego korzysta. All TV Kit instalujesz tylko na iPhonie."
     ],
     [
      "Czy mogę dublować ekran iPhone’a na Fire TV Stick z dźwiękiem?",
@@ -1096,14 +1116,14 @@
   },
   "airplay": {
    "title": "Jak dublować ekran i przesyłać z iPhone’a na Apple TV i AirPlay",
-   "description": "Dubluj ekran iPhone’a na Apple TV lub telewizorze z AirPlay (Samsung, LG, Sony, VIZIO i inne) i przesyłaj zdjęcia, filmy, filmy z sieci i kanały TV z MirrorGo.",
+   "description": "Dubluj ekran iPhone’a na Apple TV lub telewizorze z AirPlay (Samsung, LG, Sony, VIZIO i inne) i przesyłaj zdjęcia, filmy, filmy z sieci i kanały TV z All TV Kit.",
    "h1": "Dubluj ekran i przesyłaj z iPhone’a na Apple TV i telewizory z AirPlay",
-   "lead": "iPhone sam dubluje ekran na Apple TV lub telewizorze z AirPlay – z centrum sterowania. MirrorGo dodaje to, czego iOS nie potrafi: kanały TV na żywo, filmy ze stron i obrazy z sieci, odtwarzane przez AirPlay.",
+   "lead": "iPhone sam dubluje ekran na Apple TV lub telewizorze z AirPlay – z centrum sterowania. All TV Kit dodaje to, czego iOS nie potrafi: kanały TV na żywo, filmy ze stron i obrazy z sieci, odtwarzane przez AirPlay.",
    "steps": [
     "Połącz iPhone’a z tą samą siecią Wi-Fi, w której jest Apple TV lub telewizor z AirPlay.",
     "Aby dublować ekran: otwórz centrum sterowania, stuknij Synchronizacja ekranu i wybierz telewizor.",
-    "Aby przesyłać: otwórz MirrorGo, stuknij Połącz z telewizorem, potem Wybierz urządzenie AirPlay i wybierz telewizor.",
-    "Otwórz w MirrorGo Zdjęcia i filmy, Filmy z sieci lub IPTV i włącz odtwarzanie: trafi na telewizor przez AirPlay."
+    "Aby przesyłać: otwórz All TV Kit, stuknij Połącz z telewizorem, potem Wybierz urządzenie AirPlay i wybierz telewizor.",
+    "Otwórz w All TV Kit Zdjęcia i filmy, Filmy z sieci lub IPTV i włącz odtwarzanie: trafi na telewizor przez AirPlay."
    ],
    "features": [
     [
@@ -1145,29 +1165,29 @@
     [
      "Dlaczego dublowanie uruchamia się z centrum sterowania",
      [
-      "Apple nie pozwala aplikacjom uruchamiać synchronizacji ekranu przez AirPlay – może to zrobić tylko centrum sterowania. MirrorGo pokazuje kolejne kroki, a gdy synchronizacja jest włączona, obraz z kamery też może wypełnić cały ekran telewizora."
+      "Apple nie pozwala aplikacjom uruchamiać synchronizacji ekranu przez AirPlay – może to zrobić tylko centrum sterowania. All TV Kit pokazuje kolejne kroki, a gdy synchronizacja jest włączona, obraz z kamery też może wypełnić cały ekran telewizora."
      ]
     ]
    ],
    "faq": [
     [
-     "Czy mogę zakończyć AirPlay z poziomu MirrorGo?",
-     "Otwórz listę telewizorów w MirrorGo i stuknij kartę AirPlay, a potem wybierz iPhone w menu: to kończy AirPlay. Aby zakończyć synchronizację ekranu, użyj centrum sterowania › Synchronizacja ekranu › Zatrzymaj synchronizację."
+     "Czy mogę zakończyć AirPlay z poziomu All TV Kit?",
+     "Otwórz listę telewizorów w All TV Kit i stuknij kartę AirPlay, a potem wybierz iPhone w menu: to kończy AirPlay. Aby zakończyć synchronizację ekranu, użyj centrum sterowania › Synchronizacja ekranu › Zatrzymaj synchronizację."
     ],
     [
-     "Czy MirrorGo wymaga Apple TV?",
-     "Nie. Apple TV to jedna z opcji; MirrorGo działa też z telewizorami Samsung, LG, Roku, Google TV, Fire TV i każdą przeglądarką – bez AirPlay."
+     "Czy All TV Kit wymaga Apple TV?",
+     "Nie. Apple TV to jedna z opcji; All TV Kit działa też z telewizorami Samsung, LG, Roku, Google TV, Fire TV i każdą przeglądarką – bez AirPlay."
     ]
    ]
   },
   "browser": {
    "title": "Ekran iPhone’a na dowolnym telewizorze i komputerze (smrr.tv)",
-   "description": "Dubluj ekran iPhone’a na Smart TV, PC, Macu lub tablecie z przeglądarką: otwórz smrr.tv, wpisz 6-cyfrowy kod w MirrorGo, gotowe. Bez aplikacji na TV i komputerze.",
+   "description": "Dubluj ekran iPhone’a na Smart TV, PC, Macu lub tablecie z przeglądarką: otwórz smrr.tv, wpisz 6-cyfrowy kod w All TV Kit, gotowe. Bez aplikacji na TV i komputerze.",
    "h1": "Dubluj ekran iPhone’a na dowolnym ekranie z przeglądarką",
-   "lead": "Każdy telewizor, komputer lub tablet z przeglądarką internetową może wyświetlić ekran iPhone’a – nawet telewizor, którego MirrorGo nie znajduje. Otwórz na nim smrr.tv, wpisz kod w MirrorGo i Twój ekran jest na miejscu, z dźwiękiem.",
+   "lead": "Każdy telewizor, komputer lub tablet z przeglądarką internetową może wyświetlić ekran iPhone’a – nawet telewizor, którego All TV Kit nie znajduje. Otwórz na nim smrr.tv, wpisz kod w All TV Kit i Twój ekran jest na miejscu, z dźwiękiem.",
    "steps": [
     "Na telewizorze lub komputerze otwórz smrr.tv w przeglądarce. Strona wyświetli 6-cyfrowy kod i kod QR.",
-    "W MirrorGo otwórz listę telewizorów i stuknij Dubluj w przeglądarce.",
+    "W All TV Kit otwórz listę telewizorów i stuknij Dubluj w przeglądarce.",
     "Wpisz kod lub zeskanuj kod QR.",
     "Otwórz Dublowanie ekranu, stuknij Rozpocznij dublowanie, a potem Rozpocznij udostępnianie (przed iOS 26: Rozpocznij transmisję)."
    ],
@@ -1218,14 +1238,14 @@
      "Wskazówki",
      [
       "Nie zamykaj strony smrr.tv podczas dublowania. Po odświeżeniu połączy się ponownie sama.",
-      "Dla telewizora LG lub Samsung w pobliżu przycisk „Otwórz na…” w MirrorGo sam otworzy przeglądarkę telewizora."
+      "Dla telewizora LG lub Samsung w pobliżu przycisk „Otwórz na…” w All TV Kit sam otworzy przeglądarkę telewizora."
      ]
     ]
    ],
    "faq": [
     [
      "Czy muszę coś instalować na telewizorze lub komputerze?",
-     "Nie, wystarczy przeglądarka. Otwórz smrr.tv i wpisz wyświetlony kod w MirrorGo."
+     "Nie, wystarczy przeglądarka. Otwórz smrr.tv i wpisz wyświetlony kod w All TV Kit."
     ],
     [
      "Czy ktoś inny może zobaczyć mój ekran dzięki mojemu kodowi?",
@@ -1239,11 +1259,11 @@
    "label": "Łączenie",
    "title": "Jak połączyć iPhone’a z {inst}",
    "h1": "Jak połączyć iPhone’a z {inst}",
-   "lead": "Połączenie iPhone’a z {inst} za pomocą MirrorGo zajmuje kilka sekund: oba urządzenia w tej samej sieci Wi-Fi, wybierasz telewizor, gotowe. Na telewizorze nic nie trzeba instalować, a MirrorGo zapamięta go na następny raz.",
-   "shot_alt": "Ekran główny MirrorGo z przyciskiem Połącz z telewizorem",
+   "lead": "Połączenie iPhone’a z {inst} za pomocą All TV Kit zajmuje kilka sekund: oba urządzenia w tej samej sieci Wi-Fi, wybierasz telewizor, gotowe. Na telewizorze nic nie trzeba instalować, a All TV Kit zapamięta go na następny raz.",
+   "shot_alt": "Ekran główny All TV Kit z przyciskiem Połącz z telewizorem",
    "tips": [
     "Telefon i telewizor muszą być w tej samej sieci Wi-Fi, nie w sieci dla gości.",
-    "MirrorGo potrzebuje dostępu do sieci lokalnej (iOS pyta o niego za pierwszym razem). Jeśli odmówiono: Ustawienia › MirrorGo › Sieć lokalna.",
+    "All TV Kit potrzebuje dostępu do sieci lokalnej (iOS pyta o niego za pierwszym razem). Jeśli odmówiono: Ustawienia › All TV Kit › Sieć lokalna.",
     "Na czas przesyłania wyłącz VPN na telefonie.",
     "Nie widać żadnego telewizora? Każdy telewizor z przeglądarką działa przez smrr.tv."
    ]
@@ -1252,18 +1272,18 @@
    "label": "Zdjęcia i filmy",
    "title": "Jak przesłać zdjęcia i filmy z iPhone’a do {gen}",
    "h1": "Jak przesłać zdjęcia i filmy z iPhone’a do {gen}",
-   "lead": "Z MirrorGo pokażesz zdjęcia i filmy z biblioteki iPhone’a {on}, w pełnej jakości, i przejrzysz je na telefonie, a ekran będzie za nim podążał.",
-   "shot_alt": "Przesyłanie zdjęcia z biblioteki iPhone’a za pomocą MirrorGo",
+   "lead": "Z All TV Kit pokażesz zdjęcia i filmy z biblioteki iPhone’a {on}, w pełnej jakości, i przejrzysz je na telefonie, a ekran będzie za nim podążał.",
+   "shot_alt": "Przesyłanie zdjęcia z biblioteki iPhone’a za pomocą All TV Kit",
    "steps": [
-    "Połącz MirrorGo z {inst}.",
-    "Na ekranie głównym MirrorGo stuknij Zdjęcia i filmy i zezwól na dostęp do zdjęć.",
+    "Połącz All TV Kit z {inst}.",
+    "Na ekranie głównym All TV Kit stuknij Zdjęcia i filmy i zezwól na dostęp do zdjęć.",
     "U góry wybierz Filmy lub Zdjęcia, a potem stuknij to, które chcesz pokazać.",
     "Stuknij Rozpocznij przesyłanie. Po chwili pojawi się na ekranie.",
     "Przesuwaj pasek pod podglądem: ekran podąża za telefonem. Filmy odtwarzasz, wstrzymujesz i przewijasz z telefonu."
    ],
    "tips": [
     "Autoodtwarzanie (przycisk na początku paska) włącza pokaz slajdów: od 5 do 30 sekund na zdjęcie, filmy do końca, a Powtarzaj zaczyna od nowa.",
-    "Przy ograniczonym dostępie do zdjęć widać tylko te, które wybrano. Aby pokazać wszystkie: Ustawienia › MirrorGo › Zdjęcia › Pełny dostęp.",
+    "Przy ograniczonym dostępie do zdjęć widać tylko te, które wybrano. Aby pokazać wszystkie: Ustawienia › All TV Kit › Zdjęcia › Pełny dostęp.",
     "Twoje zdjęcia i filmy trafiają z iPhone’a na telewizor przez Twoją sieć Wi-Fi. Nie są nigdzie wysyłane.",
     "Przesyłanie kończy się, gdy zamkniesz ekran."
    ]
@@ -1272,11 +1292,11 @@
    "label": "Obrazy z sieci",
    "title": "Jak wyświetlić darmowe obrazy {on} z iPhone’a",
    "h1": "Jak wyświetlić piękne darmowe obrazy {on}",
-   "lead": "MirrorGo przeszukuje miliony darmowych obrazów na otwartych licencjach z Wikimedia Commons (krajobrazy, kosmos, miasta, zwierzęta, sztuka) i wyświetla je na pełnym ekranie {on}, jeden po drugim lub jako pokaz slajdów.",
-   "shot_alt": "Krajobraz z Wikimedia Commons gotowy do przesłania z MirrorGo",
+   "lead": "All TV Kit przeszukuje miliony darmowych obrazów na otwartych licencjach z Wikimedia Commons (krajobrazy, kosmos, miasta, zwierzęta, sztuka) i wyświetla je na pełnym ekranie {on}, jeden po drugim lub jako pokaz slajdów.",
+   "shot_alt": "Krajobraz z Wikimedia Commons gotowy do przesłania z All TV Kit",
    "steps": [
-    "Połącz MirrorGo z {inst}.",
-    "Na ekranie głównym MirrorGo stuknij Obrazy z sieci.",
+    "Połącz All TV Kit z {inst}.",
+    "Na ekranie głównym All TV Kit stuknij Obrazy z sieci.",
     "Wyszukaj cokolwiek albo stuknij temat: Przyroda, Kosmos, Miasta, Zwierzęta, Ocean, Góry, Sztuka, Kwiaty.",
     "Stuknij obraz, a potem Rozpocznij przesyłanie.",
     "Przesuń do następnego obrazu, a ekran podąży za Tobą, albo włącz pokaz slajdów."
@@ -1291,11 +1311,11 @@
    "label": "Telewizja na żywo (IPTV)",
    "title": "Darmowa telewizja IPTV {on} z iPhone’a",
    "h1": "Jak oglądać darmowe kanały TV na żywo {on}",
-   "lead": "MirrorGo ma ponad 9000 darmowych, publicznych kanałów TV na żywo z ponad 180 krajów (wiadomości, sport, filmy, muzyka, programy dla dzieci i nie tylko) i odtwarza je {on} jednym stuknięciem. Możesz też dodać własne playlisty M3U.",
-   "shot_alt": "Ekran IPTV w MirrorGo: playlisty, kategorie i kraje",
+   "lead": "All TV Kit ma ponad 9000 darmowych, publicznych kanałów TV na żywo z ponad 180 krajów (wiadomości, sport, filmy, muzyka, programy dla dzieci i nie tylko) i odtwarza je {on} jednym stuknięciem. Możesz też dodać własne playlisty M3U.",
+   "shot_alt": "Ekran IPTV w All TV Kit: playlisty, kategorie i kraje",
    "steps": [
-    "Połącz MirrorGo z {inst}.",
-    "Na ekranie głównym MirrorGo stuknij IPTV.",
+    "Połącz All TV Kit z {inst}.",
+    "Na ekranie głównym All TV Kit stuknij IPTV.",
     "Wybierz kraj lub kategorię albo wyszukaj kanał po nazwie.",
     "Stuknij kanał: włączy się na ekranie. Stuknij inny, aby przełączyć.",
     "Stuknij ☆, aby dodać kanał do Ulubionych; stuknij +, aby dodać link do playlisty M3U."
@@ -1310,11 +1330,11 @@
    "label": "YouTube",
    "title": "Jak przesłać YouTube z iPhone’a do {gen}",
    "h1": "Jak przesłać YouTube z iPhone’a do {gen}",
-   "lead": "Znajdź film z YouTube w MirrorGo i stuknij Prześlij na TV: {nom} odtworzy go samodzielnie, w pełnej jakości, od tego samego momentu, a telefon pozostaje wolny.",
-   "shot_alt": "Wyszukiwanie filmu z YouTube do przesłania w MirrorGo",
+   "lead": "Znajdź film z YouTube w All TV Kit i stuknij Prześlij na TV: {nom} odtworzy go samodzielnie, w pełnej jakości, od tego samego momentu, a telefon pozostaje wolny.",
+   "shot_alt": "Wyszukiwanie filmu z YouTube do przesłania w All TV Kit",
    "steps": [
-    "Połącz MirrorGo z {inst}.",
-    "Na ekranie głównym MirrorGo stuknij YouTube.",
+    "Połącz All TV Kit z {inst}.",
+    "Na ekranie głównym All TV Kit stuknij YouTube.",
     "Wybierz temat (Muzyka, Wiadomości, Sport, Na żywo…) lub wyszukaj i otwórz film.",
     "Stuknij Prześlij na TV. Film zacznie się na ekranie od tego samego momentu."
    ],
@@ -1327,30 +1347,30 @@
    "label": "Filmy z sieci",
    "title": "Jak przesłać filmy ze stron do {gen} z iPhone’a",
    "h1": "Jak przesyłać filmy ze stron internetowych do {gen}",
-   "lead": "Otwórz stronę w MirrorGo, włącz film i stuknij Prześlij na TV: MirrorGo znajdzie film (nie reklamę), a {nom} odtworzy go w pełnej jakości, podczas gdy Ty przeglądasz dalej.",
-   "shot_alt": "Przeglądarka filmów z sieci w MirrorGo z popularnymi stronami",
+   "lead": "Otwórz stronę w All TV Kit, włącz film i stuknij Prześlij na TV: All TV Kit znajdzie film (nie reklamę), a {nom} odtworzy go w pełnej jakości, podczas gdy Ty przeglądasz dalej.",
+   "shot_alt": "Przeglądarka filmów z sieci w All TV Kit z popularnymi stronami",
    "steps": [
-    "Połącz MirrorGo z {inst}.",
-    "Na ekranie głównym MirrorGo stuknij Filmy z sieci.",
+    "Połącz All TV Kit z {inst}.",
+    "Na ekranie głównym All TV Kit stuknij Filmy z sieci.",
     "Otwórz stronę ze skrótów albo wpisz jej adres.",
-    "Włącz film na stronie. Przycisk Prześlij na TV uaktywni się, gdy MirrorGo go znajdzie.",
+    "Włącz film na stronie. Przycisk Prześlij na TV uaktywni się, gdy All TV Kit go znajdzie.",
     "Stuknij Prześlij na TV. Jeśli znaleziono kilka filmów, wybierz właściwy („1 z 3”)."
    ],
    "tips": [
-    "MirrorGo blokuje sieci reklamowe i nigdy nie przesyła bardzo krótkich klipów, więc reklamy nie trafiają na telewizor.",
+    "All TV Kit blokuje sieci reklamowe i nigdy nie przesyła bardzo krótkich klipów, więc reklamy nie trafiają na telewizor.",
     "Filmów ze stron, które je chronią (Netflix, Prime Video, Disney+), nie da się przesłać.",
-    "Nie zamykaj MirrorGo podczas odtwarzania. Przeglądanie jest prywatne: bez historii, plików cookie i pamięci podręcznej."
+    "Nie zamykaj All TV Kit podczas odtwarzania. Przeglądanie jest prywatne: bez historii, plików cookie i pamięci podręcznej."
    ]
   },
   "camera": {
    "label": "Kamera",
    "title": "Jak pokazać obraz z kamery iPhone’a na żywo {on}",
    "h1": "Jak pokazać na żywo obraz z kamery iPhone’a {on}",
-   "lead": "MirrorGo zmienia iPhone’a w kamerę na żywo dla {gen}: pokaż pokój, tablicę, dokument, swojego pupila albo siebie – przednią lub tylną kamerą.",
-   "shot_alt": "Ekran główny MirrorGo z kafelkiem Kamera",
+   "lead": "All TV Kit zmienia iPhone’a w kamerę na żywo dla {gen}: pokaż pokój, tablicę, dokument, swojego pupila albo siebie – przednią lub tylną kamerą.",
+   "shot_alt": "Ekran główny All TV Kit z kafelkiem Kamera",
    "steps": [
-    "Połącz MirrorGo z {inst}.",
-    "Na ekranie głównym MirrorGo stuknij Kamera i zezwól na dostęp do aparatu.",
+    "Połącz All TV Kit z {inst}.",
+    "Na ekranie głównym All TV Kit stuknij Kamera i zezwól na dostęp do aparatu.",
     "Wybierz przednią lub tylną kamerę i włącz Dźwięk, jeśli chcesz przesyłać też dźwięk z mikrofonu.",
     "Stuknij Rozpocznij przesyłanie. Na ekranie pojawi się to, co widzi kamera, wypoziomowane z horyzontem."
    ],
@@ -1372,20 +1392,20 @@
    },
    "connect": [
     "Włącz telewizor Samsung i połącz iPhone’a z tą samą siecią Wi-Fi.",
-    "Otwórz MirrorGo i stuknij Połącz z telewizorem. Twój telewizor Samsung pojawi się na liście pod swoją nazwą.",
-    "Stuknij go. Za pierwszym razem telewizor zapyta, czy zezwolić MirrorGo: wybierz pilotem Zezwól.",
-    "Połączono. MirrorGo zapamiętuje telewizor, a telewizor zapamiętuje MirrorGo, więc pytanie nie pojawi się ponownie."
+    "Otwórz All TV Kit i stuknij Połącz z telewizorem. Twój telewizor Samsung pojawi się na liście pod swoją nazwą.",
+    "Stuknij go. Za pierwszym razem telewizor zapyta, czy zezwolić All TV Kit: wybierz pilotem Zezwól.",
+    "Połączono. All TV Kit zapamiętuje telewizor, a telewizor zapamiętuje All TV Kit, więc pytanie nie pojawi się ponownie."
    ],
    "connect_notes": [
-    "MirrorGo działa z telewizorami Samsung Smart TV od 2016 roku (Tizen). Łączy się z funkcją zdalnego sterowania telewizora i jego wbudowanym odtwarzaczem multimediów, więc na telewizorze nie trzeba niczego instalować.",
-    "Przez pomyłkę wybrano Odmów? Telewizor to zapamiętuje. Na telewizorze otwórz Ustawienia › Ogólne › Menedżer urządzeń zewnętrznych › Menedżer połączeń urządzeń › Lista urządzeń (Settings › General › External Device Manager › Device Connection Manager › Device List), a następnie zezwól MirrorGo albo usuń go z listy, aby telewizor zapytał ponownie."
+    "All TV Kit działa z telewizorami Samsung Smart TV od 2016 roku (Tizen). Łączy się z funkcją zdalnego sterowania telewizora i jego wbudowanym odtwarzaczem multimediów, więc na telewizorze nie trzeba niczego instalować.",
+    "Przez pomyłkę wybrano Odmów? Telewizor to zapamiętuje. Na telewizorze otwórz Ustawienia › Ogólne › Menedżer urządzeń zewnętrznych › Menedżer połączeń urządzeń › Lista urządzeń (Settings › General › External Device Manager › Device Connection Manager › Device List), a następnie zezwól All TV Kit albo usuń go z listy, aby telewizor zapytał ponownie."
    ],
-   "photos": "Telewizor Samsung odtwarza je we własnym odtwarzaczu multimediów: MirrorGo udostępnia każde zdjęcie i film z iPhone’a przez Twoją sieć Wi-Fi, a telewizor je pobiera, więc filmy grają w pełnej jakości, z dźwiękiem telewizora. Filmy z iPhone’a w HEVC idą bez zmian; jeśli telewizor nie może któregoś odtworzyć, MirrorGo wysyła go jako H.264 i zapamiętuje to na następny raz.",
+   "photos": "Telewizor Samsung odtwarza je we własnym odtwarzaczu multimediów: All TV Kit udostępnia każde zdjęcie i film z iPhone’a przez Twoją sieć Wi-Fi, a telewizor je pobiera, więc filmy grają w pełnej jakości, z dźwiękiem telewizora. Filmy z iPhone’a w HEVC idą bez zmian; jeśli telewizor nie może któregoś odtworzyć, All TV Kit wysyła go jako H.264 i zapamiętuje to na następny raz.",
    "images": "Obrazy wyświetlają się we wbudowanym odtwarzaczu telewizora, dopasowane do jego ekranu.",
-   "iptv": "Telewizor Samsung najpierw dostaje strumień kanału do samodzielnego odtworzenia. Jeśli po kilku sekundach nic nie gra, MirrorGo przekazuje strumień przez iPhone’a i zapamiętuje, że Twój telewizor tego potrzebuje; telefon może być zablokowany, ale musi zostać w sieci Wi-Fi.",
-   "youtube": "Na telewizorze Samsung film otwiera się w aplikacji YouTube na telewizorze, którą MirrorGo steruje tak jak aplikacja YouTube na telefon – od momentu, w którym oglądanie zostało przerwane.",
+   "iptv": "Telewizor Samsung najpierw dostaje strumień kanału do samodzielnego odtworzenia. Jeśli po kilku sekundach nic nie gra, All TV Kit przekazuje strumień przez iPhone’a i zapamiętuje, że Twój telewizor tego potrzebuje; telefon może być zablokowany, ale musi zostać w sieci Wi-Fi.",
+   "youtube": "Na telewizorze Samsung film otwiera się w aplikacji YouTube na telewizorze, którą All TV Kit steruje tak jak aplikacja YouTube na telefon – od momentu, w którym oglądanie zostało przerwane.",
    "webvideos": "Odtwarzacz Samsunga dostaje film jako jeden ciągły strumień przez iPhone’a, z wplecionymi przerwami reklamowymi strony, więc gra od początku do końca; przewinięcie na telefonie uruchamia go od nowa w tym miejscu.",
-   "camera": "Z dźwiękiem: włącz Dźwięk przed rozpoczęciem, a MirrorGo doda dźwięk z mikrofonu."
+   "camera": "Z dźwiękiem: włącz Dźwięk przed rozpoczęciem, a All TV Kit doda dźwięk z mikrofonu."
   },
   "lg": {
    "forms": {
@@ -1398,19 +1418,19 @@
    },
    "connect": [
     "Włącz telewizor LG i połącz iPhone’a z tą samą siecią Wi-Fi.",
-    "Otwórz MirrorGo i stuknij Połącz z telewizorem. Twój telewizor LG pojawi się na liście pod swoją nazwą.",
-    "Stuknij go. Za pierwszym razem telewizor zapyta, czy zezwolić MirrorGo: wybierz pilotem Zezwól (lub Tak).",
-    "Połączono. MirrorGo zachowuje klucz telewizora, więc następnym razem połączy się od razu."
+    "Otwórz All TV Kit i stuknij Połącz z telewizorem. Twój telewizor LG pojawi się na liście pod swoją nazwą.",
+    "Stuknij go. Za pierwszym razem telewizor zapyta, czy zezwolić All TV Kit: wybierz pilotem Zezwól (lub Tak).",
+    "Połączono. All TV Kit zachowuje klucz telewizora, więc następnym razem połączy się od razu."
    ],
    "connect_notes": [
-    "MirrorGo działa z telewizorami LG Smart TV z systemem webOS. Na telewizorze nic nie jest instalowane: MirrorGo komunikuje się z nim tak jak aplikacje mobilne LG.",
+    "All TV Kit działa z telewizorami LG Smart TV z systemem webOS. Na telewizorze nic nie jest instalowane: All TV Kit komunikuje się z nim tak jak aplikacje mobilne LG.",
     "Komunikat zniknął albo wybrano Odmów? Po prostu połącz się jeszcze raz, a telewizor zapyta ponownie. Na starszych telewizorach LG najpierw włącz LG Connect Apps w ustawieniach sieci telewizora."
    ],
-   "photos": "Na telewizorze LG MirrorGo najpierw odtwarza je w przeglądarce telewizora, którą sam otwiera i która obsługuje najwięcej rodzajów wideo. Po kilku sekundach pyta „Czy odtwarza się na telewizorze?”: stuknij Nie, a zamknie przeglądarkę i użyje wbudowanego odtwarzacza telewizora. Tak czy inaczej zdjęcia i filmy idą przez Twoją sieć Wi-Fi, nie przez internet.",
-   "images": "MirrorGo otwiera przeglądarkę telewizora, która wczytuje obraz bezpośrednio z Wikimedia Commons w pełnej rozdzielczości. Jeśli nic się nie pojawi, stuknij Nie, gdy MirrorGo zapyta „Czy odtwarza się na telewizorze?”, a użyje wbudowanego odtwarzacza telewizora.",
-   "iptv": "Kanał gra w przeglądarce telewizora LG, która radzi sobie z tym, czego nie obsługuje odtwarzacz LG: przerwami reklamowymi w darmowych kanałach, osobną ścieżką dźwiękową i szyfrowanymi strumieniami. Jeśli kanał nie gra, stuknij Nie, gdy MirrorGo zapyta „Czy odtwarza się na telewizorze?”, a spróbuje odtwarzacza telewizora.",
+   "photos": "Na telewizorze LG All TV Kit najpierw odtwarza je w przeglądarce telewizora, którą sam otwiera i która obsługuje najwięcej rodzajów wideo. Po kilku sekundach pyta „Czy odtwarza się na telewizorze?”: stuknij Nie, a zamknie przeglądarkę i użyje wbudowanego odtwarzacza telewizora. Tak czy inaczej zdjęcia i filmy idą przez Twoją sieć Wi-Fi, nie przez internet.",
+   "images": "All TV Kit otwiera przeglądarkę telewizora, która wczytuje obraz bezpośrednio z Wikimedia Commons w pełnej rozdzielczości. Jeśli nic się nie pojawi, stuknij Nie, gdy All TV Kit zapyta „Czy odtwarza się na telewizorze?”, a użyje wbudowanego odtwarzacza telewizora.",
+   "iptv": "Kanał gra w przeglądarce telewizora LG, która radzi sobie z tym, czego nie obsługuje odtwarzacz LG: przerwami reklamowymi w darmowych kanałach, osobną ścieżką dźwiękową i szyfrowanymi strumieniami. Jeśli kanał nie gra, stuknij Nie, gdy All TV Kit zapyta „Czy odtwarza się na telewizorze?”, a spróbuje odtwarzacza telewizora.",
    "youtube": "Na telewizorze LG film otwiera się w aplikacji YouTube na telewizorze, od momentu, w którym oglądanie zostało przerwane.",
-   "webvideos": "MirrorGo otwiera przeglądarkę telewizora i wysyła do niej link do filmu. Jeśli strona odtwarza go tylko z plikami cookie z telefonu, iPhone przesyła film na telewizor sam.",
+   "webvideos": "All TV Kit otwiera przeglądarkę telewizora i wysyła do niej link do filmu. Jeśli strona odtwarza go tylko z plikami cookie z telefonu, iPhone przesyła film na telewizor sam.",
    "camera": "Obraz z kamery najpierw pojawia się w przeglądarce telewizora, z tym samym pytaniem „Czy odtwarza się na telewizorze?”; Nie przełącza na wbudowany odtwarzacz telewizora."
   },
   "roku": {
@@ -1424,14 +1444,14 @@
    },
    "connect": [
     "Włącz telewizor Roku TV lub odtwarzacz Roku i połącz iPhone’a z tą samą siecią Wi-Fi.",
-    "Otwórz MirrorGo i stuknij Połącz z telewizorem. Twoje Roku pojawi się na liście pod swoją nazwą.",
+    "Otwórz All TV Kit i stuknij Połącz z telewizorem. Twoje Roku pojawi się na liście pod swoją nazwą.",
     "Stuknij je, aby się połączyć. Bez wpisywania kodu.",
-    "Połączono. MirrorGo zapamiętuje Twoje Roku na następny raz."
+    "Połączono. All TV Kit zapamiętuje Twoje Roku na następny raz."
    ],
    "connect_notes": [
-    "MirrorGo działa z telewizorami Roku TV (TCL, Hisense, Sharp, Philips i inne modele z Roku TV) oraz odtwarzaczami Roku: Roku Express, Streaming Stick i Ultra.",
+    "All TV Kit działa z telewizorami Roku TV (TCL, Hisense, Sharp, Philips i inne modele z Roku TV) oraz odtwarzaczami Roku: Roku Express, Streaming Stick i Ultra.",
     "Roku nie ma na liście? Na Roku otwórz Ustawienia › System › Zaawansowane ustawienia systemu › Sterowanie przez aplikacje mobilne (Settings › System › Advanced system settings › Control by mobile apps) i ustaw Dostęp do sieci (Network access) na Domyślny (Default).",
-    "Na Roku MirrorGo dubluje ekran z dźwiękiem we wbudowanym odtwarzaczu Roku. Zdjęć, filmów, obrazu z kamery, YouTube i telewizji na żywo nie można jeszcze przesyłać na Roku."
+    "Na Roku All TV Kit dubluje ekran z dźwiękiem we wbudowanym odtwarzaczu Roku. Zdjęć, filmów, obrazu z kamery, YouTube i telewizji na żywo nie można jeszcze przesyłać na Roku."
    ]
   },
   "googletv": {
@@ -1445,20 +1465,20 @@
    },
    "connect": [
     "Włącz Google TV i połącz iPhone’a z tą samą siecią Wi-Fi.",
-    "Otwórz MirrorGo i stuknij Połącz z telewizorem. Telewizor pojawi się na liście pod nazwą nadaną w Google Home (np. Telewizor w salonie).",
+    "Otwórz All TV Kit i stuknij Połącz z telewizorem. Telewizor pojawi się na liście pod nazwą nadaną w Google Home (np. Telewizor w salonie).",
     "Stuknij go, aby się połączyć. Bez kodu i bez komunikatu na telewizorze.",
-    "Połączono. Następnym razem MirrorGo połączy się z nim ponownie."
+    "Połączono. Następnym razem All TV Kit połączy się z nim ponownie."
    ],
    "connect_notes": [
-    "Google TV ma wbudowany Chromecast i właśnie przez niego MirrorGo się z nim komunikuje: na telewizorach Sony, TCL, Hisense i Philips z Google TV, Chromecaście z Google TV i Google TV Streamer.",
-    "Nie ma go na liście? Wybudź telewizor całkowicie (nie tryb czuwania) i sprawdź, czy jest w tej samej sieci Wi-Fi co telefon i czy MirrorGo ma dostęp do sieci lokalnej."
+    "Google TV ma wbudowany Chromecast i właśnie przez niego All TV Kit się z nim komunikuje: na telewizorach Sony, TCL, Hisense i Philips z Google TV, Chromecaście z Google TV i Google TV Streamer.",
+    "Nie ma go na liście? Wybudź telewizor całkowicie (nie tryb czuwania) i sprawdź, czy jest w tej samej sieci Wi-Fi co telefon i czy All TV Kit ma dostęp do sieci lokalnej."
    ],
-   "photos": "Zdjęcia trafiają na telewizor przez Twoją sieć Wi-Fi jako obrazy na pełnym ekranie; filmy grają w odtwarzaczu MirrorGo na telewizorze, a odtwarzasz, wstrzymujesz i przewijasz je z telefonu.",
+   "photos": "Zdjęcia trafiają na telewizor przez Twoją sieć Wi-Fi jako obrazy na pełnym ekranie; filmy grają w odtwarzaczu All TV Kit na telewizorze, a odtwarzasz, wstrzymujesz i przewijasz je z telefonu.",
    "images": "Obrazy wyświetlają się na pełnym ekranie przez wbudowany w telewizor Chromecast.",
    "iptv": "Telewizor sam pobiera kanał, więc gra on dalej, nawet gdy telefon jest zablokowany lub poza pokojem.",
-   "youtube": "Film gra w odtwarzaczu YouTube w aplikacji MirrorGo na telewizorze, od momentu, w którym oglądanie zostało przerwane.",
-   "webvideos": "Telewizor odtwarza film przez MirrorGo, które przekazuje wideo ze strony z telefonu; nie zamykaj MirrorGo podczas odtwarzania.",
-   "camera": "Z dźwiękiem: włącz Dźwięk przed rozpoczęciem, a MirrorGo doda dźwięk z mikrofonu."
+   "youtube": "Film gra w odtwarzaczu YouTube w aplikacji All TV Kit na telewizorze, od momentu, w którym oglądanie zostało przerwane.",
+   "webvideos": "Telewizor odtwarza film przez All TV Kit, które przekazuje wideo ze strony z telefonu; nie zamykaj All TV Kit podczas odtwarzania.",
+   "camera": "Z dźwiękiem: włącz Dźwięk przed rozpoczęciem, a All TV Kit doda dźwięk z mikrofonu."
   },
   "androidtv": {
    "forms": {
@@ -1471,20 +1491,20 @@
    },
    "connect": [
     "Włącz Android TV i połącz iPhone’a z tą samą siecią Wi-Fi.",
-    "Otwórz MirrorGo i stuknij Połącz z telewizorem. Telewizor pojawi się na liście pod swoją nazwą Chromecast.",
+    "Otwórz All TV Kit i stuknij Połącz z telewizorem. Telewizor pojawi się na liście pod swoją nazwą Chromecast.",
     "Stuknij go, aby się połączyć. Bez kodu i bez komunikatu na telewizorze.",
-    "Połączono. Następnym razem MirrorGo połączy się z nim ponownie."
+    "Połączono. Następnym razem All TV Kit połączy się z nim ponownie."
    ],
    "connect_notes": [
-    "Prawie każde urządzenie z Android TV ma wbudowany Chromecast i przez niego MirrorGo komunikuje się z telewizorem: Sony BRAVIA, Philips, Xiaomi, TCL, Sharp, Mi Box, Xiaomi TV Stick i NVIDIA SHIELD.",
-    "Nie ma go na liście? Wybudź telewizor całkowicie (nie tryb czuwania) i sprawdź, czy jest w tej samej sieci Wi-Fi co telefon i czy MirrorGo ma dostęp do sieci lokalnej."
+    "Prawie każde urządzenie z Android TV ma wbudowany Chromecast i przez niego All TV Kit komunikuje się z telewizorem: Sony BRAVIA, Philips, Xiaomi, TCL, Sharp, Mi Box, Xiaomi TV Stick i NVIDIA SHIELD.",
+    "Nie ma go na liście? Wybudź telewizor całkowicie (nie tryb czuwania) i sprawdź, czy jest w tej samej sieci Wi-Fi co telefon i czy All TV Kit ma dostęp do sieci lokalnej."
    ],
-   "photos": "Zdjęcia trafiają na telewizor przez Twoją sieć Wi-Fi jako obrazy na pełnym ekranie; filmy grają w odtwarzaczu MirrorGo na telewizorze, a odtwarzasz, wstrzymujesz i przewijasz je z telefonu.",
+   "photos": "Zdjęcia trafiają na telewizor przez Twoją sieć Wi-Fi jako obrazy na pełnym ekranie; filmy grają w odtwarzaczu All TV Kit na telewizorze, a odtwarzasz, wstrzymujesz i przewijasz je z telefonu.",
    "images": "Obrazy wyświetlają się na pełnym ekranie przez wbudowany w telewizor Chromecast.",
    "iptv": "Telewizor sam pobiera kanał, więc gra on dalej, nawet gdy telefon jest zablokowany lub poza pokojem.",
-   "youtube": "Film gra w odtwarzaczu YouTube w aplikacji MirrorGo na telewizorze, od momentu, w którym oglądanie zostało przerwane.",
-   "webvideos": "Telewizor odtwarza film przez MirrorGo, które przekazuje wideo ze strony z telefonu; nie zamykaj MirrorGo podczas odtwarzania.",
-   "camera": "Z dźwiękiem: włącz Dźwięk przed rozpoczęciem, a MirrorGo doda dźwięk z mikrofonu."
+   "youtube": "Film gra w odtwarzaczu YouTube w aplikacji All TV Kit na telewizorze, od momentu, w którym oglądanie zostało przerwane.",
+   "webvideos": "Telewizor odtwarza film przez All TV Kit, które przekazuje wideo ze strony z telefonu; nie zamykaj All TV Kit podczas odtwarzania.",
+   "camera": "Z dźwiękiem: włącz Dźwięk przed rozpoczęciem, a All TV Kit doda dźwięk z mikrofonu."
   },
   "chromecast": {
    "forms": {
@@ -1497,20 +1517,20 @@
    },
    "connect": [
     "Włącz telewizor, do którego podłączony jest Chromecast, i połącz iPhone’a z tą samą siecią Wi-Fi.",
-    "Otwórz MirrorGo i stuknij Połącz z telewizorem. Chromecast pojawi się na liście pod nazwą z Google Home.",
+    "Otwórz All TV Kit i stuknij Połącz z telewizorem. Chromecast pojawi się na liście pod nazwą z Google Home.",
     "Stuknij go, aby się połączyć. Bez kodu, aplikacja Google Home nie jest potrzebna.",
-    "Połączono. Następnym razem MirrorGo połączy się z nim ponownie."
+    "Połączono. Następnym razem All TV Kit połączy się z nim ponownie."
    ],
    "connect_notes": [
     "Działa każdy Chromecast, z Google TV lub bez, a także telewizory z wbudowanym Chromecastem, np. VIZIO SmartCast.",
-    "Nie ma go na liście? Sprawdź, czy Chromecast jest w tej samej sieci Wi-Fi co telefon (nie w sieci dla gości) i czy MirrorGo ma dostęp do sieci lokalnej w Ustawieniach."
+    "Nie ma go na liście? Sprawdź, czy Chromecast jest w tej samej sieci Wi-Fi co telefon (nie w sieci dla gości) i czy All TV Kit ma dostęp do sieci lokalnej w Ustawieniach."
    ],
-   "photos": "Zdjęcia trafiają na telewizor przez Twoją sieć Wi-Fi jako obrazy na pełnym ekranie; filmy grają w odtwarzaczu MirrorGo na Chromecaście, a odtwarzasz, wstrzymujesz i przewijasz je z telefonu.",
+   "photos": "Zdjęcia trafiają na telewizor przez Twoją sieć Wi-Fi jako obrazy na pełnym ekranie; filmy grają w odtwarzaczu All TV Kit na Chromecaście, a odtwarzasz, wstrzymujesz i przewijasz je z telefonu.",
    "images": "Obrazy wyświetlają się na pełnym ekranie przez Chromecast.",
    "iptv": "Chromecast sam pobiera kanał, więc gra on dalej, nawet gdy telefon jest zablokowany.",
-   "youtube": "Film gra w odtwarzaczu YouTube w aplikacji MirrorGo na Chromecaście, od momentu, w którym oglądanie zostało przerwane.",
-   "webvideos": "Chromecast odtwarza film przez MirrorGo, które przekazuje wideo ze strony z telefonu; nie zamykaj MirrorGo podczas odtwarzania.",
-   "camera": "Z dźwiękiem: włącz Dźwięk przed rozpoczęciem, a MirrorGo doda dźwięk z mikrofonu."
+   "youtube": "Film gra w odtwarzaczu YouTube w aplikacji All TV Kit na Chromecaście, od momentu, w którym oglądanie zostało przerwane.",
+   "webvideos": "Chromecast odtwarza film przez All TV Kit, które przekazuje wideo ze strony z telefonu; nie zamykaj All TV Kit podczas odtwarzania.",
+   "camera": "Z dźwiękiem: włącz Dźwięk przed rozpoczęciem, a All TV Kit doda dźwięk z mikrofonu."
   },
   "firetv": {
    "forms": {
@@ -1523,18 +1543,18 @@
    },
    "connect": [
     "Włącz Fire TV i połącz iPhone’a z tą samą siecią Wi-Fi.",
-    "Otwórz MirrorGo i stuknij Połącz z telewizorem. Twoje Fire TV pojawi się na liście pod swoją nazwą.",
+    "Otwórz All TV Kit i stuknij Połącz z telewizorem. Twoje Fire TV pojawi się na liście pod swoją nazwą.",
     "Stuknij je, aby się połączyć. Bez aplikacji na Fire TV, bez parowania, bez kodu.",
-    "Połączono. Następnym razem MirrorGo połączy się z nim ponownie."
+    "Połączono. Następnym razem All TV Kit połączy się z nim ponownie."
    ],
    "connect_notes": [
-    "Każde Fire TV ma wbudowany odtwarzacz multimediów i MirrorGo z niego korzysta: Fire TV Stick (także 4K i 4K Max), Fire TV Cube i telewizory z wbudowanym Fire TV.",
+    "Każde Fire TV ma wbudowany odtwarzacz multimediów i All TV Kit z niego korzysta: Fire TV Stick (także 4K i 4K Max), Fire TV Cube i telewizory z wbudowanym Fire TV.",
     "Nie ma go na liście? Naciśnij Home na pilocie Fire TV, aby je wybudzić, i sprawdź, czy jest w tej samej sieci Wi-Fi co telefon."
    ],
-   "photos": "Zdjęcia idą jako obrazy, a filmy jako pliki MP4 udostępniane z iPhone’a przez Twoją sieć Wi-Fi. Fire TV nie odtwarza HEVC, domyślnego formatu wideo iPhone’a, więc MirrorGo najpierw konwertuje takie filmy do H.264; długie filmy wymagają chwili.",
+   "photos": "Zdjęcia idą jako obrazy, a filmy jako pliki MP4 udostępniane z iPhone’a przez Twoją sieć Wi-Fi. Fire TV nie odtwarza HEVC, domyślnego formatu wideo iPhone’a, więc All TV Kit najpierw konwertuje takie filmy do H.264; długie filmy wymagają chwili.",
    "images": "Obrazy wyświetlają się na pełnym ekranie we wbudowanym odtwarzaczu Fire TV.",
    "iptv": "Fire TV samo odtwarza strumień kanału, więc gra on dalej bez telefonu.",
-   "webvideos": "Fire TV odtwarza film ze strony przekazywany przez iPhone’a; nie zamykaj MirrorGo podczas odtwarzania.",
+   "webvideos": "Fire TV odtwarza film ze strony przekazywany przez iPhone’a; nie zamykaj All TV Kit podczas odtwarzania.",
    "camera": "Tylko obraz: wbudowany odtwarzacz Fire TV pokazuje obraz z kamery bez dźwięku."
   },
   "airplay": {
@@ -1548,18 +1568,18 @@
    },
    "connect": [
     "Włącz Apple TV lub telewizor z AirPlay i połącz iPhone’a z tą samą siecią Wi-Fi.",
-    "Otwórz MirrorGo, stuknij Połącz z telewizorem, a potem Wybierz urządzenie AirPlay.",
+    "Otwórz All TV Kit, stuknij Połącz z telewizorem, a potem Wybierz urządzenie AirPlay.",
     "Wybierz Apple TV lub telewizor z AirPlay w menu AirPlay systemu iOS. Za pierwszym razem telewizor może wyświetlić kod do wpisania na iPhonie.",
-    "Połączono: MirrorGo pokazuje „Połączono przez AirPlay”. Aby się rozłączyć, otwórz to samo menu i wybierz iPhone."
+    "Połączono: All TV Kit pokazuje „Połączono przez AirPlay”. Aby się rozłączyć, otwórz to samo menu i wybierz iPhone."
    ],
    "connect_notes": [
     "Działa to z Apple TV HD i Apple TV 4K oraz z telewizorami z wbudowanym AirPlay: wieloma modelami Samsung, LG, Sony, VIZIO, TCL i Roku od 2018 roku.",
     "Aby dublować cały ekran na urządzeniu AirPlay, użyj centrum sterowania › Synchronizacja ekranu: Apple nie pozwala aplikacjom tego uruchamiać."
    ],
-   "photos": "Filmy grają przez AirPlay, zdjęcia również: MirrorGo zamienia każde z nich w krótki, nieruchomy film. Przy włączonej Synchronizacji ekranu w centrum sterowania zdjęcia pojawiają się zamiast tego bezpośrednio na telewizorze.",
+   "photos": "Filmy grają przez AirPlay, zdjęcia również: All TV Kit zamienia każde z nich w krótki, nieruchomy film. Przy włączonej Synchronizacji ekranu w centrum sterowania zdjęcia pojawiają się zamiast tego bezpośrednio na telewizorze.",
    "images": "Obrazy idą przez AirPlay jako nieruchome filmy albo prosto na telewizor, gdy w centrum sterowania włączona jest Synchronizacja ekranu.",
    "iptv": "Kanał gra przez AirPlay: Apple TV samo pobiera strumień.",
-   "webvideos": "Film gra przez AirPlay; nie zamykaj MirrorGo podczas odtwarzania.",
+   "webvideos": "Film gra przez AirPlay; nie zamykaj All TV Kit podczas odtwarzania.",
    "camera": "Najpierw włącz Synchronizację ekranu w centrum sterowania: obraz z kamery pojawi się wtedy na całym ekranie telewizora, bez dźwięku."
   },
   "browser": {
@@ -1573,12 +1593,12 @@
    },
    "connect": [
     "Na telewizorze, komputerze lub tablecie otwórz smrr.tv w przeglądarce. Strona wyświetli 6-cyfrowy kod i kod QR.",
-    "W MirrorGo stuknij Połącz z telewizorem, a potem Dubluj w przeglądarce.",
+    "W All TV Kit stuknij Połącz z telewizorem, a potem Dubluj w przeglądarce.",
     "Wpisz kod albo stuknij Skanuj kod QR i skieruj na niego aparat.",
     "Połączono. Zamiast kodu strona pokazuje Twój telefon."
    ],
    "connect_notes": [
-    "Działa każdy ekran z nowoczesną przeglądarką: telewizory Smart TV, których MirrorGo nie znajduje jako telewizorów, komputery z Windows, Maki, Chromebooki i tablety. Dla telewizora LG lub Samsung w pobliżu przycisk „Otwórz na…” sam otworzy jego przeglądarkę.",
+    "Działa każdy ekran z nowoczesną przeglądarką: telewizory Smart TV, których All TV Kit nie znajduje jako telewizorów, komputery z Windows, Maki, Chromebooki i tablety. Dla telewizora LG lub Samsung w pobliżu przycisk „Otwórz na…” sam otworzy jego przeglądarkę.",
     "Telefon i przeglądarka łączą się bezpośrednio, więc muszą być w tej samej sieci Wi-Fi. Nie zamykaj strony; po odświeżeniu połączy się ponownie sama."
    ],
    "photos": "Zdjęcia i filmy trafiają prosto z iPhone’a do przeglądarki przez Twoją sieć Wi-Fi jako strumień na żywo, wypełniając ekran w formacie 16:9, z dźwiękiem filmu.",

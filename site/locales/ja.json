@@ -1,7 +1,7 @@
 {
  "ui": {
   "skip": "コンテンツにスキップ",
-  "home_aria": "MirrorGoホーム",
+  "home_aria": "All TV Kitホーム",
   "menu": "メニュー",
   "language": "言語",
   "nav_features": "機能",
@@ -10,7 +10,7 @@
   "nav_help": "ヘルプ",
   "download": "App Storeからダウンロード",
   "coming_soon": "App Storeで近日公開",
-  "footer_blurb": "iPhone用の画面ミラーリング・キャストアプリ。Samsung、LG、Roku、Google TV、Android TV、Chromecast、Fire TV、Apple TV、そしてあらゆるWebブラウザに対応しています。",
+  "footer_blurb": "iPhone用のテレビリモコン・画面ミラーリング・キャストアプリ。Samsung、LG、Roku、Google TV、Android TV、Chromecast、Fire TV、Apple TV、そしてあらゆるWebブラウザに対応しています。",
   "footer_mirror_to": "ミラーリング先",
   "footer_brands": "テレビのメーカー",
   "footer_support": "サポート",
@@ -24,9 +24,9 @@
   "firetv_app_privacy": "Fire TVアプリ：プライバシー",
   "firetv_app_terms": "利用規約",
   "english_only": "（英語）",
-  "trademarks": "Samsung、LG、Roku、Google TV、Android TV、Chromecast、Fire TV、Apple TV、AirPlay、および記載のテレビブランドは各所有者の商標です。MirrorGoはこれらの企業と提携していません。",
-  "home_title": "MirrorGo：iPhoneをテレビにミラーリング＆キャスト",
-  "home_description": "iPhoneの画面をSamsung、LG、Roku、Google TV、Chromecast、Fire TV、Apple TV、Webブラウザにミラーリング。写真、ビデオ、YouTube、9,000以上のライブTVチャンネルもキャストできます。テレビにアプリは不要です。",
+  "trademarks": "Samsung、LG、Roku、Google TV、Android TV、Chromecast、Fire TV、Apple TV、AirPlay、および記載のテレビブランドは各所有者の商標です。All TV Kitはこれらの企業と提携していません。",
+  "home_title": "All TV Kit：iPhoneでテレビリモコン、ミラーリング＆キャスト",
+  "home_description": "iPhoneをSamsungやLGのテレビのリモコンにして、Samsung、LG、Roku、Google TV、Fire TV、Apple TV、ブラウザに画面をミラーリング。写真、ビデオ、YouTube、ライブTVもキャストできます。",
   "eyebrow": "iPhone用 · テレビにアプリ不要",
   "home_h1": "iPhoneを{big}で",
   "home_h1_big": "大画面",
@@ -34,36 +34,36 @@
   "fine_wifi": "同じWi-Fiで、ケーブル不要",
   "fine_sound": "音声も再生",
   "fine_account": "アカウント不要",
-  "hero_alt": "MirrorGoのホーム画面",
+  "hero_alt": "All TV Kitのホーム画面",
   "live_pill": "ミラーリング中",
   "works_with_tv": "今お使いのテレビで使えます",
   "supported_tvs": "対応テレビ",
   "facts_kicker": "概要",
-  "facts_h2": "MirrorGoとは？",
+  "facts_h2": "All TV Kitとは？",
   "features_kicker": "ひとつのアプリですべて",
-  "features_h2": "ミラーリングも、キャストも",
-  "features_p": "画面全体を映すことも、見ているものだけをフル画質で送ることもできます。その間もiPhoneは自由に使えます。",
+  "features_h2": "操作も、ミラーリングも、キャストも",
+  "features_p": "iPhoneをテレビのリモコンにしたり、画面全体を映したり、見ているものだけをフル画質で送ったりできます。",
   "works_on": "対応：",
   "how_kicker": "使い方",
   "how_h2": "3回タップするだけでテレビに",
   "how_p": "ケーブルもアダプタも不要。テレビに何もインストールする必要はありません。",
   "tvs_kicker": "対応状況",
   "tvs_h2": "お使いのテレビでできること",
-  "tvs_p": "MirrorGoはWi-Fi上のテレビを見つけ、そのテレビで再生できないものはグレー表示にします。",
+  "tvs_p": "All TV KitはWi-Fi上のテレビを見つけ、そのテレビで再生できないものはグレー表示にします。",
   "tvs_foot": "2016年以降のSamsungスマートテレビ · LG webOSテレビ · RokuテレビとRokuプレーヤー · Google TVとAndroid TV（Sony、TCL、Hisense、Philips、Xiaomiなど） · Chromecast · Fire TV Stick、Fire TV Cube、Fire TVスマートテレビ · Apple TVとAirPlay対応テレビ · smrr.tv経由であらゆるブラウザ",
-  "compat_caption": "テレビの種類ごとにMirrorGoで表示できるもの",
+  "compat_caption": "テレビの種類ごとにAll TV Kitで表示できるもの",
   "compat_feature": "機能",
   "yes": "はい",
   "no": "いいえ",
-  "airplay_kicker": "AirPlayとMirrorGoの違い",
+  "airplay_kicker": "AirPlayとAll TV Kitの違い",
   "airplay_h2": "AirPlayより多くのテレビに",
-  "airplay_p": "iPhoneだけでは、ミラーリングできるのはApple TVかAirPlay対応テレビに限られます。MirrorGoなら、ほかのほとんどのテレビにも映せて、見るコンテンツも増えます。",
+  "airplay_p": "iPhoneだけでは、ミラーリングできるのはApple TVかAirPlay対応テレビに限られます。All TV Kitなら、ほかのほとんどのテレビにも映せて、見るコンテンツも増えます。",
   "airplay_col_what": "iPhoneを映す先",
   "airplay_col_iphone": "iPhoneのみ（AirPlay）",
-  "airplay_col_mirrorgo": "MirrorGoを使う場合",
+  "airplay_col_mirrorgo": "All TV Kitを使う場合",
   "privacy_kicker": "プライバシーを重視した設計",
   "privacy_h2": "あなたのiPhone、あなたのテレビ、あなたのWi-Fi",
-  "privacy_p": "ミラーリングやキャストした内容は、iPhoneからテレビに直接送られます。MirrorGoにはアカウントがなく、写真やビデオをサーバに保存することもありません。",
+  "privacy_p": "ミラーリングやキャストした内容は、iPhoneからテレビに直接送られます。All TV Kitにはアカウントがなく、写真やビデオをサーバに保存することもありません。",
   "privacy_link": "プライバシーポリシーを読む →",
   "guides_kicker": "ガイド",
   "guides_h2": "お使いのテレビ別に、ステップごとに",
@@ -75,9 +75,9 @@
   "all_help": "すべてのヘルプ →",
   "final_h2": "iPhoneをテレビに映しましょう",
   "final_p": "画面ミラーリング、写真、ビデオ、YouTube、Webビデオ、数千のライブチャンネル。ひとつのアプリで、どんなテレビにも。",
-  "app_icon_alt": "MirrorGoのアプリアイコン",
+  "app_icon_alt": "All TV Kitのアプリアイコン",
   "how_to_do_it": "やり方",
-  "guide_phone_alt": "iPhoneを{tv}にミラーリングする準備ができたMirrorGo",
+  "guide_phone_alt": "iPhoneを{tv}にミラーリングする準備ができたAll TV Kit",
   "what_you_can_do": "{tv}でできること",
   "questions": "質問",
   "more_guides_for": "{tv}のその他のガイド",
@@ -85,7 +85,7 @@
   "status_ok": "対応",
   "status_part": "一部対応",
   "status_not": "このテレビでは非対応",
-  "howto_tool": "iPhone用MirrorGo",
+  "howto_tool": "iPhone用All TV Kit",
   "screen_mirroring": "画面ミラーリング",
   "step_by_step": "手順",
   "updated": "{date}更新",
@@ -93,30 +93,30 @@
   "good_to_know": "知っておきたいこと",
   "more_for": "{tv}のその他のガイド",
   "topic_on_other_tvs": "ほかのテレビでの{topic}",
-  "browser_code_alt": "MirrorGoでsmrr.tvのコードを入力しているところ",
-  "page_title": "{title} | MirrorGo",
+  "browser_code_alt": "All TV Kitでsmrr.tvのコードを入力しているところ",
+  "page_title": "{title} | All TV Kit",
   "blog_h1": "ガイド",
   "blog_lead": "テレビの種類ごとのステップ別ガイドです。iPhoneの接続、画面ミラーリング、写真・ビデオ・Web画像・YouTube・Webビデオ・無料ライブTVのキャスト方法を説明します。",
-  "blog_title": "ガイド：iPhoneをあらゆるテレビにミラーリング・キャスト | MirrorGo",
+  "blog_title": "ガイド：iPhoneをあらゆるテレビにミラーリング・キャスト | All TV Kit",
   "blog_description": "iPhoneをSamsung、LG、Roku、Google TV、Android TV、Chromecast、Fire TV、Apple TV、Webブラウザに接続し、写真・ビデオ・YouTube・ライブTVをキャストする手順ガイドです。",
-  "blog_collection": "MirrorGoのガイド",
+  "blog_collection": "All TV Kitのガイド",
   "by_brand": "テレビのメーカー別",
   "brand_h1": "iPhoneを{brand}のテレビにミラーリング",
-  "brand_title": "iPhoneを{brand}のテレビにミラーリングする方法 | MirrorGo",
-  "brand_description": "MirrorGoでiPhoneを{brand}のテレビにミラーリングし、写真、ビデオ、YouTube、ライブTVをキャストできます。{systems}に対応しています。",
+  "brand_title": "iPhoneを{brand}のテレビにミラーリングする方法 | All TV Kit",
+  "brand_description": "All TV KitでiPhoneを{brand}のテレビにミラーリングし、写真、ビデオ、YouTube、ライブTVをキャストできます。{systems}に対応しています。",
   "brand_step_1": "お使いの{brand}のテレビのシステム（{systems}）を確認します。ロゴはスタート画面とリモコンにあります。",
   "brand_step_2": "iPhoneをテレビと同じWi-Fiに接続します。",
-  "brand_step_3": "MirrorGoを開いて「テレビに接続」をタップし、お使いのテレビを選びます。",
+  "brand_step_3": "All TV Kitを開いて「テレビに接続」をタップし、お使いのテレビを選びます。",
   "brand_step_4": "「画面ミラーリング」を開いて「ミラーリングを開始」をタップし、続いて{start}をタップします。",
-  "brand_phone_alt": "iPhoneを{brand}のテレビにミラーリングする準備ができたMirrorGo",
+  "brand_phone_alt": "iPhoneを{brand}のテレビにミラーリングする準備ができたAll TV Kit",
   "brand_any_model": "smrr.tv経由ならどのモデルでも",
   "brand_by_system": "システム別の{brand}のテレビ",
   "help_crumb": "ヘルプ",
   "help_h1": "ヘルプ・よくある質問",
   "help_lead": "よくいただく質問への回答です。解決しない場合は、お使いのテレビの型番を添えて{email}までメールでお問い合わせください。",
-  "help_title": "MirrorGoヘルプ：画面ミラーリングとキャストのよくある質問",
+  "help_title": "All TV Kitヘルプ：画面ミラーリングとキャストのよくある質問",
   "help_description": "テレビとの接続、iPhone画面のミラーリング、テレビが見つからない・音が出ない・遅延・黒い画面の対処法、写真・ビデオ・YouTube・IPTVのキャスト方法を説明します。",
-  "nf_title": "ページが見つかりません | MirrorGo",
+  "nf_title": "ページが見つかりません | All TV Kit",
   "nf_description": "このページは存在しません。",
   "nf_h1": "このページはテレビに映っていません",
   "nf_lead": "リンクが古い可能性があります。ホームページかヘルプをご覧ください。",
@@ -124,8 +124,8 @@
   "nf_help": "ヘルプ"
  },
  "site": {
-  "tagline": "iPhone用の画面ミラーリング・キャストアプリ",
-  "one_liner": "MirrorGoは、iPhoneの画面をテレビにミラーリングし、写真、ビデオ、カメラ、Webビデオ、ライブTVチャンネル、YouTubeをキャストできるiPhoneアプリです。Samsung、LG、Roku、Google TV、Android TV、Chromecast、Fire TV、Apple TV、あらゆるWebブラウザに対応しているため、Sony、TCL、Hisense、Vizio、Philipsなど、ほとんどのスマートテレビでも使えます。テレビに何もインストールする必要はありません。",
+  "tagline": "iPhone用のテレビリモコン・画面ミラーリング・キャストアプリ",
+  "one_liner": "All TV Kitは、SamsungとLGのテレビのリモコンとして使え、iPhoneの画面をテレビにミラーリングし、写真、ビデオ、カメラ、Webビデオ、ライブTVチャンネル、YouTubeをキャストできるiPhoneアプリです。Samsung、LG、Roku、Google TV、Android TV、Chromecast、Fire TV、Apple TV、あらゆるWebブラウザに対応しているため、Sony、TCL、Hisense、Vizio、Philipsなど、ほとんどのスマートテレビでも使えます。テレビに何もインストールする必要はありません。",
   "start_sharing": "「共有を開始」（iOS 26より前は「ブロードキャストを開始」）"
  },
  "tvs": {
@@ -176,6 +176,10 @@
   "With Screen Mirroring on": "画面ミラーリングをオンにした状態で"
  },
  "features": {
+  "remote": {
+   "name": "テレビリモコン",
+   "short": "iPhoneがSamsungやLGのテレビのリモコンに。ボタン、タッチパッド、キーボード、アプリ。"
+  },
   "screen-mirroring": {
    "name": "画面ミラーリング",
    "short": "iPhoneの画面全体をテレビに。音声付きで、どのアプリでも使えます。"
@@ -210,6 +214,21 @@
   }
  },
  "showcase": {
+  "remote": {
+   "title": "iPhoneがテレビのリモコンに",
+   "text": "リモコンが見つからない、矢印キーでの文字入力が面倒、そんなときに。同じWi-Fiにつながっていれば、SamsungやLGのテレビをiPhoneで操作できます。テレビには何もインストールしません。",
+   "points": [
+    "矢印とOK、戻る、ホーム、音量、チャンネル、再生/一時停止、電源",
+    "タッチパッド：スワイプでテレビのカーソルを動かし、タップでクリック",
+    "検索語やパスワードをiPhoneのキーボードで入力",
+    "テレビのアプリを開いたり、HDMIなどの入力をワンタップで切り替えたり"
+   ],
+   "alts": [
+    "All TV Kitのリモコン画面：電源、アプリと入力切替、矢印とOK、音量とチャンネル",
+    "タッチパッドモードのAll TV Kitのリモコン：スワイプでテレビのカーソルを動かします"
+   ],
+   "footnote": "リモコンは、Samsungのスマートテレビ（2016年以降のモデル）とLGのwebOSテレビで使えます。ほかのテレビにも順次対応します。"
+  },
   "screen-mirroring": {
    "title": "iPhoneの画面をテレビにミラーリング",
    "text": "アプリ、ゲーム、写真、Webサイト、プレゼンテーションなど、iPhoneに表示されるものすべてがリアルタイムでテレビに映ります。一度開始すれば、あとはいつも通りiPhoneを使うだけ。テレビが追従します。",
@@ -221,8 +240,8 @@
     "iOSでの開始方法を短いガイドでステップごとに説明します"
    ],
    "alts": [
-    "「画質」「自動回転」「サウンド」の設定があるMirrorGoの「画面ミラーリング」画面",
-    "MirrorGoのガイド：画面ミラーリングを開始する4つのステップ"
+    "「画質」「自動回転」「サウンド」の設定があるAll TV Kitの「画面ミラーリング」画面",
+    "All TV Kitのガイド：画面ミラーリングを開始する4つのステップ"
    ]
   },
   "photos-videos": {
@@ -236,7 +255,7 @@
     "Wi-Fi経由でiPhoneからテレビに直接送信。アップロードはしません"
    ],
    "alts": [
-    "MirrorGoでiPhoneの写真ライブラリから写真をキャストしているところ"
+    "All TV KitでiPhoneの写真ライブラリから写真をキャストしているところ"
    ]
   },
   "iptv": {
@@ -249,14 +268,14 @@
     "iPhoneをロックしても、ほかのアプリを開いても再生が続きます"
    ],
    "alts": [
-    "MirrorGoのIPTV画面：プレイリスト、カテゴリ、国",
-    "MirrorGoに表示された米国のライブTVチャンネル"
+    "All TV KitのIPTV画面：プレイリスト、カテゴリ、国",
+    "All TV Kitに表示された米国のライブTVチャンネル"
    ],
    "footnote": "チャンネルは公開されているiptv-orgのリストから提供されています。無料のストリームなので、時間帯によってはオフラインのものや、その国でしか再生できないものがあります。"
   },
   "web-videos": {
    "title": "あらゆるWebサイトのビデオをキャスト",
-   "text": "MirrorGoのプライベートブラウザでWebサイトを開いてビデオを再生すると、MirrorGoがそれを見つけてテレビに送ります。テレビがフル画質で再生している間も、ブラウジングを続けられます。",
+   "text": "All TV KitのプライベートブラウザでWebサイトを開いてビデオを再生すると、All TV Kitがそれを見つけてテレビに送ります。テレビがフル画質で再生している間も、ブラウジングを続けられます。",
    "points": [
     "どのサイトでも開いてビデオを再生し、「テレビにキャスト」をタップ",
     "広告ではなく本編のビデオを選び、広告ネットワークをブロック",
@@ -264,12 +283,12 @@
     "プライベートブラウズ：履歴、Cookie、キャッシュは残りません"
    ],
    "alts": [
-    "人気サイトが並ぶMirrorGoのWebビデオ用ブラウザ"
+    "人気サイトが並ぶAll TV KitのWebビデオ用ブラウザ"
    ]
   },
   "youtube": {
    "title": "YouTubeをテレビで。再生はテレビ自体が",
-   "text": "MirrorGoでトピックや検索からビデオを探し、「テレビにキャスト」をタップします。テレビ自体がビデオをフル画質で、見ていた場面から再生します。",
+   "text": "All TV Kitでトピックや検索からビデオを探し、「テレビにキャスト」をタップします。テレビ自体がビデオをフル画質で、見ていた場面から再生します。",
    "points": [
     "トピック（音楽、ニュース、スポーツ、ライブ）から探すか、検索",
     "SamsungとLGではテレビのYouTubeアプリで開きます",
@@ -277,7 +296,7 @@
     "画面を離れても再生が続きます"
    ],
    "alts": [
-    "MirrorGoでYouTubeをテレビにキャストしているところ"
+    "All TV KitでYouTubeをテレビにキャストしているところ"
    ]
   },
   "web-images": {
@@ -289,19 +308,19 @@
     "すべての画像に作者とライセンスを表示"
    ],
    "alts": [
-    "MirrorGoでキャストする準備ができたWikimedia Commonsの風景写真"
+    "All TV Kitでキャストする準備ができたWikimedia Commonsの風景写真"
    ]
   },
   "any-browser": {
    "title": "スマートテレビのアプリがない？ Webブラウザを使いましょう",
-   "text": "Webブラウザがあれば、どのテレビ、パソコン、タブレットにもiPhoneを映せます。MirrorGoが見つけられないテレビでも大丈夫です。そこでsmrr.tvを開き、表示される6桁のコードを入力するか、QRコードをスキャンします。",
+   "text": "Webブラウザがあれば、どのテレビ、パソコン、タブレットにもiPhoneを映せます。All TV Kitが見つけられないテレビでも大丈夫です。そこでsmrr.tvを開き、表示される6桁のコードを入力するか、QRコードをスキャンします。",
    "points": [
     "スマートテレビ、PC、Mac、タブレットで使えます",
     "映像はWi-Fi経由で直接、音声付きで送られます",
-    "近くのLGやSamsungのテレビなら、MirrorGoがテレビのブラウザを開きます"
+    "近くのLGやSamsungのテレビなら、All TV Kitがテレビのブラウザを開きます"
    ],
    "alts": [
-    "Webブラウザにミラーリングするため、MirrorGoにsmrr.tvのコードを入力しているところ"
+    "Webブラウザにミラーリングするため、All TV Kitにsmrr.tvのコードを入力しているところ"
    ]
   }
  },
@@ -312,7 +331,7 @@
   ],
   [
    "テレビを選ぶ",
-   "MirrorGoが近くのテレビを見つけます。お使いのテレビをタップしてください。LGとSamsungのテレビでは、最初に一度だけ「許可」を求められます。"
+   "All TV Kitが近くのテレビを見つけます。お使いのテレビをタップしてください。LGとSamsungのテレビでは、最初に一度だけ「許可」を求められます。"
   ],
   [
    "ミラーリングまたはキャスト",
@@ -340,7 +359,7 @@
  "quick_facts": [
   [
    "概要",
-   "画面のミラーリングと、写真、ビデオ、カメラ、Webビデオ、ライブTV、YouTubeのテレビへのキャストができるiPhoneアプリです。"
+   "SamsungとLGのテレビのリモコンとして使え、画面のミラーリングと、写真、ビデオ、カメラ、Webビデオ、ライブTV、YouTubeのテレビへのキャストができるiPhoneアプリです。"
   ],
   [
    "対応機器",
@@ -365,6 +384,7 @@
  ],
  "airplay_compare": [
   "Apple TVとAirPlay対応テレビ",
+  "SamsungとLGのテレビのリモコン",
   "AirPlay非対応のSamsung、LG、Rokuテレビ",
   "Chromecast、Google TV、Android TV",
   "Amazon Fire TV",
@@ -381,7 +401,7 @@
  ],
  "faq": {
   "tvs": {
-   "q": "MirrorGoはどのテレビに対応していますか？",
+   "q": "All TV Kitはどのテレビに対応していますか？",
    "a": "ほとんどのスマートテレビとストリーミングデバイスに対応しています。テレビに何もインストールする必要はありません。",
    "ul": [
     "Samsungスマートテレビ（2016年以降）",
@@ -401,31 +421,31 @@
     "リストからお使いのテレビを選びます。",
     "LGとSamsungのテレビでは初回に確認が表示されます。リモコンでテレビの「許可」を選んでください。"
    ],
-   "note": "MirrorGoはテレビを記憶し、次回からは自動で再接続します。"
+   "note": "All TV Kitはテレビを記憶し、次回からは自動で再接続します。"
   },
   "notFound": {
    "q": "テレビがリストに表示されません",
-   "a": "MirrorGoはWi-Fi上のテレビを探します。表示されない場合、たいていは次のいずれかが原因です：",
+   "a": "All TV KitはWi-Fi上のテレビを探します。表示されない場合、たいていは次のいずれかが原因です：",
    "ul": [
     "iPhoneとテレビが別のネットワークにつながっている。ゲストネットワークではなく、同じWi-Fiを使ってください。",
-    "MirrorGoのローカルネットワークへのアクセスがオフになっている。この場合、iOSはすべてのテレビをアプリから隠します。",
+    "All TV Kitのローカルネットワークへのアクセスがオフになっている。この場合、iOSはすべてのテレビをアプリから隠します。",
     "VPNがオンになっている。キャスト中はオフにしてください。",
     "テレビがスリープ中か、応答しない。電源を完全に入れるか、テレビとルーターを再起動してください。"
    ],
    "note": "それでも表示されない場合は、Webブラウザがあればどのテレビでもsmrr.tv経由で使えます。「Webブラウザにミラーリングするにはどうすればよいですか？」をご覧ください。"
   },
   "allow": {
-   "q": "テレビがMirrorGoの接続を受け付けません",
-   "a": "LGとSamsungのテレビは、スマートフォンから操作される前に確認を求めます。MirrorGoが初めて接続するとテレビにメッセージが表示されるので、リモコンで「許可」を選んでください。次回からは確認されません。",
+   "q": "テレビがAll TV Kitの接続を受け付けません",
+   "a": "LGとSamsungのテレビは、スマートフォンから操作される前に確認を求めます。All TV Kitが初めて接続するとテレビにメッセージが表示されるので、リモコンで「許可」を選んでください。次回からは確認されません。",
    "ul": [
     "LG：見逃した、または「拒否」を選んだ場合は、もう一度接続するとテレビが再度確認します。",
-    "Samsung：「拒否」を選んだ場合、テレビはそれを記憶します。テレビで「設定」›「一般」›「外部機器マネージャー」›「デバイス接続マネージャー」›「デバイスリスト」（Settings › General › External Device Manager › Device Connection Manager › Device List）を開き、MirrorGoを許可するか、削除して再度確認されるようにしてください。",
+    "Samsung：「拒否」を選んだ場合、テレビはそれを記憶します。テレビで「設定」›「一般」›「外部機器マネージャー」›「デバイス接続マネージャー」›「デバイスリスト」（Settings › General › External Device Manager › Device Connection Manager › Device List）を開き、All TV Kitを許可するか、削除して再度確認されるようにしてください。",
     "古いLGテレビ：テレビのネットワーク設定でLG Connect Appsをオンにしてください。"
    ]
   },
   "lost": {
    "q": "接続が何度も切れます",
-   "a": "MirrorGoがバックグラウンドにあるとiOSがテレビとの接続を閉じることがあり、Wi-Fiの一時的な不調でも切れることがあります。MirrorGoは数秒で自動的に再接続し、その間も画面ミラーリングは続きます。",
+   "a": "All TV KitがバックグラウンドにあるとiOSがテレビとの接続を閉じることがあり、Wi-Fiの一時的な不調でも切れることがあります。All TV Kitは数秒で自動的に再接続し、その間も画面ミラーリングは続きます。",
    "ul": [
     "「接続が切れました」と表示されたら、テレビの電源が入っていて同じWi-Fiにつながっていることを確認し、「再試行」をタップしてください。",
     "電波が弱いと切れやすくなります。iPhoneとテレビをルーターの近くに置いてください。"
@@ -433,10 +453,10 @@
   },
   "browser": {
    "q": "Webブラウザにミラーリングするにはどうすればよいですか？",
-   "a": "Webブラウザがあれば、どのテレビ、パソコン、タブレットにも画面を映せます。MirrorGoがテレビとして見つけられない機器でも使えます。",
+   "a": "Webブラウザがあれば、どのテレビ、パソコン、タブレットにも画面を映せます。All TV Kitがテレビとして見つけられない機器でも使えます。",
    "ol": [
     "その機器のWebブラウザでsmrr.tvを開きます。ページに6桁のコードが表示されます。",
-    "MirrorGoでテレビのリストを開き、「ブラウザ（smrr.tv）」をタップします。",
+    "All TV Kitでテレビのリストを開き、「ブラウザ（smrr.tv）」をタップします。",
     "コードを入力するか、ページのQRコードをスキャンします。"
    ],
    "note": "ミラーリング中はページを開いたままにしてください。iPhoneとブラウザは同じWi-Fiにつながっている必要があります。近くのLGやSamsungのテレビなら、「…で開く」でテレビのブラウザを開けます。"
@@ -473,13 +493,13 @@
   "black": {
    "q": "一部のアプリが黒い画面になります",
    "a": "Netflix、Prime Video、Disney+などのストリーミングアプリはビデオを保護しているため、iOSは代わりに黒い映像を送ります。これはどのミラーリングアプリでも回避できません。",
-   "note": "そのアプリにキャストボタンがあれば、そちらを使ってください。YouTubeなら、MirrorGoでYouTubeを開けば、テレビ自体がビデオを再生します。"
+   "note": "そのアプリにキャストボタンがあれば、そちらを使ってください。YouTubeなら、All TV KitでYouTubeを開けば、テレビ自体がビデオを再生します。"
   },
   "sound": {
    "q": "テレビから音が出ません",
    "ul": [
     "「画面ミラーリング」で「サウンド」がオンになっているか、テレビが消音になっていないかを確認してください。",
-    "MirrorGoが送るのはアプリが再生する音声だけで、マイクの音は送りません。",
+    "All TV Kitが送るのはアプリが再生する音声だけで、マイクの音は送りません。",
     "Fire TVと一部の古いLGテレビでは、映像は表示されますが音声は出ません。",
     "音声の録音を許可していないアプリもあり、その場合、音声はiPhoneに残ります。"
    ]
@@ -505,21 +525,21 @@
   },
   "lgCheck": {
    "q": "LGテレビで「テレビで再生されていますか？」と聞かれます",
-   "a": "LGテレビでは、MirrorGoはまず写真、ビデオ、チャンネルを、最も多くの形式を再生できるテレビのWebブラウザで再生します。数秒後、正しく再生されているかを確認します：",
+   "a": "LGテレビでは、All TV Kitはまず写真、ビデオ、チャンネルを、最も多くの形式を再生できるテレビのWebブラウザで再生します。数秒後、正しく再生されているかを確認します：",
    "ul": [
     "はい：そのまま続けます。その画面では再度確認されません。",
-    "いいえ：MirrorGoがブラウザを閉じ、テレビ本体のプレーヤーで再生し直して、もう一度確認します。",
+    "いいえ：All TV Kitがブラウザを閉じ、テレビ本体のプレーヤーで再生し直して、もう一度確認します。",
     "それでも再生されない場合は、「サポートにメール」をタップし、お使いのテレビの型番をお知らせください。"
    ]
   },
   "webVideo": {
    "q": "Webビデオがキャストできません",
    "ul": [
-    "まずページ上でビデオを再生してください。MirrorGoがビデオを見つけると「テレビにキャスト」が使えるようになります。",
+    "まずページ上でビデオを再生してください。All TV Kitがビデオを見つけると「テレビにキャスト」が使えるようになります。",
     "複数見つかった場合は、リスト（「1/3」）から正しいものを選んでください。",
     "広告がテレビに映らないよう、ごく短いクリップはキャストされません。",
     "Netflixのようにビデオを保護しているサイトもあり、それらはキャストできません。",
-    "再生中はMirrorGoを開いたままにしてください。ビデオはiPhoneを経由して送られます。"
+    "再生中はAll TV Kitを開いたままにしてください。ビデオはiPhoneを経由して送られます。"
    ]
   },
   "iptv": {
@@ -536,12 +556,12 @@
    ]
   },
   "localNetwork": {
-   "q": "MirrorGoにローカルネットワークへのアクセスが必要なのはなぜですか？",
-   "a": "MirrorGoはWi-Fi経由でテレビと通信しますが、iOSはローカルネットワークへのアクセスが許可されている場合にのみそれを認めます。許可がないと、テレビを見つけることもキャストすることもできません。このアクセスは、ご自身のネットワーク上の機器にのみ使われます。",
+   "q": "All TV Kitにローカルネットワークへのアクセスが必要なのはなぜですか？",
+   "a": "All TV KitはWi-Fi経由でテレビと通信しますが、iOSはローカルネットワークへのアクセスが許可されている場合にのみそれを認めます。許可がないと、テレビを見つけることもキャストすることもできません。このアクセスは、ご自身のネットワーク上の機器にのみ使われます。",
    "ol": [
     "「設定を開く」をタップ",
     "「ローカルネットワーク」をオンにする",
-    "MirrorGoに戻る"
+    "All TV Kitに戻る"
    ]
   },
   "permissions": {
@@ -555,56 +575,56 @@
   },
   "denied": {
    "q": "アクセスを許可しませんでした。どうすればオンにできますか？",
-   "a": "iOSが確認するのは一度だけです。変更するには、「設定」を開いて「MirrorGo」をタップし、「ローカルネットワーク」「写真」「カメラ」「マイク」をオンにしてください。"
+   "a": "iOSが確認するのは一度だけです。変更するには、「設定」を開いて「All TV Kit」をタップし、「ローカルネットワーク」「写真」「カメラ」「マイク」をオンにしてください。"
   },
   "problem": {
    "q": "ほかにうまくいかないことがあります",
-   "a": "MirrorGoを最新バージョンにアップデートし、テレビを再起動してください。それでも解決しない場合は、アプリのヘルプで「お問い合わせ」をタップしてください。メールにはアプリのバージョン、iOSのバージョン、iPhoneの機種、テレビの種類があらかじめ記載されています。お使いのテレビの型番を書き添えてください。"
+   "a": "All TV Kitを最新バージョンにアップデートし、テレビを再起動してください。それでも解決しない場合は、アプリのヘルプで「お問い合わせ」をタップしてください。メールにはアプリのバージョン、iOSのバージョン、iPhoneの機種、テレビの種類があらかじめ記載されています。お使いのテレビの型番を書き添えてください。"
   }
  },
  "brands": {
   "sony": {
    "about": "Sony BRAVIAテレビは2015年からAndroid TV、2021年からGoogle TVを搭載し、Chromecastが内蔵されています。最近のBRAVIAの多くはAirPlayにも対応しています。",
-   "which": "Google TVまたはAndroid TVのBRAVIAなら、MirrorGoがWi-Fi上でテレビの名前から見つけ、画面ミラーリング、写真とビデオ、YouTube、ライブTVなど、すべての機能を使えます。"
+   "which": "Google TVまたはAndroid TVのBRAVIAなら、All TV KitがWi-Fi上でテレビの名前から見つけ、画面ミラーリング、写真とビデオ、YouTube、ライブTVなど、すべての機能を使えます。"
   },
   "tcl": {
    "about": "TCLのテレビには、Google TV（古いモデルではAndroid TV）、Roku TV、一部のモデルではFire TVと、複数のシステムがあります。システムのロゴはテレビのスタート画面とリモコンに表示されています。",
-   "which": "どのシステムのTCLでも、MirrorGoへの接続方法は同じです。同じWi-Fiにつなぎ、「テレビに接続」をタップして、リストから選ぶだけです。"
+   "which": "どのシステムのTCLでも、All TV Kitへの接続方法は同じです。同じWi-Fiにつなぎ、「テレビに接続」をタップして、リストから選ぶだけです。"
   },
   "hisense": {
    "about": "Hisenseのテレビは、モデルや国によってVIDAA、Google TV / Android TV、Roku TV、Fire TVのいずれかを搭載しています。",
-   "which": "Google TV、Android TV、Roku TV、Fire TVのモデルは、MirrorGoのテレビのリストに表示されます。VIDAAのモデルでは、テレビのWebブラウザでsmrr.tvを開き、表示されるコードを使ってミラーリングしてください。"
+   "which": "Google TV、Android TV、Roku TV、Fire TVのモデルは、All TV Kitのテレビのリストに表示されます。VIDAAのモデルでは、テレビのWebブラウザでsmrr.tvを開き、表示されるコードを使ってミラーリングしてください。"
   },
   "vizio": {
    "about": "VIZIO SmartCastテレビはChromecastを内蔵しており、多くのモデルはAirPlayにも対応しています。",
-   "which": "MirrorGoは内蔵のChromecastを通じてSmartCastテレビを見つけるので、画面のミラーリングや、写真、ビデオ、YouTube、ライブTVのキャストができます。"
+   "which": "All TV Kitは内蔵のChromecastを通じてSmartCastテレビを見つけるので、画面のミラーリングや、写真、ビデオ、YouTube、ライブTVのキャストができます。"
   },
   "philips": {
    "about": "Philipsのテレビの多くはGoogle TVまたはAndroid TVを搭載し、Chromecastを内蔵しています。そのほかのモデルはTitan OSやSaphiを搭載しています。",
-   "which": "Google TVとAndroid TVのモデルは、MirrorGoのテレビのリストに表示されます。そのほかのモデルでは、テレビのWebブラウザでsmrr.tvを開き、表示されるコードを使ってミラーリングしてください。"
+   "which": "Google TVとAndroid TVのモデルは、All TV Kitのテレビのリストに表示されます。そのほかのモデルでは、テレビのWebブラウザでsmrr.tvを開き、表示されるコードを使ってミラーリングしてください。"
   },
   "xiaomi": {
    "about": "XiaomiのテレビやMi Box、Xiaomi TV StickはGoogle TVまたはAndroid TVを搭載し、Chromecastを内蔵しています。",
-   "which": "MirrorGoがWi-Fi上で見つけ、画面ミラーリング、写真とビデオ、YouTube、ライブTVなど、すべての機能を使えます。"
+   "which": "All TV KitがWi-Fi上で見つけ、画面ミラーリング、写真とビデオ、YouTube、ライブTVなど、すべての機能を使えます。"
   },
   "toshiba": {
    "about": "Toshibaのスマートテレビは、米国ではFire TVを、そのほかの地域ではAndroid TVやVIDAAなど別のシステムを搭載しています。",
-   "which": "Fire TVとAndroid TVのモデルは、MirrorGoのテレビのリストに表示されます。そのほかのモデルでは、テレビのWebブラウザでsmrr.tvを開き、表示されるコードを使ってミラーリングしてください。"
+   "which": "Fire TVとAndroid TVのモデルは、All TV Kitのテレビのリストに表示されます。そのほかのモデルでは、テレビのWebブラウザでsmrr.tvを開き、表示されるコードを使ってミラーリングしてください。"
   },
   "panasonic": {
    "about": "最近のPanasonicのテレビはFire TVを、それ以前のモデルはPanasonic独自のmy Home Screenを搭載しています。",
-   "which": "Fire TVのモデルは、MirrorGoのテレビのリストに表示されます。my Home Screenのモデルでは、テレビのWebブラウザでsmrr.tvを開き、表示されるコードを使ってミラーリングしてください。"
+   "which": "Fire TVのモデルは、All TV Kitのテレビのリストに表示されます。my Home Screenのモデルでは、テレビのWebブラウザでsmrr.tvを開き、表示されるコードを使ってミラーリングしてください。"
   }
  },
  "guides": {
   "samsung": {
    "title": "iPhoneをSamsungテレビにミラーリングする方法（ケーブル・アプリ不要）",
-   "description": "MirrorGoでiPhoneの画面をWi-Fi経由でSamsungスマートテレビにミラーリングし、写真、ビデオ、YouTube、ライブTVをキャスト。2016年以降のSamsungテレビに対応、テレビへのインストールは不要です。",
+   "description": "All TV KitでiPhoneの画面をWi-Fi経由でSamsungスマートテレビにミラーリングし、写真、ビデオ、YouTube、ライブTVをキャスト。2016年以降のSamsungテレビに対応、テレビへのインストールは不要です。",
    "h1": "iPhoneをSamsungテレビにミラーリング",
-   "lead": "MirrorGoは、Wi-Fi経由でiPhoneの画面をSamsungスマートテレビ（Tizen、2016年以降）に映します。テレビに何もインストールする必要はなく、テレビ本体のプレーヤーで音声付きで再生されます。",
+   "lead": "All TV Kitは、Wi-Fi経由でiPhoneの画面をSamsungスマートテレビ（Tizen、2016年以降）に映します。テレビに何もインストールする必要はなく、テレビ本体のプレーヤーで音声付きで再生されます。",
    "steps": [
     "Samsungテレビの電源を入れ、iPhoneを同じWi-Fiに接続します。",
-    "MirrorGoを開いて「テレビに接続」をタップし、お使いのSamsungテレビを選びます。",
+    "All TV Kitを開いて「テレビに接続」をタップし、お使いのSamsungテレビを選びます。",
     "初回は、リモコンでテレビの「許可」を選びます。",
     "「画面ミラーリング」を開いて「ミラーリングを開始」をタップし、続いて「共有を開始」（iOS 26より前は「ブロードキャストを開始」）をタップします。5〜10秒でテレビに画面が映ります。"
    ],
@@ -642,14 +662,14 @@
     [
      "対応するSamsungテレビは？",
      [
-      "2016年以降のモデルで、Tizenを搭載したSamsungスマートテレビです。Crystal UHD、QLED、Neo QLED、OLED、The Frameなどのシリーズが含まれます。テレビにアプリを入れなくても、MirrorGoがWi-Fi上で自動的に見つけます。",
-      "2018年以降のSamsungテレビの多くはAirPlayにも対応しています。MirrorGoはAirPlayの有無にかかわらず使え、さらにWebサイトのビデオ、ライブTVチャンネル、YouTubeのキャストも追加できます。"
+      "2016年以降のモデルで、Tizenを搭載したSamsungスマートテレビです。Crystal UHD、QLED、Neo QLED、OLED、The Frameなどのシリーズが含まれます。テレビにアプリを入れなくても、All TV KitがWi-Fi上で自動的に見つけます。",
+      "2018年以降のSamsungテレビの多くはAirPlayにも対応しています。All TV KitはAirPlayの有無にかかわらず使え、さらにWebサイトのビデオ、ライブTVチャンネル、YouTubeのキャストも追加できます。"
      ]
     ],
     [
-     "テレビがMirrorGoの接続を受け付けない場合",
+     "テレビがAll TV Kitの接続を受け付けない場合",
      [
-      "Samsungのテレビは、スマートフォンから操作される前に確認を求めます。「拒否」を選んだ場合、テレビはそれを記憶します。テレビで「設定」›「一般」›「外部機器マネージャー」›「デバイス接続マネージャー」›「デバイスリスト」（Settings › General › External Device Manager › Device Connection Manager › Device List）を開き、MirrorGoを許可するか、削除して再度確認されるようにしてください。"
+      "Samsungのテレビは、スマートフォンから操作される前に確認を求めます。「拒否」を選んだ場合、テレビはそれを記憶します。テレビで「設定」›「一般」›「外部機器マネージャー」›「デバイス接続マネージャー」›「デバイスリスト」（Settings › General › External Device Manager › Device Connection Manager › Device List）を開き、All TV Kitを許可するか、削除して再度確認されるようにしてください。"
      ]
     ],
     [
@@ -662,11 +682,11 @@
    "faq": [
     [
      "Samsungテレビにアプリをインストールする必要はありますか？",
-     "いいえ。MirrorGoはSamsungスマートテレビに内蔵されている、メディアプレーヤーとリモコン用の接続を使います。インストールするのはiPhoneのMirrorGoだけです。"
+     "いいえ。All TV KitはSamsungスマートテレビに内蔵されている、メディアプレーヤーとリモコン用の接続を使います。インストールするのはiPhoneのAll TV Kitだけです。"
     ],
     [
      "iPhoneをSamsungテレビにミラーリングすると音は出ますか？",
-     "はい。アプリが再生する音声が映像と一緒にテレビに送られます。「画面ミラーリング」で「サウンド」をオンにしてください。MirrorGoがマイクの音を送ることはありません。"
+     "はい。アプリが再生する音声が映像と一緒にテレビに送られます。「画面ミラーリング」で「サウンド」をオンにしてください。All TV Kitがマイクの音を送ることはありません。"
     ],
     [
      "NetflixやDisney+をSamsungテレビにミラーリングできますか？",
@@ -676,12 +696,12 @@
   },
   "lg": {
    "title": "iPhoneをLGテレビにミラーリングする方法（webOS・ケーブル不要）",
-   "description": "MirrorGoでiPhoneをWi-Fi経由でLGスマートテレビ（webOS）にミラーリングし、写真、ビデオ、YouTube、ライブTVチャンネルをキャスト。テレビへのアプリのインストールは不要です。",
+   "description": "All TV KitでiPhoneをWi-Fi経由でLGスマートテレビ（webOS）にミラーリングし、写真、ビデオ、YouTube、ライブTVチャンネルをキャスト。テレビへのアプリのインストールは不要です。",
    "h1": "iPhoneをLGテレビにミラーリング",
-   "lead": "MirrorGoは、Wi-Fi経由でiPhoneの画面をLGスマートテレビ（webOS）に映します。新しいLGテレビではLG独自の画面共有を使い、古いテレビではテレビのWebブラウザに画面を表示します。インストールは不要です。",
+   "lead": "All TV Kitは、Wi-Fi経由でiPhoneの画面をLGスマートテレビ（webOS）に映します。新しいLGテレビではLG独自の画面共有を使い、古いテレビではテレビのWebブラウザに画面を表示します。インストールは不要です。",
    "steps": [
     "LGテレビの電源を入れ、iPhoneを同じWi-Fiに接続します。",
-    "MirrorGoを開いて「テレビに接続」をタップし、お使いのLGテレビを選びます。",
+    "All TV Kitを開いて「テレビに接続」をタップし、お使いのLGテレビを選びます。",
     "初回は、リモコンでテレビの「許可」を選びます。",
     "「画面ミラーリング」を開いて「ミラーリングを開始」をタップし、続いて「共有を開始」（iOS 26より前は「ブロードキャストを開始」）をタップします。5〜10秒でテレビに画面が映ります。"
    ],
@@ -719,11 +739,11 @@
     [
      "対応するLGテレビは？",
      [
-      "webOSを搭載したLGスマートテレビです。webOS 22以降では、MirrorGoはLG独自の画面共有（LG Cast）を使います。webOS 4（2018年）以降の古いLGテレビでは、テレビのWebブラウザに画面を表示します。ブラウザはMirrorGoが自動で開きます。"
+      "webOSを搭載したLGスマートテレビです。webOS 22以降では、All TV KitはLG独自の画面共有（LG Cast）を使います。webOS 4（2018年）以降の古いLGテレビでは、テレビのWebブラウザに画面を表示します。ブラウザはAll TV Kitが自動で開きます。"
      ]
     ],
     [
-     "テレビがMirrorGoの接続を受け付けない場合",
+     "テレビがAll TV Kitの接続を受け付けない場合",
      [
       "LGのテレビは、スマートフォンから操作される前に確認を求めます。メッセージを見逃した、または「拒否」を選んだ場合は、もう一度接続するとテレビが再度確認します。古いLGテレビでは、テレビのネットワーク設定でLG Connect Appsをオンにしてください。"
      ]
@@ -731,33 +751,33 @@
     [
      "「テレビで再生されていますか？」",
      [
-      "LGテレビでは、MirrorGoはまず写真、ビデオ、チャンネルを、最も多くの形式を再生できるテレビのWebブラウザで再生します。数秒後、正しく再生されているかを確認します。「いいえ」をタップすると、テレビ本体のプレーヤーに切り替わります。"
+      "LGテレビでは、All TV Kitはまず写真、ビデオ、チャンネルを、最も多くの形式を再生できるテレビのWebブラウザで再生します。数秒後、正しく再生されているかを確認します。「いいえ」をタップすると、テレビ本体のプレーヤーに切り替わります。"
      ]
     ]
    ],
    "faq": [
     [
      "LGテレビにアプリをインストールする必要はありますか？",
-     "いいえ。MirrorGoはLG webOSテレビに内蔵されている、LGの画面共有、テレビのWebブラウザ、メディアプレーヤーを使います。インストールするのはiPhoneのMirrorGoだけです。"
+     "いいえ。All TV KitはLG webOSテレビに内蔵されている、LGの画面共有、テレビのWebブラウザ、メディアプレーヤーを使います。インストールするのはiPhoneのAll TV Kitだけです。"
     ],
     [
      "LGテレビでミラーリングすると音が出ないのはなぜですか？",
      "ほとんどのLGテレビではアプリの音声が再生されます。一部の古いモデルでは映像のみで音声は出ません。そうしたテレビで音声付きでビデオを見るには、ミラーリングではなくキャスト（写真とビデオ、Webビデオ、YouTube）を使ってください。"
     ],
     [
-     "AirPlayに対応していないLGテレビでもMirrorGoは使えますか？",
-     "はい。MirrorGoにAirPlayは必要ありません。2018年以降のLG webOSテレビで使えます。"
+     "AirPlayに対応していないLGテレビでもAll TV Kitは使えますか？",
+     "はい。All TV KitにAirPlayは必要ありません。2018年以降のLG webOSテレビで使えます。"
     ]
    ]
   },
   "roku": {
    "title": "iPhoneをRokuテレビやRokuプレーヤーにミラーリングする方法",
-   "description": "MirrorGoでiPhoneの画面をRokuテレビ、Roku Streaming Stick、Roku UltraにWi-Fi経由で音声付きでミラーリング。ケーブルもAirPlayも不要で、Rokuには何もインストールしません。",
+   "description": "All TV KitでiPhoneの画面をRokuテレビ、Roku Streaming Stick、Roku UltraにWi-Fi経由で音声付きでミラーリング。ケーブルもAirPlayも不要で、Rokuには何もインストールしません。",
    "h1": "iPhoneをRokuにミラーリング",
-   "lead": "MirrorGoは、Wi-Fi経由でiPhoneの画面を音声付きでRokuテレビ（TCL、Hisense、SharpなどのRoku TVモデル）やRokuストリーミングプレーヤーに映します。Roku本体のプレーヤーで再生されるので、Rokuには何もインストールする必要はありません。",
+   "lead": "All TV Kitは、Wi-Fi経由でiPhoneの画面を音声付きでRokuテレビ（TCL、Hisense、SharpなどのRoku TVモデル）やRokuストリーミングプレーヤーに映します。Roku本体のプレーヤーで再生されるので、Rokuには何もインストールする必要はありません。",
    "steps": [
     "Rokuの電源を入れ、iPhoneを同じWi-Fiに接続します。",
-    "MirrorGoを開いて「テレビに接続」をタップし、お使いのRokuを選びます。",
+    "All TV Kitを開いて「テレビに接続」をタップし、お使いのRokuを選びます。",
     "「画面ミラーリング」を開いて「ミラーリングを開始」をタップし、続いて「共有を開始」（iOS 26より前は「ブロードキャストを開始」）をタップします。",
     "数秒でテレビに画面が映ります。停止するには、「ミラーリングを停止」をタップするか、Rokuのリモコンのホームボタンを押します。"
    ],
@@ -795,49 +815,49 @@
     [
      "対応するRokuは？",
      [
-      "TCL、Hisense、Sharp、Philips、WestinghouseなどのRokuテレビと、Rokuストリーミングプレーヤー（Roku Express、Streaming Stick、Ultra）です。MirrorGoがWi-Fi上で見つけます。"
+      "TCL、Hisense、Sharp、Philips、WestinghouseなどのRokuテレビと、Rokuストリーミングプレーヤー（Roku Express、Streaming Stick、Ultra）です。All TV KitがWi-Fi上で見つけます。"
      ]
     ],
     [
      "Rokuがリストに表示されない場合",
      [
-      "iPhoneとRokuが同じWi-Fi（ゲストネットワーク以外）につながっていること、「設定」でMirrorGoのローカルネットワークへのアクセスがオンになっていること、VPNがオフであることを確認してください。Roku側では、「設定」›「システム」›「システムの詳細設定」›「モバイルアプリによる操作」（Settings › System › Advanced system settings › Control by mobile apps）を開き、「ネットワークアクセス」（Network access）を「デフォルト」（Default）に設定してください。"
+      "iPhoneとRokuが同じWi-Fi（ゲストネットワーク以外）につながっていること、「設定」でAll TV Kitのローカルネットワークへのアクセスがオンになっていること、VPNがオフであることを確認してください。Roku側では、「設定」›「システム」›「システムの詳細設定」›「モバイルアプリによる操作」（Settings › System › Advanced system settings › Control by mobile apps）を開き、「ネットワークアクセス」（Network access）を「デフォルト」（Default）に設定してください。"
      ]
     ],
     [
      "仕組み",
      [
-      "MirrorGoは、Roku公式のモバイルアプリと同じ方法でWi-Fi経由でRokuとやり取りし、iPhoneの画面はiPhoneからのライブビデオストリームとしてRoku内蔵のプレーヤーで再生されます。Rokuにチャンネルをインストールする必要も、コードを入力する必要もありません。映像はiPhoneより数秒遅れて表示されます。"
+      "All TV Kitは、Roku公式のモバイルアプリと同じ方法でWi-Fi経由でRokuとやり取りし、iPhoneの画面はiPhoneからのライブビデオストリームとしてRoku内蔵のプレーヤーで再生されます。Rokuにチャンネルをインストールする必要も、コードを入力する必要もありません。映像はiPhoneより数秒遅れて表示されます。"
      ]
     ]
    ],
    "faq": [
     [
      "Rokuに何かインストールする必要はありますか？",
-     "いいえ。インストールするのはiPhoneのMirrorGoだけです。Rokuは電源が入っていて、同じWi-Fiにつながっていれば大丈夫です。"
+     "いいえ。インストールするのはiPhoneのAll TV Kitだけです。Rokuは電源が入っていて、同じWi-Fiにつながっていれば大丈夫です。"
     ],
     [
      "AirPlayなしでiPhoneをRokuにミラーリングできますか？",
-     "はい。MirrorGoはAirPlayを使わないので、AirPlay非対応のRokuでも使えます。"
+     "はい。All TV KitはAirPlayを使わないので、AirPlay非対応のRokuでも使えます。"
     ],
     [
      "iPhoneをRokuにミラーリングすると音は出ますか？",
-     "はい。アプリが再生する音声が映像と一緒にRokuに送られます。MirrorGoがマイクの音を送ることはありません。"
+     "はい。アプリが再生する音声が映像と一緒にRokuに送られます。All TV Kitがマイクの音を送ることはありません。"
     ],
     [
      "Rokuに写真、YouTube、ライブTVをキャストできますか？",
-     "まだできません。Rokuでは、MirrorGoは画面をミラーリングします。写真やビデオを見せるには、画面ミラーリングを開始してiPhoneで開いてください。"
+     "まだできません。Rokuでは、All TV Kitは画面をミラーリングします。写真やビデオを見せるには、画面ミラーリングを開始してiPhoneで開いてください。"
     ]
    ]
   },
   "googletv": {
    "title": "iPhoneをGoogle TVにミラーリングする方法",
-   "description": "MirrorGoでiPhoneをGoogle TV（Sony、TCL、Hisense、Philips、Chromecast with Google TV、Google TV Streamer）にミラーリングし、写真、ビデオ、YouTube、ライブTVをキャスト。",
+   "description": "All TV KitでiPhoneをGoogle TV（Sony、TCL、Hisense、Philips、Chromecast with Google TV、Google TV Streamer）にミラーリングし、写真、ビデオ、YouTube、ライブTVをキャスト。",
    "h1": "iPhoneをGoogle TVにミラーリング",
-   "lead": "MirrorGoは、iPhoneの画面をGoogle TVに映します。Sony、TCL、Hisense、Philipsなどのテレビ、Chromecast with Google TV、Google TV Streamerに対応。テレビに何もインストールする必要はありません。",
+   "lead": "All TV Kitは、iPhoneの画面をGoogle TVに映します。Sony、TCL、Hisense、Philipsなどのテレビ、Chromecast with Google TV、Google TV Streamerに対応。テレビに何もインストールする必要はありません。",
    "steps": [
     "テレビの電源を入れ、iPhoneを同じWi-Fiに接続します。",
-    "MirrorGoを開いて「テレビに接続」をタップし、お使いのGoogle TVを選びます。",
+    "All TV Kitを開いて「テレビに接続」をタップし、お使いのGoogle TVを選びます。",
     "「画面ミラーリング」を開いて「ミラーリングを開始」をタップし、続いて「共有を開始」（iOS 26より前は「ブロードキャストを開始」）をタップします。",
     "数秒でテレビに画面が映ります。"
    ],
@@ -875,35 +895,35 @@
     [
      "Google TVを搭載しているテレビは？",
      [
-      "Google TVは、最近のSony BRAVIA、TCL、Hisense、Philipsのテレビのほとんどと、Google純正のChromecast with Google TV、Google TV Streamerに搭載されています。Chromecastが内蔵されており、MirrorGoはそれを使ってWi-Fi上でテレビを見つけます。"
+      "Google TVは、最近のSony BRAVIA、TCL、Hisense、Philipsのテレビのほとんどと、Google純正のChromecast with Google TV、Google TV Streamerに搭載されています。Chromecastが内蔵されており、All TV Kitはそれを使ってWi-Fi上でテレビを見つけます。"
      ]
     ],
     [
      "テレビがリストに表示されない場合",
      [
-      "iPhoneとテレビが同じWi-Fi（ゲストネットワーク以外）につながっていること、「設定」でMirrorGoのローカルネットワークへのアクセスがオンになっていること、VPNがオフであることを確認してください。それでも表示されない場合は、テレビのブラウザでsmrr.tvを開き、そこにミラーリングしてください。"
+      "iPhoneとテレビが同じWi-Fi（ゲストネットワーク以外）につながっていること、「設定」でAll TV Kitのローカルネットワークへのアクセスがオンになっていること、VPNがオフであることを確認してください。それでも表示されない場合は、テレビのブラウザでsmrr.tvを開き、そこにミラーリングしてください。"
      ]
     ]
    ],
    "faq": [
     [
      "iPhoneの画面全体をGoogle TVにミラーリングできますか？",
-     "はい。ほとんどのGoogle TVモデルはAirPlayに対応していませんが、MirrorGoなら内蔵のChromecastを通じて、画面全体を音声付きでミラーリングできます。"
+     "はい。ほとんどのGoogle TVモデルはAirPlayに対応していませんが、All TV Kitなら内蔵のChromecastを通じて、画面全体を音声付きでミラーリングできます。"
     ],
     [
      "Google Homeアプリは必要ですか？",
-     "いいえ。テレビがセットアップ済みで、Wi-Fiにつながっていれば大丈夫です。MirrorGoが直接接続します。"
+     "いいえ。テレビがセットアップ済みで、Wi-Fiにつながっていれば大丈夫です。All TV Kitが直接接続します。"
     ]
    ]
   },
   "androidtv": {
    "title": "iPhoneをAndroid TVにミラーリングする方法",
-   "description": "MirrorGoでiPhoneをWi-Fi経由でAndroid TV（Sony、Philips、Xiaomi、TCL、Sharpなど）にミラーリングし、写真、ビデオ、YouTube、ライブTVチャンネルをキャスト。",
+   "description": "All TV KitでiPhoneをWi-Fi経由でAndroid TV（Sony、Philips、Xiaomi、TCL、Sharpなど）にミラーリングし、写真、ビデオ、YouTube、ライブTVチャンネルをキャスト。",
    "h1": "iPhoneをAndroid TVにミラーリング",
-   "lead": "MirrorGoは、Sony、Philips、Xiaomi、TCL、SharpなどのAndroid TVや、Mi Box、NVIDIA SHIELDといったAndroid TVボックスにiPhoneの画面を映します。テレビに何もインストールする必要はありません。",
+   "lead": "All TV Kitは、Sony、Philips、Xiaomi、TCL、SharpなどのAndroid TVや、Mi Box、NVIDIA SHIELDといったAndroid TVボックスにiPhoneの画面を映します。テレビに何もインストールする必要はありません。",
    "steps": [
     "テレビの電源を入れ、iPhoneを同じWi-Fiに接続します。",
-    "MirrorGoを開いて「テレビに接続」をタップし、お使いのAndroid TVを選びます。",
+    "All TV Kitを開いて「テレビに接続」をタップし、お使いのAndroid TVを選びます。",
     "「画面ミラーリング」を開いて「ミラーリングを開始」をタップし、続いて「共有を開始」（iOS 26より前は「ブロードキャストを開始」）をタップします。",
     "数秒でテレビに画面が映ります。"
    ],
@@ -941,35 +961,35 @@
     [
      "対応するAndroid TVは？",
      [
-      "Chromecastを内蔵したAndroid TVとボックスです（ほぼすべてが内蔵しています）。Sony BRAVIA、Philips、Xiaomi Mi TV、TCL、Sharp、Mi Box、Xiaomi TV Stick、NVIDIA SHIELDなど。MirrorGoはChromecastを通じてWi-Fi上で見つけます。"
+      "Chromecastを内蔵したAndroid TVとボックスです（ほぼすべてが内蔵しています）。Sony BRAVIA、Philips、Xiaomi Mi TV、TCL、Sharp、Mi Box、Xiaomi TV Stick、NVIDIA SHIELDなど。All TV KitはChromecastを通じてWi-Fi上で見つけます。"
      ]
     ],
     [
      "テレビがリストに表示されない場合",
      [
-      "iPhoneとテレビが同じWi-Fi（ゲストネットワーク以外）につながっていること、「設定」でMirrorGoのローカルネットワークへのアクセスがオンになっていること、VPNがオフであることを確認してください。スタンバイ中ではなく、電源が完全に入っているときにしか応答しないテレビもあります。"
+      "iPhoneとテレビが同じWi-Fi（ゲストネットワーク以外）につながっていること、「設定」でAll TV Kitのローカルネットワークへのアクセスがオンになっていること、VPNがオフであることを確認してください。スタンバイ中ではなく、電源が完全に入っているときにしか応答しないテレビもあります。"
      ]
     ]
    ],
    "faq": [
     [
      "Android TVにアプリをインストールする必要はありますか？",
-     "いいえ。MirrorGoはAndroid TVに内蔵されたChromecastを使います。インストールするのはiPhoneのMirrorGoだけです。"
+     "いいえ。All TV KitはAndroid TVに内蔵されたChromecastを使います。インストールするのはiPhoneのAll TV Kitだけです。"
     ],
     [
      "AirPlayなしでiPhoneをAndroid TVにミラーリングできますか？",
-     "はい。MirrorGoを使えば、iPhoneはテレビ内蔵のChromecastを通じてミラーリングするので、AirPlayは不要です。"
+     "はい。All TV Kitを使えば、iPhoneはテレビ内蔵のChromecastを通じてミラーリングするので、AirPlayは不要です。"
     ]
    ]
   },
   "chromecast": {
    "title": "iPhoneをChromecastにミラーリングする方法",
-   "description": "MirrorGoでiPhoneの画面をChromecastにミラーリングし、写真、ビデオ、YouTube、ライブTVチャンネルをWi-Fi経由でキャスト。Google Homeアプリは不要です。",
+   "description": "All TV KitでiPhoneの画面をChromecastにミラーリングし、写真、ビデオ、YouTube、ライブTVチャンネルをWi-Fi経由でキャスト。Google Homeアプリは不要です。",
    "h1": "iPhoneをChromecastにミラーリング",
-   "lead": "MirrorGoは、Chromecastや、VIZIO SmartCastなどChromecast内蔵のテレビにiPhoneの画面を映します。テレビに何もインストールする必要はありません。",
+   "lead": "All TV Kitは、Chromecastや、VIZIO SmartCastなどChromecast内蔵のテレビにiPhoneの画面を映します。テレビに何もインストールする必要はありません。",
    "steps": [
     "テレビの電源を入れ、iPhoneをChromecastと同じWi-Fiに接続します。",
-    "MirrorGoを開いて「テレビに接続」をタップし、お使いのChromecastを選びます。",
+    "All TV Kitを開いて「テレビに接続」をタップし、お使いのChromecastを選びます。",
     "「画面ミラーリング」を開いて「ミラーリングを開始」をタップし、続いて「共有を開始」（iOS 26より前は「ブロードキャストを開始」）をタップします。",
     "数秒でテレビに画面が映ります。"
    ],
@@ -1007,35 +1027,35 @@
     [
      "対応する機器は？",
      [
-      "Google TVの有無にかかわらずすべてのChromecastと、VIZIO SmartCastテレビなどChromecastを内蔵したテレビや画面付きスピーカーです。MirrorGoはGoogle純正アプリと同じ方法でWi-Fi上で見つけます。"
+      "Google TVの有無にかかわらずすべてのChromecastと、VIZIO SmartCastテレビなどChromecastを内蔵したテレビや画面付きスピーカーです。All TV KitはGoogle純正アプリと同じ方法でWi-Fi上で見つけます。"
      ]
     ],
     [
      "Chromecastがリストに表示されない場合",
      [
-      "iPhoneとChromecastが同じWi-Fi（ゲストネットワーク以外）につながっていること、「設定」でMirrorGoのローカルネットワークへのアクセスがオンになっていること、VPNがオフであることを確認してください。それでも表示されない場合は、どの画面でもブラウザでsmrr.tvを開き、そこにミラーリングしてください。"
+      "iPhoneとChromecastが同じWi-Fi（ゲストネットワーク以外）につながっていること、「設定」でAll TV Kitのローカルネットワークへのアクセスがオンになっていること、VPNがオフであることを確認してください。それでも表示されない場合は、どの画面でもブラウザでsmrr.tvを開き、そこにミラーリングしてください。"
      ]
     ]
    ],
    "faq": [
     [
      "iPhoneの画面全体をChromecastにミラーリングできますか？",
-     "はい。ChromecastはAirPlayに対応していないため、iPhoneだけではできませんが、MirrorGoなら画面全体を音声付きでChromecastにミラーリングできます。"
+     "はい。ChromecastはAirPlayに対応していないため、iPhoneだけではできませんが、All TV Kitなら画面全体を音声付きでChromecastにミラーリングできます。"
     ],
     [
      "Google Homeアプリは必要ですか？",
-     "いいえ。Chromecastがセットアップ済みで、Wi-Fiにつながっていれば大丈夫です。MirrorGoが直接接続します。"
+     "いいえ。Chromecastがセットアップ済みで、Wi-Fiにつながっていれば大丈夫です。All TV Kitが直接接続します。"
     ]
    ]
   },
   "firetv": {
    "title": "iPhoneをFire TV Stickにミラーリングする方法（Fire TVにアプリ不要）",
-   "description": "MirrorGoでiPhoneをAmazon Fire TV Stick、Fire TV Cube、Fire TVスマートテレビにミラーリング。Fire TVへのインストールは不要です。写真、ビデオ、ライブTVのキャストも。",
+   "description": "All TV KitでiPhoneをAmazon Fire TV Stick、Fire TV Cube、Fire TVスマートテレビにミラーリング。Fire TVへのインストールは不要です。写真、ビデオ、ライブTVのキャストも。",
    "h1": "iPhoneをFire TVにミラーリング",
-   "lead": "MirrorGoは、すべてのFire TVに内蔵されたプレーヤーを使って、Fire TV Stick、Fire TV Cube、Fire TVスマートテレビにiPhoneの画面を映します。Fire TVに何もインストールする必要はありません。",
+   "lead": "All TV Kitは、すべてのFire TVに内蔵されたプレーヤーを使って、Fire TV Stick、Fire TV Cube、Fire TVスマートテレビにiPhoneの画面を映します。Fire TVに何もインストールする必要はありません。",
    "steps": [
     "Fire TVの電源を入れ、iPhoneを同じWi-Fiに接続します。",
-    "MirrorGoを開いて「テレビに接続」をタップし、お使いのFire TVを選びます。",
+    "All TV Kitを開いて「テレビに接続」をタップし、お使いのFire TVを選びます。",
     "「画面ミラーリング」を開いて「ミラーリングを開始」をタップし、続いて「共有を開始」（iOS 26より前は「ブロードキャストを開始」）をタップします。",
     "テレビに画面が映ります。停止するには、「ミラーリングを停止」をタップするか、Fire TVリモコンのホームボタンを押します。"
    ],
@@ -1073,7 +1093,7 @@
     [
      "対応するFire TVは？",
      [
-      "Fire TV Stick（4K、4K Maxを含む）、Fire TV Cube、Fire TVを内蔵したスマートテレビ（Amazon、Toshiba、Insigniaなど）です。MirrorGoがWi-Fi上で見つけます。"
+      "Fire TV Stick（4K、4K Maxを含む）、Fire TV Cube、Fire TVを内蔵したスマートテレビ（Amazon、Toshiba、Insigniaなど）です。All TV KitがWi-Fi上で見つけます。"
      ]
     ],
     [
@@ -1086,7 +1106,7 @@
    "faq": [
     [
      "Fire TVにアプリをインストールする必要はありますか？",
-     "いいえ。すべてのFire TVにはメディアプレーヤーが内蔵されており、MirrorGoはそれを使います。インストールするのはiPhoneのMirrorGoだけです。"
+     "いいえ。すべてのFire TVにはメディアプレーヤーが内蔵されており、All TV Kitはそれを使います。インストールするのはiPhoneのAll TV Kitだけです。"
     ],
     [
      "iPhoneをFire TV Stickに音声付きでミラーリングできますか？",
@@ -1096,14 +1116,14 @@
   },
   "airplay": {
    "title": "iPhoneをApple TVやAirPlay対応テレビにミラーリング・キャストする方法",
-   "description": "iPhoneをApple TVやAirPlay対応テレビ（Samsung、LG、Sony、VIZIOなど）にミラーリングし、MirrorGoで写真、ビデオ、Webビデオ、ライブTVチャンネルをキャスト。",
+   "description": "iPhoneをApple TVやAirPlay対応テレビ（Samsung、LG、Sony、VIZIOなど）にミラーリングし、All TV Kitで写真、ビデオ、Webビデオ、ライブTVチャンネルをキャスト。",
    "h1": "iPhoneをApple TVやAirPlay対応テレビにミラーリング・キャスト",
-   "lead": "iPhoneは、コントロールセンターからApple TVやAirPlay対応テレビに単独でミラーリングできます。MirrorGoは、iOSだけではできないライブTVチャンネル、Webサイトのビデオ、Web画像をAirPlayで再生できるようにします。",
+   "lead": "iPhoneは、コントロールセンターからApple TVやAirPlay対応テレビに単独でミラーリングできます。All TV Kitは、iOSだけではできないライブTVチャンネル、Webサイトのビデオ、Web画像をAirPlayで再生できるようにします。",
    "steps": [
     "iPhoneをApple TVまたはAirPlay対応テレビと同じWi-Fiに接続します。",
     "画面をミラーリングするには：コントロールセンターを開き、「画面ミラーリング」をタップしてテレビを選びます。",
-    "キャストするには：MirrorGoを開いて「テレビに接続」をタップし、「AirPlayデバイスを選択」をタップしてテレビを選びます。",
-    "MirrorGoで「写真とビデオ」「Webビデオ」「IPTV」のいずれかを開いて再生すると、AirPlayでテレビに送られます。"
+    "キャストするには：All TV Kitを開いて「テレビに接続」をタップし、「AirPlayデバイスを選択」をタップしてテレビを選びます。",
+    "All TV Kitで「写真とビデオ」「Webビデオ」「IPTV」のいずれかを開いて再生すると、AirPlayでテレビに送られます。"
    ],
    "features": [
     [
@@ -1145,29 +1165,29 @@
     [
      "ミラーリングをコントロールセンターから開始する理由",
      [
-      "AppleはアプリがAirPlayの画面ミラーリングを開始することを認めておらず、開始できるのはコントロールセンターだけです。MirrorGoは手順を表示し、ミラーリングがオンになれば、カメラの映像もテレビに全画面で表示できます。"
+      "AppleはアプリがAirPlayの画面ミラーリングを開始することを認めておらず、開始できるのはコントロールセンターだけです。All TV Kitは手順を表示し、ミラーリングがオンになれば、カメラの映像もテレビに全画面で表示できます。"
      ]
     ]
    ],
    "faq": [
     [
-     "MirrorGoからAirPlayを停止できますか？",
-     "MirrorGoのテレビのリストを開いてAirPlayのカードをタップし、メニューで「iPhone」を選ぶとAirPlayが終了します。画面ミラーリングを停止するには、コントロールセンター ›「画面ミラーリング」›「ミラーリングを停止」を使います。"
+     "All TV KitからAirPlayを停止できますか？",
+     "All TV Kitのテレビのリストを開いてAirPlayのカードをタップし、メニューで「iPhone」を選ぶとAirPlayが終了します。画面ミラーリングを停止するには、コントロールセンター ›「画面ミラーリング」›「ミラーリングを停止」を使います。"
     ],
     [
-     "MirrorGoにはApple TVが必要ですか？",
-     "いいえ。Apple TVは選択肢のひとつにすぎません。MirrorGoはAirPlayなしで、Samsung、LG、Roku、Google TV、Fire TV、あらゆるWebブラウザでも使えます。"
+     "All TV KitにはApple TVが必要ですか？",
+     "いいえ。Apple TVは選択肢のひとつにすぎません。All TV KitはAirPlayなしで、Samsung、LG、Roku、Google TV、Fire TV、あらゆるWebブラウザでも使えます。"
     ]
    ]
   },
   "browser": {
    "title": "Webブラウザ（smrr.tv）経由でiPhoneをあらゆるテレビやパソコンにミラーリング",
-   "description": "Webブラウザがあれば、どのスマートテレビ、PC、Mac、タブレットにもiPhoneをミラーリング。smrr.tvを開いてMirrorGoに6桁のコードを入力するだけ。テレビやパソコンにアプリは不要です。",
+   "description": "Webブラウザがあれば、どのスマートテレビ、PC、Mac、タブレットにもiPhoneをミラーリング。smrr.tvを開いてAll TV Kitに6桁のコードを入力するだけ。テレビやパソコンにアプリは不要です。",
    "h1": "Webブラウザがあるどの画面にもiPhoneをミラーリング",
-   "lead": "Webブラウザがあれば、どのテレビ、パソコン、タブレットにもiPhoneを映せます。MirrorGoが見つけられないテレビでも大丈夫です。そこでsmrr.tvを開き、表示されたコードをMirrorGoに入力すれば、音声付きで画面が映ります。",
+   "lead": "Webブラウザがあれば、どのテレビ、パソコン、タブレットにもiPhoneを映せます。All TV Kitが見つけられないテレビでも大丈夫です。そこでsmrr.tvを開き、表示されたコードをAll TV Kitに入力すれば、音声付きで画面が映ります。",
    "steps": [
     "テレビやパソコンのWebブラウザでsmrr.tvを開きます。ページに6桁のコードとQRコードが表示されます。",
-    "MirrorGoでテレビのリストを開き、「Webブラウザにミラーリング」をタップします。",
+    "All TV Kitでテレビのリストを開き、「Webブラウザにミラーリング」をタップします。",
     "コードを入力するか、QRコードをスキャンします。",
     "「画面ミラーリング」を開いて「ミラーリングを開始」をタップし、続いて「共有を開始」（iOS 26より前は「ブロードキャストを開始」）をタップします。"
    ],
@@ -1218,14 +1238,14 @@
      "ヒント",
      [
       "ミラーリング中はsmrr.tvのページを開いたままにしてください。ページを再読み込みしても自動的に再接続します。",
-      "近くのLGやSamsungのテレビなら、MirrorGoの「…で開く」ボタンでテレビのブラウザを開けます。"
+      "近くのLGやSamsungのテレビなら、All TV Kitの「…で開く」ボタンでテレビのブラウザを開けます。"
      ]
     ]
    ],
    "faq": [
     [
      "テレビやパソコンに何かインストールする必要はありますか？",
-     "いいえ。必要なのはWebブラウザだけです。smrr.tvを開き、表示されたコードをMirrorGoに入力してください。"
+     "いいえ。必要なのはWebブラウザだけです。smrr.tvを開き、表示されたコードをAll TV Kitに入力してください。"
     ],
     [
      "自分のコードを使って、ほかの人に画面を見られることはありますか？",
@@ -1239,11 +1259,11 @@
    "label": "接続",
    "title": "iPhoneを{title_art}に接続する方法",
    "h1": "iPhoneを{art}に接続する方法",
-   "lead": "MirrorGoを使えば、iPhoneを{art}に数秒で接続できます。同じWi-Fiにつないでテレビを選ぶだけで完了です。テレビへのインストールは不要で、MirrorGoが次回のために記憶します。",
-   "shot_alt": "「テレビに接続」ボタンがあるMirrorGoのホーム画面",
+   "lead": "All TV Kitを使えば、iPhoneを{art}に数秒で接続できます。同じWi-Fiにつないでテレビを選ぶだけで完了です。テレビへのインストールは不要で、All TV Kitが次回のために記憶します。",
+   "shot_alt": "「テレビに接続」ボタンがあるAll TV Kitのホーム画面",
    "tips": [
     "iPhoneとテレビは、ゲストネットワークではなく同じWi-Fiネットワークにつながっている必要があります。",
-    "MirrorGoにはローカルネットワークへのアクセスが必要です（初回にiOSが確認します）。許可しなかった場合は、「設定」›「MirrorGo」›「ローカルネットワーク」でオンにしてください。",
+    "All TV Kitにはローカルネットワークへのアクセスが必要です（初回にiOSが確認します）。許可しなかった場合は、「設定」›「All TV Kit」›「ローカルネットワーク」でオンにしてください。",
     "キャスト中は、iPhoneのVPNをオフにしてください。",
     "テレビがまったく見つからない場合は、Webブラウザがあればどのテレビでもsmrr.tv経由で使えます。"
    ]
@@ -1252,18 +1272,18 @@
    "label": "写真とビデオ",
    "title": "iPhoneの写真やビデオを{title_art}にキャストする方法",
    "h1": "iPhoneの写真やビデオを{art}にキャストする方法",
-   "lead": "MirrorGoを使えば、iPhoneのライブラリにある写真やビデオをフル画質で{art}に表示できます。iPhoneでスワイプすれば、テレビも切り替わります。",
-   "shot_alt": "MirrorGoでiPhoneのライブラリから写真をキャストしているところ",
+   "lead": "All TV Kitを使えば、iPhoneのライブラリにある写真やビデオをフル画質で{art}に表示できます。iPhoneでスワイプすれば、テレビも切り替わります。",
+   "shot_alt": "All TV KitでiPhoneのライブラリから写真をキャストしているところ",
    "steps": [
-    "MirrorGoを{art}に接続します。",
-    "MirrorGoのホームで「写真とビデオ」をタップし、写真へのアクセスを許可します。",
+    "All TV Kitを{art}に接続します。",
+    "All TV Kitのホームで「写真とビデオ」をタップし、写真へのアクセスを許可します。",
     "上部で「ビデオ」か「写真」を選び、表示したいものをタップします。",
     "「キャストを開始」をタップします。すぐにテレビに表示されます。",
     "画像の下のサムネイル列をスワイプすると、テレビも切り替わります。ビデオの再生、一時停止、シークはiPhoneで操作します。"
    ],
    "tips": [
     "「自動再生」（サムネイル列の先頭にあるボタン）でスライドショーになります。写真は1枚5〜30秒、ビデオは最後まで再生され、「リピート」で最初から繰り返します。",
-    "写真へのアクセスを制限している場合は、選んだ写真だけが表示されます。すべて表示するには、「設定」›「MirrorGo」›「写真」›「フルアクセス」を選んでください。",
+    "写真へのアクセスを制限している場合は、選んだ写真だけが表示されます。すべて表示するには、「設定」›「All TV Kit」›「写真」›「フルアクセス」を選んでください。",
     "写真やビデオは、Wi-Fi経由でiPhoneからテレビに送られます。どこにもアップロードされません。",
     "画面を閉じるとキャストは停止します。"
    ]
@@ -1272,11 +1292,11 @@
    "label": "Web画像",
    "title": "iPhoneから{title_art}に無料のWeb画像を表示する方法",
    "h1": "美しい無料画像を{art}に表示する方法",
-   "lead": "MirrorGoは、Wikimedia Commonsの数百万点の無料・オープンライセンス画像（風景、宇宙、都市、動物、アートなど）を検索して、{art}に全画面で、1枚ずつまたはスライドショーで表示します。",
-   "shot_alt": "MirrorGoでキャストする準備ができたWikimedia Commonsの風景写真",
+   "lead": "All TV Kitは、Wikimedia Commonsの数百万点の無料・オープンライセンス画像（風景、宇宙、都市、動物、アートなど）を検索して、{art}に全画面で、1枚ずつまたはスライドショーで表示します。",
+   "shot_alt": "All TV Kitでキャストする準備ができたWikimedia Commonsの風景写真",
    "steps": [
-    "MirrorGoを{art}に接続します。",
-    "MirrorGoのホームで「Web画像」をタップします。",
+    "All TV Kitを{art}に接続します。",
+    "All TV Kitのホームで「Web画像」をタップします。",
     "好きなキーワードで検索するか、トピック（自然、宇宙、都市、動物、海、山、アート、花）をタップします。",
     "画像をタップし、「キャストを開始」をタップします。",
     "次の画像にスワイプするとテレビも切り替わります。スライドショーをオンにすることもできます。"
@@ -1291,11 +1311,11 @@
    "label": "ライブTV（IPTV）",
    "title": "iPhoneを使って{title_art}で無料ライブTV（IPTV）を見る方法",
    "h1": "{art}で無料のライブTVチャンネルを見る方法",
-   "lead": "MirrorGoには、180か国以上・9,000を超える無料で公開されたライブTVチャンネル（ニュース、スポーツ、映画、音楽、キッズなど）が並び、タップひとつで{art}で再生できます。自分のM3Uプレイリストも追加できます。",
-   "shot_alt": "MirrorGoのIPTV画面：プレイリスト、カテゴリ、国",
+   "lead": "All TV Kitには、180か国以上・9,000を超える無料で公開されたライブTVチャンネル（ニュース、スポーツ、映画、音楽、キッズなど）が並び、タップひとつで{art}で再生できます。自分のM3Uプレイリストも追加できます。",
+   "shot_alt": "All TV KitのIPTV画面：プレイリスト、カテゴリ、国",
    "steps": [
-    "MirrorGoを{art}に接続します。",
-    "MirrorGoのホームで「IPTV」をタップします。",
+    "All TV Kitを{art}に接続します。",
+    "All TV Kitのホームで「IPTV」をタップします。",
     "国やカテゴリを選ぶか、チャンネル名で検索します。",
     "チャンネルをタップすると、テレビで再生が始まります。別のチャンネルをタップすると切り替わります。",
     "☆をタップするとチャンネルを「お気に入り」に保存でき、+をタップするとM3UプレイリストのURLを追加できます。"
@@ -1310,11 +1330,11 @@
    "label": "YouTube",
    "title": "iPhoneから{title_art}にYouTubeをキャストする方法",
    "h1": "iPhoneから{art}にYouTubeをキャストする方法",
-   "lead": "MirrorGoでYouTubeのビデオを探して「テレビにキャスト」をタップすると、{art}がビデオを直接フル画質で、見ていた場面から再生します。その間もiPhoneは自由に使えます。",
-   "shot_alt": "MirrorGoでキャストするYouTubeのビデオを探しているところ",
+   "lead": "All TV KitでYouTubeのビデオを探して「テレビにキャスト」をタップすると、{art}がビデオを直接フル画質で、見ていた場面から再生します。その間もiPhoneは自由に使えます。",
+   "shot_alt": "All TV KitでキャストするYouTubeのビデオを探しているところ",
    "steps": [
-    "MirrorGoを{art}に接続します。",
-    "MirrorGoのホームで「YouTube」をタップします。",
+    "All TV Kitを{art}に接続します。",
+    "All TV Kitのホームで「YouTube」をタップします。",
     "トピック（音楽、ニュース、スポーツ、ライブなど）を選ぶか検索して、ビデオを開きます。",
     "「テレビにキャスト」をタップします。見ていた場面からテレビで再生が始まります。"
    ],
@@ -1327,30 +1347,30 @@
    "label": "Webビデオ",
    "title": "iPhoneでWebサイトのビデオを{title_art}にキャストする方法",
    "h1": "Webサイトのビデオを{art}にキャストする方法",
-   "lead": "MirrorGoでWebサイトを開いてビデオを再生し、「テレビにキャスト」をタップします。MirrorGoが（広告ではなく）本編のビデオを見つけ、{art}がフル画質で再生します。その間もブラウジングを続けられます。",
-   "shot_alt": "人気サイトが並ぶMirrorGoのWebビデオ用ブラウザ",
+   "lead": "All TV KitでWebサイトを開いてビデオを再生し、「テレビにキャスト」をタップします。All TV Kitが（広告ではなく）本編のビデオを見つけ、{art}がフル画質で再生します。その間もブラウジングを続けられます。",
+   "shot_alt": "人気サイトが並ぶAll TV KitのWebビデオ用ブラウザ",
    "steps": [
-    "MirrorGoを{art}に接続します。",
-    "MirrorGoのホームで「Webビデオ」をタップします。",
+    "All TV Kitを{art}に接続します。",
+    "All TV Kitのホームで「Webビデオ」をタップします。",
     "ショートカットからサイトを開くか、アドレスを入力します。",
-    "ページ上でビデオを再生します。MirrorGoがビデオを見つけると「テレビにキャスト」が使えるようになります。",
+    "ページ上でビデオを再生します。All TV Kitがビデオを見つけると「テレビにキャスト」が使えるようになります。",
     "「テレビにキャスト」をタップします。複数のビデオが見つかった場合は、正しいもの（「1/3」）を選びます。"
    ],
    "tips": [
-    "MirrorGoは広告ネットワークをブロックし、ごく短いクリップはキャストしないので、広告がテレビに映ることはありません。",
+    "All TV Kitは広告ネットワークをブロックし、ごく短いクリップはキャストしないので、広告がテレビに映ることはありません。",
     "ビデオを保護しているサイト（Netflix、Prime Video、Disney+）はキャストできません。",
-    "再生中はMirrorGoを開いたままにしてください。ブラウズはプライベートで、履歴、Cookie、キャッシュは残りません。"
+    "再生中はAll TV Kitを開いたままにしてください。ブラウズはプライベートで、履歴、Cookie、キャッシュは残りません。"
    ]
   },
   "camera": {
    "label": "カメラ",
    "title": "iPhoneのカメラを{title_art}にライブで映す方法",
    "h1": "iPhoneのカメラを{art}にライブで映す方法",
-   "lead": "MirrorGoを使えば、iPhoneを{art}用のライブカメラにできます。部屋、ホワイトボード、書類、ペット、自分自身を、前面または背面カメラで映せます。",
-   "shot_alt": "「カメラ」タイルがあるMirrorGoのホーム画面",
+   "lead": "All TV Kitを使えば、iPhoneを{art}用のライブカメラにできます。部屋、ホワイトボード、書類、ペット、自分自身を、前面または背面カメラで映せます。",
+   "shot_alt": "「カメラ」タイルがあるAll TV Kitのホーム画面",
    "steps": [
-    "MirrorGoを{art}に接続します。",
-    "MirrorGoのホームで「カメラ」をタップし、カメラへのアクセスを許可します。",
+    "All TV Kitを{art}に接続します。",
+    "All TV Kitのホームで「カメラ」をタップし、カメラへのアクセスを許可します。",
     "前面か背面のカメラを選びます。マイクの音も送りたい場合は「サウンド」をオンにします。",
     "「キャストを開始」をタップします。カメラに映っているものが、水平を保ったままテレビに表示されます。"
    ],
@@ -1368,20 +1388,20 @@
    },
    "connect": [
     "Samsungのテレビの電源を入れ、iPhoneを同じWi-Fiに接続します。",
-    "MirrorGoを開いて「テレビに接続」をタップします。お使いのSamsungのテレビが名前で表示されます。",
-    "それをタップします。初回は、MirrorGoを許可するかテレビが確認するので、リモコンで「許可」を選びます。",
-    "接続完了です。MirrorGoはテレビを、テレビはMirrorGoを記憶するので、次回からは確認されません。"
+    "All TV Kitを開いて「テレビに接続」をタップします。お使いのSamsungのテレビが名前で表示されます。",
+    "それをタップします。初回は、All TV Kitを許可するかテレビが確認するので、リモコンで「許可」を選びます。",
+    "接続完了です。All TV Kitはテレビを、テレビはAll TV Kitを記憶するので、次回からは確認されません。"
    ],
    "connect_notes": [
-    "MirrorGoは2016年以降のSamsungスマートテレビ（Tizen）に対応しています。テレビのリモコン用の接続と内蔵メディアプレーヤーを使うので、テレビに何もインストールする必要はありません。",
-    "誤って「拒否」を選んだ場合、テレビはそれを記憶します。テレビで「設定」›「一般」›「外部機器マネージャー」›「デバイス接続マネージャー」›「デバイスリスト」（Settings › General › External Device Manager › Device Connection Manager › Device List）を開き、MirrorGoを許可するか、削除して再度確認されるようにしてください。"
+    "All TV Kitは2016年以降のSamsungスマートテレビ（Tizen）に対応しています。テレビのリモコン用の接続と内蔵メディアプレーヤーを使うので、テレビに何もインストールする必要はありません。",
+    "誤って「拒否」を選んだ場合、テレビはそれを記憶します。テレビで「設定」›「一般」›「外部機器マネージャー」›「デバイス接続マネージャー」›「デバイスリスト」（Settings › General › External Device Manager › Device Connection Manager › Device List）を開き、All TV Kitを許可するか、削除して再度確認されるようにしてください。"
    ],
-   "photos": "Samsungのテレビは、テレビ本体のメディアプレーヤーで再生します。MirrorGoがWi-Fi経由でiPhoneから写真やビデオを1つずつ配信し、テレビがそれを取得するので、ビデオはフル画質で、テレビのスピーカーから音声付きで再生されます。HEVCのiPhoneビデオはそのまま送られます。テレビで再生できない場合は、MirrorGoがH.264に変換して送り、次回のためにそれを記憶します。",
+   "photos": "Samsungのテレビは、テレビ本体のメディアプレーヤーで再生します。All TV KitがWi-Fi経由でiPhoneから写真やビデオを1つずつ配信し、テレビがそれを取得するので、ビデオはフル画質で、テレビのスピーカーから音声付きで再生されます。HEVCのiPhoneビデオはそのまま送られます。テレビで再生できない場合は、All TV KitがH.264に変換して送り、次回のためにそれを記憶します。",
    "images": "画像はテレビ本体のメディアプレーヤーで、テレビの画面に合わせたサイズで表示されます。",
-   "iptv": "まず、Samsungのテレビにチャンネルのストリームを渡し、テレビ自体に再生させます。数秒以内に再生されない場合は、MirrorGoがストリームをiPhone経由で中継し、そのテレビには中継が必要なことを記憶します。iPhoneはロックしてもかまいませんが、Wi-Fiにはつないだままにしてください。",
-   "youtube": "Samsungでは、ビデオはテレビのYouTubeアプリで開きます。MirrorGoはYouTubeのスマートフォンアプリと同じ方法でそれを操作し、見ていた場面から再生を始めます。",
+   "iptv": "まず、Samsungのテレビにチャンネルのストリームを渡し、テレビ自体に再生させます。数秒以内に再生されない場合は、All TV KitがストリームをiPhone経由で中継し、そのテレビには中継が必要なことを記憶します。iPhoneはロックしてもかまいませんが、Wi-Fiにはつないだままにしてください。",
+   "youtube": "Samsungでは、ビデオはテレビのYouTubeアプリで開きます。All TV KitはYouTubeのスマートフォンアプリと同じ方法でそれを操作し、見ていた場面から再生を始めます。",
    "webvideos": "Samsungのプレーヤーには、サイトの広告枠をつなぎ合わせた1本の連続したストリームとして、iPhone経由でビデオが送られるので、最初から最後まで再生されます。iPhoneでシークすると、その位置から再生し直します。",
-   "camera": "音声付き：開始する前に「サウンド」をオンにすると、MirrorGoがマイクの音を追加します。"
+   "camera": "音声付き：開始する前に「サウンド」をオンにすると、All TV Kitがマイクの音を追加します。"
   },
   "lg": {
    "forms": {
@@ -1390,19 +1410,19 @@
    },
    "connect": [
     "LGのテレビの電源を入れ、iPhoneを同じWi-Fiに接続します。",
-    "MirrorGoを開いて「テレビに接続」をタップします。お使いのLGのテレビが名前で表示されます。",
-    "それをタップします。初回は、MirrorGoを許可するかテレビが確認するので、リモコンで「許可」（または「はい」）を選びます。",
-    "接続完了です。MirrorGoはテレビのキーを保存するので、次回はすぐに接続します。"
+    "All TV Kitを開いて「テレビに接続」をタップします。お使いのLGのテレビが名前で表示されます。",
+    "それをタップします。初回は、All TV Kitを許可するかテレビが確認するので、リモコンで「許可」（または「はい」）を選びます。",
+    "接続完了です。All TV Kitはテレビのキーを保存するので、次回はすぐに接続します。"
    ],
    "connect_notes": [
-    "MirrorGoはwebOSを搭載したLGスマートテレビに対応しています。テレビには何もインストールされません。MirrorGoはLG純正のスマートフォンアプリと同じ方法でテレビと通信します。",
+    "All TV KitはwebOSを搭載したLGスマートテレビに対応しています。テレビには何もインストールされません。All TV KitはLG純正のスマートフォンアプリと同じ方法でテレビと通信します。",
     "メッセージを見逃した、または「拒否」を選んだ場合は、もう一度接続するだけでテレビが再度確認します。古いLGテレビでは、先にテレビのネットワーク設定でLG Connect Appsをオンにしてください。"
    ],
-   "photos": "LGでは、MirrorGoはまず、最も多くの種類のビデオを再生できるテレビのWebブラウザを自動で開き、そこで再生します。数秒後に「テレビで再生されていますか？」と確認するので、「いいえ」をタップするとブラウザを閉じ、テレビ本体のプレーヤーに切り替えます。どちらの場合も、写真やビデオはインターネットではなくWi-Fi経由で送られます。",
-   "images": "MirrorGoがテレビのWebブラウザを開き、ブラウザがWikimedia Commonsから画像を直接フル解像度で読み込みます。何も表示されない場合は、MirrorGoが「テレビで再生されていますか？」と確認したときに「いいえ」をタップすると、テレビ本体のプレーヤーを使います。",
-   "iptv": "チャンネルはLGのテレビのWebブラウザで再生されます。ブラウザなら、無料チャンネルの広告枠、別トラックの音声、暗号化されたストリームなど、LG本体のプレーヤーでは扱えないものも再生できます。再生されない場合は、MirrorGoが「テレビで再生されていますか？」と確認したときに「いいえ」をタップすると、テレビのプレーヤーで試します。",
+   "photos": "LGでは、All TV Kitはまず、最も多くの種類のビデオを再生できるテレビのWebブラウザを自動で開き、そこで再生します。数秒後に「テレビで再生されていますか？」と確認するので、「いいえ」をタップするとブラウザを閉じ、テレビ本体のプレーヤーに切り替えます。どちらの場合も、写真やビデオはインターネットではなくWi-Fi経由で送られます。",
+   "images": "All TV KitがテレビのWebブラウザを開き、ブラウザがWikimedia Commonsから画像を直接フル解像度で読み込みます。何も表示されない場合は、All TV Kitが「テレビで再生されていますか？」と確認したときに「いいえ」をタップすると、テレビ本体のプレーヤーを使います。",
+   "iptv": "チャンネルはLGのテレビのWebブラウザで再生されます。ブラウザなら、無料チャンネルの広告枠、別トラックの音声、暗号化されたストリームなど、LG本体のプレーヤーでは扱えないものも再生できます。再生されない場合は、All TV Kitが「テレビで再生されていますか？」と確認したときに「いいえ」をタップすると、テレビのプレーヤーで試します。",
    "youtube": "LGでは、ビデオはテレビのYouTubeアプリで、見ていた場面から開きます。",
-   "webvideos": "MirrorGoがテレビのWebブラウザを開き、ビデオのリンクを送ります。サイトがiPhoneのCookieがないと再生できない場合は、代わりにiPhoneがテレビにストリーミングします。",
+   "webvideos": "All TV KitがテレビのWebブラウザを開き、ビデオのリンクを送ります。サイトがiPhoneのCookieがないと再生できない場合は、代わりにiPhoneがテレビにストリーミングします。",
    "camera": "カメラの映像はまずテレビのWebブラウザに表示され、同じく「テレビで再生されていますか？」の確認があります。「いいえ」でテレビ本体のプレーヤーに切り替わります。"
   },
   "roku": {
@@ -1412,14 +1432,14 @@
    },
    "connect": [
     "RokuテレビまたはRokuプレーヤーの電源を入れ、iPhoneを同じWi-Fiに接続します。",
-    "MirrorGoを開いて「テレビに接続」をタップします。お使いのRokuが名前で表示されます。",
+    "All TV Kitを開いて「テレビに接続」をタップします。お使いのRokuが名前で表示されます。",
     "タップすると接続します。コードの入力は不要です。",
-    "接続完了です。MirrorGoは次回のためにRokuを記憶します。"
+    "接続完了です。All TV Kitは次回のためにRokuを記憶します。"
    ],
    "connect_notes": [
-    "MirrorGoは、Rokuテレビ（TCL、Hisense、Sharp、PhilipsなどのRoku TVモデル）と、Rokuストリーミングプレーヤー（Roku Express、Streaming Stick、Ultra）に対応しています。",
+    "All TV Kitは、Rokuテレビ（TCL、Hisense、Sharp、PhilipsなどのRoku TVモデル）と、Rokuストリーミングプレーヤー（Roku Express、Streaming Stick、Ultra）に対応しています。",
     "Rokuがリストに表示されない場合は、Rokuで「設定」›「システム」›「システムの詳細設定」›「モバイルアプリによる操作」（Settings › System › Advanced system settings › Control by mobile apps）を開き、「ネットワークアクセス」（Network access）を「デフォルト」（Default）に設定してください。",
-    "Rokuでは、MirrorGoは画面を音声付きでミラーリングし、Roku本体のプレーヤーで再生します。写真、ビデオ、カメラ、YouTube、ライブTVはまだRokuにキャストできません。"
+    "Rokuでは、All TV Kitは画面を音声付きでミラーリングし、Roku本体のプレーヤーで再生します。写真、ビデオ、カメラ、YouTube、ライブTVはまだRokuにキャストできません。"
    ]
   },
   "googletv": {
@@ -1429,20 +1449,20 @@
    },
    "connect": [
     "Google TVの電源を入れ、iPhoneを同じWi-Fiに接続します。",
-    "MirrorGoを開いて「テレビに接続」をタップします。テレビはGoogle Homeでの名前（例：リビングのテレビ）で表示されます。",
+    "All TV Kitを開いて「テレビに接続」をタップします。テレビはGoogle Homeでの名前（例：リビングのテレビ）で表示されます。",
     "タップすると接続します。コードの入力も、テレビでの確認もありません。",
-    "接続完了です。次回もMirrorGoが自動で接続します。"
+    "接続完了です。次回もAll TV Kitが自動で接続します。"
    ],
    "connect_notes": [
-    "Google TVにはChromecastが内蔵されており、MirrorGoはそれを通じてテレビと通信します。Sony、TCL、Hisense、PhilipsのGoogle TV、Chromecast with Google TV、Google TV Streamerに対応しています。",
-    "リストに表示されない場合は、テレビをスタンバイではなく完全に起動し、iPhoneと同じWi-Fiにつながっていること、MirrorGoのローカルネットワークへのアクセスがオンになっていることを確認してください。"
+    "Google TVにはChromecastが内蔵されており、All TV Kitはそれを通じてテレビと通信します。Sony、TCL、Hisense、PhilipsのGoogle TV、Chromecast with Google TV、Google TV Streamerに対応しています。",
+    "リストに表示されない場合は、テレビをスタンバイではなく完全に起動し、iPhoneと同じWi-Fiにつながっていること、All TV Kitのローカルネットワークへのアクセスがオンになっていることを確認してください。"
    ],
-   "photos": "写真はWi-Fi経由で全画面の画像としてテレビに送られます。ビデオはテレビ上のMirrorGoのプレーヤーで再生され、再生、一時停止、シークはiPhoneで操作します。",
+   "photos": "写真はWi-Fi経由で全画面の画像としてテレビに送られます。ビデオはテレビ上のAll TV Kitのプレーヤーで再生され、再生、一時停止、シークはiPhoneで操作します。",
    "images": "画像はテレビ内蔵のChromecastを通じて全画面表示されます。",
    "iptv": "テレビがチャンネルを直接取得するので、iPhoneをロックしても、部屋から持ち出しても再生され続けます。",
-   "youtube": "ビデオは、テレビ上のMirrorGoアプリ内にあるYouTubeのプレーヤーで、見ていた場面から再生されます。",
-   "webvideos": "テレビはMirrorGoを通じてビデオを再生します。MirrorGoがサイトのビデオをiPhoneから中継するので、再生中はMirrorGoを開いたままにしてください。",
-   "camera": "音声付き：開始する前に「サウンド」をオンにすると、MirrorGoがマイクの音を追加します。"
+   "youtube": "ビデオは、テレビ上のAll TV Kitアプリ内にあるYouTubeのプレーヤーで、見ていた場面から再生されます。",
+   "webvideos": "テレビはAll TV Kitを通じてビデオを再生します。All TV KitがサイトのビデオをiPhoneから中継するので、再生中はAll TV Kitを開いたままにしてください。",
+   "camera": "音声付き：開始する前に「サウンド」をオンにすると、All TV Kitがマイクの音を追加します。"
   },
   "androidtv": {
    "forms": {
@@ -1451,20 +1471,20 @@
    },
    "connect": [
     "Android TVの電源を入れ、iPhoneを同じWi-Fiに接続します。",
-    "MirrorGoを開いて「テレビに接続」をタップします。テレビはChromecastの名前で表示されます。",
+    "All TV Kitを開いて「テレビに接続」をタップします。テレビはChromecastの名前で表示されます。",
     "タップすると接続します。コードの入力も、テレビでの確認もありません。",
-    "接続完了です。次回もMirrorGoが自動で接続します。"
+    "接続完了です。次回もAll TV Kitが自動で接続します。"
    ],
    "connect_notes": [
-    "ほぼすべてのAndroid TVにはChromecastが内蔵されており、MirrorGoはそれを通じてテレビと通信します。Sony BRAVIA、Philips、Xiaomi、TCL、Sharp、Mi Box、Xiaomi TV Stick、NVIDIA SHIELDなどに対応しています。",
-    "リストに表示されない場合は、テレビをスタンバイではなく完全に起動し、iPhoneと同じWi-Fiにつながっていること、MirrorGoのローカルネットワークへのアクセスがオンになっていることを確認してください。"
+    "ほぼすべてのAndroid TVにはChromecastが内蔵されており、All TV Kitはそれを通じてテレビと通信します。Sony BRAVIA、Philips、Xiaomi、TCL、Sharp、Mi Box、Xiaomi TV Stick、NVIDIA SHIELDなどに対応しています。",
+    "リストに表示されない場合は、テレビをスタンバイではなく完全に起動し、iPhoneと同じWi-Fiにつながっていること、All TV Kitのローカルネットワークへのアクセスがオンになっていることを確認してください。"
    ],
-   "photos": "写真はWi-Fi経由で全画面の画像としてテレビに送られます。ビデオはテレビ上のMirrorGoのプレーヤーで再生され、再生、一時停止、シークはiPhoneで操作します。",
+   "photos": "写真はWi-Fi経由で全画面の画像としてテレビに送られます。ビデオはテレビ上のAll TV Kitのプレーヤーで再生され、再生、一時停止、シークはiPhoneで操作します。",
    "images": "画像はテレビ内蔵のChromecastを通じて全画面表示されます。",
    "iptv": "テレビがチャンネルを直接取得するので、iPhoneをロックしても、部屋から持ち出しても再生され続けます。",
-   "youtube": "ビデオは、テレビ上のMirrorGoアプリ内にあるYouTubeのプレーヤーで、見ていた場面から再生されます。",
-   "webvideos": "テレビはMirrorGoを通じてビデオを再生します。MirrorGoがサイトのビデオをiPhoneから中継するので、再生中はMirrorGoを開いたままにしてください。",
-   "camera": "音声付き：開始する前に「サウンド」をオンにすると、MirrorGoがマイクの音を追加します。"
+   "youtube": "ビデオは、テレビ上のAll TV Kitアプリ内にあるYouTubeのプレーヤーで、見ていた場面から再生されます。",
+   "webvideos": "テレビはAll TV Kitを通じてビデオを再生します。All TV KitがサイトのビデオをiPhoneから中継するので、再生中はAll TV Kitを開いたままにしてください。",
+   "camera": "音声付き：開始する前に「サウンド」をオンにすると、All TV Kitがマイクの音を追加します。"
   },
   "chromecast": {
    "forms": {
@@ -1473,20 +1493,20 @@
    },
    "connect": [
     "Chromecastを接続しているテレビの電源を入れ、iPhoneを同じWi-Fiに接続します。",
-    "MirrorGoを開いて「テレビに接続」をタップします。ChromecastはGoogle Homeでの名前で表示されます。",
+    "All TV Kitを開いて「テレビに接続」をタップします。ChromecastはGoogle Homeでの名前で表示されます。",
     "タップすると接続します。コードの入力もGoogle Homeアプリも不要です。",
-    "接続完了です。次回もMirrorGoが自動で接続します。"
+    "接続完了です。次回もAll TV Kitが自動で接続します。"
    ],
    "connect_notes": [
     "Google TVの有無にかかわらず、すべてのChromecastで使えます。VIZIO SmartCastテレビなど、Chromecastを内蔵したテレビにも対応しています。",
-    "リストに表示されない場合は、ChromecastがiPhoneと同じWi-Fi（ゲストネットワーク以外）につながっていること、「設定」でMirrorGoのローカルネットワークへのアクセスがオンになっていることを確認してください。"
+    "リストに表示されない場合は、ChromecastがiPhoneと同じWi-Fi（ゲストネットワーク以外）につながっていること、「設定」でAll TV Kitのローカルネットワークへのアクセスがオンになっていることを確認してください。"
    ],
-   "photos": "写真はWi-Fi経由で全画面の画像としてテレビに送られます。ビデオはChromecast上のMirrorGoのプレーヤーで再生され、再生、一時停止、シークはiPhoneで操作します。",
+   "photos": "写真はWi-Fi経由で全画面の画像としてテレビに送られます。ビデオはChromecast上のAll TV Kitのプレーヤーで再生され、再生、一時停止、シークはiPhoneで操作します。",
    "images": "画像はChromecastを通じて全画面表示されます。",
    "iptv": "Chromecastがチャンネルを直接取得するので、iPhoneをロックしても再生され続けます。",
-   "youtube": "ビデオは、Chromecast上のMirrorGoアプリ内にあるYouTubeのプレーヤーで、見ていた場面から再生されます。",
-   "webvideos": "ChromecastはMirrorGoを通じてビデオを再生します。MirrorGoがサイトのビデオをiPhoneから中継するので、再生中はMirrorGoを開いたままにしてください。",
-   "camera": "音声付き：開始する前に「サウンド」をオンにすると、MirrorGoがマイクの音を追加します。"
+   "youtube": "ビデオは、Chromecast上のAll TV Kitアプリ内にあるYouTubeのプレーヤーで、見ていた場面から再生されます。",
+   "webvideos": "ChromecastはAll TV Kitを通じてビデオを再生します。All TV KitがサイトのビデオをiPhoneから中継するので、再生中はAll TV Kitを開いたままにしてください。",
+   "camera": "音声付き：開始する前に「サウンド」をオンにすると、All TV Kitがマイクの音を追加します。"
   },
   "firetv": {
    "forms": {
@@ -1495,18 +1515,18 @@
    },
    "connect": [
     "Fire TVの電源を入れ、iPhoneを同じWi-Fiに接続します。",
-    "MirrorGoを開いて「テレビに接続」をタップします。お使いのFire TVが名前で表示されます。",
+    "All TV Kitを開いて「テレビに接続」をタップします。お使いのFire TVが名前で表示されます。",
     "タップすると接続します。Fire TVへのアプリのインストールも、ペアリングも、コードも不要です。",
-    "接続完了です。次回もMirrorGoが自動で接続します。"
+    "接続完了です。次回もAll TV Kitが自動で接続します。"
    ],
    "connect_notes": [
-    "すべてのFire TVにはメディアプレーヤーが内蔵されており、MirrorGoはそれを使います。Fire TV Stick（4K、4K Maxを含む）、Fire TV Cube、Fire TVを内蔵したスマートテレビに対応しています。",
+    "すべてのFire TVにはメディアプレーヤーが内蔵されており、All TV Kitはそれを使います。Fire TV Stick（4K、4K Maxを含む）、Fire TV Cube、Fire TVを内蔵したスマートテレビに対応しています。",
     "リストに表示されない場合は、Fire TVリモコンのホームボタンを押して起動し、iPhoneと同じWi-Fiにつながっていることを確認してください。"
    ],
-   "photos": "写真は画像として、ビデオはMP4ファイルとして、Wi-Fi経由でiPhoneから配信されます。Fire TVはiPhoneの標準のビデオ形式であるHEVCを再生できないため、MirrorGoがそうしたビデオを先にH.264に変換します。長いビデオは少し時間がかかります。",
+   "photos": "写真は画像として、ビデオはMP4ファイルとして、Wi-Fi経由でiPhoneから配信されます。Fire TVはiPhoneの標準のビデオ形式であるHEVCを再生できないため、All TV Kitがそうしたビデオを先にH.264に変換します。長いビデオは少し時間がかかります。",
    "images": "画像はFire TV内蔵のプレーヤーで全画面表示されます。",
    "iptv": "Fire TVがチャンネルのストリームを直接再生するので、iPhoneがなくても再生され続けます。",
-   "webvideos": "iPhoneから中継されたサイトのビデオをFire TVが再生します。再生中はMirrorGoを開いたままにしてください。",
+   "webvideos": "iPhoneから中継されたサイトのビデオをFire TVが再生します。再生中はAll TV Kitを開いたままにしてください。",
    "camera": "映像のみ：Fire TV内蔵のプレーヤーでは、カメラの映像は音声なしで表示されます。"
   },
   "airplay": {
@@ -1516,18 +1536,18 @@
    },
    "connect": [
     "Apple TVまたはAirPlay対応テレビの電源を入れ、iPhoneを同じWi-Fiに接続します。",
-    "MirrorGoを開いて「テレビに接続」をタップし、「AirPlayデバイスを選択」をタップします。",
+    "All TV Kitを開いて「テレビに接続」をタップし、「AirPlayデバイスを選択」をタップします。",
     "iOSのAirPlayメニューで、お使いのApple TVまたはAirPlay対応テレビを選びます。初回は、iPhoneに入力するコードがテレビに表示されることがあります。",
-    "接続完了：MirrorGoに「AirPlayで接続中」と表示されます。接続を解除するには、同じメニューを開いて「iPhone」を選びます。"
+    "接続完了：All TV Kitに「AirPlayで接続中」と表示されます。接続を解除するには、同じメニューを開いて「iPhone」を選びます。"
    ],
    "connect_notes": [
     "Apple TV HD、Apple TV 4K、そしてAirPlayを内蔵したテレビで使えます。2018年以降のSamsung、LG、Sony、VIZIO、TCL、Rokuの多くのモデルが対応しています。",
     "AirPlayデバイスに画面全体をミラーリングするには、コントロールセンター ›「画面ミラーリング」を使ってください。Appleはアプリがミラーリングを開始することを認めていません。"
    ],
-   "photos": "ビデオも写真もAirPlayで再生されます。写真は、MirrorGoが1枚ずつ短い静止画ビデオに変換します。コントロールセンターで画面ミラーリングをオンにしている場合は、写真がテレビに直接表示されます。",
+   "photos": "ビデオも写真もAirPlayで再生されます。写真は、All TV Kitが1枚ずつ短い静止画ビデオに変換します。コントロールセンターで画面ミラーリングをオンにしている場合は、写真がテレビに直接表示されます。",
    "images": "画像はAirPlayで静止画ビデオとして送られます。コントロールセンターで画面ミラーリングをオンにしている場合は、テレビに直接表示されます。",
    "iptv": "チャンネルはAirPlayで再生され、Apple TVがストリームを直接取得します。",
-   "webvideos": "ビデオはAirPlayで再生されます。再生中はMirrorGoを開いたままにしてください。",
+   "webvideos": "ビデオはAirPlayで再生されます。再生中はAll TV Kitを開いたままにしてください。",
    "camera": "先にコントロールセンターで画面ミラーリングをオンにしてください。カメラの映像がテレビに全画面で、音声なしで表示されます。"
   },
   "browser": {
@@ -1537,12 +1557,12 @@
    },
    "connect": [
     "テレビ、パソコン、タブレットのWebブラウザでsmrr.tvを開きます。6桁のコードとQRコードが表示されます。",
-    "MirrorGoで「テレビに接続」をタップし、「Webブラウザにミラーリング」をタップします。",
+    "All TV Kitで「テレビに接続」をタップし、「Webブラウザにミラーリング」をタップします。",
     "コードを入力するか、「QRコードをスキャン」をタップしてカメラをQRコードに向けます。",
     "接続完了です。ページにはコードの代わりにiPhoneの画面が表示されます。"
    ],
    "connect_notes": [
-    "最新のWebブラウザがあれば、どの画面でも使えます。MirrorGoがテレビとして見つけられないスマートテレビ、Windows PC、Mac、Chromebook、タブレットなどです。近くのLGやSamsungのテレビなら、「…で開く」でテレビのブラウザを開けます。",
+    "最新のWebブラウザがあれば、どの画面でも使えます。All TV Kitがテレビとして見つけられないスマートテレビ、Windows PC、Mac、Chromebook、タブレットなどです。近くのLGやSamsungのテレビなら、「…で開く」でテレビのブラウザを開けます。",
     "iPhoneとブラウザは直接接続するので、同じWi-Fiにつながっている必要があります。ページは開いたままにしてください。再読み込みしても自動的に再接続します。"
    ],
    "photos": "写真やビデオは、Wi-Fi経由でiPhoneからブラウザにライブストリームとして直接送られ、16:9で画面いっぱいに、ビデオの音声付きで表示されます。",
