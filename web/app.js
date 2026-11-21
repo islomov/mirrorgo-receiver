@@ -28,7 +28,9 @@ const tvApp = document.body.getAttribute("data-surface") === "tv";
 // The Fire OS app (islomov/mirrorgo-firetv) announces itself on the Wi-Fi, and the iPhone joins it when
 // its Fire TV is tapped (MIRR-165): "tap this TV" first, the code only as a fallback, the QR gets the
 // iPhone app. Its bridge has no platform(); Vega's says "vega" (no discovery there: the code stays).
-const autoJoin = tvApp && isFireOSApp(window.MirrorGoTV);
+// ?preview=fireos: the same screen in a browser, to look at it (&name=… for the TV's name).
+const previewFireOS = /(^|[?&])preview=fireos(&|$)/.test(location.search);
+const autoJoin = tvApp && (previewFireOS || isFireOSApp(window.MirrorGoTV));
 const APP_STORE_URL = "https://apps.apple.com/app/id6835835303";
 if (autoJoin) Object.assign(strings, autoJoinStrings);
 
@@ -399,6 +401,12 @@ function renderTVApp() {
   try {
     name = bridge && typeof bridge.deviceName === "function" ? String(bridge.deviceName() || "") : "";
   } catch (e) {}
+  if (previewFireOS && !name) {
+    const match = /(?:^|[?&])name=([^&]*)/.exec(location.search);
+    try {
+      name = match ? decodeURIComponent(match[1].replace(/\+/g, " ")) : "";
+    } catch (e) {}
+  }
   $("tv-name").textContent = name ? strings.tvName(name) : "";
   $("tv-name").hidden = !name || autoJoin;
   if (autoJoin) renderAutoJoin(name);
