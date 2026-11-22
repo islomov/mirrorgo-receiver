@@ -2,7 +2,7 @@ name: Deploy smrr.tv
 
 # Deploys the web receiver (web/) and the Worker (worker/) to Cloudflare.
 # The landing page (site/) is mirrorgo.app, deployed by deploy-site.yml.
-# The Cast receiver is web/cast/ (https://smrr.tv/cast/); its old copy (root index.html) stays on GitHub Pages until the Cast console switches (MIRR-176).
+# The Cast receiver is web/cast/ (https://smrr.tv/cast/, MIRR-176).
 on:
   push:
     branches: [main]

@@ -11,9 +11,8 @@ the app while the page plays a link it sent). Protocol:
 - `wrangler.jsonc`: DO binding + `new_sqlite_classes` migration, rate limits, `ICE_SERVERS` var.
 
 The Cast receiver (App ID `9B4F2DCA`) is `../web/cast/index.html`, served with the rest of the site at
-https://smrr.tv/cast/ (MIRR-176). Until the Cast console points there, GitHub Pages still serves the old
-copy (`../index.html`) at https://islomov.github.io/mirrorgo-receiver/: keep the two the same until that
-copy is removed. Don't move or rename `web/cast/` once the console uses it.
+https://smrr.tv/cast/ (MIRR-176); the Cast console points there. Don't move or rename `web/cast/`.
+The old GitHub Pages copy (root `index.html`) is gone (MIRR-180).
 
 ```bash
 cd worker
