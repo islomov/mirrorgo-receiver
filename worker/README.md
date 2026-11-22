@@ -12,8 +12,7 @@ the app while the page plays a link it sent). Protocol:
 
 The Cast receiver (App ID `9B4F2DCA`) is `../web/cast/index.html`, served with the rest of the site at
 https://smrr.tv/cast/ (MIRR-176); the Cast console points there. Don't move or rename `web/cast/`.
-The old address on GitHub Pages (https://islomov.github.io/mirrorgo-receiver/, `../index.html`) only
-redirects to it (MIRR-180).
+The old GitHub Pages copy (root `index.html`) is gone (MIRR-180).
 
 ```bash
 cd worker
