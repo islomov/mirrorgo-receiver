@@ -82,6 +82,7 @@
   "questions": "質問",
   "more_guides_for": "{tv}のその他のガイド",
   "other_tvs": "ほかのテレビ",
+  "tv_brands_with": "{tv}を搭載したテレビのメーカー",
   "status_ok": "対応",
   "status_part": "一部対応",
   "status_not": "このテレビでは非対応",

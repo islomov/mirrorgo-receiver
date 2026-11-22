@@ -82,6 +82,7 @@
   "questions": "問題",
   "more_guides_for": "{tv}：更多教學",
   "other_tvs": "其他電視",
+  "tv_brands_with": "搭載 {tv} 的電視品牌",
   "status_ok": "可用",
   "status_part": "部分可用",
   "status_not": "此電視不支援",

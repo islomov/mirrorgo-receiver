@@ -124,6 +124,7 @@ UI = {
     "questions": "Questions",
     "more_guides_for": "More guides for {tv}",
     "other_tvs": "Other TVs",
+    "tv_brands_with": "TV brands with {tv}",
     "status_ok": "Works",
     "status_part": "Partly",
     "status_not": "Not on this TV",
