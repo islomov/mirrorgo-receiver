@@ -10,6 +10,23 @@ the app while the page plays a link it sent). Protocol:
 - `/landing-page/*` → `https://mirrorgo.app/*` (301): the landing page (`../site/`) moved to its own domain.
 - `wrangler.jsonc`: DO binding + `new_sqlite_classes` migration, rate limits, `ICE_SERVERS` var.
 
+## One copy of the receiver per page
+
+Each page is its own copy of the receiver (HTML, scripts, strings, stylesheet), so a change to one
+doesn't touch the others. Copied logic between them is fine; there's no shared receiver code.
+
+| URL | Folder | What it is |
+|---|---|---|
+| `/` (and `/c/<code>`) | `web/` (`index.html`, `app.js`, …, `join.*`) | smrr.tv in a browser: code + QR, the page the app opens itself (`#room=`), full screen, privacy link |
+| `/firetv` | `web/firetv/` | Fire TV app's WebView: "tap this TV in All TV Kit", the code as a small fallback, QR → App Store |
+| `/samsung`, `/lg`, `/roku`, `/googletv` | `web/<tv>/` | that TV app's WebView: code + QR, "for <TV>" badge, this TV's name, "Get a new code" |
+
+Each folder has `index.html`, `app.js`, `strings.js`, `signaling.js`, `player.js`, `media.js` and
+`style.css`. Only fonts, the app icon (`web/img/`) and third-party libraries (`web/vendor/`) are
+shared. The Worker serves `web/<tv>/` at `/<tv>` as well as `/<tv>/` (the apps load `/<tv>`), and the
+page loads its files from `/<tv>/…`. A fix that every page needs (say, in `player.js`) has to be
+made in each copy. To check one page end to end: `PAGE=/firetv node e2e.mjs` (below).
+
 The Cast receiver (App ID `9B4F2DCA`) is `../web/cast/index.html`, served with the rest of the site at
 https://smrr.tv/cast/ (MIRR-176); the Cast console points there. Don't move or rename `web/cast/`.
 The old GitHub Pages copy (root `index.html`) is gone (MIRR-180).
@@ -31,6 +48,7 @@ Browser end-to-end check with a fake sender (headless Chrome, see `../tools/`):
 cd tools && npm install
 node e2e.mjs                          # against npm run dev
 SERVER=https://smrr.tv node e2e.mjs   # against production
+PAGE=/samsung node e2e.mjs            # a TV app's page (each its own copy)
 ```
 
 Manual: serve `tools/` on localhost (`python3 -m http.server 8000`), open the page in one tab and

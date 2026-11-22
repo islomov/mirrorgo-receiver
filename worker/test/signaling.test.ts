@@ -503,16 +503,25 @@ describe("site", () => {
     expect(await home.text()).toContain("app.js");
   });
 
-  it("serves the TV apps' page at /firetv, /samsung, /lg, /roku and /googletv", async () => {
-    for (const path of ["/firetv", "/samsung", "/lg", "/roku", "/googletv", "/samsung/"]) {
-      const res = await SELF.fetch(`${ORIGIN}${path}`, { redirect: "manual" });
-      expect(res.status, path).toBe(200);
-      const html = await res.text();
-      expect(html, path).toContain('data-surface="tv"');
-      expect(html, path).toContain("app.js");
+  it("serves each TV app's own page at /firetv, /samsung, /lg, /roku and /googletv", async () => {
+    for (const tv of ["firetv", "samsung", "lg", "roku", "googletv"]) {
+      for (const path of [`/${tv}`, `/${tv}/`]) {
+        const res = await SELF.fetch(`${ORIGIN}${path}`, { redirect: "manual" });
+        expect(res.status, path).toBe(200);
+        const html = await res.text();
+        // Its own copy of the receiver (web/<tv>/), not smrr.tv's (/app.js) or another TV's.
+        expect(html, path).toContain(`src="/${tv}/app.js"`);
+        expect(html, path).toContain(`href="/${tv}/style.css"`);
+      }
+      for (const file of ["app.js", "strings.js", "signaling.js", "player.js", "media.js", "style.css"]) {
+        const res = await SELF.fetch(`${ORIGIN}/${tv}/${file}`, { redirect: "manual" });
+        expect(res.status, `/${tv}/${file}`).toBe(200);
+        await res.arrayBuffer();
+      }
     }
     const other = await SELF.fetch(`${ORIGIN}/sony`, { redirect: "manual" });
-    expect(await other.text()).not.toContain('data-surface="tv"');
+    expect(other.status).toBe(404);
+    await other.arrayBuffer();
   });
 
   it("redirects the old /landing-page URLs to the same page on mirrorgo.app", async () => {

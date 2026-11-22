@@ -8,15 +8,11 @@
   <meta name="robots" content="noindex">
   <title>All TV Kit</title>
   <link rel="preload" href="/fonts/Sora-Bold.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="/style.css">
-  <link rel="stylesheet" href="/tv.css">
+  <link rel="stylesheet" href="/googletv/style.css">
 </head>
-<!-- The MirrorGo TV apps show this page full screen in a WebView, each at its own URL: /firetv (Fire TV,
-     islomov/mirrorgo-firetv), /samsung, /lg, /roku, /googletv (the Worker serves this file for all of them).
-     Same receiver as / (app.js), its own layout and wording (strings.js `tv`, plus the TV's own from its
-     path): All TV Kit branding, "this TV", no full-screen button. On /firetv (data-join="auto"), "tap this
-     TV in All TV Kit" first and the code as a small fallback (app.js `autoJoin`). -->
-<body data-surface="tv" data-screen="connecting">
+<!-- smrr.tv/googletv: Google TV's MirrorGo TV app (the Google TV app) shows this page full screen in a
+     WebView. Its own copy of the receiver (this folder): smrr.tv in a browser (web/) and the other TVs have theirs. -->
+<body data-screen="connecting">
   <video id="video" autoplay playsinline muted></video>
   <img id="image" alt="">
   <div id="youtube"></div>
@@ -46,11 +42,6 @@
         <div class="code-digits" id="code" aria-live="polite"></div>
         <ol class="steps" id="steps"></ol>
         <p class="wifi" id="code-wifi"></p>
-        <!-- /firetv only (body data-join="auto"): the code, small, for when the iPhone doesn't list this TV. -->
-        <p class="code-fallback" id="code-fallback">
-          <span id="code-fallback-text"></span>
-          <span class="code-small" id="code-small"></span>
-        </p>
         <button type="button" class="button new-code" id="new-code" hidden></button>
         <p class="status" id="code-status" role="status"></p>
       </div>
@@ -72,11 +63,10 @@
   <div class="toast" id="toast" role="status"></div>
   <div class="controls" id="controls">
     <button type="button" class="button primary" id="sound"></button>
-    <button type="button" class="button" id="fullscreen" hidden></button>
   </div>
 
   <pre class="debug" id="debug" hidden></pre>
 
-  <script type="module" src="/app.js"></script>
+  <script type="module" src="/googletv/app.js"></script>
 </body>
 </html>

@@ -6,6 +6,7 @@
 //   SERVER=https://smrr.tv node e2e.mjs  # against the deployed Worker
 //   SHOTS=/some/dir node e2e.mjs         # also save screenshots there
 //   LINK=<https url> node e2e.mjs        # the link for the link steps (LINK=0 skips them)
+//   PAGE=/firetv node e2e.mjs            # a TV app's page (/firetv, /samsung, /lg, /roku, /googletv: each its own copy)
 //
 // Flow: page shows a code → fake sender connects → playing (debug stats) → page reload rejoins the
 // same code and plays again → ICE restart requested by the page → sender sends bye → "stopped"
@@ -22,6 +23,11 @@ import { fileURLToPath } from "node:url";
 import puppeteer from "puppeteer-core";
 
 const SERVER = process.env.SERVER || "http://localhost:8787";
+// The page under test: / (smrr.tv in a browser) or a TV app's own copy. /firetv shows the code as one small
+// line (#code-small, no #code) and a QR code for the App Store.
+const PAGE = process.env.PAGE || "/";
+const CODE = "#code, #code-small";
+const APP_STORE_URL = "https://apps.apple.com/app/id6835835303";
 const CHROME = process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const SHOTS = process.env.SHOTS;
 // Mux's public test stream (HLS, CORS allowed: works with hls.js too).
@@ -61,21 +67,25 @@ const check = (ok, what) => {
 };
 
 try {
-  step(`viewer ${SERVER}/?debug=1`);
+  step(`viewer ${SERVER}${PAGE}?debug=1`);
   const viewer = await browser.newPage();
   await viewer.setUserAgent((await browser.userAgent()).replace("HeadlessChrome", "Chrome"));
   viewer.on("console", (m) => process.env.VERBOSE && console.log("  [viewer]", m.text()));
-  await viewer.goto(`${SERVER}/?debug=1`);
-  await viewer.waitForFunction(() => /^\d{6}$/.test(document.getElementById("code").textContent), { timeout: 10000, polling: 200 });
-  const code = (await viewer.$eval("#code", (e) => e.textContent)).replace(" ", "");
+  await viewer.goto(`${SERVER}${PAGE}?debug=1`);
+  await viewer.waitForFunction(() => /^\d{6}$/.test(document.querySelector("#code, #code-small").textContent.replace(" ", "")), { timeout: 10000, polling: 200 });
+  const code = (await viewer.$eval(CODE, (e) => e.textContent)).replace(" ", "");
   console.log(`code ${code} (${ms()})`);
   check((await viewer.$eval("body", (b) => b.dataset.screen)) === "code", "code screen");
-  check(await viewer.$eval("#qr svg", (s) => s.getAttribute("aria-label")) === `${SERVER}/c/${code}`, "QR encodes /c/<code>");
+  if (PAGE.startsWith("/firetv")) {
+    check(await viewer.$eval("#qr svg", (s) => s.getAttribute("aria-label")) === APP_STORE_URL, "QR encodes the App Store");
+  } else {
+    check(await viewer.$eval("#qr svg", (s) => s.getAttribute("aria-label")) === `${SERVER}/c/${code}`, "QR encodes /c/<code>");
+  }
   if (SHOTS) {
     // A clean shot without the debug overlay.
     const clean = await browser.newPage();
-    await clean.goto(`${SERVER}/`);
-    await clean.waitForFunction(() => /\d/.test(document.getElementById("code").textContent), { polling: 200 });
+    await clean.goto(`${SERVER}${PAGE}`);
+    await clean.waitForFunction(() => /\d/.test(document.querySelector("#code, #code-small").textContent), { polling: 200 });
     await clean.screenshot({ path: path.join(SHOTS, "smrr-code-screen.png") });
     await clean.setViewport({ width: 390, height: 844, deviceScaleFactor: 2 });
     await clean.screenshot({ path: path.join(SHOTS, "smrr-code-screen-phone.png") });
@@ -102,8 +112,8 @@ try {
   step("viewer reload rejoins the same room");
   start = Date.now();
   await viewer.reload();
-  await viewer.waitForFunction(() => /\d/.test(document.getElementById("code").textContent), { polling: 200 });
-  check((await viewer.$eval("#code", (e) => e.textContent)).replace(" ", "") === code, "same code after reload");
+  await viewer.waitForFunction(() => /\d/.test(document.querySelector("#code, #code-small").textContent), { polling: 200 });
+  check((await viewer.$eval(CODE, (e) => e.textContent)).replace(" ", "") === code, "same code after reload");
   await playing();
   console.log(`playing again ${Date.now() - start} ms after reload`);
 
@@ -116,7 +126,7 @@ try {
   step("sender stops (bye)");
   await sender.click("#stop");
   await viewer.waitForFunction(() => document.body.dataset.variant === "stopped", { timeout: 5000, polling: 200 });
-  check((await viewer.$eval("#code", (e) => e.textContent)).replace(" ", "") === code, "stopped screen keeps the code");
+  check((await viewer.$eval(CODE, (e) => e.textContent)).replace(" ", "") === code, "stopped screen keeps the code");
   if (SHOTS) await viewer.screenshot({ path: path.join(SHOTS, "smrr-stopped.png") });
 
   step("sender starts again with the same code");
@@ -135,7 +145,7 @@ try {
   console.log(`stopped ${Date.now() - start} ms after the sender froze`);
   check((await viewer.$eval("body", (b) => b.dataset.screen)) === "code", "code screen (not an error)");
   check((await viewer.$eval("#code-title", (e) => e.textContent)) === "Mirroring stopped", "\"Mirroring stopped\"");
-  check((await viewer.$eval("#code", (e) => e.textContent)).replace(" ", "") === code, "same code");
+  check((await viewer.$eval(CODE, (e) => e.textContent)).replace(" ", "") === code, "same code");
   check((await viewer.$eval("#toast", (e) => e.textContent)) === "", "no \"Reconnecting…\" toast");
   if (SHOTS) await viewer.screenshot({ path: path.join(SHOTS, "smrr-phone-gone.png") });
 
@@ -205,8 +215,8 @@ try {
     check((await mediaState()) === "idle", "player idle");
 
     step("link: hls.js (forced with ?hlsjs=1, where the browser plays HLS itself)");
-    await viewer.goto(`${SERVER}/?debug=1&hlsjs=1`);
-    await viewer.waitForFunction(() => /\d/.test(document.getElementById("code").textContent), { polling: 200 });
+    await viewer.goto(`${SERVER}${PAGE}?debug=1&hlsjs=1`);
+    await viewer.waitForFunction(() => /\d/.test(document.querySelector("#code, #code-small").textContent), { polling: 200 });
     await again.$eval("#link", (e, link) => { e.value = link; }, LINK);
     await again.click("#play-link");
     await waitMedia("playing");
