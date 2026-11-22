@@ -222,7 +222,7 @@ describe("relay", () => {
     await sender.expectSilence();
   });
 
-  it("relays media-load / media-control / media-stop to the page, capabilities / media-status to the phone", async () => {
+  it("relays media-load / media-control / media-stop to the page, capabilities / media-status / video-playing to the phone", async () => {
     const { viewer, room } = await newViewer();
     const { sender } = await senderFor(room.code);
     await viewer.next("peer-joined");
@@ -236,6 +236,8 @@ describe("relay", () => {
     const status = JSON.stringify({ type: "media-status", id: 1, state: "playing", time: 3.5, duration: null, muted: true });
     viewer.send(status);
     expect(await sender.nextRaw()).toBe(status);
+    viewer.send({ type: "video-playing" });
+    expect(await sender.next()).toEqual({ type: "video-playing" });
     sender.send({ type: "media-control", id: 1, action: "pause" });
     expect(await viewer.next()).toEqual({ type: "media-control", id: 1, action: "pause" });
     sender.send({ type: "media-stop" });

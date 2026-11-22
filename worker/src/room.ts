@@ -71,11 +71,12 @@ interface SocketAttachment {
 
 /**
  * Messages each role may send; everything else is ignored. WebRTC signaling, plus links the page
- * plays itself (`media-*`) and what the page can play (`capabilities`).
+ * plays itself (`media-*`), what the page can play (`capabilities`) and that mirroring shows a
+ * picture (`video-playing`).
  */
 const RELAYED: Record<Role, ReadonlySet<string>> = {
   sender: new Set(["offer", "candidate", "bye", "media-load", "media-control", "media-stop"]),
-  viewer: new Set(["answer", "candidate", "restart-ice", "bye", "capabilities", "media-status"]),
+  viewer: new Set(["answer", "candidate", "restart-ice", "bye", "capabilities", "media-status", "video-playing"]),
 };
 
 const other = (role: Role): Role => (role === "viewer" ? "sender" : "viewer");

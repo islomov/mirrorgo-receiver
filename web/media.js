@@ -56,6 +56,9 @@ export function capabilities(video) {
     hls: nativeHls(video) ? "native" : mediaSourceSupported() ? "hls.js" : "none",
     mp4: canPlay(video, 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"'),
     screen: { width: window.screen ? screen.width : 0, height: window.screen ? screen.height : 0 },
+    // Sends `video-playing` once mirroring shows a frame (MIRR-178): a TV that negotiates H.264 but
+    // can't decode it never does, and the phone switches to another way.
+    videoPlaying: true,
   };
 }
 
