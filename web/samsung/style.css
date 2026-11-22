@@ -1,0 +1,303 @@
+/* smrr.tv/samsung: the page Samsung TV's MirrorGo TV app shows, its own stylesheet (smrr.tv in a browser and the
+   other TVs have theirs). MirrorGo's look (near-black page, dark cards with a hairline border, Sora, the purple
+   gradient, the app icon's glow behind the screens): always a 16:9 TV seen from the sofa, driven by the remote.
+   The code and the QR code are about the same height, side by side.
+   Kept conservative for older TV browsers: no `inset`, no flex `gap`, plain fallbacks before clamp(). */
+
+@font-face { font-family: "Sora"; font-weight: 500; font-display: swap; src: url("/fonts/Sora-Medium.ttf") format("truetype"); }
+@font-face { font-family: "Sora"; font-weight: 600; font-display: swap; src: url("/fonts/Sora-SemiBold.ttf") format("truetype"); }
+@font-face { font-family: "Sora"; font-weight: 700; font-display: swap; src: url("/fonts/Sora-Bold.ttf") format("truetype"); }
+
+/* The app's colours: appBackground #0e0e12, surfacePrimary #1b1b22, fill #24242d, fillStrong #2e2e38,
+   textSecondary #8e8e99, cardBorder white 6%, primaryPurpleStart #755cff → primaryPurpleEnd #5c44e2. */
+
+html, body { height: 100%; margin: 0; }
+body {
+  background-color: #0e0e12;
+  background-image:
+    radial-gradient(ellipse 60% 80% at 100% 0%, rgba(96, 76, 196, 0.42), rgba(96, 76, 196, 0) 70%),
+    radial-gradient(ellipse 50% 60% at 0% 100%, rgba(38, 72, 150, 0.32), rgba(38, 72, 150, 0) 70%);
+  color: #ffffff;
+  font: 500 18px/1.4 "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+* { box-sizing: border-box; }
+h1 { margin: 0; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+p { margin: 0; }
+
+/* MARK: Screens */
+
+.screen {
+  display: none;
+  position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+  padding: 5vh 5vw;
+  overflow: auto;
+}
+body[data-screen="connecting"] #screen-connecting,
+body[data-screen="code"] #screen-code,
+body[data-screen="message"] #screen-message { display: flex; }
+
+.center {
+  flex-direction: column; align-items: center; justify-content: center; text-align: center;
+}
+.center > * + * { margin-top: 3vh; }
+
+.lead { font-size: 28px; font-size: clamp(20px, 2.4vw, 42px); color: #8e8e99; }
+.hint { font-size: 22px; font-size: clamp(16px, 1.7vw, 32px); color: #8e8e99; max-width: 32em; }
+#screen-message h1 { font-size: 40px; font-size: clamp(26px, 3.4vw, 60px); max-width: 20em; }
+
+.spinner {
+  width: 64px; height: 64px;
+  border: 6px solid rgba(255, 255, 255, 0.1); border-top-color: #755cff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* MARK: Header: All TV Kit's icon and name, "for <TV>" (left), this TV's name (right) */
+
+.tv-header {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.brand {
+  display: flex; align-items: center;
+  font-size: 24px; font-size: clamp(18px, 1.7vw, 32px);
+  font-weight: 700; letter-spacing: -0.01em; color: #ffffff;
+}
+.brand-icon {
+  display: block; flex: none;
+  width: 1.7em; height: 1.7em; margin-right: 0.5em;
+  border-radius: 24%;
+}
+/* "for Fire TV", "for Samsung TV", … after the name: which app's page this is (text, not the TV maker's logo). */
+.surface-badge {
+  margin-left: 0.6em;
+  padding: 0.3em 0.75em;
+  font-size: 0.6em; font-weight: 600; letter-spacing: 0;
+  color: #d9d2ff;
+  background: rgba(117, 92, 255, 0.18);
+  border: 2px solid rgba(117, 92, 255, 0.45);
+  border-radius: 999px;
+}
+/* This TV's name, from the app's bridge (window.MirrorGoTV). */
+.tv-name {
+  font-size: 20px; font-size: clamp(14px, 1.3vw, 26px);
+  font-weight: 600; color: #c9c9d4;
+  padding: 0.5em 1.1em;
+  background: rgba(27, 27, 34, 0.85);
+  border: 2px solid rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+}
+.surface-badge[hidden], .tv-name[hidden] { display: none; }
+
+/* MARK: Connecting: the icon above the spinner */
+
+.tv-logo {
+  display: block;
+  width: 120px; height: 120px;
+  width: clamp(80px, 14vh, 180px); height: clamp(80px, 14vh, 180px);
+  border-radius: 24%;
+}
+
+/* MARK: Code screen */
+
+#screen-code { flex-direction: column; }
+.code-layout {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.code-main { text-align: left; }
+
+#code-title { font-size: 48px; font-size: clamp(28px, 3.2vw, 64px); max-width: 10em; }
+#code-hint { margin-top: 1.5vh; }
+#code-hint:empty { display: none; }
+
+.label {
+  margin-top: 5vh;
+  font-size: 18px; font-size: clamp(13px, 1.1vw, 22px);
+  font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; color: #8e8e99;
+}
+
+/* The code in boxes, like the ones it's typed into on the phone. */
+.code-digits {
+  display: flex; align-items: center;
+  margin-top: 1.6vh;
+  font-size: 88px; font-size: clamp(40px, 5vw, 112px);
+  font-weight: 700; line-height: 1;
+  white-space: nowrap;
+}
+.code-digits .digit {
+  display: flex; align-items: center; justify-content: center; flex: none;
+  width: 1.12em; height: 1.4em;
+  margin-right: 0.12em;
+  border-radius: 0.24em;
+  background: #24242d;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  font-variant-numeric: tabular-nums;
+}
+.code-digits .digit:last-child { margin-right: 0; }
+.code-digits .dash {
+  display: block; flex: none;
+  width: 0.3em; height: 0.07em; margin: 0 0.24em 0 0.12em;
+  border-radius: 0.04em;
+  background: #755cff;
+}
+
+/* 1 2 3: numbered like the app's steps (gradient rounded squares). */
+.steps {
+  list-style: none; margin: 5vh 0 0; padding: 0;
+  counter-reset: step;
+}
+.steps li {
+  display: flex; align-items: center;
+  font-size: 24px; font-size: clamp(16px, 1.6vw, 32px);
+  counter-increment: step;
+}
+.steps li + li { margin-top: 1.6vh; }
+.steps li::before {
+  content: counter(step);
+  display: flex; align-items: center; justify-content: center; flex: none;
+  width: 1.75em; height: 1.75em; margin-right: 0.7em;
+  border-radius: 0.5em;
+  background: #755cff;
+  background: linear-gradient(180deg, #755cff 0%, #5c44e2 100%);
+  color: #fff; font-weight: 600; font-size: 0.85em;
+}
+.wifi {
+  margin-top: 2.4vh;
+  font-size: 18px; font-size: clamp(13px, 1.2vw, 24px);
+  color: #8e8e99;
+}
+.status {
+  min-height: 1.4em; margin-top: 1.6vh;
+  font-size: 22px; font-size: clamp(16px, 1.6vw, 30px);
+  color: #ffd27a;
+}
+
+/* The QR code, on a dark card, as tall as the text beside it. */
+.qr {
+  flex: none;
+  margin: 0 0 0 6vw; padding: 2.4vh;
+  text-align: center;
+  background: #1b1b22;
+  border: 2px solid rgba(255, 255, 255, 0.06);
+  border-radius: 28px;
+}
+.qr-image {
+  width: 380px; height: 380px;
+  width: clamp(180px, 42vh, 480px); height: clamp(180px, 42vh, 480px);
+  margin: 0 auto;
+  background: #fff; border-radius: 16px; overflow: hidden;
+}
+.qr-image svg { display: block; width: 100%; height: 100%; }
+.qr figcaption {
+  margin-top: 2vh;
+  font-size: 18px; font-size: clamp(13px, 1.2vw, 24px);
+  color: #8e8e99;
+}
+
+/* Starting / stopped: the title says it, the code and steps stay as a reminder. */
+body[data-variant="starting"] #code-title { color: #7ee2a8; }
+
+/* Short landscape windows (laptops, small browser windows): tighter. */
+@media (max-height: 640px) and (min-aspect-ratio: 1/1) {
+  .label, .steps { margin-top: 3.5vh; }
+  .code-digits { font-size: 11vh; }
+  .qr-image { width: 46vh; height: 46vh; }
+}
+
+/* Portrait (phones, tablets): one column, centred. */
+@media (max-aspect-ratio: 1/1) {
+  .code-layout { flex-direction: column; justify-content: flex-start; padding-top: 4vh; }
+  .code-main { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  #code-title { font-size: 7.5vw; }
+  .label { margin-top: 4vh; }
+  .code-digits { font-size: 9.5vw; }
+  .steps { margin-top: 4vh; }
+  .steps li { font-size: 4.2vw; }
+  .wifi { font-size: 3.4vw; }
+  .qr { margin: 4vh 0 0; }
+  .qr-image { width: 44vw; height: 44vw; }
+  .qr figcaption { font-size: 3.4vw; }
+}
+
+/* MARK: Playing */
+
+#video {
+  position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: contain; background: #000;
+  visibility: hidden;
+}
+body[data-screen="playing"] #video { visibility: visible; }
+body[data-screen="playing"] { background: #000; }
+
+/* Links: an image or YouTube instead of the <video>. */
+#image, #youtube {
+  position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #000;
+  visibility: hidden;
+}
+#image { object-fit: contain; }
+#youtube iframe {
+  display: block; width: 100%; height: 100%; border: 0;
+  pointer-events: none; /* keeps the remote / keyboard on the page's buttons */
+}
+body[data-screen="playing"][data-media="image"] #image,
+body[data-screen="playing"][data-media="youtube"] #youtube { visibility: visible; }
+body[data-screen="playing"][data-media="image"] #video,
+body[data-screen="playing"][data-media="youtube"] #video { visibility: hidden; }
+
+.controls {
+  display: none;
+  position: fixed; right: 3vw; bottom: 4vh;
+  transition: opacity 0.3s;
+}
+body[data-screen="playing"] .controls { display: flex; }
+.controls .button + .button { margin-left: 16px; }
+body.idle[data-screen="playing"] .controls { opacity: 0; pointer-events: none; }
+body.idle[data-screen="playing"], body.idle[data-screen="playing"] * { cursor: none; }
+
+.toast {
+  display: none;
+  position: fixed; top: 4vh; left: 50%; transform: translateX(-50%);
+  padding: 12px 24px; border-radius: 999px;
+  background: rgba(0, 0, 0, 0.75); color: #fff;
+  font-size: 22px; font-size: clamp(16px, 1.6vw, 30px);
+}
+.toast.visible { display: block; }
+
+/* MARK: Buttons (focusable with a TV remote / keyboard) */
+
+.button {
+  font: inherit;
+  font-size: 22px; font-size: clamp(16px, 1.6vw, 30px);
+  font-weight: 600;
+  padding: 0.7em 1.4em;
+  border: 0; border-radius: 0.9em;
+  background: rgba(46, 46, 56, 0.9); color: #fff;
+  cursor: pointer;
+}
+.button.primary { background: #755cff; background: linear-gradient(180deg, #755cff 0%, #5c44e2 100%); }
+.button:hover { filter: brightness(1.15); }
+.button:focus { outline: 4px solid #fff; outline-offset: 4px; }
+.button:focus:not(:focus-visible) { outline: none; }
+.button[hidden] { display: none; }
+
+/* MARK: Debug overlay (?debug=1) */
+
+.debug {
+  position: fixed; top: 8px; left: 8px; z-index: 10;
+  max-width: calc(100vw - 16px); max-height: calc(100vh - 16px); overflow: auto;
+  margin: 0; padding: 8px 10px; border-radius: 8px;
+  background: rgba(0, 0, 0, 0.72); color: #e6e6e6;
+  font: 12px/1.35 ui-monospace, Menlo, Consolas, monospace;
+  white-space: pre;
+  pointer-events: none;
+}
+.debug[hidden] { display: none; }
+
+/* "Get a new code", under the steps. */
+.new-code { margin-top: 3vh; }

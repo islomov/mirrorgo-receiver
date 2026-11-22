@@ -1,9 +1,10 @@
-// smrr.tv page: shows a code, waits for MirrorGo on the iPhone and plays its screen, or a link it
-// sends (an IPTV channel, …) in the page's own player.
+// smrr.tv page, in a browser (/): shows a code, waits for MirrorGo on the iPhone and plays its screen, or a
+// link it sends (an IPTV channel, …) in the page's own player. Each TV app's page (web/<tv>/: /firetv,
+// /samsung, /lg, /roku, /googletv) has its own copy of this receiver.
 // States: connecting → code → starting (phone connected) → playing → stopped (same code) / error.
 // Signaling: signaling.js, WebRTC: player.js, links: media.js, strings: strings.js, protocol: PROTOCOL.md.
 
-import { strings, spacedCode, autoJoinStrings } from "./strings.js";
+import { strings, spacedCode } from "./strings.js";
 import { SignalingClient, adoptRoomFromURL } from "./signaling.js";
 import { WebRTCPlayer, PlayerState } from "./player.js";
 import { MediaPlayer, MediaState, capabilities } from "./media.js";
@@ -22,15 +23,6 @@ const GIVE_UP_AFTER_MS = 15000;
 // what the phone is doing instead of showing the code, QR code and steps.
 const launchedCode = adoptRoomFromURL();
 const launchedByApp = launchedCode !== null;
-// The MirrorGo TV apps' page (tv.html, at /firetv, /samsung, /lg, /roku, /googletv). Same receiver,
-// its own layout and strings.
-const tvApp = document.body.getAttribute("data-surface") === "tv";
-// /firetv (the Fire TV apps, or a browser): the iPhone joins our Fire OS app by itself when its Fire TV
-// is tapped (MIRR-165), so "tap this TV" first, the code only as a small fallback (Vega, browsers), the QR
-// gets the iPhone app (MIRR-166, MIRR-167).
-const autoJoin = tvApp && /^\/firetv\/?$/i.test(location.pathname);
-const APP_STORE_URL = "https://apps.apple.com/app/id6835835303";
-if (autoJoin) Object.assign(strings, autoJoinStrings);
 
 const app = {
   status: "connecting",   // signaling: connecting | open | reconnecting | offline | replaced | closed
@@ -168,11 +160,7 @@ function onRoom(room) {
     app.stopped = false;
     player.close();
     renderCode(room.code);
-    if (autoJoin) {
-      $("code-small").textContent = spacedCode(room.code);
-    } else {
-      renderQR(location.origin + "/c/" + room.code);
-    }
+    renderQR(location.origin + "/c/" + room.code);
   } else {
     log("rejoined room");
   }
@@ -301,7 +289,6 @@ function render() {
     const stoppedMedia = app.activity === "media";
     const titles = { waiting: strings.codeTitle, starting: strings.starting, stopped: stoppedMedia ? strings.mediaStoppedTitle : strings.stoppedTitle };
     const hints = { waiting: "", starting: strings.startingHint, stopped: stoppedMedia ? strings.mediaStoppedHint : strings.stoppedHint };
-    renderNewCode(view.variant);
     $("code-title").textContent = titles[view.variant];
     $("code-hint").textContent = hints[view.variant];
     $("code-status").textContent = offlineText;
@@ -383,52 +370,6 @@ function renderQR(text) {
     '<rect width="' + size + '" height="' + size + '" fill="#fff"/><path d="' + path + '" fill="#000"/></svg>';
 }
 
-/** TV apps: "for Fire TV" (…) next to MirrorGo; the app's bridge (window.MirrorGoTV) names this TV. */
-function renderTVApp() {
-  $("surface-badge").textContent = strings.surfaceBadge;
-  $("surface-badge").hidden = !strings.surfaceBadge;
-  const bridge = window.MirrorGoTV;
-  let name = "";
-  try {
-    name = bridge && typeof bridge.deviceName === "function" ? String(bridge.deviceName() || "") : "";
-  } catch (e) {}
-  $("tv-name").textContent = name ? strings.tvName(name) : "";
-  $("tv-name").hidden = !name || autoJoin;
-  if (autoJoin) renderAutoJoin(name);
-}
-
-/** /firetv: 1 Open All TV Kit, 2 Tap <this TV's name, as the iPhone lists it>; the code small. */
-function renderAutoJoin(name) {
-  document.body.setAttribute("data-join", "auto");
-  $("steps").innerHTML = "";
-  const open = document.createElement("li");
-  open.textContent = strings.openApp;
-  const tap = document.createElement("li");
-  tap.appendChild(document.createTextNode(strings.tap + " "));
-  const chip = document.createElement("span");
-  chip.className = name ? "tv-chip" : "tv-chip generic";
-  chip.textContent = name || strings.thisTV;
-  tap.appendChild(chip);
-  $("steps").appendChild(open);
-  $("steps").appendChild(tap);
-  $("code-fallback-text").textContent = strings.codeFallback;
-  renderQR(APP_STORE_URL);
-}
-
-/** TV apps: "Get a new code", while no phone is in the room. */
-let newCodeAsked = false;
-
-function renderNewCode(variant) {
-  const button = $("new-code");
-  if (!button) return;
-  button.hidden = variant !== "waiting";
-  // Pressed with the remote: keep the focus on it, so OK again gets another code.
-  if (newCodeAsked && !button.hidden) {
-    newCodeAsked = false;
-    button.focus();
-  }
-}
-
 function restartSignaling() {
   clearGiveUpTimer();
   app.lost = false;
@@ -467,24 +408,11 @@ $("sound").addEventListener("click", function () {
   renderSound();
 });
 
-// Ended: this page becomes a normal smrr.tv page (a new room with a code). Not on the TV apps' page.
-if ($("app-use-code")) {
-  $("app-use-code").addEventListener("click", function () {
-    signaling.forgetRoom();
-    location.replace("/");
-  });
-}
-
-// TV apps: leave this room for a new one (a new code; the TV app announces it). The page
-// otherwise keeps its room across reloads (sessionStorage).
-if ($("new-code")) {
-  $("new-code").addEventListener("click", function () {
-    log("new code asked");
-    newCodeAsked = true;
-    signaling.forgetRoom();
-    restartSignaling();
-  });
-}
+// Ended: this page becomes a normal smrr.tv page (a new room with a code).
+$("app-use-code").addEventListener("click", function () {
+  signaling.forgetRoom();
+  location.replace("/");
+});
 
 $("message-action").addEventListener("click", function () {
   if (messageAction) messageAction();
@@ -617,13 +545,13 @@ function mediaLine() {
 // MARK: Start
 
 document.title = launchedByApp ? strings.appPageTitle : strings.pageTitle;
-if ($("app-brand")) $("app-brand").textContent = strings.appBrand;
-if ($("app-use-code")) $("app-use-code").textContent = strings.appUseCode;
+$("app-brand").textContent = strings.appBrand;
+$("app-use-code").textContent = strings.appUseCode;
 $("brand").textContent = strings.brand;
 $("code-label").textContent = strings.codeLabel;
 $("qr-hint").textContent = strings.qrHint;
 $("code-wifi").textContent = strings.sameWifi;
-if ($("privacy-link")) $("privacy-link").textContent = strings.privacy;
+$("privacy-link").textContent = strings.privacy;
 $("steps").innerHTML = "";
 strings.steps.forEach(function (step) {
   const li = document.createElement("li");
@@ -631,8 +559,6 @@ strings.steps.forEach(function (step) {
   $("steps").appendChild(li);
 });
 renderFullscreen();
-if ($("new-code")) $("new-code").textContent = strings.newCode;
-if (tvApp) renderTVApp();
 
 if (debug) {
   window.smrr = { app: app, player: player, media: media, signaling: signaling }; // for the console and tools/e2e.mjs
