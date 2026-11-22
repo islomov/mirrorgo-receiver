@@ -21,6 +21,19 @@ const IDLE_AFTER_MS = 3000;
 const GIVE_UP_AFTER_MS = 15000;
 // All TV Kit on the App Store: the QR code, for an iPhone that doesn't have it yet (MIRR-166, MIRR-167).
 const APP_STORE_URL = "https://apps.apple.com/app/id6835835303";
+// The Fire TV app loads this page once and keeps it until Fire OS closes the app (a day or more), so
+// the page keeps itself fresh (MIRR-200). A reload keeps the room (sessionStorage): same code, the
+// app goes on announcing it, and the phone offers again when the page rejoins.
+// While nothing plays: back on screen after this long away, reload.
+const RELOAD_AFTER_HIDDEN_MS = 10 * 60 * 1000;
+// While nothing plays: reload a page this old, or one with a newer copy deployed.
+const RELOAD_AFTER_MS = 6 * 60 * 60 * 1000;
+const FRESHNESS_CHECK_EVERY_MS = 10 * 60 * 1000;
+// At most this many reloads in RELOAD_WINDOW_MS (a page that's stuck again right away doesn't loop).
+const MAX_RELOADS = 3;
+const RELOAD_WINDOW_MS = 10 * 60 * 1000;
+const RELOADS_KEY = "smrr.reloads";
+const loadedAt = Date.now();
 
 const app = {
   status: "connecting",   // signaling: connecting | open | reconnecting | offline | replaced | closed
@@ -74,6 +87,12 @@ const player = new WebRTCPlayer(video, {
     }
     followConnection(state);
     render();
+  },
+  // A WebRTC call never finished: this page's WebRTC may be wedged, so start afresh. Answering
+  // late or never would leave the phone connected with nothing on the TV.
+  onStuck: function () {
+    if (media.active) return; // a link plays in the page's own player: leave it
+    if (!reloadPage("WebRTC stuck")) render();
   },
 });
 
@@ -186,7 +205,8 @@ function onSignalingMessage(message) {
       app.senderConnected = true;
       app.stopped = false;
       app.activity = "mirroring";
-      media.stop();
+      // Whatever goes wrong stopping a link, the offer is still answered.
+      try { media.stop(); } catch (error) { log("stopping the link: " + error); }
       player.handle(message);
       break;
     case "media-load":
@@ -440,6 +460,72 @@ document.addEventListener("visibilitychange", function () {
   if (document.visibilityState === "visible" && wantWakeLock && !wakeLock) requestWakeLock();
 });
 
+// MARK: Staying fresh (MIRR-200)
+
+/** Reloads the page unless it already did MAX_RELOADS times lately. False if it won't. */
+function reloadPage(reason) {
+  const now = Date.now();
+  let recent = [];
+  try {
+    recent = JSON.parse(sessionStorage.getItem(RELOADS_KEY) || "[]").filter(function (t) { return now - t < RELOAD_WINDOW_MS; });
+  } catch (e) { /* storage disabled or garbled: count from zero */ }
+  if (recent.length >= MAX_RELOADS) {
+    log("not reloading (" + reason + "): " + recent.length + " reloads in the last " + RELOAD_WINDOW_MS / 60000 + " min");
+    return false;
+  }
+  recent.push(now);
+  try { sessionStorage.setItem(RELOADS_KEY, JSON.stringify(recent)); } catch (e) { /* storage disabled */ }
+  log("reloading: " + reason);
+  location.reload();
+  return true;
+}
+
+/**
+ * Nothing on screen or about to be: no phone in the room, no link, and no mirroring (or only one
+ * whose phone is gone: `app.lost`, shown as stopped while its connection is kept).
+ */
+function isIdle() {
+  return !app.senderConnected && !media.active && (app.player === PlayerState.idle || app.lost);
+}
+
+// This page's own script as deployed when the page loaded (its ETag): a different one means a newer
+// copy is out. Null: not known (no ETag, offline), only the page's age counts then.
+let loadedVersion = null;
+
+function deployedVersion() {
+  if (!window.fetch) return Promise.resolve(null);
+  return fetch("/firetv/app.js", { method: "HEAD", cache: "no-store" })
+    .then(function (response) { return response.ok ? response.headers.get("etag") : null; })
+    .catch(function () { return null; });
+}
+
+function checkFreshness() {
+  if (!isIdle()) return;
+  if (Date.now() - loadedAt > RELOAD_AFTER_MS) {
+    reloadPage("open for " + Math.round((Date.now() - loadedAt) / 3600000) + " h");
+    return;
+  }
+  if (!loadedVersion) return;
+  deployedVersion().then(function (version) {
+    if (version && version !== loadedVersion && isIdle()) reloadPage("a newer page is out");
+  });
+}
+
+let hiddenAt = null;
+document.addEventListener("visibilitychange", function () {
+  if (document.visibilityState === "hidden") {
+    hiddenAt = Date.now();
+    return;
+  }
+  const away = hiddenAt === null ? 0 : Date.now() - hiddenAt;
+  hiddenAt = null;
+  if (away > RELOAD_AFTER_HIDDEN_MS && isIdle()) {
+    reloadPage("back after " + Math.round(away / 60000) + " min away");
+    return;
+  }
+  checkFreshness();
+});
+
 // MARK: Debug overlay (?debug=1)
 
 const fmt = function (x, digits) {
@@ -495,3 +581,6 @@ if (debug) {
 
 render();
 if (window.RTCPeerConnection) signaling.start();
+
+deployedVersion().then(function (version) { loadedVersion = version; });
+setInterval(checkFreshness, FRESHNESS_CHECK_EVERY_MS);

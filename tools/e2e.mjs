@@ -166,6 +166,30 @@ try {
   await viewer.waitForFunction(() => document.body.dataset.variant === "stopped", { timeout: 30000, polling: 200 });
   console.log(`stopped ${ms()}`);
 
+  if (PAGE.startsWith("/firetv")) {
+    // MIRR-200: a Fire TV page whose WebRTC had wedged took offers and never answered.
+    step("WebRTC stuck on an offer: the page reloads itself, same code, and plays");
+    await viewer.evaluate(() => {
+      window.beforeReload = true;
+      RTCPeerConnection.prototype.setRemoteDescription = () => new Promise(() => {});
+    });
+    start = Date.now();
+    const reloaded = viewer.waitForNavigation({ timeout: 20000 });
+    sender = await browser.newPage();
+    sender.on("console", (m) => process.env.VERBOSE && console.log("  [sender]", m.text()));
+    await sender.goto(`${senderBase}?server=${encodeURIComponent(SERVER)}&code=${code}&autostart=1`);
+    await reloaded;
+    console.log(`reloaded ${Date.now() - start} ms after the sender connected`);
+    await playing();
+    console.log(`playing ${Date.now() - start} ms after the sender connected`);
+    check(await viewer.evaluate(() => window.beforeReload === undefined), "a fresh page");
+    check((await viewer.$eval(CODE, (e) => e.textContent)).replace(" ", "") === code, "same code after the reload");
+    const offers = ((await sender.$eval("#log", (e) => e.textContent)).match(/→ offer/g) || []).length;
+    check(offers >= 2, `the sender offered again (${offers} offers)`);
+    await sender.close();
+    await viewer.waitForFunction(() => document.body.dataset.variant === "stopped", { timeout: 30000, polling: 200 });
+  }
+
   if (LINK) {
     const mediaState = () => viewer.evaluate(() => window.smrr.media.state);
     const waitMedia = (state, timeout = 30000) =>
