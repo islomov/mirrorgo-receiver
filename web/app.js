@@ -77,6 +77,8 @@ const player = new WebRTCPlayer(video, {
   },
   onStateChange: function (state) {
     app.player = state;
+    // The phone counts mirroring as working only once a frame shows (`video-playing`, MIRR-178).
+    if (state === PlayerState.playing) signaling.send({ type: "video-playing" });
     if (state === PlayerState.failed && !app.senderConnected) {
       stopMirroring();
       return;

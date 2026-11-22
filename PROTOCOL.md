@@ -62,7 +62,8 @@ viewer yet. `cache-control: no-store`, JSON bodies, no CORS (only the app calls 
 - sender → viewer: `offer {"sdp":"...","iceRestart":false}`, `candidate`, `bye {"reason":"..."}`,
   `media-load`, `media-control`, `media-stop` (see "Links")
 - viewer → sender: `answer {"sdp":"..."}`, `candidate`, `restart-ice {}` (ask for an ICE restart), `bye {}`,
-  `capabilities`, `media-status` (see "Links")
+  `capabilities`, `media-status` (see "Links"), `video-playing {}` (mirroring shows a frame: sent each
+  time the page's player goes to playing, after the first frame and after a reconnect)
 - `candidate`: `{"type":"candidate","candidate":"candidate:...","sdpMid":"0","sdpMLineIndex":0}`
 - Any other type from a client is ignored (not relayed).
 
@@ -90,8 +91,10 @@ LAN) can't be played this way: an HTTPS page can't load it.
   (focused, so OK on a TV remote unmutes). `error` only with `state: "error"`: `unsupported` (no player
   for it), `network` (offline, geo-blocked, no CORS for hls.js, an image that didn't load), `decode`;
   YouTube: `blocked` (the owner doesn't allow it outside YouTube), `unavailable` (private or removed).
-- viewer → sender `{"type":"capabilities","v":1,"webrtc":true,"hls":"native"|"hls.js"|"none","mp4":true,"screen":{"width":1920,"height":1080}}`
-  when a sender joins.
+- viewer → sender `{"type":"capabilities","v":1,"webrtc":true,"hls":"native"|"hls.js"|"none","mp4":true,"screen":{"width":1920,"height":1080},"videoPlaying":true}`
+  when a sender joins. `videoPlaying`: the page sends `video-playing` once mirroring shows a frame, so
+  the phone can tell "connected" from "shows a picture" (MIRR-178: a Google TV that negotiates H.264
+  over WebRTC but never decodes it). Pages without it never send `video-playing`.
 - A `bye` from the sender also stops the link; a sender that just disconnects (`peer-left`) doesn't.
 - An `offer` stops the link: mirroring takes over.
 
