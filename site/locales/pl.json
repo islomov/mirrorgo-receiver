@@ -82,6 +82,7 @@
   "questions": "Pytania",
   "more_guides_for": "Więcej poradników: {tv}",
   "other_tvs": "Inne telewizory",
+  "tv_brands_with": "Marki telewizorów z {tv}",
   "status_ok": "Działa",
   "status_part": "Częściowo",
   "status_not": "Nie na tym telewizorze",

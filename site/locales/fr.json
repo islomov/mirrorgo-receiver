@@ -82,6 +82,7 @@
   "questions": "Questions",
   "more_guides_for": "Plus de guides : {tv}",
   "other_tvs": "Autres TV",
+  "tv_brands_with": "Marques de TV avec {tv}",
   "status_ok": "Fonctionne",
   "status_part": "En partie",
   "status_not": "Pas sur cette TV",

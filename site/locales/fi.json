@@ -82,6 +82,7 @@
   "questions": "Kysymykset",
   "more_guides_for": "Lisää oppaita: {tv}",
   "other_tvs": "Muut televisiot",
+  "tv_brands_with": "TV-merkit, joissa on {tv}",
   "status_ok": "Toimii",
   "status_part": "Osittain",
   "status_not": "Ei tässä televisiossa",

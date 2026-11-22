@@ -120,6 +120,11 @@ English only.
 - Submit `https://alltvkit.app/sitemap.xml` in Google Search Console and Bing Webmaster Tools
   (Bing also feeds ChatGPT search).
 - Sitemaps' `lastmod` is the date of the last commit to `site/`, so it only moves when the site does.
+- `worker.js` sends `http://` and `www.` to `https://<domain>` in one 301, so there's one copy of each page.
+- Titles: an article's title drops " | All TV Kit" when it would pass 60 characters (what search results
+  show). Descriptions longer than 160 characters lose their brackets, then are cut at a sentence end
+  (`snippet()` in `build.py`).
+- The SEO skills are in `.claude/skills/` (from islomov/skills); `seo/roadmap.md` is what's left to do.
 
 ## Keeping it in step with the app
 

@@ -15,9 +15,11 @@ const SITES = ["alltvkit.app", "mirrorgo.app"];
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+    // http:// and www. → https://<domain>, in one hop: plain HTTP was served as a second copy of the site.
     const bare = url.hostname.replace(/^www\./, "");
-    if (bare !== url.hostname && SITES.includes(bare)) {
+    if (SITES.includes(bare) && (bare !== url.hostname || url.protocol === "http:")) {
       url.hostname = bare;
+      url.protocol = "https:";
       return Response.redirect(url.toString(), 301);
     }
     if (url.pathname === "/e") {

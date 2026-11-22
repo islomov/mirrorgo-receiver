@@ -82,6 +82,7 @@
   "questions": "Spørsmål",
   "more_guides_for": "{tv}: flere guider",
   "other_tvs": "Andre TV-er",
+  "tv_brands_with": "TV-merker med {tv}",
   "status_ok": "Fungerer",
   "status_part": "Delvis",
   "status_not": "Ikke på denne TV-en",

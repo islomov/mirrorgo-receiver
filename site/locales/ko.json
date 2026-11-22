@@ -82,6 +82,7 @@
   "questions": "질문",
   "more_guides_for": "{tv} 가이드 더 보기",
   "other_tvs": "다른 TV",
+  "tv_brands_with": "{tv} 지원 TV 브랜드",
   "status_ok": "지원",
   "status_part": "일부 지원",
   "status_not": "이 TV에서는 미지원",

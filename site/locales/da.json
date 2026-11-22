@@ -82,6 +82,7 @@
   "questions": "Spørgsmål",
   "more_guides_for": "Flere guides til {tv}",
   "other_tvs": "Andre tv",
+  "tv_brands_with": "Tv-mærker med {tv}",
   "status_ok": "Virker",
   "status_part": "Delvist",
   "status_not": "Ikke på dette tv",

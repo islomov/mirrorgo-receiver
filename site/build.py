@@ -15,6 +15,7 @@ the same paths. The legal pages (privacy, terms) are English only.
 import datetime
 import html
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -342,6 +343,26 @@ def footer(path, translated):
 </footer>"""
 
 
+def snippet(text, limit=160):
+    """`text` as a meta description of at most `limit` characters, cut where a reader won't notice: first
+    without its asides in brackets (they come before the TV's name in some leads, and the cut lost it, so
+    several articles shared one description), then at a sentence end, and only then mid-sentence."""
+    if len(text) <= limit:
+        return text
+    text = re.sub(r"\s*[(（][^()（）]*[)）]", "", text)
+    if len(text) <= limit:
+        return text
+    kept = ""
+    for sentence in re.findall(r".+?(?:[.!?](?=\s|$)|[。！？]|$)\s*", text):
+        if len(kept + sentence.rstrip()) > limit:
+            break
+        kept += sentence
+    if len(kept) >= 60:
+        return kept.rstrip()
+    cut = text[:limit - 1]
+    return (cut.rsplit(" ", 1)[0] if " " in cut else cut).rstrip(",;:、，") + "…"
+
+
 def page(path, title, description, body, schemas=(), noindex=False, translated=True, og_image="/img/og.png"):
     """A whole page. `translated`: it exists in every language (else English only, like the legal pages)."""
     canonical = url(path, LANG[0])
@@ -653,6 +674,12 @@ def build_guide(g):
     )
     shot = "browser_code" if t["id"] == "browser" else "mirroring"
     articles = post_cards(t["id"])
+    # The TV makers whose TVs run this system (every TV has a browser, so not on the browser guide): their
+    # pages were only linked from the home page, the guides index and the footer.
+    makers = [b for b in C.BRANDS if t["id"] in b["platforms"] and t["id"] != "browser"]
+    makers_html = (f'<h2>{esc(T("tv_brands_with", tv=t["name"]))}</h2><div class="cards">' + "".join(
+        f'<a class="card" href="{h("/" + b["slug"] + "/")}"><b>{esc(b["name"])}</b>'
+        f'<span>{esc(T("brand_h1", brand=b["name"]))}</span></a>' for b in makers) + "</div>") if makers else ""
     body = f"""
 <section class="page-hero">
   <div class="wrap split">
@@ -678,6 +705,7 @@ def build_guide(g):
     <div class="faq" style="margin:0">{faq}</div>
     <h2>{esc(T("more_guides_for", tv=t['name']))}</h2>
     <div class="cards">{articles}</div>
+    {makers_html}
     <h2>{esc(T("other_tvs"))}</h2>
     <div class="cards">{others}</div>
   </div>
@@ -790,8 +818,10 @@ def build_post(tv_id, topic):
         "about": {"@id": url("/#app")},
     }
     crumbs = breadcrumbs_schema([(APP_NAME, "/"), (T("guides"), "/blog/"), (h1, path)])
-    desc = lead if len(lead) <= 160 else lead[:157].rsplit(" ", 1)[0] + "…"
-    return path, page(path, T("page_title", title=title), desc, body, [article, howto_schema(h1, lead, steps), crumbs])
+    # Search results show about 60 characters of a title: past that, the brand suffix only pushes the TV's name out.
+    full_title = T("page_title", title=title)
+    return path, page(path, full_title if len(full_title) <= 60 else title, snippet(lead), body,
+                      [article, howto_schema(h1, lead, steps), crumbs])
 
 
 def build_blog_index():
