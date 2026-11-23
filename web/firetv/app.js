@@ -49,11 +49,24 @@ const app = {
 let giveUpTimer = null;
 
 const events = [];
+// In our Fire TV app (its bridge, window.MirrorGoTV, is there) the console goes to logcat (tag
+// MirrorGoTV, app 1.1+): the only way to see a stuck page on a release build (MIRR-202).
+const logsToConsole = debug || !!window.MirrorGoTV;
 function log(line) {
   const t = (performance.now() / 1000).toFixed(1);
   events.push(t + "s " + line);
   if (events.length > 10) events.shift();
-  if (debug) console.log("[smrr]", line);
+  if (logsToConsole) console.log("[smrr]", line);
+}
+
+if (window.MirrorGoTV) {
+  window.addEventListener("error", function (event) {
+    console.error("[smrr] error: " + event.message + " (" + event.filename + ":" + event.lineno + ")");
+  });
+  window.addEventListener("unhandledrejection", function (event) {
+    const reason = event.reason;
+    console.error("[smrr] unhandled rejection: " + (reason && reason.message ? reason.message : reason));
+  });
 }
 
 const signaling = new SignalingClient({
