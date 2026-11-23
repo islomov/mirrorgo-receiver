@@ -1,12 +1,13 @@
 // WebRTC player: answers the phone's offer and plays the mirrored screen (H.264 + Opus) in a
-// smrr.tv/firetv's own copy: smrr.tv in a browser (web/player.js) and the other TVs have theirs.
-// <video>. No DOM assumptions beyond the video element, no signaling transport: messages to
+// <video>. smrr.tv/firetv's own copy: smrr.tv in a browser (web/player.js) and the other TVs
+// have theirs. No DOM assumptions beyond the video element, no signaling transport: messages to
 // the phone go out through `onSignal`, messages from it come in through `handle()`.
 //
 //   const player = new WebRTCPlayer(video, {
 //     iceServers,                       // from the server's `room` message
 //     onSignal(message) { ... },        // send to the phone: answer / candidate / restart-ice
 //     onStateChange(state) { ... },     // see PlayerState
+//     onStuck(type) { ... },            // a WebRTC call never finished (see STEP_TIMEOUT_MS)
 //   });
 //   player.handle(message);             // offer / candidate from the phone
 //   const s = await player.stats();     // for a debug overlay
@@ -29,6 +30,12 @@ export const PlayerState = {
 };
 
 const RESTART_ICE_AFTER_MS = 5000;
+// Messages are handled one at a time, so a WebRTC call that never settles would leave every later
+// offer unanswered: the page stays in its room, the phone connects and nothing ever shows (seen on
+// a Fire TV after its app had kept one page for 26 h, MIRR-200; reopening the app fixed it). An
+// offer is answered in well under a second, so a step still running after this long is stuck: its
+// peer connection is dropped, the queue moves on, and `onStuck` lets the page start afresh.
+const STEP_TIMEOUT_MS = 8000;
 
 export class WebRTCPlayer {
   constructor(video, options) {
@@ -36,6 +43,7 @@ export class WebRTCPlayer {
     this.iceServers = options.iceServers || [];
     this.onSignal = options.onSignal || function () {};
     this.onStateChange = options.onStateChange || function () {};
+    this.onStuck = options.onStuck || function () {};
     this.log = options.log || function () {};
     this.state = PlayerState.idle;
     this.pc = null;
@@ -57,12 +65,20 @@ export class WebRTCPlayer {
     this.iceServers = iceServers || [];
   }
 
-  /** A message from the phone. Handled one at a time, in order. */
+  /** A message from the phone. Handled one at a time, in order; none waits on a stuck one. */
   handle(message) {
     const self = this;
     this.queue = this.queue.then(function () {
-      if (message.type === "offer") return self.handleOffer(message);
-      if (message.type === "candidate") return self.handleCandidate(message);
+      let work;
+      if (message.type === "offer") work = self.handleOffer(message);
+      else if (message.type === "candidate") work = self.handleCandidate(message);
+      else return;
+      return withTimeout(work, STEP_TIMEOUT_MS).then(function (finished) {
+        if (finished) return;
+        self.log("stuck: " + message.type + " not handled in " + STEP_TIMEOUT_MS / 1000 + " s, dropping the connection");
+        self.close();
+        self.onStuck(message.type);
+      });
     }).catch(function (error) {
       self.log("signaling error: " + (error && error.message ? error.message : error));
     });
@@ -421,4 +437,29 @@ function describeCandidate(c) {
 
 function now() {
   return window.performance && performance.now ? performance.now() : Date.now();
+}
+
+/**
+ * Resolves true once `promise` settles (rejecting as it does), or false after `ms` if it hasn't.
+ * A promise that settles later is left alone: its result (and any error) is ignored.
+ */
+function withTimeout(promise, ms) {
+  return new Promise(function (resolve, reject) {
+    let done = false;
+    const timer = setTimeout(function () {
+      done = true;
+      resolve(false);
+    }, ms);
+    promise.then(function () {
+      if (done) return;
+      done = true;
+      clearTimeout(timer);
+      resolve(true);
+    }, function (error) {
+      if (done) return;
+      done = true;
+      clearTimeout(timer);
+      reject(error);
+    });
+  });
 }
