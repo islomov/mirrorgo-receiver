@@ -40,7 +40,7 @@ At 09:00 UTC+5 (the cron in `wrangler.jsonc`) the Worker sends yesterday's numbe
 (`report.js`): views, App Store taps and link clicks against the day before, the 7-day totals, and the top
 sources, pages, countries and devices. The bot also answers, in that chat only:
 
-- `/stats`: today so far, against yesterday at the same time
+- `/stats`: today so far, against yesterday at the same time (today only, no 7-day totals)
 - `/yesterday`: the morning report
 - `/week`: the last 7 days, against the 7 days before
 

@@ -86,7 +86,7 @@ function period(kind, now) {
   const date = (t, opts) => new Date(t + OFFSET).toLocaleDateString("en-GB", { timeZone: "UTC", ...opts });
   const time = new Date(now + OFFSET).toISOString().slice(11, 16);
   if (kind === "today") {
-    return { from: today, to: now, title: `Today until ${time}`, vs: "same time yesterday", week: true };
+    return { from: today, to: now, title: `Today until ${time}`, vs: "same time yesterday", week: false };
   }
   if (kind === "week") {
     return { from: now - 7 * DAY, to: now, title: "The last 7 days", vs: "the 7 days before", week: false };
