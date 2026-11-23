@@ -1,6 +1,7 @@
 // alltvkit.app, and the same site on mirrorgo.app (its first domain): www.<domain> → <domain>, POST /e counts a page view or a
-// click (see count()), everything else from the static files (./public). Every morning, a cron sends yesterday's
-// numbers to Telegram, and POST /telegram answers the bot's commands (report.js).
+// click (see count()), everything else from the static files (./public), counting the pages AI assistants and
+// crawlers fetch (countAi()). Every morning, a cron sends yesterday's numbers to Telegram, and POST /telegram answers
+// the bot's commands (report.js).
 
 import { handleTelegram, sendDailyReport } from "./report.js";
 
@@ -11,6 +12,30 @@ const GONE_ROKU_POSTS = /^(\/[a-z-]+)?\/blog\/(cast-photos-and-videos-from-iphon
 // The domains the site opens on (wrangler.jsonc's routes). The first is the main one: canonical URLs, the
 // sitemap and structured data point to it, so search engines don't see two copies of the site.
 const SITES = ["alltvkit.app", "mirrorgo.app"];
+
+// AI assistants and crawlers, by the token in their User-Agent (from each company's crawler docs): [token, who,
+// why]. "user": fetched because someone asked the assistant something; "search": for the assistant's search index;
+// "training": for training models. They don't run site.js, so countAi() counts them as the Worker serves the page.
+const AI_AGENTS = [
+  ["ChatGPT-User", "ChatGPT", "user"],
+  ["OAI-SearchBot", "ChatGPT", "search"],
+  ["GPTBot", "ChatGPT", "training"],
+  ["Claude-User", "Claude", "user"],
+  ["Claude-SearchBot", "Claude", "search"],
+  ["ClaudeBot", "Claude", "training"],
+  ["Perplexity-User", "Perplexity", "user"],
+  ["PerplexityBot", "Perplexity", "search"],
+  ["MistralAI-User", "Mistral", "user"],
+  ["Meta-ExternalFetcher", "Meta AI", "user"],
+  ["meta-externalagent", "Meta AI", "training"],
+  ["DuckAssistBot", "DuckDuckGo", "search"],
+  ["Bytespider", "ByteDance", "training"],
+  ["CCBot", "Common Crawl", "training"],
+];
+
+// Crawlers, previews, speed tests and headless browsers that do run site.js: their views are counted as device
+// "bot", which the reports leave out.
+const BOT_UA = /Googlebot|Google-InspectionTool|GoogleOther|AdsBot|Storebot|bingbot|BingPreview|Applebot|YandexBot|Baiduspider|DuckDuckBot|PetalBot|SemrushBot|AhrefsBot|MJ12bot|DotBot|facebookexternalhit|Twitterbot|Slackbot|TelegramBot|WhatsApp|Discordbot|LinkedInBot|HeadlessChrome|Lighthouse|PTST|GTmetrix|Pingdom|UptimeRobot|bot\/|crawler|spider/i;
 
 export default {
   async fetch(request, env, ctx) {
@@ -32,7 +57,9 @@ export default {
     if (gone) {
       return Response.redirect(`${url.origin}${gone[1] ?? ""}/mirror-iphone-to-roku/`, 301);
     }
-    return env.ASSETS.fetch(request);
+    const response = await env.ASSETS.fetch(request);
+    countAi(request, env, url, response.status);
+    return response;
   },
 
   // The cron in wrangler.jsonc: yesterday's numbers to Telegram (report.js).
@@ -51,8 +78,11 @@ export default {
 //         "(direct)" or "(internal)"); click: the link ("/path/", "/path/#section", "app-store",
 //         "host/path" for another site, "mailto")
 //   blob5 click: where the link is on the page (header, footer, hero, a section's id…)
-//   blob6 country      blob7 device (mobile, tablet, desktop)      blob8 os (ios, android, mac, windows, other)
+//   blob6 country      blob7 device (mobile, tablet, desktop; "bot" for BOT_UA, since 2026-11-23)
+//   blob8 os (ios, android, mac, windows, linux, chromeos, other; linux and chromeos were "other" before 2026-11-23)
 //   blob9 the domain the page was opened on (one of SITES; empty before alltvkit.app was added, 2026-11-21)
+// and, from countAi() (since 2026-11-23), blob1 "ai": blob2 the page, blob4 who (AI_AGENTS: "ChatGPT", "Claude"…),
+// blob5 why ("user", "search", "training"), blob6 country, blob7 "bot", blob8 the User-Agent token, blob9 domain.
 async function count(request, env) {
   if (!env.STATS) return;
   let data;
@@ -78,11 +108,31 @@ async function count(request, env) {
       source,
       data.t === "click" ? clip(String(data.w || ""), 40) : "",
       request.cf?.country || "",
-      device(ua),
+      BOT_UA.test(ua) || aiAgent(ua) ? "bot" : device(ua),
       os(ua),
       SITES.includes(host) ? host : "",
     ],
   });
+}
+
+// A page (not a file: CSS, JS, images, fonts…) served to an AI assistant or crawler: one "ai" data point. Only
+// answers with 200, so a redirect and the page it leads to count once.
+function countAi(request, env, url, status) {
+  if (!env.STATS || request.method !== "GET" || status !== 200) return;
+  if (/\.[a-z0-9]+$/i.test(url.pathname) && !/\.(html|txt|md)$/i.test(url.pathname)) return;
+  const agent = aiAgent(request.headers.get("User-Agent") || "");
+  if (!agent) return;
+  const host = url.hostname;
+  env.STATS.writeDataPoint({
+    indexes: ["ai"],
+    blobs: ["ai", clip(url.pathname, 200), "", agent[1], agent[2], request.cf?.country || "", "bot", agent[0],
+      SITES.includes(host) ? host : ""],
+  });
+}
+
+function aiAgent(ua) {
+  const lower = ua.toLowerCase();
+  return AI_AGENTS.find(([token]) => lower.includes(token.toLowerCase())) ?? null;
 }
 
 function clip(text, max) {
@@ -127,5 +177,7 @@ function os(ua) {
   if (/Android/.test(ua)) return "android";
   if (/Macintosh|Mac OS X/.test(ua)) return "mac";
   if (/Windows/.test(ua)) return "windows";
+  if (/CrOS/.test(ua)) return "chromeos";
+  if (/Linux/.test(ua)) return "linux";
   return "other";
 }

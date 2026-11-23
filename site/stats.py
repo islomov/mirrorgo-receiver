@@ -15,6 +15,14 @@ import urllib.request
 
 DATASET = "mirrorgo_site"
 
+# People only: blob7 is "bot" for crawlers that ran site.js and for every "ai" data point (worker.js).
+PEOPLE = "blob7 != 'bot'"
+
+# Sources that are AI chats (the same list as AI_CHATS in report.js).
+AI_CHATS = ["chatgpt.com", "chat.openai.com", "perplexity.ai", "perplexity", "claude.ai", "gemini.google.com",
+            "copilot.microsoft.com", "copilot.com", "chat.mistral.ai", "meta.ai", "chat.deepseek.com", "grok.com",
+            "you.com", "phind.com"]
+
 
 def query(sql):
     account = os.environ["CLOUDFLARE_ACCOUNT_ID"]
@@ -64,13 +72,14 @@ def main():
     def grouped(event, columns, extra=""):
         cols = ", ".join(f"{blob} AS {alias}" for blob, alias in columns)
         aliases = ", ".join(alias for _, alias in columns)
-        return query(f"SELECT {cols}, {n} FROM {DATASET} WHERE blob1 = '{event}' AND {since} {extra} "
+        people = "" if event == "ai" else f"AND {PEOPLE}"
+        return query(f"SELECT {cols}, {n} FROM {DATASET} WHERE blob1 = '{event}' AND {since} {people} {extra} "
                      f"GROUP BY {aliases} ORDER BY n DESC LIMIT {top}")
 
     print(f"## alltvkit.app and mirrorgo.app, the last {args.days} days")
     totals = {r["event"]: r["n"] for r in query(
-        f"SELECT blob1 AS event, {n} FROM {DATASET} WHERE {since} GROUP BY event")}
-    store = query(f"SELECT {n} FROM {DATASET} WHERE blob1 = 'click' AND blob4 = 'app-store' AND {since}")
+        f"SELECT blob1 AS event, {n} FROM {DATASET} WHERE {PEOPLE} AND {since} GROUP BY event")}
+    store = query(f"SELECT {n} FROM {DATASET} WHERE blob1 = 'click' AND blob4 = 'app-store' AND {PEOPLE} AND {since}")
     print(f"\nPage views: **{int(float(totals.get('view', 0))):,}** · link clicks: "
           f"**{int(float(totals.get('click', 0))):,}** · App Store button: "
           f"**{int(float(store[0]['n'] if store else 0)):,}**")
@@ -95,8 +104,18 @@ def main():
     table("Devices", [("Device", "device"), ("OS", "os"), ("Views", "n")],
           grouped("view", [("blob7", "device"), ("blob8", "os")]))
     table("Languages", [("Language", "lang"), ("Views", "n")], grouped("view", [("blob3", "lang")]))
+    chats = ", ".join(f"'{c}'" for c in AI_CHATS)
+    table("Visits from AI chats", [("Source", "source"), ("Views", "n")],
+          grouped("view", [("blob4", "source")], f"AND blob4 IN ({chats})"))
+    table("Pages AI fetched (user: for someone's question; search: its index; training: models)",
+          [("Who", "who"), ("Why", "why"), ("Pages", "n")], grouped("ai", [("blob4", "who"), ("blob5", "why")]))
+    table("Pages AI read for someone's question", [("Page", "page"), ("Who", "who"), ("Times", "n")],
+          grouped("ai", [("blob2", "page"), ("blob4", "who")], "AND blob5 = 'user'"))
+    table("Bots that ran the page (not counted above)", [("OS", "os"), ("Views", "n")],
+          query(f"SELECT blob8 AS os, {n} FROM {DATASET} WHERE blob1 = 'view' AND blob7 = 'bot' AND {since} "
+                f"GROUP BY os ORDER BY n DESC LIMIT {top}"))
     days = query(f"SELECT toStartOfInterval(timestamp, INTERVAL '1' DAY) AS day, blob1 AS event, {n} "
-                 f"FROM {DATASET} WHERE {since} GROUP BY day, event ORDER BY day")
+                 f"FROM {DATASET} WHERE {PEOPLE} AND {since} GROUP BY day, event ORDER BY day")
     by_day = {}
     for r in days:
         by_day.setdefault(str(r["day"])[:10], {})[r["event"]] = r["n"]

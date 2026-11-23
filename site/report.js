@@ -24,6 +24,12 @@ const OFFSET = UTC_OFFSET_HOURS * 60 * 60 * 1000;
 const DAY = 24 * 60 * 60 * 1000;
 const TOP = 5;
 
+// Sources (blob4: the referrer's domain or ?utm_source) that are AI chats: ChatGPT tags its links
+// ?utm_source=chatgpt.com, the others are referrers. Their apps often send neither, so some land in "(direct)".
+const AI_CHATS = new Set(["chatgpt.com", "chat.openai.com", "perplexity.ai", "perplexity", "claude.ai",
+  "gemini.google.com", "copilot.microsoft.com", "copilot.com", "chat.mistral.ai", "meta.ai", "chat.deepseek.com",
+  "grok.com", "you.com", "phind.com"]);
+
 export const COMMANDS = {
   "/stats": ["today", "Today so far"],
   "/yesterday": ["yesterday", "Yesterday, as in the morning report"],
@@ -86,7 +92,7 @@ function period(kind, now) {
   const date = (t, opts) => new Date(t + OFFSET).toLocaleDateString("en-GB", { timeZone: "UTC", ...opts });
   const time = new Date(now + OFFSET).toISOString().slice(11, 16);
   if (kind === "today") {
-    return { from: today, to: now, title: `Today until ${time}`, vs: "same time yesterday", week: true };
+    return { from: today, to: now, title: `Today until ${time}`, vs: "same time yesterday", week: false };
   }
   if (kind === "week") {
     return { from: now - 7 * DAY, to: now, title: "The last 7 days", vs: "the 7 days before", week: false };
@@ -106,19 +112,29 @@ export async function buildReport(env, kind = "yesterday", now = Date.now()) {
   const q = (query) => sql(env, query);
   const n = "SUM(_sample_interval) AS n";
 
-  const totals = (w) => q(`SELECT blob1 AS event, ${n} FROM ${DATASET} WHERE ${w} GROUP BY event`)
+  // People only: blob7 is "bot" for crawlers that ran site.js and for every "ai" data point (worker.js).
+  const people = "blob7 != 'bot'";
+  const totals = (w) => q(`SELECT blob1 AS event, ${n} FROM ${DATASET} WHERE ${people} AND ${w} GROUP BY event`)
     .then((rows) => Object.fromEntries(rows.map((r) => [r.event, num(r.n)])));
-  const store = (w) => q(`SELECT ${n} FROM ${DATASET} WHERE blob1 = 'click' AND blob4 = 'app-store' AND ${w}`)
-    .then((rows) => num(rows[0]?.n));
-  const top = (column, extra = "", limit = TOP) =>
-    q(`SELECT ${column} AS k, ${n} FROM ${DATASET} WHERE blob1 = 'view' AND ${current} ${extra} ` +
+  const store = (w) => q(`SELECT ${n} FROM ${DATASET} WHERE blob1 = 'click' AND blob4 = 'app-store' AND ${people} ` +
+    `AND ${w}`).then((rows) => num(rows[0]?.n));
+  const top = (column, extra = "", limit = TOP, event = "view") =>
+    q(`SELECT ${column} AS k, ${n} FROM ${DATASET} WHERE blob1 = '${event}' AND ${current} ${extra} ` +
       `GROUP BY k ORDER BY n DESC LIMIT ${limit}`).then((rows) => rows.map((r) => [r.k, num(r.n)]));
+  const ai = q(`SELECT blob4 AS who, blob5 AS why, ${n} FROM ${DATASET} WHERE blob1 = 'ai' AND ${current} ` +
+    `GROUP BY who, why ORDER BY n DESC`).then((rows) => rows.map((r) => ({ who: r.who, why: r.why, n: num(r.n) })));
+  const botViews = q(`SELECT ${n} FROM ${DATASET} WHERE blob1 = 'view' AND blob7 = 'bot' AND ${current}`)
+    .then((rows) => num(rows[0]?.n));
 
-  const [y, p, w, storeY, storeP, storeW, sources, pages, countries, devices] = await Promise.all([
-    totals(current), totals(before), withWeek ? totals(week) : {}, store(current), store(before),
-    withWeek ? store(week) : 0,
-    top("blob4", "AND blob4 != '(internal)'"), top("blob2"), top("blob6"), top("blob7", "", 10),
-  ]);
+  const [y, p, w, storeY, storeP, storeW, allSources, pages, countries, devices, aiRows, aiPages, bots] =
+    await Promise.all([
+      totals(current), totals(before), withWeek ? totals(week) : {}, store(current), store(before),
+      withWeek ? store(week) : 0,
+      top("blob4", `AND ${people} AND blob4 != '(internal)'`, 100), top("blob2", `AND ${people}`),
+      top("blob6", `AND ${people}`), top("blob7", `AND ${people}`, 10),
+      ai, top("blob2", "AND blob5 = 'user'", TOP, "ai"), botViews,
+    ]);
+  const sources = allSources.slice(0, TOP);
 
   const views = y.view ?? 0;
   const lines = [
@@ -131,19 +147,42 @@ export async function buildReport(env, kind = "yesterday", now = Date.now()) {
   if (withWeek) {
     lines.push(`<i>7 days: ${fmt(w.view ?? 0)} ${plural(w.view ?? 0, "view")} · ${fmt(storeW)} App Store ${plural(storeW, "tap")}</i>`);
   }
-  if (views === 0) return lines.join("\n");
+
+  // AI: pages an assistant fetched to answer someone, visits from AI chats, and crawlers.
+  const byWho = (rows) => {
+    const sums = {};
+    for (const r of rows) sums[r.who] = (sums[r.who] ?? 0) + r.n;
+    const total = Object.values(sums).reduce((a, b) => a + b, 0);
+    const parts = Object.entries(sums).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${esc(k)} ${fmt(v)}`);
+    return [total, parts.length ? ` (${parts.join(" · ")})` : ""];
+  };
+  const [forPeople, forPeopleBy] = byWho(aiRows.filter((r) => r.why === "user"));
+  const [crawled, crawledBy] = byWho(aiRows.filter((r) => r.why !== "user"));
+  const chats = allSources.filter(([k]) => AI_CHATS.has(k));
+  const fromChats = chats.reduce((a, [, v]) => a + v, 0);
+  lines.push(
+    "",
+    `🤖 <b>${fmt(forPeople)}</b> ${plural(forPeople, "page")} read by AI for someone's question${forPeopleBy}`,
+    `💬 <b>${fmt(fromChats)}</b> ${plural(fromChats, "visit")} from AI chats` +
+      (chats.length ? ` (${chats.map(([k, v]) => `${esc(k)} ${fmt(v)}`).join(" · ")})` : ""),
+  );
+  if (crawled) lines.push(`🕷 ${fmt(crawled)} ${plural(crawled, "page")} fetched by AI crawlers${crawledBy}`);
+  if (bots) lines.push(`<i>Not counted above: ${fmt(bots)} ${plural(bots, "view")} by other bots</i>`);
 
   // <code>: Telegram would otherwise link the domains and turn "/zh" into a bot command.
   const list = (heading, rows, name = (k) => k) => {
     if (!rows.length) return;
     lines.push("", `<b>${heading}</b>`, ...rows.map(([k, v]) => `<code>${esc(name(k))}</code>  ${fmt(v)}`));
   };
-  list("From", sources, (k) => k.replace(/^\((.*)\)$/, "$1") || "?");
-  list("Pages", pages, (k) => k || "/");
-  lines.push("", "<b>Countries</b>", countries.map(([k, v]) => `${flag(k)}${esc(k || "?")} ${fmt(v)}`).join(" · "));
-  const all = devices.reduce((s, [, v]) => s + v, 0) || 1;
-  const icon = { mobile: "📱", desktop: "💻" };
-  lines.push("", devices.map(([k, v]) => `${icon[k] ? `${icon[k]} ` : ""}${esc(k)} ${Math.round((100 * v) / all)}%`).join(" · "));
+  if (views) {
+    list("From", sources, (k) => k.replace(/^\((.*)\)$/, "$1") || "?");
+    list("Pages", pages, (k) => k || "/");
+    lines.push("", "<b>Countries</b>", countries.map(([k, v]) => `${flag(k)}${esc(k || "?")} ${fmt(v)}`).join(" · "));
+    const all = devices.reduce((s, [, v]) => s + v, 0) || 1;
+    const icon = { mobile: "📱", desktop: "💻" };
+    lines.push("", devices.map(([k, v]) => `${icon[k] ? `${icon[k]} ` : ""}${esc(k)} ${Math.round((100 * v) / all)}%`).join(" · "));
+  }
+  list("Pages AI read for someone", aiPages, (k) => k || "/");
   return lines.join("\n");
 }
 

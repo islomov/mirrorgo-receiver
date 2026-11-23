@@ -23,24 +23,30 @@ python3 site/build.py --check    # what's missing or broken in each translation
 link click (the link, and where it is: header, footer, hero, a section's id…) to `POST /e`; `worker.js` writes
 it to the Workers Analytics Engine dataset `mirrorgo_site` (kept 3 months). No cookies, no storage, no IP or
 identifiers: only the referrer's domain, the country and the kind of device (the privacy policy says so).
-Bots that don't run JavaScript aren't counted.
+Crawlers, previews and headless browsers that do run it are kept apart (device `bot`) and left out of the
+numbers. Bots that don't run JavaScript send nothing, except AI assistants and crawlers: the Worker counts the
+pages it serves to them by their User-Agent (`AI_AGENTS` in `worker.js`), as `ChatGPT-User`, `Claude-User` or
+`Perplexity-User` when someone's question made the assistant read the page, or as search and training crawlers.
 
 ```bash
 CLOUDFLARE_ACCOUNT_ID=… CLOUDFLARE_API_TOKEN=… python3 site/stats.py --days 30
 ```
 
 prints where visitors come from, the pages viewed, the App Store button's clicks by page and place, every
-link clicked, countries, devices, languages and a per-day count. The token needs **Account Analytics: Read**.
+link clicked, countries, devices, languages, visits from AI chats, the pages AI assistants and crawlers fetched,
+and a per-day count. The token needs **Account Analytics: Read**.
 To tell your own links apart (a post, a profile, an ad), add `?ref=<name>` to them, e.g.
 `https://alltvkit.app/?ref=tiktok`: it shows as that source.
 
 ### In Telegram: every morning, and on demand
 
 At 09:00 UTC+5 (the cron in `wrangler.jsonc`) the Worker sends yesterday's numbers to a Telegram chat
-(`report.js`): views, App Store taps and link clicks against the day before, the 7-day totals, and the top
-sources, pages, countries and devices. The bot also answers, in that chat only:
+(`report.js`): views, App Store taps and link clicks against the day before, the 7-day totals, pages AI read
+for someone's question, visits from AI chats (ChatGPT tags its links `?utm_source=chatgpt.com`; the others
+send a referrer, though their apps often don't, which makes those visits "direct"), pages AI crawlers fetched,
+and the top sources, pages, countries and devices. The bot also answers, in that chat only:
 
-- `/stats`: today so far, against yesterday at the same time
+- `/stats`: today so far, against yesterday at the same time (today only, no 7-day totals)
 - `/yesterday`: the morning report
 - `/week`: the last 7 days, against the 7 days before
 
