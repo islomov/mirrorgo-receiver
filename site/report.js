@@ -92,23 +92,22 @@ function period(kind, now) {
   const date = (t, opts) => new Date(t + OFFSET).toLocaleDateString("en-GB", { timeZone: "UTC", ...opts });
   const time = new Date(now + OFFSET).toISOString().slice(11, 16);
   if (kind === "today") {
-    return { from: today, to: now, title: `Today until ${time}`, vs: "same time yesterday", week: false };
+    return { from: today, to: now, title: `Today until ${time}`, vs: "same time yesterday" };
   }
   if (kind === "week") {
-    return { from: now - 7 * DAY, to: now, title: "The last 7 days", vs: "the 7 days before", week: false };
+    return { from: now - 7 * DAY, to: now, title: "The last 7 days", vs: "the 7 days before" };
   }
   return {
     from: today - DAY, to: today, title: date(today - DAY, { weekday: "short", day: "numeric", month: "short" }),
-    vs: date(today - 2 * DAY, { weekday: "short" }), week: true,
+    vs: date(today - 2 * DAY, { weekday: "short" }),
   };
 }
 
 export async function buildReport(env, kind = "yesterday", now = Date.now()) {
-  const { from, to, title, vs, week: withWeek } = period(kind, now);
+  const { from, to, title, vs } = period(kind, now);
   const span = to - from;
   const current = between(from, to);
   const before = between(from - (kind === "week" ? span : DAY), to - (kind === "week" ? span : DAY));
-  const week = between(to - 7 * DAY, to);
   const q = (query) => sql(env, query);
   const n = "SUM(_sample_interval) AS n";
 
@@ -126,10 +125,9 @@ export async function buildReport(env, kind = "yesterday", now = Date.now()) {
   const botViews = q(`SELECT ${n} FROM ${DATASET} WHERE blob1 = 'view' AND blob7 = 'bot' AND ${current}`)
     .then((rows) => num(rows[0]?.n));
 
-  const [y, p, w, storeY, storeP, storeW, allSources, pages, countries, devices, aiRows, aiPages, bots] =
+  const [y, p, storeY, storeP, allSources, pages, countries, devices, aiRows, aiPages, bots] =
     await Promise.all([
-      totals(current), totals(before), withWeek ? totals(week) : {}, store(current), store(before),
-      withWeek ? store(week) : 0,
+      totals(current), totals(before), store(current), store(before),
       top("blob4", `AND ${people} AND blob4 != '(internal)'`, 100), top("blob2", `AND ${people}`),
       top("blob6", `AND ${people}`), top("blob7", `AND ${people}`, 10),
       ai, top("blob2", "AND blob5 = 'user'", TOP, "ai"), botViews,
@@ -144,9 +142,6 @@ export async function buildReport(env, kind = "yesterday", now = Date.now()) {
     `🍎 <b>${fmt(storeY)}</b> App Store ${plural(storeY, "tap")}${change(storeY, storeP, vs)}`,
     `🖱 <b>${fmt(y.click ?? 0)}</b> link ${plural(y.click ?? 0, "click")}${change(y.click ?? 0, p.click ?? 0, vs)}`,
   ];
-  if (withWeek) {
-    lines.push(`<i>7 days: ${fmt(w.view ?? 0)} ${plural(w.view ?? 0, "view")} · ${fmt(storeW)} App Store ${plural(storeW, "tap")}</i>`);
-  }
 
   // AI: pages an assistant fetched to answer someone, visits from AI chats, and crawlers.
   const byWho = (rows) => {
