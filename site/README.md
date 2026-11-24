@@ -41,12 +41,12 @@ To tell your own links apart (a post, a profile, an ad), add `?ref=<name>` to th
 ### In Telegram: every morning, and on demand
 
 At 09:00 UTC+5 (the cron in `wrangler.jsonc`) the Worker sends yesterday's numbers to a Telegram chat
-(`report.js`): views, App Store taps and link clicks against the day before, the 7-day totals, pages AI read
+(`report.js`): views, App Store taps and link clicks against the day before (that day only), pages AI read
 for someone's question, visits from AI chats (ChatGPT tags its links `?utm_source=chatgpt.com`; the others
 send a referrer, though their apps often don't, which makes those visits "direct"), pages AI crawlers fetched,
 and the top sources, pages, countries and devices. The bot also answers, in that chat only:
 
-- `/stats`: today so far, against yesterday at the same time (today only, no 7-day totals)
+- `/stats`: today so far, against yesterday at the same time
 - `/yesterday`: the morning report
 - `/week`: the last 7 days, against the 7 days before
 
