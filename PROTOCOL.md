@@ -10,7 +10,8 @@ All WebSocket messages are JSON text frames with a `type`. Unknown types are ign
 ### `GET /healthz` → `200 ok`
 
 ### `GET /api/rooms/{code}` (the app, before the broadcast)
-`code` = exactly 6 ASCII digits. `cache-control: no-store`, JSON bodies.
+`code` = exactly 6 ASCII digits. `cache-control: no-store`, JSON bodies. CORS only for pages on
+`localhost` / `127.0.0.1` (`tools/fake-sender.html`): no other site's page may read a sender token.
 - `200 {"v":1,"code":"123456","senderToken":"<32 hex>","signalingURL":"wss://smrr.tv/ws?role=sender&code=123456&token=<32 hex>"}`
   (`signalingURL` uses the request's own origin: `ws://localhost:8787/...` under `wrangler dev`.)
   The same room always returns the same `senderToken` while it lives.
@@ -39,6 +40,9 @@ viewer yet. `cache-control: no-store`, JSON bodies, no CORS (only the app calls 
 
 - Viewer (the page): `/ws?role=viewer` for a new room, or `/ws?role=viewer&code=123456&token=<viewerToken>`
   to rejoin after a reload. A rejoin that doesn't match a live room silently gets a NEW room (new code).
+  HTTP `403 {"error":"forbidden_origin"}` before the upgrade if the request's `Origin` is another site
+  (or `null`); `429` + `Retry-After` for more than 30 new rooms per minute from one IP (rejoins aren't
+  counted). The page treats both like a network error (reconnects with backoff).
 - Sender: `/ws?role=sender&code=123456&token=<senderToken>`. The broadcast extension while mirroring,
   the app itself while it plays a link. One at a time: the newer one replaces the older (4001).
   Rejected **before the upgrade** with HTTP `404` (no live room) or `403` (wrong token), so the client
@@ -124,6 +128,7 @@ network back); a room that's gone or a wrong token gets a new room, like a page'
   `session` identifies this viewer instance (for /poll and /send). `seq`: poll with `after=seq`.
 - `429 {"error":"rate_limited"}` + `Retry-After`: more than 10 new rooms per minute from one IP (shared
   with `POST /api/rooms`). `503 {"error":"busy"}`, `400 {"error":"bad_json"}`, `405`.
+  `403 {"error":"forbidden_origin"}`: sent with an `Origin` other than smrr.tv (another site's page).
 
 ### `GET /api/viewer/poll?code=&token=&session=&after=<seq>`
 - `200 {"seq":7,"messages":[{"type":"peer-joined","role":"sender"},{"type":"media-load",…}],"senderConnected":true,"pollIntervalMs":1000}`:
@@ -181,9 +186,16 @@ Body: one message for the sender, as on the WebSocket: `capabilities`, `media-st
 - HTTP viewer: `viewerSocket` is `http:<session>`; each poll stores its time (alarm 15 s later);
   the messages for it wait in the object's storage (`outbox`) until a poll acknowledges them. /poll and
   /send answer `404` for "no room" and "wrong token" alike, so they don't reveal live codes.
-- Rate limits (Workers Rate Limiting binding, per IP, approximate per Cloudflare location):
+- Rate limits (Workers Rate Limiting binding, per IP (IPv6: per /64), approximate per Cloudflare location):
   `GET /api/rooms/:code` 10/min; `POST /api/rooms` and new rooms from `POST /api/viewer` 10/min (one limit); sender WebSocket upgrades 30/min (their 404 vs 403 would otherwise
-  reveal live codes). A limited sender upgrade gets HTTP `429` + `Retry-After`.
+  reveal live codes); new rooms from a viewer WebSocket 30/min (so the codes can't all be taken). A
+  limited upgrade gets HTTP `429` + `Retry-After`.
+- Requests that make viewer rooms (`/ws?role=viewer`, `POST /api/viewer`) are refused (`403`) when
+  their `Origin` is neither this host nor `localhost`: other sites can't open rooms from their
+  visitors' browsers. No `Origin` (Roku, the app) is fine.
+- Every answer but a WebSocket upgrade carries `Strict-Transport-Security: max-age=31536000`,
+  `X-Content-Type-Options: nosniff` and `Referrer-Policy: strict-origin-when-cross-origin` (not
+  `no-referrer`: YouTube's embedded player needs the origin). No framing rule: `web/cast/` frames the page.
 - `/ws` without `Upgrade: websocket` → `426`; unknown `role` → `400`; a sender with a malformed code
   or token → `404`.
 - Logs carry event names, roles, codes and counts only: never SDP, candidates, tokens or user agents.
