@@ -14,3 +14,11 @@ The SEO skills here are copied from [islomov/skills](https://github.com/islomov/
 | `seo-blog-images` | Covers and screenshots for posts |
 | `domain-migration` | mirrorgo.app → alltvkit.app |
 | `seo-skills-upstream` | The 21 upstream skills not copied, and how to bring one in |
+
+## Project skills
+
+Written for this repo (not from islomov/skills).
+
+| Skill | Use it for |
+|---|---|
+| `bump-app-version` | "bump to 1.0.1": sets `APP_VERSION` in `worker/wrangler.jsonc` (what `smrr.tv/version` returns) and opens the PR |
