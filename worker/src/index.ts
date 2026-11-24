@@ -38,6 +38,7 @@ export default {
     if (url.pathname === "/healthz") {
       return new Response("ok", { headers: { "cache-control": "no-store" } });
     }
+    if (url.pathname === "/version") return handleVersion(request, env);
     if (url.pathname === "/ws") return handleWebSocket(request, url, env);
 
     if (url.pathname === "/api/rooms") return handleCreate(request, url, env);
@@ -61,6 +62,16 @@ export default {
     return env.ASSETS.fetch(request);
   },
 } satisfies ExportedHandler<Env>;
+
+// MARK: GET /version
+
+/** The newest app release that works with smrr.tv (`APP_VERSION` in wrangler.jsonc); the app asks for it. */
+function handleVersion(request: Request, env: Env): Response {
+  if (request.method !== "GET" && request.method !== "HEAD") {
+    return json({ error: "method_not_allowed" }, 405, { allow: "GET, HEAD" });
+  }
+  return json({ version: env.APP_VERSION });
+}
 
 // MARK: POST /api/rooms
 
