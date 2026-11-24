@@ -3,14 +3,13 @@
 //
 // `Env` (bindings) is generated from wrangler.jsonc by `npm run types`.
 
-import { PROTOCOL_VERSION, isCode, isToken, json, log, randomCode } from "./shared";
+import { PROTOCOL_VERSION, isCode, isToken, json, log, randomCode, rateLimitKey } from "./shared";
 
 export { Room } from "./room";
 
 /** How many random codes to try before giving up on creating a room. */
 const MAX_CODE_ATTEMPTS = 8;
 const RETRY_AFTER_S = "60";
-const CORS = { "access-control-allow-origin": "*" };
 /** MirrorGo's landing page (../site), first served here at /landing-page. */
 const LANDING_ORIGIN = "https://mirrorgo.app";
 /**
@@ -19,49 +18,67 @@ const LANDING_ORIGIN = "https://mirrorgo.app";
  */
 const TV_PAGE = /^\/(firetv|samsung|lg|roku|googletv)\/?$/;
 
+/**
+ * On every answer except WebSocket upgrades. No framing rule: the Cast receiver (web/cast/) frames the
+ * page, and so may the TV apps. No `no-referrer` either: YouTube's embedded player needs the origin.
+ */
+const SECURITY_HEADERS: Record<string, string> = {
+  "strict-transport-security": "max-age=31536000",
+  "x-content-type-options": "nosniff",
+  "referrer-policy": "strict-origin-when-cross-origin",
+};
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
-    const url = new URL(request.url);
-
-    // www.smrr.tv → smrr.tv (people will type both)
-    if (url.hostname === "www.smrr.tv") {
-      url.hostname = "smrr.tv";
-      return Response.redirect(url.toString(), 301);
-    }
-
-    // The landing page moved to its own domain: same page there, permanently.
-    const landing = url.pathname.match(/^\/landing-page(\/.*)?$/);
-    if (landing) {
-      return Response.redirect(`${LANDING_ORIGIN}${landing[1] ?? "/"}${url.search}`, 301);
-    }
-
-    if (url.pathname === "/healthz") {
-      return new Response("ok", { headers: { "cache-control": "no-store" } });
-    }
-    if (url.pathname === "/version") return handleVersion(request, env);
-    if (url.pathname === "/ws") return handleWebSocket(request, url, env);
-
-    if (url.pathname === "/api/rooms") return handleCreate(request, url, env);
-    if (url.pathname === "/api/viewer") return handleHttpViewer(request, env);
-    if (url.pathname === "/api/viewer/poll") return handlePoll(request, url, env);
-    if (url.pathname === "/api/viewer/send") return handleSend(request, url, env);
-    const lookup = url.pathname.match(/^\/api\/rooms\/([^/]*)$/);
-    if (lookup) return handleLookup(request, url, lookup[1], env);
-    if (url.pathname.startsWith("/api/")) return json({ error: "not_found" }, 404, CORS);
-
-    const tvPage = url.pathname.match(TV_PAGE);
-    if (tvPage) {
-      return env.ASSETS.fetch(new Request(new URL(`/${tvPage[1]}/`, url), request));
-    }
-
-    // The QR code's target: a page telling the user to type the code into the app.
-    if (/^\/c\/[^/]*\/?$/.test(url.pathname)) {
-      return env.ASSETS.fetch(new Request(new URL("/join", url), request));
-    }
-
-    return env.ASSETS.fetch(request);
+    const response = await route(request, env);
+    if (response.status === 101) return response;
+    const secured = new Response(response.body, response);
+    for (const [name, value] of Object.entries(SECURITY_HEADERS)) secured.headers.set(name, value);
+    return secured;
   },
 } satisfies ExportedHandler<Env>;
+
+async function route(request: Request, env: Env): Promise<Response> {
+  const url = new URL(request.url);
+
+  // www.smrr.tv → smrr.tv (people will type both)
+  if (url.hostname === "www.smrr.tv") {
+    url.hostname = "smrr.tv";
+    return Response.redirect(url.toString(), 301);
+  }
+
+  // The landing page moved to its own domain: same page there, permanently.
+  const landing = url.pathname.match(/^\/landing-page(\/.*)?$/);
+  if (landing) {
+    return Response.redirect(`${LANDING_ORIGIN}${landing[1] ?? "/"}${url.search}`, 301);
+  }
+
+  if (url.pathname === "/healthz") {
+    return new Response("ok", { headers: { "cache-control": "no-store" } });
+  }
+  if (url.pathname === "/version") return handleVersion(request, env);
+  if (url.pathname === "/ws") return handleWebSocket(request, url, env);
+
+  if (url.pathname === "/api/rooms") return handleCreate(request, url, env);
+  if (url.pathname === "/api/viewer") return handleHttpViewer(request, url, env);
+  if (url.pathname === "/api/viewer/poll") return handlePoll(request, url, env);
+  if (url.pathname === "/api/viewer/send") return handleSend(request, url, env);
+  const lookup = url.pathname.match(/^\/api\/rooms\/([^/]*)$/);
+  if (lookup) return handleLookup(request, url, lookup[1], env);
+  if (url.pathname.startsWith("/api/")) return json({ error: "not_found" }, 404);
+
+  const tvPage = url.pathname.match(TV_PAGE);
+  if (tvPage) {
+    return env.ASSETS.fetch(new Request(new URL(`/${tvPage[1]}/`, url), request));
+  }
+
+  // The QR code's target: a page telling the user to type the code into the app.
+  if (/^\/c\/[^/]*\/?$/.test(url.pathname)) {
+    return env.ASSETS.fetch(new Request(new URL("/join", url), request));
+  }
+
+  return env.ASSETS.fetch(request);
+}
 
 // MARK: GET /version
 
@@ -83,7 +100,7 @@ function handleVersion(request: Request, env: Env): Response {
 async function handleCreate(request: Request, url: URL, env: Env): Promise<Response> {
   if (request.method !== "POST") return json({ error: "method_not_allowed" }, 405, { allow: "POST" });
 
-  const { success } = await env.CREATE_LIMITER.limit({ key: clientIP(request) });
+  const { success } = await env.CREATE_LIMITER.limit({ key: rateLimitKey(request) });
   if (!success) {
     log("create-rate-limited");
     return json({ error: "rate_limited" }, 429, { "retry-after": RETRY_AFTER_S });
@@ -109,6 +126,7 @@ async function handleCreate(request: Request, url: URL, env: Env): Promise<Respo
 // MARK: GET /api/rooms/:code
 
 async function handleLookup(request: Request, url: URL, code: string, env: Env): Promise<Response> {
+  const CORS = devCORS(request);
   if (request.method === "OPTIONS") {
     return new Response(null, {
       status: 204,
@@ -117,7 +135,7 @@ async function handleLookup(request: Request, url: URL, code: string, env: Env):
   }
   if (request.method !== "GET") return json({ error: "method_not_allowed" }, 405, { ...CORS, allow: "GET, OPTIONS" });
 
-  const { success } = await env.LOOKUP_LIMITER.limit({ key: clientIP(request) });
+  const { success } = await env.LOOKUP_LIMITER.limit({ key: rateLimitKey(request) });
   if (!success) {
     log("lookup-rate-limited");
     return json({ error: "rate_limited" }, 429, { ...CORS, "retry-after": RETRY_AFTER_S });
@@ -141,17 +159,23 @@ async function handleWebSocket(request: Request, url: URL, env: Env): Promise<Re
   const token = url.searchParams.get("token");
 
   if (role === "sender") {
-    const { success } = await env.SENDER_LIMITER.limit({ key: clientIP(request) });
+    const { success } = await env.SENDER_LIMITER.limit({ key: rateLimitKey(request) });
     if (!success) return json({ error: "rate_limited" }, 429, { "retry-after": RETRY_AFTER_S });
     if (!isCode(code) || !isToken(token)) return json({ error: "not_found" }, 404);
     return roomStub(env, code).fetch(internal(request, "/sender", { token }));
   }
 
   if (role === "viewer") {
+    if (!pageOrigin(request, url)) return json({ error: "forbidden_origin" }, 403);
     // Reload: rejoin the same room. Anything that doesn't match a live room gets a new one.
     if (isCode(code) && isToken(token)) {
       const rejoined = await roomStub(env, code).fetch(internal(request, "/viewer/rejoin", { token }));
       if (rejoined.status === 101) return rejoined;
+    }
+    const { success } = await env.VIEWER_LIMITER.limit({ key: rateLimitKey(request) });
+    if (!success) {
+      log("viewer-rate-limited");
+      return json({ error: "rate_limited" }, 429, { "retry-after": RETRY_AFTER_S });
     }
     for (let attempt = 0; attempt < MAX_CODE_ATTEMPTS; attempt++) {
       const fresh = randomCode();
@@ -172,8 +196,9 @@ async function handleWebSocket(request: Request, url: URL, env: Env): Promise<Re
  * or a wrong token gets a new one, like a page's rejoin). Answers the `room` message plus a `session`
  * for /poll and /send.
  */
-async function handleHttpViewer(request: Request, env: Env): Promise<Response> {
+async function handleHttpViewer(request: Request, url: URL, env: Env): Promise<Response> {
   if (request.method !== "POST") return json({ error: "method_not_allowed" }, 405, { allow: "POST" });
+  if (!pageOrigin(request, url)) return json({ error: "forbidden_origin" }, 403);
   let body: Record<string, unknown> = {};
   try {
     const text = await request.text();
@@ -188,7 +213,7 @@ async function handleHttpViewer(request: Request, env: Env): Promise<Response> {
     if (rejoined) return json(rejoined, 200);
   }
 
-  const { success } = await env.CREATE_LIMITER.limit({ key: clientIP(request) });
+  const { success } = await env.CREATE_LIMITER.limit({ key: rateLimitKey(request) });
   if (!success) {
     log("viewer-rate-limited");
     return json({ error: "rate_limited" }, 429, { "retry-after": RETRY_AFTER_S });
@@ -256,6 +281,29 @@ function internal(request: Request, path: string, params: Record<string, string>
   return new Request(url, request);
 }
 
-function clientIP(request: Request): string {
-  return request.headers.get("cf-connecting-ip") ?? "unknown";
+const isLocalhost = (hostname: string) => hostname === "localhost" || hostname === "127.0.0.1" || hostname === "[::1]";
+
+/**
+ * Whether a request that makes a viewer room may come from this browser page: from smrr.tv itself (or
+ * the dev server it's served from), from localhost (the dev tools in ../tools), or not from a browser at
+ * all (no Origin: Roku, the app). Other sites can't open rooms from their visitors' browsers, which would
+ * use up the codes; an opaque origin ("null": sandboxed frames) is refused too.
+ */
+function pageOrigin(request: Request, url: URL): boolean {
+  const origin = request.headers.get("origin");
+  if (origin === null) return true;
+  if (!URL.canParse(origin)) return false;
+  const { host, hostname } = new URL(origin);
+  return host === url.host || isLocalhost(hostname);
+}
+
+/**
+ * CORS for `GET /api/rooms/:code`: only for pages on localhost (../tools/fake-sender.html). The app
+ * doesn't need it, and no other site's page may read sender tokens, so it can't spread code guessing
+ * over its visitors' IPs.
+ */
+function devCORS(request: Request): Record<string, string> {
+  const origin = request.headers.get("origin");
+  const dev = origin !== null && URL.canParse(origin) && isLocalhost(new URL(origin).hostname);
+  return dev ? { "access-control-allow-origin": origin, vary: "origin" } : { vary: "origin" };
 }

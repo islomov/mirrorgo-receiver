@@ -27,11 +27,14 @@
   // Per-IP limits (Workers Rate Limiting, approximate and per Cloudflare location).
   // LOOKUP_LIMITER: GET /api/rooms/:code (code guessing). SENDER_LIMITER: sender
   // WebSocket upgrades, whose 404/403 would otherwise tell live codes apart too.
-  // CREATE_LIMITER: POST /api/rooms (the app opening the TV's browser on a new room).
+  // CREATE_LIMITER: POST /api/rooms (the app opening the TV's browser on a new room) and new rooms
+  // from POST /api/viewer. VIEWER_LIMITER: new rooms from a page's WebSocket (a reload rejoins its
+  // room and isn't counted), so the codes can't all be taken. IPv6 clients count per /64.
   "ratelimits": [
     { "name": "LOOKUP_LIMITER", "namespace_id": "1001", "simple": { "limit": 10, "period": 60 } },
     { "name": "SENDER_LIMITER", "namespace_id": "1002", "simple": { "limit": 30, "period": 60 } },
-    { "name": "CREATE_LIMITER", "namespace_id": "1003", "simple": { "limit": 10, "period": 60 } }
+    { "name": "CREATE_LIMITER", "namespace_id": "1003", "simple": { "limit": 10, "period": 60 } },
+    { "name": "VIEWER_LIMITER", "namespace_id": "1004", "simple": { "limit": 30, "period": 60 } }
   ],
 
   "vars": {

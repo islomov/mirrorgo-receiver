@@ -72,3 +72,17 @@ export function json(body: unknown, status = 200, headers: Record<string, string
 export function log(event: string, fields: Record<string, unknown> = {}): void {
   console.log(JSON.stringify({ event, ...fields }));
 }
+
+/**
+ * The per-IP rate limits' key: the client's IPv4 address, or its IPv6 /64 (one subscriber's network,
+ * which has 2^64 addresses to rotate through).
+ */
+export function rateLimitKey(request: Request): string {
+  const ip = request.headers.get("cf-connecting-ip") ?? "unknown";
+  if (!ip.includes(":")) return ip;
+  const [head, tail] = ip.toLowerCase().split("::");
+  const left = head ? head.split(":") : [];
+  const right = tail ? tail.split(":") : [];
+  const groups = tail === undefined ? left : [...left, ...Array(Math.max(0, 8 - left.length - right.length)).fill("0"), ...right];
+  return groups.slice(0, 4).map((g) => g.replace(/^0+(?=.)/, "")).join(":") + "::/64";
+}

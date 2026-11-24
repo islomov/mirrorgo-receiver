@@ -82,8 +82,8 @@ class Client {
   }
 }
 
-async function upgrade(path: string, ip = freshIP()): Promise<Response> {
-  return SELF.fetch(`${ORIGIN}${path}`, { headers: { Upgrade: "websocket", "cf-connecting-ip": ip } });
+async function upgrade(path: string, ip = freshIP(), headers: Record<string, string> = {}): Promise<Response> {
+  return SELF.fetch(`${ORIGIN}${path}`, { headers: { Upgrade: "websocket", "cf-connecting-ip": ip, ...headers } });
 }
 
 async function connect(path: string, ip?: string): Promise<Client> {
@@ -151,13 +151,18 @@ describe("rooms", () => {
     expect(local.signalingURL).toBe(`ws://localhost:8787/ws?role=sender&code=${room.code}&token=${a.senderToken}`);
   });
 
-  it("answers lookups with no-store and CORS", async () => {
+  it("answers lookups with no-store, and CORS only for pages on localhost (the dev tools)", async () => {
     const { room } = await newViewer();
+    const lookupFrom = (origin: string) =>
+      SELF.fetch(`${ORIGIN}/api/rooms/${room.code}`, { headers: { "cf-connecting-ip": freshIP(), origin } });
     const res = await lookup(room.code);
     expect(res.headers.get("cache-control")).toBe("no-store");
-    expect(res.headers.get("access-control-allow-origin")).toBe("*");
-    const missing = await lookup("000000");
-    expect(missing.headers.get("access-control-allow-origin")).toBe("*");
+    expect(res.headers.get("access-control-allow-origin")).toBeNull();
+    expect((await lookupFrom("https://evil.example")).headers.get("access-control-allow-origin")).toBeNull();
+    expect((await lookupFrom("http://localhost:8000")).headers.get("access-control-allow-origin")).toBe("http://localhost:8000");
+    const preflight = await SELF.fetch(`${ORIGIN}/api/rooms/${room.code}`, { method: "OPTIONS", headers: { origin: "http://127.0.0.1:8000" } });
+    expect(preflight.status).toBe(204);
+    expect(preflight.headers.get("access-control-allow-origin")).toBe("http://127.0.0.1:8000");
   });
 
   it("rejects bad and unknown codes", async () => {
@@ -483,10 +488,54 @@ describe("rate limits", () => {
     const limited = await lookup("123456", ip);
     expect(limited.status).toBe(429);
     expect(limited.headers.get("retry-after")).toBe("60");
-    expect(limited.headers.get("access-control-allow-origin")).toBe("*");
     expect(await limited.json()).toEqual({ error: "rate_limited" });
     // Another IP isn't affected.
     expect((await lookup("123456")).status).toBe(404);
+  });
+});
+
+describe("abuse", () => {
+  it("allows 30 new viewer rooms per minute per IP; rejoining its room isn't counted", async () => {
+    const ip = freshIP();
+    const first = await connect("/ws?role=viewer", ip);
+    const room = await first.next("room");
+    for (let i = 1; i < 30; i++) expect((await upgrade("/ws?role=viewer", ip)).status).toBe(101);
+    const limited = await upgrade("/ws?role=viewer", ip);
+    expect(limited.status).toBe(429);
+    expect(limited.headers.get("retry-after")).toBe("60");
+    expect((await upgrade(`/ws?role=viewer&code=${room.code}&token=${room.viewerToken}`, ip)).status).toBe(101);
+    expect((await upgrade("/ws?role=viewer")).status).toBe(101); // another IP
+  });
+
+  it("counts an IPv6 client per /64", async () => {
+    for (let i = 0; i < 10; i++) expect((await lookup("123456", `2001:db8:1:2::${i.toString(16)}`)).status).toBe(404);
+    expect((await lookup("123456", "2001:0db8:0001:0002:ffff:ffff:ffff:ffff")).status).toBe(429);
+    expect((await lookup("123456", "2001:db8:1:3::1")).status).toBe(404);
+  });
+
+  it("refuses viewer rooms from other sites' pages and sandboxed frames", async () => {
+    for (const origin of ["https://evil.example", "null", "https://smrr.tv.evil.example"]) {
+      expect((await upgrade("/ws?role=viewer", freshIP(), { origin })).status, origin).toBe(403);
+      const http = await SELF.fetch(`${ORIGIN}/api/viewer`, { method: "POST", body: "{}", headers: { "cf-connecting-ip": freshIP(), origin } });
+      expect(http.status, origin).toBe(403);
+    }
+    for (const origin of [ORIGIN, "http://localhost:8000", "http://127.0.0.1:8787"]) {
+      expect((await upgrade("/ws?role=viewer", freshIP(), { origin })).status, origin).toBe(101);
+    }
+    // Not a browser (Roku, the app): no Origin.
+    expect((await httpViewer({})).status).toBe(201);
+  });
+
+  it("sends security headers, except on WebSocket upgrades", async () => {
+    for (const path of ["/", "/firetv", "/c/123456", "/healthz", "/api/rooms/000000", "/ws"]) {
+      const res = await SELF.fetch(`${ORIGIN}${path}`, { redirect: "manual" });
+      expect(res.headers.get("strict-transport-security"), path).toBe("max-age=31536000");
+      expect(res.headers.get("x-content-type-options"), path).toBe("nosniff");
+      expect(res.headers.get("referrer-policy"), path).toBe("strict-origin-when-cross-origin");
+      await res.arrayBuffer();
+    }
+    const www = await SELF.fetch("https://www.smrr.tv/", { redirect: "manual" });
+    expect(www.headers.get("strict-transport-security")).toBe("max-age=31536000");
   });
 });
 
