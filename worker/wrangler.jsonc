@@ -39,6 +39,9 @@
 
   "vars": {
     // Handed to both peers in `room` / `ready`. v1: STUN only (no TURN).
-    "ICE_SERVERS": [{ "urls": ["stun:stun.cloudflare.com:3478"] }]
+    "ICE_SERVERS": [{ "urls": ["stun:stun.cloudflare.com:3478"] }],
+    // GET /version: the newest app release that's known to work with smrr.tv. Bump it here
+    // (a push to main deploys) once a release is out and checked.
+    "APP_VERSION": "1.0.0"
   }
 }

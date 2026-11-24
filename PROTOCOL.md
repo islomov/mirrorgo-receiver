@@ -9,6 +9,12 @@ All WebSocket messages are JSON text frames with a `type`. Unknown types are ign
 
 ### `GET /healthz` → `200 ok`
 
+### `GET /version` (the app)
+- `200 {"version":"1.0.0"}`: the newest app release known to work with smrr.tv (`APP_VERSION` in
+  `worker/wrangler.jsonc`, bumped by hand once a release is checked). `cache-control: no-store`.
+  The app compares it with its own `CFBundleShortVersionString`.
+- `405`: not GET or HEAD.
+
 ### `GET /api/rooms/{code}` (the app, before the broadcast)
 `code` = exactly 6 ASCII digits. `cache-control: no-store`, JSON bodies. CORS only for pages on
 `localhost` / `127.0.0.1` (`tools/fake-sender.html`): no other site's page may read a sender token.

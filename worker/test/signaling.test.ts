@@ -540,6 +540,15 @@ describe("abuse", () => {
 });
 
 describe("site", () => {
+  it("serves the app's latest working version at /version", async () => {
+    const res = await SELF.fetch(`${ORIGIN}/version`);
+    expect(res.status).toBe(200);
+    expect(res.headers.get("cache-control")).toBe("no-store");
+    expect(await res.json()).toEqual({ version: env.APP_VERSION });
+    expect(env.APP_VERSION).toMatch(/^\d+\.\d+\.\d+$/);
+    expect((await SELF.fetch(`${ORIGIN}/version`, { method: "POST" })).status).toBe(405);
+  });
+
   it("serves /healthz, redirects www, and serves the join page for /c/<code>", async () => {
     expect(await (await SELF.fetch(`${ORIGIN}/healthz`)).text()).toBe("ok");
     const www = await SELF.fetch("https://www.smrr.tv/c/123456", { redirect: "manual" });
