@@ -329,7 +329,7 @@ a.card:hover { text-decoration: none; border-color: rgba(168, 151, 255, .35); }
 /* Footer */
 .footer { margin-top: 90px; padding: 50px 0 40px; border-top: 1px solid var(--border); font-size: 14px; color: var(--text-2); }
 .footer .cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 30px; }
-.footer h4 { margin: 0 0 12px; font: 600 14px var(--head); color: var(--text); }
+.footer h3 { margin: 0 0 12px; font: 600 14px var(--head); letter-spacing: normal; color: var(--text); }
 .footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .footer a { color: var(--text-2); }
 .footer a:hover { color: var(--text); }
@@ -414,7 +414,7 @@ table { min-width: 980px; }
 .lang-menu a { display: block; padding: 8px 12px; border-radius: 10px; color: #d8d8e2; font-size: 15px; }
 .lang-menu a:hover { background: var(--fill); color: var(--text); text-decoration: none; }
 .lang-menu a[aria-current] { background: rgba(117, 92, 255, .18); color: #fff; }
-.footer .langs { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 6px 4px; font-size: 13px; color: #55555f; }
+.footer .langs { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 6px 4px; font-size: 13px; color: #8b8b96; }
 .footer .langs a { color: var(--text-2); }
 @media (max-width: 760px) {
   .lang-menu { margin-left: auto; }

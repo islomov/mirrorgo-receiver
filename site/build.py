@@ -133,9 +133,22 @@ INLINE_ICONS = {
 }
 
 
+_icon_uses = {}
+
+
+def svg_icon(name):
+    """src/img/icons/<name>.svg inline (no request, and no image without alt text), its gradient id made unique
+    on the page, since the same icon can show twice."""
+    n = _icon_uses[name] = _icon_uses.get(name, 0) + 1
+    svg = (SRC / "img" / "icons" / f"{name}.svg").read_text().strip()
+    svg = re.sub(r'\s*xmlns="[^"]*"|\s*width="24"|\s*height="24"', "", svg, count=3)
+    svg = svg.replace('id="w"', f'id="{name}-{n}"').replace("url(#w)", f"url(#{name}-{n})")
+    return re.sub(r"\s*\n\s*", "", svg.replace("<svg", '<svg aria-hidden="true"', 1))
+
+
 def icon(feat):
     c1, c2 = feat["colors"]
-    glyph = INLINE_ICONS.get(feat["icon"]) or f'<img src="/img/icons/{feat["icon"]}.svg" alt="" width="28" height="28">'
+    glyph = INLINE_ICONS.get(feat["icon"]) or svg_icon(feat["icon"])
     return f'<span class="icon" style="--c1:{c1};--c2:{c2}">{glyph}</span>'
 
 
@@ -147,10 +160,29 @@ def download_button(extra_class=""):
     return f'<span class="{cls} disabled" aria-disabled="true">{DOWNLOAD_SVG}{esc(T("coming_soon"))}</span>'
 
 
-def phone(shot, alt, cls="", eager=False):
+# How wide each kind of screenshot is shown (measured at 320–1440 px wide windows), so the browser picks the
+# smallest file that's still sharp: the `sizes` of its <img>.
+SHOT_SIZES = {
+    "feature": "(min-width: 1100px) 210px, (min-width: 600px) 255px, 36vw",
+    "single": "(min-width: 600px) 290px, 56vw",
+    "hero": "180px",
+    "tv": "125px",
+    "page": "280px",
+}
+
+
+def shot_img(shot, alt, extra, sizes):
+    """A screenshot, with smaller copies for where it's shown smaller (src/img/screens/<shot>-<width>.webp, made
+    with `cwebp -q 82 -resize <width> 0`): 240 and 320 px for every screenshot, 160 px for the home screen."""
+    widths = [w for w in (160, 240, 320) if (SRC / "img" / "screens" / f"{shot}-{w}.webp").exists()]
+    srcset = ", ".join([f"/img/screens/{shot}-{w}.webp {w}w" for w in widths] + [f"/img/screens/{shot}.webp {SHOT_W}w"])
+    return (f'<img src="/img/screens/{shot}.webp" srcset="{srcset}" sizes="{SHOT_SIZES[sizes]}" width="{SHOT_W}" '
+            f'height="{SHOT_H}" alt="{esc(alt)}" {extra}>')
+
+
+def phone(shot, alt, cls="", eager=False, sizes="page"):
     loading = 'fetchpriority="high"' if eager else 'loading="lazy" decoding="async"'
-    return (f'<div class="{" ".join(["phone", cls]).strip()}"><img src="/img/screens/{shot}.webp" '
-            f'width="{SHOT_W}" height="{SHOT_H}" alt="{esc(alt)}" {loading}></div>')
+    return f'<div class="{" ".join(["phone", cls]).strip()}">{shot_img(shot, alt, loading, sizes)}</div>'
 
 
 def answer_html(item):
@@ -296,7 +328,7 @@ def header(path, translated):
     links = "".join(f'<a href="{h(href)}">{esc(label)}</a>' for href, label in nav())
     return f"""<header class="header">
   <div class="wrap">
-    <a class="brand" href="{h('/')}" aria-label="{esc(T('home_aria'))}"><img src="/img/icon.webp" alt="" width="34" height="34">{APP_NAME}</a>
+    <a class="brand" href="{h('/')}" aria-label="{esc(T('home_aria'))}"><img src="/img/icon-48.webp" srcset="/img/icon-48.webp 48w, /img/icon-96.webp 96w" sizes="34px" alt="{esc(T('app_icon_alt'))}" width="34" height="34">{APP_NAME}</a>
     <nav class="nav" id="nav" aria-label="Main">{links}</nav>
     {language_menu(path, translated)}
     <button class="menu-btn" aria-label="{esc(T('menu'))}" aria-controls="nav" aria-expanded="false">☰</button>
@@ -319,12 +351,12 @@ def footer(path, translated):
   <div class="wrap">
     <div class="cols">
       <div>
-        <a class="brand" href="{h('/')}"><img src="/img/icon.webp" alt="" width="34" height="34" loading="lazy">{APP_NAME}</a>
+        <a class="brand" href="{h('/')}" aria-label="{esc(T('home_aria'))}"><img src="/img/icon-48.webp" srcset="/img/icon-48.webp 48w, /img/icon-96.webp 96w" sizes="34px" alt="{esc(T('app_icon_alt'))}" width="34" height="34" loading="lazy">{APP_NAME}</a>
         <p style="margin-top:14px;max-width:26em">{esc(T("footer_blurb"))}</p>
       </div>
-      <div><h4>{esc(T("footer_mirror_to"))}</h4><ul>{tvs}</ul></div>
-      <div><h4>{esc(T("footer_brands"))}</h4><ul>{brands}</ul></div>
-      <div><h4>{esc(T("footer_support"))}</h4><ul>
+      <div><h3>{esc(T("footer_mirror_to"))}</h3><ul>{tvs}</ul></div>
+      <div><h3>{esc(T("footer_brands"))}</h3><ul>{brands}</ul></div>
+      <div><h3>{esc(T("footer_support"))}</h3><ul>
         <li><a href="{h('/blog/')}">{esc(T("guides"))}</a></li>
         <li><a href="{h('/help/')}">{esc(T("help_faq"))}</a></li>
         <li><a href="mailto:{SUPPORT_EMAIL}">{SUPPORT_EMAIL}</a></li>
@@ -386,7 +418,7 @@ def page(path, title, description, body, schemas=(), noindex=False, translated=T
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{esc(title)}</title>
-<meta name="description" content="{esc(description)}">
+<meta name="description" content="{esc(snippet(description))}">
 {"" if noindex else f'<link rel="canonical" href="{canonical}">'}
 {alternates}
 {robots}
@@ -398,7 +430,7 @@ def page(path, title, description, body, schemas=(), noindex=False, translated=T
 <meta property="og:locale" content="{LANG[3]}">
 {og_alternates}
 <meta property="og:title" content="{esc(title)}">
-<meta property="og:description" content="{esc(description)}">
+<meta property="og:description" content="{esc(snippet(description))}">
 <meta property="og:url" content="{canonical}">
 <meta property="og:image" content="{url(og_image)}">
 <meta property="og:image:width" content="1200">
@@ -459,7 +491,8 @@ def showcase_row(i, item):
     feat = feature(item["feature"])
     shots = item["shots"]
     media_cls = "feature-media single" if len(shots) == 1 else "feature-media"
-    phones = "".join(phone(s, alt, "back float" if j == 1 else "") for j, (s, alt) in enumerate(shots))
+    phones = "".join(phone(s, alt, "back float" if j == 1 else "", sizes="single" if len(shots) == 1 else "feature")
+                     for j, (s, alt) in enumerate(shots))
     points = "".join(f"<li>{esc(p)}</li>" for p in item["points"])
     works = ""
     cells = next((cells for fid, _, cells in C.COMPATIBILITY if fid == item["feature"]), None)
@@ -520,9 +553,9 @@ def build_home():
       <p class="fine"><span>{esc(T("fine_wifi"))}</span><span>{esc(T("fine_sound"))}</span><span>{esc(T("fine_account"))}</span></p>
     </div>
     <div class="scene" aria-hidden="true">
-      <div class="tv-wrap"><div class="tv"><span class="live-pill"><i></i>{esc(T("live_pill"))}</span><img src="/img/screens/home.webp" alt="" width="{SHOT_W}" height="{SHOT_H}" fetchpriority="high"></div><div class="tv-foot"></div></div>
+      <div class="tv-wrap"><div class="tv"><span class="live-pill"><i></i>{esc(T("live_pill"))}</span>{shot_img("home", T("hero_alt"), 'fetchpriority="high"', "tv")}</div><div class="tv-foot"></div></div>
       <div class="beam"><i></i><i></i><i></i><i></i><i></i></div>
-      {phone("home", T("hero_alt"), "float", eager=True)}
+      {phone("home", T("hero_alt"), "float", eager=True, sizes="hero")}
     </div>
   </div>
 </section>
@@ -638,7 +671,7 @@ def build_home():
 <section>
   <div class="wrap">
     <div class="final reveal">
-      <img class="app-icon" src="/img/icon.webp" alt="{esc(T("app_icon_alt"))}" width="92" height="92" loading="lazy">
+      <img class="app-icon" src="/img/icon-96.webp" srcset="/img/icon-96.webp 96w, /img/icon.webp 256w" sizes="92px" alt="{esc(T("app_icon_alt"))}" width="92" height="92" loading="lazy">
       <h2>{esc(T("final_h2"))}</h2>
       <p>{esc(T("final_p"))}</p>
       {download_button()}
@@ -1319,6 +1352,7 @@ def manifest():
 
 
 HEADERS = """/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
@@ -1422,6 +1456,8 @@ def main():
     write("llms.txt", llms_txt())
     write("llms-full.txt", llms_full_txt())
     write("_headers", HEADERS)
+    # No ads, so no one is authorized to sell them (the IAB ads.txt 1.1 placeholder for that)
+    write("ads.txt", "placeholder.example.com, placeholder, DIRECT, placeholder\n")
 
     total = sum(len(p) for p in sitemaps.values())
     print(f"Built {total} pages in {len(codes)} languages into {OUT}")

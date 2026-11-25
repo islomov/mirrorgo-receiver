@@ -29,4 +29,5 @@ missing its alt text.
 ## Fluff (only after the rows above)
 
 - German web-video descriptions: the sentence cut still loses the TV's name on 9 pages (one duplicate).
-- Home, guides index, help and TV guide descriptions are 163–188 characters; Google shows ~155.
+- ~~Home, guides index, help and TV guide descriptions are 163–188 characters; Google shows ~155.~~ All ≤160 in
+  every language (2026-11-25, SEO Site Checkup pass: 87/100).

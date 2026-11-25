@@ -107,6 +107,7 @@ English only.
 | `/<code>/…` | All of the above in each other language |
 | `/privacy/`, `/terms/`, `/firetv/…` | Privacy policy (App Store "Privacy Policy URL") and terms, English only. The terms end with the iPhone app's open-source licences from `licenses.json` (update it when the app's frameworks change) |
 | `robots.txt`, `sitemap.xml`, `llms.txt`, `llms-full.txt` | For search engines and AI answer engines |
+| `ads.txt` | No ads, so the IAB's "no authorized sellers" placeholder (SEO checkers ask for one) |
 
 ## Search and AI answer engines (SEO / GEO)
 
@@ -129,7 +130,12 @@ English only.
 - `worker.js` sends `http://` and `www.` to `https://<domain>` in one 301, so there's one copy of each page.
 - Titles: an article's title drops " | All TV Kit" when it would pass 60 characters (what search results
   show). Descriptions longer than 160 characters lose their brackets, then are cut at a sentence end
-  (`snippet()` in `build.py`).
+  (`snippet()` in `build.py`, applied to every page). Keep the home, guide, help and blog index descriptions
+  under 160 in every language so nothing gets cut, and keep "screen" (the page's most used word) in the home
+  description, title and H1: SEO checkers look for the page's top word in all three.
+- Every `<img>` has alt text (the feature icons are inline SVG), and `_headers` sends HSTS.
+- **Keep Cloudflare Web Analytics off for the zone.** Cloudflare injects its beacon script, the CSP
+  (`script-src 'self'`) blocks it, and that console error costs points in Lighthouse and SEO checkers.
 - The SEO skills are in `.claude/skills/` (from islomov/skills); `seo/roadmap.md` is what's left to do.
 
 ## Keeping it in step with the app
@@ -138,7 +144,9 @@ English only.
   mirror-go repo); the compatibility table follows `MediaCastCoordinator.canCast`,
   `CameraCastCoordinator.canCast` and `YouTubeCasting`.
 - Screenshots: `src/img/screens/*.webp`, 640 × 1392, taken in the simulator with the app's
-  `-debug_route` launch arguments (see `DebugLaunch` in the app), then `cwebp -q 82 -resize 640 0`.
+  `-debug_route` launch arguments (see `DebugLaunch` in the app), then `cwebp -q 82 -resize 640 0`. Each also
+  needs its `-240.webp` and `-320.webp` copies (`cwebp -q 82 -resize 240 0`, then 320), and `home` a `-160.webp`:
+  pages offer them in `srcset` so no one downloads a bigger image than the one shown (`SHOT_SIZES` in `build.py`).
 - `src/img/og.png` (1200 × 630) is the link preview image.
 - When the app is live, set `APP_STORE_ID` in `content.py`: the buttons then link to the App Store and
   pages get the Smart App Banner. Swap the button for Apple's official "Download on the App Store"
