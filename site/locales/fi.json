@@ -26,7 +26,7 @@
   "english_only": "(englanniksi)",
   "trademarks": "Samsung, LG, Roku, Google TV, Android TV, Chromecast, Fire TV, Apple TV, AirPlay ja mainitut TV-merkit ovat omistajiensa tavaramerkkejä. All TV Kit ei ole sidoksissa niihin.",
   "home_title": "All TV Kit: TV-kaukosäädin, näytön peilaus ja suoratoisto iPhonelle",
-  "home_description": "Käytä iPhonea Samsung- tai LG-television kaukosäätimenä, peilaa se Samsungiin, LG:hen, Rokuun, Google TV:hen, Fire TV:hen, Apple TV:hen tai selaimeen ja suoratoista kuvia, videoita, YouTubea ja live-TV:tä.",
+  "home_description": "Näytön peilaus ja TV-kaukosäädin iPhonelle: peilaa Samsungiin, LG:hen, Rokuun, Google TV:hen, Fire TV:hen tai selaimeen ja suoratoista kuvia ja videoita.",
   "eyebrow": "iPhonelle · Ei sovellusta televisioon",
   "home_h1": "iPhonesi {big}",
   "home_h1_big": "isolla ruudulla",
@@ -1183,7 +1183,7 @@
   },
   "browser": {
    "title": "Peilaa iPhone mihin tahansa televisioon tai tietokoneeseen selaimella (smrr.tv)",
-   "description": "Peilaa iPhone mihin tahansa älytelevisioon, PC:hen, Maciin tai tablettiin, jossa on verkkoselain: avaa smrr.tv, kirjoita 6-numeroinen koodi All TV Kitiin, valmista. Ei sovellusta.",
+   "description": "Peilaa iPhone mihin tahansa älytelevisioon, PC:hen, Maciin tai tablettiin, jossa on verkkoselain: avaa smrr.tv, kirjoita 6-numeroinen koodi All TV Kitiin. Ei sovellusta.",
    "h1": "Peilaa iPhone mille tahansa näytölle, jossa on verkkoselain",
    "lead": "Mikä tahansa televisio, tietokone tai tabletti, jossa on verkkoselain, voi näyttää iPhonesi – myös televisio, jota All TV Kit ei löydä. Avaa siinä smrr.tv, kirjoita sen koodi All TV Kitiin, ja näyttösi näkyy siinä äänen kanssa.",
    "steps": [

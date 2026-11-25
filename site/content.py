@@ -475,8 +475,8 @@ TV_GUIDES = [
         "tv": "samsung",
         "slug": "mirror-iphone-to-samsung-tv",
         "title": "How to Mirror an iPhone to a Samsung TV (No Cables, No TV App)",
-        "description": "Mirror your iPhone screen to a Samsung smart TV over Wi-Fi with All TV Kit, and cast photos, "
-                       "videos, YouTube and live TV. Works with Samsung TVs from 2016 on, nothing to install on the TV.",
+        "description": "Mirror your iPhone screen to a Samsung smart TV over Wi-Fi with All TV Kit, and cast photos, videos, "
+                       "YouTube and live TV. Samsung TVs from 2016 on, no TV app.",
         "h1": "Mirror your iPhone to a Samsung TV",
         "lead": "All TV Kit shows your iPhone screen on Samsung smart TVs (Tizen, 2016 and newer) over your Wi-Fi. "
                 "Nothing to install on the TV: it plays in the TV's own player, with sound.",
@@ -573,8 +573,8 @@ TV_GUIDES = [
         "tv": "roku",
         "slug": "mirror-iphone-to-roku",
         "title": "How to Mirror an iPhone to a Roku TV or Roku Player",
-        "description": "Mirror your iPhone screen to a Roku TV, Roku Streaming Stick or Roku Ultra with All TV Kit, "
-                       "with sound, over Wi-Fi. No cables, no AirPlay, nothing to install on the Roku.",
+        "description": "Mirror your iPhone screen to a Roku TV, Streaming Stick or Roku Ultra with All TV Kit, with sound, "
+                       "over Wi-Fi. No cables, no AirPlay, no app on the Roku.",
         "h1": "Mirror your iPhone to a Roku",
         "lead": "All TV Kit shows your iPhone screen, with sound, on Roku TVs (TCL, Hisense, Sharp and other Roku TV "
                 "models) and Roku streaming players, over your Wi-Fi. It plays in the Roku's own player: nothing to "
@@ -624,8 +624,8 @@ TV_GUIDES = [
         "tv": "googletv",
         "slug": "mirror-iphone-to-google-tv",
         "title": "How to Mirror an iPhone to Google TV",
-        "description": "Mirror your iPhone to a Google TV (Sony, TCL, Hisense, Philips, Chromecast with Google TV, "
-                       "Google TV Streamer) with All TV Kit, and cast photos, videos, YouTube and live TV.",
+        "description": "Mirror your iPhone to a Google TV (Sony, TCL, Hisense, Philips, Chromecast with Google TV) with All "
+                       "TV Kit, and cast photos, videos, YouTube and live TV.",
         "h1": "Mirror your iPhone to Google TV",
         "lead": "All TV Kit shows your iPhone screen on Google TV: TVs from Sony, TCL, Hisense, Philips and others, "
                 "the Chromecast with Google TV and the Google TV Streamer. Nothing to install on the TV.",
@@ -666,8 +666,8 @@ TV_GUIDES = [
         "tv": "androidtv",
         "slug": "mirror-iphone-to-android-tv",
         "title": "How to Mirror an iPhone to an Android TV",
-        "description": "Mirror your iPhone to an Android TV (Sony, Philips, Xiaomi, TCL, Sharp and more) with All TV Kit "
-                       "over Wi-Fi, and cast photos, videos, YouTube and live TV channels.",
+        "description": "Mirror your iPhone to an Android TV (Sony, Philips, Xiaomi, TCL, Sharp) with All TV Kit over Wi-Fi, "
+                       "and cast photos, videos, YouTube and live TV channels.",
         "h1": "Mirror your iPhone to an Android TV",
         "lead": "All TV Kit shows your iPhone screen on Android TVs from Sony, Philips, Xiaomi, TCL, Sharp and others, "
                 "and on Android TV boxes like the Mi Box and NVIDIA SHIELD. Nothing to install on the TV.",
@@ -748,8 +748,8 @@ TV_GUIDES = [
         "tv": "firetv",
         "slug": "mirror-iphone-to-fire-tv",
         "title": "How to Mirror an iPhone to a Fire TV Stick (No App on the Fire TV)",
-        "description": "Mirror your iPhone to an Amazon Fire TV Stick, Fire TV Cube or Fire TV smart TV with All TV Kit, "
-                       "with nothing to install on the Fire TV. Cast photos, videos and live TV too.",
+        "description": "Mirror your iPhone to a Fire TV Stick, Fire TV Cube or Fire TV smart TV with All TV Kit, nothing to "
+                       "install on the Fire TV. Cast photos, videos and live TV too.",
         "h1": "Mirror your iPhone to a Fire TV",
         "lead": "All TV Kit shows your iPhone on Fire TV Sticks, the Fire TV Cube and Fire TV smart TVs, using the "
                 "player built into every Fire TV. Nothing to install on the Fire TV.",
@@ -788,8 +788,8 @@ TV_GUIDES = [
         "tv": "airplay",
         "slug": "mirror-iphone-to-apple-tv",
         "title": "How to Mirror and Cast an iPhone to Apple TV and AirPlay TVs",
-        "description": "Mirror your iPhone to an Apple TV or an AirPlay TV (Samsung, LG, Sony, VIZIO and more), and "
-                       "cast photos, videos, web videos and live TV channels with All TV Kit.",
+        "description": "Mirror your iPhone to an Apple TV or an AirPlay TV (Samsung, LG, Sony, VIZIO and more), and cast "
+                       "photos, videos, web videos and live TV with All TV Kit.",
         "h1": "Mirror and cast your iPhone to Apple TV and AirPlay TVs",
         "lead": "iPhones mirror to an Apple TV or an AirPlay TV by themselves, from Control Center. All TV Kit adds "
                 "what iOS can't: live TV channels, videos from websites and web images, played over AirPlay.",

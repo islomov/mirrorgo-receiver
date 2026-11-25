@@ -61,8 +61,8 @@ UI = {
 
     # Home
     "home_title": "All TV Kit: TV Remote, Screen Mirroring & Cast for iPhone",
-    "home_description": "Use your iPhone as a Samsung or LG TV remote, mirror it to Samsung, LG, Roku, Google TV, "
-                        "Fire TV, Apple TV or any browser, and cast photos, videos, YouTube and live TV.",
+    "home_description": "Screen mirroring and a TV remote for iPhone: mirror to Samsung, LG, Roku, Google TV, Fire TV or any "
+                        "browser, and cast photos, videos, YouTube and live TV.",
     "eyebrow": "For iPhone · No app on the TV",
     "home_h1": "Your iPhone on the {big}",
     "home_h1_big": "big screen",
@@ -144,8 +144,8 @@ UI = {
     "blog_lead": "Step-by-step guides for every kind of TV: connecting your iPhone, mirroring the screen, and casting "
                  "photos, videos, web images, YouTube, web videos and free live TV.",
     "blog_title": "Guides: Mirror and Cast an iPhone to Any TV | All TV Kit",
-    "blog_description": "Step-by-step guides to connect an iPhone to Samsung, LG, Roku, Google TV, Android TV, "
-                        "Chromecast, Fire TV, Apple TV or a web browser, and cast photos, videos, YouTube and live TV.",
+    "blog_description": "Step-by-step guides to connect an iPhone to Samsung, LG, Roku, Google TV, Android TV, Chromecast, "
+                        "Fire TV, Apple TV or a browser, and cast photos and videos.",
     "blog_collection": "All TV Kit guides",
     "by_brand": "By TV brand",
 
@@ -167,8 +167,8 @@ UI = {
     "help_h1": "Help & FAQ",
     "help_lead": "Answers to the questions people ask most. Still stuck? Email {email} with your TV's model.",
     "help_title": "All TV Kit Help: Screen Mirroring & Casting FAQ",
-    "help_description": "How to connect your TV, mirror your iPhone screen, fix a TV that isn't found, sound, lag and "
-                        "black screens, and cast photos, videos, YouTube and IPTV with All TV Kit.",
+    "help_description": "How to connect your TV, mirror your iPhone screen, fix a TV that isn't found, sound, lag and black "
+                        "screens, and cast photos, videos and IPTV with All TV Kit.",
 
     # 404
     "nf_title": "Page not found | All TV Kit",
