@@ -23,7 +23,8 @@ All WebSocket messages are JSON text frames with a `type`. Unknown types are ign
   The same room always returns the same `senderToken` while it lives.
 - `400 {"error":"bad_code"}`: not 6 digits.
 - `404 {"error":"not_found"}`: no live room with that code (never existed, expired, closed).
-- `429 {"error":"rate_limited"}` + `Retry-After: <s>`: more than 10 lookups per minute from one IP.
+- `429 {"error":"rate_limited"}` + `Retry-After: <s>`: more than 10 lookups per minute from one IP
+  (or more than 100 from one IPv6 /48).
 
 ### `POST /api/rooms` (the app, before opening the TV's browser on the page)
 For TVs whose browser the app can open at a URL (LG webOS): no code to type. Creates a room with no
@@ -39,16 +40,16 @@ viewer yet. `cache-control: no-store`, JSON bodies, no CORS (only the app calls 
   ended (4004, or a rejoin answered with another room's code) it says MirrorGo has disconnected and
   offers "Connect with a code instead" (a normal page). The app's player content (links, WebRTC for
   photos and videos) is the same as for a page with a code.
-- `405`: not POST. `429 {"error":"rate_limited"}` + `Retry-After: <s>`: more than 10 rooms per minute from one IP.
-  `503 {"error":"busy"}`: no free code found.
+- `405`: not POST. `429 {"error":"rate_limited"}` + `Retry-After: <s>`: more than 10 rooms per minute from one IP
+  (or 100 from one IPv6 /48). `503 {"error":"busy"}`: no free code found.
 
 ## WebSocket `/ws`
 
 - Viewer (the page): `/ws?role=viewer` for a new room, or `/ws?role=viewer&code=123456&token=<viewerToken>`
   to rejoin after a reload. A rejoin that doesn't match a live room silently gets a NEW room (new code).
   HTTP `403 {"error":"forbidden_origin"}` before the upgrade if the request's `Origin` is another site
-  (or `null`); `429` + `Retry-After` for more than 30 new rooms per minute from one IP (rejoins aren't
-  counted). The page treats both like a network error (reconnects with backoff).
+  (or `null`); `429` + `Retry-After` for more than 30 new rooms per minute from one IP, or 100 from one
+  IPv6 /48 (rejoins aren't counted there, but in the 300 a minute below). The page treats both like a network error (reconnects with backoff).
 - Sender: `/ws?role=sender&code=123456&token=<senderToken>`. The broadcast extension while mirroring,
   the app itself while it plays a link. One at a time: the newer one replaces the older (4001).
   Rejected **before the upgrade** with HTTP `404` (no live room) or `403` (wrong token), so the client
@@ -133,7 +134,8 @@ network back); a room that's gone or a wrong token gets a new room, like a page'
 - `201` (new) / `200` (rejoined) `{"type":"room","v":1,"code":"123456","viewerToken":"<32 hex>","session":"<32 hex>","seq":0,"senderConnected":false,"pollIntervalMs":3000}`
   `session` identifies this viewer instance (for /poll and /send). `seq`: poll with `after=seq`.
 - `429 {"error":"rate_limited"}` + `Retry-After`: more than 10 new rooms per minute from one IP (shared
-  with `POST /api/rooms`). `503 {"error":"busy"}`, `400 {"error":"bad_json"}`, `405`.
+  with `POST /api/rooms`), or a rejoin over the 300 a minute (see /poll). `503 {"error":"busy"}`,
+  `400 {"error":"bad_json"}` (also a body that isn't a JSON object), `413 {"error":"too_large"}` (over 4 KB), `405`.
   `403 {"error":"forbidden_origin"}`: sent with an `Origin` other than smrr.tv (another site's page).
 
 ### `GET /api/viewer/poll?code=&token=&session=&after=<seq>`
@@ -146,12 +148,14 @@ network back); a room that's gone or a wrong token gets a new room, like a page'
 - `410 {"error":"gone"}`: no poll for 15 s, so the viewer counted as gone (the sender got `peer-left`)
   → rejoin with `POST /api/viewer` and the code + token (same code, within 60 s).
 - `409 {"error":"replaced"}`: another viewer (the page, another TV) took the room with the token.
+- `429 {"error":"rate_limited"}` + `Retry-After`: more than 300 polls, sends and rejoins (page and HTTP)
+  per minute from one IP together → wait `Retry-After`, then poll again. A TV polling once a second uses 60.
 
 ### `POST /api/viewer/send?code=&token=&session=`
 Body: one message for the sender, as on the WebSocket: `capabilities`, `media-status`, `bye` (also
 `answer`, `candidate`, `restart-ice`); `hello` is logged, not relayed. Sending also counts as a poll.
 - `200 {"delivered":true|false}` (false: no sender connected, dropped like on the WebSocket).
-- `400` bad JSON or type, `413` over 64 KB, `404` / `409` / `410` as for /poll.
+- `400` bad JSON or type, `413` over 64 KB (refused before the body is read further), `404` / `409` / `410` / `429` as for /poll.
 
 ## Room lifetime
 - Created when a viewer connects without a (valid) code, or by the app (`POST /api/rooms`). Code: 6
@@ -196,6 +200,13 @@ Body: one message for the sender, as on the WebSocket: `capabilities`, `media-st
   `GET /api/rooms/:code` 10/min; `POST /api/rooms` and new rooms from `POST /api/viewer` 10/min (one limit); sender WebSocket upgrades 30/min (their 404 vs 403 would otherwise
   reveal live codes); new rooms from a viewer WebSocket 30/min (so the codes can't all be taken). A
   limited upgrade gets HTTP `429` + `Retry-After`.
+- IPv6 lookups and new rooms are also limited per /48 (`WIDE_LIMITER`, 100/min per endpoint): a /48 is
+  65,536 /64s, and tunnel brokers hand them out for free, so the per-/64 limits alone would let one
+  attacker read every live code's sender token within minutes.
+- Every other request that wakes a Room (HTTP viewers' polls and sends, page and HTTP rejoins) counts
+  against `RELAY_LIMITER` (300/min per IP) before it reaches the Room, so made-up codes and tokens can't
+  run up Durable Object requests. Request bodies are read only up to their limit (`POST /api/viewer`
+  4 KB, `/send` 64 KB), also when they come chunked without a `Content-Length`.
 - Requests that make viewer rooms (`/ws?role=viewer`, `POST /api/viewer`) are refused (`403`) when
   their `Origin` is neither this host nor `localhost`: other sites can't open rooms from their
   visitors' browsers. No `Origin` (Roku, the app) is fine.

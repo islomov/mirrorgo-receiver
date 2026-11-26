@@ -78,11 +78,26 @@ export function log(event: string, fields: Record<string, unknown> = {}): void {
  * which has 2^64 addresses to rotate through).
  */
 export function rateLimitKey(request: Request): string {
-  const ip = request.headers.get("cf-connecting-ip") ?? "unknown";
-  if (!ip.includes(":")) return ip;
+  const ip = clientIP(request);
+  return ip.includes(":") ? ipv6Prefix(ip, 4) + "::/64" : ip;
+}
+
+/**
+ * The key for the second, wider limit on IPv6 clients: their /48, or null for IPv4. A /48 holds 65,536
+ * /64s and some are free to get (tunnel brokers), so the per-/64 limits alone don't hold one attacker back.
+ */
+export function wideRateLimitKey(request: Request): string | null {
+  const ip = clientIP(request);
+  return ip.includes(":") ? ipv6Prefix(ip, 3) + "::/48" : null;
+}
+
+const clientIP = (request: Request) => request.headers.get("cf-connecting-ip") ?? "unknown";
+
+/** The first `groups` 16-bit groups of an IPv6 address, written out (`2001:db8:0`). */
+function ipv6Prefix(ip: string, groups: number): string {
   const [head, tail] = ip.toLowerCase().split("::");
   const left = head ? head.split(":") : [];
   const right = tail ? tail.split(":") : [];
-  const groups = tail === undefined ? left : [...left, ...Array(Math.max(0, 8 - left.length - right.length)).fill("0"), ...right];
-  return groups.slice(0, 4).map((g) => g.replace(/^0+(?=.)/, "")).join(":") + "::/64";
+  const all = tail === undefined ? left : [...left, ...Array(Math.max(0, 8 - left.length - right.length)).fill("0"), ...right];
+  return all.slice(0, groups).map((g) => g.replace(/^0+(?=.)/, "")).join(":");
 }
