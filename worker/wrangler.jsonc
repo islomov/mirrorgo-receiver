@@ -30,11 +30,16 @@
   // CREATE_LIMITER: POST /api/rooms (the app opening the TV's browser on a new room) and new rooms
   // from POST /api/viewer. VIEWER_LIMITER: new rooms from a page's WebSocket (a reload rejoins its
   // room and isn't counted), so the codes can't all be taken. IPv6 clients count per /64.
+  // WIDE_LIMITER: lookups and new rooms again, per IPv6 /48 (one key per endpoint), since a /48 is
+  // 65,536 /64s. RELAY_LIMITER: the other requests that wake a Room (HTTP viewers' polls and sends,
+  // rejoins), so a flood of made-up codes and tokens can't run up Durable Object requests.
   "ratelimits": [
     { "name": "LOOKUP_LIMITER", "namespace_id": "1001", "simple": { "limit": 10, "period": 60 } },
     { "name": "SENDER_LIMITER", "namespace_id": "1002", "simple": { "limit": 30, "period": 60 } },
     { "name": "CREATE_LIMITER", "namespace_id": "1003", "simple": { "limit": 10, "period": 60 } },
-    { "name": "VIEWER_LIMITER", "namespace_id": "1004", "simple": { "limit": 30, "period": 60 } }
+    { "name": "VIEWER_LIMITER", "namespace_id": "1004", "simple": { "limit": 30, "period": 60 } },
+    { "name": "WIDE_LIMITER", "namespace_id": "1005", "simple": { "limit": 100, "period": 60 } },
+    { "name": "RELAY_LIMITER", "namespace_id": "1006", "simple": { "limit": 300, "period": 60 } }
   ],
 
   "vars": {

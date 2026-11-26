@@ -3,13 +3,15 @@
 //
 // `Env` (bindings) is generated from wrangler.jsonc by `npm run types`.
 
-import { PROTOCOL_VERSION, isCode, isToken, json, log, randomCode, rateLimitKey } from "./shared";
+import { MAX_MESSAGE_BYTES, PROTOCOL_VERSION, isCode, isToken, json, log, randomCode, rateLimitKey, wideRateLimitKey } from "./shared";
 
 export { Room } from "./room";
 
 /** How many random codes to try before giving up on creating a room. */
 const MAX_CODE_ATTEMPTS = 8;
 const RETRY_AFTER_S = "60";
+/** Largest `POST /api/viewer` body (`{}` or `{"code","token"}`). */
+const VIEWER_BODY_MAX_BYTES = 4 * 1024;
 /** MirrorGo's landing page (../site), first served here at /landing-page. */
 const LANDING_ORIGIN = "https://mirrorgo.app";
 /**
@@ -100,10 +102,9 @@ function handleVersion(request: Request, env: Env): Response {
 async function handleCreate(request: Request, url: URL, env: Env): Promise<Response> {
   if (request.method !== "POST") return json({ error: "method_not_allowed" }, 405, { allow: "POST" });
 
-  const { success } = await env.CREATE_LIMITER.limit({ key: rateLimitKey(request) });
-  if (!success) {
+  if (await overLimit(env, request, env.CREATE_LIMITER, "create")) {
     log("create-rate-limited");
-    return json({ error: "rate_limited" }, 429, { "retry-after": RETRY_AFTER_S });
+    return rateLimited();
   }
   for (let attempt = 0; attempt < MAX_CODE_ATTEMPTS; attempt++) {
     const code = randomCode();
@@ -135,10 +136,9 @@ async function handleLookup(request: Request, url: URL, code: string, env: Env):
   }
   if (request.method !== "GET") return json({ error: "method_not_allowed" }, 405, { ...CORS, allow: "GET, OPTIONS" });
 
-  const { success } = await env.LOOKUP_LIMITER.limit({ key: rateLimitKey(request) });
-  if (!success) {
+  if (await overLimit(env, request, env.LOOKUP_LIMITER, "lookup")) {
     log("lookup-rate-limited");
-    return json({ error: "rate_limited" }, 429, { ...CORS, "retry-after": RETRY_AFTER_S });
+    return rateLimited(CORS);
   }
   if (!isCode(code)) return json({ error: "bad_code" }, 400, CORS);
 
@@ -159,8 +159,7 @@ async function handleWebSocket(request: Request, url: URL, env: Env): Promise<Re
   const token = url.searchParams.get("token");
 
   if (role === "sender") {
-    const { success } = await env.SENDER_LIMITER.limit({ key: rateLimitKey(request) });
-    if (!success) return json({ error: "rate_limited" }, 429, { "retry-after": RETRY_AFTER_S });
+    if (await overLimit(env, request, env.SENDER_LIMITER)) return rateLimited();
     if (!isCode(code) || !isToken(token)) return json({ error: "not_found" }, 404);
     return roomStub(env, code).fetch(internal(request, "/sender", { token }));
   }
@@ -169,13 +168,13 @@ async function handleWebSocket(request: Request, url: URL, env: Env): Promise<Re
     if (!pageOrigin(request, url)) return json({ error: "forbidden_origin" }, 403);
     // Reload: rejoin the same room. Anything that doesn't match a live room gets a new one.
     if (isCode(code) && isToken(token)) {
+      if (await overLimit(env, request, env.RELAY_LIMITER)) return rateLimited();
       const rejoined = await roomStub(env, code).fetch(internal(request, "/viewer/rejoin", { token }));
       if (rejoined.status === 101) return rejoined;
     }
-    const { success } = await env.VIEWER_LIMITER.limit({ key: rateLimitKey(request) });
-    if (!success) {
+    if (await overLimit(env, request, env.VIEWER_LIMITER, "viewer")) {
       log("viewer-rate-limited");
-      return json({ error: "rate_limited" }, 429, { "retry-after": RETRY_AFTER_S });
+      return rateLimited();
     }
     for (let attempt = 0; attempt < MAX_CODE_ATTEMPTS; attempt++) {
       const fresh = randomCode();
@@ -199,24 +198,27 @@ async function handleWebSocket(request: Request, url: URL, env: Env): Promise<Re
 async function handleHttpViewer(request: Request, url: URL, env: Env): Promise<Response> {
   if (request.method !== "POST") return json({ error: "method_not_allowed" }, 405, { allow: "POST" });
   if (!pageOrigin(request, url)) return json({ error: "forbidden_origin" }, 403);
-  let body: Record<string, unknown> = {};
+  const text = await readText(request, VIEWER_BODY_MAX_BYTES);
+  if (text === null) return json({ error: "too_large" }, 413);
+  let body: unknown = {};
   try {
-    const text = await request.text();
     if (text) body = JSON.parse(text);
   } catch {
-    return json({ error: "bad_json" }, 400);
+    body = null;
   }
-  const code = typeof body.code === "string" ? body.code : null;
-  const token = typeof body.token === "string" ? body.token : null;
+  if (body === null || typeof body !== "object" || Array.isArray(body)) return json({ error: "bad_json" }, 400);
+  const fields = body as Record<string, unknown>;
+  const code = typeof fields.code === "string" ? fields.code : null;
+  const token = typeof fields.token === "string" ? fields.token : null;
   if (isCode(code) && isToken(token)) {
+    if (await overLimit(env, request, env.RELAY_LIMITER)) return rateLimited();
     const rejoined = await roomStub(env, code).httpViewerRejoin(token);
     if (rejoined) return json(rejoined, 200);
   }
 
-  const { success } = await env.CREATE_LIMITER.limit({ key: rateLimitKey(request) });
-  if (!success) {
+  if (await overLimit(env, request, env.CREATE_LIMITER, "create")) {
     log("viewer-rate-limited");
-    return json({ error: "rate_limited" }, 429, { "retry-after": RETRY_AFTER_S });
+    return rateLimited();
   }
   for (let attempt = 0; attempt < MAX_CODE_ATTEMPTS; attempt++) {
     const fresh = randomCode();
@@ -232,6 +234,7 @@ async function handlePoll(request: Request, url: URL, env: Env): Promise<Respons
   if (request.method !== "GET") return json({ error: "method_not_allowed" }, 405, { allow: "GET" });
   const session = httpSessionParams(url);
   if (!session) return json({ error: "not_found" }, 404);
+  if (await overLimit(env, request, env.RELAY_LIMITER)) return rateLimited();
   const after = Number(url.searchParams.get("after") ?? "0");
   if (!Number.isSafeInteger(after) || after < 0) return json({ error: "bad_after" }, 400);
   const result = await roomStub(env, session.code).httpViewerPoll(session.token, session.session, after);
@@ -243,7 +246,9 @@ async function handleSend(request: Request, url: URL, env: Env): Promise<Respons
   if (request.method !== "POST") return json({ error: "method_not_allowed" }, 405, { allow: "POST" });
   const session = httpSessionParams(url);
   if (!session) return json({ error: "not_found" }, 404);
-  const message = await request.text();
+  if (await overLimit(env, request, env.RELAY_LIMITER)) return rateLimited();
+  const message = await readText(request, MAX_MESSAGE_BYTES);
+  if (message === null) return json({ error: "too_large" }, 413);
   const result = await roomStub(env, session.code).httpViewerSend(session.token, session.session, message);
   return jsonText(result.body, result.status);
 }
@@ -261,6 +266,44 @@ function httpSessionParams(url: URL): { code: string; token: string; session: st
 }
 
 // MARK: Helpers
+
+/**
+ * Whether the request is over `limiter`'s per-IP (IPv6: per /64) limit, or, with a `scope`, over
+ * WIDE_LIMITER's limit for its IPv6 /48 on that endpoint.
+ */
+async function overLimit(env: Env, request: Request, limiter: RateLimit, scope?: string): Promise<boolean> {
+  if (!(await limiter.limit({ key: rateLimitKey(request) })).success) return true;
+  const wide = scope ? wideRateLimitKey(request) : null;
+  return wide !== null && !(await env.WIDE_LIMITER.limit({ key: `${scope}:${wide}` })).success;
+}
+
+function rateLimited(headers: Record<string, string> = {}): Response {
+  return json({ error: "rate_limited" }, 429, { ...headers, "retry-after": RETRY_AFTER_S });
+}
+
+/**
+ * The body as text, or null once it's over `maxBytes` (it's not read further, so a huge body can't use
+ * up the Worker's memory or reach the Room).
+ */
+async function readText(request: Request, maxBytes: number): Promise<string | null> {
+  if (Number(request.headers.get("content-length") ?? 0) > maxBytes) return null;
+  if (!request.body) return "";
+  const reader = request.body.getReader();
+  const decoder = new TextDecoder();
+  let size = 0;
+  let text = "";
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    size += value.byteLength;
+    if (size > maxBytes) {
+      await reader.cancel().catch(() => {});
+      return null;
+    }
+    text += decoder.decode(value, { stream: true });
+  }
+  return text + decoder.decode();
+}
 
 /** `wss://<this origin>/ws?role=sender&code=…&token=…` (`ws:` under `wrangler dev`). */
 function senderSignalingURL(url: URL, code: string, senderToken: string): string {

@@ -507,6 +507,43 @@ describe("abuse", () => {
     expect((await upgrade("/ws?role=viewer")).status).toBe(101); // another IP
   });
 
+  it("also counts lookups and new rooms per IPv6 /48 (100 a minute), across its /64s", async () => {
+    for (let i = 0; i < 100; i++) expect((await lookup("123456", `2001:db8:5:${i.toString(16)}::1`)).status).toBe(404);
+    expect((await lookup("123456", "2001:db8:5:ffff::1")).status).toBe(429);
+    expect((await lookup("123456", "2001:db8:6::1")).status).toBe(404); // another /48
+    // Each endpoint has its own count: new rooms from that /48 are still fine.
+    expect((await createRoom("2001:db8:5:ffff::1")).status).toBe(201);
+    for (let i = 0; i < 100; i++) expect((await createRoom(`2001:db8:7:${i.toString(16)}::1`)).status).toBe(201);
+    expect((await createRoom("2001:db8:7:ffff::1")).status).toBe(429);
+  });
+
+  it("limits polls, sends and rejoins to 300 a minute per IP, before they reach a Room", async () => {
+    const ip = freshIP();
+    const fake = { code: "123456", viewerToken: "0".repeat(32), session: "0".repeat(32) };
+    for (let i = 0; i < 150; i++) expect((await poll(fake, 0, ip)).status).toBe(404);
+    for (let i = 0; i < 149; i++) expect((await sendHttp(fake, { type: "bye" }, ip)).status).toBe(404);
+    expect((await upgrade(`/ws?role=viewer&code=123456&token=${"0".repeat(32)}`, ip)).status).toBe(101); // a new room
+    expect((await poll(fake, 0, ip)).status).toBe(429);
+    expect((await httpViewer({ code: "123456", token: "0".repeat(32) }, ip)).status).toBe(429);
+    expect((await upgrade(`/ws?role=viewer&code=123456&token=${"0".repeat(32)}`, ip)).status).toBe(429);
+    expect((await poll(fake)).status).toBe(404); // another IP
+  });
+
+  it("refuses request bodies over the limit without reading them all", async () => {
+    expect((await httpViewer("x".repeat(5000))).status).toBe(413);
+    for (const body of ["null", "[]", "7", "{"]) expect((await httpViewer(body)).status, body).toBe(400);
+    const v = await newHttpViewer();
+    expect((await sendHttp(v, "x".repeat(70_000))).status).toBe(413);
+    const stream = new ReadableStream({
+      start(controller) {
+        for (let i = 0; i < 100; i++) controller.enqueue(new Uint8Array(1024));
+        controller.close();
+      },
+    });
+    const chunked = await SELF.fetch(`${ORIGIN}/api/viewer/send?${sessionQuery(v)}`, { method: "POST", body: stream, headers: { "cf-connecting-ip": freshIP() } });
+    expect(chunked.status).toBe(413);
+  });
+
   it("counts an IPv6 client per /64", async () => {
     for (let i = 0; i < 10; i++) expect((await lookup("123456", `2001:db8:1:2::${i.toString(16)}`)).status).toBe(404);
     expect((await lookup("123456", "2001:0db8:0001:0002:ffff:ffff:ffff:ffff")).status).toBe(429);
@@ -621,8 +658,8 @@ async function newHttpViewer(): Promise<Msg> {
 
 const sessionQuery = (v: Msg) => `code=${v.code}&token=${v.viewerToken}&session=${v.session}`;
 
-async function poll(v: Msg, after = 0): Promise<Response> {
-  return SELF.fetch(`${ORIGIN}/api/viewer/poll?${sessionQuery(v)}&after=${after}`);
+async function poll(v: Msg, after = 0, ip = freshIP()): Promise<Response> {
+  return SELF.fetch(`${ORIGIN}/api/viewer/poll?${sessionQuery(v)}&after=${after}`, { headers: { "cf-connecting-ip": ip } });
 }
 
 async function polled(v: Msg, after = 0): Promise<Msg> {
@@ -632,10 +669,11 @@ async function polled(v: Msg, after = 0): Promise<Msg> {
   return (await res.json()) as Msg;
 }
 
-async function sendHttp(v: Msg, m: Msg | string): Promise<Response> {
+async function sendHttp(v: Msg, m: Msg | string, ip = freshIP()): Promise<Response> {
   return SELF.fetch(`${ORIGIN}/api/viewer/send?${sessionQuery(v)}`, {
     method: "POST",
     body: typeof m === "string" ? m : JSON.stringify(m),
+    headers: { "cf-connecting-ip": ip },
   });
 }
 

@@ -9,7 +9,8 @@ the app while the page plays a link it sent). Protocol:
 - `src/room.ts`: the `Room` Durable Object (one per code; WebSocket hibernation, alarms for the TTLs).
 - `/landing-page/*` → `https://mirrorgo.app/*` (301): the landing page (`../site/`) moved to its own domain.
 - `wrangler.jsonc`: DO binding + `new_sqlite_classes` migration, rate limits, `ICE_SERVERS` and `APP_VERSION` vars.
-- Hardening (PROTOCOL.md, "Implementation notes"): per-IP rate limits (IPv6 per /64), viewer rooms only
+- Hardening (PROTOCOL.md, "Implementation notes"): per-IP rate limits (IPv6 per /64, lookups and new rooms
+  also per /48), every request that wakes a Room is limited, request bodies capped, viewer rooms only
   from smrr.tv's own pages (`Origin`), CORS on the lookup only for localhost, security headers on every answer.
 
 ## One copy of the receiver per page
